@@ -88,8 +88,6 @@
 
     days = interval/ (24*60*60);
 
-    NSLog(@"");
-
     if(days!=0)
     {
         duration = [duration stringByAppendingString:[NSString stringWithFormat:@"%dD",days]];
