@@ -15,12 +15,14 @@
 
 - (void)setUp {
     // Put setup code here. This method is called before the invocation of each test method in the class.
+    [super setUp];
     iso8601Duration = @"PT2D3H24M35S";
     timeInterval = 185075;
 }
 
 - (void)tearDown {
     // Put teardown code here. This method is called after the invocation of each test method in the class.
+    [super tearDown];
 }
 
 - (void)testInitWithDuration {

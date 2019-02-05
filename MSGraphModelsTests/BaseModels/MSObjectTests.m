@@ -19,6 +19,7 @@
 @implementation MSObjectTests
 
 - (void)setUp {
+    // Put setup code here. This method is called before the invocation of each test method in the class.
     [super setUp];
     userItemDic = @{
         @"@odata.context": @"https://graph.microsoft.com/v1.0/$metadata#users/$entity",
