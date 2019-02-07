@@ -4,7 +4,7 @@
 
 #import "NSDate+MSSerialization.h"
 
-#import "MSGraphModels.h"
+#import "MSGraphClientModels.h"
 
 @interface MSObject()
 

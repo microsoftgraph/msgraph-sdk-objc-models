@@ -43,6 +43,6 @@ def add_group_to_project(project_path, name_of_generated_folder)
     end
 end
 
-project_path = 'MSGraphModels.xcodeproj'
+project_path = 'MSGraphClientModels.xcodeproj'
 puts "`project_path`=`#{project_path}`"
 add_group_to_project(project_path, 'GeneratedModels')

@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:MSGraphModels.xcodeproj">
+      location = "self:MSGraphClientModels.xcodeproj">
    </FileRef>
 </Workspace>
