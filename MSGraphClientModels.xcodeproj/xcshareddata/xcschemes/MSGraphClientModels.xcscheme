@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "E59A8BDF21C7811B00E15B9D"
-               BuildableName = "MSGraphModels.framework"
-               BlueprintName = "MSGraphModels"
-               ReferencedContainer = "container:MSGraphModels.xcodeproj">
+               BuildableName = "MSGraphClientModels.framework"
+               BlueprintName = "MSGraphClientModels"
+               ReferencedContainer = "container:MSGraphClientModels.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -34,9 +34,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "E59A8BE821C7811B00E15B9D"
-               BuildableName = "MSGraphModelsTests.xctest"
-               BlueprintName = "MSGraphModelsTests"
-               ReferencedContainer = "container:MSGraphModels.xcodeproj">
+               BuildableName = "MSGraphClientModelsTests.xctest"
+               BlueprintName = "MSGraphClientModelsTests"
+               ReferencedContainer = "container:MSGraphClientModels.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -44,9 +44,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "E59A8BDF21C7811B00E15B9D"
-            BuildableName = "MSGraphModels.framework"
-            BlueprintName = "MSGraphModels"
-            ReferencedContainer = "container:MSGraphModels.xcodeproj">
+            BuildableName = "MSGraphClientModels.framework"
+            BlueprintName = "MSGraphClientModels"
+            ReferencedContainer = "container:MSGraphClientModels.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -66,9 +66,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "E59A8BDF21C7811B00E15B9D"
-            BuildableName = "MSGraphModels.framework"
-            BlueprintName = "MSGraphModels"
-            ReferencedContainer = "container:MSGraphModels.xcodeproj">
+            BuildableName = "MSGraphClientModels.framework"
+            BlueprintName = "MSGraphClientModels"
+            ReferencedContainer = "container:MSGraphClientModels.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -84,9 +84,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "E59A8BDF21C7811B00E15B9D"
-            BuildableName = "MSGraphModels.framework"
-            BlueprintName = "MSGraphModels"
-            ReferencedContainer = "container:MSGraphModels.xcodeproj">
+            BuildableName = "MSGraphClientModels.framework"
+            BlueprintName = "MSGraphClientModels"
+            ReferencedContainer = "container:MSGraphClientModels.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </ProfileAction>
