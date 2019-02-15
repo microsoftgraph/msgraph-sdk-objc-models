@@ -1,18 +1,21 @@
 // Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 
 
-@class MSGraphOnPremisesProvisioningError, MSGraphDirectoryObject, MSGraphGroupSetting, MSGraphExtension, MSGraphConversationThread, MSGraphCalendar, MSGraphEvent, MSGraphConversation, MSGraphProfilePhoto, MSGraphDrive, MSGraphSite, MSGraphPlannerGroup, MSGraphOnenote, MSGraphGroupLifecyclePolicy, MSGraphTeam; 
+@class MSGraphAssignedLicense, MSGraphLicenseProcessingState, MSGraphOnPremisesProvisioningError, MSGraphDirectoryObject, MSGraphGroupSetting, MSGraphExtension, MSGraphConversationThread, MSGraphCalendar, MSGraphEvent, MSGraphConversation, MSGraphProfilePhoto, MSGraphDrive, MSGraphSite, MSGraphPlannerGroup, MSGraphOnenote, MSGraphGroupLifecyclePolicy, MSGraphTeam; 
 
 
 #import "MSGraphDirectoryObject.h"
 
 @interface MSGraphGroup : MSGraphDirectoryObject
 
-  @property (nullable, nonatomic, setter=setClassification:, getter=classification) NSString* classification;
+  @property (nullable, nonatomic, setter=setAssignedLicenses:, getter=assignedLicenses) NSArray* assignedLicenses;
+    @property (nullable, nonatomic, setter=setClassification:, getter=classification) NSString* classification;
     @property (nullable, nonatomic, setter=setCreatedDateTime:, getter=createdDateTime) NSDate* createdDateTime;
     @property (nullable, nonatomic, setter=setGroupDescription:, getter=groupDescription) NSString* groupDescription;
     @property (nullable, nonatomic, setter=setDisplayName:, getter=displayName) NSString* displayName;
+    @property (nonatomic, setter=setHasMembersWithLicenseErrors:, getter=hasMembersWithLicenseErrors) BOOL hasMembersWithLicenseErrors;
     @property (nonnull, nonatomic, setter=setGroupTypes:, getter=groupTypes) NSArray* groupTypes;
+    @property (nullable, nonatomic, setter=setLicenseProcessingState:, getter=licenseProcessingState) MSGraphLicenseProcessingState* licenseProcessingState;
     @property (nullable, nonatomic, setter=setMail:, getter=mail) NSString* mail;
     @property (nonatomic, setter=setMailEnabled:, getter=mailEnabled) BOOL mailEnabled;
     @property (nullable, nonatomic, setter=setMailNickname:, getter=mailNickname) NSString* mailNickname;
@@ -31,6 +34,9 @@
     @property (nonatomic, setter=setIsArchived:, getter=isArchived) BOOL isArchived;
     @property (nullable, nonatomic, setter=setMembers:, getter=members) NSArray* members;
     @property (nullable, nonatomic, setter=setMemberOf:, getter=memberOf) NSArray* memberOf;
+    @property (nullable, nonatomic, setter=setMembersWithLicenseErrors:, getter=membersWithLicenseErrors) NSArray* membersWithLicenseErrors;
+    @property (nullable, nonatomic, setter=setTransitiveMembers:, getter=transitiveMembers) NSArray* transitiveMembers;
+    @property (nullable, nonatomic, setter=setTransitiveMemberOf:, getter=transitiveMemberOf) NSArray* transitiveMemberOf;
     @property (nullable, nonatomic, setter=setCreatedOnBehalfOf:, getter=createdOnBehalfOf) MSGraphDirectoryObject* createdOnBehalfOf;
     @property (nullable, nonatomic, setter=setOwners:, getter=owners) NSArray* owners;
     @property (nullable, nonatomic, setter=setSettings:, getter=settings) NSArray* settings;

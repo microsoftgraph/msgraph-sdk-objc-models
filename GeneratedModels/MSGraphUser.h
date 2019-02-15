@@ -1,7 +1,7 @@
 // Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 
 
-@class MSGraphAssignedLicense, MSGraphAssignedPlan, MSGraphOnPremisesExtensionAttributes, MSGraphOnPremisesProvisioningError, MSGraphPasswordProfile, MSGraphProvisionedPlan, MSGraphMailboxSettings, MSGraphDirectoryObject, MSGraphLicenseDetails, MSGraphExtension, MSGraphOutlookUser, MSGraphMessage, MSGraphMailFolder, MSGraphCalendar, MSGraphCalendarGroup, MSGraphEvent, MSGraphPerson, MSGraphContact, MSGraphContactFolder, MSGraphInferenceClassification, MSGraphProfilePhoto, MSGraphDrive, MSGraphPlannerUser, MSGraphOnenote, MSGraphManagedDevice, MSGraphManagedAppRegistration, MSGraphDeviceManagementTroubleshootingEvent, MSGraphUserActivity, MSGraphOfficeGraphInsights, MSGraphUserSettings, MSGraphGroup; 
+@class MSGraphAssignedLicense, MSGraphAssignedPlan, MSGraphLicenseAssignmentState, MSGraphOnPremisesExtensionAttributes, MSGraphOnPremisesProvisioningError, MSGraphPasswordProfile, MSGraphProvisionedPlan, MSGraphMailboxSettings, MSGraphDirectoryObject, MSGraphLicenseDetails, MSGraphExtension, MSGraphOutlookUser, MSGraphMessage, MSGraphMailFolder, MSGraphCalendar, MSGraphCalendarGroup, MSGraphEvent, MSGraphPerson, MSGraphContact, MSGraphContactFolder, MSGraphInferenceClassification, MSGraphProfilePhoto, MSGraphDrive, MSGraphPlannerUser, MSGraphOnenote, MSGraphManagedDevice, MSGraphManagedAppRegistration, MSGraphDeviceManagementTroubleshootingEvent, MSGraphUserActivity, MSGraphOfficeGraphInsights, MSGraphUserSettings, MSGraphGroup; 
 
 
 #import "MSGraphDirectoryObject.h"
@@ -19,13 +19,17 @@
     @property (nullable, nonatomic, setter=setCountry:, getter=country) NSString* country;
     @property (nullable, nonatomic, setter=setDepartment:, getter=department) NSString* department;
     @property (nullable, nonatomic, setter=setDisplayName:, getter=displayName) NSString* displayName;
+    @property (nullable, nonatomic, setter=setEmployeeId:, getter=employeeId) NSString* employeeId;
+    @property (nullable, nonatomic, setter=setFaxNumber:, getter=faxNumber) NSString* faxNumber;
     @property (nullable, nonatomic, setter=setGivenName:, getter=givenName) NSString* givenName;
     @property (nullable, nonatomic, setter=setImAddresses:, getter=imAddresses) NSArray* imAddresses;
     @property (nullable, nonatomic, setter=setJobTitle:, getter=jobTitle) NSString* jobTitle;
     @property (nullable, nonatomic, setter=setLegalAgeGroupClassification:, getter=legalAgeGroupClassification) NSString* legalAgeGroupClassification;
+    @property (nullable, nonatomic, setter=setLicenseAssignmentStates:, getter=licenseAssignmentStates) NSArray* licenseAssignmentStates;
     @property (nullable, nonatomic, setter=setMail:, getter=mail) NSString* mail;
     @property (nullable, nonatomic, setter=setMailNickname:, getter=mailNickname) NSString* mailNickname;
     @property (nullable, nonatomic, setter=setMobilePhone:, getter=mobilePhone) NSString* mobilePhone;
+    @property (nullable, nonatomic, setter=setOnPremisesDistinguishedName:, getter=onPremisesDistinguishedName) NSString* onPremisesDistinguishedName;
     @property (nullable, nonatomic, setter=setOnPremisesExtensionAttributes:, getter=onPremisesExtensionAttributes) MSGraphOnPremisesExtensionAttributes* onPremisesExtensionAttributes;
     @property (nullable, nonatomic, setter=setOnPremisesImmutableId:, getter=onPremisesImmutableId) NSString* onPremisesImmutableId;
     @property (nullable, nonatomic, setter=setOnPremisesLastSyncDateTime:, getter=onPremisesLastSyncDateTime) NSDate* onPremisesLastSyncDateTime;
@@ -35,6 +39,7 @@
     @property (nullable, nonatomic, setter=setOnPremisesDomainName:, getter=onPremisesDomainName) NSString* onPremisesDomainName;
     @property (nullable, nonatomic, setter=setOnPremisesSamAccountName:, getter=onPremisesSamAccountName) NSString* onPremisesSamAccountName;
     @property (nullable, nonatomic, setter=setOnPremisesUserPrincipalName:, getter=onPremisesUserPrincipalName) NSString* onPremisesUserPrincipalName;
+    @property (nonnull, nonatomic, setter=setOtherMails:, getter=otherMails) NSArray* otherMails;
     @property (nullable, nonatomic, setter=setPasswordPolicies:, getter=passwordPolicies) NSString* passwordPolicies;
     @property (nullable, nonatomic, setter=setPasswordProfile:, getter=passwordProfile) MSGraphPasswordProfile* passwordProfile;
     @property (nullable, nonatomic, setter=setOfficeLocation:, getter=officeLocation) NSString* officeLocation;
@@ -42,6 +47,7 @@
     @property (nullable, nonatomic, setter=setPreferredLanguage:, getter=preferredLanguage) NSString* preferredLanguage;
     @property (nonnull, nonatomic, setter=setProvisionedPlans:, getter=provisionedPlans) NSArray* provisionedPlans;
     @property (nonnull, nonatomic, setter=setProxyAddresses:, getter=proxyAddresses) NSArray* proxyAddresses;
+    @property (nonatomic, setter=setShowInAddressList:, getter=showInAddressList) BOOL showInAddressList;
     @property (nullable, nonatomic, setter=setState:, getter=state) NSString* state;
     @property (nullable, nonatomic, setter=setStreetAddress:, getter=streetAddress) NSString* streetAddress;
     @property (nullable, nonatomic, setter=setSurname:, getter=surname) NSString* surname;
@@ -68,6 +74,7 @@
     @property (nullable, nonatomic, setter=setCreatedObjects:, getter=createdObjects) NSArray* createdObjects;
     @property (nullable, nonatomic, setter=setOwnedObjects:, getter=ownedObjects) NSArray* ownedObjects;
     @property (nullable, nonatomic, setter=setLicenseDetails:, getter=licenseDetails) NSArray* licenseDetails;
+    @property (nullable, nonatomic, setter=setTransitiveMemberOf:, getter=transitiveMemberOf) NSArray* transitiveMemberOf;
     @property (nullable, nonatomic, setter=setExtensions:, getter=extensions) NSArray* extensions;
     @property (nullable, nonatomic, setter=setOutlook:, getter=outlook) MSGraphOutlookUser* outlook;
     @property (nullable, nonatomic, setter=setMessages:, getter=messages) NSArray* messages;
