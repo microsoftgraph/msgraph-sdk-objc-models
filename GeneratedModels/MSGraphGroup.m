@@ -14,11 +14,14 @@
 
 @interface MSGraphGroup()
 {
+    NSArray* _assignedLicenses;
     NSString* _classification;
     NSDate* _createdDateTime;
     NSString* _groupDescription;
     NSString* _displayName;
+    BOOL _hasMembersWithLicenseErrors;
     NSArray* _groupTypes;
+    MSGraphLicenseProcessingState* _licenseProcessingState;
     NSString* _mail;
     BOOL _mailEnabled;
     NSString* _mailNickname;
@@ -37,6 +40,9 @@
     BOOL _isArchived;
     NSArray* _members;
     NSArray* _memberOf;
+    NSArray* _membersWithLicenseErrors;
+    NSArray* _transitiveMembers;
+    NSArray* _transitiveMemberOf;
     MSGraphDirectoryObject* _createdOnBehalfOf;
     NSArray* _owners;
     NSArray* _settings;
@@ -69,6 +75,31 @@
     }
     return self;
 }
+- (NSArray*) assignedLicenses
+{
+    if(!_assignedLicenses){
+        
+    NSMutableArray *assignedLicensesResult = [NSMutableArray array];
+    NSArray *assignedLicenses = self.dictionary[@"assignedLicenses"];
+
+    if ([assignedLicenses isKindOfClass:[NSArray class]]){
+        for (id tempAssignedLicense in assignedLicenses){
+            [assignedLicensesResult addObject:tempAssignedLicense];
+        }
+    }
+
+    _assignedLicenses = assignedLicensesResult;
+        
+    }
+    return _assignedLicenses;
+}
+
+- (void) setAssignedLicenses: (NSArray*) val
+{
+    _assignedLicenses = val;
+    self.dictionary[@"assignedLicenses"] = val;
+}
+
 - (NSString*) classification
 {
     if([[NSNull null] isEqual:self.dictionary[@"classification"]])
@@ -125,6 +156,18 @@
     self.dictionary[@"displayName"] = val;
 }
 
+- (BOOL) hasMembersWithLicenseErrors
+{
+    _hasMembersWithLicenseErrors = [self.dictionary[@"hasMembersWithLicenseErrors"] boolValue];
+    return _hasMembersWithLicenseErrors;
+}
+
+- (void) setHasMembersWithLicenseErrors: (BOOL) val
+{
+    _hasMembersWithLicenseErrors = val;
+    self.dictionary[@"hasMembersWithLicenseErrors"] = @(val);
+}
+
 - (NSArray*) groupTypes
 {
     return self.dictionary[@"groupTypes"];
@@ -133,6 +176,20 @@
 - (void) setGroupTypes: (NSArray*) val
 {
     self.dictionary[@"groupTypes"] = val;
+}
+
+- (MSGraphLicenseProcessingState*) licenseProcessingState
+{
+    if(!_licenseProcessingState){
+        _licenseProcessingState = [[MSGraphLicenseProcessingState alloc] initWithDictionary: self.dictionary[@"licenseProcessingState"]];
+    }
+    return _licenseProcessingState;
+}
+
+- (void) setLicenseProcessingState: (MSGraphLicenseProcessingState*) val
+{
+    _licenseProcessingState = val;
+    self.dictionary[@"licenseProcessingState"] = val;
 }
 
 - (NSString*) mail
@@ -398,6 +455,81 @@
 {
     _memberOf = val;
     self.dictionary[@"memberOf"] = val;
+}
+
+- (NSArray*) membersWithLicenseErrors
+{
+    if(!_membersWithLicenseErrors){
+        
+    NSMutableArray *membersWithLicenseErrorsResult = [NSMutableArray array];
+    NSArray *membersWithLicenseErrors = self.dictionary[@"membersWithLicenseErrors"];
+
+    if ([membersWithLicenseErrors isKindOfClass:[NSArray class]]){
+        for (id tempDirectoryObject in membersWithLicenseErrors){
+            [membersWithLicenseErrorsResult addObject:tempDirectoryObject];
+        }
+    }
+
+    _membersWithLicenseErrors = membersWithLicenseErrorsResult;
+        
+    }
+    return _membersWithLicenseErrors;
+}
+
+- (void) setMembersWithLicenseErrors: (NSArray*) val
+{
+    _membersWithLicenseErrors = val;
+    self.dictionary[@"membersWithLicenseErrors"] = val;
+}
+
+- (NSArray*) transitiveMembers
+{
+    if(!_transitiveMembers){
+        
+    NSMutableArray *transitiveMembersResult = [NSMutableArray array];
+    NSArray *transitiveMembers = self.dictionary[@"transitiveMembers"];
+
+    if ([transitiveMembers isKindOfClass:[NSArray class]]){
+        for (id tempDirectoryObject in transitiveMembers){
+            [transitiveMembersResult addObject:tempDirectoryObject];
+        }
+    }
+
+    _transitiveMembers = transitiveMembersResult;
+        
+    }
+    return _transitiveMembers;
+}
+
+- (void) setTransitiveMembers: (NSArray*) val
+{
+    _transitiveMembers = val;
+    self.dictionary[@"transitiveMembers"] = val;
+}
+
+- (NSArray*) transitiveMemberOf
+{
+    if(!_transitiveMemberOf){
+        
+    NSMutableArray *transitiveMemberOfResult = [NSMutableArray array];
+    NSArray *transitiveMemberOf = self.dictionary[@"transitiveMemberOf"];
+
+    if ([transitiveMemberOf isKindOfClass:[NSArray class]]){
+        for (id tempDirectoryObject in transitiveMemberOf){
+            [transitiveMemberOfResult addObject:tempDirectoryObject];
+        }
+    }
+
+    _transitiveMemberOf = transitiveMemberOfResult;
+        
+    }
+    return _transitiveMemberOf;
+}
+
+- (void) setTransitiveMemberOf: (NSArray*) val
+{
+    _transitiveMemberOf = val;
+    self.dictionary[@"transitiveMemberOf"] = val;
 }
 
 - (MSGraphDirectoryObject*) createdOnBehalfOf

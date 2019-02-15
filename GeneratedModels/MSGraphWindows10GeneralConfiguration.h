@@ -173,6 +173,7 @@
     @property (nonatomic, setter=setEdgeBlockPopups:, getter=edgeBlockPopups) BOOL edgeBlockPopups;
     @property (nonatomic, setter=setEdgeBlockSearchSuggestions:, getter=edgeBlockSearchSuggestions) BOOL edgeBlockSearchSuggestions;
     @property (nonatomic, setter=setEdgeBlockSendingIntranetTrafficToInternetExplorer:, getter=edgeBlockSendingIntranetTrafficToInternetExplorer) BOOL edgeBlockSendingIntranetTrafficToInternetExplorer;
+    @property (nonatomic, setter=setEdgeSendIntranetTrafficToInternetExplorer:, getter=edgeSendIntranetTrafficToInternetExplorer) BOOL edgeSendIntranetTrafficToInternetExplorer;
     @property (nonatomic, setter=setEdgeRequireSmartScreen:, getter=edgeRequireSmartScreen) BOOL edgeRequireSmartScreen;
     @property (nullable, nonatomic, setter=setEdgeEnterpriseModeSiteListLocation:, getter=edgeEnterpriseModeSiteListLocation) NSString* edgeEnterpriseModeSiteListLocation;
     @property (nullable, nonatomic, setter=setEdgeFirstRunUrl:, getter=edgeFirstRunUrl) NSString* edgeFirstRunUrl;
