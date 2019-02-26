@@ -23,7 +23,7 @@ static NSString *dateFormatWithMillis = @"yyyy-MM-dd'T'HH:mm:ss.SSSSSSZ";
     self.dateComponents.hour = 16;
     self.dateComponents.minute = 39;
     self.dateComponents.second = 57;
-    self.dateComponents.timeZone = [NSTimeZone systemTimeZone];
+    self.dateComponents.timeZone = [NSTimeZone timeZoneForSecondsFromGMT:((5*60)+30)*60];
     self.dateComponents.calendar = [NSCalendar currentCalendar];
 }
 
