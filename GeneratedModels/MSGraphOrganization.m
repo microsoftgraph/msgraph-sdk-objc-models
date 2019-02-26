@@ -19,6 +19,7 @@
     NSString* _city;
     NSString* _country;
     NSString* _countryLetterCode;
+    NSDate* _createdDateTime;
     NSString* _displayName;
     NSArray* _marketingNotificationEmails;
     NSDate* _onPremisesLastSyncDateTime;
@@ -122,6 +123,20 @@
 - (void) setCountryLetterCode: (NSString*) val
 {
     self.dictionary[@"countryLetterCode"] = val;
+}
+
+- (NSDate*) createdDateTime
+{
+    if(!_createdDateTime){
+        _createdDateTime = [NSDate ms_dateFromString: self.dictionary[@"createdDateTime"]];
+    }
+    return _createdDateTime;
+}
+
+- (void) setCreatedDateTime: (NSDate*) val
+{
+    _createdDateTime = val;
+    self.dictionary[@"createdDateTime"] = [val ms_toString];
 }
 
 - (NSString*) displayName
