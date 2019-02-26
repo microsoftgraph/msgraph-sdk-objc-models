@@ -26,6 +26,7 @@
     @property (nullable, nonatomic, setter=setMemberOf:, getter=memberOf) NSArray* memberOf;
     @property (nullable, nonatomic, setter=setRegisteredOwners:, getter=registeredOwners) NSArray* registeredOwners;
     @property (nullable, nonatomic, setter=setRegisteredUsers:, getter=registeredUsers) NSArray* registeredUsers;
+    @property (nullable, nonatomic, setter=setTransitiveMemberOf:, getter=transitiveMemberOf) NSArray* transitiveMemberOf;
     @property (nullable, nonatomic, setter=setExtensions:, getter=extensions) NSArray* extensions;
   
 @end

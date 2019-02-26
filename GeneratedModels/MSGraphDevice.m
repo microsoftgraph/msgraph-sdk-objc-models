@@ -32,6 +32,7 @@
     NSArray* _memberOf;
     NSArray* _registeredOwners;
     NSArray* _registeredUsers;
+    NSArray* _transitiveMemberOf;
     NSArray* _extensions;
 }
 @end
@@ -325,6 +326,31 @@
 {
     _registeredUsers = val;
     self.dictionary[@"registeredUsers"] = val;
+}
+
+- (NSArray*) transitiveMemberOf
+{
+    if(!_transitiveMemberOf){
+        
+    NSMutableArray *transitiveMemberOfResult = [NSMutableArray array];
+    NSArray *transitiveMemberOf = self.dictionary[@"transitiveMemberOf"];
+
+    if ([transitiveMemberOf isKindOfClass:[NSArray class]]){
+        for (id tempDirectoryObject in transitiveMemberOf){
+            [transitiveMemberOfResult addObject:tempDirectoryObject];
+        }
+    }
+
+    _transitiveMemberOf = transitiveMemberOfResult;
+        
+    }
+    return _transitiveMemberOf;
+}
+
+- (void) setTransitiveMemberOf: (NSArray*) val
+{
+    _transitiveMemberOf = val;
+    self.dictionary[@"transitiveMemberOf"] = val;
 }
 
 - (NSArray*) extensions

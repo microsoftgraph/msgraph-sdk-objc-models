@@ -165,6 +165,7 @@
     BOOL _edgeBlockPopups;
     BOOL _edgeBlockSearchSuggestions;
     BOOL _edgeBlockSendingIntranetTrafficToInternetExplorer;
+    BOOL _edgeSendIntranetTrafficToInternetExplorer;
     BOOL _edgeRequireSmartScreen;
     NSString* _edgeEnterpriseModeSiteListLocation;
     NSString* _edgeFirstRunUrl;
@@ -2118,6 +2119,18 @@
 {
     _edgeBlockSendingIntranetTrafficToInternetExplorer = val;
     self.dictionary[@"edgeBlockSendingIntranetTrafficToInternetExplorer"] = @(val);
+}
+
+- (BOOL) edgeSendIntranetTrafficToInternetExplorer
+{
+    _edgeSendIntranetTrafficToInternetExplorer = [self.dictionary[@"edgeSendIntranetTrafficToInternetExplorer"] boolValue];
+    return _edgeSendIntranetTrafficToInternetExplorer;
+}
+
+- (void) setEdgeSendIntranetTrafficToInternetExplorer: (BOOL) val
+{
+    _edgeSendIntranetTrafficToInternetExplorer = val;
+    self.dictionary[@"edgeSendIntranetTrafficToInternetExplorer"] = @(val);
 }
 
 - (BOOL) edgeRequireSmartScreen
