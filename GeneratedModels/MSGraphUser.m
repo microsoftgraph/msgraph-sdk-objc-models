@@ -25,13 +25,17 @@
     NSString* _country;
     NSString* _department;
     NSString* _displayName;
+    NSString* _employeeId;
+    NSString* _faxNumber;
     NSString* _givenName;
     NSArray* _imAddresses;
     NSString* _jobTitle;
     NSString* _legalAgeGroupClassification;
+    NSArray* _licenseAssignmentStates;
     NSString* _mail;
     NSString* _mailNickname;
     NSString* _mobilePhone;
+    NSString* _onPremisesDistinguishedName;
     MSGraphOnPremisesExtensionAttributes* _onPremisesExtensionAttributes;
     NSString* _onPremisesImmutableId;
     NSDate* _onPremisesLastSyncDateTime;
@@ -41,6 +45,7 @@
     NSString* _onPremisesDomainName;
     NSString* _onPremisesSamAccountName;
     NSString* _onPremisesUserPrincipalName;
+    NSArray* _otherMails;
     NSString* _passwordPolicies;
     MSGraphPasswordProfile* _passwordProfile;
     NSString* _officeLocation;
@@ -48,6 +53,7 @@
     NSString* _preferredLanguage;
     NSArray* _provisionedPlans;
     NSArray* _proxyAddresses;
+    BOOL _showInAddressList;
     NSString* _state;
     NSString* _streetAddress;
     NSString* _surname;
@@ -74,6 +80,7 @@
     NSArray* _createdObjects;
     NSArray* _ownedObjects;
     NSArray* _licenseDetails;
+    NSArray* _transitiveMemberOf;
     NSArray* _extensions;
     MSGraphOutlookUser* _outlook;
     NSArray* _messages;
@@ -282,6 +289,34 @@
     self.dictionary[@"displayName"] = val;
 }
 
+- (NSString*) employeeId
+{
+    if([[NSNull null] isEqual:self.dictionary[@"employeeId"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"employeeId"];
+}
+
+- (void) setEmployeeId: (NSString*) val
+{
+    self.dictionary[@"employeeId"] = val;
+}
+
+- (NSString*) faxNumber
+{
+    if([[NSNull null] isEqual:self.dictionary[@"faxNumber"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"faxNumber"];
+}
+
+- (void) setFaxNumber: (NSString*) val
+{
+    self.dictionary[@"faxNumber"] = val;
+}
+
 - (NSString*) givenName
 {
     if([[NSNull null] isEqual:self.dictionary[@"givenName"]])
@@ -338,6 +373,31 @@
     self.dictionary[@"legalAgeGroupClassification"] = val;
 }
 
+- (NSArray*) licenseAssignmentStates
+{
+    if(!_licenseAssignmentStates){
+        
+    NSMutableArray *licenseAssignmentStatesResult = [NSMutableArray array];
+    NSArray *licenseAssignmentStates = self.dictionary[@"licenseAssignmentStates"];
+
+    if ([licenseAssignmentStates isKindOfClass:[NSArray class]]){
+        for (id tempLicenseAssignmentState in licenseAssignmentStates){
+            [licenseAssignmentStatesResult addObject:tempLicenseAssignmentState];
+        }
+    }
+
+    _licenseAssignmentStates = licenseAssignmentStatesResult;
+        
+    }
+    return _licenseAssignmentStates;
+}
+
+- (void) setLicenseAssignmentStates: (NSArray*) val
+{
+    _licenseAssignmentStates = val;
+    self.dictionary[@"licenseAssignmentStates"] = val;
+}
+
 - (NSString*) mail
 {
     if([[NSNull null] isEqual:self.dictionary[@"mail"]])
@@ -378,6 +438,20 @@
 - (void) setMobilePhone: (NSString*) val
 {
     self.dictionary[@"mobilePhone"] = val;
+}
+
+- (NSString*) onPremisesDistinguishedName
+{
+    if([[NSNull null] isEqual:self.dictionary[@"onPremisesDistinguishedName"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"onPremisesDistinguishedName"];
+}
+
+- (void) setOnPremisesDistinguishedName: (NSString*) val
+{
+    self.dictionary[@"onPremisesDistinguishedName"] = val;
 }
 
 - (MSGraphOnPremisesExtensionAttributes*) onPremisesExtensionAttributes
@@ -515,6 +589,16 @@
     self.dictionary[@"onPremisesUserPrincipalName"] = val;
 }
 
+- (NSArray*) otherMails
+{
+    return self.dictionary[@"otherMails"];
+}
+
+- (void) setOtherMails: (NSArray*) val
+{
+    self.dictionary[@"otherMails"] = val;
+}
+
 - (NSString*) passwordPolicies
 {
     if([[NSNull null] isEqual:self.dictionary[@"passwordPolicies"]])
@@ -618,6 +702,18 @@
 - (void) setProxyAddresses: (NSArray*) val
 {
     self.dictionary[@"proxyAddresses"] = val;
+}
+
+- (BOOL) showInAddressList
+{
+    _showInAddressList = [self.dictionary[@"showInAddressList"] boolValue];
+    return _showInAddressList;
+}
+
+- (void) setShowInAddressList: (BOOL) val
+{
+    _showInAddressList = val;
+    self.dictionary[@"showInAddressList"] = @(val);
 }
 
 - (NSString*) state
@@ -1057,6 +1153,31 @@
 {
     _licenseDetails = val;
     self.dictionary[@"licenseDetails"] = val;
+}
+
+- (NSArray*) transitiveMemberOf
+{
+    if(!_transitiveMemberOf){
+        
+    NSMutableArray *transitiveMemberOfResult = [NSMutableArray array];
+    NSArray *transitiveMemberOf = self.dictionary[@"transitiveMemberOf"];
+
+    if ([transitiveMemberOf isKindOfClass:[NSArray class]]){
+        for (id tempDirectoryObject in transitiveMemberOf){
+            [transitiveMemberOfResult addObject:tempDirectoryObject];
+        }
+    }
+
+    _transitiveMemberOf = transitiveMemberOfResult;
+        
+    }
+    return _transitiveMemberOf;
+}
+
+- (void) setTransitiveMemberOf: (NSArray*) val
+{
+    _transitiveMemberOf = val;
+    self.dictionary[@"transitiveMemberOf"] = val;
 }
 
 - (NSArray*) extensions

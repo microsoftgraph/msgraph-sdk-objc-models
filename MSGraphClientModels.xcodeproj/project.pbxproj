@@ -67,6 +67,7 @@
 		0A426EDE794345C1794B8232 /* MSGraphManagedAppPolicyDeploymentSummaryPerApp.h in Headers */ = {isa = PBXBuildFile; fileRef = CB2A81582DD18005E6B9D2F2 /* MSGraphManagedAppPolicyDeploymentSummaryPerApp.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0A624089A2DA2D9D2239315B /* MSGraphPatternedRecurrence.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D9A0BF5C8C99DB99DB557CB /* MSGraphPatternedRecurrence.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0AA25DBF3C66E542E62E2C8E /* MSGraphManagedAppStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = 755E89FB2892B73FADE4EA6C /* MSGraphManagedAppStatus.m */; };
+		0AD2C1CDC480274FB033D25B /* MSGraphCopyNotebookModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F8B8394D0CD11DD96575833 /* MSGraphCopyNotebookModel.m */; };
 		0AF94A16E85CF45BE4EDF517 /* MSGraphRatingIrelandMoviesType.h in Headers */ = {isa = PBXBuildFile; fileRef = 852E5731DBA58FD1E74A5169 /* MSGraphRatingIrelandMoviesType.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0B30AC9B523DA38B6111F6FD /* MSGraphOnenoteOperationError.m in Sources */ = {isa = PBXBuildFile; fileRef = E67CD5BB79680748D324DF8B /* MSGraphOnenoteOperationError.m */; };
 		0B42CCA3E9600667638C5FFF /* MSGraphMacOSCustomConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 19ABA475EBB89E429C9081FA /* MSGraphMacOSCustomConfiguration.m */; };
@@ -631,6 +632,7 @@
 		6F450BD81F3510D5E8A20827 /* MSGraphDeviceAndAppManagementAssignmentTarget.h in Headers */ = {isa = PBXBuildFile; fileRef = 13DA0644C68895AB25816B55 /* MSGraphDeviceAndAppManagementAssignmentTarget.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6F5488B48FDE028FD95D5C99 /* MSGraphManagedIOSLobApp.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A5595C1C3A3C1D885D4DA07 /* MSGraphManagedIOSLobApp.m */; };
 		6F6014A5C0745B85417B1615 /* MSGraphThumbnail.m in Sources */ = {isa = PBXBuildFile; fileRef = 51DC8BDD89F551A2ED782597 /* MSGraphThumbnail.m */; };
+		6F8CEBBF7277EF40EC2DB7AE /* MSGraphLicenseProcessingState.h in Headers */ = {isa = PBXBuildFile; fileRef = 04FA590C85F211816BD662C7 /* MSGraphLicenseProcessingState.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6FB6537793072EA19C811321 /* MSGraphAndroidWorkProfileGeneralDeviceConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB64DC0E873B9AAFFA8F67C /* MSGraphAndroidWorkProfileGeneralDeviceConfiguration.m */; };
 		703BCAD24154F38C4671EC53 /* MSGraphPlannerPreviewType.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D09B293CD2715540266D87 /* MSGraphPlannerPreviewType.m */; };
 		7051AA2BFEEDF785B4C3CC1D /* MSGraphPlannerExternalReference.m in Sources */ = {isa = PBXBuildFile; fileRef = F57DF3463CD080471AEF9DD2 /* MSGraphPlannerExternalReference.m */; };
@@ -719,6 +721,7 @@
 		7D7E574AB2B239E45EDDDA81 /* MSGraphSharepointIds.h in Headers */ = {isa = PBXBuildFile; fileRef = 8D784446CD859BC1F0BA3444 /* MSGraphSharepointIds.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7D8EA28113F9B49B8585806B /* MSGraphItemBody.m in Sources */ = {isa = PBXBuildFile; fileRef = C359304E51DD5342A5AEDF04 /* MSGraphItemBody.m */; };
 		7D9B404F3E7EEC3389E4E3D5 /* MSGraphMacOSCompliancePolicy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D0EDDA1A429DEB64A4FBBEB /* MSGraphMacOSCompliancePolicy.m */; };
+		7DA1554A2ED1C11F11A8A8C4 /* MSGraphCopyNotebookModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 3DD15373AE1C45FC1AF2E6D2 /* MSGraphCopyNotebookModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7DBC52E94E17ED7FC096906F /* MSGraphMacOSCompliancePolicy.h in Headers */ = {isa = PBXBuildFile; fileRef = 0A634AF7B388A5DE051C8CFB /* MSGraphMacOSCompliancePolicy.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7DD61FD11ACCF9925DEA6B7D /* MSGraphConnectionDirection.m in Sources */ = {isa = PBXBuildFile; fileRef = 896DEA3EE3DAF38F50C7C415 /* MSGraphConnectionDirection.m */; };
 		7DDA180C41F7B2CC4E698E51 /* MSGraphMediaContentRatingGermany.h in Headers */ = {isa = PBXBuildFile; fileRef = 7DFDEC084B702882F28A9D17 /* MSGraphMediaContentRatingGermany.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -1025,6 +1028,7 @@
 		B0838AAE66F889F7B735C5C0 /* MSGraphWorkbookChartTitle.m in Sources */ = {isa = PBXBuildFile; fileRef = D015B8D0EC17E075084581B7 /* MSGraphWorkbookChartTitle.m */; };
 		B089BEEE1015784C0210F1DD /* MSGraphProcess.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C9A4972F758210E97B582A6 /* MSGraphProcess.m */; };
 		B0EE0B6E903A25900594E9EF /* MSGraphDeviceManagementSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = D12D849C6EA20642B0142518 /* MSGraphDeviceManagementSettings.m */; };
+		B178BF83A4E88865696A0344 /* MSGraphLicenseProcessingState.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F34A322287974062CB973BB /* MSGraphLicenseProcessingState.m */; };
 		B18CC07E985A2971A73B52F0 /* MSGraphWorkbookChart.h in Headers */ = {isa = PBXBuildFile; fileRef = B5BDD1874EB3DB1D401233A4 /* MSGraphWorkbookChart.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B192D9E9C83EA6FF221E4D92 /* MSGraphInvitation.m in Sources */ = {isa = PBXBuildFile; fileRef = B2BDF3A7B1FDC43509F2F55E /* MSGraphInvitation.m */; };
 		B19F3A66147FC5BB1AB9C875 /* MSGraphEducationOrganization.m in Sources */ = {isa = PBXBuildFile; fileRef = F27C7CBC675DFE03ED28AC61 /* MSGraphEducationOrganization.m */; };
@@ -1250,6 +1254,7 @@
 		D77B0E743C38B6B44BB1B379 /* MSGraphCurrencyColumn.m in Sources */ = {isa = PBXBuildFile; fileRef = FE529FF4FC59DEC64BBB7C58 /* MSGraphCurrencyColumn.m */; };
 		D7B9F9C089E91F372681EED8 /* MSGraphFolder.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B1D05E287EE0BAA9B1F0F9E /* MSGraphFolder.m */; };
 		D7BA25A0CB3A57078EFAED5C /* MSGraphFileAttachment.h in Headers */ = {isa = PBXBuildFile; fileRef = ED8B7904654D95BF415FCA14 /* MSGraphFileAttachment.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D7D46D600FAB4F7EF4F8DB0E /* MSGraphLicenseAssignmentState.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D38B041CDFE0B24BAAEAAF4 /* MSGraphLicenseAssignmentState.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D7E228917D43DABB15C0FD28 /* MSGraphPlannerAssignment.m in Sources */ = {isa = PBXBuildFile; fileRef = 0352BFB5E08748AE35A6E5BD /* MSGraphPlannerAssignment.m */; };
 		D8029333116F18BA02FD1BD5 /* MSGraphManagedDeviceOverview.m in Sources */ = {isa = PBXBuildFile; fileRef = C20A032F6FE51B6BEBBCBA88 /* MSGraphManagedDeviceOverview.m */; };
 		D8098D8C24A9BFBFF18C007B /* MSGraphEmailRole.h in Headers */ = {isa = PBXBuildFile; fileRef = 9CB96C2B45171A04E977008C /* MSGraphEmailRole.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -1383,6 +1388,7 @@
 		EC110DD9DC161074A16DDCB5 /* MSGraphOnenotePagePreview.h in Headers */ = {isa = PBXBuildFile; fileRef = C2AEBDEBA1AF06487EDDC8F4 /* MSGraphOnenotePagePreview.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC33D628B366561FC0CABCF6 /* MSGraphEducationTerm.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CFD10C3B1B5D353D9DCB482 /* MSGraphEducationTerm.m */; };
 		ED0F490197F802DF3430FABF /* MSGraphOnenoteEntityHierarchyModel.h in Headers */ = {isa = PBXBuildFile; fileRef = A290B8010AECEA32EB884211 /* MSGraphOnenoteEntityHierarchyModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ED540BE247C1D5E218E65679 /* MSGraphLicenseAssignmentState.m in Sources */ = {isa = PBXBuildFile; fileRef = EC8B81AFCE1B36DAAAFA0BCC /* MSGraphLicenseAssignmentState.m */; };
 		ED7BB85CEA9504EB8E9DCEBB /* MSGraphTermsAndConditionsAcceptanceStatus.h in Headers */ = {isa = PBXBuildFile; fileRef = 110DE5DBA56168B84731BFE3 /* MSGraphTermsAndConditionsAcceptanceStatus.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ED81B76A382810CEA43CD353 /* MSGraphMeetingMessageType.m in Sources */ = {isa = PBXBuildFile; fileRef = FAA2DFA761AB899E31736A4F /* MSGraphMeetingMessageType.m */; };
 		ED934E433F955D6ECF194091 /* MSGraphListInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = CD64ABE94DED08769DC4B102 /* MSGraphListInfo.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -1528,6 +1534,7 @@
 		04567AED8F4BE9E96BF3B212 /* MSGraphOperation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSGraphOperation.h; path = GeneratedModels/MSGraphOperation.h; sourceTree = "<group>"; };
 		04C1605BBF8A6BF1EB513119 /* MSGraphListItemVersion.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSGraphListItemVersion.m; path = GeneratedModels/MSGraphListItemVersion.m; sourceTree = "<group>"; };
 		04EEB37C62D584F6399DE177 /* MSGraphResponseStatus.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSGraphResponseStatus.m; path = GeneratedModels/MSGraphResponseStatus.m; sourceTree = "<group>"; };
+		04FA590C85F211816BD662C7 /* MSGraphLicenseProcessingState.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSGraphLicenseProcessingState.h; path = GeneratedModels/MSGraphLicenseProcessingState.h; sourceTree = "<group>"; };
 		050BCAB8F066E4E85132A3F8 /* MSGraphIosManagedAppProtection.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSGraphIosManagedAppProtection.h; path = GeneratedModels/MSGraphIosManagedAppProtection.h; sourceTree = "<group>"; };
 		053E4D1104B351F57E2115A2 /* MSGraphPermission.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSGraphPermission.h; path = GeneratedModels/MSGraphPermission.h; sourceTree = "<group>"; };
 		05421CBCE096A876C5B003E2 /* MSGraphAndroidWorkProfileDefaultAppPermissionPolicyType.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSGraphAndroidWorkProfileDefaultAppPermissionPolicyType.h; path = GeneratedModels/MSGraphAndroidWorkProfileDefaultAppPermissionPolicyType.h; sourceTree = "<group>"; };
@@ -1604,6 +1611,7 @@
 		0E927D0A6A2632D817879F3E /* MSGraphDriveRecipient.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSGraphDriveRecipient.m; path = GeneratedModels/MSGraphDriveRecipient.m; sourceTree = "<group>"; };
 		0EB5E40D364F52CA53B40AF8 /* MSGraphEvent.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSGraphEvent.m; path = GeneratedModels/MSGraphEvent.m; sourceTree = "<group>"; };
 		0ED1D3CC979F00A170EBF669 /* MSGraphPrereleaseFeatures.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSGraphPrereleaseFeatures.m; path = GeneratedModels/MSGraphPrereleaseFeatures.m; sourceTree = "<group>"; };
+		0F34A322287974062CB973BB /* MSGraphLicenseProcessingState.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSGraphLicenseProcessingState.m; path = GeneratedModels/MSGraphLicenseProcessingState.m; sourceTree = "<group>"; };
 		0F4F2067167CD9CB36C9B1A3 /* MSGraphDeviceComplianceUserStatus.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSGraphDeviceComplianceUserStatus.m; path = GeneratedModels/MSGraphDeviceComplianceUserStatus.m; sourceTree = "<group>"; };
 		0FBD47E9A975CE0308709AC8 /* MSGraphRoot.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSGraphRoot.m; path = GeneratedModels/MSGraphRoot.m; sourceTree = "<group>"; };
 		0FDEF50FAA7B78E75FE804A4 /* MSGraphDeviceManagementPartner.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSGraphDeviceManagementPartner.h; path = GeneratedModels/MSGraphDeviceManagementPartner.h; sourceTree = "<group>"; };
@@ -1876,10 +1884,12 @@
 		3D04EAFB3F1E429F061F03E5 /* MSGraphDetectedApp.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSGraphDetectedApp.h; path = GeneratedModels/MSGraphDetectedApp.h; sourceTree = "<group>"; };
 		3D7578B6F7838714FE5E5A02 /* MSGraphTeamMemberSettings.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSGraphTeamMemberSettings.h; path = GeneratedModels/MSGraphTeamMemberSettings.h; sourceTree = "<group>"; };
 		3D88E90CBF0D875E5B43D533 /* MSGraphMobileAppContentFile.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSGraphMobileAppContentFile.m; path = GeneratedModels/MSGraphMobileAppContentFile.m; sourceTree = "<group>"; };
+		3DD15373AE1C45FC1AF2E6D2 /* MSGraphCopyNotebookModel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSGraphCopyNotebookModel.h; path = GeneratedModels/MSGraphCopyNotebookModel.h; sourceTree = "<group>"; };
 		3E1C342850D45A0D3895907D /* MSGraphManagedApp.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSGraphManagedApp.h; path = GeneratedModels/MSGraphManagedApp.h; sourceTree = "<group>"; };
 		3E52353882034EC7053438F2 /* MSGraphInvitedUserMessageInfo.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSGraphInvitedUserMessageInfo.m; path = GeneratedModels/MSGraphInvitedUserMessageInfo.m; sourceTree = "<group>"; };
 		3E524DC8E81F9408C629974A /* MSGraphFileSecurityState.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSGraphFileSecurityState.m; path = GeneratedModels/MSGraphFileSecurityState.m; sourceTree = "<group>"; };
 		3E9E7FE1A09646FCA18DFEDC /* MSGraphOnenotePatchContentCommand.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSGraphOnenotePatchContentCommand.h; path = GeneratedModels/MSGraphOnenotePatchContentCommand.h; sourceTree = "<group>"; };
+		3F8B8394D0CD11DD96575833 /* MSGraphCopyNotebookModel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSGraphCopyNotebookModel.m; path = GeneratedModels/MSGraphCopyNotebookModel.m; sourceTree = "<group>"; };
 		3FC123AA6C3FB5708B25B97B /* MSGraphDeviceGeoLocation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSGraphDeviceGeoLocation.m; path = GeneratedModels/MSGraphDeviceGeoLocation.m; sourceTree = "<group>"; };
 		3FDEAD44D6EE3B1C10FA7FFE /* MSGraphTeamsAppDefinition.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSGraphTeamsAppDefinition.h; path = GeneratedModels/MSGraphTeamsAppDefinition.h; sourceTree = "<group>"; };
 		3FE7ECD8E81F7B5B5A86F7A9 /* MSGraphEducationClass.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSGraphEducationClass.m; path = GeneratedModels/MSGraphEducationClass.m; sourceTree = "<group>"; };
@@ -2392,6 +2402,7 @@
 		9CE54501361DE2088B8A9898 /* MSGraphPerson.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSGraphPerson.h; path = GeneratedModels/MSGraphPerson.h; sourceTree = "<group>"; };
 		9D2583088571EF5026295B30 /* MSGraphDeviceCompliancePolicyDeviceStateSummary.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSGraphDeviceCompliancePolicyDeviceStateSummary.m; path = GeneratedModels/MSGraphDeviceCompliancePolicyDeviceStateSummary.m; sourceTree = "<group>"; };
 		9D33B694AA91C35D3D02F12D /* MSGraphGroup.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSGraphGroup.h; path = GeneratedModels/MSGraphGroup.h; sourceTree = "<group>"; };
+		9D38B041CDFE0B24BAAEAAF4 /* MSGraphLicenseAssignmentState.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSGraphLicenseAssignmentState.h; path = GeneratedModels/MSGraphLicenseAssignmentState.h; sourceTree = "<group>"; };
 		9DC90800C46EDA99C90DB35B /* MSGraphWindowsDeviceAccount.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSGraphWindowsDeviceAccount.m; path = GeneratedModels/MSGraphWindowsDeviceAccount.m; sourceTree = "<group>"; };
 		9DE7C7D212767F65E8995F67 /* MSGraphImage.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSGraphImage.m; path = GeneratedModels/MSGraphImage.m; sourceTree = "<group>"; };
 		9DEA388D6C01422BA2A6A8A5 /* MSGraphVppTokenState.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSGraphVppTokenState.m; path = GeneratedModels/MSGraphVppTokenState.m; sourceTree = "<group>"; };
@@ -2887,6 +2898,7 @@
 		EBC8902DF3FADAAB3E1CE124 /* MSGraphWorkbookApplication.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSGraphWorkbookApplication.h; path = GeneratedModels/MSGraphWorkbookApplication.h; sourceTree = "<group>"; };
 		EC12D4079898B48BA2A05389 /* MSGraphOpenTypeExtension.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSGraphOpenTypeExtension.h; path = GeneratedModels/MSGraphOpenTypeExtension.h; sourceTree = "<group>"; };
 		EC2464003EFC18C03ED4529D /* MSGraphDeviceManagementExchangeConnectorType.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSGraphDeviceManagementExchangeConnectorType.m; path = GeneratedModels/MSGraphDeviceManagementExchangeConnectorType.m; sourceTree = "<group>"; };
+		EC8B81AFCE1B36DAAAFA0BCC /* MSGraphLicenseAssignmentState.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSGraphLicenseAssignmentState.m; path = GeneratedModels/MSGraphLicenseAssignmentState.m; sourceTree = "<group>"; };
 		ECAA9FE3B1A4C6C3E12315F7 /* MSGraphPlannerChecklistItem.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSGraphPlannerChecklistItem.m; path = GeneratedModels/MSGraphPlannerChecklistItem.m; sourceTree = "<group>"; };
 		ECADF0885FFD6D80C22AFAB9 /* MSGraphMacOSDeviceFeaturesConfiguration.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSGraphMacOSDeviceFeaturesConfiguration.h; path = GeneratedModels/MSGraphMacOSDeviceFeaturesConfiguration.h; sourceTree = "<group>"; };
 		ECAE24D5E0B0EC9A1A8B6884 /* MSGraphOnenotePatchContentCommand.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSGraphOnenotePatchContentCommand.m; path = GeneratedModels/MSGraphOnenotePatchContentCommand.m; sourceTree = "<group>"; };
@@ -4487,6 +4499,12 @@
 				31F739E56CE522FFC78BEF97 /* MSGraphWindowsInformationProtectionAppLearningSummary.m */,
 				1F95B93F20E6717393A3ED3D /* MSGraphIosMobileAppIdentifier.m */,
 				9528140FD8829CD5B1F2021E /* MSGraphMacOSGeneralDeviceConfiguration.h */,
+				3DD15373AE1C45FC1AF2E6D2 /* MSGraphCopyNotebookModel.h */,
+				3F8B8394D0CD11DD96575833 /* MSGraphCopyNotebookModel.m */,
+				9D38B041CDFE0B24BAAEAAF4 /* MSGraphLicenseAssignmentState.h */,
+				EC8B81AFCE1B36DAAAFA0BCC /* MSGraphLicenseAssignmentState.m */,
+				04FA590C85F211816BD662C7 /* MSGraphLicenseProcessingState.h */,
+				0F34A322287974062CB973BB /* MSGraphLicenseProcessingState.m */,
 			);
 			name = GeneratedModels;
 			sourceTree = "<group>";
@@ -5316,6 +5334,9 @@
 				AE299832D702CE58161AEA6B /* MSGraphUser.h in Headers */,
 				FA94CE3FAAB1AF5936747AFF /* MSGraphManagedIOSStoreApp.h in Headers */,
 				1C0FCD06645D0401EAFE890F /* MSGraphMacOSGeneralDeviceConfiguration.h in Headers */,
+				7DA1554A2ED1C11F11A8A8C4 /* MSGraphCopyNotebookModel.h in Headers */,
+				D7D46D600FAB4F7EF4F8DB0E /* MSGraphLicenseAssignmentState.h in Headers */,
+				6F8CEBBF7277EF40EC2DB7AE /* MSGraphLicenseProcessingState.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -6154,6 +6175,9 @@
 				C54DCE423FAD0E01D0E96969 /* MSGraphMailFolder.m in Sources */,
 				7B11F7EE4ADE744E88DC0C0D /* MSGraphWindowsInformationProtectionAppLearningSummary.m in Sources */,
 				12EB0E1DA853042C5CCABEA6 /* MSGraphIosMobileAppIdentifier.m in Sources */,
+				0AD2C1CDC480274FB033D25B /* MSGraphCopyNotebookModel.m in Sources */,
+				ED540BE247C1D5E218E65679 /* MSGraphLicenseAssignmentState.m in Sources */,
+				B178BF83A4E88865696A0344 /* MSGraphLicenseProcessingState.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
