@@ -197,6 +197,7 @@
 		20A290BDE5AE41E1A5528D84 /* MSGraphPasswordProfile.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A2E1AE3B202836A60A728D3 /* MSGraphPasswordProfile.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		20CA2C43D266E513CB7265E9 /* MSGraphBodyType.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A934A1B52EF2482A5947F6D /* MSGraphBodyType.m */; };
 		20E44FBABFC48564061C6AE0 /* MSGraphMobileThreatDefenseConnector.m in Sources */ = {isa = PBXBuildFile; fileRef = 773C3ECCC61B10DD0357D53E /* MSGraphMobileThreatDefenseConnector.m */; };
+		20E6E765F1E2742F689CDC88 /* MSGraphDirectoryObjectPartnerReference.h in Headers */ = {isa = PBXBuildFile; fileRef = DEB46648202DCD82A28DE105 /* MSGraphDirectoryObjectPartnerReference.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		20F08E56FC0A501C94702B95 /* MSGraphWindowsUniversalAppX.m in Sources */ = {isa = PBXBuildFile; fileRef = C8D588B86C4A6E983FAB6C1B /* MSGraphWindowsUniversalAppX.m */; };
 		2101C58048FC7CE8A24D8062 /* MSGraphDeviceComplianceUserStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F4F2067167CD9CB36C9B1A3 /* MSGraphDeviceComplianceUserStatus.m */; };
 		21239BD36F7D9F8E7F0A3AC0 /* MSGraphSettingSource.h in Headers */ = {isa = PBXBuildFile; fileRef = D2CD56B5453BB4619EC8C14E /* MSGraphSettingSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -1303,6 +1304,7 @@
 		E0A46FEFB113F3D618A9A722 /* MSGraphOnPremisesConditionalAccessSettings.h in Headers */ = {isa = PBXBuildFile; fileRef = 0067FCDE50ADABFC5AFDF64D /* MSGraphOnPremisesConditionalAccessSettings.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E11078279A0D05406167EFA8 /* MSGraphRecurrenceRange.m in Sources */ = {isa = PBXBuildFile; fileRef = 938AD47210D24869FA9038B3 /* MSGraphRecurrenceRange.m */; };
 		E14A88C02AB5DC355609CC60 /* MSGraphBooleanColumn.h in Headers */ = {isa = PBXBuildFile; fileRef = 8AB7BC3ED8EBC4211573DE0C /* MSGraphBooleanColumn.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E16E6DAE11AB60DE16D11DD8 /* MSGraphDirectoryObjectPartnerReference.m in Sources */ = {isa = PBXBuildFile; fileRef = 98FA211B1ACC8A2EB748F171 /* MSGraphDirectoryObjectPartnerReference.m */; };
 		E19AD60E0B2DFAA833906979 /* MSGraphOnPremisesExtensionAttributes.h in Headers */ = {isa = PBXBuildFile; fileRef = D0A58BD6A22AFDED04D38F0F /* MSGraphOnPremisesExtensionAttributes.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E1A8FFB52350814AF4888A3A /* MSGraphAlertTrigger.h in Headers */ = {isa = PBXBuildFile; fileRef = 6058A73B2AF99C12C72F4F3E /* MSGraphAlertTrigger.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E1AF3A9A71C05473E72AEF8C /* MSGraphOmaSettingDateTime.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B86347B9A00B3F599A84731 /* MSGraphOmaSettingDateTime.m */; };
@@ -2372,6 +2374,7 @@
 		987E9989FF618FF0E5F1761B /* MSGraphManagedAppDiagnosticStatus.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSGraphManagedAppDiagnosticStatus.h; path = GeneratedModels/MSGraphManagedAppDiagnosticStatus.h; sourceTree = "<group>"; };
 		98A9F06BCCB6E6622DDC2D7D /* MSGraphDeviceCompliancePolicySettingStateSummary.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSGraphDeviceCompliancePolicySettingStateSummary.h; path = GeneratedModels/MSGraphDeviceCompliancePolicySettingStateSummary.h; sourceTree = "<group>"; };
 		98B27394647883FECE97C35B /* MSGraphOnenotePatchActionType.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSGraphOnenotePatchActionType.m; path = GeneratedModels/MSGraphOnenotePatchActionType.m; sourceTree = "<group>"; };
+		98FA211B1ACC8A2EB748F171 /* MSGraphDirectoryObjectPartnerReference.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSGraphDirectoryObjectPartnerReference.m; path = GeneratedModels/MSGraphDirectoryObjectPartnerReference.m; sourceTree = "<group>"; };
 		98FCC1DA3D46B24AE1FC8A80 /* MSGraphWindowsDeviceAzureADAccount.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSGraphWindowsDeviceAzureADAccount.m; path = GeneratedModels/MSGraphWindowsDeviceAzureADAccount.m; sourceTree = "<group>"; };
 		990817E59C3275051868B41C /* MSGraphIosCertificateProfile.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSGraphIosCertificateProfile.h; path = GeneratedModels/MSGraphIosCertificateProfile.h; sourceTree = "<group>"; };
 		9924CDF4739E182F65F50A11 /* MSGraphWorkbookSessionInfo.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSGraphWorkbookSessionInfo.h; path = GeneratedModels/MSGraphWorkbookSessionInfo.h; sourceTree = "<group>"; };
@@ -2796,6 +2799,7 @@
 		DE022654F7CC5F90EF2AB27D /* MSGraphDeviceEnrollmentWindowsHelloForBusinessConfiguration.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSGraphDeviceEnrollmentWindowsHelloForBusinessConfiguration.m; path = GeneratedModels/MSGraphDeviceEnrollmentWindowsHelloForBusinessConfiguration.m; sourceTree = "<group>"; };
 		DE0B52AE7695BEEE974E4C4A /* MSGraphLicenseUnitsDetail.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSGraphLicenseUnitsDetail.m; path = GeneratedModels/MSGraphLicenseUnitsDetail.m; sourceTree = "<group>"; };
 		DE8D9E39F86A5C71E41E4D21 /* MSGraphIdentity.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSGraphIdentity.h; path = GeneratedModels/MSGraphIdentity.h; sourceTree = "<group>"; };
+		DEB46648202DCD82A28DE105 /* MSGraphDirectoryObjectPartnerReference.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSGraphDirectoryObjectPartnerReference.h; path = GeneratedModels/MSGraphDirectoryObjectPartnerReference.h; sourceTree = "<group>"; };
 		DF0A5CF7B60CDA1BE2E7B4FC /* MSGraphNetworkConnection.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSGraphNetworkConnection.h; path = GeneratedModels/MSGraphNetworkConnection.h; sourceTree = "<group>"; };
 		DF1D9B009DE488B20C9776F7 /* MSGraphDevice.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSGraphDevice.m; path = GeneratedModels/MSGraphDevice.m; sourceTree = "<group>"; };
 		DF503E917C445132DCE01BE4 /* MSGraphMdmWindowsInformationProtectionPolicy.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSGraphMdmWindowsInformationProtectionPolicy.h; path = GeneratedModels/MSGraphMdmWindowsInformationProtectionPolicy.h; sourceTree = "<group>"; };
@@ -4505,6 +4509,8 @@
 				EC8B81AFCE1B36DAAAFA0BCC /* MSGraphLicenseAssignmentState.m */,
 				04FA590C85F211816BD662C7 /* MSGraphLicenseProcessingState.h */,
 				0F34A322287974062CB973BB /* MSGraphLicenseProcessingState.m */,
+				DEB46648202DCD82A28DE105 /* MSGraphDirectoryObjectPartnerReference.h */,
+				98FA211B1ACC8A2EB748F171 /* MSGraphDirectoryObjectPartnerReference.m */,
 			);
 			name = GeneratedModels;
 			sourceTree = "<group>";
@@ -5337,6 +5343,7 @@
 				7DA1554A2ED1C11F11A8A8C4 /* MSGraphCopyNotebookModel.h in Headers */,
 				D7D46D600FAB4F7EF4F8DB0E /* MSGraphLicenseAssignmentState.h in Headers */,
 				6F8CEBBF7277EF40EC2DB7AE /* MSGraphLicenseProcessingState.h in Headers */,
+				20E6E765F1E2742F689CDC88 /* MSGraphDirectoryObjectPartnerReference.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -6178,6 +6185,7 @@
 				0AD2C1CDC480274FB033D25B /* MSGraphCopyNotebookModel.m in Sources */,
 				ED540BE247C1D5E218E65679 /* MSGraphLicenseAssignmentState.m in Sources */,
 				B178BF83A4E88865696A0344 /* MSGraphLicenseProcessingState.m in Sources */,
+				E16E6DAE11AB60DE16D11DD8 /* MSGraphDirectoryObjectPartnerReference.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

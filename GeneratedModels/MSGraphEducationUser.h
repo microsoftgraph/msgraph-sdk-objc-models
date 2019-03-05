@@ -1,7 +1,7 @@
 // Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 
 
-@class MSGraphPhysicalAddress, MSGraphEducationStudent, MSGraphEducationTeacher, MSGraphIdentitySet, MSGraphEducationRelatedContact, MSGraphAssignedLicense, MSGraphAssignedPlan, MSGraphPasswordProfile, MSGraphProvisionedPlan, MSGraphEducationSchool, MSGraphEducationClass, MSGraphUser; 
+@class MSGraphPhysicalAddress, MSGraphEducationStudent, MSGraphEducationTeacher, MSGraphIdentitySet, MSGraphAssignedLicense, MSGraphAssignedPlan, MSGraphPasswordProfile, MSGraphProvisionedPlan, MSGraphEducationSchool, MSGraphEducationClass, MSGraphUser; 
 #import "MSGraphEducationUserRole.h"
 #import "MSGraphEducationExternalSource.h"
 
@@ -18,7 +18,6 @@
     @property (nullable, nonatomic, setter=setStudent:, getter=student) MSGraphEducationStudent* student;
     @property (nullable, nonatomic, setter=setTeacher:, getter=teacher) MSGraphEducationTeacher* teacher;
     @property (nullable, nonatomic, setter=setCreatedBy:, getter=createdBy) MSGraphIdentitySet* createdBy;
-    @property (nullable, nonatomic, setter=setRelatedContacts:, getter=relatedContacts) NSArray* relatedContacts;
     @property (nonatomic, setter=setAccountEnabled:, getter=accountEnabled) BOOL accountEnabled;
     @property (nonnull, nonatomic, setter=setAssignedLicenses:, getter=assignedLicenses) NSArray* assignedLicenses;
     @property (nonnull, nonatomic, setter=setAssignedPlans:, getter=assignedPlans) NSArray* assignedPlans;
