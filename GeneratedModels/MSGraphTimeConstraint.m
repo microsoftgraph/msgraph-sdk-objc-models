@@ -15,7 +15,7 @@
 @interface MSGraphTimeConstraint()
 {
     MSGraphActivityDomain* _activityDomain;
-    NSArray* _timeslots;
+    NSArray* _timeSlots;
 }
 @end
 
@@ -35,29 +35,29 @@
     self.dictionary[@"activityDomain"] = val;
 }
 
-- (NSArray*) timeslots
+- (NSArray*) timeSlots
 {
-    if(!_timeslots){
+    if(!_timeSlots){
         
-    NSMutableArray *timeslotsResult = [NSMutableArray array];
-    NSArray *timeslots = self.dictionary[@"timeslots"];
+    NSMutableArray *timeSlotsResult = [NSMutableArray array];
+    NSArray *timeSlots = self.dictionary[@"timeSlots"];
 
-    if ([timeslots isKindOfClass:[NSArray class]]){
-        for (id tempTimeSlot in timeslots){
-            [timeslotsResult addObject:tempTimeSlot];
+    if ([timeSlots isKindOfClass:[NSArray class]]){
+        for (id tempTimeSlot in timeSlots){
+            [timeSlotsResult addObject:tempTimeSlot];
         }
     }
 
-    _timeslots = timeslotsResult;
+    _timeSlots = timeSlotsResult;
         
     }
-    return _timeslots;
+    return _timeSlots;
 }
 
-- (void) setTimeslots: (NSArray*) val
+- (void) setTimeSlots: (NSArray*) val
 {
-    _timeslots = val;
-    self.dictionary[@"timeslots"] = val;
+    _timeSlots = val;
+    self.dictionary[@"timeSlots"] = val;
 }
 
 @end

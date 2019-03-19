@@ -10,5 +10,6 @@
 
 @property (nullable, nonatomic, setter=setPassword:, getter=password) NSString* password;
 @property (nonatomic, setter=setForceChangePasswordNextSignIn:, getter=forceChangePasswordNextSignIn) BOOL forceChangePasswordNextSignIn;
+@property (nonatomic, setter=setForceChangePasswordNextSignInWithMfa:, getter=forceChangePasswordNextSignInWithMfa) BOOL forceChangePasswordNextSignInWithMfa;
 
 @end

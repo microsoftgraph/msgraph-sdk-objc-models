@@ -22,7 +22,6 @@
     MSGraphEducationStudent* _student;
     MSGraphEducationTeacher* _teacher;
     MSGraphIdentitySet* _createdBy;
-    NSArray* _relatedContacts;
     BOOL _accountEnabled;
     NSArray* _assignedLicenses;
     NSArray* _assignedPlans;
@@ -169,31 +168,6 @@
 {
     _createdBy = val;
     self.dictionary[@"createdBy"] = val;
-}
-
-- (NSArray*) relatedContacts
-{
-    if(!_relatedContacts){
-        
-    NSMutableArray *relatedContactsResult = [NSMutableArray array];
-    NSArray *relatedContacts = self.dictionary[@"relatedContacts"];
-
-    if ([relatedContacts isKindOfClass:[NSArray class]]){
-        for (id tempEducationRelatedContact in relatedContacts){
-            [relatedContactsResult addObject:tempEducationRelatedContact];
-        }
-    }
-
-    _relatedContacts = relatedContactsResult;
-        
-    }
-    return _relatedContacts;
-}
-
-- (void) setRelatedContacts: (NSArray*) val
-{
-    _relatedContacts = val;
-    self.dictionary[@"relatedContacts"] = val;
 }
 
 - (BOOL) accountEnabled
