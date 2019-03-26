@@ -14,37 +14,13 @@
 
 @interface MSGraphLocationConstraint()
 {
+    NSArray* _locations;
     BOOL _isRequired;
     BOOL _suggestLocation;
-    NSArray* _locations;
 }
 @end
 
 @implementation MSGraphLocationConstraint
-
-- (BOOL) isRequired
-{
-    _isRequired = [self.dictionary[@"isRequired"] boolValue];
-    return _isRequired;
-}
-
-- (void) setIsRequired: (BOOL) val
-{
-    _isRequired = val;
-    self.dictionary[@"isRequired"] = @(val);
-}
-
-- (BOOL) suggestLocation
-{
-    _suggestLocation = [self.dictionary[@"suggestLocation"] boolValue];
-    return _suggestLocation;
-}
-
-- (void) setSuggestLocation: (BOOL) val
-{
-    _suggestLocation = val;
-    self.dictionary[@"suggestLocation"] = @(val);
-}
 
 - (NSArray*) locations
 {
@@ -69,6 +45,30 @@
 {
     _locations = val;
     self.dictionary[@"locations"] = val;
+}
+
+- (BOOL) isRequired
+{
+    _isRequired = [self.dictionary[@"isRequired"] boolValue];
+    return _isRequired;
+}
+
+- (void) setIsRequired: (BOOL) val
+{
+    _isRequired = val;
+    self.dictionary[@"isRequired"] = @(val);
+}
+
+- (BOOL) suggestLocation
+{
+    _suggestLocation = [self.dictionary[@"suggestLocation"] boolValue];
+    return _suggestLocation;
+}
+
+- (void) setSuggestLocation: (BOOL) val
+{
+    _suggestLocation = val;
+    self.dictionary[@"suggestLocation"] = @(val);
 }
 
 @end

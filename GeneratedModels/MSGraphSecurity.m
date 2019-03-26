@@ -15,6 +15,8 @@
 @interface MSGraphSecurity()
 {
     NSArray* _alerts;
+    NSArray* _secureScoreControlProfiles;
+    NSArray* _secureScores;
 }
 @end
 
@@ -50,6 +52,56 @@
 {
     _alerts = val;
     self.dictionary[@"alerts"] = val;
+}
+
+- (NSArray*) secureScoreControlProfiles
+{
+    if(!_secureScoreControlProfiles){
+        
+    NSMutableArray *secureScoreControlProfilesResult = [NSMutableArray array];
+    NSArray *secureScoreControlProfiles = self.dictionary[@"secureScoreControlProfiles"];
+
+    if ([secureScoreControlProfiles isKindOfClass:[NSArray class]]){
+        for (id tempSecureScoreControlProfile in secureScoreControlProfiles){
+            [secureScoreControlProfilesResult addObject:tempSecureScoreControlProfile];
+        }
+    }
+
+    _secureScoreControlProfiles = secureScoreControlProfilesResult;
+        
+    }
+    return _secureScoreControlProfiles;
+}
+
+- (void) setSecureScoreControlProfiles: (NSArray*) val
+{
+    _secureScoreControlProfiles = val;
+    self.dictionary[@"secureScoreControlProfiles"] = val;
+}
+
+- (NSArray*) secureScores
+{
+    if(!_secureScores){
+        
+    NSMutableArray *secureScoresResult = [NSMutableArray array];
+    NSArray *secureScores = self.dictionary[@"secureScores"];
+
+    if ([secureScores isKindOfClass:[NSArray class]]){
+        for (id tempSecureScore in secureScores){
+            [secureScoresResult addObject:tempSecureScore];
+        }
+    }
+
+    _secureScores = secureScoresResult;
+        
+    }
+    return _secureScores;
+}
+
+- (void) setSecureScores: (NSArray*) val
+{
+    _secureScores = val;
+    self.dictionary[@"secureScores"] = val;
 }
 
 

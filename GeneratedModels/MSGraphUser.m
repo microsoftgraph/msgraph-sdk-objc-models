@@ -29,6 +29,7 @@
     NSString* _faxNumber;
     NSString* _givenName;
     NSArray* _imAddresses;
+    BOOL _isResourceAccount;
     NSString* _jobTitle;
     NSString* _legalAgeGroupClassification;
     NSArray* _licenseAssignmentStates;
@@ -343,6 +344,18 @@
 - (void) setImAddresses: (NSArray*) val
 {
     self.dictionary[@"imAddresses"] = val;
+}
+
+- (BOOL) isResourceAccount
+{
+    _isResourceAccount = [self.dictionary[@"isResourceAccount"] boolValue];
+    return _isResourceAccount;
+}
+
+- (void) setIsResourceAccount: (BOOL) val
+{
+    _isResourceAccount = val;
+    self.dictionary[@"isResourceAccount"] = @(val);
 }
 
 - (NSString*) jobTitle

@@ -17,6 +17,7 @@
     BOOL _accountEnabled;
     NSArray* _alternativeSecurityIds;
     NSDate* _approximateLastSignInDateTime;
+    NSDate* _complianceExpirationDateTime;
     NSString* _deviceId;
     NSString* _deviceMetadata;
     int32_t _deviceVersion;
@@ -28,6 +29,8 @@
     NSString* _operatingSystem;
     NSString* _operatingSystemVersion;
     NSArray* _physicalIds;
+    NSString* _profileType;
+    NSArray* _systemLabels;
     NSString* _trustType;
     NSArray* _memberOf;
     NSArray* _registeredOwners;
@@ -95,6 +98,20 @@
 {
     _approximateLastSignInDateTime = val;
     self.dictionary[@"approximateLastSignInDateTime"] = [val ms_toString];
+}
+
+- (NSDate*) complianceExpirationDateTime
+{
+    if(!_complianceExpirationDateTime){
+        _complianceExpirationDateTime = [NSDate ms_dateFromString: self.dictionary[@"complianceExpirationDateTime"]];
+    }
+    return _complianceExpirationDateTime;
+}
+
+- (void) setComplianceExpirationDateTime: (NSDate*) val
+{
+    _complianceExpirationDateTime = val;
+    self.dictionary[@"complianceExpirationDateTime"] = [val ms_toString];
 }
 
 - (NSString*) deviceId
@@ -237,6 +254,30 @@
 - (void) setPhysicalIds: (NSArray*) val
 {
     self.dictionary[@"physicalIds"] = val;
+}
+
+- (NSString*) profileType
+{
+    if([[NSNull null] isEqual:self.dictionary[@"profileType"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"profileType"];
+}
+
+- (void) setProfileType: (NSString*) val
+{
+    self.dictionary[@"profileType"] = val;
+}
+
+- (NSArray*) systemLabels
+{
+    return self.dictionary[@"systemLabels"];
+}
+
+- (void) setSystemLabels: (NSArray*) val
+{
+    self.dictionary[@"systemLabels"] = val;
 }
 
 - (NSString*) trustType

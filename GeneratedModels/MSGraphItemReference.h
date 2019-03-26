@@ -16,5 +16,6 @@
 @property (nullable, nonatomic, setter=setPath:, getter=path) NSString* path;
 @property (nullable, nonatomic, setter=setShareId:, getter=shareId) NSString* shareId;
 @property (nullable, nonatomic, setter=setSharepointIds:, getter=sharepointIds) MSGraphSharepointIds* sharepointIds;
+@property (nullable, nonatomic, setter=setSiteId:, getter=siteId) NSString* siteId;
 
 @end
