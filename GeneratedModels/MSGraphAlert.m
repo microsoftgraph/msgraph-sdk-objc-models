@@ -29,6 +29,7 @@
     NSDate* _eventDateTime;
     MSGraphAlertFeedback* _feedback;
     NSArray* _fileStates;
+    NSArray* _historyStates;
     NSArray* _hostStates;
     NSDate* _lastModifiedDateTime;
     NSArray* _malwareStates;
@@ -281,6 +282,31 @@
 {
     _fileStates = val;
     self.dictionary[@"fileStates"] = val;
+}
+
+- (NSArray*) historyStates
+{
+    if(!_historyStates){
+        
+    NSMutableArray *historyStatesResult = [NSMutableArray array];
+    NSArray *historyStates = self.dictionary[@"historyStates"];
+
+    if ([historyStates isKindOfClass:[NSArray class]]){
+        for (id tempAlertHistoryState in historyStates){
+            [historyStatesResult addObject:tempAlertHistoryState];
+        }
+    }
+
+    _historyStates = historyStatesResult;
+        
+    }
+    return _historyStates;
+}
+
+- (void) setHistoryStates: (NSArray*) val
+{
+    _historyStates = val;
+    self.dictionary[@"historyStates"] = val;
 }
 
 - (NSArray*) hostStates

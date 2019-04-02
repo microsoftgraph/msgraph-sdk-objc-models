@@ -16,6 +16,8 @@
 {
     NSString* _displayName;
     NSString* _channelDescription;
+    NSString* _email;
+    NSString* _webUrl;
     NSArray* _tabs;
 }
 @end
@@ -55,6 +57,34 @@
 - (void) setChannelDescription: (NSString*) val
 {
     self.dictionary[@"description"] = val;
+}
+
+- (NSString*) email
+{
+    if([[NSNull null] isEqual:self.dictionary[@"email"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"email"];
+}
+
+- (void) setEmail: (NSString*) val
+{
+    self.dictionary[@"email"] = val;
+}
+
+- (NSString*) webUrl
+{
+    if([[NSNull null] isEqual:self.dictionary[@"webUrl"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"webUrl"];
+}
+
+- (void) setWebUrl: (NSString*) val
+{
+    self.dictionary[@"webUrl"] = val;
 }
 
 - (NSArray*) tabs

@@ -16,6 +16,7 @@
 {
     BOOL _highlightFirstColumn;
     BOOL _highlightLastColumn;
+    NSString* _legacyId;
     NSString* _name;
     BOOL _showBandedColumns;
     BOOL _showBandedRows;
@@ -61,6 +62,20 @@
 {
     _highlightLastColumn = val;
     self.dictionary[@"highlightLastColumn"] = @(val);
+}
+
+- (NSString*) legacyId
+{
+    if([[NSNull null] isEqual:self.dictionary[@"legacyId"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"legacyId"];
+}
+
+- (void) setLegacyId: (NSString*) val
+{
+    self.dictionary[@"legacyId"] = val;
 }
 
 - (NSString*) name
