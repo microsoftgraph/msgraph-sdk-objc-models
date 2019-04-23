@@ -2,10 +2,10 @@ require 'xcodeproj'
 
 def addfiles(direc, current_group, main_target, changed = false)
     puts "addfiles - `direct`=`#{direc}`, `current_group`=`#{current_group}`, `main_target`=`#{main_target}`"
+    current_group.clear
     Dir.glob(direc) do |item|
         puts "addfiles - `item`=`#{item}`"
         next puts "Next because `.` or `.DS_Store`" if item == '.' or item == '.DS_Store'
-        next puts "Next because file (`#{File.basename(item)}`) was in `current_group.children` (#{current_group})" if current_group.children.map { |f| f.name }.include? File.basename(item)
         if File.directory?(item)
             new_folder = File.basename(item)
             created_group = current_group.new_group(new_folder)
