@@ -14,30 +14,17 @@
 
 @interface MSGraphMeetingTimeSuggestion()
 {
-    MSGraphTimeSlot* _meetingTimeSlot;
     double _confidence;
+    int32_t _order;
     MSGraphFreeBusyStatus* _organizerAvailability;
     NSArray* _attendeeAvailability;
     NSArray* _locations;
     NSString* _suggestionReason;
+    MSGraphTimeSlot* _meetingTimeSlot;
 }
 @end
 
 @implementation MSGraphMeetingTimeSuggestion
-
-- (MSGraphTimeSlot*) meetingTimeSlot
-{
-    if(!_meetingTimeSlot){
-        _meetingTimeSlot = [[MSGraphTimeSlot alloc] initWithDictionary: self.dictionary[@"meetingTimeSlot"]];
-    }
-    return _meetingTimeSlot;
-}
-
-- (void) setMeetingTimeSlot: (MSGraphTimeSlot*) val
-{
-    _meetingTimeSlot = val;
-    self.dictionary[@"meetingTimeSlot"] = val;
-}
 
 - (double) confidence
 {
@@ -49,6 +36,18 @@
 {
     _confidence = val;
     self.dictionary[@"confidence"] = @(val);
+}
+
+- (int32_t) order
+{
+    _order = [self.dictionary[@"order"] intValue];
+    return _order;
+}
+
+- (void) setOrder: (int32_t) val
+{
+    _order = val;
+    self.dictionary[@"order"] = @(val);
 }
 
 - (MSGraphFreeBusyStatus*) organizerAvailability
@@ -127,6 +126,20 @@
 - (void) setSuggestionReason: (NSString*) val
 {
     self.dictionary[@"suggestionReason"] = val;
+}
+
+- (MSGraphTimeSlot*) meetingTimeSlot
+{
+    if(!_meetingTimeSlot){
+        _meetingTimeSlot = [[MSGraphTimeSlot alloc] initWithDictionary: self.dictionary[@"meetingTimeSlot"]];
+    }
+    return _meetingTimeSlot;
+}
+
+- (void) setMeetingTimeSlot: (MSGraphTimeSlot*) val
+{
+    _meetingTimeSlot = val;
+    self.dictionary[@"meetingTimeSlot"] = val;
 }
 
 @end

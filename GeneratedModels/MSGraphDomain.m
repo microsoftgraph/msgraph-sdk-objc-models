@@ -21,6 +21,8 @@
     BOOL _isInitial;
     BOOL _isRoot;
     BOOL _isVerified;
+    int32_t _passwordNotificationWindowInDays;
+    int32_t _passwordValidityPeriodInDays;
     NSArray* _supportedServices;
     MSGraphDomainState* _state;
     NSArray* _serviceConfigurationRecords;
@@ -120,6 +122,30 @@
 {
     _isVerified = val;
     self.dictionary[@"isVerified"] = @(val);
+}
+
+- (int32_t) passwordNotificationWindowInDays
+{
+    _passwordNotificationWindowInDays = [self.dictionary[@"passwordNotificationWindowInDays"] intValue];
+    return _passwordNotificationWindowInDays;
+}
+
+- (void) setPasswordNotificationWindowInDays: (int32_t) val
+{
+    _passwordNotificationWindowInDays = val;
+    self.dictionary[@"passwordNotificationWindowInDays"] = @(val);
+}
+
+- (int32_t) passwordValidityPeriodInDays
+{
+    _passwordValidityPeriodInDays = [self.dictionary[@"passwordValidityPeriodInDays"] intValue];
+    return _passwordValidityPeriodInDays;
+}
+
+- (void) setPasswordValidityPeriodInDays: (int32_t) val
+{
+    _passwordValidityPeriodInDays = val;
+    self.dictionary[@"passwordValidityPeriodInDays"] = @(val);
 }
 
 - (NSArray*) supportedServices

@@ -15,6 +15,8 @@
     @property (nonatomic, setter=setIsInitial:, getter=isInitial) BOOL isInitial;
     @property (nonatomic, setter=setIsRoot:, getter=isRoot) BOOL isRoot;
     @property (nonatomic, setter=setIsVerified:, getter=isVerified) BOOL isVerified;
+    @property (nonatomic, setter=setPasswordNotificationWindowInDays:, getter=passwordNotificationWindowInDays) int32_t passwordNotificationWindowInDays;
+    @property (nonatomic, setter=setPasswordValidityPeriodInDays:, getter=passwordValidityPeriodInDays) int32_t passwordValidityPeriodInDays;
     @property (nonnull, nonatomic, setter=setSupportedServices:, getter=supportedServices) NSArray* supportedServices;
     @property (nullable, nonatomic, setter=setState:, getter=state) MSGraphDomainState* state;
     @property (nullable, nonatomic, setter=setServiceConfigurationRecords:, getter=serviceConfigurationRecords) NSArray* serviceConfigurationRecords;

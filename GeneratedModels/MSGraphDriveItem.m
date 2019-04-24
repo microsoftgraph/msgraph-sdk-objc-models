@@ -37,6 +37,7 @@
     NSArray* _children;
     MSGraphListItem* _listItem;
     NSArray* _permissions;
+    NSArray* _subscriptions;
     NSArray* _thumbnails;
     NSArray* _versions;
     MSGraphWorkbook* _workbook;
@@ -392,6 +393,31 @@
 {
     _permissions = val;
     self.dictionary[@"permissions"] = val;
+}
+
+- (NSArray*) subscriptions
+{
+    if(!_subscriptions){
+        
+    NSMutableArray *subscriptionsResult = [NSMutableArray array];
+    NSArray *subscriptions = self.dictionary[@"subscriptions"];
+
+    if ([subscriptions isKindOfClass:[NSArray class]]){
+        for (id tempSubscription in subscriptions){
+            [subscriptionsResult addObject:tempSubscription];
+        }
+    }
+
+    _subscriptions = subscriptionsResult;
+        
+    }
+    return _subscriptions;
+}
+
+- (void) setSubscriptions: (NSArray*) val
+{
+    _subscriptions = val;
+    self.dictionary[@"subscriptions"] = val;
 }
 
 - (NSArray*) thumbnails
