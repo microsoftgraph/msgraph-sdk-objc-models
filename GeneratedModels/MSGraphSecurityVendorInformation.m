@@ -25,6 +25,10 @@
 
 - (NSString*) provider
 {
+    if([[NSNull null] isEqual:self.dictionary[@"provider"]])
+    {
+        return nil;
+    }   
     return self.dictionary[@"provider"];
 }
 
@@ -63,6 +67,10 @@
 
 - (NSString*) vendor
 {
+    if([[NSNull null] isEqual:self.dictionary[@"vendor"]])
+    {
+        return nil;
+    }   
     return self.dictionary[@"vendor"];
 }
 

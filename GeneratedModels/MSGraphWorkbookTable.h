@@ -10,6 +10,7 @@
 
   @property (nonatomic, setter=setHighlightFirstColumn:, getter=highlightFirstColumn) BOOL highlightFirstColumn;
     @property (nonatomic, setter=setHighlightLastColumn:, getter=highlightLastColumn) BOOL highlightLastColumn;
+    @property (nullable, nonatomic, setter=setLegacyId:, getter=legacyId) NSString* legacyId;
     @property (nullable, nonatomic, setter=setName:, getter=name) NSString* name;
     @property (nonatomic, setter=setShowBandedColumns:, getter=showBandedColumns) BOOL showBandedColumns;
     @property (nonatomic, setter=setShowBandedRows:, getter=showBandedRows) BOOL showBandedRows;

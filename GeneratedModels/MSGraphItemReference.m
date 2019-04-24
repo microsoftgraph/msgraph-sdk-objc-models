@@ -21,6 +21,7 @@
     NSString* _path;
     NSString* _shareId;
     MSGraphSharepointIds* _sharepointIds;
+    NSString* _siteId;
 }
 @end
 
@@ -122,6 +123,20 @@
 {
     _sharepointIds = val;
     self.dictionary[@"sharepointIds"] = val;
+}
+
+- (NSString*) siteId
+{
+    if([[NSNull null] isEqual:self.dictionary[@"siteId"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"siteId"];
+}
+
+- (void) setSiteId: (NSString*) val
+{
+    self.dictionary[@"siteId"] = val;
 }
 
 @end
