@@ -1,10 +1,7 @@
 # Microsoft Graph Models SDK 
 
 
-This client library is a release candidate and is still in preview status - please continue to provide feedback as we iterate towards a production supported library.
-
-
-This library supports both iOS and MacOS platforms.
+Get started with the Microsoft Graph Models SDK for ObjectiveC by integrating it into your iOS and MacOS applications!
 
 
 
