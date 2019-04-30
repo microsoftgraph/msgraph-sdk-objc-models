@@ -11,6 +11,7 @@
   @property (nonatomic, setter=setAccountEnabled:, getter=accountEnabled) BOOL accountEnabled;
     @property (nonnull, nonatomic, setter=setAlternativeSecurityIds:, getter=alternativeSecurityIds) NSArray* alternativeSecurityIds;
     @property (nullable, nonatomic, setter=setApproximateLastSignInDateTime:, getter=approximateLastSignInDateTime) NSDate* approximateLastSignInDateTime;
+    @property (nullable, nonatomic, setter=setComplianceExpirationDateTime:, getter=complianceExpirationDateTime) NSDate* complianceExpirationDateTime;
     @property (nullable, nonatomic, setter=setDeviceId:, getter=deviceId) NSString* deviceId;
     @property (nullable, nonatomic, setter=setDeviceMetadata:, getter=deviceMetadata) NSString* deviceMetadata;
     @property (nonatomic, setter=setDeviceVersion:, getter=deviceVersion) int32_t deviceVersion;
@@ -22,6 +23,8 @@
     @property (nullable, nonatomic, setter=setOperatingSystem:, getter=operatingSystem) NSString* operatingSystem;
     @property (nullable, nonatomic, setter=setOperatingSystemVersion:, getter=operatingSystemVersion) NSString* operatingSystemVersion;
     @property (nonnull, nonatomic, setter=setPhysicalIds:, getter=physicalIds) NSArray* physicalIds;
+    @property (nullable, nonatomic, setter=setProfileType:, getter=profileType) NSString* profileType;
+    @property (nonnull, nonatomic, setter=setSystemLabels:, getter=systemLabels) NSArray* systemLabels;
     @property (nullable, nonatomic, setter=setTrustType:, getter=trustType) NSString* trustType;
     @property (nullable, nonatomic, setter=setMemberOf:, getter=memberOf) NSArray* memberOf;
     @property (nullable, nonatomic, setter=setRegisteredOwners:, getter=registeredOwners) NSArray* registeredOwners;

@@ -11,6 +11,6 @@
 @interface MSGraphTimeConstraint : MSObject
 
 @property (nullable, nonatomic, setter=setActivityDomain:, getter=activityDomain) MSGraphActivityDomain* activityDomain;
-@property (nullable, nonatomic, setter=setTimeslots:, getter=timeslots) NSArray* timeslots;
+@property (nullable, nonatomic, setter=setTimeSlots:, getter=timeSlots) NSArray* timeSlots;
 
 @end

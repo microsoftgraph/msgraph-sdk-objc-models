@@ -18,6 +18,7 @@
     NSArray* _names;
     NSArray* _tables;
     NSArray* _worksheets;
+    NSArray* _comments;
     MSGraphWorkbookFunctions* _functions;
 }
 @end
@@ -118,6 +119,31 @@
 {
     _worksheets = val;
     self.dictionary[@"worksheets"] = val;
+}
+
+- (NSArray*) comments
+{
+    if(!_comments){
+        
+    NSMutableArray *commentsResult = [NSMutableArray array];
+    NSArray *comments = self.dictionary[@"comments"];
+
+    if ([comments isKindOfClass:[NSArray class]]){
+        for (id tempWorkbookComment in comments){
+            [commentsResult addObject:tempWorkbookComment];
+        }
+    }
+
+    _comments = commentsResult;
+        
+    }
+    return _comments;
+}
+
+- (void) setComments: (NSArray*) val
+{
+    _comments = val;
+    self.dictionary[@"comments"] = val;
 }
 
 - (MSGraphWorkbookFunctions*) functions

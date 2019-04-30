@@ -16,6 +16,7 @@
 {
     NSString* _password;
     BOOL _forceChangePasswordNextSignIn;
+    BOOL _forceChangePasswordNextSignInWithMfa;
 }
 @end
 
@@ -45,6 +46,18 @@
 {
     _forceChangePasswordNextSignIn = val;
     self.dictionary[@"forceChangePasswordNextSignIn"] = @(val);
+}
+
+- (BOOL) forceChangePasswordNextSignInWithMfa
+{
+    _forceChangePasswordNextSignInWithMfa = [self.dictionary[@"forceChangePasswordNextSignInWithMfa"] boolValue];
+    return _forceChangePasswordNextSignInWithMfa;
+}
+
+- (void) setForceChangePasswordNextSignInWithMfa: (BOOL) val
+{
+    _forceChangePasswordNextSignInWithMfa = val;
+    self.dictionary[@"forceChangePasswordNextSignInWithMfa"] = @(val);
 }
 
 @end

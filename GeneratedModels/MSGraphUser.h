@@ -23,6 +23,7 @@
     @property (nullable, nonatomic, setter=setFaxNumber:, getter=faxNumber) NSString* faxNumber;
     @property (nullable, nonatomic, setter=setGivenName:, getter=givenName) NSString* givenName;
     @property (nullable, nonatomic, setter=setImAddresses:, getter=imAddresses) NSArray* imAddresses;
+    @property (nonatomic, setter=setIsResourceAccount:, getter=isResourceAccount) BOOL isResourceAccount;
     @property (nullable, nonatomic, setter=setJobTitle:, getter=jobTitle) NSString* jobTitle;
     @property (nullable, nonatomic, setter=setLegalAgeGroupClassification:, getter=legalAgeGroupClassification) NSString* legalAgeGroupClassification;
     @property (nullable, nonatomic, setter=setLicenseAssignmentStates:, getter=licenseAssignmentStates) NSArray* licenseAssignmentStates;
