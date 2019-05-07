@@ -34,6 +34,7 @@
     MSGraphSpecialFolder* _specialFolder;
     MSGraphVideo* _video;
     NSString* _webDavUrl;
+    MSGraphItemAnalytics* _analytics;
     NSArray* _children;
     MSGraphListItem* _listItem;
     NSArray* _permissions;
@@ -329,6 +330,20 @@
 - (void) setWebDavUrl: (NSString*) val
 {
     self.dictionary[@"webDavUrl"] = val;
+}
+
+- (MSGraphItemAnalytics*) analytics
+{
+    if(!_analytics){
+        _analytics = [[MSGraphItemAnalytics alloc] initWithDictionary: self.dictionary[@"analytics"]];
+    }
+    return _analytics;
+}
+
+- (void) setAnalytics: (MSGraphItemAnalytics*) val
+{
+    _analytics = val;
+    self.dictionary[@"analytics"] = val;
 }
 
 - (NSArray*) children

@@ -1,7 +1,7 @@
 // Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 
 
-@class MSGraphAudio, MSGraphDeleted, MSGraphFile, MSGraphFileSystemInfo, MSGraphFolder, MSGraphImage, MSGraphGeoCoordinates, MSGraphPackage, MSGraphPhoto, MSGraphPublicationFacet, MSGraphRemoteItem, MSGraphRoot, MSGraphSearchResult, MSGraphShared, MSGraphSharepointIds, MSGraphSpecialFolder, MSGraphVideo, MSGraphListItem, MSGraphPermission, MSGraphSubscription, MSGraphThumbnailSet, MSGraphDriveItemVersion, MSGraphWorkbook; 
+@class MSGraphAudio, MSGraphDeleted, MSGraphFile, MSGraphFileSystemInfo, MSGraphFolder, MSGraphImage, MSGraphGeoCoordinates, MSGraphPackage, MSGraphPhoto, MSGraphPublicationFacet, MSGraphRemoteItem, MSGraphRoot, MSGraphSearchResult, MSGraphShared, MSGraphSharepointIds, MSGraphSpecialFolder, MSGraphVideo, MSGraphItemAnalytics, MSGraphListItem, MSGraphPermission, MSGraphSubscription, MSGraphThumbnailSet, MSGraphDriveItemVersion, MSGraphWorkbook; 
 
 
 #import "MSGraphBaseItem.h"
@@ -28,6 +28,7 @@
     @property (nullable, nonatomic, setter=setSpecialFolder:, getter=specialFolder) MSGraphSpecialFolder* specialFolder;
     @property (nullable, nonatomic, setter=setVideo:, getter=video) MSGraphVideo* video;
     @property (nullable, nonatomic, setter=setWebDavUrl:, getter=webDavUrl) NSString* webDavUrl;
+    @property (nullable, nonatomic, setter=setAnalytics:, getter=analytics) MSGraphItemAnalytics* analytics;
     @property (nullable, nonatomic, setter=setChildren:, getter=children) NSArray* children;
     @property (nullable, nonatomic, setter=setListItem:, getter=listItem) MSGraphListItem* listItem;
     @property (nullable, nonatomic, setter=setPermissions:, getter=permissions) NSArray* permissions;
