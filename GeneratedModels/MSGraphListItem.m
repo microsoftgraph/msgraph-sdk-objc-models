@@ -16,6 +16,7 @@
 {
     MSGraphContentTypeInfo* _contentType;
     MSGraphSharepointIds* _sharepointIds;
+    MSGraphItemAnalytics* _analytics;
     MSGraphDriveItem* _driveItem;
     MSGraphFieldValueSet* _fields;
     NSArray* _versions;
@@ -57,6 +58,20 @@
 {
     _sharepointIds = val;
     self.dictionary[@"sharepointIds"] = val;
+}
+
+- (MSGraphItemAnalytics*) analytics
+{
+    if(!_analytics){
+        _analytics = [[MSGraphItemAnalytics alloc] initWithDictionary: self.dictionary[@"analytics"]];
+    }
+    return _analytics;
+}
+
+- (void) setAnalytics: (MSGraphItemAnalytics*) val
+{
+    _analytics = val;
+    self.dictionary[@"analytics"] = val;
 }
 
 - (MSGraphDriveItem*) driveItem
