@@ -18,6 +18,7 @@
     MSGraphRoot* _root;
     MSGraphSharepointIds* _sharepointIds;
     MSGraphSiteCollection* _siteCollection;
+    MSGraphItemAnalytics* _analytics;
     NSArray* _columns;
     NSArray* _contentTypes;
     MSGraphDrive* _drive;
@@ -92,6 +93,20 @@
 {
     _siteCollection = val;
     self.dictionary[@"siteCollection"] = val;
+}
+
+- (MSGraphItemAnalytics*) analytics
+{
+    if(!_analytics){
+        _analytics = [[MSGraphItemAnalytics alloc] initWithDictionary: self.dictionary[@"analytics"]];
+    }
+    return _analytics;
+}
+
+- (void) setAnalytics: (MSGraphItemAnalytics*) val
+{
+    _analytics = val;
+    self.dictionary[@"analytics"] = val;
 }
 
 - (NSArray*) columns
