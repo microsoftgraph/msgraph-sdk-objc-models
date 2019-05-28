@@ -522,6 +522,7 @@
 #import "MSGraphMessageRule.h"
 #import "MSGraphSingleValueLegacyExtendedProperty.h"
 #import "MSGraphMultiValueLegacyExtendedProperty.h"
+#import "MSGraphMailSearchFolder.h"
 #import "MSGraphFileAttachment.h"
 #import "MSGraphItemAttachment.h"
 #import "MSGraphEventMessage.h"
