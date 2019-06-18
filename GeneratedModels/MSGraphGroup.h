@@ -23,6 +23,7 @@
     @property (nullable, nonatomic, setter=setOnPremisesProvisioningErrors:, getter=onPremisesProvisioningErrors) NSArray* onPremisesProvisioningErrors;
     @property (nullable, nonatomic, setter=setOnPremisesSecurityIdentifier:, getter=onPremisesSecurityIdentifier) NSString* onPremisesSecurityIdentifier;
     @property (nonatomic, setter=setOnPremisesSyncEnabled:, getter=onPremisesSyncEnabled) BOOL onPremisesSyncEnabled;
+    @property (nullable, nonatomic, setter=setPreferredDataLocation:, getter=preferredDataLocation) NSString* preferredDataLocation;
     @property (nonnull, nonatomic, setter=setProxyAddresses:, getter=proxyAddresses) NSArray* proxyAddresses;
     @property (nullable, nonatomic, setter=setRenewedDateTime:, getter=renewedDateTime) NSDate* renewedDateTime;
     @property (nonatomic, setter=setSecurityEnabled:, getter=securityEnabled) BOOL securityEnabled;

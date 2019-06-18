@@ -49,6 +49,7 @@
     @property (nonnull, nonatomic, setter=setProvisionedPlans:, getter=provisionedPlans) NSArray* provisionedPlans;
     @property (nonnull, nonatomic, setter=setProxyAddresses:, getter=proxyAddresses) NSArray* proxyAddresses;
     @property (nonatomic, setter=setShowInAddressList:, getter=showInAddressList) BOOL showInAddressList;
+    @property (nullable, nonatomic, setter=setSignInSessionsValidFromDateTime:, getter=signInSessionsValidFromDateTime) NSDate* signInSessionsValidFromDateTime;
     @property (nullable, nonatomic, setter=setState:, getter=state) NSString* state;
     @property (nullable, nonatomic, setter=setStreetAddress:, getter=streetAddress) NSString* streetAddress;
     @property (nullable, nonatomic, setter=setSurname:, getter=surname) NSString* surname;
