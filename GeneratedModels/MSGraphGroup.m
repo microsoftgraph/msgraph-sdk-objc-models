@@ -29,6 +29,7 @@
     NSArray* _onPremisesProvisioningErrors;
     NSString* _onPremisesSecurityIdentifier;
     BOOL _onPremisesSyncEnabled;
+    NSString* _preferredDataLocation;
     NSArray* _proxyAddresses;
     NSDate* _renewedDateTime;
     BOOL _securityEnabled;
@@ -295,6 +296,20 @@
 {
     _onPremisesSyncEnabled = val;
     self.dictionary[@"onPremisesSyncEnabled"] = @(val);
+}
+
+- (NSString*) preferredDataLocation
+{
+    if([[NSNull null] isEqual:self.dictionary[@"preferredDataLocation"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"preferredDataLocation"];
+}
+
+- (void) setPreferredDataLocation: (NSString*) val
+{
+    self.dictionary[@"preferredDataLocation"] = val;
 }
 
 - (NSArray*) proxyAddresses

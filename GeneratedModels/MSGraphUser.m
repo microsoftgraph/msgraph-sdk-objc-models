@@ -55,6 +55,7 @@
     NSArray* _provisionedPlans;
     NSArray* _proxyAddresses;
     BOOL _showInAddressList;
+    NSDate* _signInSessionsValidFromDateTime;
     NSString* _state;
     NSString* _streetAddress;
     NSString* _surname;
@@ -727,6 +728,20 @@
 {
     _showInAddressList = val;
     self.dictionary[@"showInAddressList"] = @(val);
+}
+
+- (NSDate*) signInSessionsValidFromDateTime
+{
+    if(!_signInSessionsValidFromDateTime){
+        _signInSessionsValidFromDateTime = [NSDate ms_dateFromString: self.dictionary[@"signInSessionsValidFromDateTime"]];
+    }
+    return _signInSessionsValidFromDateTime;
+}
+
+- (void) setSignInSessionsValidFromDateTime: (NSDate*) val
+{
+    _signInSessionsValidFromDateTime = val;
+    self.dictionary[@"signInSessionsValidFromDateTime"] = [val ms_toString];
 }
 
 - (NSString*) state
