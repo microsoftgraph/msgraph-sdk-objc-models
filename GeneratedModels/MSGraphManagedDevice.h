@@ -1,7 +1,7 @@
 // Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 
 
-@class MSGraphDeviceActionResult, MSGraphConfigurationManagerClientEnabledFeatures, MSGraphDeviceHealthAttestationState, MSGraphDeviceConfigurationState, MSGraphDeviceCategory, MSGraphDeviceCompliancePolicyState; 
+@class MSGraphDeviceActionResult, MSGraphConfigurationManagerClientEnabledFeatures, MSGraphDeviceHealthAttestationState, MSGraphDeviceConfigurationState, MSGraphDeviceCompliancePolicyState, MSGraphDeviceCategory; 
 #import "MSGraphManagedDeviceOwnerType.h"
 #import "MSGraphComplianceState.h"
 #import "MSGraphManagementAgentType.h"
@@ -63,7 +63,7 @@
     @property (nullable, nonatomic, setter=setManagedDeviceName:, getter=managedDeviceName) NSString* managedDeviceName;
     @property (nonnull, nonatomic, setter=setPartnerReportedThreatState:, getter=partnerReportedThreatState) MSGraphManagedDevicePartnerReportedHealthState* partnerReportedThreatState;
     @property (nullable, nonatomic, setter=setDeviceConfigurationStates:, getter=deviceConfigurationStates) NSArray* deviceConfigurationStates;
-    @property (nullable, nonatomic, setter=setDeviceCategory:, getter=deviceCategory) MSGraphDeviceCategory* deviceCategory;
     @property (nullable, nonatomic, setter=setDeviceCompliancePolicyStates:, getter=deviceCompliancePolicyStates) NSArray* deviceCompliancePolicyStates;
+    @property (nullable, nonatomic, setter=setDeviceCategory:, getter=deviceCategory) MSGraphDeviceCategory* deviceCategory;
   
 @end

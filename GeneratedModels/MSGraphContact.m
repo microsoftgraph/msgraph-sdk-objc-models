@@ -47,10 +47,10 @@
     NSString* _spouseName;
     NSString* _personalNotes;
     NSArray* _children;
-    NSArray* _extensions;
     NSArray* _singleValueExtendedProperties;
     NSArray* _multiValueExtendedProperties;
     MSGraphProfilePhoto* _photo;
+    NSArray* _extensions;
 }
 @end
 
@@ -536,31 +536,6 @@
     self.dictionary[@"children"] = val;
 }
 
-- (NSArray*) extensions
-{
-    if(!_extensions){
-        
-    NSMutableArray *extensionsResult = [NSMutableArray array];
-    NSArray *extensions = self.dictionary[@"extensions"];
-
-    if ([extensions isKindOfClass:[NSArray class]]){
-        for (id tempExtension in extensions){
-            [extensionsResult addObject:tempExtension];
-        }
-    }
-
-    _extensions = extensionsResult;
-        
-    }
-    return _extensions;
-}
-
-- (void) setExtensions: (NSArray*) val
-{
-    _extensions = val;
-    self.dictionary[@"extensions"] = val;
-}
-
 - (NSArray*) singleValueExtendedProperties
 {
     if(!_singleValueExtendedProperties){
@@ -623,6 +598,31 @@
 {
     _photo = val;
     self.dictionary[@"photo"] = val;
+}
+
+- (NSArray*) extensions
+{
+    if(!_extensions){
+        
+    NSMutableArray *extensionsResult = [NSMutableArray array];
+    NSArray *extensions = self.dictionary[@"extensions"];
+
+    if ([extensions isKindOfClass:[NSArray class]]){
+        for (id tempExtension in extensions){
+            [extensionsResult addObject:tempExtension];
+        }
+    }
+
+    _extensions = extensionsResult;
+        
+    }
+    return _extensions;
+}
+
+- (void) setExtensions: (NSArray*) val
+{
+    _extensions = val;
+    self.dictionary[@"extensions"] = val;
 }
 
 

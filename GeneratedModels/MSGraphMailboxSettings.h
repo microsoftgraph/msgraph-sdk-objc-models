@@ -14,5 +14,7 @@
 @property (nullable, nonatomic, setter=setTimeZone:, getter=timeZone) NSString* timeZone;
 @property (nullable, nonatomic, setter=setLanguage:, getter=language) MSGraphLocaleInfo* language;
 @property (nullable, nonatomic, setter=setWorkingHours:, getter=workingHours) MSGraphWorkingHours* workingHours;
+@property (nullable, nonatomic, setter=setDateFormat:, getter=dateFormat) NSString* dateFormat;
+@property (nullable, nonatomic, setter=setTimeFormat:, getter=timeFormat) NSString* timeFormat;
 
 @end

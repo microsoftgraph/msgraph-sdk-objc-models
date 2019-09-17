@@ -61,8 +61,8 @@
     NSString* _managedDeviceName;
     MSGraphManagedDevicePartnerReportedHealthState* _partnerReportedThreatState;
     NSArray* _deviceConfigurationStates;
-    MSGraphDeviceCategory* _deviceCategory;
     NSArray* _deviceCompliancePolicyStates;
+    MSGraphDeviceCategory* _deviceCategory;
 }
 @end
 
@@ -743,20 +743,6 @@
     self.dictionary[@"deviceConfigurationStates"] = val;
 }
 
-- (MSGraphDeviceCategory*) deviceCategory
-{
-    if(!_deviceCategory){
-        _deviceCategory = [[MSGraphDeviceCategory alloc] initWithDictionary: self.dictionary[@"deviceCategory"]];
-    }
-    return _deviceCategory;
-}
-
-- (void) setDeviceCategory: (MSGraphDeviceCategory*) val
-{
-    _deviceCategory = val;
-    self.dictionary[@"deviceCategory"] = val;
-}
-
 - (NSArray*) deviceCompliancePolicyStates
 {
     if(!_deviceCompliancePolicyStates){
@@ -780,6 +766,20 @@
 {
     _deviceCompliancePolicyStates = val;
     self.dictionary[@"deviceCompliancePolicyStates"] = val;
+}
+
+- (MSGraphDeviceCategory*) deviceCategory
+{
+    if(!_deviceCategory){
+        _deviceCategory = [[MSGraphDeviceCategory alloc] initWithDictionary: self.dictionary[@"deviceCategory"]];
+    }
+    return _deviceCategory;
+}
+
+- (void) setDeviceCategory: (MSGraphDeviceCategory*) val
+{
+    _deviceCategory = val;
+    self.dictionary[@"deviceCategory"] = val;
 }
 
 

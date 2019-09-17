@@ -17,8 +17,8 @@
     NSString* _displayName;
     NSString* _locationEmailAddress;
     MSGraphPhysicalAddress* _address;
-    MSGraphOutlookGeoCoordinates* _coordinates;
     NSString* _locationUri;
+    MSGraphOutlookGeoCoordinates* _coordinates;
     MSGraphLocationType* _locationType;
     NSString* _uniqueId;
     MSGraphLocationUniqueIdType* _uniqueIdType;
@@ -69,20 +69,6 @@
     self.dictionary[@"address"] = val;
 }
 
-- (MSGraphOutlookGeoCoordinates*) coordinates
-{
-    if(!_coordinates){
-        _coordinates = [[MSGraphOutlookGeoCoordinates alloc] initWithDictionary: self.dictionary[@"coordinates"]];
-    }
-    return _coordinates;
-}
-
-- (void) setCoordinates: (MSGraphOutlookGeoCoordinates*) val
-{
-    _coordinates = val;
-    self.dictionary[@"coordinates"] = val;
-}
-
 - (NSString*) locationUri
 {
     if([[NSNull null] isEqual:self.dictionary[@"locationUri"]])
@@ -95,6 +81,20 @@
 - (void) setLocationUri: (NSString*) val
 {
     self.dictionary[@"locationUri"] = val;
+}
+
+- (MSGraphOutlookGeoCoordinates*) coordinates
+{
+    if(!_coordinates){
+        _coordinates = [[MSGraphOutlookGeoCoordinates alloc] initWithDictionary: self.dictionary[@"coordinates"]];
+    }
+    return _coordinates;
+}
+
+- (void) setCoordinates: (MSGraphOutlookGeoCoordinates*) val
+{
+    _coordinates = val;
+    self.dictionary[@"coordinates"] = val;
 }
 
 - (MSGraphLocationType*) locationType

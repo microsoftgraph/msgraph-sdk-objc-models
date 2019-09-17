@@ -14,14 +14,10 @@
 
 @interface MSGraphDeviceManagement()
 {
-    MSGraphDeviceManagementSubscriptionState* _subscriptionState;
     MSGraphDeviceManagementSettings* _settings;
     MSGraphIntuneBrand* _intuneBrand;
+    MSGraphDeviceManagementSubscriptionState* _subscriptionState;
     NSArray* _termsAndConditions;
-    MSGraphApplePushNotificationCertificate* _applePushNotificationCertificate;
-    MSGraphManagedDeviceOverview* _managedDeviceOverview;
-    NSArray* _detectedApps;
-    NSArray* _managedDevices;
     NSArray* _deviceConfigurations;
     NSArray* _deviceCompliancePolicies;
     MSGraphSoftwareUpdateStatusSummary* _softwareUpdateStatusSummary;
@@ -35,15 +31,19 @@
     MSGraphOnPremisesConditionalAccessSettings* _conditionalAccessSettings;
     NSArray* _mobileThreatDefenseConnectors;
     NSArray* _deviceManagementPartners;
+    MSGraphApplePushNotificationCertificate* _applePushNotificationCertificate;
+    MSGraphManagedDeviceOverview* _managedDeviceOverview;
+    NSArray* _detectedApps;
+    NSArray* _managedDevices;
     NSArray* _notificationMessageTemplates;
     NSArray* _roleDefinitions;
     NSArray* _roleAssignments;
     NSArray* _resourceOperations;
-    NSArray* _telecomExpenseManagementPartners;
     NSArray* _remoteAssistancePartners;
+    NSArray* _telecomExpenseManagementPartners;
+    NSArray* _troubleshootingEvents;
     NSArray* _windowsInformationProtectionAppLearningSummaries;
     NSArray* _windowsInformationProtectionNetworkLearningSummaries;
-    NSArray* _troubleshootingEvents;
 }
 @end
 
@@ -56,20 +56,6 @@
     }
     return self;
 }
-- (MSGraphDeviceManagementSubscriptionState*) subscriptionState
-{
-    if(!_subscriptionState){
-        _subscriptionState = [self.dictionary[@"subscriptionState"] toMSGraphDeviceManagementSubscriptionState];
-    }
-    return _subscriptionState;
-}
-
-- (void) setSubscriptionState: (MSGraphDeviceManagementSubscriptionState*) val
-{
-    _subscriptionState = val;
-    self.dictionary[@"subscriptionState"] = val;
-}
-
 - (MSGraphDeviceManagementSettings*) settings
 {
     if(!_settings){
@@ -98,6 +84,20 @@
     self.dictionary[@"intuneBrand"] = val;
 }
 
+- (MSGraphDeviceManagementSubscriptionState*) subscriptionState
+{
+    if(!_subscriptionState){
+        _subscriptionState = [self.dictionary[@"subscriptionState"] toMSGraphDeviceManagementSubscriptionState];
+    }
+    return _subscriptionState;
+}
+
+- (void) setSubscriptionState: (MSGraphDeviceManagementSubscriptionState*) val
+{
+    _subscriptionState = val;
+    self.dictionary[@"subscriptionState"] = val;
+}
+
 - (NSArray*) termsAndConditions
 {
     if(!_termsAndConditions){
@@ -121,84 +121,6 @@
 {
     _termsAndConditions = val;
     self.dictionary[@"termsAndConditions"] = val;
-}
-
-- (MSGraphApplePushNotificationCertificate*) applePushNotificationCertificate
-{
-    if(!_applePushNotificationCertificate){
-        _applePushNotificationCertificate = [[MSGraphApplePushNotificationCertificate alloc] initWithDictionary: self.dictionary[@"applePushNotificationCertificate"]];
-    }
-    return _applePushNotificationCertificate;
-}
-
-- (void) setApplePushNotificationCertificate: (MSGraphApplePushNotificationCertificate*) val
-{
-    _applePushNotificationCertificate = val;
-    self.dictionary[@"applePushNotificationCertificate"] = val;
-}
-
-- (MSGraphManagedDeviceOverview*) managedDeviceOverview
-{
-    if(!_managedDeviceOverview){
-        _managedDeviceOverview = [[MSGraphManagedDeviceOverview alloc] initWithDictionary: self.dictionary[@"managedDeviceOverview"]];
-    }
-    return _managedDeviceOverview;
-}
-
-- (void) setManagedDeviceOverview: (MSGraphManagedDeviceOverview*) val
-{
-    _managedDeviceOverview = val;
-    self.dictionary[@"managedDeviceOverview"] = val;
-}
-
-- (NSArray*) detectedApps
-{
-    if(!_detectedApps){
-        
-    NSMutableArray *detectedAppsResult = [NSMutableArray array];
-    NSArray *detectedApps = self.dictionary[@"detectedApps"];
-
-    if ([detectedApps isKindOfClass:[NSArray class]]){
-        for (id tempDetectedApp in detectedApps){
-            [detectedAppsResult addObject:tempDetectedApp];
-        }
-    }
-
-    _detectedApps = detectedAppsResult;
-        
-    }
-    return _detectedApps;
-}
-
-- (void) setDetectedApps: (NSArray*) val
-{
-    _detectedApps = val;
-    self.dictionary[@"detectedApps"] = val;
-}
-
-- (NSArray*) managedDevices
-{
-    if(!_managedDevices){
-        
-    NSMutableArray *managedDevicesResult = [NSMutableArray array];
-    NSArray *managedDevices = self.dictionary[@"managedDevices"];
-
-    if ([managedDevices isKindOfClass:[NSArray class]]){
-        for (id tempManagedDevice in managedDevices){
-            [managedDevicesResult addObject:tempManagedDevice];
-        }
-    }
-
-    _managedDevices = managedDevicesResult;
-        
-    }
-    return _managedDevices;
-}
-
-- (void) setManagedDevices: (NSArray*) val
-{
-    _managedDevices = val;
-    self.dictionary[@"managedDevices"] = val;
 }
 
 - (NSArray*) deviceConfigurations
@@ -482,6 +404,84 @@
     self.dictionary[@"deviceManagementPartners"] = val;
 }
 
+- (MSGraphApplePushNotificationCertificate*) applePushNotificationCertificate
+{
+    if(!_applePushNotificationCertificate){
+        _applePushNotificationCertificate = [[MSGraphApplePushNotificationCertificate alloc] initWithDictionary: self.dictionary[@"applePushNotificationCertificate"]];
+    }
+    return _applePushNotificationCertificate;
+}
+
+- (void) setApplePushNotificationCertificate: (MSGraphApplePushNotificationCertificate*) val
+{
+    _applePushNotificationCertificate = val;
+    self.dictionary[@"applePushNotificationCertificate"] = val;
+}
+
+- (MSGraphManagedDeviceOverview*) managedDeviceOverview
+{
+    if(!_managedDeviceOverview){
+        _managedDeviceOverview = [[MSGraphManagedDeviceOverview alloc] initWithDictionary: self.dictionary[@"managedDeviceOverview"]];
+    }
+    return _managedDeviceOverview;
+}
+
+- (void) setManagedDeviceOverview: (MSGraphManagedDeviceOverview*) val
+{
+    _managedDeviceOverview = val;
+    self.dictionary[@"managedDeviceOverview"] = val;
+}
+
+- (NSArray*) detectedApps
+{
+    if(!_detectedApps){
+        
+    NSMutableArray *detectedAppsResult = [NSMutableArray array];
+    NSArray *detectedApps = self.dictionary[@"detectedApps"];
+
+    if ([detectedApps isKindOfClass:[NSArray class]]){
+        for (id tempDetectedApp in detectedApps){
+            [detectedAppsResult addObject:tempDetectedApp];
+        }
+    }
+
+    _detectedApps = detectedAppsResult;
+        
+    }
+    return _detectedApps;
+}
+
+- (void) setDetectedApps: (NSArray*) val
+{
+    _detectedApps = val;
+    self.dictionary[@"detectedApps"] = val;
+}
+
+- (NSArray*) managedDevices
+{
+    if(!_managedDevices){
+        
+    NSMutableArray *managedDevicesResult = [NSMutableArray array];
+    NSArray *managedDevices = self.dictionary[@"managedDevices"];
+
+    if ([managedDevices isKindOfClass:[NSArray class]]){
+        for (id tempManagedDevice in managedDevices){
+            [managedDevicesResult addObject:tempManagedDevice];
+        }
+    }
+
+    _managedDevices = managedDevicesResult;
+        
+    }
+    return _managedDevices;
+}
+
+- (void) setManagedDevices: (NSArray*) val
+{
+    _managedDevices = val;
+    self.dictionary[@"managedDevices"] = val;
+}
+
 - (NSArray*) notificationMessageTemplates
 {
     if(!_notificationMessageTemplates){
@@ -582,6 +582,31 @@
     self.dictionary[@"resourceOperations"] = val;
 }
 
+- (NSArray*) remoteAssistancePartners
+{
+    if(!_remoteAssistancePartners){
+        
+    NSMutableArray *remoteAssistancePartnersResult = [NSMutableArray array];
+    NSArray *remoteAssistancePartners = self.dictionary[@"remoteAssistancePartners"];
+
+    if ([remoteAssistancePartners isKindOfClass:[NSArray class]]){
+        for (id tempRemoteAssistancePartner in remoteAssistancePartners){
+            [remoteAssistancePartnersResult addObject:tempRemoteAssistancePartner];
+        }
+    }
+
+    _remoteAssistancePartners = remoteAssistancePartnersResult;
+        
+    }
+    return _remoteAssistancePartners;
+}
+
+- (void) setRemoteAssistancePartners: (NSArray*) val
+{
+    _remoteAssistancePartners = val;
+    self.dictionary[@"remoteAssistancePartners"] = val;
+}
+
 - (NSArray*) telecomExpenseManagementPartners
 {
     if(!_telecomExpenseManagementPartners){
@@ -607,29 +632,29 @@
     self.dictionary[@"telecomExpenseManagementPartners"] = val;
 }
 
-- (NSArray*) remoteAssistancePartners
+- (NSArray*) troubleshootingEvents
 {
-    if(!_remoteAssistancePartners){
+    if(!_troubleshootingEvents){
         
-    NSMutableArray *remoteAssistancePartnersResult = [NSMutableArray array];
-    NSArray *remoteAssistancePartners = self.dictionary[@"remoteAssistancePartners"];
+    NSMutableArray *troubleshootingEventsResult = [NSMutableArray array];
+    NSArray *troubleshootingEvents = self.dictionary[@"troubleshootingEvents"];
 
-    if ([remoteAssistancePartners isKindOfClass:[NSArray class]]){
-        for (id tempRemoteAssistancePartner in remoteAssistancePartners){
-            [remoteAssistancePartnersResult addObject:tempRemoteAssistancePartner];
+    if ([troubleshootingEvents isKindOfClass:[NSArray class]]){
+        for (id tempDeviceManagementTroubleshootingEvent in troubleshootingEvents){
+            [troubleshootingEventsResult addObject:tempDeviceManagementTroubleshootingEvent];
         }
     }
 
-    _remoteAssistancePartners = remoteAssistancePartnersResult;
+    _troubleshootingEvents = troubleshootingEventsResult;
         
     }
-    return _remoteAssistancePartners;
+    return _troubleshootingEvents;
 }
 
-- (void) setRemoteAssistancePartners: (NSArray*) val
+- (void) setTroubleshootingEvents: (NSArray*) val
 {
-    _remoteAssistancePartners = val;
-    self.dictionary[@"remoteAssistancePartners"] = val;
+    _troubleshootingEvents = val;
+    self.dictionary[@"troubleshootingEvents"] = val;
 }
 
 - (NSArray*) windowsInformationProtectionAppLearningSummaries
@@ -680,31 +705,6 @@
 {
     _windowsInformationProtectionNetworkLearningSummaries = val;
     self.dictionary[@"windowsInformationProtectionNetworkLearningSummaries"] = val;
-}
-
-- (NSArray*) troubleshootingEvents
-{
-    if(!_troubleshootingEvents){
-        
-    NSMutableArray *troubleshootingEventsResult = [NSMutableArray array];
-    NSArray *troubleshootingEvents = self.dictionary[@"troubleshootingEvents"];
-
-    if ([troubleshootingEvents isKindOfClass:[NSArray class]]){
-        for (id tempDeviceManagementTroubleshootingEvent in troubleshootingEvents){
-            [troubleshootingEventsResult addObject:tempDeviceManagementTroubleshootingEvent];
-        }
-    }
-
-    _troubleshootingEvents = troubleshootingEventsResult;
-        
-    }
-    return _troubleshootingEvents;
-}
-
-- (void) setTroubleshootingEvents: (NSArray*) val
-{
-    _troubleshootingEvents = val;
-    self.dictionary[@"troubleshootingEvents"] = val;
 }
 
 

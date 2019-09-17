@@ -65,16 +65,16 @@
 
 - (NSString*) itemId
 {
-    if([[NSNull null] isEqual:self.dictionary[@"ItemId"]])
+    if([[NSNull null] isEqual:self.dictionary[@"itemId"]])
     {
         return nil;
     }   
-    return self.dictionary[@"ItemId"];
+    return self.dictionary[@"itemId"];
 }
 
 - (void) setItemId: (NSString*) val
 {
-    self.dictionary[@"ItemId"] = val;
+    self.dictionary[@"itemId"] = val;
 }
 
 @end
