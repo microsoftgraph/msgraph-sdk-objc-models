@@ -43,12 +43,12 @@
     MSGraphRecipient* _organizer;
     NSString* _webLink;
     NSString* _onlineMeetingUrl;
-    MSGraphCalendar* _calendar;
-    NSArray* _instances;
-    NSArray* _extensions;
     NSArray* _attachments;
     NSArray* _singleValueExtendedProperties;
     NSArray* _multiValueExtendedProperties;
+    MSGraphCalendar* _calendar;
+    NSArray* _instances;
+    NSArray* _extensions;
 }
 @end
 
@@ -475,70 +475,6 @@
     self.dictionary[@"onlineMeetingUrl"] = val;
 }
 
-- (MSGraphCalendar*) calendar
-{
-    if(!_calendar){
-        _calendar = [[MSGraphCalendar alloc] initWithDictionary: self.dictionary[@"calendar"]];
-    }
-    return _calendar;
-}
-
-- (void) setCalendar: (MSGraphCalendar*) val
-{
-    _calendar = val;
-    self.dictionary[@"calendar"] = val;
-}
-
-- (NSArray*) instances
-{
-    if(!_instances){
-        
-    NSMutableArray *instancesResult = [NSMutableArray array];
-    NSArray *instances = self.dictionary[@"instances"];
-
-    if ([instances isKindOfClass:[NSArray class]]){
-        for (id tempEvent in instances){
-            [instancesResult addObject:tempEvent];
-        }
-    }
-
-    _instances = instancesResult;
-        
-    }
-    return _instances;
-}
-
-- (void) setInstances: (NSArray*) val
-{
-    _instances = val;
-    self.dictionary[@"instances"] = val;
-}
-
-- (NSArray*) extensions
-{
-    if(!_extensions){
-        
-    NSMutableArray *extensionsResult = [NSMutableArray array];
-    NSArray *extensions = self.dictionary[@"extensions"];
-
-    if ([extensions isKindOfClass:[NSArray class]]){
-        for (id tempExtension in extensions){
-            [extensionsResult addObject:tempExtension];
-        }
-    }
-
-    _extensions = extensionsResult;
-        
-    }
-    return _extensions;
-}
-
-- (void) setExtensions: (NSArray*) val
-{
-    _extensions = val;
-    self.dictionary[@"extensions"] = val;
-}
-
 - (NSArray*) attachments
 {
     if(!_attachments){
@@ -612,6 +548,70 @@
 {
     _multiValueExtendedProperties = val;
     self.dictionary[@"multiValueExtendedProperties"] = val;
+}
+
+- (MSGraphCalendar*) calendar
+{
+    if(!_calendar){
+        _calendar = [[MSGraphCalendar alloc] initWithDictionary: self.dictionary[@"calendar"]];
+    }
+    return _calendar;
+}
+
+- (void) setCalendar: (MSGraphCalendar*) val
+{
+    _calendar = val;
+    self.dictionary[@"calendar"] = val;
+}
+
+- (NSArray*) instances
+{
+    if(!_instances){
+        
+    NSMutableArray *instancesResult = [NSMutableArray array];
+    NSArray *instances = self.dictionary[@"instances"];
+
+    if ([instances isKindOfClass:[NSArray class]]){
+        for (id tempEvent in instances){
+            [instancesResult addObject:tempEvent];
+        }
+    }
+
+    _instances = instancesResult;
+        
+    }
+    return _instances;
+}
+
+- (void) setInstances: (NSArray*) val
+{
+    _instances = val;
+    self.dictionary[@"instances"] = val;
+}
+
+- (NSArray*) extensions
+{
+    if(!_extensions){
+        
+    NSMutableArray *extensionsResult = [NSMutableArray array];
+    NSArray *extensions = self.dictionary[@"extensions"];
+
+    if ([extensions isKindOfClass:[NSArray class]]){
+        for (id tempExtension in extensions){
+            [extensionsResult addObject:tempExtension];
+        }
+    }
+
+    _extensions = extensionsResult;
+        
+    }
+    return _extensions;
+}
+
+- (void) setExtensions: (NSArray*) val
+{
+    _extensions = val;
+    self.dictionary[@"extensions"] = val;
 }
 
 

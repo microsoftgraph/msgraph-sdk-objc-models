@@ -1,7 +1,7 @@
 // Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 
 
-@class MSGraphResponseStatus, MSGraphItemBody, MSGraphDateTimeTimeZone, MSGraphLocation, MSGraphPatternedRecurrence, MSGraphAttendee, MSGraphRecipient, MSGraphCalendar, MSGraphExtension, MSGraphAttachment, MSGraphSingleValueLegacyExtendedProperty, MSGraphMultiValueLegacyExtendedProperty; 
+@class MSGraphResponseStatus, MSGraphItemBody, MSGraphDateTimeTimeZone, MSGraphLocation, MSGraphPatternedRecurrence, MSGraphAttendee, MSGraphRecipient, MSGraphAttachment, MSGraphSingleValueLegacyExtendedProperty, MSGraphMultiValueLegacyExtendedProperty, MSGraphCalendar, MSGraphExtension; 
 #import "MSGraphImportance.h"
 #import "MSGraphSensitivity.h"
 #import "MSGraphFreeBusyStatus.h"
@@ -41,11 +41,11 @@
     @property (nullable, nonatomic, setter=setOrganizer:, getter=organizer) MSGraphRecipient* organizer;
     @property (nullable, nonatomic, setter=setWebLink:, getter=webLink) NSString* webLink;
     @property (nullable, nonatomic, setter=setOnlineMeetingUrl:, getter=onlineMeetingUrl) NSString* onlineMeetingUrl;
-    @property (nullable, nonatomic, setter=setCalendar:, getter=calendar) MSGraphCalendar* calendar;
-    @property (nullable, nonatomic, setter=setInstances:, getter=instances) NSArray* instances;
-    @property (nullable, nonatomic, setter=setExtensions:, getter=extensions) NSArray* extensions;
     @property (nullable, nonatomic, setter=setAttachments:, getter=attachments) NSArray* attachments;
     @property (nullable, nonatomic, setter=setSingleValueExtendedProperties:, getter=singleValueExtendedProperties) NSArray* singleValueExtendedProperties;
     @property (nullable, nonatomic, setter=setMultiValueExtendedProperties:, getter=multiValueExtendedProperties) NSArray* multiValueExtendedProperties;
+    @property (nullable, nonatomic, setter=setCalendar:, getter=calendar) MSGraphCalendar* calendar;
+    @property (nullable, nonatomic, setter=setInstances:, getter=instances) NSArray* instances;
+    @property (nullable, nonatomic, setter=setExtensions:, getter=extensions) NSArray* extensions;
   
 @end

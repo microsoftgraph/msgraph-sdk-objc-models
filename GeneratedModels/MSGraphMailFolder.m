@@ -19,11 +19,11 @@
     int32_t _childFolderCount;
     int32_t _unreadItemCount;
     int32_t _totalItemCount;
+    NSArray* _singleValueExtendedProperties;
+    NSArray* _multiValueExtendedProperties;
     NSArray* _messages;
     NSArray* _messageRules;
     NSArray* _childFolders;
-    NSArray* _singleValueExtendedProperties;
-    NSArray* _multiValueExtendedProperties;
 }
 @end
 
@@ -100,6 +100,56 @@
     self.dictionary[@"totalItemCount"] = @(val);
 }
 
+- (NSArray*) singleValueExtendedProperties
+{
+    if(!_singleValueExtendedProperties){
+        
+    NSMutableArray *singleValueExtendedPropertiesResult = [NSMutableArray array];
+    NSArray *singleValueExtendedProperties = self.dictionary[@"singleValueExtendedProperties"];
+
+    if ([singleValueExtendedProperties isKindOfClass:[NSArray class]]){
+        for (id tempSingleValueLegacyExtendedProperty in singleValueExtendedProperties){
+            [singleValueExtendedPropertiesResult addObject:tempSingleValueLegacyExtendedProperty];
+        }
+    }
+
+    _singleValueExtendedProperties = singleValueExtendedPropertiesResult;
+        
+    }
+    return _singleValueExtendedProperties;
+}
+
+- (void) setSingleValueExtendedProperties: (NSArray*) val
+{
+    _singleValueExtendedProperties = val;
+    self.dictionary[@"singleValueExtendedProperties"] = val;
+}
+
+- (NSArray*) multiValueExtendedProperties
+{
+    if(!_multiValueExtendedProperties){
+        
+    NSMutableArray *multiValueExtendedPropertiesResult = [NSMutableArray array];
+    NSArray *multiValueExtendedProperties = self.dictionary[@"multiValueExtendedProperties"];
+
+    if ([multiValueExtendedProperties isKindOfClass:[NSArray class]]){
+        for (id tempMultiValueLegacyExtendedProperty in multiValueExtendedProperties){
+            [multiValueExtendedPropertiesResult addObject:tempMultiValueLegacyExtendedProperty];
+        }
+    }
+
+    _multiValueExtendedProperties = multiValueExtendedPropertiesResult;
+        
+    }
+    return _multiValueExtendedProperties;
+}
+
+- (void) setMultiValueExtendedProperties: (NSArray*) val
+{
+    _multiValueExtendedProperties = val;
+    self.dictionary[@"multiValueExtendedProperties"] = val;
+}
+
 - (NSArray*) messages
 {
     if(!_messages){
@@ -173,56 +223,6 @@
 {
     _childFolders = val;
     self.dictionary[@"childFolders"] = val;
-}
-
-- (NSArray*) singleValueExtendedProperties
-{
-    if(!_singleValueExtendedProperties){
-        
-    NSMutableArray *singleValueExtendedPropertiesResult = [NSMutableArray array];
-    NSArray *singleValueExtendedProperties = self.dictionary[@"singleValueExtendedProperties"];
-
-    if ([singleValueExtendedProperties isKindOfClass:[NSArray class]]){
-        for (id tempSingleValueLegacyExtendedProperty in singleValueExtendedProperties){
-            [singleValueExtendedPropertiesResult addObject:tempSingleValueLegacyExtendedProperty];
-        }
-    }
-
-    _singleValueExtendedProperties = singleValueExtendedPropertiesResult;
-        
-    }
-    return _singleValueExtendedProperties;
-}
-
-- (void) setSingleValueExtendedProperties: (NSArray*) val
-{
-    _singleValueExtendedProperties = val;
-    self.dictionary[@"singleValueExtendedProperties"] = val;
-}
-
-- (NSArray*) multiValueExtendedProperties
-{
-    if(!_multiValueExtendedProperties){
-        
-    NSMutableArray *multiValueExtendedPropertiesResult = [NSMutableArray array];
-    NSArray *multiValueExtendedProperties = self.dictionary[@"multiValueExtendedProperties"];
-
-    if ([multiValueExtendedProperties isKindOfClass:[NSArray class]]){
-        for (id tempMultiValueLegacyExtendedProperty in multiValueExtendedProperties){
-            [multiValueExtendedPropertiesResult addObject:tempMultiValueLegacyExtendedProperty];
-        }
-    }
-
-    _multiValueExtendedProperties = multiValueExtendedPropertiesResult;
-        
-    }
-    return _multiValueExtendedProperties;
-}
-
-- (void) setMultiValueExtendedProperties: (NSArray*) val
-{
-    _multiValueExtendedProperties = val;
-    self.dictionary[@"multiValueExtendedProperties"] = val;
 }
 
 

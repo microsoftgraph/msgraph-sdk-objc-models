@@ -1,7 +1,7 @@
 // Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 
 
-@class MSGraphItemBody, MSGraphRecipient, MSGraphExtension, MSGraphAttachment, MSGraphSingleValueLegacyExtendedProperty, MSGraphMultiValueLegacyExtendedProperty; 
+@class MSGraphItemBody, MSGraphRecipient, MSGraphSingleValueLegacyExtendedProperty, MSGraphMultiValueLegacyExtendedProperty, MSGraphExtension, MSGraphAttachment; 
 
 
 #import "MSGraphOutlookItem.h"
@@ -16,10 +16,10 @@
     @property (nullable, nonatomic, setter=setConversationThreadId:, getter=conversationThreadId) NSString* conversationThreadId;
     @property (nonnull, nonatomic, setter=setNewParticipants:, getter=getNewParticipants) NSArray* newParticipants;
     @property (nullable, nonatomic, setter=setConversationId:, getter=conversationId) NSString* conversationId;
-    @property (nullable, nonatomic, setter=setExtensions:, getter=extensions) NSArray* extensions;
     @property (nullable, nonatomic, setter=setInReplyTo:, getter=inReplyTo) MSGraphPost* inReplyTo;
-    @property (nullable, nonatomic, setter=setAttachments:, getter=attachments) NSArray* attachments;
     @property (nullable, nonatomic, setter=setSingleValueExtendedProperties:, getter=singleValueExtendedProperties) NSArray* singleValueExtendedProperties;
     @property (nullable, nonatomic, setter=setMultiValueExtendedProperties:, getter=multiValueExtendedProperties) NSArray* multiValueExtendedProperties;
+    @property (nullable, nonatomic, setter=setExtensions:, getter=extensions) NSArray* extensions;
+    @property (nullable, nonatomic, setter=setAttachments:, getter=attachments) NSArray* attachments;
   
 @end

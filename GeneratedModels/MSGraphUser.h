@@ -1,7 +1,7 @@
 // Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 
 
-@class MSGraphAssignedLicense, MSGraphAssignedPlan, MSGraphLicenseAssignmentState, MSGraphOnPremisesExtensionAttributes, MSGraphOnPremisesProvisioningError, MSGraphPasswordProfile, MSGraphProvisionedPlan, MSGraphMailboxSettings, MSGraphDirectoryObject, MSGraphLicenseDetails, MSGraphExtension, MSGraphOutlookUser, MSGraphMessage, MSGraphMailFolder, MSGraphCalendar, MSGraphCalendarGroup, MSGraphEvent, MSGraphPerson, MSGraphContact, MSGraphContactFolder, MSGraphInferenceClassification, MSGraphProfilePhoto, MSGraphDrive, MSGraphPlannerUser, MSGraphOnenote, MSGraphManagedDevice, MSGraphManagedAppRegistration, MSGraphDeviceManagementTroubleshootingEvent, MSGraphUserActivity, MSGraphOfficeGraphInsights, MSGraphUserSettings, MSGraphGroup; 
+@class MSGraphAssignedLicense, MSGraphAssignedPlan, MSGraphLicenseAssignmentState, MSGraphOnPremisesExtensionAttributes, MSGraphOnPremisesProvisioningError, MSGraphPasswordProfile, MSGraphProvisionedPlan, MSGraphMailboxSettings, MSGraphDirectoryObject, MSGraphLicenseDetails, MSGraphOutlookUser, MSGraphMessage, MSGraphMailFolder, MSGraphCalendar, MSGraphCalendarGroup, MSGraphEvent, MSGraphPerson, MSGraphContact, MSGraphContactFolder, MSGraphInferenceClassification, MSGraphProfilePhoto, MSGraphDrive, MSGraphExtension, MSGraphManagedDevice, MSGraphManagedAppRegistration, MSGraphDeviceManagementTroubleshootingEvent, MSGraphPlannerUser, MSGraphOfficeGraphInsights, MSGraphUserSettings, MSGraphOnenote, MSGraphUserActivity, MSGraphGroup; 
 
 
 #import "MSGraphDirectoryObject.h"
@@ -57,6 +57,7 @@
     @property (nullable, nonatomic, setter=setUserPrincipalName:, getter=userPrincipalName) NSString* userPrincipalName;
     @property (nullable, nonatomic, setter=setUserType:, getter=userType) NSString* userType;
     @property (nullable, nonatomic, setter=setMailboxSettings:, getter=mailboxSettings) MSGraphMailboxSettings* mailboxSettings;
+    @property (nonatomic, setter=setDeviceEnrollmentLimit:, getter=deviceEnrollmentLimit) int32_t deviceEnrollmentLimit;
     @property (nullable, nonatomic, setter=setAboutMe:, getter=aboutMe) NSString* aboutMe;
     @property (nonnull, nonatomic, setter=setBirthday:, getter=birthday) NSDate* birthday;
     @property (nonnull, nonatomic, setter=setHireDate:, getter=hireDate) NSDate* hireDate;
@@ -67,7 +68,6 @@
     @property (nullable, nonatomic, setter=setResponsibilities:, getter=responsibilities) NSArray* responsibilities;
     @property (nullable, nonatomic, setter=setSchools:, getter=schools) NSArray* schools;
     @property (nullable, nonatomic, setter=setSkills:, getter=skills) NSArray* skills;
-    @property (nonatomic, setter=setDeviceEnrollmentLimit:, getter=deviceEnrollmentLimit) int32_t deviceEnrollmentLimit;
     @property (nullable, nonatomic, setter=setOwnedDevices:, getter=ownedDevices) NSArray* ownedDevices;
     @property (nullable, nonatomic, setter=setRegisteredDevices:, getter=registeredDevices) NSArray* registeredDevices;
     @property (nullable, nonatomic, setter=setManager:, getter=manager) MSGraphDirectoryObject* manager;
@@ -77,7 +77,6 @@
     @property (nullable, nonatomic, setter=setOwnedObjects:, getter=ownedObjects) NSArray* ownedObjects;
     @property (nullable, nonatomic, setter=setLicenseDetails:, getter=licenseDetails) NSArray* licenseDetails;
     @property (nullable, nonatomic, setter=setTransitiveMemberOf:, getter=transitiveMemberOf) NSArray* transitiveMemberOf;
-    @property (nullable, nonatomic, setter=setExtensions:, getter=extensions) NSArray* extensions;
     @property (nullable, nonatomic, setter=setOutlook:, getter=outlook) MSGraphOutlookUser* outlook;
     @property (nullable, nonatomic, setter=setMessages:, getter=messages) NSArray* messages;
     @property (nullable, nonatomic, setter=setMailFolders:, getter=mailFolders) NSArray* mailFolders;
@@ -94,14 +93,15 @@
     @property (nullable, nonatomic, setter=setPhotos:, getter=photos) NSArray* photos;
     @property (nullable, nonatomic, setter=setDrive:, getter=drive) MSGraphDrive* drive;
     @property (nullable, nonatomic, setter=setDrives:, getter=drives) NSArray* drives;
-    @property (nullable, nonatomic, setter=setPlanner:, getter=planner) MSGraphPlannerUser* planner;
-    @property (nullable, nonatomic, setter=setOnenote:, getter=onenote) MSGraphOnenote* onenote;
+    @property (nullable, nonatomic, setter=setExtensions:, getter=extensions) NSArray* extensions;
     @property (nullable, nonatomic, setter=setManagedDevices:, getter=managedDevices) NSArray* managedDevices;
     @property (nullable, nonatomic, setter=setManagedAppRegistrations:, getter=managedAppRegistrations) NSArray* managedAppRegistrations;
     @property (nullable, nonatomic, setter=setDeviceManagementTroubleshootingEvents:, getter=deviceManagementTroubleshootingEvents) NSArray* deviceManagementTroubleshootingEvents;
-    @property (nullable, nonatomic, setter=setActivities:, getter=activities) NSArray* activities;
+    @property (nullable, nonatomic, setter=setPlanner:, getter=planner) MSGraphPlannerUser* planner;
     @property (nullable, nonatomic, setter=setInsights:, getter=insights) MSGraphOfficeGraphInsights* insights;
     @property (nullable, nonatomic, setter=setSettings:, getter=settings) MSGraphUserSettings* settings;
+    @property (nullable, nonatomic, setter=setOnenote:, getter=onenote) MSGraphOnenote* onenote;
+    @property (nullable, nonatomic, setter=setActivities:, getter=activities) NSArray* activities;
     @property (nullable, nonatomic, setter=setJoinedTeams:, getter=joinedTeams) NSArray* joinedTeams;
   
 @end

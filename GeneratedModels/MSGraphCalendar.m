@@ -21,10 +21,10 @@
     BOOL _canViewPrivateItems;
     BOOL _canEdit;
     MSGraphEmailAddress* _owner;
-    NSArray* _events;
-    NSArray* _calendarView;
     NSArray* _singleValueExtendedProperties;
     NSArray* _multiValueExtendedProperties;
+    NSArray* _events;
+    NSArray* _calendarView;
 }
 @end
 
@@ -129,56 +129,6 @@
     self.dictionary[@"owner"] = val;
 }
 
-- (NSArray*) events
-{
-    if(!_events){
-        
-    NSMutableArray *eventsResult = [NSMutableArray array];
-    NSArray *events = self.dictionary[@"events"];
-
-    if ([events isKindOfClass:[NSArray class]]){
-        for (id tempEvent in events){
-            [eventsResult addObject:tempEvent];
-        }
-    }
-
-    _events = eventsResult;
-        
-    }
-    return _events;
-}
-
-- (void) setEvents: (NSArray*) val
-{
-    _events = val;
-    self.dictionary[@"events"] = val;
-}
-
-- (NSArray*) calendarView
-{
-    if(!_calendarView){
-        
-    NSMutableArray *calendarViewResult = [NSMutableArray array];
-    NSArray *calendarView = self.dictionary[@"calendarView"];
-
-    if ([calendarView isKindOfClass:[NSArray class]]){
-        for (id tempEvent in calendarView){
-            [calendarViewResult addObject:tempEvent];
-        }
-    }
-
-    _calendarView = calendarViewResult;
-        
-    }
-    return _calendarView;
-}
-
-- (void) setCalendarView: (NSArray*) val
-{
-    _calendarView = val;
-    self.dictionary[@"calendarView"] = val;
-}
-
 - (NSArray*) singleValueExtendedProperties
 {
     if(!_singleValueExtendedProperties){
@@ -227,6 +177,56 @@
 {
     _multiValueExtendedProperties = val;
     self.dictionary[@"multiValueExtendedProperties"] = val;
+}
+
+- (NSArray*) events
+{
+    if(!_events){
+        
+    NSMutableArray *eventsResult = [NSMutableArray array];
+    NSArray *events = self.dictionary[@"events"];
+
+    if ([events isKindOfClass:[NSArray class]]){
+        for (id tempEvent in events){
+            [eventsResult addObject:tempEvent];
+        }
+    }
+
+    _events = eventsResult;
+        
+    }
+    return _events;
+}
+
+- (void) setEvents: (NSArray*) val
+{
+    _events = val;
+    self.dictionary[@"events"] = val;
+}
+
+- (NSArray*) calendarView
+{
+    if(!_calendarView){
+        
+    NSMutableArray *calendarViewResult = [NSMutableArray array];
+    NSArray *calendarView = self.dictionary[@"calendarView"];
+
+    if ([calendarView isKindOfClass:[NSArray class]]){
+        for (id tempEvent in calendarView){
+            [calendarViewResult addObject:tempEvent];
+        }
+    }
+
+    _calendarView = calendarViewResult;
+        
+    }
+    return _calendarView;
+}
+
+- (void) setCalendarView: (NSArray*) val
+{
+    _calendarView = val;
+    self.dictionary[@"calendarView"] = val;
 }
 
 

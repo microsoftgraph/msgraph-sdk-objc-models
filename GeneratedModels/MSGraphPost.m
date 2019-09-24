@@ -22,11 +22,11 @@
     NSString* _conversationThreadId;
     NSArray* _newParticipants;
     NSString* _conversationId;
-    NSArray* _extensions;
     MSGraphPost* _inReplyTo;
-    NSArray* _attachments;
     NSArray* _singleValueExtendedProperties;
     NSArray* _multiValueExtendedProperties;
+    NSArray* _extensions;
+    NSArray* _attachments;
 }
 @end
 
@@ -160,31 +160,6 @@
     self.dictionary[@"conversationId"] = val;
 }
 
-- (NSArray*) extensions
-{
-    if(!_extensions){
-        
-    NSMutableArray *extensionsResult = [NSMutableArray array];
-    NSArray *extensions = self.dictionary[@"extensions"];
-
-    if ([extensions isKindOfClass:[NSArray class]]){
-        for (id tempExtension in extensions){
-            [extensionsResult addObject:tempExtension];
-        }
-    }
-
-    _extensions = extensionsResult;
-        
-    }
-    return _extensions;
-}
-
-- (void) setExtensions: (NSArray*) val
-{
-    _extensions = val;
-    self.dictionary[@"extensions"] = val;
-}
-
 - (MSGraphPost*) inReplyTo
 {
     if(!_inReplyTo){
@@ -197,31 +172,6 @@
 {
     _inReplyTo = val;
     self.dictionary[@"inReplyTo"] = val;
-}
-
-- (NSArray*) attachments
-{
-    if(!_attachments){
-        
-    NSMutableArray *attachmentsResult = [NSMutableArray array];
-    NSArray *attachments = self.dictionary[@"attachments"];
-
-    if ([attachments isKindOfClass:[NSArray class]]){
-        for (id tempAttachment in attachments){
-            [attachmentsResult addObject:tempAttachment];
-        }
-    }
-
-    _attachments = attachmentsResult;
-        
-    }
-    return _attachments;
-}
-
-- (void) setAttachments: (NSArray*) val
-{
-    _attachments = val;
-    self.dictionary[@"attachments"] = val;
 }
 
 - (NSArray*) singleValueExtendedProperties
@@ -272,6 +222,56 @@
 {
     _multiValueExtendedProperties = val;
     self.dictionary[@"multiValueExtendedProperties"] = val;
+}
+
+- (NSArray*) extensions
+{
+    if(!_extensions){
+        
+    NSMutableArray *extensionsResult = [NSMutableArray array];
+    NSArray *extensions = self.dictionary[@"extensions"];
+
+    if ([extensions isKindOfClass:[NSArray class]]){
+        for (id tempExtension in extensions){
+            [extensionsResult addObject:tempExtension];
+        }
+    }
+
+    _extensions = extensionsResult;
+        
+    }
+    return _extensions;
+}
+
+- (void) setExtensions: (NSArray*) val
+{
+    _extensions = val;
+    self.dictionary[@"extensions"] = val;
+}
+
+- (NSArray*) attachments
+{
+    if(!_attachments){
+        
+    NSMutableArray *attachmentsResult = [NSMutableArray array];
+    NSArray *attachments = self.dictionary[@"attachments"];
+
+    if ([attachments isKindOfClass:[NSArray class]]){
+        for (id tempAttachment in attachments){
+            [attachmentsResult addObject:tempAttachment];
+        }
+    }
+
+    _attachments = attachmentsResult;
+        
+    }
+    return _attachments;
+}
+
+- (void) setAttachments: (NSArray*) val
+{
+    _attachments = val;
+    self.dictionary[@"attachments"] = val;
 }
 
 

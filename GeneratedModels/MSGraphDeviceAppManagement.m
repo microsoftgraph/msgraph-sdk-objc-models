@@ -18,6 +18,7 @@
     BOOL _isEnabledForMicrosoftStoreForBusiness;
     NSString* _microsoftStoreForBusinessLanguage;
     NSDate* _microsoftStoreForBusinessLastCompletedApplicationSyncTime;
+    NSArray* _managedEBooks;
     NSArray* _mobileApps;
     NSArray* _mobileAppCategories;
     NSArray* _mobileAppConfigurations;
@@ -31,7 +32,6 @@
     NSArray* _windowsInformationProtectionPolicies;
     NSArray* _managedAppRegistrations;
     NSArray* _managedAppStatuses;
-    NSArray* _managedEBooks;
 }
 @end
 
@@ -96,6 +96,31 @@
 {
     _microsoftStoreForBusinessLastCompletedApplicationSyncTime = val;
     self.dictionary[@"microsoftStoreForBusinessLastCompletedApplicationSyncTime"] = [val ms_toString];
+}
+
+- (NSArray*) managedEBooks
+{
+    if(!_managedEBooks){
+        
+    NSMutableArray *managedEBooksResult = [NSMutableArray array];
+    NSArray *managedEBooks = self.dictionary[@"managedEBooks"];
+
+    if ([managedEBooks isKindOfClass:[NSArray class]]){
+        for (id tempManagedEBook in managedEBooks){
+            [managedEBooksResult addObject:tempManagedEBook];
+        }
+    }
+
+    _managedEBooks = managedEBooksResult;
+        
+    }
+    return _managedEBooks;
+}
+
+- (void) setManagedEBooks: (NSArray*) val
+{
+    _managedEBooks = val;
+    self.dictionary[@"managedEBooks"] = val;
 }
 
 - (NSArray*) mobileApps
@@ -421,31 +446,6 @@
 {
     _managedAppStatuses = val;
     self.dictionary[@"managedAppStatuses"] = val;
-}
-
-- (NSArray*) managedEBooks
-{
-    if(!_managedEBooks){
-        
-    NSMutableArray *managedEBooksResult = [NSMutableArray array];
-    NSArray *managedEBooks = self.dictionary[@"managedEBooks"];
-
-    if ([managedEBooks isKindOfClass:[NSArray class]]){
-        for (id tempManagedEBook in managedEBooks){
-            [managedEBooksResult addObject:tempManagedEBook];
-        }
-    }
-
-    _managedEBooks = managedEBooksResult;
-        
-    }
-    return _managedEBooks;
-}
-
-- (void) setManagedEBooks: (NSArray*) val
-{
-    _managedEBooks = val;
-    self.dictionary[@"managedEBooks"] = val;
 }
 
 

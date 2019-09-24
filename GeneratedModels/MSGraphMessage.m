@@ -39,10 +39,10 @@
     NSString* _webLink;
     MSGraphInferenceClassificationType* _inferenceClassification;
     MSGraphFollowupFlag* _flag;
-    NSArray* _attachments;
-    NSArray* _extensions;
     NSArray* _singleValueExtendedProperties;
     NSArray* _multiValueExtendedProperties;
+    NSArray* _attachments;
+    NSArray* _extensions;
 }
 @end
 
@@ -450,56 +450,6 @@
     self.dictionary[@"flag"] = val;
 }
 
-- (NSArray*) attachments
-{
-    if(!_attachments){
-        
-    NSMutableArray *attachmentsResult = [NSMutableArray array];
-    NSArray *attachments = self.dictionary[@"attachments"];
-
-    if ([attachments isKindOfClass:[NSArray class]]){
-        for (id tempAttachment in attachments){
-            [attachmentsResult addObject:tempAttachment];
-        }
-    }
-
-    _attachments = attachmentsResult;
-        
-    }
-    return _attachments;
-}
-
-- (void) setAttachments: (NSArray*) val
-{
-    _attachments = val;
-    self.dictionary[@"attachments"] = val;
-}
-
-- (NSArray*) extensions
-{
-    if(!_extensions){
-        
-    NSMutableArray *extensionsResult = [NSMutableArray array];
-    NSArray *extensions = self.dictionary[@"extensions"];
-
-    if ([extensions isKindOfClass:[NSArray class]]){
-        for (id tempExtension in extensions){
-            [extensionsResult addObject:tempExtension];
-        }
-    }
-
-    _extensions = extensionsResult;
-        
-    }
-    return _extensions;
-}
-
-- (void) setExtensions: (NSArray*) val
-{
-    _extensions = val;
-    self.dictionary[@"extensions"] = val;
-}
-
 - (NSArray*) singleValueExtendedProperties
 {
     if(!_singleValueExtendedProperties){
@@ -548,6 +498,56 @@
 {
     _multiValueExtendedProperties = val;
     self.dictionary[@"multiValueExtendedProperties"] = val;
+}
+
+- (NSArray*) attachments
+{
+    if(!_attachments){
+        
+    NSMutableArray *attachmentsResult = [NSMutableArray array];
+    NSArray *attachments = self.dictionary[@"attachments"];
+
+    if ([attachments isKindOfClass:[NSArray class]]){
+        for (id tempAttachment in attachments){
+            [attachmentsResult addObject:tempAttachment];
+        }
+    }
+
+    _attachments = attachmentsResult;
+        
+    }
+    return _attachments;
+}
+
+- (void) setAttachments: (NSArray*) val
+{
+    _attachments = val;
+    self.dictionary[@"attachments"] = val;
+}
+
+- (NSArray*) extensions
+{
+    if(!_extensions){
+        
+    NSMutableArray *extensionsResult = [NSMutableArray array];
+    NSArray *extensions = self.dictionary[@"extensions"];
+
+    if ([extensions isKindOfClass:[NSArray class]]){
+        for (id tempExtension in extensions){
+            [extensionsResult addObject:tempExtension];
+        }
+    }
+
+    _extensions = extensionsResult;
+        
+    }
+    return _extensions;
+}
+
+- (void) setExtensions: (NSArray*) val
+{
+    _extensions = val;
+    self.dictionary[@"extensions"] = val;
 }
 
 
