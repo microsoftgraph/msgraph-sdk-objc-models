@@ -47,22 +47,22 @@
     MSGraphDirectoryObject* _createdOnBehalfOf;
     NSArray* _owners;
     NSArray* _settings;
-    NSArray* _extensions;
+    NSArray* _conversations;
+    NSArray* _photos;
+    NSArray* _acceptedSenders;
+    NSArray* _rejectedSenders;
     NSArray* _threads;
     MSGraphCalendar* _calendar;
     NSArray* _calendarView;
     NSArray* _events;
-    NSArray* _conversations;
     MSGraphProfilePhoto* _photo;
-    NSArray* _photos;
-    NSArray* _acceptedSenders;
-    NSArray* _rejectedSenders;
     MSGraphDrive* _drive;
     NSArray* _drives;
     NSArray* _sites;
+    NSArray* _extensions;
+    NSArray* _groupLifecyclePolicies;
     MSGraphPlannerGroup* _planner;
     MSGraphOnenote* _onenote;
-    NSArray* _groupLifecyclePolicies;
     MSGraphTeam* _team;
 }
 @end
@@ -611,29 +611,104 @@
     self.dictionary[@"settings"] = val;
 }
 
-- (NSArray*) extensions
+- (NSArray*) conversations
 {
-    if(!_extensions){
+    if(!_conversations){
         
-    NSMutableArray *extensionsResult = [NSMutableArray array];
-    NSArray *extensions = self.dictionary[@"extensions"];
+    NSMutableArray *conversationsResult = [NSMutableArray array];
+    NSArray *conversations = self.dictionary[@"conversations"];
 
-    if ([extensions isKindOfClass:[NSArray class]]){
-        for (id tempExtension in extensions){
-            [extensionsResult addObject:tempExtension];
+    if ([conversations isKindOfClass:[NSArray class]]){
+        for (id tempConversation in conversations){
+            [conversationsResult addObject:tempConversation];
         }
     }
 
-    _extensions = extensionsResult;
+    _conversations = conversationsResult;
         
     }
-    return _extensions;
+    return _conversations;
 }
 
-- (void) setExtensions: (NSArray*) val
+- (void) setConversations: (NSArray*) val
 {
-    _extensions = val;
-    self.dictionary[@"extensions"] = val;
+    _conversations = val;
+    self.dictionary[@"conversations"] = val;
+}
+
+- (NSArray*) photos
+{
+    if(!_photos){
+        
+    NSMutableArray *photosResult = [NSMutableArray array];
+    NSArray *photos = self.dictionary[@"photos"];
+
+    if ([photos isKindOfClass:[NSArray class]]){
+        for (id tempProfilePhoto in photos){
+            [photosResult addObject:tempProfilePhoto];
+        }
+    }
+
+    _photos = photosResult;
+        
+    }
+    return _photos;
+}
+
+- (void) setPhotos: (NSArray*) val
+{
+    _photos = val;
+    self.dictionary[@"photos"] = val;
+}
+
+- (NSArray*) acceptedSenders
+{
+    if(!_acceptedSenders){
+        
+    NSMutableArray *acceptedSendersResult = [NSMutableArray array];
+    NSArray *acceptedSenders = self.dictionary[@"acceptedSenders"];
+
+    if ([acceptedSenders isKindOfClass:[NSArray class]]){
+        for (id tempDirectoryObject in acceptedSenders){
+            [acceptedSendersResult addObject:tempDirectoryObject];
+        }
+    }
+
+    _acceptedSenders = acceptedSendersResult;
+        
+    }
+    return _acceptedSenders;
+}
+
+- (void) setAcceptedSenders: (NSArray*) val
+{
+    _acceptedSenders = val;
+    self.dictionary[@"acceptedSenders"] = val;
+}
+
+- (NSArray*) rejectedSenders
+{
+    if(!_rejectedSenders){
+        
+    NSMutableArray *rejectedSendersResult = [NSMutableArray array];
+    NSArray *rejectedSenders = self.dictionary[@"rejectedSenders"];
+
+    if ([rejectedSenders isKindOfClass:[NSArray class]]){
+        for (id tempDirectoryObject in rejectedSenders){
+            [rejectedSendersResult addObject:tempDirectoryObject];
+        }
+    }
+
+    _rejectedSenders = rejectedSendersResult;
+        
+    }
+    return _rejectedSenders;
+}
+
+- (void) setRejectedSenders: (NSArray*) val
+{
+    _rejectedSenders = val;
+    self.dictionary[@"rejectedSenders"] = val;
 }
 
 - (NSArray*) threads
@@ -725,31 +800,6 @@
     self.dictionary[@"events"] = val;
 }
 
-- (NSArray*) conversations
-{
-    if(!_conversations){
-        
-    NSMutableArray *conversationsResult = [NSMutableArray array];
-    NSArray *conversations = self.dictionary[@"conversations"];
-
-    if ([conversations isKindOfClass:[NSArray class]]){
-        for (id tempConversation in conversations){
-            [conversationsResult addObject:tempConversation];
-        }
-    }
-
-    _conversations = conversationsResult;
-        
-    }
-    return _conversations;
-}
-
-- (void) setConversations: (NSArray*) val
-{
-    _conversations = val;
-    self.dictionary[@"conversations"] = val;
-}
-
 - (MSGraphProfilePhoto*) photo
 {
     if(!_photo){
@@ -762,81 +812,6 @@
 {
     _photo = val;
     self.dictionary[@"photo"] = val;
-}
-
-- (NSArray*) photos
-{
-    if(!_photos){
-        
-    NSMutableArray *photosResult = [NSMutableArray array];
-    NSArray *photos = self.dictionary[@"photos"];
-
-    if ([photos isKindOfClass:[NSArray class]]){
-        for (id tempProfilePhoto in photos){
-            [photosResult addObject:tempProfilePhoto];
-        }
-    }
-
-    _photos = photosResult;
-        
-    }
-    return _photos;
-}
-
-- (void) setPhotos: (NSArray*) val
-{
-    _photos = val;
-    self.dictionary[@"photos"] = val;
-}
-
-- (NSArray*) acceptedSenders
-{
-    if(!_acceptedSenders){
-        
-    NSMutableArray *acceptedSendersResult = [NSMutableArray array];
-    NSArray *acceptedSenders = self.dictionary[@"acceptedSenders"];
-
-    if ([acceptedSenders isKindOfClass:[NSArray class]]){
-        for (id tempDirectoryObject in acceptedSenders){
-            [acceptedSendersResult addObject:tempDirectoryObject];
-        }
-    }
-
-    _acceptedSenders = acceptedSendersResult;
-        
-    }
-    return _acceptedSenders;
-}
-
-- (void) setAcceptedSenders: (NSArray*) val
-{
-    _acceptedSenders = val;
-    self.dictionary[@"acceptedSenders"] = val;
-}
-
-- (NSArray*) rejectedSenders
-{
-    if(!_rejectedSenders){
-        
-    NSMutableArray *rejectedSendersResult = [NSMutableArray array];
-    NSArray *rejectedSenders = self.dictionary[@"rejectedSenders"];
-
-    if ([rejectedSenders isKindOfClass:[NSArray class]]){
-        for (id tempDirectoryObject in rejectedSenders){
-            [rejectedSendersResult addObject:tempDirectoryObject];
-        }
-    }
-
-    _rejectedSenders = rejectedSendersResult;
-        
-    }
-    return _rejectedSenders;
-}
-
-- (void) setRejectedSenders: (NSArray*) val
-{
-    _rejectedSenders = val;
-    self.dictionary[@"rejectedSenders"] = val;
 }
 
 - (MSGraphDrive*) drive
@@ -903,6 +878,56 @@
     self.dictionary[@"sites"] = val;
 }
 
+- (NSArray*) extensions
+{
+    if(!_extensions){
+        
+    NSMutableArray *extensionsResult = [NSMutableArray array];
+    NSArray *extensions = self.dictionary[@"extensions"];
+
+    if ([extensions isKindOfClass:[NSArray class]]){
+        for (id tempExtension in extensions){
+            [extensionsResult addObject:tempExtension];
+        }
+    }
+
+    _extensions = extensionsResult;
+        
+    }
+    return _extensions;
+}
+
+- (void) setExtensions: (NSArray*) val
+{
+    _extensions = val;
+    self.dictionary[@"extensions"] = val;
+}
+
+- (NSArray*) groupLifecyclePolicies
+{
+    if(!_groupLifecyclePolicies){
+        
+    NSMutableArray *groupLifecyclePoliciesResult = [NSMutableArray array];
+    NSArray *groupLifecyclePolicies = self.dictionary[@"groupLifecyclePolicies"];
+
+    if ([groupLifecyclePolicies isKindOfClass:[NSArray class]]){
+        for (id tempGroupLifecyclePolicy in groupLifecyclePolicies){
+            [groupLifecyclePoliciesResult addObject:tempGroupLifecyclePolicy];
+        }
+    }
+
+    _groupLifecyclePolicies = groupLifecyclePoliciesResult;
+        
+    }
+    return _groupLifecyclePolicies;
+}
+
+- (void) setGroupLifecyclePolicies: (NSArray*) val
+{
+    _groupLifecyclePolicies = val;
+    self.dictionary[@"groupLifecyclePolicies"] = val;
+}
+
 - (MSGraphPlannerGroup*) planner
 {
     if(!_planner){
@@ -929,31 +954,6 @@
 {
     _onenote = val;
     self.dictionary[@"onenote"] = val;
-}
-
-- (NSArray*) groupLifecyclePolicies
-{
-    if(!_groupLifecyclePolicies){
-        
-    NSMutableArray *groupLifecyclePoliciesResult = [NSMutableArray array];
-    NSArray *groupLifecyclePolicies = self.dictionary[@"groupLifecyclePolicies"];
-
-    if ([groupLifecyclePolicies isKindOfClass:[NSArray class]]){
-        for (id tempGroupLifecyclePolicy in groupLifecyclePolicies){
-            [groupLifecyclePoliciesResult addObject:tempGroupLifecyclePolicy];
-        }
-    }
-
-    _groupLifecyclePolicies = groupLifecyclePoliciesResult;
-        
-    }
-    return _groupLifecyclePolicies;
-}
-
-- (void) setGroupLifecyclePolicies: (NSArray*) val
-{
-    _groupLifecyclePolicies = val;
-    self.dictionary[@"groupLifecyclePolicies"] = val;
 }
 
 - (MSGraphTeam*) team

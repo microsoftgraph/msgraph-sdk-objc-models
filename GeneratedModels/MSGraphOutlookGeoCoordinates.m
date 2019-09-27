@@ -14,27 +14,15 @@
 
 @interface MSGraphOutlookGeoCoordinates()
 {
-    double _altitude;
     double _latitude;
     double _longitude;
     double _accuracy;
+    double _altitude;
     double _altitudeAccuracy;
 }
 @end
 
 @implementation MSGraphOutlookGeoCoordinates
-
-- (double) altitude
-{
-    _altitude = [self.dictionary[@"altitude"] floatValue];
-    return _altitude;
-}
-
-- (void) setAltitude: (double) val
-{
-    _altitude = val;
-    self.dictionary[@"altitude"] = @(val);
-}
 
 - (double) latitude
 {
@@ -70,6 +58,18 @@
 {
     _accuracy = val;
     self.dictionary[@"accuracy"] = @(val);
+}
+
+- (double) altitude
+{
+    _altitude = [self.dictionary[@"altitude"] floatValue];
+    return _altitude;
+}
+
+- (void) setAltitude: (double) val
+{
+    _altitude = val;
+    self.dictionary[@"altitude"] = @(val);
 }
 
 - (double) altitudeAccuracy

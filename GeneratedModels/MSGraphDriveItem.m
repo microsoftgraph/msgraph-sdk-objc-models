@@ -34,6 +34,7 @@
     MSGraphSpecialFolder* _specialFolder;
     MSGraphVideo* _video;
     NSString* _webDavUrl;
+    MSGraphWorkbook* _workbook;
     MSGraphItemAnalytics* _analytics;
     NSArray* _children;
     MSGraphListItem* _listItem;
@@ -41,7 +42,6 @@
     NSArray* _subscriptions;
     NSArray* _thumbnails;
     NSArray* _versions;
-    MSGraphWorkbook* _workbook;
 }
 @end
 
@@ -332,6 +332,20 @@
     self.dictionary[@"webDavUrl"] = val;
 }
 
+- (MSGraphWorkbook*) workbook
+{
+    if(!_workbook){
+        _workbook = [[MSGraphWorkbook alloc] initWithDictionary: self.dictionary[@"workbook"]];
+    }
+    return _workbook;
+}
+
+- (void) setWorkbook: (MSGraphWorkbook*) val
+{
+    _workbook = val;
+    self.dictionary[@"workbook"] = val;
+}
+
 - (MSGraphItemAnalytics*) analytics
 {
     if(!_analytics){
@@ -483,20 +497,6 @@
 {
     _versions = val;
     self.dictionary[@"versions"] = val;
-}
-
-- (MSGraphWorkbook*) workbook
-{
-    if(!_workbook){
-        _workbook = [[MSGraphWorkbook alloc] initWithDictionary: self.dictionary[@"workbook"]];
-    }
-    return _workbook;
-}
-
-- (void) setWorkbook: (MSGraphWorkbook*) val
-{
-    _workbook = val;
-    self.dictionary[@"workbook"] = val;
 }
 
 
