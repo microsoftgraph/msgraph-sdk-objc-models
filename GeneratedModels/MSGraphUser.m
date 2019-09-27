@@ -55,6 +55,7 @@
     NSArray* _provisionedPlans;
     NSArray* _proxyAddresses;
     BOOL _showInAddressList;
+    NSDate* _signInSessionsValidFromDateTime;
     NSString* _state;
     NSString* _streetAddress;
     NSString* _surname;
@@ -62,6 +63,7 @@
     NSString* _userPrincipalName;
     NSString* _userType;
     MSGraphMailboxSettings* _mailboxSettings;
+    int32_t _deviceEnrollmentLimit;
     NSString* _aboutMe;
     NSDate* _birthday;
     NSDate* _hireDate;
@@ -72,7 +74,6 @@
     NSArray* _responsibilities;
     NSArray* _schools;
     NSArray* _skills;
-    int32_t _deviceEnrollmentLimit;
     NSArray* _ownedDevices;
     NSArray* _registeredDevices;
     MSGraphDirectoryObject* _manager;
@@ -82,7 +83,6 @@
     NSArray* _ownedObjects;
     NSArray* _licenseDetails;
     NSArray* _transitiveMemberOf;
-    NSArray* _extensions;
     MSGraphOutlookUser* _outlook;
     NSArray* _messages;
     NSArray* _mailFolders;
@@ -99,14 +99,15 @@
     NSArray* _photos;
     MSGraphDrive* _drive;
     NSArray* _drives;
-    MSGraphPlannerUser* _planner;
-    MSGraphOnenote* _onenote;
+    NSArray* _extensions;
     NSArray* _managedDevices;
     NSArray* _managedAppRegistrations;
     NSArray* _deviceManagementTroubleshootingEvents;
-    NSArray* _activities;
+    MSGraphPlannerUser* _planner;
     MSGraphOfficeGraphInsights* _insights;
     MSGraphUserSettings* _settings;
+    MSGraphOnenote* _onenote;
+    NSArray* _activities;
     NSArray* _joinedTeams;
 }
 @end
@@ -729,6 +730,20 @@
     self.dictionary[@"showInAddressList"] = @(val);
 }
 
+- (NSDate*) signInSessionsValidFromDateTime
+{
+    if(!_signInSessionsValidFromDateTime){
+        _signInSessionsValidFromDateTime = [NSDate ms_dateFromString: self.dictionary[@"signInSessionsValidFromDateTime"]];
+    }
+    return _signInSessionsValidFromDateTime;
+}
+
+- (void) setSignInSessionsValidFromDateTime: (NSDate*) val
+{
+    _signInSessionsValidFromDateTime = val;
+    self.dictionary[@"signInSessionsValidFromDateTime"] = [val ms_toString];
+}
+
 - (NSString*) state
 {
     if([[NSNull null] isEqual:self.dictionary[@"state"]])
@@ -825,6 +840,18 @@
 {
     _mailboxSettings = val;
     self.dictionary[@"mailboxSettings"] = val;
+}
+
+- (int32_t) deviceEnrollmentLimit
+{
+    _deviceEnrollmentLimit = [self.dictionary[@"deviceEnrollmentLimit"] intValue];
+    return _deviceEnrollmentLimit;
+}
+
+- (void) setDeviceEnrollmentLimit: (int32_t) val
+{
+    _deviceEnrollmentLimit = val;
+    self.dictionary[@"deviceEnrollmentLimit"] = @(val);
 }
 
 - (NSString*) aboutMe
@@ -965,18 +992,6 @@
 - (void) setSkills: (NSArray*) val
 {
     self.dictionary[@"skills"] = val;
-}
-
-- (int32_t) deviceEnrollmentLimit
-{
-    _deviceEnrollmentLimit = [self.dictionary[@"deviceEnrollmentLimit"] intValue];
-    return _deviceEnrollmentLimit;
-}
-
-- (void) setDeviceEnrollmentLimit: (int32_t) val
-{
-    _deviceEnrollmentLimit = val;
-    self.dictionary[@"deviceEnrollmentLimit"] = @(val);
 }
 
 - (NSArray*) ownedDevices
@@ -1191,31 +1206,6 @@
 {
     _transitiveMemberOf = val;
     self.dictionary[@"transitiveMemberOf"] = val;
-}
-
-- (NSArray*) extensions
-{
-    if(!_extensions){
-        
-    NSMutableArray *extensionsResult = [NSMutableArray array];
-    NSArray *extensions = self.dictionary[@"extensions"];
-
-    if ([extensions isKindOfClass:[NSArray class]]){
-        for (id tempExtension in extensions){
-            [extensionsResult addObject:tempExtension];
-        }
-    }
-
-    _extensions = extensionsResult;
-        
-    }
-    return _extensions;
-}
-
-- (void) setExtensions: (NSArray*) val
-{
-    _extensions = val;
-    self.dictionary[@"extensions"] = val;
 }
 
 - (MSGraphOutlookUser*) outlook
@@ -1563,32 +1553,29 @@
     self.dictionary[@"drives"] = val;
 }
 
-- (MSGraphPlannerUser*) planner
+- (NSArray*) extensions
 {
-    if(!_planner){
-        _planner = [[MSGraphPlannerUser alloc] initWithDictionary: self.dictionary[@"planner"]];
+    if(!_extensions){
+        
+    NSMutableArray *extensionsResult = [NSMutableArray array];
+    NSArray *extensions = self.dictionary[@"extensions"];
+
+    if ([extensions isKindOfClass:[NSArray class]]){
+        for (id tempExtension in extensions){
+            [extensionsResult addObject:tempExtension];
+        }
     }
-    return _planner;
-}
 
-- (void) setPlanner: (MSGraphPlannerUser*) val
-{
-    _planner = val;
-    self.dictionary[@"planner"] = val;
-}
-
-- (MSGraphOnenote*) onenote
-{
-    if(!_onenote){
-        _onenote = [[MSGraphOnenote alloc] initWithDictionary: self.dictionary[@"onenote"]];
+    _extensions = extensionsResult;
+        
     }
-    return _onenote;
+    return _extensions;
 }
 
-- (void) setOnenote: (MSGraphOnenote*) val
+- (void) setExtensions: (NSArray*) val
 {
-    _onenote = val;
-    self.dictionary[@"onenote"] = val;
+    _extensions = val;
+    self.dictionary[@"extensions"] = val;
 }
 
 - (NSArray*) managedDevices
@@ -1666,29 +1653,18 @@
     self.dictionary[@"deviceManagementTroubleshootingEvents"] = val;
 }
 
-- (NSArray*) activities
+- (MSGraphPlannerUser*) planner
 {
-    if(!_activities){
-        
-    NSMutableArray *activitiesResult = [NSMutableArray array];
-    NSArray *activities = self.dictionary[@"activities"];
-
-    if ([activities isKindOfClass:[NSArray class]]){
-        for (id tempUserActivity in activities){
-            [activitiesResult addObject:tempUserActivity];
-        }
+    if(!_planner){
+        _planner = [[MSGraphPlannerUser alloc] initWithDictionary: self.dictionary[@"planner"]];
     }
-
-    _activities = activitiesResult;
-        
-    }
-    return _activities;
+    return _planner;
 }
 
-- (void) setActivities: (NSArray*) val
+- (void) setPlanner: (MSGraphPlannerUser*) val
 {
-    _activities = val;
-    self.dictionary[@"activities"] = val;
+    _planner = val;
+    self.dictionary[@"planner"] = val;
 }
 
 - (MSGraphOfficeGraphInsights*) insights
@@ -1717,6 +1693,45 @@
 {
     _settings = val;
     self.dictionary[@"settings"] = val;
+}
+
+- (MSGraphOnenote*) onenote
+{
+    if(!_onenote){
+        _onenote = [[MSGraphOnenote alloc] initWithDictionary: self.dictionary[@"onenote"]];
+    }
+    return _onenote;
+}
+
+- (void) setOnenote: (MSGraphOnenote*) val
+{
+    _onenote = val;
+    self.dictionary[@"onenote"] = val;
+}
+
+- (NSArray*) activities
+{
+    if(!_activities){
+        
+    NSMutableArray *activitiesResult = [NSMutableArray array];
+    NSArray *activities = self.dictionary[@"activities"];
+
+    if ([activities isKindOfClass:[NSArray class]]){
+        for (id tempUserActivity in activities){
+            [activitiesResult addObject:tempUserActivity];
+        }
+    }
+
+    _activities = activitiesResult;
+        
+    }
+    return _activities;
+}
+
+- (void) setActivities: (NSArray*) val
+{
+    _activities = val;
+    self.dictionary[@"activities"] = val;
 }
 
 - (NSArray*) joinedTeams

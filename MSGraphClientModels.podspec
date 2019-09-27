@@ -3,7 +3,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "MSGraphClientModels"
-  s.version      = "1.1.0"
+  s.version      = "1.2.0"
   s.summary      = "Microsoft Graph Models to be used with MSGraphClientSDK."
   s.description  = <<-DESC
 			Use these models to convert raw data from MSGraphClientSDK to models and back.

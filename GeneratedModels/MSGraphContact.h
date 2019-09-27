@@ -1,7 +1,7 @@
 // Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 
 
-@class MSGraphEmailAddress, MSGraphPhysicalAddress, MSGraphExtension, MSGraphSingleValueLegacyExtendedProperty, MSGraphMultiValueLegacyExtendedProperty, MSGraphProfilePhoto; 
+@class MSGraphEmailAddress, MSGraphPhysicalAddress, MSGraphSingleValueLegacyExtendedProperty, MSGraphMultiValueLegacyExtendedProperty, MSGraphProfilePhoto, MSGraphExtension; 
 
 
 #import "MSGraphOutlookItem.h"
@@ -41,9 +41,9 @@
     @property (nullable, nonatomic, setter=setSpouseName:, getter=spouseName) NSString* spouseName;
     @property (nullable, nonatomic, setter=setPersonalNotes:, getter=personalNotes) NSString* personalNotes;
     @property (nullable, nonatomic, setter=setChildren:, getter=children) NSArray* children;
-    @property (nullable, nonatomic, setter=setExtensions:, getter=extensions) NSArray* extensions;
     @property (nullable, nonatomic, setter=setSingleValueExtendedProperties:, getter=singleValueExtendedProperties) NSArray* singleValueExtendedProperties;
     @property (nullable, nonatomic, setter=setMultiValueExtendedProperties:, getter=multiValueExtendedProperties) NSArray* multiValueExtendedProperties;
     @property (nullable, nonatomic, setter=setPhoto:, getter=photo) MSGraphProfilePhoto* photo;
+    @property (nullable, nonatomic, setter=setExtensions:, getter=extensions) NSArray* extensions;
   
 @end

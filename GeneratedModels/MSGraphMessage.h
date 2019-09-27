@@ -1,7 +1,7 @@
 // Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 
 
-@class MSGraphInternetMessageHeader, MSGraphItemBody, MSGraphRecipient, MSGraphFollowupFlag, MSGraphAttachment, MSGraphExtension, MSGraphSingleValueLegacyExtendedProperty, MSGraphMultiValueLegacyExtendedProperty; 
+@class MSGraphInternetMessageHeader, MSGraphItemBody, MSGraphRecipient, MSGraphFollowupFlag, MSGraphSingleValueLegacyExtendedProperty, MSGraphMultiValueLegacyExtendedProperty, MSGraphAttachment, MSGraphExtension; 
 #import "MSGraphImportance.h"
 #import "MSGraphInferenceClassificationType.h"
 
@@ -35,9 +35,9 @@
     @property (nullable, nonatomic, setter=setWebLink:, getter=webLink) NSString* webLink;
     @property (nullable, nonatomic, setter=setInferenceClassification:, getter=inferenceClassification) MSGraphInferenceClassificationType* inferenceClassification;
     @property (nullable, nonatomic, setter=setFlag:, getter=flag) MSGraphFollowupFlag* flag;
-    @property (nullable, nonatomic, setter=setAttachments:, getter=attachments) NSArray* attachments;
-    @property (nullable, nonatomic, setter=setExtensions:, getter=extensions) NSArray* extensions;
     @property (nullable, nonatomic, setter=setSingleValueExtendedProperties:, getter=singleValueExtendedProperties) NSArray* singleValueExtendedProperties;
     @property (nullable, nonatomic, setter=setMultiValueExtendedProperties:, getter=multiValueExtendedProperties) NSArray* multiValueExtendedProperties;
+    @property (nullable, nonatomic, setter=setAttachments:, getter=attachments) NSArray* attachments;
+    @property (nullable, nonatomic, setter=setExtensions:, getter=extensions) NSArray* extensions;
   
 @end

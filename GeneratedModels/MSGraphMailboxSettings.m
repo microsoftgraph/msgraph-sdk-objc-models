@@ -19,6 +19,8 @@
     NSString* _timeZone;
     MSGraphLocaleInfo* _language;
     MSGraphWorkingHours* _workingHours;
+    NSString* _dateFormat;
+    NSString* _timeFormat;
 }
 @end
 
@@ -92,6 +94,34 @@
 {
     _workingHours = val;
     self.dictionary[@"workingHours"] = val;
+}
+
+- (NSString*) dateFormat
+{
+    if([[NSNull null] isEqual:self.dictionary[@"dateFormat"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"dateFormat"];
+}
+
+- (void) setDateFormat: (NSString*) val
+{
+    self.dictionary[@"dateFormat"] = val;
+}
+
+- (NSString*) timeFormat
+{
+    if([[NSNull null] isEqual:self.dictionary[@"timeFormat"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"timeFormat"];
+}
+
+- (void) setTimeFormat: (NSString*) val
+{
+    self.dictionary[@"timeFormat"] = val;
 }
 
 @end
