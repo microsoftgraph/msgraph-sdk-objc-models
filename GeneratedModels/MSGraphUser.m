@@ -108,6 +108,7 @@
     MSGraphUserSettings* _settings;
     MSGraphOnenote* _onenote;
     NSArray* _activities;
+    NSArray* _onlineMeetings;
     NSArray* _joinedTeams;
 }
 @end
@@ -1732,6 +1733,31 @@
 {
     _activities = val;
     self.dictionary[@"activities"] = val;
+}
+
+- (NSArray*) onlineMeetings
+{
+    if(!_onlineMeetings){
+        
+    NSMutableArray *onlineMeetingsResult = [NSMutableArray array];
+    NSArray *onlineMeetings = self.dictionary[@"onlineMeetings"];
+
+    if ([onlineMeetings isKindOfClass:[NSArray class]]){
+        for (id tempOnlineMeeting in onlineMeetings){
+            [onlineMeetingsResult addObject:tempOnlineMeeting];
+        }
+    }
+
+    _onlineMeetings = onlineMeetingsResult;
+        
+    }
+    return _onlineMeetings;
+}
+
+- (void) setOnlineMeetings: (NSArray*) val
+{
+    _onlineMeetings = val;
+    self.dictionary[@"onlineMeetings"] = val;
 }
 
 - (NSArray*) joinedTeams
