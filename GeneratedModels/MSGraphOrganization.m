@@ -35,6 +35,7 @@
     NSArray* _technicalNotificationMails;
     NSArray* _verifiedDomains;
     MSGraphMdmAuthority* _mobileDeviceManagementAuthority;
+    NSArray* _certificateBasedAuthConfiguration;
     NSArray* _extensions;
 }
 @end
@@ -351,6 +352,31 @@
 {
     _mobileDeviceManagementAuthority = val;
     self.dictionary[@"mobileDeviceManagementAuthority"] = val;
+}
+
+- (NSArray*) certificateBasedAuthConfiguration
+{
+    if(!_certificateBasedAuthConfiguration){
+        
+    NSMutableArray *certificateBasedAuthConfigurationResult = [NSMutableArray array];
+    NSArray *certificateBasedAuthConfiguration = self.dictionary[@"certificateBasedAuthConfiguration"];
+
+    if ([certificateBasedAuthConfiguration isKindOfClass:[NSArray class]]){
+        for (id tempCertificateBasedAuthConfiguration in certificateBasedAuthConfiguration){
+            [certificateBasedAuthConfigurationResult addObject:tempCertificateBasedAuthConfiguration];
+        }
+    }
+
+    _certificateBasedAuthConfiguration = certificateBasedAuthConfigurationResult;
+        
+    }
+    return _certificateBasedAuthConfiguration;
+}
+
+- (void) setCertificateBasedAuthConfiguration: (NSArray*) val
+{
+    _certificateBasedAuthConfiguration = val;
+    self.dictionary[@"certificateBasedAuthConfiguration"] = val;
 }
 
 - (NSArray*) extensions
