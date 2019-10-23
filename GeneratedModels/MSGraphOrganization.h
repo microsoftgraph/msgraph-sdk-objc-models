@@ -1,7 +1,7 @@
 // Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 
 
-@class MSGraphAssignedPlan, MSGraphPrivacyProfile, MSGraphProvisionedPlan, MSGraphVerifiedDomain, MSGraphExtension; 
+@class MSGraphAssignedPlan, MSGraphPrivacyProfile, MSGraphProvisionedPlan, MSGraphVerifiedDomain, MSGraphCertificateBasedAuthConfiguration, MSGraphExtension; 
 #import "MSGraphMdmAuthority.h"
 
 
@@ -30,6 +30,7 @@
     @property (nonnull, nonatomic, setter=setTechnicalNotificationMails:, getter=technicalNotificationMails) NSArray* technicalNotificationMails;
     @property (nonnull, nonatomic, setter=setVerifiedDomains:, getter=verifiedDomains) NSArray* verifiedDomains;
     @property (nonnull, nonatomic, setter=setMobileDeviceManagementAuthority:, getter=mobileDeviceManagementAuthority) MSGraphMdmAuthority* mobileDeviceManagementAuthority;
+    @property (nullable, nonatomic, setter=setCertificateBasedAuthConfiguration:, getter=certificateBasedAuthConfiguration) NSArray* certificateBasedAuthConfiguration;
     @property (nullable, nonatomic, setter=setExtensions:, getter=extensions) NSArray* extensions;
   
 @end
