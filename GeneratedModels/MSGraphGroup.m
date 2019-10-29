@@ -33,6 +33,7 @@
     NSArray* _proxyAddresses;
     NSDate* _renewedDateTime;
     BOOL _securityEnabled;
+    NSString* _securityIdentifier;
     NSString* _visibility;
     BOOL _allowExternalSenders;
     BOOL _autoSubscribeNewMembers;
@@ -346,6 +347,20 @@
 {
     _securityEnabled = val;
     self.dictionary[@"securityEnabled"] = @(val);
+}
+
+- (NSString*) securityIdentifier
+{
+    if([[NSNull null] isEqual:self.dictionary[@"securityIdentifier"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"securityIdentifier"];
+}
+
+- (void) setSecurityIdentifier: (NSString*) val
+{
+    self.dictionary[@"securityIdentifier"] = val;
 }
 
 - (NSString*) visibility

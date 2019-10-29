@@ -27,6 +27,7 @@
     @property (nonnull, nonatomic, setter=setProxyAddresses:, getter=proxyAddresses) NSArray* proxyAddresses;
     @property (nullable, nonatomic, setter=setRenewedDateTime:, getter=renewedDateTime) NSDate* renewedDateTime;
     @property (nonatomic, setter=setSecurityEnabled:, getter=securityEnabled) BOOL securityEnabled;
+    @property (nullable, nonatomic, setter=setSecurityIdentifier:, getter=securityIdentifier) NSString* securityIdentifier;
     @property (nullable, nonatomic, setter=setVisibility:, getter=visibility) NSString* visibility;
     @property (nonatomic, setter=setAllowExternalSenders:, getter=allowExternalSenders) BOOL allowExternalSenders;
     @property (nonatomic, setter=setAutoSubscribeNewMembers:, getter=autoSubscribeNewMembers) BOOL autoSubscribeNewMembers;
