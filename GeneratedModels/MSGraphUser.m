@@ -31,6 +31,7 @@
     NSArray* _imAddresses;
     BOOL _isResourceAccount;
     NSString* _jobTitle;
+    NSDate* _lastPasswordChangeDateTime;
     NSString* _legalAgeGroupClassification;
     NSArray* _licenseAssignmentStates;
     NSString* _mail;
@@ -372,6 +373,20 @@
 - (void) setJobTitle: (NSString*) val
 {
     self.dictionary[@"jobTitle"] = val;
+}
+
+- (NSDate*) lastPasswordChangeDateTime
+{
+    if(!_lastPasswordChangeDateTime){
+        _lastPasswordChangeDateTime = [NSDate ms_dateFromString: self.dictionary[@"lastPasswordChangeDateTime"]];
+    }
+    return _lastPasswordChangeDateTime;
+}
+
+- (void) setLastPasswordChangeDateTime: (NSDate*) val
+{
+    _lastPasswordChangeDateTime = val;
+    self.dictionary[@"lastPasswordChangeDateTime"] = [val ms_toString];
 }
 
 - (NSString*) legalAgeGroupClassification
