@@ -20,6 +20,7 @@
     NSString* _country;
     NSString* _countryLetterCode;
     NSDate* _createdDateTime;
+    NSString* _creationType;
     NSString* _displayName;
     NSArray* _marketingNotificationEmails;
     NSDate* _onPremisesLastSyncDateTime;
@@ -138,6 +139,20 @@
 {
     _createdDateTime = val;
     self.dictionary[@"createdDateTime"] = [val ms_toString];
+}
+
+- (NSString*) creationType
+{
+    if([[NSNull null] isEqual:self.dictionary[@"creationType"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"creationType"];
+}
+
+- (void) setCreationType: (NSString*) val
+{
+    self.dictionary[@"creationType"] = val;
 }
 
 - (NSString*) displayName

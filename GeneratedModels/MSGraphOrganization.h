@@ -15,6 +15,7 @@
     @property (nullable, nonatomic, setter=setCountry:, getter=country) NSString* country;
     @property (nullable, nonatomic, setter=setCountryLetterCode:, getter=countryLetterCode) NSString* countryLetterCode;
     @property (nullable, nonatomic, setter=setCreatedDateTime:, getter=createdDateTime) NSDate* createdDateTime;
+    @property (nullable, nonatomic, setter=setCreationType:, getter=creationType) NSString* creationType;
     @property (nullable, nonatomic, setter=setDisplayName:, getter=displayName) NSString* displayName;
     @property (nonnull, nonatomic, setter=setMarketingNotificationEmails:, getter=marketingNotificationEmails) NSArray* marketingNotificationEmails;
     @property (nullable, nonatomic, setter=setOnPremisesLastSyncDateTime:, getter=onPremisesLastSyncDateTime) NSDate* onPremisesLastSyncDateTime;

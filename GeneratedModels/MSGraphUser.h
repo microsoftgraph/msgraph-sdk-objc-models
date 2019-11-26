@@ -25,6 +25,7 @@
     @property (nullable, nonatomic, setter=setImAddresses:, getter=imAddresses) NSArray* imAddresses;
     @property (nonatomic, setter=setIsResourceAccount:, getter=isResourceAccount) BOOL isResourceAccount;
     @property (nullable, nonatomic, setter=setJobTitle:, getter=jobTitle) NSString* jobTitle;
+    @property (nullable, nonatomic, setter=setLastPasswordChangeDateTime:, getter=lastPasswordChangeDateTime) NSDate* lastPasswordChangeDateTime;
     @property (nullable, nonatomic, setter=setLegalAgeGroupClassification:, getter=legalAgeGroupClassification) NSString* legalAgeGroupClassification;
     @property (nullable, nonatomic, setter=setLicenseAssignmentStates:, getter=licenseAssignmentStates) NSArray* licenseAssignmentStates;
     @property (nullable, nonatomic, setter=setMail:, getter=mail) NSString* mail;
