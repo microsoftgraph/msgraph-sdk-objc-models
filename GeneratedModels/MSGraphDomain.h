@@ -15,6 +15,8 @@
     @property (nonatomic, setter=setIsInitial:, getter=isInitial) BOOL isInitial;
     @property (nonatomic, setter=setIsRoot:, getter=isRoot) BOOL isRoot;
     @property (nonatomic, setter=setIsVerified:, getter=isVerified) BOOL isVerified;
+    @property (nullable, nonatomic, setter=setManufacturer:, getter=manufacturer) NSString* manufacturer;
+    @property (nullable, nonatomic, setter=setModel:, getter=model) NSString* model;
     @property (nonatomic, setter=setPasswordNotificationWindowInDays:, getter=passwordNotificationWindowInDays) int32_t passwordNotificationWindowInDays;
     @property (nonatomic, setter=setPasswordValidityPeriodInDays:, getter=passwordValidityPeriodInDays) int32_t passwordValidityPeriodInDays;
     @property (nonnull, nonatomic, setter=setSupportedServices:, getter=supportedServices) NSArray* supportedServices;

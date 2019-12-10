@@ -23,6 +23,7 @@
     NSString* _companyName;
     NSString* _consentProvidedForMinor;
     NSString* _country;
+    NSString* _creationType;
     NSString* _department;
     NSString* _displayName;
     NSString* _employeeId;
@@ -31,6 +32,7 @@
     NSArray* _imAddresses;
     BOOL _isResourceAccount;
     NSString* _jobTitle;
+    NSDate* _lastPasswordChangeDateTime;
     NSString* _legalAgeGroupClassification;
     NSArray* _licenseAssignmentStates;
     NSString* _mail;
@@ -264,6 +266,20 @@
     self.dictionary[@"country"] = val;
 }
 
+- (NSString*) creationType
+{
+    if([[NSNull null] isEqual:self.dictionary[@"creationType"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"creationType"];
+}
+
+- (void) setCreationType: (NSString*) val
+{
+    self.dictionary[@"creationType"] = val;
+}
+
 - (NSString*) department
 {
     if([[NSNull null] isEqual:self.dictionary[@"department"]])
@@ -372,6 +388,20 @@
 - (void) setJobTitle: (NSString*) val
 {
     self.dictionary[@"jobTitle"] = val;
+}
+
+- (NSDate*) lastPasswordChangeDateTime
+{
+    if(!_lastPasswordChangeDateTime){
+        _lastPasswordChangeDateTime = [NSDate ms_dateFromString: self.dictionary[@"lastPasswordChangeDateTime"]];
+    }
+    return _lastPasswordChangeDateTime;
+}
+
+- (void) setLastPasswordChangeDateTime: (NSDate*) val
+{
+    _lastPasswordChangeDateTime = val;
+    self.dictionary[@"lastPasswordChangeDateTime"] = [val ms_toString];
 }
 
 - (NSString*) legalAgeGroupClassification

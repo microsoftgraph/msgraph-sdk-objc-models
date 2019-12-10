@@ -18,6 +18,7 @@
     @property (nullable, nonatomic, setter=setDisplayName:, getter=displayName) NSString* displayName;
     @property (nonatomic, setter=setIsCompliant:, getter=isCompliant) BOOL isCompliant;
     @property (nonatomic, setter=setIsManaged:, getter=isManaged) BOOL isManaged;
+    @property (nullable, nonatomic, setter=setMdmAppId:, getter=mdmAppId) NSString* mdmAppId;
     @property (nullable, nonatomic, setter=setOnPremisesLastSyncDateTime:, getter=onPremisesLastSyncDateTime) NSDate* onPremisesLastSyncDateTime;
     @property (nonatomic, setter=setOnPremisesSyncEnabled:, getter=onPremisesSyncEnabled) BOOL onPremisesSyncEnabled;
     @property (nullable, nonatomic, setter=setOperatingSystem:, getter=operatingSystem) NSString* operatingSystem;
