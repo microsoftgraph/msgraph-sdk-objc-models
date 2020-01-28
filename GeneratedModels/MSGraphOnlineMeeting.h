@@ -11,7 +11,7 @@
   @property (nullable, nonatomic, setter=setCreationDateTime:, getter=creationDateTime) NSDate* creationDateTime;
     @property (nullable, nonatomic, setter=setStartDateTime:, getter=startDateTime) NSDate* startDateTime;
     @property (nullable, nonatomic, setter=setEndDateTime:, getter=endDateTime) NSDate* endDateTime;
-    @property (nullable, nonatomic, setter=setJoinUrl:, getter=joinUrl) NSString* joinUrl;
+    @property (nullable, nonatomic, setter=setJoinWebUrl:, getter=joinWebUrl) NSString* joinWebUrl;
     @property (nullable, nonatomic, setter=setSubject:, getter=subject) NSString* subject;
     @property (nullable, nonatomic, setter=setParticipants:, getter=participants) MSGraphMeetingParticipants* participants;
     @property (nullable, nonatomic, setter=setAudioConferencing:, getter=audioConferencing) MSGraphAudioConferencing* audioConferencing;

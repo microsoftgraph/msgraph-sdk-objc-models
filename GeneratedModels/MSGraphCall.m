@@ -25,6 +25,7 @@
     NSArray* _requestedModalities;
     MSGraphMediaConfig* _mediaConfig;
     MSGraphChatInfo* _chatInfo;
+    MSGraphCallOptions* _callOptions;
     MSGraphMeetingInfo* _meetingInfo;
     NSString* _tenantId;
     NSString* _myParticipantId;
@@ -145,8 +146,8 @@
     NSArray *targets = self.dictionary[@"targets"];
 
     if ([targets isKindOfClass:[NSArray class]]){
-        for (id tempParticipantInfo in targets){
-            [targetsResult addObject:tempParticipantInfo];
+        for (id tempInvitationParticipantInfo in targets){
+            [targetsResult addObject:tempInvitationParticipantInfo];
         }
     }
 
@@ -213,6 +214,20 @@
 {
     _chatInfo = val;
     self.dictionary[@"chatInfo"] = val;
+}
+
+- (MSGraphCallOptions*) callOptions
+{
+    if(!_callOptions){
+        _callOptions = [[MSGraphCallOptions alloc] initWithDictionary: self.dictionary[@"callOptions"]];
+    }
+    return _callOptions;
+}
+
+- (void) setCallOptions: (MSGraphCallOptions*) val
+{
+    _callOptions = val;
+    self.dictionary[@"callOptions"] = val;
 }
 
 - (MSGraphMeetingInfo*) meetingInfo
