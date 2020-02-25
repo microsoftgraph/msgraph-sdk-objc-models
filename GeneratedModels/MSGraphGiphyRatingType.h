@@ -6,16 +6,16 @@
 
 typedef NS_ENUM(NSInteger, MSGraphGiphyRatingTypeValue){
 
-	MSGraphGiphyRatingTypeModerate = 0,
-	MSGraphGiphyRatingTypeStrict = 1,
+	MSGraphGiphyRatingTypeStrict = 0,
+	MSGraphGiphyRatingTypeModerate = 1,
 	MSGraphGiphyRatingTypeUnknownFutureValue = 2,
     MSGraphGiphyRatingTypeEndOfEnum
 };
 
 @interface MSGraphGiphyRatingType : NSObject
 
-+(MSGraphGiphyRatingType*) moderate;
 +(MSGraphGiphyRatingType*) strict;
++(MSGraphGiphyRatingType*) moderate;
 +(MSGraphGiphyRatingType*) unknownFutureValue;
 
 +(MSGraphGiphyRatingType*) UnknownEnumValue;
