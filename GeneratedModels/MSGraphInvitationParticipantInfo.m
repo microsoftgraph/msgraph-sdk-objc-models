@@ -14,11 +14,26 @@
 
 @interface MSGraphInvitationParticipantInfo()
 {
+    MSGraphIdentitySet* _identity;
     NSString* _replacesCallId;
 }
 @end
 
 @implementation MSGraphInvitationParticipantInfo
+
+- (MSGraphIdentitySet*) identity
+{
+    if(!_identity){
+        _identity = [[MSGraphIdentitySet alloc] initWithDictionary: self.dictionary[@"identity"]];
+    }
+    return _identity;
+}
+
+- (void) setIdentity: (MSGraphIdentitySet*) val
+{
+    _identity = val;
+    self.dictionary[@"identity"] = val;
+}
 
 - (NSString*) replacesCallId
 {
