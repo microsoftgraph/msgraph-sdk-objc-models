@@ -24,6 +24,7 @@
     NSString* _displayName;
     BOOL _isCompliant;
     BOOL _isManaged;
+    NSString* _mdmAppId;
     NSDate* _onPremisesLastSyncDateTime;
     BOOL _onPremisesSyncEnabled;
     NSString* _operatingSystem;
@@ -190,6 +191,20 @@
 {
     _isManaged = val;
     self.dictionary[@"isManaged"] = @(val);
+}
+
+- (NSString*) mdmAppId
+{
+    if([[NSNull null] isEqual:self.dictionary[@"mdmAppId"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"mdmAppId"];
+}
+
+- (void) setMdmAppId: (NSString*) val
+{
+    self.dictionary[@"mdmAppId"] = val;
 }
 
 - (NSDate*) onPremisesLastSyncDateTime

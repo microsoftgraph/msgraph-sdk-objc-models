@@ -15,6 +15,7 @@
 @interface MSGraphParticipant()
 {
     MSGraphParticipantInfo* _info;
+    MSGraphRecordingInfo* _recordingInfo;
     NSArray* _mediaStreams;
     BOOL _isMuted;
     BOOL _isInLobby;
@@ -42,6 +43,20 @@
 {
     _info = val;
     self.dictionary[@"info"] = val;
+}
+
+- (MSGraphRecordingInfo*) recordingInfo
+{
+    if(!_recordingInfo){
+        _recordingInfo = [[MSGraphRecordingInfo alloc] initWithDictionary: self.dictionary[@"recordingInfo"]];
+    }
+    return _recordingInfo;
+}
+
+- (void) setRecordingInfo: (MSGraphRecordingInfo*) val
+{
+    _recordingInfo = val;
+    self.dictionary[@"recordingInfo"] = val;
 }
 
 - (NSArray*) mediaStreams
