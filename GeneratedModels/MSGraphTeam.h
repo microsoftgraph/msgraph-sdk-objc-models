@@ -15,6 +15,7 @@
     @property (nullable, nonatomic, setter=setFunSettings:, getter=funSettings) MSGraphTeamFunSettings* funSettings;
     @property (nonatomic, setter=setIsArchived:, getter=isArchived) BOOL isArchived;
     @property (nullable, nonatomic, setter=setChannels:, getter=channels) NSArray* channels;
+    @property (nullable, nonatomic, setter=setPrimaryChannel:, getter=primaryChannel) MSGraphChannel* primaryChannel;
     @property (nullable, nonatomic, setter=setInstalledApps:, getter=installedApps) NSArray* installedApps;
     @property (nullable, nonatomic, setter=setTeamOperations:, getter=teamOperations) NSArray* teamOperations;
   

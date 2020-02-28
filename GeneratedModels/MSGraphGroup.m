@@ -25,19 +25,25 @@
     NSString* _mail;
     BOOL _mailEnabled;
     NSString* _mailNickname;
+    NSString* _onPremisesDomainName;
     NSDate* _onPremisesLastSyncDateTime;
+    NSString* _onPremisesNetBiosName;
     NSArray* _onPremisesProvisioningErrors;
+    NSString* _onPremisesSamAccountName;
     NSString* _onPremisesSecurityIdentifier;
     BOOL _onPremisesSyncEnabled;
     NSString* _preferredDataLocation;
     NSArray* _proxyAddresses;
     NSDate* _renewedDateTime;
     BOOL _securityEnabled;
+    NSString* _securityIdentifier;
     NSString* _visibility;
     BOOL _allowExternalSenders;
     BOOL _autoSubscribeNewMembers;
     BOOL _isSubscribedByMail;
     int32_t _unseenCount;
+    BOOL _hideFromOutlookClients;
+    BOOL _hideFromAddressLists;
     BOOL _isArchived;
     NSArray* _members;
     NSArray* _memberOf;
@@ -233,6 +239,20 @@
     self.dictionary[@"mailNickname"] = val;
 }
 
+- (NSString*) onPremisesDomainName
+{
+    if([[NSNull null] isEqual:self.dictionary[@"onPremisesDomainName"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"onPremisesDomainName"];
+}
+
+- (void) setOnPremisesDomainName: (NSString*) val
+{
+    self.dictionary[@"onPremisesDomainName"] = val;
+}
+
 - (NSDate*) onPremisesLastSyncDateTime
 {
     if(!_onPremisesLastSyncDateTime){
@@ -245,6 +265,20 @@
 {
     _onPremisesLastSyncDateTime = val;
     self.dictionary[@"onPremisesLastSyncDateTime"] = [val ms_toString];
+}
+
+- (NSString*) onPremisesNetBiosName
+{
+    if([[NSNull null] isEqual:self.dictionary[@"onPremisesNetBiosName"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"onPremisesNetBiosName"];
+}
+
+- (void) setOnPremisesNetBiosName: (NSString*) val
+{
+    self.dictionary[@"onPremisesNetBiosName"] = val;
 }
 
 - (NSArray*) onPremisesProvisioningErrors
@@ -270,6 +304,20 @@
 {
     _onPremisesProvisioningErrors = val;
     self.dictionary[@"onPremisesProvisioningErrors"] = val;
+}
+
+- (NSString*) onPremisesSamAccountName
+{
+    if([[NSNull null] isEqual:self.dictionary[@"onPremisesSamAccountName"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"onPremisesSamAccountName"];
+}
+
+- (void) setOnPremisesSamAccountName: (NSString*) val
+{
+    self.dictionary[@"onPremisesSamAccountName"] = val;
 }
 
 - (NSString*) onPremisesSecurityIdentifier
@@ -348,6 +396,20 @@
     self.dictionary[@"securityEnabled"] = @(val);
 }
 
+- (NSString*) securityIdentifier
+{
+    if([[NSNull null] isEqual:self.dictionary[@"securityIdentifier"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"securityIdentifier"];
+}
+
+- (void) setSecurityIdentifier: (NSString*) val
+{
+    self.dictionary[@"securityIdentifier"] = val;
+}
+
 - (NSString*) visibility
 {
     if([[NSNull null] isEqual:self.dictionary[@"visibility"]])
@@ -408,6 +470,30 @@
 {
     _unseenCount = val;
     self.dictionary[@"unseenCount"] = @(val);
+}
+
+- (BOOL) hideFromOutlookClients
+{
+    _hideFromOutlookClients = [self.dictionary[@"hideFromOutlookClients"] boolValue];
+    return _hideFromOutlookClients;
+}
+
+- (void) setHideFromOutlookClients: (BOOL) val
+{
+    _hideFromOutlookClients = val;
+    self.dictionary[@"hideFromOutlookClients"] = @(val);
+}
+
+- (BOOL) hideFromAddressLists
+{
+    _hideFromAddressLists = [self.dictionary[@"hideFromAddressLists"] boolValue];
+    return _hideFromAddressLists;
+}
+
+- (void) setHideFromAddressLists: (BOOL) val
+{
+    _hideFromAddressLists = val;
+    self.dictionary[@"hideFromAddressLists"] = @(val);
 }
 
 - (BOOL) isArchived

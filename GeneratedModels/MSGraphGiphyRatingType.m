@@ -12,15 +12,6 @@
 
 @implementation MSGraphGiphyRatingType
 
-+ (MSGraphGiphyRatingType*) moderate {
-    static MSGraphGiphyRatingType *_moderate;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        _moderate = [[MSGraphGiphyRatingType alloc] init];
-        _moderate.enumValue = MSGraphGiphyRatingTypeModerate;
-    });
-    return _moderate;
-}
 + (MSGraphGiphyRatingType*) strict {
     static MSGraphGiphyRatingType *_strict;
     static dispatch_once_t onceToken;
@@ -29,6 +20,15 @@
         _strict.enumValue = MSGraphGiphyRatingTypeStrict;
     });
     return _strict;
+}
++ (MSGraphGiphyRatingType*) moderate {
+    static MSGraphGiphyRatingType *_moderate;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        _moderate = [[MSGraphGiphyRatingType alloc] init];
+        _moderate.enumValue = MSGraphGiphyRatingTypeModerate;
+    });
+    return _moderate;
 }
 + (MSGraphGiphyRatingType*) unknownFutureValue {
     static MSGraphGiphyRatingType *_unknownFutureValue;
@@ -55,10 +55,10 @@
 
     switch(val)
     {
-        case MSGraphGiphyRatingTypeModerate:
-            return [MSGraphGiphyRatingType moderate];
         case MSGraphGiphyRatingTypeStrict:
             return [MSGraphGiphyRatingType strict];
+        case MSGraphGiphyRatingTypeModerate:
+            return [MSGraphGiphyRatingType moderate];
         case MSGraphGiphyRatingTypeUnknownFutureValue:
             return [MSGraphGiphyRatingType unknownFutureValue];
         case MSGraphGiphyRatingTypeEndOfEnum:
@@ -73,10 +73,10 @@
 
     switch(self.enumValue)
     {
-        case MSGraphGiphyRatingTypeModerate:
-            return @"moderate";
         case MSGraphGiphyRatingTypeStrict:
             return @"strict";
+        case MSGraphGiphyRatingTypeModerate:
+            return @"moderate";
         case MSGraphGiphyRatingTypeUnknownFutureValue:
             return @"unknownFutureValue";
         case MSGraphGiphyRatingTypeEndOfEnum:
@@ -97,13 +97,13 @@
 
 - (MSGraphGiphyRatingType*) toMSGraphGiphyRatingType{
 
-    if([self isEqualToString:@"moderate"])
-    {
-          return [MSGraphGiphyRatingType moderate];
-    }
-    else if([self isEqualToString:@"strict"])
+    if([self isEqualToString:@"strict"])
     {
           return [MSGraphGiphyRatingType strict];
+    }
+    else if([self isEqualToString:@"moderate"])
+    {
+          return [MSGraphGiphyRatingType moderate];
     }
     else if([self isEqualToString:@"unknownFutureValue"])
     {

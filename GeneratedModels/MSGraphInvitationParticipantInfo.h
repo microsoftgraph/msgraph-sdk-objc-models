@@ -2,12 +2,14 @@
 
 
 
+@class MSGraphIdentitySet; 
 
 
-#import "MSGraphParticipantInfo.h"
+#import "MSObject.h"
 
-@interface MSGraphInvitationParticipantInfo : MSGraphParticipantInfo
+@interface MSGraphInvitationParticipantInfo : MSObject
 
+@property (nonnull, nonatomic, setter=setIdentity:, getter=identity) MSGraphIdentitySet* identity;
 @property (nullable, nonatomic, setter=setReplacesCallId:, getter=replacesCallId) NSString* replacesCallId;
 
 @end
