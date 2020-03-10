@@ -11,7 +11,7 @@
 
   @property (nullable, nonatomic, setter=setExternalId:, getter=externalId) NSString* externalId;
     @property (nullable, nonatomic, setter=setDisplayName:, getter=displayName) NSString* displayName;
-    @property (nonnull, nonatomic, setter=setDistributionMethod:, getter=distributionMethod) MSGraphTeamsAppDistributionMethod* distributionMethod;
+    @property (nullable, nonatomic, setter=setDistributionMethod:, getter=distributionMethod) MSGraphTeamsAppDistributionMethod* distributionMethod;
     @property (nullable, nonatomic, setter=setAppDefinitions:, getter=appDefinitions) NSArray* appDefinitions;
   
 @end

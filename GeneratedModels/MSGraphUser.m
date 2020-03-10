@@ -23,14 +23,17 @@
     NSString* _companyName;
     NSString* _consentProvidedForMinor;
     NSString* _country;
+    NSString* _creationType;
     NSString* _department;
     NSString* _displayName;
     NSString* _employeeId;
     NSString* _faxNumber;
     NSString* _givenName;
+    NSArray* _identities;
     NSArray* _imAddresses;
     BOOL _isResourceAccount;
     NSString* _jobTitle;
+    NSDate* _lastPasswordChangeDateTime;
     NSString* _legalAgeGroupClassification;
     NSArray* _licenseAssignmentStates;
     NSString* _mail;
@@ -74,12 +77,14 @@
     NSArray* _responsibilities;
     NSArray* _schools;
     NSArray* _skills;
+    NSArray* _appRoleAssignments;
     NSArray* _ownedDevices;
     NSArray* _registeredDevices;
     MSGraphDirectoryObject* _manager;
     NSArray* _directReports;
     NSArray* _memberOf;
     NSArray* _createdObjects;
+    NSArray* _oauth2PermissionGrants;
     NSArray* _ownedObjects;
     NSArray* _licenseDetails;
     NSArray* _transitiveMemberOf;
@@ -264,6 +269,20 @@
     self.dictionary[@"country"] = val;
 }
 
+- (NSString*) creationType
+{
+    if([[NSNull null] isEqual:self.dictionary[@"creationType"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"creationType"];
+}
+
+- (void) setCreationType: (NSString*) val
+{
+    self.dictionary[@"creationType"] = val;
+}
+
 - (NSString*) department
 {
     if([[NSNull null] isEqual:self.dictionary[@"department"]])
@@ -334,6 +353,31 @@
     self.dictionary[@"givenName"] = val;
 }
 
+- (NSArray*) identities
+{
+    if(!_identities){
+        
+    NSMutableArray *identitiesResult = [NSMutableArray array];
+    NSArray *identities = self.dictionary[@"identities"];
+
+    if ([identities isKindOfClass:[NSArray class]]){
+        for (id tempObjectIdentity in identities){
+            [identitiesResult addObject:tempObjectIdentity];
+        }
+    }
+
+    _identities = identitiesResult;
+        
+    }
+    return _identities;
+}
+
+- (void) setIdentities: (NSArray*) val
+{
+    _identities = val;
+    self.dictionary[@"identities"] = val;
+}
+
 - (NSArray*) imAddresses
 {
     if([[NSNull null] isEqual:self.dictionary[@"imAddresses"]])
@@ -372,6 +416,20 @@
 - (void) setJobTitle: (NSString*) val
 {
     self.dictionary[@"jobTitle"] = val;
+}
+
+- (NSDate*) lastPasswordChangeDateTime
+{
+    if(!_lastPasswordChangeDateTime){
+        _lastPasswordChangeDateTime = [NSDate ms_dateFromString: self.dictionary[@"lastPasswordChangeDateTime"]];
+    }
+    return _lastPasswordChangeDateTime;
+}
+
+- (void) setLastPasswordChangeDateTime: (NSDate*) val
+{
+    _lastPasswordChangeDateTime = val;
+    self.dictionary[@"lastPasswordChangeDateTime"] = [val ms_toString];
 }
 
 - (NSString*) legalAgeGroupClassification
@@ -995,6 +1053,31 @@
     self.dictionary[@"skills"] = val;
 }
 
+- (NSArray*) appRoleAssignments
+{
+    if(!_appRoleAssignments){
+        
+    NSMutableArray *appRoleAssignmentsResult = [NSMutableArray array];
+    NSArray *appRoleAssignments = self.dictionary[@"appRoleAssignments"];
+
+    if ([appRoleAssignments isKindOfClass:[NSArray class]]){
+        for (id tempAppRoleAssignment in appRoleAssignments){
+            [appRoleAssignmentsResult addObject:tempAppRoleAssignment];
+        }
+    }
+
+    _appRoleAssignments = appRoleAssignmentsResult;
+        
+    }
+    return _appRoleAssignments;
+}
+
+- (void) setAppRoleAssignments: (NSArray*) val
+{
+    _appRoleAssignments = val;
+    self.dictionary[@"appRoleAssignments"] = val;
+}
+
 - (NSArray*) ownedDevices
 {
     if(!_ownedDevices){
@@ -1132,6 +1215,31 @@
 {
     _createdObjects = val;
     self.dictionary[@"createdObjects"] = val;
+}
+
+- (NSArray*) oauth2PermissionGrants
+{
+    if(!_oauth2PermissionGrants){
+        
+    NSMutableArray *oauth2PermissionGrantsResult = [NSMutableArray array];
+    NSArray *oauth2PermissionGrants = self.dictionary[@"oauth2PermissionGrants"];
+
+    if ([oauth2PermissionGrants isKindOfClass:[NSArray class]]){
+        for (id tempOAuth2PermissionGrant in oauth2PermissionGrants){
+            [oauth2PermissionGrantsResult addObject:tempOAuth2PermissionGrant];
+        }
+    }
+
+    _oauth2PermissionGrants = oauth2PermissionGrantsResult;
+        
+    }
+    return _oauth2PermissionGrants;
+}
+
+- (void) setOauth2PermissionGrants: (NSArray*) val
+{
+    _oauth2PermissionGrants = val;
+    self.dictionary[@"oauth2PermissionGrants"] = val;
 }
 
 - (NSArray*) ownedObjects
@@ -1768,8 +1876,8 @@
     NSArray *joinedTeams = self.dictionary[@"joinedTeams"];
 
     if ([joinedTeams isKindOfClass:[NSArray class]]){
-        for (id tempGroup in joinedTeams){
-            [joinedTeamsResult addObject:tempGroup];
+        for (id tempTeam in joinedTeams){
+            [joinedTeamsResult addObject:tempTeam];
         }
     }
 

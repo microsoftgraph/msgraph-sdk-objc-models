@@ -1,7 +1,7 @@
 // Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 
 
-@class MSGraphAssignedLicense, MSGraphAssignedPlan, MSGraphLicenseAssignmentState, MSGraphOnPremisesExtensionAttributes, MSGraphOnPremisesProvisioningError, MSGraphPasswordProfile, MSGraphProvisionedPlan, MSGraphMailboxSettings, MSGraphDirectoryObject, MSGraphLicenseDetails, MSGraphOutlookUser, MSGraphMessage, MSGraphMailFolder, MSGraphCalendar, MSGraphCalendarGroup, MSGraphEvent, MSGraphPerson, MSGraphContact, MSGraphContactFolder, MSGraphInferenceClassification, MSGraphProfilePhoto, MSGraphDrive, MSGraphExtension, MSGraphManagedDevice, MSGraphManagedAppRegistration, MSGraphDeviceManagementTroubleshootingEvent, MSGraphPlannerUser, MSGraphOfficeGraphInsights, MSGraphUserSettings, MSGraphOnenote, MSGraphUserActivity, MSGraphOnlineMeeting, MSGraphGroup; 
+@class MSGraphAssignedLicense, MSGraphAssignedPlan, MSGraphObjectIdentity, MSGraphLicenseAssignmentState, MSGraphOnPremisesExtensionAttributes, MSGraphOnPremisesProvisioningError, MSGraphPasswordProfile, MSGraphProvisionedPlan, MSGraphMailboxSettings, MSGraphAppRoleAssignment, MSGraphDirectoryObject, MSGraphOAuth2PermissionGrant, MSGraphLicenseDetails, MSGraphOutlookUser, MSGraphMessage, MSGraphMailFolder, MSGraphCalendar, MSGraphCalendarGroup, MSGraphEvent, MSGraphPerson, MSGraphContact, MSGraphContactFolder, MSGraphInferenceClassification, MSGraphProfilePhoto, MSGraphDrive, MSGraphExtension, MSGraphManagedDevice, MSGraphManagedAppRegistration, MSGraphDeviceManagementTroubleshootingEvent, MSGraphPlannerUser, MSGraphOfficeGraphInsights, MSGraphUserSettings, MSGraphOnenote, MSGraphUserActivity, MSGraphOnlineMeeting, MSGraphTeam; 
 
 
 #import "MSGraphDirectoryObject.h"
@@ -17,14 +17,17 @@
     @property (nullable, nonatomic, setter=setCompanyName:, getter=companyName) NSString* companyName;
     @property (nullable, nonatomic, setter=setConsentProvidedForMinor:, getter=consentProvidedForMinor) NSString* consentProvidedForMinor;
     @property (nullable, nonatomic, setter=setCountry:, getter=country) NSString* country;
+    @property (nullable, nonatomic, setter=setCreationType:, getter=creationType) NSString* creationType;
     @property (nullable, nonatomic, setter=setDepartment:, getter=department) NSString* department;
     @property (nullable, nonatomic, setter=setDisplayName:, getter=displayName) NSString* displayName;
     @property (nullable, nonatomic, setter=setEmployeeId:, getter=employeeId) NSString* employeeId;
     @property (nullable, nonatomic, setter=setFaxNumber:, getter=faxNumber) NSString* faxNumber;
     @property (nullable, nonatomic, setter=setGivenName:, getter=givenName) NSString* givenName;
+    @property (nullable, nonatomic, setter=setIdentities:, getter=identities) NSArray* identities;
     @property (nullable, nonatomic, setter=setImAddresses:, getter=imAddresses) NSArray* imAddresses;
     @property (nonatomic, setter=setIsResourceAccount:, getter=isResourceAccount) BOOL isResourceAccount;
     @property (nullable, nonatomic, setter=setJobTitle:, getter=jobTitle) NSString* jobTitle;
+    @property (nullable, nonatomic, setter=setLastPasswordChangeDateTime:, getter=lastPasswordChangeDateTime) NSDate* lastPasswordChangeDateTime;
     @property (nullable, nonatomic, setter=setLegalAgeGroupClassification:, getter=legalAgeGroupClassification) NSString* legalAgeGroupClassification;
     @property (nullable, nonatomic, setter=setLicenseAssignmentStates:, getter=licenseAssignmentStates) NSArray* licenseAssignmentStates;
     @property (nullable, nonatomic, setter=setMail:, getter=mail) NSString* mail;
@@ -68,12 +71,14 @@
     @property (nullable, nonatomic, setter=setResponsibilities:, getter=responsibilities) NSArray* responsibilities;
     @property (nullable, nonatomic, setter=setSchools:, getter=schools) NSArray* schools;
     @property (nullable, nonatomic, setter=setSkills:, getter=skills) NSArray* skills;
+    @property (nullable, nonatomic, setter=setAppRoleAssignments:, getter=appRoleAssignments) NSArray* appRoleAssignments;
     @property (nullable, nonatomic, setter=setOwnedDevices:, getter=ownedDevices) NSArray* ownedDevices;
     @property (nullable, nonatomic, setter=setRegisteredDevices:, getter=registeredDevices) NSArray* registeredDevices;
     @property (nullable, nonatomic, setter=setManager:, getter=manager) MSGraphDirectoryObject* manager;
     @property (nullable, nonatomic, setter=setDirectReports:, getter=directReports) NSArray* directReports;
     @property (nullable, nonatomic, setter=setMemberOf:, getter=memberOf) NSArray* memberOf;
     @property (nullable, nonatomic, setter=setCreatedObjects:, getter=createdObjects) NSArray* createdObjects;
+    @property (nullable, nonatomic, setter=setOauth2PermissionGrants:, getter=oauth2PermissionGrants) NSArray* oauth2PermissionGrants;
     @property (nullable, nonatomic, setter=setOwnedObjects:, getter=ownedObjects) NSArray* ownedObjects;
     @property (nullable, nonatomic, setter=setLicenseDetails:, getter=licenseDetails) NSArray* licenseDetails;
     @property (nullable, nonatomic, setter=setTransitiveMemberOf:, getter=transitiveMemberOf) NSArray* transitiveMemberOf;

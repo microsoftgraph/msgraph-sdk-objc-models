@@ -15,8 +15,10 @@
 @interface MSGraphParticipantInfo()
 {
     MSGraphIdentitySet* _identity;
+    MSGraphEndpointType* _endpointType;
     NSString* _region;
     NSString* _languageId;
+    NSString* _countryCode;
 }
 @end
 
@@ -34,6 +36,20 @@
 {
     _identity = val;
     self.dictionary[@"identity"] = val;
+}
+
+- (MSGraphEndpointType*) endpointType
+{
+    if(!_endpointType){
+        _endpointType = [self.dictionary[@"endpointType"] toMSGraphEndpointType];
+    }
+    return _endpointType;
+}
+
+- (void) setEndpointType: (MSGraphEndpointType*) val
+{
+    _endpointType = val;
+    self.dictionary[@"endpointType"] = val;
 }
 
 - (NSString*) region
@@ -62,6 +78,20 @@
 - (void) setLanguageId: (NSString*) val
 {
     self.dictionary[@"languageId"] = val;
+}
+
+- (NSString*) countryCode
+{
+    if([[NSNull null] isEqual:self.dictionary[@"countryCode"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"countryCode"];
+}
+
+- (void) setCountryCode: (NSString*) val
+{
+    self.dictionary[@"countryCode"] = val;
 }
 
 @end

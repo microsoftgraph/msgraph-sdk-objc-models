@@ -33,10 +33,6 @@
 }
 - (NSString*) displayName
 {
-    if([[NSNull null] isEqual:self.dictionary[@"displayName"]])
-    {
-        return nil;
-    }   
     return self.dictionary[@"displayName"];
 }
 

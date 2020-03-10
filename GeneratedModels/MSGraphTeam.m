@@ -21,6 +21,7 @@
     MSGraphTeamFunSettings* _funSettings;
     BOOL _isArchived;
     NSArray* _channels;
+    MSGraphChannel* _primaryChannel;
     NSArray* _installedApps;
     NSArray* _teamOperations;
 }
@@ -140,6 +141,20 @@
 {
     _channels = val;
     self.dictionary[@"channels"] = val;
+}
+
+- (MSGraphChannel*) primaryChannel
+{
+    if(!_primaryChannel){
+        _primaryChannel = [[MSGraphChannel alloc] initWithDictionary: self.dictionary[@"primaryChannel"]];
+    }
+    return _primaryChannel;
+}
+
+- (void) setPrimaryChannel: (MSGraphChannel*) val
+{
+    _primaryChannel = val;
+    self.dictionary[@"primaryChannel"] = val;
 }
 
 - (NSArray*) installedApps
