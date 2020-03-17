@@ -14,5 +14,6 @@
     @property (nonnull, nonatomic, setter=setExpirationDateTime:, getter=expirationDateTime) NSDate* expirationDateTime;
     @property (nullable, nonatomic, setter=setApplicationId:, getter=applicationId) NSString* applicationId;
     @property (nullable, nonatomic, setter=setCreatorId:, getter=creatorId) NSString* creatorId;
+    @property (nullable, nonatomic, setter=setLatestSupportedTlsVersion:, getter=latestSupportedTlsVersion) NSString* latestSupportedTlsVersion;
   
 @end
