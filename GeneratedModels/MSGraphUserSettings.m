@@ -16,6 +16,7 @@
 {
     BOOL _contributionToContentDiscoveryDisabled;
     BOOL _contributionToContentDiscoveryAsOrganizationDisabled;
+    MSGraphShiftPreferences* _shiftPreferences;
 }
 @end
 
@@ -50,6 +51,20 @@
 {
     _contributionToContentDiscoveryAsOrganizationDisabled = val;
     self.dictionary[@"contributionToContentDiscoveryAsOrganizationDisabled"] = @(val);
+}
+
+- (MSGraphShiftPreferences*) shiftPreferences
+{
+    if(!_shiftPreferences){
+        _shiftPreferences = [[MSGraphShiftPreferences alloc] initWithDictionary: self.dictionary[@"shiftPreferences"]];
+    }
+    return _shiftPreferences;
+}
+
+- (void) setShiftPreferences: (MSGraphShiftPreferences*) val
+{
+    _shiftPreferences = val;
+    self.dictionary[@"shiftPreferences"] = val;
 }
 
 

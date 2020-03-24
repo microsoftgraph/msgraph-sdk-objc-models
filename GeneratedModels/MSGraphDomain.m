@@ -21,6 +21,8 @@
     BOOL _isInitial;
     BOOL _isRoot;
     BOOL _isVerified;
+    NSString* _manufacturer;
+    NSString* _model;
     int32_t _passwordNotificationWindowInDays;
     int32_t _passwordValidityPeriodInDays;
     NSArray* _supportedServices;
@@ -122,6 +124,34 @@
 {
     _isVerified = val;
     self.dictionary[@"isVerified"] = @(val);
+}
+
+- (NSString*) manufacturer
+{
+    if([[NSNull null] isEqual:self.dictionary[@"manufacturer"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"manufacturer"];
+}
+
+- (void) setManufacturer: (NSString*) val
+{
+    self.dictionary[@"manufacturer"] = val;
+}
+
+- (NSString*) model
+{
+    if([[NSNull null] isEqual:self.dictionary[@"model"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"model"];
+}
+
+- (void) setModel: (NSString*) val
+{
+    self.dictionary[@"model"] = val;
 }
 
 - (int32_t) passwordNotificationWindowInDays
