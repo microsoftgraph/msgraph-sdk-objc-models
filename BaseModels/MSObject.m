@@ -63,6 +63,9 @@
         } else if ([dictionary[key] isKindOfClass:[NSArray class]]) {
             NSArray *array = dictionary[key];
             convertedDictionary[key] = [self recursivelyConvertObjectsToDictionariesInArray:array];
+        } else if ([dictionary[key] respondsToSelector:@selector(ms_toString)]) {
+            NSString *enumValue = [dictionary[key] performSelector:@selector(ms_toString)];
+            convertedDictionary[key] = enumValue;
         } else {
             convertedDictionary[key] = dictionary[key];
         }
@@ -79,6 +82,9 @@
         } else if ([item isKindOfClass:[NSArray class]]) {
             NSArray *array = item;
             [convertedArray addObject:[self recursivelyConvertObjectsToDictionariesInArray:array]];
+        } else if ([item respondsToSelector:@selector(ms_toString)]) {
+            NSString *enumValue = [item performSelector:@selector(ms_toString)];
+            [convertedArray addObject:enumValue];
         } else {
             [convertedArray addObject:item];
         }
