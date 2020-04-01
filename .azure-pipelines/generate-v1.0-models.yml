@@ -121,6 +121,7 @@ steps:
     targetType: inline
     workingDirectory: '$(Build.SourcesDirectory)/msgraph-sdk-objc-models'
     script: |
+      gem install xcodeproj
       ruby .\add_generated_models.rb | Write-Host
 
 - task: PowerShell@2
