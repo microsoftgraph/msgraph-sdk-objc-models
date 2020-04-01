@@ -116,6 +116,13 @@ steps:
       Write-Host "Moved the models from $modelsDirectory into the local repo." -ForegroundColor Green
 
 - task: PowerShell@2
+  displayName: 'Add new files to project'
+  inputs:
+    targetType: inline
+    script: |
+      ruby .\add_generated_models.rb | Write-Host
+
+- task: PowerShell@2
   displayName: 'Git: stage and commit generated files'
   env: # [2]
     GIT_REDIRECT_STDERR: "2>&1"
