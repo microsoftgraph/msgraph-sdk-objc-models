@@ -22,6 +22,7 @@
     NSArray* _contentTypes;
     MSGraphDrive* _drive;
     NSArray* _items;
+    NSArray* _subscriptions;
 }
 @end
 
@@ -177,6 +178,31 @@
 {
     _items = val;
     self.dictionary[@"items"] = val;
+}
+
+- (NSArray*) subscriptions
+{
+    if(!_subscriptions){
+        
+    NSMutableArray *subscriptionsResult = [NSMutableArray array];
+    NSArray *subscriptions = self.dictionary[@"subscriptions"];
+
+    if ([subscriptions isKindOfClass:[NSArray class]]){
+        for (id tempSubscription in subscriptions){
+            [subscriptionsResult addObject:tempSubscription];
+        }
+    }
+
+    _subscriptions = subscriptionsResult;
+        
+    }
+    return _subscriptions;
+}
+
+- (void) setSubscriptions: (NSArray*) val
+{
+    _subscriptions = val;
+    self.dictionary[@"subscriptions"] = val;
 }
 
 

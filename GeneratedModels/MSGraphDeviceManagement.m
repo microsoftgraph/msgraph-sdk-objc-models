@@ -15,6 +15,7 @@
 @interface MSGraphDeviceManagement()
 {
     MSGraphDeviceManagementSettings* _settings;
+    NSString* _intuneAccountId;
     MSGraphIntuneBrand* _intuneBrand;
     MSGraphDeviceManagementSubscriptionState* _subscriptionState;
     NSArray* _termsAndConditions;
@@ -68,6 +69,16 @@
 {
     _settings = val;
     self.dictionary[@"settings"] = val;
+}
+
+- (NSString*) intuneAccountId
+{
+    return self.dictionary[@"intuneAccountId"];
+}
+
+- (void) setIntuneAccountId: (NSString*) val
+{
+    self.dictionary[@"intuneAccountId"] = val;
 }
 
 - (MSGraphIntuneBrand*) intuneBrand

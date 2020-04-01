@@ -21,6 +21,7 @@
     NSDate* _expirationDateTime;
     NSString* _applicationId;
     NSString* _creatorId;
+    NSString* _latestSupportedTlsVersion;
 }
 @end
 
@@ -117,6 +118,20 @@
 - (void) setCreatorId: (NSString*) val
 {
     self.dictionary[@"creatorId"] = val;
+}
+
+- (NSString*) latestSupportedTlsVersion
+{
+    if([[NSNull null] isEqual:self.dictionary[@"latestSupportedTlsVersion"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"latestSupportedTlsVersion"];
+}
+
+- (void) setLatestSupportedTlsVersion: (NSString*) val
+{
+    self.dictionary[@"latestSupportedTlsVersion"] = val;
 }
 
 

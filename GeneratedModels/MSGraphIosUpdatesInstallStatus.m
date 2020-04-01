@@ -129,6 +129,15 @@
     });
     return _sharedDeviceUserLoggedInError;
 }
++ (MSGraphIosUpdatesInstallStatus*) deviceOsHigherThanDesiredOsVersion {
+    static MSGraphIosUpdatesInstallStatus *_deviceOsHigherThanDesiredOsVersion;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        _deviceOsHigherThanDesiredOsVersion = [[MSGraphIosUpdatesInstallStatus alloc] init];
+        _deviceOsHigherThanDesiredOsVersion.enumValue = MSGraphIosUpdatesInstallStatusDeviceOsHigherThanDesiredOsVersion;
+    });
+    return _deviceOsHigherThanDesiredOsVersion;
+}
 + (MSGraphIosUpdatesInstallStatus*) success {
     static MSGraphIosUpdatesInstallStatus *_success;
     static dispatch_once_t onceToken;
@@ -215,6 +224,8 @@
             return [MSGraphIosUpdatesInstallStatus notSupportedOperation];
         case MSGraphIosUpdatesInstallStatusSharedDeviceUserLoggedInError:
             return [MSGraphIosUpdatesInstallStatus sharedDeviceUserLoggedInError];
+        case MSGraphIosUpdatesInstallStatusDeviceOsHigherThanDesiredOsVersion:
+            return [MSGraphIosUpdatesInstallStatus deviceOsHigherThanDesiredOsVersion];
         case MSGraphIosUpdatesInstallStatusEndOfEnum:
         default:
             return [MSGraphIosUpdatesInstallStatus UnknownEnumValue];
@@ -261,6 +272,8 @@
             return @"notSupportedOperation";
         case MSGraphIosUpdatesInstallStatusSharedDeviceUserLoggedInError:
             return @"sharedDeviceUserLoggedInError";
+        case MSGraphIosUpdatesInstallStatusDeviceOsHigherThanDesiredOsVersion:
+            return @"deviceOsHigherThanDesiredOsVersion";
         case MSGraphIosUpdatesInstallStatusEndOfEnum:
         default:
             return nil;
@@ -346,6 +359,10 @@
     else if([self isEqualToString:@"sharedDeviceUserLoggedInError"])
     {
           return [MSGraphIosUpdatesInstallStatus sharedDeviceUserLoggedInError];
+    }
+    else if([self isEqualToString:@"deviceOsHigherThanDesiredOsVersion"])
+    {
+          return [MSGraphIosUpdatesInstallStatus deviceOsHigherThanDesiredOsVersion];
     }
     else {
         return [MSGraphIosUpdatesInstallStatus UnknownEnumValue];

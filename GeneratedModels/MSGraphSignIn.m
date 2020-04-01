@@ -34,6 +34,7 @@
     MSGraphRiskLevel* _riskLevelDuringSignIn;
     MSGraphRiskState* _riskState;
     NSArray* _riskEventTypes;
+    NSArray* _riskEventTypes_v2;
     NSString* _resourceDisplayName;
     NSString* _resourceId;
 }
@@ -342,6 +343,20 @@
 {
     _riskEventTypes = val;
     self.dictionary[@"riskEventTypes"] = val;
+}
+
+- (NSArray*) riskEventTypes_v2
+{
+    if([[NSNull null] isEqual:self.dictionary[@"riskEventTypes_v2"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"riskEventTypes_v2"];
+}
+
+- (void) setRiskEventTypes_v2: (NSArray*) val
+{
+    self.dictionary[@"riskEventTypes_v2"] = val;
 }
 
 - (NSString*) resourceDisplayName

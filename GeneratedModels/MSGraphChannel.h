@@ -8,7 +8,7 @@
 
 @interface MSGraphChannel : MSGraphEntity
 
-  @property (nullable, nonatomic, setter=setDisplayName:, getter=displayName) NSString* displayName;
+  @property (nonnull, nonatomic, setter=setDisplayName:, getter=displayName) NSString* displayName;
     @property (nullable, nonatomic, setter=setChannelDescription:, getter=channelDescription) NSString* channelDescription;
     @property (nullable, nonatomic, setter=setEmail:, getter=email) NSString* email;
     @property (nullable, nonatomic, setter=setWebUrl:, getter=webUrl) NSString* webUrl;

@@ -27,6 +27,7 @@
     @property (nullable, nonatomic, setter=setBccRecipients:, getter=bccRecipients) NSArray* bccRecipients;
     @property (nullable, nonatomic, setter=setReplyTo:, getter=replyTo) NSArray* replyTo;
     @property (nullable, nonatomic, setter=setConversationId:, getter=conversationId) NSString* conversationId;
+    @property (nullable, nonatomic, setter=setConversationIndex:, getter=conversationIndex) NSString* conversationIndex;
     @property (nullable, nonatomic, setter=setUniqueBody:, getter=uniqueBody) MSGraphItemBody* uniqueBody;
     @property (nonatomic, setter=setIsDeliveryReceiptRequested:, getter=isDeliveryReceiptRequested) BOOL isDeliveryReceiptRequested;
     @property (nonatomic, setter=setIsReadReceiptRequested:, getter=isReadReceiptRequested) BOOL isReadReceiptRequested;

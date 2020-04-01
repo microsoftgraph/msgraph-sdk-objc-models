@@ -15,19 +15,19 @@
 @interface MSGraphIntuneBrand()
 {
     NSString* _displayName;
-    NSString* _contactITName;
-    NSString* _contactITPhoneNumber;
-    NSString* _contactITEmailAddress;
-    NSString* _contactITNotes;
-    NSString* _privacyUrl;
-    NSString* _onlineSupportSiteUrl;
-    NSString* _onlineSupportSiteName;
     MSGraphRgbColor* _themeColor;
     BOOL _showLogo;
     MSGraphMimeContent* _lightBackgroundLogo;
     MSGraphMimeContent* _darkBackgroundLogo;
     BOOL _showNameNextToLogo;
     BOOL _showDisplayNameNextToLogo;
+    NSString* _contactITName;
+    NSString* _contactITPhoneNumber;
+    NSString* _contactITEmailAddress;
+    NSString* _contactITNotes;
+    NSString* _onlineSupportSiteUrl;
+    NSString* _onlineSupportSiteName;
+    NSString* _privacyUrl;
 }
 @end
 
@@ -45,104 +45,6 @@
 - (void) setDisplayName: (NSString*) val
 {
     self.dictionary[@"displayName"] = val;
-}
-
-- (NSString*) contactITName
-{
-    if([[NSNull null] isEqual:self.dictionary[@"contactITName"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"contactITName"];
-}
-
-- (void) setContactITName: (NSString*) val
-{
-    self.dictionary[@"contactITName"] = val;
-}
-
-- (NSString*) contactITPhoneNumber
-{
-    if([[NSNull null] isEqual:self.dictionary[@"contactITPhoneNumber"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"contactITPhoneNumber"];
-}
-
-- (void) setContactITPhoneNumber: (NSString*) val
-{
-    self.dictionary[@"contactITPhoneNumber"] = val;
-}
-
-- (NSString*) contactITEmailAddress
-{
-    if([[NSNull null] isEqual:self.dictionary[@"contactITEmailAddress"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"contactITEmailAddress"];
-}
-
-- (void) setContactITEmailAddress: (NSString*) val
-{
-    self.dictionary[@"contactITEmailAddress"] = val;
-}
-
-- (NSString*) contactITNotes
-{
-    if([[NSNull null] isEqual:self.dictionary[@"contactITNotes"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"contactITNotes"];
-}
-
-- (void) setContactITNotes: (NSString*) val
-{
-    self.dictionary[@"contactITNotes"] = val;
-}
-
-- (NSString*) privacyUrl
-{
-    if([[NSNull null] isEqual:self.dictionary[@"privacyUrl"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"privacyUrl"];
-}
-
-- (void) setPrivacyUrl: (NSString*) val
-{
-    self.dictionary[@"privacyUrl"] = val;
-}
-
-- (NSString*) onlineSupportSiteUrl
-{
-    if([[NSNull null] isEqual:self.dictionary[@"onlineSupportSiteUrl"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"onlineSupportSiteUrl"];
-}
-
-- (void) setOnlineSupportSiteUrl: (NSString*) val
-{
-    self.dictionary[@"onlineSupportSiteUrl"] = val;
-}
-
-- (NSString*) onlineSupportSiteName
-{
-    if([[NSNull null] isEqual:self.dictionary[@"onlineSupportSiteName"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"onlineSupportSiteName"];
-}
-
-- (void) setOnlineSupportSiteName: (NSString*) val
-{
-    self.dictionary[@"onlineSupportSiteName"] = val;
 }
 
 - (MSGraphRgbColor*) themeColor
@@ -221,6 +123,104 @@
 {
     _showDisplayNameNextToLogo = val;
     self.dictionary[@"showDisplayNameNextToLogo"] = @(val);
+}
+
+- (NSString*) contactITName
+{
+    if([[NSNull null] isEqual:self.dictionary[@"contactITName"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"contactITName"];
+}
+
+- (void) setContactITName: (NSString*) val
+{
+    self.dictionary[@"contactITName"] = val;
+}
+
+- (NSString*) contactITPhoneNumber
+{
+    if([[NSNull null] isEqual:self.dictionary[@"contactITPhoneNumber"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"contactITPhoneNumber"];
+}
+
+- (void) setContactITPhoneNumber: (NSString*) val
+{
+    self.dictionary[@"contactITPhoneNumber"] = val;
+}
+
+- (NSString*) contactITEmailAddress
+{
+    if([[NSNull null] isEqual:self.dictionary[@"contactITEmailAddress"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"contactITEmailAddress"];
+}
+
+- (void) setContactITEmailAddress: (NSString*) val
+{
+    self.dictionary[@"contactITEmailAddress"] = val;
+}
+
+- (NSString*) contactITNotes
+{
+    if([[NSNull null] isEqual:self.dictionary[@"contactITNotes"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"contactITNotes"];
+}
+
+- (void) setContactITNotes: (NSString*) val
+{
+    self.dictionary[@"contactITNotes"] = val;
+}
+
+- (NSString*) onlineSupportSiteUrl
+{
+    if([[NSNull null] isEqual:self.dictionary[@"onlineSupportSiteUrl"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"onlineSupportSiteUrl"];
+}
+
+- (void) setOnlineSupportSiteUrl: (NSString*) val
+{
+    self.dictionary[@"onlineSupportSiteUrl"] = val;
+}
+
+- (NSString*) onlineSupportSiteName
+{
+    if([[NSNull null] isEqual:self.dictionary[@"onlineSupportSiteName"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"onlineSupportSiteName"];
+}
+
+- (void) setOnlineSupportSiteName: (NSString*) val
+{
+    self.dictionary[@"onlineSupportSiteName"] = val;
+}
+
+- (NSString*) privacyUrl
+{
+    if([[NSNull null] isEqual:self.dictionary[@"privacyUrl"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"privacyUrl"];
+}
+
+- (void) setPrivacyUrl: (NSString*) val
+{
+    self.dictionary[@"privacyUrl"] = val;
 }
 
 @end

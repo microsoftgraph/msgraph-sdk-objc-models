@@ -1,14 +1,15 @@
 // Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 
 
-@class MSGraphRoot, MSGraphSharepointIds, MSGraphSiteCollection, MSGraphItemAnalytics, MSGraphColumnDefinition, MSGraphContentType, MSGraphDrive, MSGraphBaseItem, MSGraphList, MSGraphOnenote; 
+@class MSGraphPublicError, MSGraphRoot, MSGraphSharepointIds, MSGraphSiteCollection, MSGraphItemAnalytics, MSGraphColumnDefinition, MSGraphContentType, MSGraphDrive, MSGraphBaseItem, MSGraphList, MSGraphOnenote; 
 
 
 #import "MSGraphBaseItem.h"
 
 @interface MSGraphSite : MSGraphBaseItem
 
-  @property (nullable, nonatomic, setter=setDisplayName:, getter=displayName) NSString* displayName;
+  @property (nullable, nonatomic, setter=setError:, getter=error) MSGraphPublicError* error;
+    @property (nullable, nonatomic, setter=setDisplayName:, getter=displayName) NSString* displayName;
     @property (nullable, nonatomic, setter=setRoot:, getter=root) MSGraphRoot* root;
     @property (nullable, nonatomic, setter=setSharepointIds:, getter=sharepointIds) MSGraphSharepointIds* sharepointIds;
     @property (nullable, nonatomic, setter=setSiteCollection:, getter=siteCollection) MSGraphSiteCollection* siteCollection;
