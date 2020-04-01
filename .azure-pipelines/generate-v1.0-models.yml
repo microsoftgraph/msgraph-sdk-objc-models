@@ -119,6 +119,7 @@ steps:
   displayName: 'Add new files to project'
   inputs:
     targetType: inline
+    workingDirectory: '$(Build.SourcesDirectory)/msgraph-sdk-objc-models'
     script: |
       ruby .\add_generated_models.rb | Write-Host
 
