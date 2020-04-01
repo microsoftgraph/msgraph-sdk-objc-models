@@ -46,12 +46,9 @@ steps:
     targetType: inline
     script: |
       
-      $repoModelsDir = "$env:Build_SourcesDirectory\msgraph-sdk-objc-models\Models\"
-      $repoRequestDir = "$env:Build_SourcesDirectory\msgraph-sdk-objc-models\Requests\"
+      $repoModelsDir = "$env:Build_SourcesDirectory\msgraph-sdk-objc-models\GeneratedModels\"
       Write-Host "Path to repo model directory: $repoModelsDir"
-      Write-Host "Path to repo model directory: $repoRequestDir"
       Write-Host "##vso[task.setvariable variable=repoModelsDir]$repoModelsDir"
-      Write-Host "##vso[task.setvariable variable=repoRequestDir]$repoRequestDir"
 
       $outputPath = Join-Path $env:Build_SourcesDirectory "output"
       Write-Host "Path to typewriter.exe output $outputPath"
@@ -98,7 +95,6 @@ steps:
     targetType: inline
     script: |
       Remove-Item -Recurse $env:repoModelsDir | Write-Host
-      Remove-Item -Recurse $env:repoRequestDir | Write-Host
       Write-Host "Removed the existing generated files in the repo." -ForegroundColor Green
 
 - task: PowerShell@2
@@ -116,11 +112,8 @@ steps:
     targetType: inline
     script: |
       $modelsDirectory = Join-Path $env:outputPath "\Models\"
-      $requestsDirectory = Join-Path $env:outputPath "\Requests\"
       Move-Item $modelsDirectory $env:repoModelsDir
       Write-Host "Moved the models from $modelsDirectory into the local repo." -ForegroundColor Green
-      Move-Item $requestsDirectory $env:repoRequestDir
-      Write-Host "Moved the requests from $requestsDirectory into the local repo." -ForegroundColor Green
 
 - task: PowerShell@2
   displayName: 'Git: stage and commit generated files'
