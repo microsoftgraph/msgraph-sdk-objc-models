@@ -33,7 +33,7 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         MESSAGE_TITLE: Generated v1.0 Objective-C models using Typewriter
-        MESSAGE_BODY: "This pull request was automatically created by the GitHub Action, **${{github.workflow}}**. \n\n The commit hash is _${{github.sha}}_. \n\n **Important** Check for unexpected deletions or changes in this PR. \n\n cc: @darrelmiller"
+        MESSAGE_BODY: "This pull request was automatically created by the GitHub Action, **${{github.workflow}}**. \n\n The commit hash is _${{github.sha}}_. \n\n **Important** Check for unexpected deletions or changes in this PR. \n\n Added files must be displayed in the last file in this PR, *MSGraphClientModels.xcodeproj/project.pbxproj* \n\n cc: @darrelmiller"
         REVIEWERS: peombwa,ddyett
         ASSIGNEDTO: MIchaelMainer
         LABELS: generated
