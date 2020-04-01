@@ -23,14 +23,17 @@
     NSString* _companyName;
     NSString* _consentProvidedForMinor;
     NSString* _country;
+    NSString* _creationType;
     NSString* _department;
     NSString* _displayName;
     NSString* _employeeId;
     NSString* _faxNumber;
     NSString* _givenName;
+    NSArray* _identities;
     NSArray* _imAddresses;
     BOOL _isResourceAccount;
     NSString* _jobTitle;
+    NSDate* _lastPasswordChangeDateTime;
     NSString* _legalAgeGroupClassification;
     NSArray* _licenseAssignmentStates;
     NSString* _mail;
@@ -99,6 +102,7 @@
     NSArray* _photos;
     MSGraphDrive* _drive;
     NSArray* _drives;
+    NSArray* _followedSites;
     NSArray* _extensions;
     NSArray* _managedDevices;
     NSArray* _managedAppRegistrations;
@@ -264,6 +268,20 @@
     self.dictionary[@"country"] = val;
 }
 
+- (NSString*) creationType
+{
+    if([[NSNull null] isEqual:self.dictionary[@"creationType"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"creationType"];
+}
+
+- (void) setCreationType: (NSString*) val
+{
+    self.dictionary[@"creationType"] = val;
+}
+
 - (NSString*) department
 {
     if([[NSNull null] isEqual:self.dictionary[@"department"]])
@@ -334,6 +352,31 @@
     self.dictionary[@"givenName"] = val;
 }
 
+- (NSArray*) identities
+{
+    if(!_identities){
+        
+    NSMutableArray *identitiesResult = [NSMutableArray array];
+    NSArray *identities = self.dictionary[@"identities"];
+
+    if ([identities isKindOfClass:[NSArray class]]){
+        for (id tempObjectIdentity in identities){
+            [identitiesResult addObject:tempObjectIdentity];
+        }
+    }
+
+    _identities = identitiesResult;
+        
+    }
+    return _identities;
+}
+
+- (void) setIdentities: (NSArray*) val
+{
+    _identities = val;
+    self.dictionary[@"identities"] = val;
+}
+
 - (NSArray*) imAddresses
 {
     if([[NSNull null] isEqual:self.dictionary[@"imAddresses"]])
@@ -372,6 +415,20 @@
 - (void) setJobTitle: (NSString*) val
 {
     self.dictionary[@"jobTitle"] = val;
+}
+
+- (NSDate*) lastPasswordChangeDateTime
+{
+    if(!_lastPasswordChangeDateTime){
+        _lastPasswordChangeDateTime = [NSDate ms_dateFromString: self.dictionary[@"lastPasswordChangeDateTime"]];
+    }
+    return _lastPasswordChangeDateTime;
+}
+
+- (void) setLastPasswordChangeDateTime: (NSDate*) val
+{
+    _lastPasswordChangeDateTime = val;
+    self.dictionary[@"lastPasswordChangeDateTime"] = [val ms_toString];
 }
 
 - (NSString*) legalAgeGroupClassification
@@ -1554,6 +1611,31 @@
     self.dictionary[@"drives"] = val;
 }
 
+- (NSArray*) followedSites
+{
+    if(!_followedSites){
+        
+    NSMutableArray *followedSitesResult = [NSMutableArray array];
+    NSArray *followedSites = self.dictionary[@"followedSites"];
+
+    if ([followedSites isKindOfClass:[NSArray class]]){
+        for (id tempSite in followedSites){
+            [followedSitesResult addObject:tempSite];
+        }
+    }
+
+    _followedSites = followedSitesResult;
+        
+    }
+    return _followedSites;
+}
+
+- (void) setFollowedSites: (NSArray*) val
+{
+    _followedSites = val;
+    self.dictionary[@"followedSites"] = val;
+}
+
 - (NSArray*) extensions
 {
     if(!_extensions){
@@ -1768,8 +1850,8 @@
     NSArray *joinedTeams = self.dictionary[@"joinedTeams"];
 
     if ([joinedTeams isKindOfClass:[NSArray class]]){
-        for (id tempGroup in joinedTeams){
-            [joinedTeamsResult addObject:tempGroup];
+        for (id tempTeam in joinedTeams){
+            [joinedTeamsResult addObject:tempTeam];
         }
     }
 

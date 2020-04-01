@@ -10,6 +10,7 @@
 @interface MSGraphDeviceManagement : MSGraphEntity
 
   @property (nullable, nonatomic, setter=setSettings:, getter=settings) MSGraphDeviceManagementSettings* settings;
+    @property (nonnull, nonatomic, setter=setIntuneAccountId:, getter=intuneAccountId) NSString* intuneAccountId;
     @property (nullable, nonatomic, setter=setIntuneBrand:, getter=intuneBrand) MSGraphIntuneBrand* intuneBrand;
     @property (nonnull, nonatomic, setter=setSubscriptionState:, getter=subscriptionState) MSGraphDeviceManagementSubscriptionState* subscriptionState;
     @property (nullable, nonatomic, setter=setTermsAndConditions:, getter=termsAndConditions) NSArray* termsAndConditions;

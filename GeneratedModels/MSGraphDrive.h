@@ -13,6 +13,7 @@
     @property (nullable, nonatomic, setter=setQuota:, getter=quota) MSGraphQuota* quota;
     @property (nullable, nonatomic, setter=setSharePointIds:, getter=sharePointIds) MSGraphSharepointIds* sharePointIds;
     @property (nullable, nonatomic, setter=setSystem:, getter=system) MSGraphSystemFacet* system;
+    @property (nullable, nonatomic, setter=setFollowing:, getter=following) NSArray* following;
     @property (nullable, nonatomic, setter=setItems:, getter=items) NSArray* items;
     @property (nullable, nonatomic, setter=setList:, getter=list) MSGraphList* list;
     @property (nullable, nonatomic, setter=setRoot:, getter=root) MSGraphDriveItem* root;

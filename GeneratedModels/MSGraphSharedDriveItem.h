@@ -1,7 +1,7 @@
 // Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 
 
-@class MSGraphIdentitySet, MSGraphDriveItem, MSGraphList, MSGraphListItem, MSGraphSite; 
+@class MSGraphIdentitySet, MSGraphDriveItem, MSGraphList, MSGraphListItem, MSGraphPermission, MSGraphSite; 
 
 
 #import "MSGraphBaseItem.h"
@@ -13,6 +13,7 @@
     @property (nullable, nonatomic, setter=setItems:, getter=items) NSArray* items;
     @property (nullable, nonatomic, setter=setList:, getter=list) MSGraphList* list;
     @property (nullable, nonatomic, setter=setListItem:, getter=listItem) MSGraphListItem* listItem;
+    @property (nullable, nonatomic, setter=setPermission:, getter=permission) MSGraphPermission* permission;
     @property (nullable, nonatomic, setter=setRoot:, getter=root) MSGraphDriveItem* root;
     @property (nullable, nonatomic, setter=setSite:, getter=site) MSGraphSite* site;
   
