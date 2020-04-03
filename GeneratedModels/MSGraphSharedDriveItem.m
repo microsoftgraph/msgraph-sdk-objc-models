@@ -19,6 +19,7 @@
     NSArray* _items;
     MSGraphList* _list;
     MSGraphListItem* _listItem;
+    MSGraphPermission* _permission;
     MSGraphDriveItem* _root;
     MSGraphSite* _site;
 }
@@ -112,6 +113,20 @@
 {
     _listItem = val;
     self.dictionary[@"listItem"] = val;
+}
+
+- (MSGraphPermission*) permission
+{
+    if(!_permission){
+        _permission = [[MSGraphPermission alloc] initWithDictionary: self.dictionary[@"permission"]];
+    }
+    return _permission;
+}
+
+- (void) setPermission: (MSGraphPermission*) val
+{
+    _permission = val;
+    self.dictionary[@"permission"] = val;
 }
 
 - (MSGraphDriveItem*) root

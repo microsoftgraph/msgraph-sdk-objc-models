@@ -19,6 +19,7 @@
     MSGraphQuota* _quota;
     MSGraphSharepointIds* _sharePointIds;
     MSGraphSystemFacet* _system;
+    NSArray* _following;
     NSArray* _items;
     MSGraphList* _list;
     MSGraphDriveItem* _root;
@@ -103,6 +104,31 @@
 {
     _system = val;
     self.dictionary[@"system"] = val;
+}
+
+- (NSArray*) following
+{
+    if(!_following){
+        
+    NSMutableArray *followingResult = [NSMutableArray array];
+    NSArray *following = self.dictionary[@"following"];
+
+    if ([following isKindOfClass:[NSArray class]]){
+        for (id tempDriveItem in following){
+            [followingResult addObject:tempDriveItem];
+        }
+    }
+
+    _following = followingResult;
+        
+    }
+    return _following;
+}
+
+- (void) setFollowing: (NSArray*) val
+{
+    _following = val;
+    self.dictionary[@"following"] = val;
 }
 
 - (NSArray*) items

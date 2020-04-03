@@ -19,6 +19,7 @@ typedef NS_ENUM(NSInteger, MSGraphIosUpdatesInstallStatusValue){
 	MSGraphIosUpdatesInstallStatusInstallFailed = -2016330702,
 	MSGraphIosUpdatesInstallStatusNotSupportedOperation = -2016330701,
 	MSGraphIosUpdatesInstallStatusSharedDeviceUserLoggedInError = -2016330699,
+	MSGraphIosUpdatesInstallStatusDeviceOsHigherThanDesiredOsVersion = -2016330696,
 	MSGraphIosUpdatesInstallStatusSuccess = 0,
 	MSGraphIosUpdatesInstallStatusAvailable = 1,
 	MSGraphIosUpdatesInstallStatusIdle = 2,
@@ -41,6 +42,7 @@ typedef NS_ENUM(NSInteger, MSGraphIosUpdatesInstallStatusValue){
 +(MSGraphIosUpdatesInstallStatus*) installFailed;
 +(MSGraphIosUpdatesInstallStatus*) notSupportedOperation;
 +(MSGraphIosUpdatesInstallStatus*) sharedDeviceUserLoggedInError;
++(MSGraphIosUpdatesInstallStatus*) deviceOsHigherThanDesiredOsVersion;
 +(MSGraphIosUpdatesInstallStatus*) success;
 +(MSGraphIosUpdatesInstallStatus*) available;
 +(MSGraphIosUpdatesInstallStatus*) idle;

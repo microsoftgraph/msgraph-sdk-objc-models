@@ -20,7 +20,9 @@
     MSGraphTeamMessagingSettings* _messagingSettings;
     MSGraphTeamFunSettings* _funSettings;
     BOOL _isArchived;
+    MSGraphSchedule* _schedule;
     NSArray* _channels;
+    MSGraphChannel* _primaryChannel;
     NSArray* _installedApps;
     NSArray* _teamOperations;
 }
@@ -117,6 +119,20 @@
     self.dictionary[@"isArchived"] = @(val);
 }
 
+- (MSGraphSchedule*) schedule
+{
+    if(!_schedule){
+        _schedule = [[MSGraphSchedule alloc] initWithDictionary: self.dictionary[@"schedule"]];
+    }
+    return _schedule;
+}
+
+- (void) setSchedule: (MSGraphSchedule*) val
+{
+    _schedule = val;
+    self.dictionary[@"schedule"] = val;
+}
+
 - (NSArray*) channels
 {
     if(!_channels){
@@ -140,6 +156,20 @@
 {
     _channels = val;
     self.dictionary[@"channels"] = val;
+}
+
+- (MSGraphChannel*) primaryChannel
+{
+    if(!_primaryChannel){
+        _primaryChannel = [[MSGraphChannel alloc] initWithDictionary: self.dictionary[@"primaryChannel"]];
+    }
+    return _primaryChannel;
+}
+
+- (void) setPrimaryChannel: (MSGraphChannel*) val
+{
+    _primaryChannel = val;
+    self.dictionary[@"primaryChannel"] = val;
 }
 
 - (NSArray*) installedApps

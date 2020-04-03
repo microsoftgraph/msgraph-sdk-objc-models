@@ -17,6 +17,7 @@
     NSString* _userDisplayName;
     int32_t _acceptedVersion;
     NSDate* _acceptedDateTime;
+    NSString* _userPrincipalName;
     MSGraphTermsAndConditions* _termsAndConditions;
 }
 @end
@@ -68,6 +69,20 @@
 {
     _acceptedDateTime = val;
     self.dictionary[@"acceptedDateTime"] = [val ms_toString];
+}
+
+- (NSString*) userPrincipalName
+{
+    if([[NSNull null] isEqual:self.dictionary[@"userPrincipalName"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"userPrincipalName"];
+}
+
+- (void) setUserPrincipalName: (NSString*) val
+{
+    self.dictionary[@"userPrincipalName"] = val;
 }
 
 - (MSGraphTermsAndConditions*) termsAndConditions
