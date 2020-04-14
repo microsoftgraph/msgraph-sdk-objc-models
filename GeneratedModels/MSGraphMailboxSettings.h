@@ -3,6 +3,7 @@
 
 
 @class MSGraphAutomaticRepliesSetting, MSGraphLocaleInfo, MSGraphWorkingHours; 
+#import "MSGraphDelegateMeetingMessageDeliveryOptions.h"
 
 
 #import "MSObject.h"
@@ -13,6 +14,7 @@
 @property (nullable, nonatomic, setter=setArchiveFolder:, getter=archiveFolder) NSString* archiveFolder;
 @property (nullable, nonatomic, setter=setTimeZone:, getter=timeZone) NSString* timeZone;
 @property (nullable, nonatomic, setter=setLanguage:, getter=language) MSGraphLocaleInfo* language;
+@property (nullable, nonatomic, setter=setDelegateMeetingMessageDeliveryOptions:, getter=delegateMeetingMessageDeliveryOptions) MSGraphDelegateMeetingMessageDeliveryOptions* delegateMeetingMessageDeliveryOptions;
 @property (nullable, nonatomic, setter=setWorkingHours:, getter=workingHours) MSGraphWorkingHours* workingHours;
 @property (nullable, nonatomic, setter=setDateFormat:, getter=dateFormat) NSString* dateFormat;
 @property (nullable, nonatomic, setter=setTimeFormat:, getter=timeFormat) NSString* timeFormat;

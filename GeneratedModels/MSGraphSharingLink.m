@@ -15,8 +15,10 @@
 @interface MSGraphSharingLink()
 {
     MSGraphIdentity* _application;
+    BOOL _preventsDownload;
     NSString* _scope;
     NSString* _type;
+    NSString* _webHtml;
     NSString* _webUrl;
 }
 @end
@@ -35,6 +37,18 @@
 {
     _application = val;
     self.dictionary[@"application"] = val;
+}
+
+- (BOOL) preventsDownload
+{
+    _preventsDownload = [self.dictionary[@"preventsDownload"] boolValue];
+    return _preventsDownload;
+}
+
+- (void) setPreventsDownload: (BOOL) val
+{
+    _preventsDownload = val;
+    self.dictionary[@"preventsDownload"] = @(val);
 }
 
 - (NSString*) scope
@@ -63,6 +77,20 @@
 - (void) setType: (NSString*) val
 {
     self.dictionary[@"type"] = val;
+}
+
+- (NSString*) webHtml
+{
+    if([[NSNull null] isEqual:self.dictionary[@"webHtml"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"webHtml"];
+}
+
+- (void) setWebHtml: (NSString*) val
+{
+    self.dictionary[@"webHtml"] = val;
 }
 
 - (NSString*) webUrl

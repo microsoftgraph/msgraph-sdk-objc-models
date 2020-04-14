@@ -9,6 +9,7 @@
 
 @interface MSGraphSiteCollection : MSObject
 
+@property (nullable, nonatomic, setter=setDataLocationCode:, getter=dataLocationCode) NSString* dataLocationCode;
 @property (nullable, nonatomic, setter=setHostname:, getter=hostname) NSString* hostname;
 @property (nullable, nonatomic, setter=setRoot:, getter=root) MSGraphRoot* root;
 

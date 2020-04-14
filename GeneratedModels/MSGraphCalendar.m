@@ -21,8 +21,13 @@
     BOOL _canViewPrivateItems;
     BOOL _canEdit;
     MSGraphEmailAddress* _owner;
+    NSArray* _allowedOnlineMeetingProviders;
+    MSGraphOnlineMeetingProviderType* _defaultOnlineMeetingProvider;
+    BOOL _isTallyingResponses;
+    BOOL _isRemovable;
     NSArray* _singleValueExtendedProperties;
     NSArray* _multiValueExtendedProperties;
+    NSArray* _calendarPermissions;
     NSArray* _events;
     NSArray* _calendarView;
 }
@@ -129,6 +134,69 @@
     self.dictionary[@"owner"] = val;
 }
 
+- (NSArray*) allowedOnlineMeetingProviders
+{
+    if(!_allowedOnlineMeetingProviders){
+        
+    NSMutableArray *allowedOnlineMeetingProvidersResult = [NSMutableArray array];
+    NSArray *allowedOnlineMeetingProviders = self.dictionary[@"allowedOnlineMeetingProviders"];
+
+    if ([allowedOnlineMeetingProviders isKindOfClass:[NSArray class]]){
+        for (id tempOnlineMeetingProviderType in allowedOnlineMeetingProviders){
+            [allowedOnlineMeetingProvidersResult addObject:tempOnlineMeetingProviderType];
+        }
+    }
+
+    _allowedOnlineMeetingProviders = allowedOnlineMeetingProvidersResult;
+        
+    }
+    return _allowedOnlineMeetingProviders;
+}
+
+- (void) setAllowedOnlineMeetingProviders: (NSArray*) val
+{
+    _allowedOnlineMeetingProviders = val;
+    self.dictionary[@"allowedOnlineMeetingProviders"] = val;
+}
+
+- (MSGraphOnlineMeetingProviderType*) defaultOnlineMeetingProvider
+{
+    if(!_defaultOnlineMeetingProvider){
+        _defaultOnlineMeetingProvider = [self.dictionary[@"defaultOnlineMeetingProvider"] toMSGraphOnlineMeetingProviderType];
+    }
+    return _defaultOnlineMeetingProvider;
+}
+
+- (void) setDefaultOnlineMeetingProvider: (MSGraphOnlineMeetingProviderType*) val
+{
+    _defaultOnlineMeetingProvider = val;
+    self.dictionary[@"defaultOnlineMeetingProvider"] = val;
+}
+
+- (BOOL) isTallyingResponses
+{
+    _isTallyingResponses = [self.dictionary[@"isTallyingResponses"] boolValue];
+    return _isTallyingResponses;
+}
+
+- (void) setIsTallyingResponses: (BOOL) val
+{
+    _isTallyingResponses = val;
+    self.dictionary[@"isTallyingResponses"] = @(val);
+}
+
+- (BOOL) isRemovable
+{
+    _isRemovable = [self.dictionary[@"isRemovable"] boolValue];
+    return _isRemovable;
+}
+
+- (void) setIsRemovable: (BOOL) val
+{
+    _isRemovable = val;
+    self.dictionary[@"isRemovable"] = @(val);
+}
+
 - (NSArray*) singleValueExtendedProperties
 {
     if(!_singleValueExtendedProperties){
@@ -177,6 +245,31 @@
 {
     _multiValueExtendedProperties = val;
     self.dictionary[@"multiValueExtendedProperties"] = val;
+}
+
+- (NSArray*) calendarPermissions
+{
+    if(!_calendarPermissions){
+        
+    NSMutableArray *calendarPermissionsResult = [NSMutableArray array];
+    NSArray *calendarPermissions = self.dictionary[@"calendarPermissions"];
+
+    if ([calendarPermissions isKindOfClass:[NSArray class]]){
+        for (id tempCalendarPermission in calendarPermissions){
+            [calendarPermissionsResult addObject:tempCalendarPermission];
+        }
+    }
+
+    _calendarPermissions = calendarPermissionsResult;
+        
+    }
+    return _calendarPermissions;
+}
+
+- (void) setCalendarPermissions: (NSArray*) val
+{
+    _calendarPermissions = val;
+    self.dictionary[@"calendarPermissions"] = val;
 }
 
 - (NSArray*) events

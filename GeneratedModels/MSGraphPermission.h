@@ -8,7 +8,10 @@
 
 @interface MSGraphPermission : MSGraphEntity
 
-  @property (nullable, nonatomic, setter=setGrantedTo:, getter=grantedTo) MSGraphIdentitySet* grantedTo;
+  @property (nullable, nonatomic, setter=setExpirationDateTime:, getter=expirationDateTime) NSDate* expirationDateTime;
+    @property (nullable, nonatomic, setter=setGrantedTo:, getter=grantedTo) MSGraphIdentitySet* grantedTo;
+    @property (nullable, nonatomic, setter=setGrantedToIdentities:, getter=grantedToIdentities) NSArray* grantedToIdentities;
+    @property (nonatomic, setter=setHasPassword:, getter=hasPassword) BOOL hasPassword;
     @property (nullable, nonatomic, setter=setInheritedFrom:, getter=inheritedFrom) MSGraphItemReference* inheritedFrom;
     @property (nullable, nonatomic, setter=setInvitation:, getter=invitation) MSGraphSharingInvitation* invitation;
     @property (nullable, nonatomic, setter=setLink:, getter=link) MSGraphSharingLink* link;
