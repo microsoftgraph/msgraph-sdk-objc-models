@@ -13,6 +13,7 @@
 @property (nullable, nonatomic, setter=setListItemUniqueId:, getter=listItemUniqueId) NSString* listItemUniqueId;
 @property (nullable, nonatomic, setter=setSiteId:, getter=siteId) NSString* siteId;
 @property (nullable, nonatomic, setter=setSiteUrl:, getter=siteUrl) NSString* siteUrl;
+@property (nullable, nonatomic, setter=setTenantId:, getter=tenantId) NSString* tenantId;
 @property (nullable, nonatomic, setter=setWebId:, getter=webId) NSString* webId;
 
 @end

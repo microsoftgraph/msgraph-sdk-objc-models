@@ -43,6 +43,9 @@
     MSGraphRecipient* _organizer;
     NSString* _webLink;
     NSString* _onlineMeetingUrl;
+    BOOL _isOnlineMeeting;
+    MSGraphOnlineMeetingProviderType* _onlineMeetingProvider;
+    MSGraphOnlineMeetingInfo* _onlineMeeting;
     NSArray* _attachments;
     NSArray* _singleValueExtendedProperties;
     NSArray* _multiValueExtendedProperties;
@@ -473,6 +476,46 @@
 - (void) setOnlineMeetingUrl: (NSString*) val
 {
     self.dictionary[@"onlineMeetingUrl"] = val;
+}
+
+- (BOOL) isOnlineMeeting
+{
+    _isOnlineMeeting = [self.dictionary[@"isOnlineMeeting"] boolValue];
+    return _isOnlineMeeting;
+}
+
+- (void) setIsOnlineMeeting: (BOOL) val
+{
+    _isOnlineMeeting = val;
+    self.dictionary[@"isOnlineMeeting"] = @(val);
+}
+
+- (MSGraphOnlineMeetingProviderType*) onlineMeetingProvider
+{
+    if(!_onlineMeetingProvider){
+        _onlineMeetingProvider = [self.dictionary[@"onlineMeetingProvider"] toMSGraphOnlineMeetingProviderType];
+    }
+    return _onlineMeetingProvider;
+}
+
+- (void) setOnlineMeetingProvider: (MSGraphOnlineMeetingProviderType*) val
+{
+    _onlineMeetingProvider = val;
+    self.dictionary[@"onlineMeetingProvider"] = val;
+}
+
+- (MSGraphOnlineMeetingInfo*) onlineMeeting
+{
+    if(!_onlineMeeting){
+        _onlineMeeting = [[MSGraphOnlineMeetingInfo alloc] initWithDictionary: self.dictionary[@"onlineMeeting"]];
+    }
+    return _onlineMeeting;
+}
+
+- (void) setOnlineMeeting: (MSGraphOnlineMeetingInfo*) val
+{
+    _onlineMeeting = val;
+    self.dictionary[@"onlineMeeting"] = val;
 }
 
 - (NSArray*) attachments

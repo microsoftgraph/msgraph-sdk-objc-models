@@ -14,12 +14,27 @@
 
 @interface MSGraphSiteCollection()
 {
+    NSString* _dataLocationCode;
     NSString* _hostname;
     MSGraphRoot* _root;
 }
 @end
 
 @implementation MSGraphSiteCollection
+
+- (NSString*) dataLocationCode
+{
+    if([[NSNull null] isEqual:self.dictionary[@"dataLocationCode"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"dataLocationCode"];
+}
+
+- (void) setDataLocationCode: (NSString*) val
+{
+    self.dictionary[@"dataLocationCode"] = val;
+}
 
 - (NSString*) hostname
 {

@@ -18,6 +18,7 @@
     NSString* _archiveFolder;
     NSString* _timeZone;
     MSGraphLocaleInfo* _language;
+    MSGraphDelegateMeetingMessageDeliveryOptions* _delegateMeetingMessageDeliveryOptions;
     MSGraphWorkingHours* _workingHours;
     NSString* _dateFormat;
     NSString* _timeFormat;
@@ -80,6 +81,20 @@
 {
     _language = val;
     self.dictionary[@"language"] = val;
+}
+
+- (MSGraphDelegateMeetingMessageDeliveryOptions*) delegateMeetingMessageDeliveryOptions
+{
+    if(!_delegateMeetingMessageDeliveryOptions){
+        _delegateMeetingMessageDeliveryOptions = [self.dictionary[@"delegateMeetingMessageDeliveryOptions"] toMSGraphDelegateMeetingMessageDeliveryOptions];
+    }
+    return _delegateMeetingMessageDeliveryOptions;
+}
+
+- (void) setDelegateMeetingMessageDeliveryOptions: (MSGraphDelegateMeetingMessageDeliveryOptions*) val
+{
+    _delegateMeetingMessageDeliveryOptions = val;
+    self.dictionary[@"delegateMeetingMessageDeliveryOptions"] = val;
 }
 
 - (MSGraphWorkingHours*) workingHours

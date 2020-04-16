@@ -41,6 +41,8 @@
     NSArray* _extensionProperties;
     MSGraphDirectoryObject* _createdOnBehalfOf;
     NSArray* _owners;
+    NSArray* _tokenLifetimePolicies;
+    NSArray* _tokenIssuancePolicies;
 }
 @end
 
@@ -492,6 +494,56 @@
 {
     _owners = val;
     self.dictionary[@"owners"] = val;
+}
+
+- (NSArray*) tokenLifetimePolicies
+{
+    if(!_tokenLifetimePolicies){
+        
+    NSMutableArray *tokenLifetimePoliciesResult = [NSMutableArray array];
+    NSArray *tokenLifetimePolicies = self.dictionary[@"tokenLifetimePolicies"];
+
+    if ([tokenLifetimePolicies isKindOfClass:[NSArray class]]){
+        for (id tempTokenLifetimePolicy in tokenLifetimePolicies){
+            [tokenLifetimePoliciesResult addObject:tempTokenLifetimePolicy];
+        }
+    }
+
+    _tokenLifetimePolicies = tokenLifetimePoliciesResult;
+        
+    }
+    return _tokenLifetimePolicies;
+}
+
+- (void) setTokenLifetimePolicies: (NSArray*) val
+{
+    _tokenLifetimePolicies = val;
+    self.dictionary[@"tokenLifetimePolicies"] = val;
+}
+
+- (NSArray*) tokenIssuancePolicies
+{
+    if(!_tokenIssuancePolicies){
+        
+    NSMutableArray *tokenIssuancePoliciesResult = [NSMutableArray array];
+    NSArray *tokenIssuancePolicies = self.dictionary[@"tokenIssuancePolicies"];
+
+    if ([tokenIssuancePolicies isKindOfClass:[NSArray class]]){
+        for (id tempTokenIssuancePolicy in tokenIssuancePolicies){
+            [tokenIssuancePoliciesResult addObject:tempTokenIssuancePolicy];
+        }
+    }
+
+    _tokenIssuancePolicies = tokenIssuancePoliciesResult;
+        
+    }
+    return _tokenIssuancePolicies;
+}
+
+- (void) setTokenIssuancePolicies: (NSArray*) val
+{
+    _tokenIssuancePolicies = val;
+    self.dictionary[@"tokenIssuancePolicies"] = val;
 }
 
 

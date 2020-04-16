@@ -2,7 +2,7 @@
 
 
 
-@class MSGraphIdentitySet, MSGraphFile, MSGraphFileSystemInfo, MSGraphFolder, MSGraphPackage, MSGraphItemReference, MSGraphShared, MSGraphSharepointIds, MSGraphSpecialFolder; 
+@class MSGraphIdentitySet, MSGraphFile, MSGraphFileSystemInfo, MSGraphFolder, MSGraphImage, MSGraphPackage, MSGraphItemReference, MSGraphShared, MSGraphSharepointIds, MSGraphSpecialFolder, MSGraphVideo; 
 
 
 #import "MSObject.h"
@@ -14,6 +14,7 @@
 @property (nullable, nonatomic, setter=setFile:, getter=file) MSGraphFile* file;
 @property (nullable, nonatomic, setter=setFileSystemInfo:, getter=fileSystemInfo) MSGraphFileSystemInfo* fileSystemInfo;
 @property (nullable, nonatomic, setter=setFolder:, getter=folder) MSGraphFolder* folder;
+@property (nullable, nonatomic, setter=setImage:, getter=image) MSGraphImage* image;
 @property (nullable, nonatomic, setter=setRemoteItemId:, getter=remoteItemId) NSString* remoteItemId;
 @property (nullable, nonatomic, setter=setLastModifiedBy:, getter=lastModifiedBy) MSGraphIdentitySet* lastModifiedBy;
 @property (nullable, nonatomic, setter=setLastModifiedDateTime:, getter=lastModifiedDateTime) NSDate* lastModifiedDateTime;
@@ -24,6 +25,7 @@
 @property (nullable, nonatomic, setter=setSharepointIds:, getter=sharepointIds) MSGraphSharepointIds* sharepointIds;
 @property (nonatomic, setter=setSize:, getter=size) int64_t size;
 @property (nullable, nonatomic, setter=setSpecialFolder:, getter=specialFolder) MSGraphSpecialFolder* specialFolder;
+@property (nullable, nonatomic, setter=setVideo:, getter=video) MSGraphVideo* video;
 @property (nullable, nonatomic, setter=setWebDavUrl:, getter=webDavUrl) NSString* webDavUrl;
 @property (nullable, nonatomic, setter=setWebUrl:, getter=webUrl) NSString* webUrl;
 

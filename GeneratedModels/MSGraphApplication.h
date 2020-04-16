@@ -1,7 +1,7 @@
 // Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 
 
-@class MSGraphAddIn, MSGraphApiApplication, MSGraphAppRole, MSGraphPublicClientApplication, MSGraphInformationalUrl, MSGraphKeyCredential, MSGraphOptionalClaims, MSGraphParentalControlSettings, MSGraphPasswordCredential, MSGraphRequiredResourceAccess, MSGraphWebApplication, MSGraphExtensionProperty, MSGraphDirectoryObject; 
+@class MSGraphAddIn, MSGraphApiApplication, MSGraphAppRole, MSGraphPublicClientApplication, MSGraphInformationalUrl, MSGraphKeyCredential, MSGraphOptionalClaims, MSGraphParentalControlSettings, MSGraphPasswordCredential, MSGraphRequiredResourceAccess, MSGraphWebApplication, MSGraphExtensionProperty, MSGraphDirectoryObject, MSGraphTokenLifetimePolicy, MSGraphTokenIssuancePolicy; 
 
 
 #import "MSGraphDirectoryObject.h"
@@ -35,5 +35,7 @@
     @property (nullable, nonatomic, setter=setExtensionProperties:, getter=extensionProperties) NSArray* extensionProperties;
     @property (nullable, nonatomic, setter=setCreatedOnBehalfOf:, getter=createdOnBehalfOf) MSGraphDirectoryObject* createdOnBehalfOf;
     @property (nullable, nonatomic, setter=setOwners:, getter=owners) NSArray* owners;
+    @property (nullable, nonatomic, setter=setTokenLifetimePolicies:, getter=tokenLifetimePolicies) NSArray* tokenLifetimePolicies;
+    @property (nullable, nonatomic, setter=setTokenIssuancePolicies:, getter=tokenIssuancePolicies) NSArray* tokenIssuancePolicies;
   
 @end

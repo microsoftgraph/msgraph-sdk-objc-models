@@ -14,7 +14,10 @@
 
 @interface MSGraphPermission()
 {
+    NSDate* _expirationDateTime;
     MSGraphIdentitySet* _grantedTo;
+    NSArray* _grantedToIdentities;
+    BOOL _hasPassword;
     MSGraphItemReference* _inheritedFrom;
     MSGraphSharingInvitation* _invitation;
     MSGraphSharingLink* _link;
@@ -32,6 +35,20 @@
     }
     return self;
 }
+- (NSDate*) expirationDateTime
+{
+    if(!_expirationDateTime){
+        _expirationDateTime = [NSDate ms_dateFromString: self.dictionary[@"expirationDateTime"]];
+    }
+    return _expirationDateTime;
+}
+
+- (void) setExpirationDateTime: (NSDate*) val
+{
+    _expirationDateTime = val;
+    self.dictionary[@"expirationDateTime"] = [val ms_toString];
+}
+
 - (MSGraphIdentitySet*) grantedTo
 {
     if(!_grantedTo){
@@ -44,6 +61,43 @@
 {
     _grantedTo = val;
     self.dictionary[@"grantedTo"] = val;
+}
+
+- (NSArray*) grantedToIdentities
+{
+    if(!_grantedToIdentities){
+        
+    NSMutableArray *grantedToIdentitiesResult = [NSMutableArray array];
+    NSArray *grantedToIdentities = self.dictionary[@"grantedToIdentities"];
+
+    if ([grantedToIdentities isKindOfClass:[NSArray class]]){
+        for (id tempIdentitySet in grantedToIdentities){
+            [grantedToIdentitiesResult addObject:tempIdentitySet];
+        }
+    }
+
+    _grantedToIdentities = grantedToIdentitiesResult;
+        
+    }
+    return _grantedToIdentities;
+}
+
+- (void) setGrantedToIdentities: (NSArray*) val
+{
+    _grantedToIdentities = val;
+    self.dictionary[@"grantedToIdentities"] = val;
+}
+
+- (BOOL) hasPassword
+{
+    _hasPassword = [self.dictionary[@"hasPassword"] boolValue];
+    return _hasPassword;
+}
+
+- (void) setHasPassword: (BOOL) val
+{
+    _hasPassword = val;
+    self.dictionary[@"hasPassword"] = @(val);
 }
 
 - (MSGraphItemReference*) inheritedFrom
