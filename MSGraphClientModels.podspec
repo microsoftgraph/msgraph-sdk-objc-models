@@ -3,13 +3,13 @@
 Pod::Spec.new do |s|
 
   s.name         = "MSGraphClientModels"
-  s.version      = "1.3.0"
+  s.version      = "1.4.0"
   s.summary      = "Microsoft Graph Models to be used with MSGraphClientSDK."
   s.description  = <<-DESC
 			Use these models to convert raw data from MSGraphClientSDK to models and back.
                    DESC
 
-  s.homepage     = "http://graph.microsoft.io"
+  s.homepage     = "http://graph.microsoft.com"
   s.license      = { :type => "MIT", :file => "LICENSE" }
   s.author        = 'Microsoft Graph'
 
