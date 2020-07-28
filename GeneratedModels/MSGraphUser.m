@@ -27,6 +27,8 @@
     NSString* _department;
     NSString* _displayName;
     NSString* _employeeId;
+    NSString* _externalUserState;
+    NSDate* _externalUserStateChangeDateTime;
     NSString* _faxNumber;
     NSString* _givenName;
     NSArray* _identities;
@@ -77,12 +79,14 @@
     NSArray* _responsibilities;
     NSArray* _schools;
     NSArray* _skills;
+    NSArray* _appRoleAssignments;
     NSArray* _ownedDevices;
     NSArray* _registeredDevices;
     MSGraphDirectoryObject* _manager;
     NSArray* _directReports;
     NSArray* _memberOf;
     NSArray* _createdObjects;
+    NSArray* _oauth2PermissionGrants;
     NSArray* _ownedObjects;
     NSArray* _licenseDetails;
     NSArray* _transitiveMemberOf;
@@ -322,6 +326,34 @@
 - (void) setEmployeeId: (NSString*) val
 {
     self.dictionary[@"employeeId"] = val;
+}
+
+- (NSString*) externalUserState
+{
+    if([[NSNull null] isEqual:self.dictionary[@"externalUserState"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"externalUserState"];
+}
+
+- (void) setExternalUserState: (NSString*) val
+{
+    self.dictionary[@"externalUserState"] = val;
+}
+
+- (NSDate*) externalUserStateChangeDateTime
+{
+    if(!_externalUserStateChangeDateTime){
+        _externalUserStateChangeDateTime = [NSDate ms_dateFromString: self.dictionary[@"externalUserStateChangeDateTime"]];
+    }
+    return _externalUserStateChangeDateTime;
+}
+
+- (void) setExternalUserStateChangeDateTime: (NSDate*) val
+{
+    _externalUserStateChangeDateTime = val;
+    self.dictionary[@"externalUserStateChangeDateTime"] = [val ms_toString];
 }
 
 - (NSString*) faxNumber
@@ -1052,6 +1084,31 @@
     self.dictionary[@"skills"] = val;
 }
 
+- (NSArray*) appRoleAssignments
+{
+    if(!_appRoleAssignments){
+        
+    NSMutableArray *appRoleAssignmentsResult = [NSMutableArray array];
+    NSArray *appRoleAssignments = self.dictionary[@"appRoleAssignments"];
+
+    if ([appRoleAssignments isKindOfClass:[NSArray class]]){
+        for (id tempAppRoleAssignment in appRoleAssignments){
+            [appRoleAssignmentsResult addObject:tempAppRoleAssignment];
+        }
+    }
+
+    _appRoleAssignments = appRoleAssignmentsResult;
+        
+    }
+    return _appRoleAssignments;
+}
+
+- (void) setAppRoleAssignments: (NSArray*) val
+{
+    _appRoleAssignments = val;
+    self.dictionary[@"appRoleAssignments"] = val;
+}
+
 - (NSArray*) ownedDevices
 {
     if(!_ownedDevices){
@@ -1189,6 +1246,31 @@
 {
     _createdObjects = val;
     self.dictionary[@"createdObjects"] = val;
+}
+
+- (NSArray*) oauth2PermissionGrants
+{
+    if(!_oauth2PermissionGrants){
+        
+    NSMutableArray *oauth2PermissionGrantsResult = [NSMutableArray array];
+    NSArray *oauth2PermissionGrants = self.dictionary[@"oauth2PermissionGrants"];
+
+    if ([oauth2PermissionGrants isKindOfClass:[NSArray class]]){
+        for (id tempOAuth2PermissionGrant in oauth2PermissionGrants){
+            [oauth2PermissionGrantsResult addObject:tempOAuth2PermissionGrant];
+        }
+    }
+
+    _oauth2PermissionGrants = oauth2PermissionGrantsResult;
+        
+    }
+    return _oauth2PermissionGrants;
+}
+
+- (void) setOauth2PermissionGrants: (NSArray*) val
+{
+    _oauth2PermissionGrants = val;
+    self.dictionary[@"oauth2PermissionGrants"] = val;
 }
 
 - (NSArray*) ownedObjects

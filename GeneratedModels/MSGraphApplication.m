@@ -40,6 +40,7 @@
     MSGraphWebApplication* _web;
     NSArray* _extensionProperties;
     MSGraphDirectoryObject* _createdOnBehalfOf;
+    NSArray* _homeRealmDiscoveryPolicies;
     NSArray* _owners;
     NSArray* _tokenLifetimePolicies;
     NSArray* _tokenIssuancePolicies;
@@ -469,6 +470,31 @@
 {
     _createdOnBehalfOf = val;
     self.dictionary[@"createdOnBehalfOf"] = val;
+}
+
+- (NSArray*) homeRealmDiscoveryPolicies
+{
+    if(!_homeRealmDiscoveryPolicies){
+        
+    NSMutableArray *homeRealmDiscoveryPoliciesResult = [NSMutableArray array];
+    NSArray *homeRealmDiscoveryPolicies = self.dictionary[@"homeRealmDiscoveryPolicies"];
+
+    if ([homeRealmDiscoveryPolicies isKindOfClass:[NSArray class]]){
+        for (id tempHomeRealmDiscoveryPolicy in homeRealmDiscoveryPolicies){
+            [homeRealmDiscoveryPoliciesResult addObject:tempHomeRealmDiscoveryPolicy];
+        }
+    }
+
+    _homeRealmDiscoveryPolicies = homeRealmDiscoveryPoliciesResult;
+        
+    }
+    return _homeRealmDiscoveryPolicies;
+}
+
+- (void) setHomeRealmDiscoveryPolicies: (NSArray*) val
+{
+    _homeRealmDiscoveryPolicies = val;
+    self.dictionary[@"homeRealmDiscoveryPolicies"] = val;
 }
 
 - (NSArray*) owners

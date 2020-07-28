@@ -3,11 +3,11 @@
 
 
 
-#import "MSGraphEntity.h"
+#import "MSGraphDirectoryObject.h"
 
-@interface MSGraphPolicyBase : MSGraphEntity
+@interface MSGraphPolicyBase : MSGraphDirectoryObject
 
-  @property (nonnull, nonatomic, setter=setPolicyBaseDescription:, getter=policyBaseDescription) NSString* policyBaseDescription;
-    @property (nonnull, nonatomic, setter=setDisplayName:, getter=displayName) NSString* displayName;
+  @property (nullable, nonatomic, setter=setPolicyBaseDescription:, getter=policyBaseDescription) NSString* policyBaseDescription;
+    @property (nullable, nonatomic, setter=setDisplayName:, getter=displayName) NSString* displayName;
   
 @end

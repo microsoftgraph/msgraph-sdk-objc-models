@@ -15,6 +15,7 @@
 @interface MSGraphContentTypeInfo()
 {
     NSString* _contentTypeInfoId;
+    NSString* _name;
 }
 @end
 
@@ -32,6 +33,20 @@
 - (void) setContentTypeInfoId: (NSString*) val
 {
     self.dictionary[@"id"] = val;
+}
+
+- (NSString*) name
+{
+    if([[NSNull null] isEqual:self.dictionary[@"name"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"name"];
+}
+
+- (void) setName: (NSString*) val
+{
+    self.dictionary[@"name"] = val;
 }
 
 @end

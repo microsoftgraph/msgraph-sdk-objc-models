@@ -1,7 +1,7 @@
 // Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 
 
-@class MSGraphMeetingParticipants, MSGraphAudioConferencing, MSGraphChatInfo; 
+@class MSGraphMeetingParticipants, MSGraphAudioConferencing, MSGraphChatInfo, MSGraphItemBody; 
 
 
 #import "MSGraphEntity.h"
@@ -17,5 +17,7 @@
     @property (nullable, nonatomic, setter=setAudioConferencing:, getter=audioConferencing) MSGraphAudioConferencing* audioConferencing;
     @property (nullable, nonatomic, setter=setChatInfo:, getter=chatInfo) MSGraphChatInfo* chatInfo;
     @property (nullable, nonatomic, setter=setVideoTeleconferenceId:, getter=videoTeleconferenceId) NSString* videoTeleconferenceId;
+    @property (nullable, nonatomic, setter=setExternalId:, getter=externalId) NSString* externalId;
+    @property (nullable, nonatomic, setter=setJoinInformation:, getter=joinInformation) MSGraphItemBody* joinInformation;
   
 @end

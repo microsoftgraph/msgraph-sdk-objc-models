@@ -1,7 +1,7 @@
 // Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 
 
-@class MSGraphCloudAppSecurityState, MSGraphFileSecurityState, MSGraphAlertHistoryState, MSGraphHostSecurityState, MSGraphMalwareState, MSGraphNetworkConnection, MSGraphProcess, MSGraphRegistryKeyState, MSGraphAlertTrigger, MSGraphUserSecurityState, MSGraphSecurityVendorInformation, MSGraphVulnerabilityState; 
+@class MSGraphCloudAppSecurityState, MSGraphFileSecurityState, MSGraphAlertHistoryState, MSGraphHostSecurityState, MSGraphMalwareState, MSGraphNetworkConnection, MSGraphProcess, MSGraphRegistryKeyState, MSGraphSecurityResource, MSGraphAlertTrigger, MSGraphUserSecurityState, MSGraphSecurityVendorInformation, MSGraphVulnerabilityState; 
 #import "MSGraphAlertFeedback.h"
 #import "MSGraphAlertSeverity.h"
 #import "MSGraphAlertStatus.h"
@@ -28,12 +28,14 @@
     @property (nullable, nonatomic, setter=setFileStates:, getter=fileStates) NSArray* fileStates;
     @property (nullable, nonatomic, setter=setHistoryStates:, getter=historyStates) NSArray* historyStates;
     @property (nullable, nonatomic, setter=setHostStates:, getter=hostStates) NSArray* hostStates;
+    @property (nullable, nonatomic, setter=setIncidentIds:, getter=incidentIds) NSArray* incidentIds;
     @property (nullable, nonatomic, setter=setLastModifiedDateTime:, getter=lastModifiedDateTime) NSDate* lastModifiedDateTime;
     @property (nullable, nonatomic, setter=setMalwareStates:, getter=malwareStates) NSArray* malwareStates;
     @property (nullable, nonatomic, setter=setNetworkConnections:, getter=networkConnections) NSArray* networkConnections;
     @property (nullable, nonatomic, setter=setProcesses:, getter=processes) NSArray* processes;
     @property (nullable, nonatomic, setter=setRecommendedActions:, getter=recommendedActions) NSArray* recommendedActions;
     @property (nullable, nonatomic, setter=setRegistryKeyStates:, getter=registryKeyStates) NSArray* registryKeyStates;
+    @property (nullable, nonatomic, setter=setSecurityResources:, getter=securityResources) NSArray* securityResources;
     @property (nonnull, nonatomic, setter=setSeverity:, getter=severity) MSGraphAlertSeverity* severity;
     @property (nullable, nonatomic, setter=setSourceMaterials:, getter=sourceMaterials) NSArray* sourceMaterials;
     @property (nonnull, nonatomic, setter=setStatus:, getter=status) MSGraphAlertStatus* status;

@@ -9,5 +9,6 @@
 @interface MSGraphContentTypeInfo : MSObject
 
 @property (nullable, nonatomic, setter=setContentTypeInfoId:, getter=contentTypeInfoId) NSString* contentTypeInfoId;
+@property (nullable, nonatomic, setter=setName:, getter=name) NSString* name;
 
 @end
