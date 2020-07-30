@@ -20,6 +20,8 @@
     int32_t _deployedAppCount;
     NSString* _minimumRequiredPatchVersion;
     NSString* _minimumWarningPatchVersion;
+    NSString* _customBrowserPackageId;
+    NSString* _customBrowserDisplayName;
     NSArray* _apps;
     MSGraphManagedAppPolicyDeploymentSummary* _deploymentSummary;
 }
@@ -108,6 +110,34 @@
 - (void) setMinimumWarningPatchVersion: (NSString*) val
 {
     self.dictionary[@"minimumWarningPatchVersion"] = val;
+}
+
+- (NSString*) customBrowserPackageId
+{
+    if([[NSNull null] isEqual:self.dictionary[@"customBrowserPackageId"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"customBrowserPackageId"];
+}
+
+- (void) setCustomBrowserPackageId: (NSString*) val
+{
+    self.dictionary[@"customBrowserPackageId"] = val;
+}
+
+- (NSString*) customBrowserDisplayName
+{
+    if([[NSNull null] isEqual:self.dictionary[@"customBrowserDisplayName"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"customBrowserDisplayName"];
+}
+
+- (void) setCustomBrowserDisplayName: (NSString*) val
+{
+    self.dictionary[@"customBrowserDisplayName"] = val;
 }
 
 - (NSArray*) apps

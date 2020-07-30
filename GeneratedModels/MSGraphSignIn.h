@@ -33,6 +33,7 @@
     @property (nullable, nonatomic, setter=setRiskLevelDuringSignIn:, getter=riskLevelDuringSignIn) MSGraphRiskLevel* riskLevelDuringSignIn;
     @property (nullable, nonatomic, setter=setRiskState:, getter=riskState) MSGraphRiskState* riskState;
     @property (nullable, nonatomic, setter=setRiskEventTypes:, getter=riskEventTypes) NSArray* riskEventTypes;
+    @property (nullable, nonatomic, setter=setRiskEventTypes_v2:, getter=riskEventTypes_v2) NSArray* riskEventTypes_v2;
     @property (nullable, nonatomic, setter=setResourceDisplayName:, getter=resourceDisplayName) NSString* resourceDisplayName;
     @property (nullable, nonatomic, setter=setResourceId:, getter=resourceId) NSString* resourceId;
   

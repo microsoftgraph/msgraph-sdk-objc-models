@@ -21,6 +21,7 @@
     double _fNumber;
     double _focalLength;
     int32_t _iso;
+    int16_t _orientation;
     NSDate* _takenDateTime;
 }
 @end
@@ -113,6 +114,18 @@
 {
     _iso = val;
     self.dictionary[@"iso"] = @(val);
+}
+
+- (int16_t) orientation
+{
+    _orientation = [self.dictionary[@"orientation"] intValue];
+    return _orientation;
+}
+
+- (void) setOrientation: (int16_t) val
+{
+    _orientation = val;
+    self.dictionary[@"orientation"] = @(val);
 }
 
 - (NSDate*) takenDateTime

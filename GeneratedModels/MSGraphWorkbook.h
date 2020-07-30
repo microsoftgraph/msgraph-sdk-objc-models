@@ -1,7 +1,7 @@
 // Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 
 
-@class MSGraphWorkbookApplication, MSGraphWorkbookNamedItem, MSGraphWorkbookTable, MSGraphWorkbookWorksheet, MSGraphWorkbookComment, MSGraphWorkbookFunctions; 
+@class MSGraphWorkbookApplication, MSGraphWorkbookNamedItem, MSGraphWorkbookTable, MSGraphWorkbookWorksheet, MSGraphWorkbookComment, MSGraphWorkbookFunctions, MSGraphWorkbookOperation; 
 
 
 #import "MSGraphEntity.h"
@@ -14,5 +14,6 @@
     @property (nullable, nonatomic, setter=setWorksheets:, getter=worksheets) NSArray* worksheets;
     @property (nullable, nonatomic, setter=setComments:, getter=comments) NSArray* comments;
     @property (nullable, nonatomic, setter=setFunctions:, getter=functions) MSGraphWorkbookFunctions* functions;
+    @property (nullable, nonatomic, setter=setWorkbookOperations:, getter=workbookOperations) NSArray* workbookOperations;
   
 @end

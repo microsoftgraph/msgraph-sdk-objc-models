@@ -14,31 +14,44 @@
 
 @interface MSGraphGroup()
 {
+    NSArray* _assignedLabels;
     NSArray* _assignedLicenses;
     NSString* _classification;
     NSDate* _createdDateTime;
     NSString* _groupDescription;
     NSString* _displayName;
+    NSDate* _expirationDateTime;
     BOOL _hasMembersWithLicenseErrors;
     NSArray* _groupTypes;
     MSGraphLicenseProcessingState* _licenseProcessingState;
     NSString* _mail;
     BOOL _mailEnabled;
     NSString* _mailNickname;
+    NSString* _membershipRule;
+    NSString* _membershipRuleProcessingState;
+    NSString* _onPremisesDomainName;
     NSDate* _onPremisesLastSyncDateTime;
+    NSString* _onPremisesNetBiosName;
     NSArray* _onPremisesProvisioningErrors;
+    NSString* _onPremisesSamAccountName;
     NSString* _onPremisesSecurityIdentifier;
     BOOL _onPremisesSyncEnabled;
     NSString* _preferredDataLocation;
+    NSString* _preferredLanguage;
     NSArray* _proxyAddresses;
     NSDate* _renewedDateTime;
     BOOL _securityEnabled;
+    NSString* _securityIdentifier;
+    NSString* _theme;
     NSString* _visibility;
     BOOL _allowExternalSenders;
     BOOL _autoSubscribeNewMembers;
     BOOL _isSubscribedByMail;
     int32_t _unseenCount;
+    BOOL _hideFromOutlookClients;
+    BOOL _hideFromAddressLists;
     BOOL _isArchived;
+    NSArray* _appRoleAssignments;
     NSArray* _members;
     NSArray* _memberOf;
     NSArray* _membersWithLicenseErrors;
@@ -76,6 +89,31 @@
     }
     return self;
 }
+- (NSArray*) assignedLabels
+{
+    if(!_assignedLabels){
+        
+    NSMutableArray *assignedLabelsResult = [NSMutableArray array];
+    NSArray *assignedLabels = self.dictionary[@"assignedLabels"];
+
+    if ([assignedLabels isKindOfClass:[NSArray class]]){
+        for (id tempAssignedLabel in assignedLabels){
+            [assignedLabelsResult addObject:tempAssignedLabel];
+        }
+    }
+
+    _assignedLabels = assignedLabelsResult;
+        
+    }
+    return _assignedLabels;
+}
+
+- (void) setAssignedLabels: (NSArray*) val
+{
+    _assignedLabels = val;
+    self.dictionary[@"assignedLabels"] = val;
+}
+
 - (NSArray*) assignedLicenses
 {
     if(!_assignedLicenses){
@@ -157,6 +195,20 @@
     self.dictionary[@"displayName"] = val;
 }
 
+- (NSDate*) expirationDateTime
+{
+    if(!_expirationDateTime){
+        _expirationDateTime = [NSDate ms_dateFromString: self.dictionary[@"expirationDateTime"]];
+    }
+    return _expirationDateTime;
+}
+
+- (void) setExpirationDateTime: (NSDate*) val
+{
+    _expirationDateTime = val;
+    self.dictionary[@"expirationDateTime"] = [val ms_toString];
+}
+
 - (BOOL) hasMembersWithLicenseErrors
 {
     _hasMembersWithLicenseErrors = [self.dictionary[@"hasMembersWithLicenseErrors"] boolValue];
@@ -233,6 +285,48 @@
     self.dictionary[@"mailNickname"] = val;
 }
 
+- (NSString*) membershipRule
+{
+    if([[NSNull null] isEqual:self.dictionary[@"membershipRule"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"membershipRule"];
+}
+
+- (void) setMembershipRule: (NSString*) val
+{
+    self.dictionary[@"membershipRule"] = val;
+}
+
+- (NSString*) membershipRuleProcessingState
+{
+    if([[NSNull null] isEqual:self.dictionary[@"membershipRuleProcessingState"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"membershipRuleProcessingState"];
+}
+
+- (void) setMembershipRuleProcessingState: (NSString*) val
+{
+    self.dictionary[@"membershipRuleProcessingState"] = val;
+}
+
+- (NSString*) onPremisesDomainName
+{
+    if([[NSNull null] isEqual:self.dictionary[@"onPremisesDomainName"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"onPremisesDomainName"];
+}
+
+- (void) setOnPremisesDomainName: (NSString*) val
+{
+    self.dictionary[@"onPremisesDomainName"] = val;
+}
+
 - (NSDate*) onPremisesLastSyncDateTime
 {
     if(!_onPremisesLastSyncDateTime){
@@ -245,6 +339,20 @@
 {
     _onPremisesLastSyncDateTime = val;
     self.dictionary[@"onPremisesLastSyncDateTime"] = [val ms_toString];
+}
+
+- (NSString*) onPremisesNetBiosName
+{
+    if([[NSNull null] isEqual:self.dictionary[@"onPremisesNetBiosName"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"onPremisesNetBiosName"];
+}
+
+- (void) setOnPremisesNetBiosName: (NSString*) val
+{
+    self.dictionary[@"onPremisesNetBiosName"] = val;
 }
 
 - (NSArray*) onPremisesProvisioningErrors
@@ -270,6 +378,20 @@
 {
     _onPremisesProvisioningErrors = val;
     self.dictionary[@"onPremisesProvisioningErrors"] = val;
+}
+
+- (NSString*) onPremisesSamAccountName
+{
+    if([[NSNull null] isEqual:self.dictionary[@"onPremisesSamAccountName"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"onPremisesSamAccountName"];
+}
+
+- (void) setOnPremisesSamAccountName: (NSString*) val
+{
+    self.dictionary[@"onPremisesSamAccountName"] = val;
 }
 
 - (NSString*) onPremisesSecurityIdentifier
@@ -312,6 +434,20 @@
     self.dictionary[@"preferredDataLocation"] = val;
 }
 
+- (NSString*) preferredLanguage
+{
+    if([[NSNull null] isEqual:self.dictionary[@"preferredLanguage"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"preferredLanguage"];
+}
+
+- (void) setPreferredLanguage: (NSString*) val
+{
+    self.dictionary[@"preferredLanguage"] = val;
+}
+
 - (NSArray*) proxyAddresses
 {
     return self.dictionary[@"proxyAddresses"];
@@ -346,6 +482,34 @@
 {
     _securityEnabled = val;
     self.dictionary[@"securityEnabled"] = @(val);
+}
+
+- (NSString*) securityIdentifier
+{
+    if([[NSNull null] isEqual:self.dictionary[@"securityIdentifier"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"securityIdentifier"];
+}
+
+- (void) setSecurityIdentifier: (NSString*) val
+{
+    self.dictionary[@"securityIdentifier"] = val;
+}
+
+- (NSString*) theme
+{
+    if([[NSNull null] isEqual:self.dictionary[@"theme"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"theme"];
+}
+
+- (void) setTheme: (NSString*) val
+{
+    self.dictionary[@"theme"] = val;
 }
 
 - (NSString*) visibility
@@ -410,6 +574,30 @@
     self.dictionary[@"unseenCount"] = @(val);
 }
 
+- (BOOL) hideFromOutlookClients
+{
+    _hideFromOutlookClients = [self.dictionary[@"hideFromOutlookClients"] boolValue];
+    return _hideFromOutlookClients;
+}
+
+- (void) setHideFromOutlookClients: (BOOL) val
+{
+    _hideFromOutlookClients = val;
+    self.dictionary[@"hideFromOutlookClients"] = @(val);
+}
+
+- (BOOL) hideFromAddressLists
+{
+    _hideFromAddressLists = [self.dictionary[@"hideFromAddressLists"] boolValue];
+    return _hideFromAddressLists;
+}
+
+- (void) setHideFromAddressLists: (BOOL) val
+{
+    _hideFromAddressLists = val;
+    self.dictionary[@"hideFromAddressLists"] = @(val);
+}
+
 - (BOOL) isArchived
 {
     _isArchived = [self.dictionary[@"isArchived"] boolValue];
@@ -420,6 +608,31 @@
 {
     _isArchived = val;
     self.dictionary[@"isArchived"] = @(val);
+}
+
+- (NSArray*) appRoleAssignments
+{
+    if(!_appRoleAssignments){
+        
+    NSMutableArray *appRoleAssignmentsResult = [NSMutableArray array];
+    NSArray *appRoleAssignments = self.dictionary[@"appRoleAssignments"];
+
+    if ([appRoleAssignments isKindOfClass:[NSArray class]]){
+        for (id tempAppRoleAssignment in appRoleAssignments){
+            [appRoleAssignmentsResult addObject:tempAppRoleAssignment];
+        }
+    }
+
+    _appRoleAssignments = appRoleAssignmentsResult;
+        
+    }
+    return _appRoleAssignments;
+}
+
+- (void) setAppRoleAssignments: (NSArray*) val
+{
+    _appRoleAssignments = val;
+    self.dictionary[@"appRoleAssignments"] = val;
 }
 
 - (NSArray*) members

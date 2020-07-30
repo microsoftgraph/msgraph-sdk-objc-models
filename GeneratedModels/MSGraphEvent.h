@@ -1,11 +1,12 @@
 // Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 
 
-@class MSGraphResponseStatus, MSGraphItemBody, MSGraphDateTimeTimeZone, MSGraphLocation, MSGraphPatternedRecurrence, MSGraphAttendee, MSGraphRecipient, MSGraphAttachment, MSGraphSingleValueLegacyExtendedProperty, MSGraphMultiValueLegacyExtendedProperty, MSGraphCalendar, MSGraphExtension; 
+@class MSGraphResponseStatus, MSGraphItemBody, MSGraphDateTimeTimeZone, MSGraphLocation, MSGraphPatternedRecurrence, MSGraphAttendee, MSGraphRecipient, MSGraphOnlineMeetingInfo, MSGraphAttachment, MSGraphSingleValueLegacyExtendedProperty, MSGraphMultiValueLegacyExtendedProperty, MSGraphCalendar, MSGraphExtension; 
 #import "MSGraphImportance.h"
 #import "MSGraphSensitivity.h"
 #import "MSGraphFreeBusyStatus.h"
 #import "MSGraphEventType.h"
+#import "MSGraphOnlineMeetingProviderType.h"
 
 
 #import "MSGraphOutlookItem.h"
@@ -41,6 +42,10 @@
     @property (nullable, nonatomic, setter=setOrganizer:, getter=organizer) MSGraphRecipient* organizer;
     @property (nullable, nonatomic, setter=setWebLink:, getter=webLink) NSString* webLink;
     @property (nullable, nonatomic, setter=setOnlineMeetingUrl:, getter=onlineMeetingUrl) NSString* onlineMeetingUrl;
+    @property (nonatomic, setter=setIsOnlineMeeting:, getter=isOnlineMeeting) BOOL isOnlineMeeting;
+    @property (nullable, nonatomic, setter=setOnlineMeetingProvider:, getter=onlineMeetingProvider) MSGraphOnlineMeetingProviderType* onlineMeetingProvider;
+    @property (nullable, nonatomic, setter=setOnlineMeeting:, getter=onlineMeeting) MSGraphOnlineMeetingInfo* onlineMeeting;
+    @property (nonatomic, setter=setAllowNewTimeProposals:, getter=allowNewTimeProposals) BOOL allowNewTimeProposals;
     @property (nullable, nonatomic, setter=setAttachments:, getter=attachments) NSArray* attachments;
     @property (nullable, nonatomic, setter=setSingleValueExtendedProperties:, getter=singleValueExtendedProperties) NSArray* singleValueExtendedProperties;
     @property (nullable, nonatomic, setter=setMultiValueExtendedProperties:, getter=multiValueExtendedProperties) NSArray* multiValueExtendedProperties;

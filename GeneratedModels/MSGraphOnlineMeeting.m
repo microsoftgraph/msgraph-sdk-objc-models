@@ -17,12 +17,14 @@
     NSDate* _creationDateTime;
     NSDate* _startDateTime;
     NSDate* _endDateTime;
-    NSString* _joinUrl;
+    NSString* _joinWebUrl;
     NSString* _subject;
     MSGraphMeetingParticipants* _participants;
     MSGraphAudioConferencing* _audioConferencing;
     MSGraphChatInfo* _chatInfo;
     NSString* _videoTeleconferenceId;
+    NSString* _externalId;
+    MSGraphItemBody* _joinInformation;
 }
 @end
 
@@ -77,18 +79,18 @@
     self.dictionary[@"endDateTime"] = [val ms_toString];
 }
 
-- (NSString*) joinUrl
+- (NSString*) joinWebUrl
 {
-    if([[NSNull null] isEqual:self.dictionary[@"joinUrl"]])
+    if([[NSNull null] isEqual:self.dictionary[@"joinWebUrl"]])
     {
         return nil;
     }   
-    return self.dictionary[@"joinUrl"];
+    return self.dictionary[@"joinWebUrl"];
 }
 
-- (void) setJoinUrl: (NSString*) val
+- (void) setJoinWebUrl: (NSString*) val
 {
-    self.dictionary[@"joinUrl"] = val;
+    self.dictionary[@"joinWebUrl"] = val;
 }
 
 - (NSString*) subject
@@ -159,6 +161,34 @@
 - (void) setVideoTeleconferenceId: (NSString*) val
 {
     self.dictionary[@"videoTeleconferenceId"] = val;
+}
+
+- (NSString*) externalId
+{
+    if([[NSNull null] isEqual:self.dictionary[@"externalId"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"externalId"];
+}
+
+- (void) setExternalId: (NSString*) val
+{
+    self.dictionary[@"externalId"] = val;
+}
+
+- (MSGraphItemBody*) joinInformation
+{
+    if(!_joinInformation){
+        _joinInformation = [[MSGraphItemBody alloc] initWithDictionary: self.dictionary[@"joinInformation"]];
+    }
+    return _joinInformation;
+}
+
+- (void) setJoinInformation: (MSGraphItemBody*) val
+{
+    _joinInformation = val;
+    self.dictionary[@"joinInformation"] = val;
 }
 
 

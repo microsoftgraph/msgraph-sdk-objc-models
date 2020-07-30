@@ -19,6 +19,7 @@
     NSString* _listItemUniqueId;
     NSString* _siteId;
     NSString* _siteUrl;
+    NSString* _tenantId;
     NSString* _webId;
 }
 @end
@@ -93,6 +94,20 @@
 - (void) setSiteUrl: (NSString*) val
 {
     self.dictionary[@"siteUrl"] = val;
+}
+
+- (NSString*) tenantId
+{
+    if([[NSNull null] isEqual:self.dictionary[@"tenantId"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"tenantId"];
+}
+
+- (void) setTenantId: (NSString*) val
+{
+    self.dictionary[@"tenantId"] = val;
 }
 
 - (NSString*) webId

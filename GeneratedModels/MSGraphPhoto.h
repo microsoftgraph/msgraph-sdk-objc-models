@@ -15,6 +15,7 @@
 @property (nonatomic, setter=setFNumber:, getter=fNumber) double fNumber;
 @property (nonatomic, setter=setFocalLength:, getter=focalLength) double focalLength;
 @property (nonatomic, setter=setIso:, getter=iso) int32_t iso;
+@property (nonatomic, setter=setOrientation:, getter=orientation) int16_t orientation;
 @property (nullable, nonatomic, setter=setTakenDateTime:, getter=takenDateTime) NSDate* takenDateTime;
 
 @end

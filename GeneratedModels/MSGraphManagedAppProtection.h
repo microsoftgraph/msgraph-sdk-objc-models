@@ -6,6 +6,7 @@
 #import "MSGraphManagedAppClipboardSharingLevel.h"
 #import "MSGraphManagedAppPinCharacterSet.h"
 #import "MSGraphManagedAppDataStorageLocation.h"
+#import "MSGraphManagedBrowserType.h"
 
 
 #import "MSGraphManagedAppPolicy.h"
@@ -38,5 +39,6 @@
     @property (nullable, nonatomic, setter=setMinimumWarningOsVersion:, getter=minimumWarningOsVersion) NSString* minimumWarningOsVersion;
     @property (nullable, nonatomic, setter=setMinimumRequiredAppVersion:, getter=minimumRequiredAppVersion) NSString* minimumRequiredAppVersion;
     @property (nullable, nonatomic, setter=setMinimumWarningAppVersion:, getter=minimumWarningAppVersion) NSString* minimumWarningAppVersion;
+    @property (nonnull, nonatomic, setter=setManagedBrowser:, getter=managedBrowser) MSGraphManagedBrowserType* managedBrowser;
   
 @end

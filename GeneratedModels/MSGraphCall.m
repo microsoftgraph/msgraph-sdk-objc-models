@@ -20,15 +20,19 @@
     MSGraphCallDirection* _direction;
     NSString* _subject;
     NSString* _callbackUri;
+    NSArray* _callRoutes;
     MSGraphParticipantInfo* _source;
     NSArray* _targets;
     NSArray* _requestedModalities;
     MSGraphMediaConfig* _mediaConfig;
     MSGraphChatInfo* _chatInfo;
+    MSGraphCallOptions* _callOptions;
     MSGraphMeetingInfo* _meetingInfo;
     NSString* _tenantId;
     NSString* _myParticipantId;
     MSGraphToneInfo* _toneInfo;
+    NSString* _callChainId;
+    MSGraphIncomingContext* _incomingContext;
     NSArray* _participants;
     NSArray* _callOperations;
 }
@@ -123,6 +127,31 @@
     self.dictionary[@"callbackUri"] = val;
 }
 
+- (NSArray*) callRoutes
+{
+    if(!_callRoutes){
+        
+    NSMutableArray *callRoutesResult = [NSMutableArray array];
+    NSArray *callRoutes = self.dictionary[@"callRoutes"];
+
+    if ([callRoutes isKindOfClass:[NSArray class]]){
+        for (id tempCallRoute in callRoutes){
+            [callRoutesResult addObject:tempCallRoute];
+        }
+    }
+
+    _callRoutes = callRoutesResult;
+        
+    }
+    return _callRoutes;
+}
+
+- (void) setCallRoutes: (NSArray*) val
+{
+    _callRoutes = val;
+    self.dictionary[@"callRoutes"] = val;
+}
+
 - (MSGraphParticipantInfo*) source
 {
     if(!_source){
@@ -145,8 +174,8 @@
     NSArray *targets = self.dictionary[@"targets"];
 
     if ([targets isKindOfClass:[NSArray class]]){
-        for (id tempParticipantInfo in targets){
-            [targetsResult addObject:tempParticipantInfo];
+        for (id tempInvitationParticipantInfo in targets){
+            [targetsResult addObject:tempInvitationParticipantInfo];
         }
     }
 
@@ -215,6 +244,20 @@
     self.dictionary[@"chatInfo"] = val;
 }
 
+- (MSGraphCallOptions*) callOptions
+{
+    if(!_callOptions){
+        _callOptions = [[MSGraphCallOptions alloc] initWithDictionary: self.dictionary[@"callOptions"]];
+    }
+    return _callOptions;
+}
+
+- (void) setCallOptions: (MSGraphCallOptions*) val
+{
+    _callOptions = val;
+    self.dictionary[@"callOptions"] = val;
+}
+
 - (MSGraphMeetingInfo*) meetingInfo
 {
     if(!_meetingInfo){
@@ -269,6 +312,34 @@
 {
     _toneInfo = val;
     self.dictionary[@"toneInfo"] = val;
+}
+
+- (NSString*) callChainId
+{
+    if([[NSNull null] isEqual:self.dictionary[@"callChainId"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"callChainId"];
+}
+
+- (void) setCallChainId: (NSString*) val
+{
+    self.dictionary[@"callChainId"] = val;
+}
+
+- (MSGraphIncomingContext*) incomingContext
+{
+    if(!_incomingContext){
+        _incomingContext = [[MSGraphIncomingContext alloc] initWithDictionary: self.dictionary[@"incomingContext"]];
+    }
+    return _incomingContext;
+}
+
+- (void) setIncomingContext: (MSGraphIncomingContext*) val
+{
+    _incomingContext = val;
+    self.dictionary[@"incomingContext"] = val;
 }
 
 - (NSArray*) participants

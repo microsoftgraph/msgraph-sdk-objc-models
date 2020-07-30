@@ -19,6 +19,7 @@
     MSGraphFile* _file;
     MSGraphFileSystemInfo* _fileSystemInfo;
     MSGraphFolder* _folder;
+    MSGraphImage* _image;
     NSString* _remoteItemId;
     MSGraphIdentitySet* _lastModifiedBy;
     NSDate* _lastModifiedDateTime;
@@ -29,6 +30,7 @@
     MSGraphSharepointIds* _sharepointIds;
     int64_t _size;
     MSGraphSpecialFolder* _specialFolder;
+    MSGraphVideo* _video;
     NSString* _webDavUrl;
     NSString* _webUrl;
 }
@@ -104,6 +106,20 @@
 {
     _folder = val;
     self.dictionary[@"folder"] = val;
+}
+
+- (MSGraphImage*) image
+{
+    if(!_image){
+        _image = [[MSGraphImage alloc] initWithDictionary: self.dictionary[@"image"]];
+    }
+    return _image;
+}
+
+- (void) setImage: (MSGraphImage*) val
+{
+    _image = val;
+    self.dictionary[@"image"] = val;
 }
 
 - (NSString*) remoteItemId
@@ -242,6 +258,20 @@
 {
     _specialFolder = val;
     self.dictionary[@"specialFolder"] = val;
+}
+
+- (MSGraphVideo*) video
+{
+    if(!_video){
+        _video = [[MSGraphVideo alloc] initWithDictionary: self.dictionary[@"video"]];
+    }
+    return _video;
+}
+
+- (void) setVideo: (MSGraphVideo*) val
+{
+    _video = val;
+    self.dictionary[@"video"] = val;
 }
 
 - (NSString*) webDavUrl

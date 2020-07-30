@@ -14,13 +14,27 @@
 
 @interface MSGraphUploadSession()
 {
+    NSString* _uploadUrl;
     NSDate* _expirationDateTime;
     NSArray* _nextExpectedRanges;
-    NSString* _uploadUrl;
 }
 @end
 
 @implementation MSGraphUploadSession
+
+- (NSString*) uploadUrl
+{
+    if([[NSNull null] isEqual:self.dictionary[@"uploadUrl"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"uploadUrl"];
+}
+
+- (void) setUploadUrl: (NSString*) val
+{
+    self.dictionary[@"uploadUrl"] = val;
+}
 
 - (NSDate*) expirationDateTime
 {
@@ -48,20 +62,6 @@
 - (void) setNextExpectedRanges: (NSArray*) val
 {
     self.dictionary[@"nextExpectedRanges"] = val;
-}
-
-- (NSString*) uploadUrl
-{
-    if([[NSNull null] isEqual:self.dictionary[@"uploadUrl"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"uploadUrl"];
-}
-
-- (void) setUploadUrl: (NSString*) val
-{
-    self.dictionary[@"uploadUrl"] = val;
 }
 
 @end

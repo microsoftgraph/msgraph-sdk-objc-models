@@ -1,7 +1,7 @@
 // Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 
 
-@class MSGraphDeviceManagementSettings, MSGraphIntuneBrand, MSGraphTermsAndConditions, MSGraphDeviceConfiguration, MSGraphDeviceCompliancePolicy, MSGraphSoftwareUpdateStatusSummary, MSGraphDeviceCompliancePolicyDeviceStateSummary, MSGraphDeviceCompliancePolicySettingStateSummary, MSGraphDeviceConfigurationDeviceStateSummary, MSGraphIosUpdateDeviceStatus, MSGraphDeviceCategory, MSGraphDeviceManagementExchangeConnector, MSGraphDeviceEnrollmentConfiguration, MSGraphOnPremisesConditionalAccessSettings, MSGraphMobileThreatDefenseConnector, MSGraphDeviceManagementPartner, MSGraphApplePushNotificationCertificate, MSGraphManagedDeviceOverview, MSGraphDetectedApp, MSGraphManagedDevice, MSGraphNotificationMessageTemplate, MSGraphRoleDefinition, MSGraphDeviceAndAppManagementRoleAssignment, MSGraphResourceOperation, MSGraphRemoteAssistancePartner, MSGraphTelecomExpenseManagementPartner, MSGraphDeviceManagementTroubleshootingEvent, MSGraphWindowsInformationProtectionAppLearningSummary, MSGraphWindowsInformationProtectionNetworkLearningSummary; 
+@class MSGraphDeviceManagementSettings, MSGraphIntuneBrand, MSGraphTermsAndConditions, MSGraphDeviceConfiguration, MSGraphDeviceCompliancePolicy, MSGraphSoftwareUpdateStatusSummary, MSGraphDeviceCompliancePolicyDeviceStateSummary, MSGraphDeviceCompliancePolicySettingStateSummary, MSGraphDeviceConfigurationDeviceStateSummary, MSGraphIosUpdateDeviceStatus, MSGraphDeviceCategory, MSGraphDeviceManagementExchangeConnector, MSGraphDeviceEnrollmentConfiguration, MSGraphOnPremisesConditionalAccessSettings, MSGraphMobileThreatDefenseConnector, MSGraphDeviceManagementPartner, MSGraphComplianceManagementPartner, MSGraphApplePushNotificationCertificate, MSGraphManagedDeviceOverview, MSGraphDetectedApp, MSGraphManagedDevice, MSGraphNotificationMessageTemplate, MSGraphRoleDefinition, MSGraphDeviceAndAppManagementRoleAssignment, MSGraphResourceOperation, MSGraphRemoteAssistancePartner, MSGraphTelecomExpenseManagementPartner, MSGraphDeviceManagementTroubleshootingEvent, MSGraphWindowsInformationProtectionAppLearningSummary, MSGraphWindowsInformationProtectionNetworkLearningSummary; 
 #import "MSGraphDeviceManagementSubscriptionState.h"
 
 
@@ -10,6 +10,7 @@
 @interface MSGraphDeviceManagement : MSGraphEntity
 
   @property (nullable, nonatomic, setter=setSettings:, getter=settings) MSGraphDeviceManagementSettings* settings;
+    @property (nonnull, nonatomic, setter=setIntuneAccountId:, getter=intuneAccountId) NSString* intuneAccountId;
     @property (nullable, nonatomic, setter=setIntuneBrand:, getter=intuneBrand) MSGraphIntuneBrand* intuneBrand;
     @property (nonnull, nonatomic, setter=setSubscriptionState:, getter=subscriptionState) MSGraphDeviceManagementSubscriptionState* subscriptionState;
     @property (nullable, nonatomic, setter=setTermsAndConditions:, getter=termsAndConditions) NSArray* termsAndConditions;
@@ -26,6 +27,7 @@
     @property (nullable, nonatomic, setter=setConditionalAccessSettings:, getter=conditionalAccessSettings) MSGraphOnPremisesConditionalAccessSettings* conditionalAccessSettings;
     @property (nullable, nonatomic, setter=setMobileThreatDefenseConnectors:, getter=mobileThreatDefenseConnectors) NSArray* mobileThreatDefenseConnectors;
     @property (nullable, nonatomic, setter=setDeviceManagementPartners:, getter=deviceManagementPartners) NSArray* deviceManagementPartners;
+    @property (nullable, nonatomic, setter=setComplianceManagementPartners:, getter=complianceManagementPartners) NSArray* complianceManagementPartners;
     @property (nullable, nonatomic, setter=setApplePushNotificationCertificate:, getter=applePushNotificationCertificate) MSGraphApplePushNotificationCertificate* applePushNotificationCertificate;
     @property (nullable, nonatomic, setter=setManagedDeviceOverview:, getter=managedDeviceOverview) MSGraphManagedDeviceOverview* managedDeviceOverview;
     @property (nullable, nonatomic, setter=setDetectedApps:, getter=detectedApps) NSArray* detectedApps;

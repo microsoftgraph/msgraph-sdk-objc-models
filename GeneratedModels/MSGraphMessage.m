@@ -31,6 +31,7 @@
     NSArray* _bccRecipients;
     NSArray* _replyTo;
     NSString* _conversationId;
+    NSString* _conversationIndex;
     MSGraphItemBody* _uniqueBody;
     BOOL _isDeliveryReceiptRequested;
     BOOL _isReadReceiptRequested;
@@ -344,6 +345,20 @@
 - (void) setConversationId: (NSString*) val
 {
     self.dictionary[@"conversationId"] = val;
+}
+
+- (NSString*) conversationIndex
+{
+    if([[NSNull null] isEqual:self.dictionary[@"conversationIndex"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"conversationIndex"];
+}
+
+- (void) setConversationIndex: (NSString*) val
+{
+    self.dictionary[@"conversationIndex"] = val;
 }
 
 - (MSGraphItemBody*) uniqueBody
