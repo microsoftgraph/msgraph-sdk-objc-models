@@ -24,6 +24,7 @@
     NSString* _columnDefinitionDescription;
     NSString* _displayName;
     BOOL _enforceUniqueValues;
+    MSGraphGeolocationColumn* _geolocation;
     BOOL _hidden;
     BOOL _indexed;
     MSGraphLookupColumn* _lookup;
@@ -181,6 +182,20 @@
 {
     _enforceUniqueValues = val;
     self.dictionary[@"enforceUniqueValues"] = @(val);
+}
+
+- (MSGraphGeolocationColumn*) geolocation
+{
+    if(!_geolocation){
+        _geolocation = [[MSGraphGeolocationColumn alloc] initWithDictionary: self.dictionary[@"geolocation"]];
+    }
+    return _geolocation;
+}
+
+- (void) setGeolocation: (MSGraphGeolocationColumn*) val
+{
+    _geolocation = val;
+    self.dictionary[@"geolocation"] = val;
 }
 
 - (BOOL) hidden

@@ -1,7 +1,7 @@
 // Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 
 
-@class MSGraphAudio, MSGraphDeleted, MSGraphFile, MSGraphFileSystemInfo, MSGraphFolder, MSGraphImage, MSGraphGeoCoordinates, MSGraphPackage, MSGraphPhoto, MSGraphPublicationFacet, MSGraphRemoteItem, MSGraphRoot, MSGraphSearchResult, MSGraphShared, MSGraphSharepointIds, MSGraphSpecialFolder, MSGraphVideo, MSGraphWorkbook, MSGraphItemAnalytics, MSGraphListItem, MSGraphPermission, MSGraphSubscription, MSGraphThumbnailSet, MSGraphDriveItemVersion; 
+@class MSGraphAudio, MSGraphDeleted, MSGraphFile, MSGraphFileSystemInfo, MSGraphFolder, MSGraphImage, MSGraphGeoCoordinates, MSGraphPackage, MSGraphPendingOperations, MSGraphPhoto, MSGraphPublicationFacet, MSGraphRemoteItem, MSGraphRoot, MSGraphSearchResult, MSGraphShared, MSGraphSharepointIds, MSGraphSpecialFolder, MSGraphVideo, MSGraphWorkbook, MSGraphItemAnalytics, MSGraphListItem, MSGraphPermission, MSGraphSubscription, MSGraphThumbnailSet, MSGraphDriveItemVersion; 
 
 
 #import "MSGraphBaseItem.h"
@@ -17,6 +17,7 @@
     @property (nullable, nonatomic, setter=setImage:, getter=image) MSGraphImage* image;
     @property (nullable, nonatomic, setter=setLocation:, getter=location) MSGraphGeoCoordinates* location;
     @property (nullable, nonatomic, setter=setPackage:, getter=package) MSGraphPackage* package;
+    @property (nullable, nonatomic, setter=setPendingOperations:, getter=pendingOperations) MSGraphPendingOperations* pendingOperations;
     @property (nullable, nonatomic, setter=setPhoto:, getter=photo) MSGraphPhoto* photo;
     @property (nullable, nonatomic, setter=setPublication:, getter=publication) MSGraphPublicationFacet* publication;
     @property (nullable, nonatomic, setter=setRemoteItem:, getter=remoteItem) MSGraphRemoteItem* remoteItem;

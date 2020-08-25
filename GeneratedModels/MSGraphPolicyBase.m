@@ -23,6 +23,10 @@
 
 - (NSString*) policyBaseDescription
 {
+    if([[NSNull null] isEqual:self.dictionary[@"description"]])
+    {
+        return nil;
+    }   
     return self.dictionary[@"description"];
 }
 
@@ -33,6 +37,10 @@
 
 - (NSString*) displayName
 {
+    if([[NSNull null] isEqual:self.dictionary[@"displayName"]])
+    {
+        return nil;
+    }   
     return self.dictionary[@"displayName"];
 }
 

@@ -28,6 +28,7 @@
     MSGraphChatInfo* _chatInfo;
     MSGraphCallOptions* _callOptions;
     MSGraphMeetingInfo* _meetingInfo;
+    MSGraphCallTranscriptionInfo* _transcription;
     NSString* _tenantId;
     NSString* _myParticipantId;
     MSGraphToneInfo* _toneInfo;
@@ -270,6 +271,20 @@
 {
     _meetingInfo = val;
     self.dictionary[@"meetingInfo"] = val;
+}
+
+- (MSGraphCallTranscriptionInfo*) transcription
+{
+    if(!_transcription){
+        _transcription = [[MSGraphCallTranscriptionInfo alloc] initWithDictionary: self.dictionary[@"transcription"]];
+    }
+    return _transcription;
+}
+
+- (void) setTranscription: (MSGraphCallTranscriptionInfo*) val
+{
+    _transcription = val;
+    self.dictionary[@"transcription"] = val;
 }
 
 - (NSString*) tenantId

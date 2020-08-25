@@ -14,6 +14,7 @@
 @property (nullable, nonatomic, setter=setApplicationName:, getter=applicationName) NSString* applicationName;
 @property (nullable, nonatomic, setter=setDestinationAddress:, getter=destinationAddress) NSString* destinationAddress;
 @property (nullable, nonatomic, setter=setDestinationDomain:, getter=destinationDomain) NSString* destinationDomain;
+@property (nullable, nonatomic, setter=setDestinationLocation:, getter=destinationLocation) NSString* destinationLocation;
 @property (nullable, nonatomic, setter=setDestinationPort:, getter=destinationPort) NSString* destinationPort;
 @property (nullable, nonatomic, setter=setDestinationUrl:, getter=destinationUrl) NSString* destinationUrl;
 @property (nullable, nonatomic, setter=setDirection:, getter=direction) MSGraphConnectionDirection* direction;
@@ -26,6 +27,7 @@
 @property (nullable, nonatomic, setter=setNetworkConnectionProtocol:, getter=networkConnectionProtocol) MSGraphSecurityNetworkProtocol* networkConnectionProtocol;
 @property (nullable, nonatomic, setter=setRiskScore:, getter=riskScore) NSString* riskScore;
 @property (nullable, nonatomic, setter=setSourceAddress:, getter=sourceAddress) NSString* sourceAddress;
+@property (nullable, nonatomic, setter=setSourceLocation:, getter=sourceLocation) NSString* sourceLocation;
 @property (nullable, nonatomic, setter=setSourcePort:, getter=sourcePort) NSString* sourcePort;
 @property (nullable, nonatomic, setter=setStatus:, getter=status) MSGraphConnectionStatus* status;
 @property (nullable, nonatomic, setter=setUrlParameters:, getter=urlParameters) NSString* urlParameters;

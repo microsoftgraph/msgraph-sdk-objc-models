@@ -14,6 +14,12 @@
 
 @interface MSGraphTeam()
 {
+    NSString* _displayName;
+    NSString* _teamDescription;
+    NSString* _internalId;
+    NSString* _classification;
+    MSGraphTeamSpecialization* _specialization;
+    MSGraphTeamVisibilityType* _visibility;
     NSString* _webUrl;
     MSGraphTeamMemberSettings* _memberSettings;
     MSGraphTeamGuestSettings* _guestSettings;
@@ -21,6 +27,9 @@
     MSGraphTeamFunSettings* _funSettings;
     BOOL _isArchived;
     MSGraphSchedule* _schedule;
+    MSGraphGroup* _group;
+    MSGraphTeamsTemplate* _template;
+    NSArray* _members;
     NSArray* _channels;
     MSGraphChannel* _primaryChannel;
     NSArray* _installedApps;
@@ -37,6 +46,90 @@
     }
     return self;
 }
+- (NSString*) displayName
+{
+    if([[NSNull null] isEqual:self.dictionary[@"displayName"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"displayName"];
+}
+
+- (void) setDisplayName: (NSString*) val
+{
+    self.dictionary[@"displayName"] = val;
+}
+
+- (NSString*) teamDescription
+{
+    if([[NSNull null] isEqual:self.dictionary[@"description"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"description"];
+}
+
+- (void) setTeamDescription: (NSString*) val
+{
+    self.dictionary[@"description"] = val;
+}
+
+- (NSString*) internalId
+{
+    if([[NSNull null] isEqual:self.dictionary[@"internalId"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"internalId"];
+}
+
+- (void) setInternalId: (NSString*) val
+{
+    self.dictionary[@"internalId"] = val;
+}
+
+- (NSString*) classification
+{
+    if([[NSNull null] isEqual:self.dictionary[@"classification"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"classification"];
+}
+
+- (void) setClassification: (NSString*) val
+{
+    self.dictionary[@"classification"] = val;
+}
+
+- (MSGraphTeamSpecialization*) specialization
+{
+    if(!_specialization){
+        _specialization = [self.dictionary[@"specialization"] toMSGraphTeamSpecialization];
+    }
+    return _specialization;
+}
+
+- (void) setSpecialization: (MSGraphTeamSpecialization*) val
+{
+    _specialization = val;
+    self.dictionary[@"specialization"] = val;
+}
+
+- (MSGraphTeamVisibilityType*) visibility
+{
+    if(!_visibility){
+        _visibility = [self.dictionary[@"visibility"] toMSGraphTeamVisibilityType];
+    }
+    return _visibility;
+}
+
+- (void) setVisibility: (MSGraphTeamVisibilityType*) val
+{
+    _visibility = val;
+    self.dictionary[@"visibility"] = val;
+}
+
 - (NSString*) webUrl
 {
     if([[NSNull null] isEqual:self.dictionary[@"webUrl"]])
@@ -131,6 +224,59 @@
 {
     _schedule = val;
     self.dictionary[@"schedule"] = val;
+}
+
+- (MSGraphGroup*) group
+{
+    if(!_group){
+        _group = [[MSGraphGroup alloc] initWithDictionary: self.dictionary[@"group"]];
+    }
+    return _group;
+}
+
+- (void) setGroup: (MSGraphGroup*) val
+{
+    _group = val;
+    self.dictionary[@"group"] = val;
+}
+
+- (MSGraphTeamsTemplate*) template
+{
+    if(!_template){
+        _template = [[MSGraphTeamsTemplate alloc] initWithDictionary: self.dictionary[@"template"]];
+    }
+    return _template;
+}
+
+- (void) setTemplate: (MSGraphTeamsTemplate*) val
+{
+    _template = val;
+    self.dictionary[@"template"] = val;
+}
+
+- (NSArray*) members
+{
+    if(!_members){
+        
+    NSMutableArray *membersResult = [NSMutableArray array];
+    NSArray *members = self.dictionary[@"members"];
+
+    if ([members isKindOfClass:[NSArray class]]){
+        for (id tempConversationMember in members){
+            [membersResult addObject:tempConversationMember];
+        }
+    }
+
+    _members = membersResult;
+        
+    }
+    return _members;
+}
+
+- (void) setMembers: (NSArray*) val
+{
+    _members = val;
+    self.dictionary[@"members"] = val;
 }
 
 - (NSArray*) channels

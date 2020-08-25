@@ -22,12 +22,14 @@
     BOOL _isFallbackPublicClient;
     NSArray* _identifierUris;
     NSDate* _createdDateTime;
+    NSString* _applicationDescription;
     MSGraphPublicClientApplication* _publicClient;
     NSString* _displayName;
     NSString* _groupMembershipClaims;
     MSGraphInformationalUrl* _info;
     BOOL _isDeviceOnlyAuthSupported;
     NSArray* _keyCredentials;
+    NSString* _notes;
     BOOL _oauth2RequirePostResponse;
     MSGraphOptionalClaims* _optionalClaims;
     MSGraphParentalControlSettings* _parentalControlSettings;
@@ -40,6 +42,7 @@
     MSGraphWebApplication* _web;
     NSArray* _extensionProperties;
     MSGraphDirectoryObject* _createdOnBehalfOf;
+    NSArray* _homeRealmDiscoveryPolicies;
     NSArray* _owners;
     NSArray* _tokenLifetimePolicies;
     NSArray* _tokenIssuancePolicies;
@@ -183,6 +186,20 @@
     self.dictionary[@"createdDateTime"] = [val ms_toString];
 }
 
+- (NSString*) applicationDescription
+{
+    if([[NSNull null] isEqual:self.dictionary[@"description"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"description"];
+}
+
+- (void) setApplicationDescription: (NSString*) val
+{
+    self.dictionary[@"description"] = val;
+}
+
 - (MSGraphPublicClientApplication*) publicClient
 {
     if(!_publicClient){
@@ -274,6 +291,20 @@
 {
     _keyCredentials = val;
     self.dictionary[@"keyCredentials"] = val;
+}
+
+- (NSString*) notes
+{
+    if([[NSNull null] isEqual:self.dictionary[@"notes"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"notes"];
+}
+
+- (void) setNotes: (NSString*) val
+{
+    self.dictionary[@"notes"] = val;
 }
 
 - (BOOL) oauth2RequirePostResponse
@@ -469,6 +500,31 @@
 {
     _createdOnBehalfOf = val;
     self.dictionary[@"createdOnBehalfOf"] = val;
+}
+
+- (NSArray*) homeRealmDiscoveryPolicies
+{
+    if(!_homeRealmDiscoveryPolicies){
+        
+    NSMutableArray *homeRealmDiscoveryPoliciesResult = [NSMutableArray array];
+    NSArray *homeRealmDiscoveryPolicies = self.dictionary[@"homeRealmDiscoveryPolicies"];
+
+    if ([homeRealmDiscoveryPolicies isKindOfClass:[NSArray class]]){
+        for (id tempHomeRealmDiscoveryPolicy in homeRealmDiscoveryPolicies){
+            [homeRealmDiscoveryPoliciesResult addObject:tempHomeRealmDiscoveryPolicy];
+        }
+    }
+
+    _homeRealmDiscoveryPolicies = homeRealmDiscoveryPoliciesResult;
+        
+    }
+    return _homeRealmDiscoveryPolicies;
+}
+
+- (void) setHomeRealmDiscoveryPolicies: (NSArray*) val
+{
+    _homeRealmDiscoveryPolicies = val;
+    self.dictionary[@"homeRealmDiscoveryPolicies"] = val;
 }
 
 - (NSArray*) owners

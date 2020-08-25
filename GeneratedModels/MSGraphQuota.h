@@ -2,6 +2,7 @@
 
 
 
+@class MSGraphStoragePlanInformation; 
 
 
 #import "MSObject.h"
@@ -13,5 +14,6 @@
 @property (nullable, nonatomic, setter=setState:, getter=state) NSString* state;
 @property (nonatomic, setter=setTotal:, getter=total) int64_t total;
 @property (nonatomic, setter=setUsed:, getter=used) int64_t used;
+@property (nullable, nonatomic, setter=setStoragePlanInformation:, getter=storagePlanInformation) MSGraphStoragePlanInformation* storagePlanInformation;
 
 @end

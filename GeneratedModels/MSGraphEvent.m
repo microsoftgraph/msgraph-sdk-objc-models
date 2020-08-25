@@ -46,6 +46,7 @@
     BOOL _isOnlineMeeting;
     MSGraphOnlineMeetingProviderType* _onlineMeetingProvider;
     MSGraphOnlineMeetingInfo* _onlineMeeting;
+    BOOL _allowNewTimeProposals;
     NSArray* _attachments;
     NSArray* _singleValueExtendedProperties;
     NSArray* _multiValueExtendedProperties;
@@ -516,6 +517,18 @@
 {
     _onlineMeeting = val;
     self.dictionary[@"onlineMeeting"] = val;
+}
+
+- (BOOL) allowNewTimeProposals
+{
+    _allowNewTimeProposals = [self.dictionary[@"allowNewTimeProposals"] boolValue];
+    return _allowNewTimeProposals;
+}
+
+- (void) setAllowNewTimeProposals: (BOOL) val
+{
+    _allowNewTimeProposals = val;
+    self.dictionary[@"allowNewTimeProposals"] = @(val);
 }
 
 - (NSArray*) attachments

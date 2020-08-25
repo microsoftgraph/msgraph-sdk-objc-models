@@ -17,6 +17,7 @@
     NSString* _applicationName;
     NSString* _destinationAddress;
     NSString* _destinationDomain;
+    NSString* _destinationLocation;
     NSString* _destinationPort;
     NSString* _destinationUrl;
     MSGraphConnectionDirection* _direction;
@@ -29,6 +30,7 @@
     MSGraphSecurityNetworkProtocol* _networkConnectionProtocol;
     NSString* _riskScore;
     NSString* _sourceAddress;
+    NSString* _sourceLocation;
     NSString* _sourcePort;
     MSGraphConnectionStatus* _status;
     NSString* _urlParameters;
@@ -77,6 +79,20 @@
 - (void) setDestinationDomain: (NSString*) val
 {
     self.dictionary[@"destinationDomain"] = val;
+}
+
+- (NSString*) destinationLocation
+{
+    if([[NSNull null] isEqual:self.dictionary[@"destinationLocation"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"destinationLocation"];
+}
+
+- (void) setDestinationLocation: (NSString*) val
+{
+    self.dictionary[@"destinationLocation"] = val;
 }
 
 - (NSString*) destinationPort
@@ -245,6 +261,20 @@
 - (void) setSourceAddress: (NSString*) val
 {
     self.dictionary[@"sourceAddress"] = val;
+}
+
+- (NSString*) sourceLocation
+{
+    if([[NSNull null] isEqual:self.dictionary[@"sourceLocation"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"sourceLocation"];
+}
+
+- (void) setSourceLocation: (NSString*) val
+{
+    self.dictionary[@"sourceLocation"] = val;
 }
 
 - (NSString*) sourcePort

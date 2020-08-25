@@ -45,6 +45,7 @@
     @property (nonatomic, setter=setIsOnlineMeeting:, getter=isOnlineMeeting) BOOL isOnlineMeeting;
     @property (nullable, nonatomic, setter=setOnlineMeetingProvider:, getter=onlineMeetingProvider) MSGraphOnlineMeetingProviderType* onlineMeetingProvider;
     @property (nullable, nonatomic, setter=setOnlineMeeting:, getter=onlineMeeting) MSGraphOnlineMeetingInfo* onlineMeeting;
+    @property (nonatomic, setter=setAllowNewTimeProposals:, getter=allowNewTimeProposals) BOOL allowNewTimeProposals;
     @property (nullable, nonatomic, setter=setAttachments:, getter=attachments) NSArray* attachments;
     @property (nullable, nonatomic, setter=setSingleValueExtendedProperties:, getter=singleValueExtendedProperties) NSArray* singleValueExtendedProperties;
     @property (nullable, nonatomic, setter=setMultiValueExtendedProperties:, getter=multiValueExtendedProperties) NSArray* multiValueExtendedProperties;
