@@ -19,6 +19,8 @@
     NSArray* _homeRealmDiscoveryPolicies;
     NSArray* _tokenIssuancePolicies;
     NSArray* _tokenLifetimePolicies;
+    MSGraphIdentitySecurityDefaultsEnforcementPolicy* _identitySecurityDefaultsEnforcementPolicy;
+    NSArray* _conditionalAccessPolicies;
 }
 @end
 
@@ -154,6 +156,45 @@
 {
     _tokenLifetimePolicies = val;
     self.dictionary[@"tokenLifetimePolicies"] = val;
+}
+
+- (MSGraphIdentitySecurityDefaultsEnforcementPolicy*) identitySecurityDefaultsEnforcementPolicy
+{
+    if(!_identitySecurityDefaultsEnforcementPolicy){
+        _identitySecurityDefaultsEnforcementPolicy = [[MSGraphIdentitySecurityDefaultsEnforcementPolicy alloc] initWithDictionary: self.dictionary[@"identitySecurityDefaultsEnforcementPolicy"]];
+    }
+    return _identitySecurityDefaultsEnforcementPolicy;
+}
+
+- (void) setIdentitySecurityDefaultsEnforcementPolicy: (MSGraphIdentitySecurityDefaultsEnforcementPolicy*) val
+{
+    _identitySecurityDefaultsEnforcementPolicy = val;
+    self.dictionary[@"identitySecurityDefaultsEnforcementPolicy"] = val;
+}
+
+- (NSArray*) conditionalAccessPolicies
+{
+    if(!_conditionalAccessPolicies){
+        
+    NSMutableArray *conditionalAccessPoliciesResult = [NSMutableArray array];
+    NSArray *conditionalAccessPolicies = self.dictionary[@"conditionalAccessPolicies"];
+
+    if ([conditionalAccessPolicies isKindOfClass:[NSArray class]]){
+        for (id tempConditionalAccessPolicy in conditionalAccessPolicies){
+            [conditionalAccessPoliciesResult addObject:tempConditionalAccessPolicy];
+        }
+    }
+
+    _conditionalAccessPolicies = conditionalAccessPoliciesResult;
+        
+    }
+    return _conditionalAccessPolicies;
+}
+
+- (void) setConditionalAccessPolicies: (NSArray*) val
+{
+    _conditionalAccessPolicies = val;
+    self.dictionary[@"conditionalAccessPolicies"] = val;
 }
 
 

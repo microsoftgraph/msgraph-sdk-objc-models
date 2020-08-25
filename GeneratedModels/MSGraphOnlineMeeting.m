@@ -23,6 +23,8 @@
     MSGraphAudioConferencing* _audioConferencing;
     MSGraphChatInfo* _chatInfo;
     NSString* _videoTeleconferenceId;
+    NSString* _externalId;
+    MSGraphItemBody* _joinInformation;
 }
 @end
 
@@ -159,6 +161,34 @@
 - (void) setVideoTeleconferenceId: (NSString*) val
 {
     self.dictionary[@"videoTeleconferenceId"] = val;
+}
+
+- (NSString*) externalId
+{
+    if([[NSNull null] isEqual:self.dictionary[@"externalId"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"externalId"];
+}
+
+- (void) setExternalId: (NSString*) val
+{
+    self.dictionary[@"externalId"] = val;
+}
+
+- (MSGraphItemBody*) joinInformation
+{
+    if(!_joinInformation){
+        _joinInformation = [[MSGraphItemBody alloc] initWithDictionary: self.dictionary[@"joinInformation"]];
+    }
+    return _joinInformation;
+}
+
+- (void) setJoinInformation: (MSGraphItemBody*) val
+{
+    _joinInformation = val;
+    self.dictionary[@"joinInformation"] = val;
 }
 
 

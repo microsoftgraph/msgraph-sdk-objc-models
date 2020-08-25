@@ -31,12 +31,14 @@
     NSArray* _fileStates;
     NSArray* _historyStates;
     NSArray* _hostStates;
+    NSArray* _incidentIds;
     NSDate* _lastModifiedDateTime;
     NSArray* _malwareStates;
     NSArray* _networkConnections;
     NSArray* _processes;
     NSArray* _recommendedActions;
     NSArray* _registryKeyStates;
+    NSArray* _securityResources;
     MSGraphAlertSeverity* _severity;
     NSArray* _sourceMaterials;
     MSGraphAlertStatus* _status;
@@ -334,6 +336,20 @@
     self.dictionary[@"hostStates"] = val;
 }
 
+- (NSArray*) incidentIds
+{
+    if([[NSNull null] isEqual:self.dictionary[@"incidentIds"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"incidentIds"];
+}
+
+- (void) setIncidentIds: (NSArray*) val
+{
+    self.dictionary[@"incidentIds"] = val;
+}
+
 - (NSDate*) lastModifiedDateTime
 {
     if(!_lastModifiedDateTime){
@@ -460,6 +476,31 @@
 {
     _registryKeyStates = val;
     self.dictionary[@"registryKeyStates"] = val;
+}
+
+- (NSArray*) securityResources
+{
+    if(!_securityResources){
+        
+    NSMutableArray *securityResourcesResult = [NSMutableArray array];
+    NSArray *securityResources = self.dictionary[@"securityResources"];
+
+    if ([securityResources isKindOfClass:[NSArray class]]){
+        for (id tempSecurityResource in securityResources){
+            [securityResourcesResult addObject:tempSecurityResource];
+        }
+    }
+
+    _securityResources = securityResourcesResult;
+        
+    }
+    return _securityResources;
+}
+
+- (void) setSecurityResources: (NSArray*) val
+{
+    _securityResources = val;
+    self.dictionary[@"securityResources"] = val;
 }
 
 - (MSGraphAlertSeverity*) severity

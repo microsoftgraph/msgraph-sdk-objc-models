@@ -17,6 +17,7 @@
     NSString* _driveItemUploadablePropertiesDescription;
     MSGraphFileSystemInfo* _fileSystemInfo;
     NSString* _name;
+    int64_t _fileSize;
 }
 @end
 
@@ -62,6 +63,18 @@
 - (void) setName: (NSString*) val
 {
     self.dictionary[@"name"] = val;
+}
+
+- (int64_t) fileSize
+{
+    _fileSize = [self.dictionary[@"fileSize"] longLongValue];
+    return _fileSize;
+}
+
+- (void) setFileSize: (int64_t) val
+{
+    _fileSize = val;
+    self.dictionary[@"fileSize"] = @(val);
 }
 
 @end

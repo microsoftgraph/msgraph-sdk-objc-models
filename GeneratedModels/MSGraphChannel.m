@@ -18,7 +18,9 @@
     NSString* _channelDescription;
     NSString* _email;
     NSString* _webUrl;
+    NSArray* _messages;
     NSArray* _tabs;
+    MSGraphDriveItem* _filesFolder;
 }
 @end
 
@@ -83,6 +85,31 @@
     self.dictionary[@"webUrl"] = val;
 }
 
+- (NSArray*) messages
+{
+    if(!_messages){
+        
+    NSMutableArray *messagesResult = [NSMutableArray array];
+    NSArray *messages = self.dictionary[@"messages"];
+
+    if ([messages isKindOfClass:[NSArray class]]){
+        for (id tempChatMessage in messages){
+            [messagesResult addObject:tempChatMessage];
+        }
+    }
+
+    _messages = messagesResult;
+        
+    }
+    return _messages;
+}
+
+- (void) setMessages: (NSArray*) val
+{
+    _messages = val;
+    self.dictionary[@"messages"] = val;
+}
+
 - (NSArray*) tabs
 {
     if(!_tabs){
@@ -106,6 +133,20 @@
 {
     _tabs = val;
     self.dictionary[@"tabs"] = val;
+}
+
+- (MSGraphDriveItem*) filesFolder
+{
+    if(!_filesFolder){
+        _filesFolder = [[MSGraphDriveItem alloc] initWithDictionary: self.dictionary[@"filesFolder"]];
+    }
+    return _filesFolder;
+}
+
+- (void) setFilesFolder: (MSGraphDriveItem*) val
+{
+    _filesFolder = val;
+    self.dictionary[@"filesFolder"] = val;
 }
 
 

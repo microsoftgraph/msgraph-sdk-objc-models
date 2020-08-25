@@ -1,7 +1,7 @@
 // Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 
 
-@class MSGraphBooleanColumn, MSGraphCalculatedColumn, MSGraphChoiceColumn, MSGraphCurrencyColumn, MSGraphDateTimeColumn, MSGraphDefaultColumnValue, MSGraphLookupColumn, MSGraphNumberColumn, MSGraphPersonOrGroupColumn, MSGraphTextColumn; 
+@class MSGraphBooleanColumn, MSGraphCalculatedColumn, MSGraphChoiceColumn, MSGraphCurrencyColumn, MSGraphDateTimeColumn, MSGraphDefaultColumnValue, MSGraphGeolocationColumn, MSGraphLookupColumn, MSGraphNumberColumn, MSGraphPersonOrGroupColumn, MSGraphTextColumn; 
 
 
 #import "MSGraphEntity.h"
@@ -18,6 +18,7 @@
     @property (nullable, nonatomic, setter=setColumnDefinitionDescription:, getter=columnDefinitionDescription) NSString* columnDefinitionDescription;
     @property (nullable, nonatomic, setter=setDisplayName:, getter=displayName) NSString* displayName;
     @property (nonatomic, setter=setEnforceUniqueValues:, getter=enforceUniqueValues) BOOL enforceUniqueValues;
+    @property (nullable, nonatomic, setter=setGeolocation:, getter=geolocation) MSGraphGeolocationColumn* geolocation;
     @property (nonatomic, setter=setHidden:, getter=hidden) BOOL hidden;
     @property (nonatomic, setter=setIndexed:, getter=indexed) BOOL indexed;
     @property (nullable, nonatomic, setter=setLookup:, getter=lookup) MSGraphLookupColumn* lookup;

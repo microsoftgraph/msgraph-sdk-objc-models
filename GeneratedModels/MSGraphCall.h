@@ -1,7 +1,7 @@
 // Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 
 
-@class MSGraphCallMediaState, MSGraphResultInfo, MSGraphCallRoute, MSGraphParticipantInfo, MSGraphInvitationParticipantInfo, MSGraphMediaConfig, MSGraphChatInfo, MSGraphCallOptions, MSGraphMeetingInfo, MSGraphToneInfo, MSGraphIncomingContext, MSGraphParticipant, MSGraphCommsOperation; 
+@class MSGraphCallMediaState, MSGraphResultInfo, MSGraphCallRoute, MSGraphParticipantInfo, MSGraphInvitationParticipantInfo, MSGraphMediaConfig, MSGraphChatInfo, MSGraphCallOptions, MSGraphMeetingInfo, MSGraphCallTranscriptionInfo, MSGraphToneInfo, MSGraphIncomingContext, MSGraphParticipant, MSGraphCommsOperation; 
 #import "MSGraphCallState.h"
 #import "MSGraphCallDirection.h"
 #import "MSGraphModality.h"
@@ -25,6 +25,7 @@
     @property (nullable, nonatomic, setter=setChatInfo:, getter=chatInfo) MSGraphChatInfo* chatInfo;
     @property (nullable, nonatomic, setter=setCallOptions:, getter=callOptions) MSGraphCallOptions* callOptions;
     @property (nullable, nonatomic, setter=setMeetingInfo:, getter=meetingInfo) MSGraphMeetingInfo* meetingInfo;
+    @property (nullable, nonatomic, setter=setTranscription:, getter=transcription) MSGraphCallTranscriptionInfo* transcription;
     @property (nullable, nonatomic, setter=setTenantId:, getter=tenantId) NSString* tenantId;
     @property (nullable, nonatomic, setter=setMyParticipantId:, getter=myParticipantId) NSString* myParticipantId;
     @property (nullable, nonatomic, setter=setToneInfo:, getter=toneInfo) MSGraphToneInfo* toneInfo;

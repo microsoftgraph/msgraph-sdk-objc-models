@@ -19,6 +19,7 @@
     NSString* _state;
     int64_t _total;
     int64_t _used;
+    MSGraphStoragePlanInformation* _storagePlanInformation;
 }
 @end
 
@@ -84,6 +85,20 @@
 {
     _used = val;
     self.dictionary[@"used"] = @(val);
+}
+
+- (MSGraphStoragePlanInformation*) storagePlanInformation
+{
+    if(!_storagePlanInformation){
+        _storagePlanInformation = [[MSGraphStoragePlanInformation alloc] initWithDictionary: self.dictionary[@"storagePlanInformation"]];
+    }
+    return _storagePlanInformation;
+}
+
+- (void) setStoragePlanInformation: (MSGraphStoragePlanInformation*) val
+{
+    _storagePlanInformation = val;
+    self.dictionary[@"storagePlanInformation"] = val;
 }
 
 @end

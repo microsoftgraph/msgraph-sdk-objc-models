@@ -23,6 +23,7 @@
     MSGraphImage* _image;
     MSGraphGeoCoordinates* _location;
     MSGraphPackage* _package;
+    MSGraphPendingOperations* _pendingOperations;
     MSGraphPhoto* _photo;
     MSGraphPublicationFacet* _publication;
     MSGraphRemoteItem* _remoteItem;
@@ -178,6 +179,20 @@
 {
     _package = val;
     self.dictionary[@"package"] = val;
+}
+
+- (MSGraphPendingOperations*) pendingOperations
+{
+    if(!_pendingOperations){
+        _pendingOperations = [[MSGraphPendingOperations alloc] initWithDictionary: self.dictionary[@"pendingOperations"]];
+    }
+    return _pendingOperations;
+}
+
+- (void) setPendingOperations: (MSGraphPendingOperations*) val
+{
+    _pendingOperations = val;
+    self.dictionary[@"pendingOperations"] = val;
 }
 
 - (MSGraphPhoto*) photo

@@ -18,6 +18,7 @@
     NSString* _minimumRequiredSdkVersion;
     int32_t _deployedAppCount;
     BOOL _faceIdBlocked;
+    NSString* _customBrowserProtocol;
     NSArray* _apps;
     MSGraphManagedAppPolicyDeploymentSummary* _deploymentSummary;
 }
@@ -82,6 +83,20 @@
 {
     _faceIdBlocked = val;
     self.dictionary[@"faceIdBlocked"] = @(val);
+}
+
+- (NSString*) customBrowserProtocol
+{
+    if([[NSNull null] isEqual:self.dictionary[@"customBrowserProtocol"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"customBrowserProtocol"];
+}
+
+- (void) setCustomBrowserProtocol: (NSString*) val
+{
+    self.dictionary[@"customBrowserProtocol"] = val;
 }
 
 - (NSArray*) apps

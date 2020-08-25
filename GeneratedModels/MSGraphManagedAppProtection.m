@@ -40,6 +40,7 @@
     NSString* _minimumWarningOsVersion;
     NSString* _minimumRequiredAppVersion;
     NSString* _minimumWarningAppVersion;
+    MSGraphManagedBrowserType* _managedBrowser;
 }
 @end
 
@@ -392,6 +393,20 @@
 - (void) setMinimumWarningAppVersion: (NSString*) val
 {
     self.dictionary[@"minimumWarningAppVersion"] = val;
+}
+
+- (MSGraphManagedBrowserType*) managedBrowser
+{
+    if(!_managedBrowser){
+        _managedBrowser = [self.dictionary[@"managedBrowser"] toMSGraphManagedBrowserType];
+    }
+    return _managedBrowser;
+}
+
+- (void) setManagedBrowser: (MSGraphManagedBrowserType*) val
+{
+    _managedBrowser = val;
+    self.dictionary[@"managedBrowser"] = val;
 }
 
 

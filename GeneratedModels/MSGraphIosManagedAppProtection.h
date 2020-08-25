@@ -13,6 +13,7 @@
     @property (nullable, nonatomic, setter=setMinimumRequiredSdkVersion:, getter=minimumRequiredSdkVersion) NSString* minimumRequiredSdkVersion;
     @property (nonatomic, setter=setDeployedAppCount:, getter=deployedAppCount) int32_t deployedAppCount;
     @property (nonatomic, setter=setFaceIdBlocked:, getter=faceIdBlocked) BOOL faceIdBlocked;
+    @property (nullable, nonatomic, setter=setCustomBrowserProtocol:, getter=customBrowserProtocol) NSString* customBrowserProtocol;
     @property (nullable, nonatomic, setter=setApps:, getter=apps) NSArray* apps;
     @property (nullable, nonatomic, setter=setDeploymentSummary:, getter=deploymentSummary) MSGraphManagedAppPolicyDeploymentSummary* deploymentSummary;
   

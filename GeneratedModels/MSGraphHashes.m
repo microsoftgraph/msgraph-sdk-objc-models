@@ -17,6 +17,7 @@
     NSString* _crc32Hash;
     NSString* _quickXorHash;
     NSString* _sha1Hash;
+    NSString* _sha256Hash;
 }
 @end
 
@@ -62,6 +63,20 @@
 - (void) setSha1Hash: (NSString*) val
 {
     self.dictionary[@"sha1Hash"] = val;
+}
+
+- (NSString*) sha256Hash
+{
+    if([[NSNull null] isEqual:self.dictionary[@"sha256Hash"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"sha256Hash"];
+}
+
+- (void) setSha256Hash: (NSString*) val
+{
+    self.dictionary[@"sha256Hash"] = val;
 }
 
 @end

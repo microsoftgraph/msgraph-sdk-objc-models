@@ -32,6 +32,7 @@
     MSGraphOnPremisesConditionalAccessSettings* _conditionalAccessSettings;
     NSArray* _mobileThreatDefenseConnectors;
     NSArray* _deviceManagementPartners;
+    NSArray* _complianceManagementPartners;
     MSGraphApplePushNotificationCertificate* _applePushNotificationCertificate;
     MSGraphManagedDeviceOverview* _managedDeviceOverview;
     NSArray* _detectedApps;
@@ -413,6 +414,31 @@
 {
     _deviceManagementPartners = val;
     self.dictionary[@"deviceManagementPartners"] = val;
+}
+
+- (NSArray*) complianceManagementPartners
+{
+    if(!_complianceManagementPartners){
+        
+    NSMutableArray *complianceManagementPartnersResult = [NSMutableArray array];
+    NSArray *complianceManagementPartners = self.dictionary[@"complianceManagementPartners"];
+
+    if ([complianceManagementPartners isKindOfClass:[NSArray class]]){
+        for (id tempComplianceManagementPartner in complianceManagementPartners){
+            [complianceManagementPartnersResult addObject:tempComplianceManagementPartner];
+        }
+    }
+
+    _complianceManagementPartners = complianceManagementPartnersResult;
+        
+    }
+    return _complianceManagementPartners;
+}
+
+- (void) setComplianceManagementPartners: (NSArray*) val
+{
+    _complianceManagementPartners = val;
+    self.dictionary[@"complianceManagementPartners"] = val;
 }
 
 - (MSGraphApplePushNotificationCertificate*) applePushNotificationCertificate
