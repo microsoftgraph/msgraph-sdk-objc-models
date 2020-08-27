@@ -15,6 +15,7 @@
 @interface MSGraphCloudCommunications()
 {
     NSArray* _calls;
+    NSArray* _callRecords;
     NSArray* _onlineMeetings;
 }
 @end
@@ -51,6 +52,31 @@
 {
     _calls = val;
     self.dictionary[@"calls"] = val;
+}
+
+- (NSArray*) callRecords
+{
+    if(!_callRecords){
+        
+    NSMutableArray *callRecordsResult = [NSMutableArray array];
+    NSArray *callRecords = self.dictionary[@"callRecords"];
+
+    if ([callRecords isKindOfClass:[NSArray class]]){
+        for (id tempCallRecord in callRecords){
+            [callRecordsResult addObject:tempCallRecord];
+        }
+    }
+
+    _callRecords = callRecordsResult;
+        
+    }
+    return _callRecords;
+}
+
+- (void) setCallRecords: (NSArray*) val
+{
+    _callRecords = val;
+    self.dictionary[@"callRecords"] = val;
 }
 
 - (NSArray*) onlineMeetings
