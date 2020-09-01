@@ -8,8 +8,8 @@
 
 @interface MSGraphChatMessagePolicyViolationPolicyTip : MSObject
 
-@property (nullable, nonatomic, setter=setGeneralText:, getter=generalText) NSString* generalText;
 @property (nullable, nonatomic, setter=setComplianceUrl:, getter=complianceUrl) NSString* complianceUrl;
+@property (nullable, nonatomic, setter=setGeneralText:, getter=generalText) NSString* generalText;
 @property (nullable, nonatomic, setter=setMatchedConditionDescriptions:, getter=matchedConditionDescriptions) NSArray* matchedConditionDescriptions;
 
 @end

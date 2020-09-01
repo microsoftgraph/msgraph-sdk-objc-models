@@ -14,14 +14,42 @@
 
 @interface MSGraphAppListItem()
 {
+    NSString* _appId;
+    NSString* _appStoreUrl;
     NSString* _name;
     NSString* _publisher;
-    NSString* _appStoreUrl;
-    NSString* _appId;
 }
 @end
 
 @implementation MSGraphAppListItem
+
+- (NSString*) appId
+{
+    if([[NSNull null] isEqual:self.dictionary[@"appId"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"appId"];
+}
+
+- (void) setAppId: (NSString*) val
+{
+    self.dictionary[@"appId"] = val;
+}
+
+- (NSString*) appStoreUrl
+{
+    if([[NSNull null] isEqual:self.dictionary[@"appStoreUrl"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"appStoreUrl"];
+}
+
+- (void) setAppStoreUrl: (NSString*) val
+{
+    self.dictionary[@"appStoreUrl"] = val;
+}
 
 - (NSString*) name
 {
@@ -45,34 +73,6 @@
 - (void) setPublisher: (NSString*) val
 {
     self.dictionary[@"publisher"] = val;
-}
-
-- (NSString*) appStoreUrl
-{
-    if([[NSNull null] isEqual:self.dictionary[@"appStoreUrl"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"appStoreUrl"];
-}
-
-- (void) setAppStoreUrl: (NSString*) val
-{
-    self.dictionary[@"appStoreUrl"] = val;
-}
-
-- (NSString*) appId
-{
-    if([[NSNull null] isEqual:self.dictionary[@"appId"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"appId"];
-}
-
-- (void) setAppId: (NSString*) val
-{
-    self.dictionary[@"appId"] = val;
 }
 
 @end

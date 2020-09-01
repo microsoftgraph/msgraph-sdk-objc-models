@@ -2,14 +2,14 @@
 
 
 
-@class MSGraphUserIdentity, MSGraphAppIdentity; 
+@class MSGraphAppIdentity, MSGraphUserIdentity; 
 
 
 #import "MSObject.h"
 
 @interface MSGraphAuditActivityInitiator : MSObject
 
-@property (nullable, nonatomic, setter=setUser:, getter=user) MSGraphUserIdentity* user;
 @property (nullable, nonatomic, setter=setApp:, getter=app) MSGraphAppIdentity* app;
+@property (nullable, nonatomic, setter=setUser:, getter=user) MSGraphUserIdentity* user;
 
 @end

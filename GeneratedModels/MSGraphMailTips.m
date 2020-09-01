@@ -14,36 +14,22 @@
 
 @interface MSGraphMailTips()
 {
-    MSGraphEmailAddress* _emailAddress;
     MSGraphAutomaticRepliesMailTips* _automaticReplies;
-    BOOL _mailboxFull;
     NSString* _customMailTip;
-    int32_t _externalMemberCount;
-    int32_t _totalMemberCount;
     BOOL _deliveryRestricted;
+    MSGraphEmailAddress* _emailAddress;
+    MSGraphMailTipsError* _error;
+    int32_t _externalMemberCount;
     BOOL _isModerated;
+    BOOL _mailboxFull;
+    int32_t _maxMessageSize;
     MSGraphRecipientScopeType* _recipientScope;
     NSArray* _recipientSuggestions;
-    int32_t _maxMessageSize;
-    MSGraphMailTipsError* _error;
+    int32_t _totalMemberCount;
 }
 @end
 
 @implementation MSGraphMailTips
-
-- (MSGraphEmailAddress*) emailAddress
-{
-    if(!_emailAddress){
-        _emailAddress = [[MSGraphEmailAddress alloc] initWithDictionary: self.dictionary[@"emailAddress"]];
-    }
-    return _emailAddress;
-}
-
-- (void) setEmailAddress: (MSGraphEmailAddress*) val
-{
-    _emailAddress = val;
-    self.dictionary[@"emailAddress"] = val;
-}
 
 - (MSGraphAutomaticRepliesMailTips*) automaticReplies
 {
@@ -57,18 +43,6 @@
 {
     _automaticReplies = val;
     self.dictionary[@"automaticReplies"] = val;
-}
-
-- (BOOL) mailboxFull
-{
-    _mailboxFull = [self.dictionary[@"mailboxFull"] boolValue];
-    return _mailboxFull;
-}
-
-- (void) setMailboxFull: (BOOL) val
-{
-    _mailboxFull = val;
-    self.dictionary[@"mailboxFull"] = @(val);
 }
 
 - (NSString*) customMailTip
@@ -85,30 +59,6 @@
     self.dictionary[@"customMailTip"] = val;
 }
 
-- (int32_t) externalMemberCount
-{
-    _externalMemberCount = [self.dictionary[@"externalMemberCount"] intValue];
-    return _externalMemberCount;
-}
-
-- (void) setExternalMemberCount: (int32_t) val
-{
-    _externalMemberCount = val;
-    self.dictionary[@"externalMemberCount"] = @(val);
-}
-
-- (int32_t) totalMemberCount
-{
-    _totalMemberCount = [self.dictionary[@"totalMemberCount"] intValue];
-    return _totalMemberCount;
-}
-
-- (void) setTotalMemberCount: (int32_t) val
-{
-    _totalMemberCount = val;
-    self.dictionary[@"totalMemberCount"] = @(val);
-}
-
 - (BOOL) deliveryRestricted
 {
     _deliveryRestricted = [self.dictionary[@"deliveryRestricted"] boolValue];
@@ -121,6 +71,46 @@
     self.dictionary[@"deliveryRestricted"] = @(val);
 }
 
+- (MSGraphEmailAddress*) emailAddress
+{
+    if(!_emailAddress){
+        _emailAddress = [[MSGraphEmailAddress alloc] initWithDictionary: self.dictionary[@"emailAddress"]];
+    }
+    return _emailAddress;
+}
+
+- (void) setEmailAddress: (MSGraphEmailAddress*) val
+{
+    _emailAddress = val;
+    self.dictionary[@"emailAddress"] = val;
+}
+
+- (MSGraphMailTipsError*) error
+{
+    if(!_error){
+        _error = [[MSGraphMailTipsError alloc] initWithDictionary: self.dictionary[@"error"]];
+    }
+    return _error;
+}
+
+- (void) setError: (MSGraphMailTipsError*) val
+{
+    _error = val;
+    self.dictionary[@"error"] = val;
+}
+
+- (int32_t) externalMemberCount
+{
+    _externalMemberCount = [self.dictionary[@"externalMemberCount"] intValue];
+    return _externalMemberCount;
+}
+
+- (void) setExternalMemberCount: (int32_t) val
+{
+    _externalMemberCount = val;
+    self.dictionary[@"externalMemberCount"] = @(val);
+}
+
 - (BOOL) isModerated
 {
     _isModerated = [self.dictionary[@"isModerated"] boolValue];
@@ -131,6 +121,30 @@
 {
     _isModerated = val;
     self.dictionary[@"isModerated"] = @(val);
+}
+
+- (BOOL) mailboxFull
+{
+    _mailboxFull = [self.dictionary[@"mailboxFull"] boolValue];
+    return _mailboxFull;
+}
+
+- (void) setMailboxFull: (BOOL) val
+{
+    _mailboxFull = val;
+    self.dictionary[@"mailboxFull"] = @(val);
+}
+
+- (int32_t) maxMessageSize
+{
+    _maxMessageSize = [self.dictionary[@"maxMessageSize"] intValue];
+    return _maxMessageSize;
+}
+
+- (void) setMaxMessageSize: (int32_t) val
+{
+    _maxMessageSize = val;
+    self.dictionary[@"maxMessageSize"] = @(val);
 }
 
 - (MSGraphRecipientScopeType*) recipientScope
@@ -172,30 +186,16 @@
     self.dictionary[@"recipientSuggestions"] = val;
 }
 
-- (int32_t) maxMessageSize
+- (int32_t) totalMemberCount
 {
-    _maxMessageSize = [self.dictionary[@"maxMessageSize"] intValue];
-    return _maxMessageSize;
+    _totalMemberCount = [self.dictionary[@"totalMemberCount"] intValue];
+    return _totalMemberCount;
 }
 
-- (void) setMaxMessageSize: (int32_t) val
+- (void) setTotalMemberCount: (int32_t) val
 {
-    _maxMessageSize = val;
-    self.dictionary[@"maxMessageSize"] = @(val);
-}
-
-- (MSGraphMailTipsError*) error
-{
-    if(!_error){
-        _error = [[MSGraphMailTipsError alloc] initWithDictionary: self.dictionary[@"error"]];
-    }
-    return _error;
-}
-
-- (void) setError: (MSGraphMailTipsError*) val
-{
-    _error = val;
-    self.dictionary[@"error"] = val;
+    _totalMemberCount = val;
+    self.dictionary[@"totalMemberCount"] = @(val);
 }
 
 @end

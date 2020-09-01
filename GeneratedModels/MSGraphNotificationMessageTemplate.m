@@ -14,10 +14,10 @@
 
 @interface MSGraphNotificationMessageTemplate()
 {
-    NSDate* _lastModifiedDateTime;
-    NSString* _displayName;
-    NSString* _defaultLocale;
     MSGraphNotificationTemplateBrandingOptions* _brandingOptions;
+    NSString* _defaultLocale;
+    NSString* _displayName;
+    NSDate* _lastModifiedDateTime;
     NSArray* _localizedNotificationMessages;
 }
 @end
@@ -31,28 +31,18 @@
     }
     return self;
 }
-- (NSDate*) lastModifiedDateTime
+- (MSGraphNotificationTemplateBrandingOptions*) brandingOptions
 {
-    if(!_lastModifiedDateTime){
-        _lastModifiedDateTime = [NSDate ms_dateFromString: self.dictionary[@"lastModifiedDateTime"]];
+    if(!_brandingOptions){
+        _brandingOptions = [self.dictionary[@"brandingOptions"] toMSGraphNotificationTemplateBrandingOptions];
     }
-    return _lastModifiedDateTime;
+    return _brandingOptions;
 }
 
-- (void) setLastModifiedDateTime: (NSDate*) val
+- (void) setBrandingOptions: (MSGraphNotificationTemplateBrandingOptions*) val
 {
-    _lastModifiedDateTime = val;
-    self.dictionary[@"lastModifiedDateTime"] = [val ms_toString];
-}
-
-- (NSString*) displayName
-{
-    return self.dictionary[@"displayName"];
-}
-
-- (void) setDisplayName: (NSString*) val
-{
-    self.dictionary[@"displayName"] = val;
+    _brandingOptions = val;
+    self.dictionary[@"brandingOptions"] = val;
 }
 
 - (NSString*) defaultLocale
@@ -69,18 +59,28 @@
     self.dictionary[@"defaultLocale"] = val;
 }
 
-- (MSGraphNotificationTemplateBrandingOptions*) brandingOptions
+- (NSString*) displayName
 {
-    if(!_brandingOptions){
-        _brandingOptions = [self.dictionary[@"brandingOptions"] toMSGraphNotificationTemplateBrandingOptions];
-    }
-    return _brandingOptions;
+    return self.dictionary[@"displayName"];
 }
 
-- (void) setBrandingOptions: (MSGraphNotificationTemplateBrandingOptions*) val
+- (void) setDisplayName: (NSString*) val
 {
-    _brandingOptions = val;
-    self.dictionary[@"brandingOptions"] = val;
+    self.dictionary[@"displayName"] = val;
+}
+
+- (NSDate*) lastModifiedDateTime
+{
+    if(!_lastModifiedDateTime){
+        _lastModifiedDateTime = [NSDate ms_dateFromString: self.dictionary[@"lastModifiedDateTime"]];
+    }
+    return _lastModifiedDateTime;
+}
+
+- (void) setLastModifiedDateTime: (NSDate*) val
+{
+    _lastModifiedDateTime = val;
+    self.dictionary[@"lastModifiedDateTime"] = [val ms_toString];
 }
 
 - (NSArray*) localizedNotificationMessages

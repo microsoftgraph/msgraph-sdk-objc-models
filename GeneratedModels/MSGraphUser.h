@@ -1,7 +1,7 @@
 // Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 
 
-@class MSGraphAssignedLicense, MSGraphAssignedPlan, MSGraphObjectIdentity, MSGraphLicenseAssignmentState, MSGraphOnPremisesExtensionAttributes, MSGraphOnPremisesProvisioningError, MSGraphPasswordProfile, MSGraphProvisionedPlan, MSGraphMailboxSettings, MSGraphAppRoleAssignment, MSGraphDirectoryObject, MSGraphOAuth2PermissionGrant, MSGraphLicenseDetails, MSGraphOutlookUser, MSGraphMessage, MSGraphMailFolder, MSGraphCalendar, MSGraphCalendarGroup, MSGraphEvent, MSGraphPerson, MSGraphContact, MSGraphContactFolder, MSGraphInferenceClassification, MSGraphProfilePhoto, MSGraphDrive, MSGraphSite, MSGraphExtension, MSGraphManagedDevice, MSGraphManagedAppRegistration, MSGraphDeviceManagementTroubleshootingEvent, MSGraphPlannerUser, MSGraphOfficeGraphInsights, MSGraphUserSettings, MSGraphOnenote, MSGraphUserActivity, MSGraphOnlineMeeting, MSGraphTeam; 
+@class MSGraphAssignedLicense, MSGraphAssignedPlan, MSGraphObjectIdentity, MSGraphLicenseAssignmentState, MSGraphOnPremisesExtensionAttributes, MSGraphOnPremisesProvisioningError, MSGraphPasswordProfile, MSGraphProvisionedPlan, MSGraphMailboxSettings, MSGraphAppRoleAssignment, MSGraphDirectoryObject, MSGraphLicenseDetails, MSGraphOAuth2PermissionGrant, MSGraphCalendar, MSGraphCalendarGroup, MSGraphEvent, MSGraphContactFolder, MSGraphContact, MSGraphInferenceClassification, MSGraphMailFolder, MSGraphMessage, MSGraphOutlookUser, MSGraphPerson, MSGraphProfilePhoto, MSGraphDrive, MSGraphSite, MSGraphExtension, MSGraphManagedDevice, MSGraphManagedAppRegistration, MSGraphDeviceManagementTroubleshootingEvent, MSGraphPlannerUser, MSGraphOfficeGraphInsights, MSGraphUserSettings, MSGraphOnenote, MSGraphUserActivity, MSGraphOnlineMeeting, MSGraphTeam; 
 
 
 #import "MSGraphDirectoryObject.h"
@@ -35,20 +35,20 @@
     @property (nullable, nonatomic, setter=setMail:, getter=mail) NSString* mail;
     @property (nullable, nonatomic, setter=setMailNickname:, getter=mailNickname) NSString* mailNickname;
     @property (nullable, nonatomic, setter=setMobilePhone:, getter=mobilePhone) NSString* mobilePhone;
+    @property (nullable, nonatomic, setter=setOfficeLocation:, getter=officeLocation) NSString* officeLocation;
     @property (nullable, nonatomic, setter=setOnPremisesDistinguishedName:, getter=onPremisesDistinguishedName) NSString* onPremisesDistinguishedName;
+    @property (nullable, nonatomic, setter=setOnPremisesDomainName:, getter=onPremisesDomainName) NSString* onPremisesDomainName;
     @property (nullable, nonatomic, setter=setOnPremisesExtensionAttributes:, getter=onPremisesExtensionAttributes) MSGraphOnPremisesExtensionAttributes* onPremisesExtensionAttributes;
     @property (nullable, nonatomic, setter=setOnPremisesImmutableId:, getter=onPremisesImmutableId) NSString* onPremisesImmutableId;
     @property (nullable, nonatomic, setter=setOnPremisesLastSyncDateTime:, getter=onPremisesLastSyncDateTime) NSDate* onPremisesLastSyncDateTime;
     @property (nullable, nonatomic, setter=setOnPremisesProvisioningErrors:, getter=onPremisesProvisioningErrors) NSArray* onPremisesProvisioningErrors;
+    @property (nullable, nonatomic, setter=setOnPremisesSamAccountName:, getter=onPremisesSamAccountName) NSString* onPremisesSamAccountName;
     @property (nullable, nonatomic, setter=setOnPremisesSecurityIdentifier:, getter=onPremisesSecurityIdentifier) NSString* onPremisesSecurityIdentifier;
     @property (nonatomic, setter=setOnPremisesSyncEnabled:, getter=onPremisesSyncEnabled) BOOL onPremisesSyncEnabled;
-    @property (nullable, nonatomic, setter=setOnPremisesDomainName:, getter=onPremisesDomainName) NSString* onPremisesDomainName;
-    @property (nullable, nonatomic, setter=setOnPremisesSamAccountName:, getter=onPremisesSamAccountName) NSString* onPremisesSamAccountName;
     @property (nullable, nonatomic, setter=setOnPremisesUserPrincipalName:, getter=onPremisesUserPrincipalName) NSString* onPremisesUserPrincipalName;
     @property (nonnull, nonatomic, setter=setOtherMails:, getter=otherMails) NSArray* otherMails;
     @property (nullable, nonatomic, setter=setPasswordPolicies:, getter=passwordPolicies) NSString* passwordPolicies;
     @property (nullable, nonatomic, setter=setPasswordProfile:, getter=passwordProfile) MSGraphPasswordProfile* passwordProfile;
-    @property (nullable, nonatomic, setter=setOfficeLocation:, getter=officeLocation) NSString* officeLocation;
     @property (nullable, nonatomic, setter=setPostalCode:, getter=postalCode) NSString* postalCode;
     @property (nullable, nonatomic, setter=setPreferredLanguage:, getter=preferredLanguage) NSString* preferredLanguage;
     @property (nonnull, nonatomic, setter=setProvisionedPlans:, getter=provisionedPlans) NSArray* provisionedPlans;
@@ -74,28 +74,28 @@
     @property (nullable, nonatomic, setter=setSchools:, getter=schools) NSArray* schools;
     @property (nullable, nonatomic, setter=setSkills:, getter=skills) NSArray* skills;
     @property (nullable, nonatomic, setter=setAppRoleAssignments:, getter=appRoleAssignments) NSArray* appRoleAssignments;
-    @property (nullable, nonatomic, setter=setOwnedDevices:, getter=ownedDevices) NSArray* ownedDevices;
-    @property (nullable, nonatomic, setter=setRegisteredDevices:, getter=registeredDevices) NSArray* registeredDevices;
-    @property (nullable, nonatomic, setter=setManager:, getter=manager) MSGraphDirectoryObject* manager;
-    @property (nullable, nonatomic, setter=setDirectReports:, getter=directReports) NSArray* directReports;
-    @property (nullable, nonatomic, setter=setMemberOf:, getter=memberOf) NSArray* memberOf;
     @property (nullable, nonatomic, setter=setCreatedObjects:, getter=createdObjects) NSArray* createdObjects;
-    @property (nullable, nonatomic, setter=setOauth2PermissionGrants:, getter=oauth2PermissionGrants) NSArray* oauth2PermissionGrants;
-    @property (nullable, nonatomic, setter=setOwnedObjects:, getter=ownedObjects) NSArray* ownedObjects;
+    @property (nullable, nonatomic, setter=setDirectReports:, getter=directReports) NSArray* directReports;
     @property (nullable, nonatomic, setter=setLicenseDetails:, getter=licenseDetails) NSArray* licenseDetails;
+    @property (nullable, nonatomic, setter=setManager:, getter=manager) MSGraphDirectoryObject* manager;
+    @property (nullable, nonatomic, setter=setMemberOf:, getter=memberOf) NSArray* memberOf;
+    @property (nullable, nonatomic, setter=setOauth2PermissionGrants:, getter=oauth2PermissionGrants) NSArray* oauth2PermissionGrants;
+    @property (nullable, nonatomic, setter=setOwnedDevices:, getter=ownedDevices) NSArray* ownedDevices;
+    @property (nullable, nonatomic, setter=setOwnedObjects:, getter=ownedObjects) NSArray* ownedObjects;
+    @property (nullable, nonatomic, setter=setRegisteredDevices:, getter=registeredDevices) NSArray* registeredDevices;
     @property (nullable, nonatomic, setter=setTransitiveMemberOf:, getter=transitiveMemberOf) NSArray* transitiveMemberOf;
-    @property (nullable, nonatomic, setter=setOutlook:, getter=outlook) MSGraphOutlookUser* outlook;
-    @property (nullable, nonatomic, setter=setMessages:, getter=messages) NSArray* messages;
-    @property (nullable, nonatomic, setter=setMailFolders:, getter=mailFolders) NSArray* mailFolders;
     @property (nullable, nonatomic, setter=setCalendar:, getter=calendar) MSGraphCalendar* calendar;
-    @property (nullable, nonatomic, setter=setCalendars:, getter=calendars) NSArray* calendars;
     @property (nullable, nonatomic, setter=setCalendarGroups:, getter=calendarGroups) NSArray* calendarGroups;
+    @property (nullable, nonatomic, setter=setCalendars:, getter=calendars) NSArray* calendars;
     @property (nullable, nonatomic, setter=setCalendarView:, getter=calendarView) NSArray* calendarView;
-    @property (nullable, nonatomic, setter=setEvents:, getter=events) NSArray* events;
-    @property (nullable, nonatomic, setter=setPeople:, getter=people) NSArray* people;
-    @property (nullable, nonatomic, setter=setContacts:, getter=contacts) NSArray* contacts;
     @property (nullable, nonatomic, setter=setContactFolders:, getter=contactFolders) NSArray* contactFolders;
+    @property (nullable, nonatomic, setter=setContacts:, getter=contacts) NSArray* contacts;
+    @property (nullable, nonatomic, setter=setEvents:, getter=events) NSArray* events;
     @property (nullable, nonatomic, setter=setInferenceClassification:, getter=inferenceClassification) MSGraphInferenceClassification* inferenceClassification;
+    @property (nullable, nonatomic, setter=setMailFolders:, getter=mailFolders) NSArray* mailFolders;
+    @property (nullable, nonatomic, setter=setMessages:, getter=messages) NSArray* messages;
+    @property (nullable, nonatomic, setter=setOutlook:, getter=outlook) MSGraphOutlookUser* outlook;
+    @property (nullable, nonatomic, setter=setPeople:, getter=people) NSArray* people;
     @property (nullable, nonatomic, setter=setPhoto:, getter=photo) MSGraphProfilePhoto* photo;
     @property (nullable, nonatomic, setter=setPhotos:, getter=photos) NSArray* photos;
     @property (nullable, nonatomic, setter=setDrive:, getter=drive) MSGraphDrive* drive;

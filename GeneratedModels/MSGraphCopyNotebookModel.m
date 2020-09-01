@@ -14,119 +14,25 @@
 
 @interface MSGraphCopyNotebookModel()
 {
-    BOOL _isDefault;
-    MSGraphOnenoteUserRole* _userRole;
-    BOOL _isShared;
-    NSString* _sectionsUrl;
-    NSString* _sectionGroupsUrl;
-    MSGraphNotebookLinks* _links;
-    NSString* _name;
     NSString* _createdBy;
     MSGraphIdentitySet* _createdByIdentity;
+    NSDate* _createdTime;
+    NSString* _copyNotebookModelId;
+    BOOL _isDefault;
+    BOOL _isShared;
     NSString* _lastModifiedBy;
     MSGraphIdentitySet* _lastModifiedByIdentity;
     NSDate* _lastModifiedTime;
-    NSString* _copyNotebookModelId;
+    MSGraphNotebookLinks* _links;
+    NSString* _name;
+    NSString* _sectionGroupsUrl;
+    NSString* _sectionsUrl;
     NSString* _copyNotebookModelSelf;
-    NSDate* _createdTime;
+    MSGraphOnenoteUserRole* _userRole;
 }
 @end
 
 @implementation MSGraphCopyNotebookModel
-
-- (BOOL) isDefault
-{
-    _isDefault = [self.dictionary[@"isDefault"] boolValue];
-    return _isDefault;
-}
-
-- (void) setIsDefault: (BOOL) val
-{
-    _isDefault = val;
-    self.dictionary[@"isDefault"] = @(val);
-}
-
-- (MSGraphOnenoteUserRole*) userRole
-{
-    if(!_userRole){
-        _userRole = [self.dictionary[@"userRole"] toMSGraphOnenoteUserRole];
-    }
-    return _userRole;
-}
-
-- (void) setUserRole: (MSGraphOnenoteUserRole*) val
-{
-    _userRole = val;
-    self.dictionary[@"userRole"] = val;
-}
-
-- (BOOL) isShared
-{
-    _isShared = [self.dictionary[@"isShared"] boolValue];
-    return _isShared;
-}
-
-- (void) setIsShared: (BOOL) val
-{
-    _isShared = val;
-    self.dictionary[@"isShared"] = @(val);
-}
-
-- (NSString*) sectionsUrl
-{
-    if([[NSNull null] isEqual:self.dictionary[@"sectionsUrl"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"sectionsUrl"];
-}
-
-- (void) setSectionsUrl: (NSString*) val
-{
-    self.dictionary[@"sectionsUrl"] = val;
-}
-
-- (NSString*) sectionGroupsUrl
-{
-    if([[NSNull null] isEqual:self.dictionary[@"sectionGroupsUrl"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"sectionGroupsUrl"];
-}
-
-- (void) setSectionGroupsUrl: (NSString*) val
-{
-    self.dictionary[@"sectionGroupsUrl"] = val;
-}
-
-- (MSGraphNotebookLinks*) links
-{
-    if(!_links){
-        _links = [[MSGraphNotebookLinks alloc] initWithDictionary: self.dictionary[@"links"]];
-    }
-    return _links;
-}
-
-- (void) setLinks: (MSGraphNotebookLinks*) val
-{
-    _links = val;
-    self.dictionary[@"links"] = val;
-}
-
-- (NSString*) name
-{
-    if([[NSNull null] isEqual:self.dictionary[@"name"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"name"];
-}
-
-- (void) setName: (NSString*) val
-{
-    self.dictionary[@"name"] = val;
-}
 
 - (NSString*) createdBy
 {
@@ -154,6 +60,58 @@
 {
     _createdByIdentity = val;
     self.dictionary[@"createdByIdentity"] = val;
+}
+
+- (NSDate*) createdTime
+{
+    if(!_createdTime){
+        _createdTime = [NSDate ms_dateFromString: self.dictionary[@"createdTime"]];
+    }
+    return _createdTime;
+}
+
+- (void) setCreatedTime: (NSDate*) val
+{
+    _createdTime = val;
+    self.dictionary[@"createdTime"] = [val ms_toString];
+}
+
+- (NSString*) getCopyNotebookModelId
+{
+    if([[NSNull null] isEqual:self.dictionary[@"id"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"id"];
+}
+
+- (void) setCopyNotebookModelId: (NSString*) val
+{
+    self.dictionary[@"id"] = val;
+}
+
+- (BOOL) isDefault
+{
+    _isDefault = [self.dictionary[@"isDefault"] boolValue];
+    return _isDefault;
+}
+
+- (void) setIsDefault: (BOOL) val
+{
+    _isDefault = val;
+    self.dictionary[@"isDefault"] = @(val);
+}
+
+- (BOOL) isShared
+{
+    _isShared = [self.dictionary[@"isShared"] boolValue];
+    return _isShared;
+}
+
+- (void) setIsShared: (BOOL) val
+{
+    _isShared = val;
+    self.dictionary[@"isShared"] = @(val);
 }
 
 - (NSString*) lastModifiedBy
@@ -198,18 +156,60 @@
     self.dictionary[@"lastModifiedTime"] = [val ms_toString];
 }
 
-- (NSString*) getCopyNotebookModelId
+- (MSGraphNotebookLinks*) links
 {
-    if([[NSNull null] isEqual:self.dictionary[@"id"]])
+    if(!_links){
+        _links = [[MSGraphNotebookLinks alloc] initWithDictionary: self.dictionary[@"links"]];
+    }
+    return _links;
+}
+
+- (void) setLinks: (MSGraphNotebookLinks*) val
+{
+    _links = val;
+    self.dictionary[@"links"] = val;
+}
+
+- (NSString*) name
+{
+    if([[NSNull null] isEqual:self.dictionary[@"name"]])
     {
         return nil;
     }   
-    return self.dictionary[@"id"];
+    return self.dictionary[@"name"];
 }
 
-- (void) setCopyNotebookModelId: (NSString*) val
+- (void) setName: (NSString*) val
 {
-    self.dictionary[@"id"] = val;
+    self.dictionary[@"name"] = val;
+}
+
+- (NSString*) sectionGroupsUrl
+{
+    if([[NSNull null] isEqual:self.dictionary[@"sectionGroupsUrl"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"sectionGroupsUrl"];
+}
+
+- (void) setSectionGroupsUrl: (NSString*) val
+{
+    self.dictionary[@"sectionGroupsUrl"] = val;
+}
+
+- (NSString*) sectionsUrl
+{
+    if([[NSNull null] isEqual:self.dictionary[@"sectionsUrl"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"sectionsUrl"];
+}
+
+- (void) setSectionsUrl: (NSString*) val
+{
+    self.dictionary[@"sectionsUrl"] = val;
 }
 
 - (NSString*) getCopyNotebookModelSelf
@@ -226,18 +226,18 @@
     self.dictionary[@"self"] = val;
 }
 
-- (NSDate*) createdTime
+- (MSGraphOnenoteUserRole*) userRole
 {
-    if(!_createdTime){
-        _createdTime = [NSDate ms_dateFromString: self.dictionary[@"createdTime"]];
+    if(!_userRole){
+        _userRole = [self.dictionary[@"userRole"] toMSGraphOnenoteUserRole];
     }
-    return _createdTime;
+    return _userRole;
 }
 
-- (void) setCreatedTime: (NSDate*) val
+- (void) setUserRole: (MSGraphOnenoteUserRole*) val
 {
-    _createdTime = val;
-    self.dictionary[@"createdTime"] = [val ms_toString];
+    _userRole = val;
+    self.dictionary[@"userRole"] = val;
 }
 
 @end

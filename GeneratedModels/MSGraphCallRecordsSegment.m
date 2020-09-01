@@ -14,12 +14,12 @@
 
 @interface MSGraphCallRecordsSegment()
 {
-    NSDate* _startDateTime;
-    NSDate* _endDateTime;
-    MSGraphCallRecordsEndpoint* _caller;
     MSGraphCallRecordsEndpoint* _callee;
+    MSGraphCallRecordsEndpoint* _caller;
+    NSDate* _endDateTime;
     MSGraphCallRecordsFailureInfo* _failureInfo;
     NSArray* _media;
+    NSDate* _startDateTime;
 }
 @end
 
@@ -32,32 +32,18 @@
     }
     return self;
 }
-- (NSDate*) startDateTime
+- (MSGraphCallRecordsEndpoint*) callee
 {
-    if(!_startDateTime){
-        _startDateTime = [NSDate ms_dateFromString: self.dictionary[@"startDateTime"]];
+    if(!_callee){
+        _callee = [[MSGraphCallRecordsEndpoint alloc] initWithDictionary: self.dictionary[@"callee"]];
     }
-    return _startDateTime;
+    return _callee;
 }
 
-- (void) setStartDateTime: (NSDate*) val
+- (void) setCallee: (MSGraphCallRecordsEndpoint*) val
 {
-    _startDateTime = val;
-    self.dictionary[@"startDateTime"] = [val ms_toString];
-}
-
-- (NSDate*) endDateTime
-{
-    if(!_endDateTime){
-        _endDateTime = [NSDate ms_dateFromString: self.dictionary[@"endDateTime"]];
-    }
-    return _endDateTime;
-}
-
-- (void) setEndDateTime: (NSDate*) val
-{
-    _endDateTime = val;
-    self.dictionary[@"endDateTime"] = [val ms_toString];
+    _callee = val;
+    self.dictionary[@"callee"] = val;
 }
 
 - (MSGraphCallRecordsEndpoint*) caller
@@ -74,18 +60,18 @@
     self.dictionary[@"caller"] = val;
 }
 
-- (MSGraphCallRecordsEndpoint*) callee
+- (NSDate*) endDateTime
 {
-    if(!_callee){
-        _callee = [[MSGraphCallRecordsEndpoint alloc] initWithDictionary: self.dictionary[@"callee"]];
+    if(!_endDateTime){
+        _endDateTime = [NSDate ms_dateFromString: self.dictionary[@"endDateTime"]];
     }
-    return _callee;
+    return _endDateTime;
 }
 
-- (void) setCallee: (MSGraphCallRecordsEndpoint*) val
+- (void) setEndDateTime: (NSDate*) val
 {
-    _callee = val;
-    self.dictionary[@"callee"] = val;
+    _endDateTime = val;
+    self.dictionary[@"endDateTime"] = [val ms_toString];
 }
 
 - (MSGraphCallRecordsFailureInfo*) failureInfo
@@ -125,6 +111,20 @@
 {
     _media = val;
     self.dictionary[@"media"] = val;
+}
+
+- (NSDate*) startDateTime
+{
+    if(!_startDateTime){
+        _startDateTime = [NSDate ms_dateFromString: self.dictionary[@"startDateTime"]];
+    }
+    return _startDateTime;
+}
+
+- (void) setStartDateTime: (NSDate*) val
+{
+    _startDateTime = val;
+    self.dictionary[@"startDateTime"] = [val ms_toString];
 }
 
 

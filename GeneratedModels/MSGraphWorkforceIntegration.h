@@ -9,11 +9,11 @@
 
 @interface MSGraphWorkforceIntegration : MSGraphChangeTrackedEntity
 
-  @property (nullable, nonatomic, setter=setDisplayName:, getter=displayName) NSString* displayName;
-    @property (nonatomic, setter=setApiVersion:, getter=apiVersion) int32_t apiVersion;
+  @property (nonatomic, setter=setApiVersion:, getter=apiVersion) int32_t apiVersion;
+    @property (nullable, nonatomic, setter=setDisplayName:, getter=displayName) NSString* displayName;
     @property (nullable, nonatomic, setter=setEncryption:, getter=encryption) MSGraphWorkforceIntegrationEncryption* encryption;
     @property (nonatomic, setter=setIsActive:, getter=isActive) BOOL isActive;
-    @property (nullable, nonatomic, setter=setUrl:, getter=url) NSString* url;
     @property (nullable, nonatomic, setter=setSupportedEntities:, getter=supportedEntities) MSGraphWorkforceIntegrationSupportedEntities* supportedEntities;
+    @property (nullable, nonatomic, setter=setUrl:, getter=url) NSString* url;
   
 @end

@@ -14,16 +14,40 @@
 
 @interface MSGraphConfigurationManagerClientEnabledFeatures()
 {
+    BOOL _compliancePolicy;
+    BOOL _deviceConfiguration;
     BOOL _inventory;
     BOOL _modernApps;
     BOOL _resourceAccess;
-    BOOL _deviceConfiguration;
-    BOOL _compliancePolicy;
     BOOL _windowsUpdateForBusiness;
 }
 @end
 
 @implementation MSGraphConfigurationManagerClientEnabledFeatures
+
+- (BOOL) compliancePolicy
+{
+    _compliancePolicy = [self.dictionary[@"compliancePolicy"] boolValue];
+    return _compliancePolicy;
+}
+
+- (void) setCompliancePolicy: (BOOL) val
+{
+    _compliancePolicy = val;
+    self.dictionary[@"compliancePolicy"] = @(val);
+}
+
+- (BOOL) deviceConfiguration
+{
+    _deviceConfiguration = [self.dictionary[@"deviceConfiguration"] boolValue];
+    return _deviceConfiguration;
+}
+
+- (void) setDeviceConfiguration: (BOOL) val
+{
+    _deviceConfiguration = val;
+    self.dictionary[@"deviceConfiguration"] = @(val);
+}
 
 - (BOOL) inventory
 {
@@ -59,30 +83,6 @@
 {
     _resourceAccess = val;
     self.dictionary[@"resourceAccess"] = @(val);
-}
-
-- (BOOL) deviceConfiguration
-{
-    _deviceConfiguration = [self.dictionary[@"deviceConfiguration"] boolValue];
-    return _deviceConfiguration;
-}
-
-- (void) setDeviceConfiguration: (BOOL) val
-{
-    _deviceConfiguration = val;
-    self.dictionary[@"deviceConfiguration"] = @(val);
-}
-
-- (BOOL) compliancePolicy
-{
-    _compliancePolicy = [self.dictionary[@"compliancePolicy"] boolValue];
-    return _compliancePolicy;
-}
-
-- (void) setCompliancePolicy: (BOOL) val
-{
-    _compliancePolicy = val;
-    self.dictionary[@"compliancePolicy"] = @(val);
 }
 
 - (BOOL) windowsUpdateForBusiness

@@ -8,7 +8,7 @@
 
 @interface MSGraphCallRecordsUserAgent : MSObject
 
-@property (nullable, nonatomic, setter=setHeaderValue:, getter=headerValue) NSString* headerValue;
 @property (nullable, nonatomic, setter=setApplicationVersion:, getter=applicationVersion) NSString* applicationVersion;
+@property (nullable, nonatomic, setter=setHeaderValue:, getter=headerValue) NSString* headerValue;
 
 @end

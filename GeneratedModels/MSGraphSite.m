@@ -14,8 +14,8 @@
 
 @interface MSGraphSite()
 {
-    MSGraphPublicError* _error;
     NSString* _displayName;
+    MSGraphPublicError* _error;
     MSGraphRoot* _root;
     MSGraphSharepointIds* _sharepointIds;
     MSGraphSiteCollection* _siteCollection;
@@ -40,20 +40,6 @@
     }
     return self;
 }
-- (MSGraphPublicError*) error
-{
-    if(!_error){
-        _error = [[MSGraphPublicError alloc] initWithDictionary: self.dictionary[@"error"]];
-    }
-    return _error;
-}
-
-- (void) setError: (MSGraphPublicError*) val
-{
-    _error = val;
-    self.dictionary[@"error"] = val;
-}
-
 - (NSString*) displayName
 {
     if([[NSNull null] isEqual:self.dictionary[@"displayName"]])
@@ -66,6 +52,20 @@
 - (void) setDisplayName: (NSString*) val
 {
     self.dictionary[@"displayName"] = val;
+}
+
+- (MSGraphPublicError*) error
+{
+    if(!_error){
+        _error = [[MSGraphPublicError alloc] initWithDictionary: self.dictionary[@"error"]];
+    }
+    return _error;
+}
+
+- (void) setError: (MSGraphPublicError*) val
+{
+    _error = val;
+    self.dictionary[@"error"] = val;
 }
 
 - (MSGraphRoot*) root

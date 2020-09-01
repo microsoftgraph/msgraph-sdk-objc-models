@@ -12,7 +12,7 @@
 
 @property (nullable, nonatomic, setter=setCompletedDateTime:, getter=completedDateTime) MSGraphDateTimeTimeZone* completedDateTime;
 @property (nullable, nonatomic, setter=setDueDateTime:, getter=dueDateTime) MSGraphDateTimeTimeZone* dueDateTime;
-@property (nullable, nonatomic, setter=setStartDateTime:, getter=startDateTime) MSGraphDateTimeTimeZone* startDateTime;
 @property (nullable, nonatomic, setter=setFlagStatus:, getter=flagStatus) MSGraphFollowupFlagStatus* flagStatus;
+@property (nullable, nonatomic, setter=setStartDateTime:, getter=startDateTime) MSGraphDateTimeTimeZone* startDateTime;
 
 @end

@@ -14,12 +14,12 @@
 
 @interface MSGraphReminder()
 {
-    NSString* _eventId;
-    MSGraphDateTimeTimeZone* _eventStartTime;
-    MSGraphDateTimeTimeZone* _eventEndTime;
     NSString* _changeKey;
-    NSString* _eventSubject;
+    MSGraphDateTimeTimeZone* _eventEndTime;
+    NSString* _eventId;
     MSGraphLocation* _eventLocation;
+    MSGraphDateTimeTimeZone* _eventStartTime;
+    NSString* _eventSubject;
     NSString* _eventWebLink;
     MSGraphDateTimeTimeZone* _reminderFireTime;
 }
@@ -27,32 +27,18 @@
 
 @implementation MSGraphReminder
 
-- (NSString*) eventId
+- (NSString*) changeKey
 {
-    if([[NSNull null] isEqual:self.dictionary[@"eventId"]])
+    if([[NSNull null] isEqual:self.dictionary[@"changeKey"]])
     {
         return nil;
     }   
-    return self.dictionary[@"eventId"];
+    return self.dictionary[@"changeKey"];
 }
 
-- (void) setEventId: (NSString*) val
+- (void) setChangeKey: (NSString*) val
 {
-    self.dictionary[@"eventId"] = val;
-}
-
-- (MSGraphDateTimeTimeZone*) eventStartTime
-{
-    if(!_eventStartTime){
-        _eventStartTime = [[MSGraphDateTimeTimeZone alloc] initWithDictionary: self.dictionary[@"eventStartTime"]];
-    }
-    return _eventStartTime;
-}
-
-- (void) setEventStartTime: (MSGraphDateTimeTimeZone*) val
-{
-    _eventStartTime = val;
-    self.dictionary[@"eventStartTime"] = val;
+    self.dictionary[@"changeKey"] = val;
 }
 
 - (MSGraphDateTimeTimeZone*) eventEndTime
@@ -69,32 +55,18 @@
     self.dictionary[@"eventEndTime"] = val;
 }
 
-- (NSString*) changeKey
+- (NSString*) eventId
 {
-    if([[NSNull null] isEqual:self.dictionary[@"changeKey"]])
+    if([[NSNull null] isEqual:self.dictionary[@"eventId"]])
     {
         return nil;
     }   
-    return self.dictionary[@"changeKey"];
+    return self.dictionary[@"eventId"];
 }
 
-- (void) setChangeKey: (NSString*) val
+- (void) setEventId: (NSString*) val
 {
-    self.dictionary[@"changeKey"] = val;
-}
-
-- (NSString*) eventSubject
-{
-    if([[NSNull null] isEqual:self.dictionary[@"eventSubject"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"eventSubject"];
-}
-
-- (void) setEventSubject: (NSString*) val
-{
-    self.dictionary[@"eventSubject"] = val;
+    self.dictionary[@"eventId"] = val;
 }
 
 - (MSGraphLocation*) eventLocation
@@ -109,6 +81,34 @@
 {
     _eventLocation = val;
     self.dictionary[@"eventLocation"] = val;
+}
+
+- (MSGraphDateTimeTimeZone*) eventStartTime
+{
+    if(!_eventStartTime){
+        _eventStartTime = [[MSGraphDateTimeTimeZone alloc] initWithDictionary: self.dictionary[@"eventStartTime"]];
+    }
+    return _eventStartTime;
+}
+
+- (void) setEventStartTime: (MSGraphDateTimeTimeZone*) val
+{
+    _eventStartTime = val;
+    self.dictionary[@"eventStartTime"] = val;
+}
+
+- (NSString*) eventSubject
+{
+    if([[NSNull null] isEqual:self.dictionary[@"eventSubject"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"eventSubject"];
+}
+
+- (void) setEventSubject: (NSString*) val
+{
+    self.dictionary[@"eventSubject"] = val;
 }
 
 - (NSString*) eventWebLink

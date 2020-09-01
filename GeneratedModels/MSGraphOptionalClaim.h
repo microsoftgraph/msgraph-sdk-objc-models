@@ -8,9 +8,9 @@
 
 @interface MSGraphOptionalClaim : MSObject
 
+@property (nullable, nonatomic, setter=setAdditionalProperties:, getter=additionalProperties) NSArray* additionalProperties;
+@property (nonatomic, setter=setEssential:, getter=essential) BOOL essential;
 @property (nonnull, nonatomic, setter=setName:, getter=name) NSString* name;
 @property (nullable, nonatomic, setter=setSource:, getter=source) NSString* source;
-@property (nonatomic, setter=setEssential:, getter=essential) BOOL essential;
-@property (nullable, nonatomic, setter=setAdditionalProperties:, getter=additionalProperties) NSArray* additionalProperties;
 
 @end

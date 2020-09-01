@@ -14,14 +14,14 @@
 
 @interface MSGraphConditionalAccessPolicy()
 {
-    NSDate* _createdDateTime;
-    NSDate* _modifiedDateTime;
-    NSString* _displayName;
-    NSString* _conditionalAccessPolicyDescription;
-    MSGraphConditionalAccessPolicyState* _state;
     MSGraphConditionalAccessConditionSet* _conditions;
+    NSDate* _createdDateTime;
+    NSString* _conditionalAccessPolicyDescription;
+    NSString* _displayName;
     MSGraphConditionalAccessGrantControls* _grantControls;
+    NSDate* _modifiedDateTime;
     MSGraphConditionalAccessSessionControls* _sessionControls;
+    MSGraphConditionalAccessPolicyState* _state;
 }
 @end
 
@@ -34,6 +34,20 @@
     }
     return self;
 }
+- (MSGraphConditionalAccessConditionSet*) conditions
+{
+    if(!_conditions){
+        _conditions = [[MSGraphConditionalAccessConditionSet alloc] initWithDictionary: self.dictionary[@"conditions"]];
+    }
+    return _conditions;
+}
+
+- (void) setConditions: (MSGraphConditionalAccessConditionSet*) val
+{
+    _conditions = val;
+    self.dictionary[@"conditions"] = val;
+}
+
 - (NSDate*) createdDateTime
 {
     if(!_createdDateTime){
@@ -46,30 +60,6 @@
 {
     _createdDateTime = val;
     self.dictionary[@"createdDateTime"] = [val ms_toString];
-}
-
-- (NSDate*) modifiedDateTime
-{
-    if(!_modifiedDateTime){
-        _modifiedDateTime = [NSDate ms_dateFromString: self.dictionary[@"modifiedDateTime"]];
-    }
-    return _modifiedDateTime;
-}
-
-- (void) setModifiedDateTime: (NSDate*) val
-{
-    _modifiedDateTime = val;
-    self.dictionary[@"modifiedDateTime"] = [val ms_toString];
-}
-
-- (NSString*) displayName
-{
-    return self.dictionary[@"displayName"];
-}
-
-- (void) setDisplayName: (NSString*) val
-{
-    self.dictionary[@"displayName"] = val;
 }
 
 - (NSString*) conditionalAccessPolicyDescription
@@ -86,32 +76,14 @@
     self.dictionary[@"description"] = val;
 }
 
-- (MSGraphConditionalAccessPolicyState*) state
+- (NSString*) displayName
 {
-    if(!_state){
-        _state = [self.dictionary[@"state"] toMSGraphConditionalAccessPolicyState];
-    }
-    return _state;
+    return self.dictionary[@"displayName"];
 }
 
-- (void) setState: (MSGraphConditionalAccessPolicyState*) val
+- (void) setDisplayName: (NSString*) val
 {
-    _state = val;
-    self.dictionary[@"state"] = val;
-}
-
-- (MSGraphConditionalAccessConditionSet*) conditions
-{
-    if(!_conditions){
-        _conditions = [[MSGraphConditionalAccessConditionSet alloc] initWithDictionary: self.dictionary[@"conditions"]];
-    }
-    return _conditions;
-}
-
-- (void) setConditions: (MSGraphConditionalAccessConditionSet*) val
-{
-    _conditions = val;
-    self.dictionary[@"conditions"] = val;
+    self.dictionary[@"displayName"] = val;
 }
 
 - (MSGraphConditionalAccessGrantControls*) grantControls
@@ -128,6 +100,20 @@
     self.dictionary[@"grantControls"] = val;
 }
 
+- (NSDate*) modifiedDateTime
+{
+    if(!_modifiedDateTime){
+        _modifiedDateTime = [NSDate ms_dateFromString: self.dictionary[@"modifiedDateTime"]];
+    }
+    return _modifiedDateTime;
+}
+
+- (void) setModifiedDateTime: (NSDate*) val
+{
+    _modifiedDateTime = val;
+    self.dictionary[@"modifiedDateTime"] = [val ms_toString];
+}
+
 - (MSGraphConditionalAccessSessionControls*) sessionControls
 {
     if(!_sessionControls){
@@ -140,6 +126,20 @@
 {
     _sessionControls = val;
     self.dictionary[@"sessionControls"] = val;
+}
+
+- (MSGraphConditionalAccessPolicyState*) state
+{
+    if(!_state){
+        _state = [self.dictionary[@"state"] toMSGraphConditionalAccessPolicyState];
+    }
+    return _state;
+}
+
+- (void) setState: (MSGraphConditionalAccessPolicyState*) val
+{
+    _state = val;
+    self.dictionary[@"state"] = val;
 }
 
 

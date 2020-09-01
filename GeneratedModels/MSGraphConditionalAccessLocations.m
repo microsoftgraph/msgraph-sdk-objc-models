@@ -14,22 +14,12 @@
 
 @interface MSGraphConditionalAccessLocations()
 {
-    NSArray* _includeLocations;
     NSArray* _excludeLocations;
+    NSArray* _includeLocations;
 }
 @end
 
 @implementation MSGraphConditionalAccessLocations
-
-- (NSArray*) includeLocations
-{
-    return self.dictionary[@"includeLocations"];
-}
-
-- (void) setIncludeLocations: (NSArray*) val
-{
-    self.dictionary[@"includeLocations"] = val;
-}
 
 - (NSArray*) excludeLocations
 {
@@ -39,6 +29,16 @@
 - (void) setExcludeLocations: (NSArray*) val
 {
     self.dictionary[@"excludeLocations"] = val;
+}
+
+- (NSArray*) includeLocations
+{
+    return self.dictionary[@"includeLocations"];
+}
+
+- (void) setIncludeLocations: (NSArray*) val
+{
+    self.dictionary[@"includeLocations"] = val;
 }
 
 @end

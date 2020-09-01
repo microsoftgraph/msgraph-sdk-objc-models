@@ -14,17 +14,17 @@
 
 @interface MSGraphDirectoryAudit()
 {
+    NSDate* _activityDateTime;
+    NSString* _activityDisplayName;
+    NSArray* _additionalDetails;
     NSString* _category;
     NSString* _correlationId;
-    MSGraphOperationResult* _result;
-    NSString* _resultReason;
-    NSString* _activityDisplayName;
-    NSDate* _activityDateTime;
+    MSGraphAuditActivityInitiator* _initiatedBy;
     NSString* _loggedByService;
     NSString* _operationType;
-    MSGraphAuditActivityInitiator* _initiatedBy;
+    MSGraphOperationResult* _result;
+    NSString* _resultReason;
     NSArray* _targetResources;
-    NSArray* _additionalDetails;
 }
 @end
 
@@ -37,6 +37,55 @@
     }
     return self;
 }
+- (NSDate*) activityDateTime
+{
+    if(!_activityDateTime){
+        _activityDateTime = [NSDate ms_dateFromString: self.dictionary[@"activityDateTime"]];
+    }
+    return _activityDateTime;
+}
+
+- (void) setActivityDateTime: (NSDate*) val
+{
+    _activityDateTime = val;
+    self.dictionary[@"activityDateTime"] = [val ms_toString];
+}
+
+- (NSString*) activityDisplayName
+{
+    return self.dictionary[@"activityDisplayName"];
+}
+
+- (void) setActivityDisplayName: (NSString*) val
+{
+    self.dictionary[@"activityDisplayName"] = val;
+}
+
+- (NSArray*) additionalDetails
+{
+    if(!_additionalDetails){
+        
+    NSMutableArray *additionalDetailsResult = [NSMutableArray array];
+    NSArray *additionalDetails = self.dictionary[@"additionalDetails"];
+
+    if ([additionalDetails isKindOfClass:[NSArray class]]){
+        for (id tempKeyValue in additionalDetails){
+            [additionalDetailsResult addObject:tempKeyValue];
+        }
+    }
+
+    _additionalDetails = additionalDetailsResult;
+        
+    }
+    return _additionalDetails;
+}
+
+- (void) setAdditionalDetails: (NSArray*) val
+{
+    _additionalDetails = val;
+    self.dictionary[@"additionalDetails"] = val;
+}
+
 - (NSString*) category
 {
     return self.dictionary[@"category"];
@@ -61,56 +110,18 @@
     self.dictionary[@"correlationId"] = val;
 }
 
-- (MSGraphOperationResult*) result
+- (MSGraphAuditActivityInitiator*) initiatedBy
 {
-    if(!_result){
-        _result = [self.dictionary[@"result"] toMSGraphOperationResult];
+    if(!_initiatedBy){
+        _initiatedBy = [[MSGraphAuditActivityInitiator alloc] initWithDictionary: self.dictionary[@"initiatedBy"]];
     }
-    return _result;
+    return _initiatedBy;
 }
 
-- (void) setResult: (MSGraphOperationResult*) val
+- (void) setInitiatedBy: (MSGraphAuditActivityInitiator*) val
 {
-    _result = val;
-    self.dictionary[@"result"] = val;
-}
-
-- (NSString*) resultReason
-{
-    if([[NSNull null] isEqual:self.dictionary[@"resultReason"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"resultReason"];
-}
-
-- (void) setResultReason: (NSString*) val
-{
-    self.dictionary[@"resultReason"] = val;
-}
-
-- (NSString*) activityDisplayName
-{
-    return self.dictionary[@"activityDisplayName"];
-}
-
-- (void) setActivityDisplayName: (NSString*) val
-{
-    self.dictionary[@"activityDisplayName"] = val;
-}
-
-- (NSDate*) activityDateTime
-{
-    if(!_activityDateTime){
-        _activityDateTime = [NSDate ms_dateFromString: self.dictionary[@"activityDateTime"]];
-    }
-    return _activityDateTime;
-}
-
-- (void) setActivityDateTime: (NSDate*) val
-{
-    _activityDateTime = val;
-    self.dictionary[@"activityDateTime"] = [val ms_toString];
+    _initiatedBy = val;
+    self.dictionary[@"initiatedBy"] = val;
 }
 
 - (NSString*) loggedByService
@@ -141,18 +152,32 @@
     self.dictionary[@"operationType"] = val;
 }
 
-- (MSGraphAuditActivityInitiator*) initiatedBy
+- (MSGraphOperationResult*) result
 {
-    if(!_initiatedBy){
-        _initiatedBy = [[MSGraphAuditActivityInitiator alloc] initWithDictionary: self.dictionary[@"initiatedBy"]];
+    if(!_result){
+        _result = [self.dictionary[@"result"] toMSGraphOperationResult];
     }
-    return _initiatedBy;
+    return _result;
 }
 
-- (void) setInitiatedBy: (MSGraphAuditActivityInitiator*) val
+- (void) setResult: (MSGraphOperationResult*) val
 {
-    _initiatedBy = val;
-    self.dictionary[@"initiatedBy"] = val;
+    _result = val;
+    self.dictionary[@"result"] = val;
+}
+
+- (NSString*) resultReason
+{
+    if([[NSNull null] isEqual:self.dictionary[@"resultReason"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"resultReason"];
+}
+
+- (void) setResultReason: (NSString*) val
+{
+    self.dictionary[@"resultReason"] = val;
 }
 
 - (NSArray*) targetResources
@@ -178,31 +203,6 @@
 {
     _targetResources = val;
     self.dictionary[@"targetResources"] = val;
-}
-
-- (NSArray*) additionalDetails
-{
-    if(!_additionalDetails){
-        
-    NSMutableArray *additionalDetailsResult = [NSMutableArray array];
-    NSArray *additionalDetails = self.dictionary[@"additionalDetails"];
-
-    if ([additionalDetails isKindOfClass:[NSArray class]]){
-        for (id tempKeyValue in additionalDetails){
-            [additionalDetailsResult addObject:tempKeyValue];
-        }
-    }
-
-    _additionalDetails = additionalDetailsResult;
-        
-    }
-    return _additionalDetails;
-}
-
-- (void) setAdditionalDetails: (NSArray*) val
-{
-    _additionalDetails = val;
-    self.dictionary[@"additionalDetails"] = val;
 }
 
 

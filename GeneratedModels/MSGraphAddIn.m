@@ -15,8 +15,8 @@
 @interface MSGraphAddIn()
 {
     NSString* _addInId;
-    NSString* _type;
     NSArray* _properties;
+    NSString* _type;
 }
 @end
 
@@ -34,16 +34,6 @@
 - (void) setAddInId: (NSString*) val
 {
     self.dictionary[@"id"] = val;
-}
-
-- (NSString*) type
-{
-    return self.dictionary[@"type"];
-}
-
-- (void) setType: (NSString*) val
-{
-    self.dictionary[@"type"] = val;
 }
 
 - (NSArray*) properties
@@ -69,6 +59,16 @@
 {
     _properties = val;
     self.dictionary[@"properties"] = val;
+}
+
+- (NSString*) type
+{
+    return self.dictionary[@"type"];
+}
+
+- (void) setType: (NSString*) val
+{
+    self.dictionary[@"type"] = val;
 }
 
 @end

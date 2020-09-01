@@ -8,8 +8,8 @@
 
 @interface MSGraphEducationOrganization : MSGraphEntity
 
-  @property (nonnull, nonatomic, setter=setDisplayName:, getter=displayName) NSString* displayName;
-    @property (nullable, nonatomic, setter=setEducationOrganizationDescription:, getter=educationOrganizationDescription) NSString* educationOrganizationDescription;
+  @property (nullable, nonatomic, setter=setEducationOrganizationDescription:, getter=educationOrganizationDescription) NSString* educationOrganizationDescription;
+    @property (nonnull, nonatomic, setter=setDisplayName:, getter=displayName) NSString* displayName;
     @property (nullable, nonatomic, setter=setExternalSource:, getter=externalSource) MSGraphEducationExternalSource* externalSource;
   
 @end

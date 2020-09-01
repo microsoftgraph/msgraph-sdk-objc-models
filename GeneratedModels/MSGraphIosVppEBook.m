@@ -14,14 +14,14 @@
 
 @interface MSGraphIosVppEBook()
 {
-    NSString* _vppTokenId;
     NSString* _appleId;
-    NSString* _vppOrganizationName;
     NSArray* _genres;
     NSString* _language;
     NSString* _seller;
     int32_t _totalLicenseCount;
     int32_t _usedLicenseCount;
+    NSString* _vppOrganizationName;
+    NSString* _vppTokenId;
 }
 @end
 
@@ -34,16 +34,6 @@
     }
     return self;
 }
-- (NSString*) vppTokenId
-{
-    return self.dictionary[@"vppTokenId"];
-}
-
-- (void) setVppTokenId: (NSString*) val
-{
-    self.dictionary[@"vppTokenId"] = val;
-}
-
 - (NSString*) appleId
 {
     if([[NSNull null] isEqual:self.dictionary[@"appleId"]])
@@ -56,20 +46,6 @@
 - (void) setAppleId: (NSString*) val
 {
     self.dictionary[@"appleId"] = val;
-}
-
-- (NSString*) vppOrganizationName
-{
-    if([[NSNull null] isEqual:self.dictionary[@"vppOrganizationName"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"vppOrganizationName"];
-}
-
-- (void) setVppOrganizationName: (NSString*) val
-{
-    self.dictionary[@"vppOrganizationName"] = val;
 }
 
 - (NSArray*) genres
@@ -136,6 +112,30 @@
 {
     _usedLicenseCount = val;
     self.dictionary[@"usedLicenseCount"] = @(val);
+}
+
+- (NSString*) vppOrganizationName
+{
+    if([[NSNull null] isEqual:self.dictionary[@"vppOrganizationName"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"vppOrganizationName"];
+}
+
+- (void) setVppOrganizationName: (NSString*) val
+{
+    self.dictionary[@"vppOrganizationName"] = val;
+}
+
+- (NSString*) vppTokenId
+{
+    return self.dictionary[@"vppTokenId"];
+}
+
+- (void) setVppTokenId: (NSString*) val
+{
+    self.dictionary[@"vppTokenId"] = val;
 }
 
 

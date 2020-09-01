@@ -14,27 +14,13 @@
 
 @interface MSGraphCallRecordsUserFeedback()
 {
-    NSString* _text;
     MSGraphCallRecordsUserFeedbackRating* _rating;
+    NSString* _text;
     MSGraphCallRecordsFeedbackTokenSet* _tokens;
 }
 @end
 
 @implementation MSGraphCallRecordsUserFeedback
-
-- (NSString*) text
-{
-    if([[NSNull null] isEqual:self.dictionary[@"text"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"text"];
-}
-
-- (void) setText: (NSString*) val
-{
-    self.dictionary[@"text"] = val;
-}
 
 - (MSGraphCallRecordsUserFeedbackRating*) rating
 {
@@ -48,6 +34,20 @@
 {
     _rating = val;
     self.dictionary[@"rating"] = val;
+}
+
+- (NSString*) text
+{
+    if([[NSNull null] isEqual:self.dictionary[@"text"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"text"];
+}
+
+- (void) setText: (NSString*) val
+{
+    self.dictionary[@"text"] = val;
 }
 
 - (MSGraphCallRecordsFeedbackTokenSet*) tokens

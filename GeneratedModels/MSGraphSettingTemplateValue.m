@@ -14,42 +14,14 @@
 
 @interface MSGraphSettingTemplateValue()
 {
-    NSString* _name;
-    NSString* _type;
     NSString* _defaultValue;
     NSString* _settingTemplateValueDescription;
+    NSString* _name;
+    NSString* _type;
 }
 @end
 
 @implementation MSGraphSettingTemplateValue
-
-- (NSString*) name
-{
-    if([[NSNull null] isEqual:self.dictionary[@"name"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"name"];
-}
-
-- (void) setName: (NSString*) val
-{
-    self.dictionary[@"name"] = val;
-}
-
-- (NSString*) type
-{
-    if([[NSNull null] isEqual:self.dictionary[@"type"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"type"];
-}
-
-- (void) setType: (NSString*) val
-{
-    self.dictionary[@"type"] = val;
-}
 
 - (NSString*) defaultValue
 {
@@ -77,6 +49,34 @@
 - (void) setSettingTemplateValueDescription: (NSString*) val
 {
     self.dictionary[@"description"] = val;
+}
+
+- (NSString*) name
+{
+    if([[NSNull null] isEqual:self.dictionary[@"name"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"name"];
+}
+
+- (void) setName: (NSString*) val
+{
+    self.dictionary[@"name"] = val;
+}
+
+- (NSString*) type
+{
+    if([[NSNull null] isEqual:self.dictionary[@"type"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"type"];
+}
+
+- (void) setType: (NSString*) val
+{
+    self.dictionary[@"type"] = val;
 }
 
 @end

@@ -14,16 +14,44 @@
 
 @interface MSGraphTargetResource()
 {
-    NSString* _targetResourceId;
     NSString* _displayName;
+    MSGraphGroupType* _groupType;
+    NSString* _targetResourceId;
+    NSArray* _modifiedProperties;
     NSString* _type;
     NSString* _userPrincipalName;
-    MSGraphGroupType* _groupType;
-    NSArray* _modifiedProperties;
 }
 @end
 
 @implementation MSGraphTargetResource
+
+- (NSString*) displayName
+{
+    if([[NSNull null] isEqual:self.dictionary[@"displayName"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"displayName"];
+}
+
+- (void) setDisplayName: (NSString*) val
+{
+    self.dictionary[@"displayName"] = val;
+}
+
+- (MSGraphGroupType*) groupType
+{
+    if(!_groupType){
+        _groupType = [self.dictionary[@"groupType"] toMSGraphGroupType];
+    }
+    return _groupType;
+}
+
+- (void) setGroupType: (MSGraphGroupType*) val
+{
+    _groupType = val;
+    self.dictionary[@"groupType"] = val;
+}
 
 - (NSString*) targetResourceId
 {
@@ -39,18 +67,29 @@
     self.dictionary[@"id"] = val;
 }
 
-- (NSString*) displayName
+- (NSArray*) modifiedProperties
 {
-    if([[NSNull null] isEqual:self.dictionary[@"displayName"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"displayName"];
+    if(!_modifiedProperties){
+        
+    NSMutableArray *modifiedPropertiesResult = [NSMutableArray array];
+    NSArray *modifiedProperties = self.dictionary[@"modifiedProperties"];
+
+    if ([modifiedProperties isKindOfClass:[NSArray class]]){
+        for (id tempModifiedProperty in modifiedProperties){
+            [modifiedPropertiesResult addObject:tempModifiedProperty];
+        }
+    }
+
+    _modifiedProperties = modifiedPropertiesResult;
+        
+    }
+    return _modifiedProperties;
 }
 
-- (void) setDisplayName: (NSString*) val
+- (void) setModifiedProperties: (NSArray*) val
 {
-    self.dictionary[@"displayName"] = val;
+    _modifiedProperties = val;
+    self.dictionary[@"modifiedProperties"] = val;
 }
 
 - (NSString*) type
@@ -79,45 +118,6 @@
 - (void) setUserPrincipalName: (NSString*) val
 {
     self.dictionary[@"userPrincipalName"] = val;
-}
-
-- (MSGraphGroupType*) groupType
-{
-    if(!_groupType){
-        _groupType = [self.dictionary[@"groupType"] toMSGraphGroupType];
-    }
-    return _groupType;
-}
-
-- (void) setGroupType: (MSGraphGroupType*) val
-{
-    _groupType = val;
-    self.dictionary[@"groupType"] = val;
-}
-
-- (NSArray*) modifiedProperties
-{
-    if(!_modifiedProperties){
-        
-    NSMutableArray *modifiedPropertiesResult = [NSMutableArray array];
-    NSArray *modifiedProperties = self.dictionary[@"modifiedProperties"];
-
-    if ([modifiedProperties isKindOfClass:[NSArray class]]){
-        for (id tempModifiedProperty in modifiedProperties){
-            [modifiedPropertiesResult addObject:tempModifiedProperty];
-        }
-    }
-
-    _modifiedProperties = modifiedPropertiesResult;
-        
-    }
-    return _modifiedProperties;
-}
-
-- (void) setModifiedProperties: (NSArray*) val
-{
-    _modifiedProperties = val;
-    self.dictionary[@"modifiedProperties"] = val;
 }
 
 @end

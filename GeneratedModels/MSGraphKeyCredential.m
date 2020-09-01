@@ -17,11 +17,11 @@
     NSString* _customKeyIdentifier;
     NSString* _displayName;
     NSDate* _endDateTime;
+    NSString* _key;
     NSString* _keyId;
     NSDate* _startDateTime;
     NSString* _type;
     NSString* _usage;
-    NSString* _key;
 }
 @end
 
@@ -67,6 +67,20 @@
 {
     _endDateTime = val;
     self.dictionary[@"endDateTime"] = [val ms_toString];
+}
+
+- (NSString*) key
+{
+    if([[NSNull null] isEqual:self.dictionary[@"key"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"key"];
+}
+
+- (void) setKey: (NSString*) val
+{
+    self.dictionary[@"key"] = val;
 }
 
 - (NSString*) keyId
@@ -123,20 +137,6 @@
 - (void) setUsage: (NSString*) val
 {
     self.dictionary[@"usage"] = val;
-}
-
-- (NSString*) key
-{
-    if([[NSNull null] isEqual:self.dictionary[@"key"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"key"];
-}
-
-- (void) setKey: (NSString*) val
-{
-    self.dictionary[@"key"] = val;
 }
 
 @end

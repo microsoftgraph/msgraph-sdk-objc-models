@@ -14,24 +14,12 @@
 
 @interface MSGraphVppLicensingType()
 {
-    BOOL _supportsUserLicensing;
     BOOL _supportsDeviceLicensing;
+    BOOL _supportsUserLicensing;
 }
 @end
 
 @implementation MSGraphVppLicensingType
-
-- (BOOL) supportsUserLicensing
-{
-    _supportsUserLicensing = [self.dictionary[@"supportsUserLicensing"] boolValue];
-    return _supportsUserLicensing;
-}
-
-- (void) setSupportsUserLicensing: (BOOL) val
-{
-    _supportsUserLicensing = val;
-    self.dictionary[@"supportsUserLicensing"] = @(val);
-}
 
 - (BOOL) supportsDeviceLicensing
 {
@@ -43,6 +31,18 @@
 {
     _supportsDeviceLicensing = val;
     self.dictionary[@"supportsDeviceLicensing"] = @(val);
+}
+
+- (BOOL) supportsUserLicensing
+{
+    _supportsUserLicensing = [self.dictionary[@"supportsUserLicensing"] boolValue];
+    return _supportsUserLicensing;
+}
+
+- (void) setSupportsUserLicensing: (BOOL) val
+{
+    _supportsUserLicensing = val;
+    self.dictionary[@"supportsUserLicensing"] = @(val);
 }
 
 @end

@@ -16,8 +16,8 @@
 {
     MSGraphDateTimeTimeZone* _completedDateTime;
     MSGraphDateTimeTimeZone* _dueDateTime;
-    MSGraphDateTimeTimeZone* _startDateTime;
     MSGraphFollowupFlagStatus* _flagStatus;
+    MSGraphDateTimeTimeZone* _startDateTime;
 }
 @end
 
@@ -51,20 +51,6 @@
     self.dictionary[@"dueDateTime"] = val;
 }
 
-- (MSGraphDateTimeTimeZone*) startDateTime
-{
-    if(!_startDateTime){
-        _startDateTime = [[MSGraphDateTimeTimeZone alloc] initWithDictionary: self.dictionary[@"startDateTime"]];
-    }
-    return _startDateTime;
-}
-
-- (void) setStartDateTime: (MSGraphDateTimeTimeZone*) val
-{
-    _startDateTime = val;
-    self.dictionary[@"startDateTime"] = val;
-}
-
 - (MSGraphFollowupFlagStatus*) flagStatus
 {
     if(!_flagStatus){
@@ -77,6 +63,20 @@
 {
     _flagStatus = val;
     self.dictionary[@"flagStatus"] = val;
+}
+
+- (MSGraphDateTimeTimeZone*) startDateTime
+{
+    if(!_startDateTime){
+        _startDateTime = [[MSGraphDateTimeTimeZone alloc] initWithDictionary: self.dictionary[@"startDateTime"]];
+    }
+    return _startDateTime;
+}
+
+- (void) setStartDateTime: (MSGraphDateTimeTimeZone*) val
+{
+    _startDateTime = val;
+    self.dictionary[@"startDateTime"] = val;
 }
 
 @end

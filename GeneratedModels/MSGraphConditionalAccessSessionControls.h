@@ -2,7 +2,7 @@
 
 
 
-@class MSGraphApplicationEnforcedRestrictionsSessionControl, MSGraphCloudAppSecuritySessionControl, MSGraphSignInFrequencySessionControl, MSGraphPersistentBrowserSessionControl; 
+@class MSGraphApplicationEnforcedRestrictionsSessionControl, MSGraphCloudAppSecuritySessionControl, MSGraphPersistentBrowserSessionControl, MSGraphSignInFrequencySessionControl; 
 
 
 #import "MSObject.h"
@@ -11,7 +11,7 @@
 
 @property (nullable, nonatomic, setter=setApplicationEnforcedRestrictions:, getter=applicationEnforcedRestrictions) MSGraphApplicationEnforcedRestrictionsSessionControl* applicationEnforcedRestrictions;
 @property (nullable, nonatomic, setter=setCloudAppSecurity:, getter=cloudAppSecurity) MSGraphCloudAppSecuritySessionControl* cloudAppSecurity;
-@property (nullable, nonatomic, setter=setSignInFrequency:, getter=signInFrequency) MSGraphSignInFrequencySessionControl* signInFrequency;
 @property (nullable, nonatomic, setter=setPersistentBrowser:, getter=persistentBrowser) MSGraphPersistentBrowserSessionControl* persistentBrowser;
+@property (nullable, nonatomic, setter=setSignInFrequency:, getter=signInFrequency) MSGraphSignInFrequencySessionControl* signInFrequency;
 
 @end

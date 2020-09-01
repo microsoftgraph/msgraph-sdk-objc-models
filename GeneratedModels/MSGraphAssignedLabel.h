@@ -8,7 +8,7 @@
 
 @interface MSGraphAssignedLabel : MSObject
 
-@property (nullable, nonatomic, setter=setLabelId:, getter=labelId) NSString* labelId;
 @property (nullable, nonatomic, setter=setDisplayName:, getter=displayName) NSString* displayName;
+@property (nullable, nonatomic, setter=setLabelId:, getter=labelId) NSString* labelId;
 
 @end

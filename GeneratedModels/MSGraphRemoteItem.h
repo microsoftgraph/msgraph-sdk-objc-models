@@ -14,8 +14,8 @@
 @property (nullable, nonatomic, setter=setFile:, getter=file) MSGraphFile* file;
 @property (nullable, nonatomic, setter=setFileSystemInfo:, getter=fileSystemInfo) MSGraphFileSystemInfo* fileSystemInfo;
 @property (nullable, nonatomic, setter=setFolder:, getter=folder) MSGraphFolder* folder;
-@property (nullable, nonatomic, setter=setImage:, getter=image) MSGraphImage* image;
 @property (nullable, nonatomic, setter=setRemoteItemId:, getter=remoteItemId) NSString* remoteItemId;
+@property (nullable, nonatomic, setter=setImage:, getter=image) MSGraphImage* image;
 @property (nullable, nonatomic, setter=setLastModifiedBy:, getter=lastModifiedBy) MSGraphIdentitySet* lastModifiedBy;
 @property (nullable, nonatomic, setter=setLastModifiedDateTime:, getter=lastModifiedDateTime) NSDate* lastModifiedDateTime;
 @property (nullable, nonatomic, setter=setName:, getter=name) NSString* name;

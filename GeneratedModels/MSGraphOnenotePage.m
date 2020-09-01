@@ -14,16 +14,16 @@
 
 @interface MSGraphOnenotePage()
 {
-    NSString* _title;
-    NSString* _createdByAppId;
-    MSGraphPageLinks* _links;
     NSString* _contentUrl;
+    NSString* _createdByAppId;
     NSDate* _lastModifiedDateTime;
     int32_t _level;
+    MSGraphPageLinks* _links;
     int32_t _order;
+    NSString* _title;
     NSArray* _userTags;
-    MSGraphOnenoteSection* _parentSection;
     MSGraphNotebook* _parentNotebook;
+    MSGraphOnenoteSection* _parentSection;
 }
 @end
 
@@ -36,18 +36,18 @@
     }
     return self;
 }
-- (NSString*) title
+- (NSString*) contentUrl
 {
-    if([[NSNull null] isEqual:self.dictionary[@"title"]])
+    if([[NSNull null] isEqual:self.dictionary[@"contentUrl"]])
     {
         return nil;
     }   
-    return self.dictionary[@"title"];
+    return self.dictionary[@"contentUrl"];
 }
 
-- (void) setTitle: (NSString*) val
+- (void) setContentUrl: (NSString*) val
 {
-    self.dictionary[@"title"] = val;
+    self.dictionary[@"contentUrl"] = val;
 }
 
 - (NSString*) createdByAppId
@@ -62,34 +62,6 @@
 - (void) setCreatedByAppId: (NSString*) val
 {
     self.dictionary[@"createdByAppId"] = val;
-}
-
-- (MSGraphPageLinks*) links
-{
-    if(!_links){
-        _links = [[MSGraphPageLinks alloc] initWithDictionary: self.dictionary[@"links"]];
-    }
-    return _links;
-}
-
-- (void) setLinks: (MSGraphPageLinks*) val
-{
-    _links = val;
-    self.dictionary[@"links"] = val;
-}
-
-- (NSString*) contentUrl
-{
-    if([[NSNull null] isEqual:self.dictionary[@"contentUrl"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"contentUrl"];
-}
-
-- (void) setContentUrl: (NSString*) val
-{
-    self.dictionary[@"contentUrl"] = val;
 }
 
 - (NSDate*) lastModifiedDateTime
@@ -118,6 +90,20 @@
     self.dictionary[@"level"] = @(val);
 }
 
+- (MSGraphPageLinks*) links
+{
+    if(!_links){
+        _links = [[MSGraphPageLinks alloc] initWithDictionary: self.dictionary[@"links"]];
+    }
+    return _links;
+}
+
+- (void) setLinks: (MSGraphPageLinks*) val
+{
+    _links = val;
+    self.dictionary[@"links"] = val;
+}
+
 - (int32_t) order
 {
     _order = [self.dictionary[@"order"] intValue];
@@ -128,6 +114,20 @@
 {
     _order = val;
     self.dictionary[@"order"] = @(val);
+}
+
+- (NSString*) title
+{
+    if([[NSNull null] isEqual:self.dictionary[@"title"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"title"];
+}
+
+- (void) setTitle: (NSString*) val
+{
+    self.dictionary[@"title"] = val;
 }
 
 - (NSArray*) userTags
@@ -144,20 +144,6 @@
     self.dictionary[@"userTags"] = val;
 }
 
-- (MSGraphOnenoteSection*) parentSection
-{
-    if(!_parentSection){
-        _parentSection = [[MSGraphOnenoteSection alloc] initWithDictionary: self.dictionary[@"parentSection"]];
-    }
-    return _parentSection;
-}
-
-- (void) setParentSection: (MSGraphOnenoteSection*) val
-{
-    _parentSection = val;
-    self.dictionary[@"parentSection"] = val;
-}
-
 - (MSGraphNotebook*) parentNotebook
 {
     if(!_parentNotebook){
@@ -170,6 +156,20 @@
 {
     _parentNotebook = val;
     self.dictionary[@"parentNotebook"] = val;
+}
+
+- (MSGraphOnenoteSection*) parentSection
+{
+    if(!_parentSection){
+        _parentSection = [[MSGraphOnenoteSection alloc] initWithDictionary: self.dictionary[@"parentSection"]];
+    }
+    return _parentSection;
+}
+
+- (void) setParentSection: (MSGraphOnenoteSection*) val
+{
+    _parentSection = val;
+    self.dictionary[@"parentSection"] = val;
 }
 
 

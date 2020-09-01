@@ -9,8 +9,8 @@
 
 @interface MSGraphIosUpdateConfiguration : MSGraphDeviceConfiguration
 
-  @property (nonnull, nonatomic, setter=setActiveHoursStart:, getter=activeHoursStart) MSTimeOfDay* activeHoursStart;
-    @property (nonnull, nonatomic, setter=setActiveHoursEnd:, getter=activeHoursEnd) MSTimeOfDay* activeHoursEnd;
+  @property (nonnull, nonatomic, setter=setActiveHoursEnd:, getter=activeHoursEnd) MSTimeOfDay* activeHoursEnd;
+    @property (nonnull, nonatomic, setter=setActiveHoursStart:, getter=activeHoursStart) MSTimeOfDay* activeHoursStart;
     @property (nonnull, nonatomic, setter=setScheduledInstallDays:, getter=scheduledInstallDays) NSArray* scheduledInstallDays;
     @property (nonatomic, setter=setUtcTimeOffsetInMinutes:, getter=utcTimeOffsetInMinutes) int32_t utcTimeOffsetInMinutes;
   

@@ -8,11 +8,11 @@
 
 @interface MSGraphCallRecordsSegment : MSGraphEntity
 
-  @property (nonnull, nonatomic, setter=setStartDateTime:, getter=startDateTime) NSDate* startDateTime;
-    @property (nonnull, nonatomic, setter=setEndDateTime:, getter=endDateTime) NSDate* endDateTime;
+  @property (nullable, nonatomic, setter=setCallee:, getter=callee) MSGraphCallRecordsEndpoint* callee;
     @property (nullable, nonatomic, setter=setCaller:, getter=caller) MSGraphCallRecordsEndpoint* caller;
-    @property (nullable, nonatomic, setter=setCallee:, getter=callee) MSGraphCallRecordsEndpoint* callee;
+    @property (nonnull, nonatomic, setter=setEndDateTime:, getter=endDateTime) NSDate* endDateTime;
     @property (nullable, nonatomic, setter=setFailureInfo:, getter=failureInfo) MSGraphCallRecordsFailureInfo* failureInfo;
     @property (nullable, nonatomic, setter=setMedia:, getter=media) NSArray* media;
+    @property (nonnull, nonatomic, setter=setStartDateTime:, getter=startDateTime) NSDate* startDateTime;
   
 @end

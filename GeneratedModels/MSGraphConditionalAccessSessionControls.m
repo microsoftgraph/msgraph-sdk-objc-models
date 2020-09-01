@@ -16,8 +16,8 @@
 {
     MSGraphApplicationEnforcedRestrictionsSessionControl* _applicationEnforcedRestrictions;
     MSGraphCloudAppSecuritySessionControl* _cloudAppSecurity;
-    MSGraphSignInFrequencySessionControl* _signInFrequency;
     MSGraphPersistentBrowserSessionControl* _persistentBrowser;
+    MSGraphSignInFrequencySessionControl* _signInFrequency;
 }
 @end
 
@@ -51,20 +51,6 @@
     self.dictionary[@"cloudAppSecurity"] = val;
 }
 
-- (MSGraphSignInFrequencySessionControl*) signInFrequency
-{
-    if(!_signInFrequency){
-        _signInFrequency = [[MSGraphSignInFrequencySessionControl alloc] initWithDictionary: self.dictionary[@"signInFrequency"]];
-    }
-    return _signInFrequency;
-}
-
-- (void) setSignInFrequency: (MSGraphSignInFrequencySessionControl*) val
-{
-    _signInFrequency = val;
-    self.dictionary[@"signInFrequency"] = val;
-}
-
 - (MSGraphPersistentBrowserSessionControl*) persistentBrowser
 {
     if(!_persistentBrowser){
@@ -77,6 +63,20 @@
 {
     _persistentBrowser = val;
     self.dictionary[@"persistentBrowser"] = val;
+}
+
+- (MSGraphSignInFrequencySessionControl*) signInFrequency
+{
+    if(!_signInFrequency){
+        _signInFrequency = [[MSGraphSignInFrequencySessionControl alloc] initWithDictionary: self.dictionary[@"signInFrequency"]];
+    }
+    return _signInFrequency;
+}
+
+- (void) setSignInFrequency: (MSGraphSignInFrequencySessionControl*) val
+{
+    _signInFrequency = val;
+    self.dictionary[@"signInFrequency"] = val;
 }
 
 @end

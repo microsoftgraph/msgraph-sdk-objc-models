@@ -14,28 +14,14 @@
 
 @interface MSGraphOnPremisesProvisioningError()
 {
-    NSString* _value;
     NSString* _category;
-    NSString* _propertyCausingError;
     NSDate* _occurredDateTime;
+    NSString* _propertyCausingError;
+    NSString* _value;
 }
 @end
 
 @implementation MSGraphOnPremisesProvisioningError
-
-- (NSString*) value
-{
-    if([[NSNull null] isEqual:self.dictionary[@"value"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"value"];
-}
-
-- (void) setValue: (NSString*) val
-{
-    self.dictionary[@"value"] = val;
-}
 
 - (NSString*) category
 {
@@ -49,6 +35,20 @@
 - (void) setCategory: (NSString*) val
 {
     self.dictionary[@"category"] = val;
+}
+
+- (NSDate*) occurredDateTime
+{
+    if(!_occurredDateTime){
+        _occurredDateTime = [NSDate ms_dateFromString: self.dictionary[@"occurredDateTime"]];
+    }
+    return _occurredDateTime;
+}
+
+- (void) setOccurredDateTime: (NSDate*) val
+{
+    _occurredDateTime = val;
+    self.dictionary[@"occurredDateTime"] = [val ms_toString];
 }
 
 - (NSString*) propertyCausingError
@@ -65,18 +65,18 @@
     self.dictionary[@"propertyCausingError"] = val;
 }
 
-- (NSDate*) occurredDateTime
+- (NSString*) value
 {
-    if(!_occurredDateTime){
-        _occurredDateTime = [NSDate ms_dateFromString: self.dictionary[@"occurredDateTime"]];
-    }
-    return _occurredDateTime;
+    if([[NSNull null] isEqual:self.dictionary[@"value"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"value"];
 }
 
-- (void) setOccurredDateTime: (NSDate*) val
+- (void) setValue: (NSString*) val
 {
-    _occurredDateTime = val;
-    self.dictionary[@"occurredDateTime"] = [val ms_toString];
+    self.dictionary[@"value"] = val;
 }
 
 @end

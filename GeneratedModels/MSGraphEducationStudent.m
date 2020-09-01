@@ -14,44 +14,16 @@
 
 @interface MSGraphEducationStudent()
 {
-    NSString* _graduationYear;
-    NSString* _grade;
     MSDate* _birthDate;
-    MSGraphEducationGender* _gender;
-    NSString* _studentNumber;
     NSString* _externalId;
+    MSGraphEducationGender* _gender;
+    NSString* _grade;
+    NSString* _graduationYear;
+    NSString* _studentNumber;
 }
 @end
 
 @implementation MSGraphEducationStudent
-
-- (NSString*) graduationYear
-{
-    if([[NSNull null] isEqual:self.dictionary[@"graduationYear"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"graduationYear"];
-}
-
-- (void) setGraduationYear: (NSString*) val
-{
-    self.dictionary[@"graduationYear"] = val;
-}
-
-- (NSString*) grade
-{
-    if([[NSNull null] isEqual:self.dictionary[@"grade"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"grade"];
-}
-
-- (void) setGrade: (NSString*) val
-{
-    self.dictionary[@"grade"] = val;
-}
 
 - (MSDate*) birthDate
 {
@@ -65,6 +37,20 @@
 {
     _birthDate = val;
     self.dictionary[@"birthDate"] = [val ms_toString];
+}
+
+- (NSString*) externalId
+{
+    if([[NSNull null] isEqual:self.dictionary[@"externalId"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"externalId"];
+}
+
+- (void) setExternalId: (NSString*) val
+{
+    self.dictionary[@"externalId"] = val;
 }
 
 - (MSGraphEducationGender*) gender
@@ -81,6 +67,34 @@
     self.dictionary[@"gender"] = val;
 }
 
+- (NSString*) grade
+{
+    if([[NSNull null] isEqual:self.dictionary[@"grade"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"grade"];
+}
+
+- (void) setGrade: (NSString*) val
+{
+    self.dictionary[@"grade"] = val;
+}
+
+- (NSString*) graduationYear
+{
+    if([[NSNull null] isEqual:self.dictionary[@"graduationYear"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"graduationYear"];
+}
+
+- (void) setGraduationYear: (NSString*) val
+{
+    self.dictionary[@"graduationYear"] = val;
+}
+
 - (NSString*) studentNumber
 {
     if([[NSNull null] isEqual:self.dictionary[@"studentNumber"]])
@@ -93,20 +107,6 @@
 - (void) setStudentNumber: (NSString*) val
 {
     self.dictionary[@"studentNumber"] = val;
-}
-
-- (NSString*) externalId
-{
-    if([[NSNull null] isEqual:self.dictionary[@"externalId"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"externalId"];
-}
-
-- (void) setExternalId: (NSString*) val
-{
-    self.dictionary[@"externalId"] = val;
 }
 
 @end

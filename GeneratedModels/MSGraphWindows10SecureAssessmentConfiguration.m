@@ -14,11 +14,11 @@
 
 @interface MSGraphWindows10SecureAssessmentConfiguration()
 {
-    NSString* _launchUri;
-    NSString* _configurationAccount;
     BOOL _allowPrinting;
     BOOL _allowScreenCapture;
     BOOL _allowTextSuggestion;
+    NSString* _configurationAccount;
+    NSString* _launchUri;
 }
 @end
 
@@ -31,34 +31,6 @@
     }
     return self;
 }
-- (NSString*) launchUri
-{
-    if([[NSNull null] isEqual:self.dictionary[@"launchUri"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"launchUri"];
-}
-
-- (void) setLaunchUri: (NSString*) val
-{
-    self.dictionary[@"launchUri"] = val;
-}
-
-- (NSString*) configurationAccount
-{
-    if([[NSNull null] isEqual:self.dictionary[@"configurationAccount"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"configurationAccount"];
-}
-
-- (void) setConfigurationAccount: (NSString*) val
-{
-    self.dictionary[@"configurationAccount"] = val;
-}
-
 - (BOOL) allowPrinting
 {
     _allowPrinting = [self.dictionary[@"allowPrinting"] boolValue];
@@ -93,6 +65,34 @@
 {
     _allowTextSuggestion = val;
     self.dictionary[@"allowTextSuggestion"] = @(val);
+}
+
+- (NSString*) configurationAccount
+{
+    if([[NSNull null] isEqual:self.dictionary[@"configurationAccount"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"configurationAccount"];
+}
+
+- (void) setConfigurationAccount: (NSString*) val
+{
+    self.dictionary[@"configurationAccount"] = val;
+}
+
+- (NSString*) launchUri
+{
+    if([[NSNull null] isEqual:self.dictionary[@"launchUri"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"launchUri"];
+}
+
+- (void) setLaunchUri: (NSString*) val
+{
+    self.dictionary[@"launchUri"] = val;
 }
 
 

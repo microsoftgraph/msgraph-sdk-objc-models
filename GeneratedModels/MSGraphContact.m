@@ -14,43 +14,43 @@
 
 @interface MSGraphContact()
 {
-    NSString* _parentFolderId;
+    NSString* _assistantName;
     NSDate* _birthday;
-    NSString* _fileAs;
-    NSString* _displayName;
-    NSString* _givenName;
-    NSString* _initials;
-    NSString* _middleName;
-    NSString* _nickName;
-    NSString* _surname;
-    NSString* _title;
-    NSString* _yomiGivenName;
-    NSString* _yomiSurname;
-    NSString* _yomiCompanyName;
-    NSString* _generation;
-    NSArray* _emailAddresses;
-    NSArray* _imAddresses;
-    NSString* _jobTitle;
+    MSGraphPhysicalAddress* _businessAddress;
+    NSString* _businessHomePage;
+    NSArray* _businessPhones;
+    NSArray* _children;
     NSString* _companyName;
     NSString* _department;
-    NSString* _officeLocation;
-    NSString* _profession;
-    NSString* _businessHomePage;
-    NSString* _assistantName;
-    NSString* _manager;
-    NSArray* _homePhones;
-    NSString* _mobilePhone;
-    NSArray* _businessPhones;
+    NSString* _displayName;
+    NSArray* _emailAddresses;
+    NSString* _fileAs;
+    NSString* _generation;
+    NSString* _givenName;
     MSGraphPhysicalAddress* _homeAddress;
-    MSGraphPhysicalAddress* _businessAddress;
+    NSArray* _homePhones;
+    NSArray* _imAddresses;
+    NSString* _initials;
+    NSString* _jobTitle;
+    NSString* _manager;
+    NSString* _middleName;
+    NSString* _mobilePhone;
+    NSString* _nickName;
+    NSString* _officeLocation;
     MSGraphPhysicalAddress* _otherAddress;
-    NSString* _spouseName;
+    NSString* _parentFolderId;
     NSString* _personalNotes;
-    NSArray* _children;
-    NSArray* _singleValueExtendedProperties;
+    NSString* _profession;
+    NSString* _spouseName;
+    NSString* _surname;
+    NSString* _title;
+    NSString* _yomiCompanyName;
+    NSString* _yomiGivenName;
+    NSString* _yomiSurname;
+    NSArray* _extensions;
     NSArray* _multiValueExtendedProperties;
     MSGraphProfilePhoto* _photo;
-    NSArray* _extensions;
+    NSArray* _singleValueExtendedProperties;
 }
 @end
 
@@ -63,18 +63,18 @@
     }
     return self;
 }
-- (NSString*) parentFolderId
+- (NSString*) assistantName
 {
-    if([[NSNull null] isEqual:self.dictionary[@"parentFolderId"]])
+    if([[NSNull null] isEqual:self.dictionary[@"assistantName"]])
     {
         return nil;
     }   
-    return self.dictionary[@"parentFolderId"];
+    return self.dictionary[@"assistantName"];
 }
 
-- (void) setParentFolderId: (NSString*) val
+- (void) setAssistantName: (NSString*) val
 {
-    self.dictionary[@"parentFolderId"] = val;
+    self.dictionary[@"assistantName"] = val;
 }
 
 - (NSDate*) birthday
@@ -91,225 +91,60 @@
     self.dictionary[@"birthday"] = [val ms_toString];
 }
 
-- (NSString*) fileAs
+- (MSGraphPhysicalAddress*) businessAddress
 {
-    if([[NSNull null] isEqual:self.dictionary[@"fileAs"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"fileAs"];
-}
-
-- (void) setFileAs: (NSString*) val
-{
-    self.dictionary[@"fileAs"] = val;
-}
-
-- (NSString*) displayName
-{
-    if([[NSNull null] isEqual:self.dictionary[@"displayName"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"displayName"];
-}
-
-- (void) setDisplayName: (NSString*) val
-{
-    self.dictionary[@"displayName"] = val;
-}
-
-- (NSString*) givenName
-{
-    if([[NSNull null] isEqual:self.dictionary[@"givenName"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"givenName"];
-}
-
-- (void) setGivenName: (NSString*) val
-{
-    self.dictionary[@"givenName"] = val;
-}
-
-- (NSString*) initials
-{
-    if([[NSNull null] isEqual:self.dictionary[@"initials"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"initials"];
-}
-
-- (void) setInitials: (NSString*) val
-{
-    self.dictionary[@"initials"] = val;
-}
-
-- (NSString*) middleName
-{
-    if([[NSNull null] isEqual:self.dictionary[@"middleName"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"middleName"];
-}
-
-- (void) setMiddleName: (NSString*) val
-{
-    self.dictionary[@"middleName"] = val;
-}
-
-- (NSString*) nickName
-{
-    if([[NSNull null] isEqual:self.dictionary[@"nickName"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"nickName"];
-}
-
-- (void) setNickName: (NSString*) val
-{
-    self.dictionary[@"nickName"] = val;
-}
-
-- (NSString*) surname
-{
-    if([[NSNull null] isEqual:self.dictionary[@"surname"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"surname"];
-}
-
-- (void) setSurname: (NSString*) val
-{
-    self.dictionary[@"surname"] = val;
-}
-
-- (NSString*) title
-{
-    if([[NSNull null] isEqual:self.dictionary[@"title"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"title"];
-}
-
-- (void) setTitle: (NSString*) val
-{
-    self.dictionary[@"title"] = val;
-}
-
-- (NSString*) yomiGivenName
-{
-    if([[NSNull null] isEqual:self.dictionary[@"yomiGivenName"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"yomiGivenName"];
-}
-
-- (void) setYomiGivenName: (NSString*) val
-{
-    self.dictionary[@"yomiGivenName"] = val;
-}
-
-- (NSString*) yomiSurname
-{
-    if([[NSNull null] isEqual:self.dictionary[@"yomiSurname"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"yomiSurname"];
-}
-
-- (void) setYomiSurname: (NSString*) val
-{
-    self.dictionary[@"yomiSurname"] = val;
-}
-
-- (NSString*) yomiCompanyName
-{
-    if([[NSNull null] isEqual:self.dictionary[@"yomiCompanyName"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"yomiCompanyName"];
-}
-
-- (void) setYomiCompanyName: (NSString*) val
-{
-    self.dictionary[@"yomiCompanyName"] = val;
-}
-
-- (NSString*) generation
-{
-    if([[NSNull null] isEqual:self.dictionary[@"generation"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"generation"];
-}
-
-- (void) setGeneration: (NSString*) val
-{
-    self.dictionary[@"generation"] = val;
-}
-
-- (NSArray*) emailAddresses
-{
-    if(!_emailAddresses){
-        
-    NSMutableArray *emailAddressesResult = [NSMutableArray array];
-    NSArray *emailAddresses = self.dictionary[@"emailAddresses"];
-
-    if ([emailAddresses isKindOfClass:[NSArray class]]){
-        for (id tempEmailAddress in emailAddresses){
-            [emailAddressesResult addObject:tempEmailAddress];
-        }
+    if(!_businessAddress){
+        _businessAddress = [[MSGraphPhysicalAddress alloc] initWithDictionary: self.dictionary[@"businessAddress"]];
     }
-
-    _emailAddresses = emailAddressesResult;
-        
-    }
-    return _emailAddresses;
+    return _businessAddress;
 }
 
-- (void) setEmailAddresses: (NSArray*) val
+- (void) setBusinessAddress: (MSGraphPhysicalAddress*) val
 {
-    _emailAddresses = val;
-    self.dictionary[@"emailAddresses"] = val;
+    _businessAddress = val;
+    self.dictionary[@"businessAddress"] = val;
 }
 
-- (NSArray*) imAddresses
+- (NSString*) businessHomePage
 {
-    if([[NSNull null] isEqual:self.dictionary[@"imAddresses"]])
+    if([[NSNull null] isEqual:self.dictionary[@"businessHomePage"]])
     {
         return nil;
     }   
-    return self.dictionary[@"imAddresses"];
+    return self.dictionary[@"businessHomePage"];
 }
 
-- (void) setImAddresses: (NSArray*) val
+- (void) setBusinessHomePage: (NSString*) val
 {
-    self.dictionary[@"imAddresses"] = val;
+    self.dictionary[@"businessHomePage"] = val;
 }
 
-- (NSString*) jobTitle
+- (NSArray*) businessPhones
 {
-    if([[NSNull null] isEqual:self.dictionary[@"jobTitle"]])
+    if([[NSNull null] isEqual:self.dictionary[@"businessPhones"]])
     {
         return nil;
     }   
-    return self.dictionary[@"jobTitle"];
+    return self.dictionary[@"businessPhones"];
 }
 
-- (void) setJobTitle: (NSString*) val
+- (void) setBusinessPhones: (NSArray*) val
 {
-    self.dictionary[@"jobTitle"] = val;
+    self.dictionary[@"businessPhones"] = val;
+}
+
+- (NSArray*) children
+{
+    if([[NSNull null] isEqual:self.dictionary[@"children"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"children"];
+}
+
+- (void) setChildren: (NSArray*) val
+{
+    self.dictionary[@"children"] = val;
 }
 
 - (NSString*) companyName
@@ -340,116 +175,85 @@
     self.dictionary[@"department"] = val;
 }
 
-- (NSString*) officeLocation
+- (NSString*) displayName
 {
-    if([[NSNull null] isEqual:self.dictionary[@"officeLocation"]])
+    if([[NSNull null] isEqual:self.dictionary[@"displayName"]])
     {
         return nil;
     }   
-    return self.dictionary[@"officeLocation"];
+    return self.dictionary[@"displayName"];
 }
 
-- (void) setOfficeLocation: (NSString*) val
+- (void) setDisplayName: (NSString*) val
 {
-    self.dictionary[@"officeLocation"] = val;
+    self.dictionary[@"displayName"] = val;
 }
 
-- (NSString*) profession
+- (NSArray*) emailAddresses
 {
-    if([[NSNull null] isEqual:self.dictionary[@"profession"]])
+    if(!_emailAddresses){
+        
+    NSMutableArray *emailAddressesResult = [NSMutableArray array];
+    NSArray *emailAddresses = self.dictionary[@"emailAddresses"];
+
+    if ([emailAddresses isKindOfClass:[NSArray class]]){
+        for (id tempEmailAddress in emailAddresses){
+            [emailAddressesResult addObject:tempEmailAddress];
+        }
+    }
+
+    _emailAddresses = emailAddressesResult;
+        
+    }
+    return _emailAddresses;
+}
+
+- (void) setEmailAddresses: (NSArray*) val
+{
+    _emailAddresses = val;
+    self.dictionary[@"emailAddresses"] = val;
+}
+
+- (NSString*) fileAs
+{
+    if([[NSNull null] isEqual:self.dictionary[@"fileAs"]])
     {
         return nil;
     }   
-    return self.dictionary[@"profession"];
+    return self.dictionary[@"fileAs"];
 }
 
-- (void) setProfession: (NSString*) val
+- (void) setFileAs: (NSString*) val
 {
-    self.dictionary[@"profession"] = val;
+    self.dictionary[@"fileAs"] = val;
 }
 
-- (NSString*) businessHomePage
+- (NSString*) generation
 {
-    if([[NSNull null] isEqual:self.dictionary[@"businessHomePage"]])
+    if([[NSNull null] isEqual:self.dictionary[@"generation"]])
     {
         return nil;
     }   
-    return self.dictionary[@"businessHomePage"];
+    return self.dictionary[@"generation"];
 }
 
-- (void) setBusinessHomePage: (NSString*) val
+- (void) setGeneration: (NSString*) val
 {
-    self.dictionary[@"businessHomePage"] = val;
+    self.dictionary[@"generation"] = val;
 }
 
-- (NSString*) assistantName
+- (NSString*) givenName
 {
-    if([[NSNull null] isEqual:self.dictionary[@"assistantName"]])
+    if([[NSNull null] isEqual:self.dictionary[@"givenName"]])
     {
         return nil;
     }   
-    return self.dictionary[@"assistantName"];
+    return self.dictionary[@"givenName"];
 }
 
-- (void) setAssistantName: (NSString*) val
+- (void) setGivenName: (NSString*) val
 {
-    self.dictionary[@"assistantName"] = val;
-}
-
-- (NSString*) manager
-{
-    if([[NSNull null] isEqual:self.dictionary[@"manager"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"manager"];
-}
-
-- (void) setManager: (NSString*) val
-{
-    self.dictionary[@"manager"] = val;
-}
-
-- (NSArray*) homePhones
-{
-    if([[NSNull null] isEqual:self.dictionary[@"homePhones"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"homePhones"];
-}
-
-- (void) setHomePhones: (NSArray*) val
-{
-    self.dictionary[@"homePhones"] = val;
-}
-
-- (NSString*) mobilePhone
-{
-    if([[NSNull null] isEqual:self.dictionary[@"mobilePhone"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"mobilePhone"];
-}
-
-- (void) setMobilePhone: (NSString*) val
-{
-    self.dictionary[@"mobilePhone"] = val;
-}
-
-- (NSArray*) businessPhones
-{
-    if([[NSNull null] isEqual:self.dictionary[@"businessPhones"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"businessPhones"];
-}
-
-- (void) setBusinessPhones: (NSArray*) val
-{
-    self.dictionary[@"businessPhones"] = val;
+    self.dictionary[@"givenName"] = val;
 }
 
 - (MSGraphPhysicalAddress*) homeAddress
@@ -466,18 +270,130 @@
     self.dictionary[@"homeAddress"] = val;
 }
 
-- (MSGraphPhysicalAddress*) businessAddress
+- (NSArray*) homePhones
 {
-    if(!_businessAddress){
-        _businessAddress = [[MSGraphPhysicalAddress alloc] initWithDictionary: self.dictionary[@"businessAddress"]];
-    }
-    return _businessAddress;
+    if([[NSNull null] isEqual:self.dictionary[@"homePhones"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"homePhones"];
 }
 
-- (void) setBusinessAddress: (MSGraphPhysicalAddress*) val
+- (void) setHomePhones: (NSArray*) val
 {
-    _businessAddress = val;
-    self.dictionary[@"businessAddress"] = val;
+    self.dictionary[@"homePhones"] = val;
+}
+
+- (NSArray*) imAddresses
+{
+    if([[NSNull null] isEqual:self.dictionary[@"imAddresses"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"imAddresses"];
+}
+
+- (void) setImAddresses: (NSArray*) val
+{
+    self.dictionary[@"imAddresses"] = val;
+}
+
+- (NSString*) initials
+{
+    if([[NSNull null] isEqual:self.dictionary[@"initials"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"initials"];
+}
+
+- (void) setInitials: (NSString*) val
+{
+    self.dictionary[@"initials"] = val;
+}
+
+- (NSString*) jobTitle
+{
+    if([[NSNull null] isEqual:self.dictionary[@"jobTitle"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"jobTitle"];
+}
+
+- (void) setJobTitle: (NSString*) val
+{
+    self.dictionary[@"jobTitle"] = val;
+}
+
+- (NSString*) manager
+{
+    if([[NSNull null] isEqual:self.dictionary[@"manager"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"manager"];
+}
+
+- (void) setManager: (NSString*) val
+{
+    self.dictionary[@"manager"] = val;
+}
+
+- (NSString*) middleName
+{
+    if([[NSNull null] isEqual:self.dictionary[@"middleName"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"middleName"];
+}
+
+- (void) setMiddleName: (NSString*) val
+{
+    self.dictionary[@"middleName"] = val;
+}
+
+- (NSString*) mobilePhone
+{
+    if([[NSNull null] isEqual:self.dictionary[@"mobilePhone"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"mobilePhone"];
+}
+
+- (void) setMobilePhone: (NSString*) val
+{
+    self.dictionary[@"mobilePhone"] = val;
+}
+
+- (NSString*) nickName
+{
+    if([[NSNull null] isEqual:self.dictionary[@"nickName"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"nickName"];
+}
+
+- (void) setNickName: (NSString*) val
+{
+    self.dictionary[@"nickName"] = val;
+}
+
+- (NSString*) officeLocation
+{
+    if([[NSNull null] isEqual:self.dictionary[@"officeLocation"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"officeLocation"];
+}
+
+- (void) setOfficeLocation: (NSString*) val
+{
+    self.dictionary[@"officeLocation"] = val;
 }
 
 - (MSGraphPhysicalAddress*) otherAddress
@@ -494,18 +410,18 @@
     self.dictionary[@"otherAddress"] = val;
 }
 
-- (NSString*) spouseName
+- (NSString*) parentFolderId
 {
-    if([[NSNull null] isEqual:self.dictionary[@"spouseName"]])
+    if([[NSNull null] isEqual:self.dictionary[@"parentFolderId"]])
     {
         return nil;
     }   
-    return self.dictionary[@"spouseName"];
+    return self.dictionary[@"parentFolderId"];
 }
 
-- (void) setSpouseName: (NSString*) val
+- (void) setParentFolderId: (NSString*) val
 {
-    self.dictionary[@"spouseName"] = val;
+    self.dictionary[@"parentFolderId"] = val;
 }
 
 - (NSString*) personalNotes
@@ -522,43 +438,127 @@
     self.dictionary[@"personalNotes"] = val;
 }
 
-- (NSArray*) children
+- (NSString*) profession
 {
-    if([[NSNull null] isEqual:self.dictionary[@"children"]])
+    if([[NSNull null] isEqual:self.dictionary[@"profession"]])
     {
         return nil;
     }   
-    return self.dictionary[@"children"];
+    return self.dictionary[@"profession"];
 }
 
-- (void) setChildren: (NSArray*) val
+- (void) setProfession: (NSString*) val
 {
-    self.dictionary[@"children"] = val;
+    self.dictionary[@"profession"] = val;
 }
 
-- (NSArray*) singleValueExtendedProperties
+- (NSString*) spouseName
 {
-    if(!_singleValueExtendedProperties){
+    if([[NSNull null] isEqual:self.dictionary[@"spouseName"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"spouseName"];
+}
+
+- (void) setSpouseName: (NSString*) val
+{
+    self.dictionary[@"spouseName"] = val;
+}
+
+- (NSString*) surname
+{
+    if([[NSNull null] isEqual:self.dictionary[@"surname"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"surname"];
+}
+
+- (void) setSurname: (NSString*) val
+{
+    self.dictionary[@"surname"] = val;
+}
+
+- (NSString*) title
+{
+    if([[NSNull null] isEqual:self.dictionary[@"title"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"title"];
+}
+
+- (void) setTitle: (NSString*) val
+{
+    self.dictionary[@"title"] = val;
+}
+
+- (NSString*) yomiCompanyName
+{
+    if([[NSNull null] isEqual:self.dictionary[@"yomiCompanyName"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"yomiCompanyName"];
+}
+
+- (void) setYomiCompanyName: (NSString*) val
+{
+    self.dictionary[@"yomiCompanyName"] = val;
+}
+
+- (NSString*) yomiGivenName
+{
+    if([[NSNull null] isEqual:self.dictionary[@"yomiGivenName"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"yomiGivenName"];
+}
+
+- (void) setYomiGivenName: (NSString*) val
+{
+    self.dictionary[@"yomiGivenName"] = val;
+}
+
+- (NSString*) yomiSurname
+{
+    if([[NSNull null] isEqual:self.dictionary[@"yomiSurname"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"yomiSurname"];
+}
+
+- (void) setYomiSurname: (NSString*) val
+{
+    self.dictionary[@"yomiSurname"] = val;
+}
+
+- (NSArray*) extensions
+{
+    if(!_extensions){
         
-    NSMutableArray *singleValueExtendedPropertiesResult = [NSMutableArray array];
-    NSArray *singleValueExtendedProperties = self.dictionary[@"singleValueExtendedProperties"];
+    NSMutableArray *extensionsResult = [NSMutableArray array];
+    NSArray *extensions = self.dictionary[@"extensions"];
 
-    if ([singleValueExtendedProperties isKindOfClass:[NSArray class]]){
-        for (id tempSingleValueLegacyExtendedProperty in singleValueExtendedProperties){
-            [singleValueExtendedPropertiesResult addObject:tempSingleValueLegacyExtendedProperty];
+    if ([extensions isKindOfClass:[NSArray class]]){
+        for (id tempExtension in extensions){
+            [extensionsResult addObject:tempExtension];
         }
     }
 
-    _singleValueExtendedProperties = singleValueExtendedPropertiesResult;
+    _extensions = extensionsResult;
         
     }
-    return _singleValueExtendedProperties;
+    return _extensions;
 }
 
-- (void) setSingleValueExtendedProperties: (NSArray*) val
+- (void) setExtensions: (NSArray*) val
 {
-    _singleValueExtendedProperties = val;
-    self.dictionary[@"singleValueExtendedProperties"] = val;
+    _extensions = val;
+    self.dictionary[@"extensions"] = val;
 }
 
 - (NSArray*) multiValueExtendedProperties
@@ -600,29 +600,29 @@
     self.dictionary[@"photo"] = val;
 }
 
-- (NSArray*) extensions
+- (NSArray*) singleValueExtendedProperties
 {
-    if(!_extensions){
+    if(!_singleValueExtendedProperties){
         
-    NSMutableArray *extensionsResult = [NSMutableArray array];
-    NSArray *extensions = self.dictionary[@"extensions"];
+    NSMutableArray *singleValueExtendedPropertiesResult = [NSMutableArray array];
+    NSArray *singleValueExtendedProperties = self.dictionary[@"singleValueExtendedProperties"];
 
-    if ([extensions isKindOfClass:[NSArray class]]){
-        for (id tempExtension in extensions){
-            [extensionsResult addObject:tempExtension];
+    if ([singleValueExtendedProperties isKindOfClass:[NSArray class]]){
+        for (id tempSingleValueLegacyExtendedProperty in singleValueExtendedProperties){
+            [singleValueExtendedPropertiesResult addObject:tempSingleValueLegacyExtendedProperty];
         }
     }
 
-    _extensions = extensionsResult;
+    _singleValueExtendedProperties = singleValueExtendedPropertiesResult;
         
     }
-    return _extensions;
+    return _singleValueExtendedProperties;
 }
 
-- (void) setExtensions: (NSArray*) val
+- (void) setSingleValueExtendedProperties: (NSArray*) val
 {
-    _extensions = val;
-    self.dictionary[@"extensions"] = val;
+    _singleValueExtendedProperties = val;
+    self.dictionary[@"singleValueExtendedProperties"] = val;
 }
 
 

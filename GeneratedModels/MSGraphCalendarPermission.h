@@ -9,10 +9,10 @@
 
 @interface MSGraphCalendarPermission : MSGraphEntity
 
-  @property (nullable, nonatomic, setter=setEmailAddress:, getter=emailAddress) MSGraphEmailAddress* emailAddress;
-    @property (nonatomic, setter=setIsRemovable:, getter=isRemovable) BOOL isRemovable;
+  @property (nullable, nonatomic, setter=setAllowedRoles:, getter=allowedRoles) NSArray* allowedRoles;
+    @property (nullable, nonatomic, setter=setEmailAddress:, getter=emailAddress) MSGraphEmailAddress* emailAddress;
     @property (nonatomic, setter=setIsInsideOrganization:, getter=isInsideOrganization) BOOL isInsideOrganization;
+    @property (nonatomic, setter=setIsRemovable:, getter=isRemovable) BOOL isRemovable;
     @property (nullable, nonatomic, setter=setRole:, getter=role) MSGraphCalendarRoleType* role;
-    @property (nullable, nonatomic, setter=setAllowedRoles:, getter=allowedRoles) NSArray* allowedRoles;
   
 @end

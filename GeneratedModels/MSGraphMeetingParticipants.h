@@ -9,7 +9,7 @@
 
 @interface MSGraphMeetingParticipants : MSObject
 
-@property (nullable, nonatomic, setter=setOrganizer:, getter=organizer) MSGraphMeetingParticipantInfo* organizer;
 @property (nullable, nonatomic, setter=setAttendees:, getter=attendees) NSArray* attendees;
+@property (nullable, nonatomic, setter=setOrganizer:, getter=organizer) MSGraphMeetingParticipantInfo* organizer;
 
 @end

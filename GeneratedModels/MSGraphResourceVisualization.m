@@ -14,45 +14,59 @@
 
 @interface MSGraphResourceVisualization()
 {
-    NSString* _title;
-    NSString* _type;
+    NSString* _containerDisplayName;
+    NSString* _containerType;
+    NSString* _containerWebUrl;
     NSString* _mediaType;
     NSString* _previewImageUrl;
     NSString* _previewText;
-    NSString* _containerWebUrl;
-    NSString* _containerDisplayName;
-    NSString* _containerType;
+    NSString* _title;
+    NSString* _type;
 }
 @end
 
 @implementation MSGraphResourceVisualization
 
-- (NSString*) title
+- (NSString*) containerDisplayName
 {
-    if([[NSNull null] isEqual:self.dictionary[@"title"]])
+    if([[NSNull null] isEqual:self.dictionary[@"containerDisplayName"]])
     {
         return nil;
     }   
-    return self.dictionary[@"title"];
+    return self.dictionary[@"containerDisplayName"];
 }
 
-- (void) setTitle: (NSString*) val
+- (void) setContainerDisplayName: (NSString*) val
 {
-    self.dictionary[@"title"] = val;
+    self.dictionary[@"containerDisplayName"] = val;
 }
 
-- (NSString*) type
+- (NSString*) containerType
 {
-    if([[NSNull null] isEqual:self.dictionary[@"type"]])
+    if([[NSNull null] isEqual:self.dictionary[@"containerType"]])
     {
         return nil;
     }   
-    return self.dictionary[@"type"];
+    return self.dictionary[@"containerType"];
 }
 
-- (void) setType: (NSString*) val
+- (void) setContainerType: (NSString*) val
 {
-    self.dictionary[@"type"] = val;
+    self.dictionary[@"containerType"] = val;
+}
+
+- (NSString*) containerWebUrl
+{
+    if([[NSNull null] isEqual:self.dictionary[@"containerWebUrl"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"containerWebUrl"];
+}
+
+- (void) setContainerWebUrl: (NSString*) val
+{
+    self.dictionary[@"containerWebUrl"] = val;
 }
 
 - (NSString*) mediaType
@@ -97,46 +111,32 @@
     self.dictionary[@"previewText"] = val;
 }
 
-- (NSString*) containerWebUrl
+- (NSString*) title
 {
-    if([[NSNull null] isEqual:self.dictionary[@"containerWebUrl"]])
+    if([[NSNull null] isEqual:self.dictionary[@"title"]])
     {
         return nil;
     }   
-    return self.dictionary[@"containerWebUrl"];
+    return self.dictionary[@"title"];
 }
 
-- (void) setContainerWebUrl: (NSString*) val
+- (void) setTitle: (NSString*) val
 {
-    self.dictionary[@"containerWebUrl"] = val;
+    self.dictionary[@"title"] = val;
 }
 
-- (NSString*) containerDisplayName
+- (NSString*) type
 {
-    if([[NSNull null] isEqual:self.dictionary[@"containerDisplayName"]])
+    if([[NSNull null] isEqual:self.dictionary[@"type"]])
     {
         return nil;
     }   
-    return self.dictionary[@"containerDisplayName"];
+    return self.dictionary[@"type"];
 }
 
-- (void) setContainerDisplayName: (NSString*) val
+- (void) setType: (NSString*) val
 {
-    self.dictionary[@"containerDisplayName"] = val;
-}
-
-- (NSString*) containerType
-{
-    if([[NSNull null] isEqual:self.dictionary[@"containerType"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"containerType"];
-}
-
-- (void) setContainerType: (NSString*) val
-{
-    self.dictionary[@"containerType"] = val;
+    self.dictionary[@"type"] = val;
 }
 
 @end

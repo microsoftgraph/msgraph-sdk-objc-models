@@ -8,7 +8,7 @@
 
 @interface MSGraphVppLicensingType : MSObject
 
-@property (nonatomic, setter=setSupportsUserLicensing:, getter=supportsUserLicensing) BOOL supportsUserLicensing;
 @property (nonatomic, setter=setSupportsDeviceLicensing:, getter=supportsDeviceLicensing) BOOL supportsDeviceLicensing;
+@property (nonatomic, setter=setSupportsUserLicensing:, getter=supportsUserLicensing) BOOL supportsUserLicensing;
 
 @end

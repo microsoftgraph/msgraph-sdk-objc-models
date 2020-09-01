@@ -22,14 +22,14 @@
     NSString* _jobTitle;
     NSString* _mail;
     NSString* _mailNickname;
-    BOOL _onPremisesSyncEnabled;
     NSDate* _onPremisesLastSyncDateTime;
     NSArray* _onPremisesProvisioningErrors;
+    BOOL _onPremisesSyncEnabled;
     NSArray* _phones;
     NSArray* _proxyAddresses;
     NSString* _surname;
-    MSGraphDirectoryObject* _manager;
     NSArray* _directReports;
+    MSGraphDirectoryObject* _manager;
     NSArray* _memberOf;
     NSArray* _transitiveMemberOf;
 }
@@ -167,18 +167,6 @@
     self.dictionary[@"mailNickname"] = val;
 }
 
-- (BOOL) onPremisesSyncEnabled
-{
-    _onPremisesSyncEnabled = [self.dictionary[@"onPremisesSyncEnabled"] boolValue];
-    return _onPremisesSyncEnabled;
-}
-
-- (void) setOnPremisesSyncEnabled: (BOOL) val
-{
-    _onPremisesSyncEnabled = val;
-    self.dictionary[@"onPremisesSyncEnabled"] = @(val);
-}
-
 - (NSDate*) onPremisesLastSyncDateTime
 {
     if(!_onPremisesLastSyncDateTime){
@@ -216,6 +204,18 @@
 {
     _onPremisesProvisioningErrors = val;
     self.dictionary[@"onPremisesProvisioningErrors"] = val;
+}
+
+- (BOOL) onPremisesSyncEnabled
+{
+    _onPremisesSyncEnabled = [self.dictionary[@"onPremisesSyncEnabled"] boolValue];
+    return _onPremisesSyncEnabled;
+}
+
+- (void) setOnPremisesSyncEnabled: (BOOL) val
+{
+    _onPremisesSyncEnabled = val;
+    self.dictionary[@"onPremisesSyncEnabled"] = @(val);
 }
 
 - (NSArray*) phones
@@ -267,20 +267,6 @@
     self.dictionary[@"surname"] = val;
 }
 
-- (MSGraphDirectoryObject*) manager
-{
-    if(!_manager){
-        _manager = [[MSGraphDirectoryObject alloc] initWithDictionary: self.dictionary[@"manager"]];
-    }
-    return _manager;
-}
-
-- (void) setManager: (MSGraphDirectoryObject*) val
-{
-    _manager = val;
-    self.dictionary[@"manager"] = val;
-}
-
 - (NSArray*) directReports
 {
     if(!_directReports){
@@ -304,6 +290,20 @@
 {
     _directReports = val;
     self.dictionary[@"directReports"] = val;
+}
+
+- (MSGraphDirectoryObject*) manager
+{
+    if(!_manager){
+        _manager = [[MSGraphDirectoryObject alloc] initWithDictionary: self.dictionary[@"manager"]];
+    }
+    return _manager;
+}
+
+- (void) setManager: (MSGraphDirectoryObject*) val
+{
+    _manager = val;
+    self.dictionary[@"manager"] = val;
 }
 
 - (NSArray*) memberOf

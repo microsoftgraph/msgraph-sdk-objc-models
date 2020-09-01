@@ -14,12 +14,12 @@
 
 @interface MSGraphEventMessageRequest()
 {
-    MSGraphLocation* _previousLocation;
-    MSGraphDateTimeTimeZone* _previousStartDateTime;
-    MSGraphDateTimeTimeZone* _previousEndDateTime;
-    BOOL _responseRequested;
     BOOL _allowNewTimeProposals;
     MSGraphMeetingRequestType* _meetingRequestType;
+    MSGraphDateTimeTimeZone* _previousEndDateTime;
+    MSGraphLocation* _previousLocation;
+    MSGraphDateTimeTimeZone* _previousStartDateTime;
+    BOOL _responseRequested;
 }
 @end
 
@@ -32,6 +32,46 @@
     }
     return self;
 }
+- (BOOL) allowNewTimeProposals
+{
+    _allowNewTimeProposals = [self.dictionary[@"allowNewTimeProposals"] boolValue];
+    return _allowNewTimeProposals;
+}
+
+- (void) setAllowNewTimeProposals: (BOOL) val
+{
+    _allowNewTimeProposals = val;
+    self.dictionary[@"allowNewTimeProposals"] = @(val);
+}
+
+- (MSGraphMeetingRequestType*) meetingRequestType
+{
+    if(!_meetingRequestType){
+        _meetingRequestType = [self.dictionary[@"meetingRequestType"] toMSGraphMeetingRequestType];
+    }
+    return _meetingRequestType;
+}
+
+- (void) setMeetingRequestType: (MSGraphMeetingRequestType*) val
+{
+    _meetingRequestType = val;
+    self.dictionary[@"meetingRequestType"] = val;
+}
+
+- (MSGraphDateTimeTimeZone*) previousEndDateTime
+{
+    if(!_previousEndDateTime){
+        _previousEndDateTime = [[MSGraphDateTimeTimeZone alloc] initWithDictionary: self.dictionary[@"previousEndDateTime"]];
+    }
+    return _previousEndDateTime;
+}
+
+- (void) setPreviousEndDateTime: (MSGraphDateTimeTimeZone*) val
+{
+    _previousEndDateTime = val;
+    self.dictionary[@"previousEndDateTime"] = val;
+}
+
 - (MSGraphLocation*) previousLocation
 {
     if(!_previousLocation){
@@ -60,20 +100,6 @@
     self.dictionary[@"previousStartDateTime"] = val;
 }
 
-- (MSGraphDateTimeTimeZone*) previousEndDateTime
-{
-    if(!_previousEndDateTime){
-        _previousEndDateTime = [[MSGraphDateTimeTimeZone alloc] initWithDictionary: self.dictionary[@"previousEndDateTime"]];
-    }
-    return _previousEndDateTime;
-}
-
-- (void) setPreviousEndDateTime: (MSGraphDateTimeTimeZone*) val
-{
-    _previousEndDateTime = val;
-    self.dictionary[@"previousEndDateTime"] = val;
-}
-
 - (BOOL) responseRequested
 {
     _responseRequested = [self.dictionary[@"responseRequested"] boolValue];
@@ -84,32 +110,6 @@
 {
     _responseRequested = val;
     self.dictionary[@"responseRequested"] = @(val);
-}
-
-- (BOOL) allowNewTimeProposals
-{
-    _allowNewTimeProposals = [self.dictionary[@"allowNewTimeProposals"] boolValue];
-    return _allowNewTimeProposals;
-}
-
-- (void) setAllowNewTimeProposals: (BOOL) val
-{
-    _allowNewTimeProposals = val;
-    self.dictionary[@"allowNewTimeProposals"] = @(val);
-}
-
-- (MSGraphMeetingRequestType*) meetingRequestType
-{
-    if(!_meetingRequestType){
-        _meetingRequestType = [self.dictionary[@"meetingRequestType"] toMSGraphMeetingRequestType];
-    }
-    return _meetingRequestType;
-}
-
-- (void) setMeetingRequestType: (MSGraphMeetingRequestType*) val
-{
-    _meetingRequestType = val;
-    self.dictionary[@"meetingRequestType"] = val;
 }
 
 

@@ -14,24 +14,24 @@
 
 @interface MSGraphWindows10CompliancePolicy()
 {
-    BOOL _passwordRequired;
-    BOOL _passwordBlockSimple;
-    BOOL _passwordRequiredToUnlockFromIdle;
-    int32_t _passwordMinutesOfInactivityBeforeLock;
-    int32_t _passwordExpirationDays;
-    int32_t _passwordMinimumLength;
-    int32_t _passwordMinimumCharacterSetCount;
-    MSGraphRequiredPasswordType* _passwordRequiredType;
-    int32_t _passwordPreviousPasswordBlockCount;
-    BOOL _requireHealthyDeviceReport;
-    NSString* _osMinimumVersion;
-    NSString* _osMaximumVersion;
-    NSString* _mobileOsMinimumVersion;
-    NSString* _mobileOsMaximumVersion;
-    BOOL _earlyLaunchAntiMalwareDriverEnabled;
     BOOL _bitLockerEnabled;
-    BOOL _secureBootEnabled;
     BOOL _codeIntegrityEnabled;
+    BOOL _earlyLaunchAntiMalwareDriverEnabled;
+    NSString* _mobileOsMaximumVersion;
+    NSString* _mobileOsMinimumVersion;
+    NSString* _osMaximumVersion;
+    NSString* _osMinimumVersion;
+    BOOL _passwordBlockSimple;
+    int32_t _passwordExpirationDays;
+    int32_t _passwordMinimumCharacterSetCount;
+    int32_t _passwordMinimumLength;
+    int32_t _passwordMinutesOfInactivityBeforeLock;
+    int32_t _passwordPreviousPasswordBlockCount;
+    BOOL _passwordRequired;
+    BOOL _passwordRequiredToUnlockFromIdle;
+    MSGraphRequiredPasswordType* _passwordRequiredType;
+    BOOL _requireHealthyDeviceReport;
+    BOOL _secureBootEnabled;
     BOOL _storageRequireEncryption;
 }
 @end
@@ -45,168 +45,40 @@
     }
     return self;
 }
-- (BOOL) passwordRequired
+- (BOOL) bitLockerEnabled
 {
-    _passwordRequired = [self.dictionary[@"passwordRequired"] boolValue];
-    return _passwordRequired;
+    _bitLockerEnabled = [self.dictionary[@"bitLockerEnabled"] boolValue];
+    return _bitLockerEnabled;
 }
 
-- (void) setPasswordRequired: (BOOL) val
+- (void) setBitLockerEnabled: (BOOL) val
 {
-    _passwordRequired = val;
-    self.dictionary[@"passwordRequired"] = @(val);
+    _bitLockerEnabled = val;
+    self.dictionary[@"bitLockerEnabled"] = @(val);
 }
 
-- (BOOL) passwordBlockSimple
+- (BOOL) codeIntegrityEnabled
 {
-    _passwordBlockSimple = [self.dictionary[@"passwordBlockSimple"] boolValue];
-    return _passwordBlockSimple;
+    _codeIntegrityEnabled = [self.dictionary[@"codeIntegrityEnabled"] boolValue];
+    return _codeIntegrityEnabled;
 }
 
-- (void) setPasswordBlockSimple: (BOOL) val
+- (void) setCodeIntegrityEnabled: (BOOL) val
 {
-    _passwordBlockSimple = val;
-    self.dictionary[@"passwordBlockSimple"] = @(val);
+    _codeIntegrityEnabled = val;
+    self.dictionary[@"codeIntegrityEnabled"] = @(val);
 }
 
-- (BOOL) passwordRequiredToUnlockFromIdle
+- (BOOL) earlyLaunchAntiMalwareDriverEnabled
 {
-    _passwordRequiredToUnlockFromIdle = [self.dictionary[@"passwordRequiredToUnlockFromIdle"] boolValue];
-    return _passwordRequiredToUnlockFromIdle;
+    _earlyLaunchAntiMalwareDriverEnabled = [self.dictionary[@"earlyLaunchAntiMalwareDriverEnabled"] boolValue];
+    return _earlyLaunchAntiMalwareDriverEnabled;
 }
 
-- (void) setPasswordRequiredToUnlockFromIdle: (BOOL) val
+- (void) setEarlyLaunchAntiMalwareDriverEnabled: (BOOL) val
 {
-    _passwordRequiredToUnlockFromIdle = val;
-    self.dictionary[@"passwordRequiredToUnlockFromIdle"] = @(val);
-}
-
-- (int32_t) passwordMinutesOfInactivityBeforeLock
-{
-    _passwordMinutesOfInactivityBeforeLock = [self.dictionary[@"passwordMinutesOfInactivityBeforeLock"] intValue];
-    return _passwordMinutesOfInactivityBeforeLock;
-}
-
-- (void) setPasswordMinutesOfInactivityBeforeLock: (int32_t) val
-{
-    _passwordMinutesOfInactivityBeforeLock = val;
-    self.dictionary[@"passwordMinutesOfInactivityBeforeLock"] = @(val);
-}
-
-- (int32_t) passwordExpirationDays
-{
-    _passwordExpirationDays = [self.dictionary[@"passwordExpirationDays"] intValue];
-    return _passwordExpirationDays;
-}
-
-- (void) setPasswordExpirationDays: (int32_t) val
-{
-    _passwordExpirationDays = val;
-    self.dictionary[@"passwordExpirationDays"] = @(val);
-}
-
-- (int32_t) passwordMinimumLength
-{
-    _passwordMinimumLength = [self.dictionary[@"passwordMinimumLength"] intValue];
-    return _passwordMinimumLength;
-}
-
-- (void) setPasswordMinimumLength: (int32_t) val
-{
-    _passwordMinimumLength = val;
-    self.dictionary[@"passwordMinimumLength"] = @(val);
-}
-
-- (int32_t) passwordMinimumCharacterSetCount
-{
-    _passwordMinimumCharacterSetCount = [self.dictionary[@"passwordMinimumCharacterSetCount"] intValue];
-    return _passwordMinimumCharacterSetCount;
-}
-
-- (void) setPasswordMinimumCharacterSetCount: (int32_t) val
-{
-    _passwordMinimumCharacterSetCount = val;
-    self.dictionary[@"passwordMinimumCharacterSetCount"] = @(val);
-}
-
-- (MSGraphRequiredPasswordType*) passwordRequiredType
-{
-    if(!_passwordRequiredType){
-        _passwordRequiredType = [self.dictionary[@"passwordRequiredType"] toMSGraphRequiredPasswordType];
-    }
-    return _passwordRequiredType;
-}
-
-- (void) setPasswordRequiredType: (MSGraphRequiredPasswordType*) val
-{
-    _passwordRequiredType = val;
-    self.dictionary[@"passwordRequiredType"] = val;
-}
-
-- (int32_t) passwordPreviousPasswordBlockCount
-{
-    _passwordPreviousPasswordBlockCount = [self.dictionary[@"passwordPreviousPasswordBlockCount"] intValue];
-    return _passwordPreviousPasswordBlockCount;
-}
-
-- (void) setPasswordPreviousPasswordBlockCount: (int32_t) val
-{
-    _passwordPreviousPasswordBlockCount = val;
-    self.dictionary[@"passwordPreviousPasswordBlockCount"] = @(val);
-}
-
-- (BOOL) requireHealthyDeviceReport
-{
-    _requireHealthyDeviceReport = [self.dictionary[@"requireHealthyDeviceReport"] boolValue];
-    return _requireHealthyDeviceReport;
-}
-
-- (void) setRequireHealthyDeviceReport: (BOOL) val
-{
-    _requireHealthyDeviceReport = val;
-    self.dictionary[@"requireHealthyDeviceReport"] = @(val);
-}
-
-- (NSString*) osMinimumVersion
-{
-    if([[NSNull null] isEqual:self.dictionary[@"osMinimumVersion"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"osMinimumVersion"];
-}
-
-- (void) setOsMinimumVersion: (NSString*) val
-{
-    self.dictionary[@"osMinimumVersion"] = val;
-}
-
-- (NSString*) osMaximumVersion
-{
-    if([[NSNull null] isEqual:self.dictionary[@"osMaximumVersion"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"osMaximumVersion"];
-}
-
-- (void) setOsMaximumVersion: (NSString*) val
-{
-    self.dictionary[@"osMaximumVersion"] = val;
-}
-
-- (NSString*) mobileOsMinimumVersion
-{
-    if([[NSNull null] isEqual:self.dictionary[@"mobileOsMinimumVersion"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"mobileOsMinimumVersion"];
-}
-
-- (void) setMobileOsMinimumVersion: (NSString*) val
-{
-    self.dictionary[@"mobileOsMinimumVersion"] = val;
+    _earlyLaunchAntiMalwareDriverEnabled = val;
+    self.dictionary[@"earlyLaunchAntiMalwareDriverEnabled"] = @(val);
 }
 
 - (NSString*) mobileOsMaximumVersion
@@ -223,28 +95,168 @@
     self.dictionary[@"mobileOsMaximumVersion"] = val;
 }
 
-- (BOOL) earlyLaunchAntiMalwareDriverEnabled
+- (NSString*) mobileOsMinimumVersion
 {
-    _earlyLaunchAntiMalwareDriverEnabled = [self.dictionary[@"earlyLaunchAntiMalwareDriverEnabled"] boolValue];
-    return _earlyLaunchAntiMalwareDriverEnabled;
+    if([[NSNull null] isEqual:self.dictionary[@"mobileOsMinimumVersion"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"mobileOsMinimumVersion"];
 }
 
-- (void) setEarlyLaunchAntiMalwareDriverEnabled: (BOOL) val
+- (void) setMobileOsMinimumVersion: (NSString*) val
 {
-    _earlyLaunchAntiMalwareDriverEnabled = val;
-    self.dictionary[@"earlyLaunchAntiMalwareDriverEnabled"] = @(val);
+    self.dictionary[@"mobileOsMinimumVersion"] = val;
 }
 
-- (BOOL) bitLockerEnabled
+- (NSString*) osMaximumVersion
 {
-    _bitLockerEnabled = [self.dictionary[@"bitLockerEnabled"] boolValue];
-    return _bitLockerEnabled;
+    if([[NSNull null] isEqual:self.dictionary[@"osMaximumVersion"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"osMaximumVersion"];
 }
 
-- (void) setBitLockerEnabled: (BOOL) val
+- (void) setOsMaximumVersion: (NSString*) val
 {
-    _bitLockerEnabled = val;
-    self.dictionary[@"bitLockerEnabled"] = @(val);
+    self.dictionary[@"osMaximumVersion"] = val;
+}
+
+- (NSString*) osMinimumVersion
+{
+    if([[NSNull null] isEqual:self.dictionary[@"osMinimumVersion"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"osMinimumVersion"];
+}
+
+- (void) setOsMinimumVersion: (NSString*) val
+{
+    self.dictionary[@"osMinimumVersion"] = val;
+}
+
+- (BOOL) passwordBlockSimple
+{
+    _passwordBlockSimple = [self.dictionary[@"passwordBlockSimple"] boolValue];
+    return _passwordBlockSimple;
+}
+
+- (void) setPasswordBlockSimple: (BOOL) val
+{
+    _passwordBlockSimple = val;
+    self.dictionary[@"passwordBlockSimple"] = @(val);
+}
+
+- (int32_t) passwordExpirationDays
+{
+    _passwordExpirationDays = [self.dictionary[@"passwordExpirationDays"] intValue];
+    return _passwordExpirationDays;
+}
+
+- (void) setPasswordExpirationDays: (int32_t) val
+{
+    _passwordExpirationDays = val;
+    self.dictionary[@"passwordExpirationDays"] = @(val);
+}
+
+- (int32_t) passwordMinimumCharacterSetCount
+{
+    _passwordMinimumCharacterSetCount = [self.dictionary[@"passwordMinimumCharacterSetCount"] intValue];
+    return _passwordMinimumCharacterSetCount;
+}
+
+- (void) setPasswordMinimumCharacterSetCount: (int32_t) val
+{
+    _passwordMinimumCharacterSetCount = val;
+    self.dictionary[@"passwordMinimumCharacterSetCount"] = @(val);
+}
+
+- (int32_t) passwordMinimumLength
+{
+    _passwordMinimumLength = [self.dictionary[@"passwordMinimumLength"] intValue];
+    return _passwordMinimumLength;
+}
+
+- (void) setPasswordMinimumLength: (int32_t) val
+{
+    _passwordMinimumLength = val;
+    self.dictionary[@"passwordMinimumLength"] = @(val);
+}
+
+- (int32_t) passwordMinutesOfInactivityBeforeLock
+{
+    _passwordMinutesOfInactivityBeforeLock = [self.dictionary[@"passwordMinutesOfInactivityBeforeLock"] intValue];
+    return _passwordMinutesOfInactivityBeforeLock;
+}
+
+- (void) setPasswordMinutesOfInactivityBeforeLock: (int32_t) val
+{
+    _passwordMinutesOfInactivityBeforeLock = val;
+    self.dictionary[@"passwordMinutesOfInactivityBeforeLock"] = @(val);
+}
+
+- (int32_t) passwordPreviousPasswordBlockCount
+{
+    _passwordPreviousPasswordBlockCount = [self.dictionary[@"passwordPreviousPasswordBlockCount"] intValue];
+    return _passwordPreviousPasswordBlockCount;
+}
+
+- (void) setPasswordPreviousPasswordBlockCount: (int32_t) val
+{
+    _passwordPreviousPasswordBlockCount = val;
+    self.dictionary[@"passwordPreviousPasswordBlockCount"] = @(val);
+}
+
+- (BOOL) passwordRequired
+{
+    _passwordRequired = [self.dictionary[@"passwordRequired"] boolValue];
+    return _passwordRequired;
+}
+
+- (void) setPasswordRequired: (BOOL) val
+{
+    _passwordRequired = val;
+    self.dictionary[@"passwordRequired"] = @(val);
+}
+
+- (BOOL) passwordRequiredToUnlockFromIdle
+{
+    _passwordRequiredToUnlockFromIdle = [self.dictionary[@"passwordRequiredToUnlockFromIdle"] boolValue];
+    return _passwordRequiredToUnlockFromIdle;
+}
+
+- (void) setPasswordRequiredToUnlockFromIdle: (BOOL) val
+{
+    _passwordRequiredToUnlockFromIdle = val;
+    self.dictionary[@"passwordRequiredToUnlockFromIdle"] = @(val);
+}
+
+- (MSGraphRequiredPasswordType*) passwordRequiredType
+{
+    if(!_passwordRequiredType){
+        _passwordRequiredType = [self.dictionary[@"passwordRequiredType"] toMSGraphRequiredPasswordType];
+    }
+    return _passwordRequiredType;
+}
+
+- (void) setPasswordRequiredType: (MSGraphRequiredPasswordType*) val
+{
+    _passwordRequiredType = val;
+    self.dictionary[@"passwordRequiredType"] = val;
+}
+
+- (BOOL) requireHealthyDeviceReport
+{
+    _requireHealthyDeviceReport = [self.dictionary[@"requireHealthyDeviceReport"] boolValue];
+    return _requireHealthyDeviceReport;
+}
+
+- (void) setRequireHealthyDeviceReport: (BOOL) val
+{
+    _requireHealthyDeviceReport = val;
+    self.dictionary[@"requireHealthyDeviceReport"] = @(val);
 }
 
 - (BOOL) secureBootEnabled
@@ -257,18 +269,6 @@
 {
     _secureBootEnabled = val;
     self.dictionary[@"secureBootEnabled"] = @(val);
-}
-
-- (BOOL) codeIntegrityEnabled
-{
-    _codeIntegrityEnabled = [self.dictionary[@"codeIntegrityEnabled"] boolValue];
-    return _codeIntegrityEnabled;
-}
-
-- (void) setCodeIntegrityEnabled: (BOOL) val
-{
-    _codeIntegrityEnabled = val;
-    self.dictionary[@"codeIntegrityEnabled"] = @(val);
 }
 
 - (BOOL) storageRequireEncryption

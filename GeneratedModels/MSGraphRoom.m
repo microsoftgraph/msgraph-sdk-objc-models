@@ -14,19 +14,19 @@
 
 @interface MSGraphRoom()
 {
-    NSString* _emailAddress;
-    NSString* _nickname;
-    NSString* _building;
-    int32_t _floorNumber;
-    NSString* _label;
-    int32_t _capacity;
-    MSGraphBookingType* _bookingType;
     NSString* _audioDeviceName;
-    NSString* _videoDeviceName;
+    MSGraphBookingType* _bookingType;
+    NSString* _building;
+    int32_t _capacity;
     NSString* _displayDeviceName;
-    BOOL _isWheelChairAccessible;
-    NSArray* _tags;
+    NSString* _emailAddress;
     NSString* _floorLabel;
+    int32_t _floorNumber;
+    BOOL _isWheelChairAccessible;
+    NSString* _label;
+    NSString* _nickname;
+    NSArray* _tags;
+    NSString* _videoDeviceName;
 }
 @end
 
@@ -39,80 +39,18 @@
     }
     return self;
 }
-- (NSString*) emailAddress
+- (NSString*) audioDeviceName
 {
-    if([[NSNull null] isEqual:self.dictionary[@"emailAddress"]])
+    if([[NSNull null] isEqual:self.dictionary[@"audioDeviceName"]])
     {
         return nil;
     }   
-    return self.dictionary[@"emailAddress"];
+    return self.dictionary[@"audioDeviceName"];
 }
 
-- (void) setEmailAddress: (NSString*) val
+- (void) setAudioDeviceName: (NSString*) val
 {
-    self.dictionary[@"emailAddress"] = val;
-}
-
-- (NSString*) nickname
-{
-    return self.dictionary[@"nickname"];
-}
-
-- (void) setNickname: (NSString*) val
-{
-    self.dictionary[@"nickname"] = val;
-}
-
-- (NSString*) building
-{
-    if([[NSNull null] isEqual:self.dictionary[@"building"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"building"];
-}
-
-- (void) setBuilding: (NSString*) val
-{
-    self.dictionary[@"building"] = val;
-}
-
-- (int32_t) floorNumber
-{
-    _floorNumber = [self.dictionary[@"floorNumber"] intValue];
-    return _floorNumber;
-}
-
-- (void) setFloorNumber: (int32_t) val
-{
-    _floorNumber = val;
-    self.dictionary[@"floorNumber"] = @(val);
-}
-
-- (NSString*) label
-{
-    if([[NSNull null] isEqual:self.dictionary[@"label"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"label"];
-}
-
-- (void) setLabel: (NSString*) val
-{
-    self.dictionary[@"label"] = val;
-}
-
-- (int32_t) capacity
-{
-    _capacity = [self.dictionary[@"capacity"] intValue];
-    return _capacity;
-}
-
-- (void) setCapacity: (int32_t) val
-{
-    _capacity = val;
-    self.dictionary[@"capacity"] = @(val);
+    self.dictionary[@"audioDeviceName"] = val;
 }
 
 - (MSGraphBookingType*) bookingType
@@ -129,32 +67,30 @@
     self.dictionary[@"bookingType"] = val;
 }
 
-- (NSString*) audioDeviceName
+- (NSString*) building
 {
-    if([[NSNull null] isEqual:self.dictionary[@"audioDeviceName"]])
+    if([[NSNull null] isEqual:self.dictionary[@"building"]])
     {
         return nil;
     }   
-    return self.dictionary[@"audioDeviceName"];
+    return self.dictionary[@"building"];
 }
 
-- (void) setAudioDeviceName: (NSString*) val
+- (void) setBuilding: (NSString*) val
 {
-    self.dictionary[@"audioDeviceName"] = val;
+    self.dictionary[@"building"] = val;
 }
 
-- (NSString*) videoDeviceName
+- (int32_t) capacity
 {
-    if([[NSNull null] isEqual:self.dictionary[@"videoDeviceName"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"videoDeviceName"];
+    _capacity = [self.dictionary[@"capacity"] intValue];
+    return _capacity;
 }
 
-- (void) setVideoDeviceName: (NSString*) val
+- (void) setCapacity: (int32_t) val
 {
-    self.dictionary[@"videoDeviceName"] = val;
+    _capacity = val;
+    self.dictionary[@"capacity"] = @(val);
 }
 
 - (NSString*) displayDeviceName
@@ -171,6 +107,46 @@
     self.dictionary[@"displayDeviceName"] = val;
 }
 
+- (NSString*) emailAddress
+{
+    if([[NSNull null] isEqual:self.dictionary[@"emailAddress"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"emailAddress"];
+}
+
+- (void) setEmailAddress: (NSString*) val
+{
+    self.dictionary[@"emailAddress"] = val;
+}
+
+- (NSString*) floorLabel
+{
+    if([[NSNull null] isEqual:self.dictionary[@"floorLabel"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"floorLabel"];
+}
+
+- (void) setFloorLabel: (NSString*) val
+{
+    self.dictionary[@"floorLabel"] = val;
+}
+
+- (int32_t) floorNumber
+{
+    _floorNumber = [self.dictionary[@"floorNumber"] intValue];
+    return _floorNumber;
+}
+
+- (void) setFloorNumber: (int32_t) val
+{
+    _floorNumber = val;
+    self.dictionary[@"floorNumber"] = @(val);
+}
+
 - (BOOL) isWheelChairAccessible
 {
     _isWheelChairAccessible = [self.dictionary[@"isWheelChairAccessible"] boolValue];
@@ -181,6 +157,30 @@
 {
     _isWheelChairAccessible = val;
     self.dictionary[@"isWheelChairAccessible"] = @(val);
+}
+
+- (NSString*) label
+{
+    if([[NSNull null] isEqual:self.dictionary[@"label"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"label"];
+}
+
+- (void) setLabel: (NSString*) val
+{
+    self.dictionary[@"label"] = val;
+}
+
+- (NSString*) nickname
+{
+    return self.dictionary[@"nickname"];
+}
+
+- (void) setNickname: (NSString*) val
+{
+    self.dictionary[@"nickname"] = val;
 }
 
 - (NSArray*) tags
@@ -197,18 +197,18 @@
     self.dictionary[@"tags"] = val;
 }
 
-- (NSString*) floorLabel
+- (NSString*) videoDeviceName
 {
-    if([[NSNull null] isEqual:self.dictionary[@"floorLabel"]])
+    if([[NSNull null] isEqual:self.dictionary[@"videoDeviceName"]])
     {
         return nil;
     }   
-    return self.dictionary[@"floorLabel"];
+    return self.dictionary[@"videoDeviceName"];
 }
 
-- (void) setFloorLabel: (NSString*) val
+- (void) setVideoDeviceName: (NSString*) val
 {
-    self.dictionary[@"floorLabel"] = val;
+    self.dictionary[@"videoDeviceName"] = val;
 }
 
 

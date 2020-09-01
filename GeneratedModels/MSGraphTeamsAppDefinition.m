@@ -14,8 +14,8 @@
 
 @interface MSGraphTeamsAppDefinition()
 {
-    NSString* _teamsAppId;
     NSString* _displayName;
+    NSString* _teamsAppId;
     NSString* _version;
 }
 @end
@@ -29,20 +29,6 @@
     }
     return self;
 }
-- (NSString*) teamsAppId
-{
-    if([[NSNull null] isEqual:self.dictionary[@"teamsAppId"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"teamsAppId"];
-}
-
-- (void) setTeamsAppId: (NSString*) val
-{
-    self.dictionary[@"teamsAppId"] = val;
-}
-
 - (NSString*) displayName
 {
     if([[NSNull null] isEqual:self.dictionary[@"displayName"]])
@@ -55,6 +41,20 @@
 - (void) setDisplayName: (NSString*) val
 {
     self.dictionary[@"displayName"] = val;
+}
+
+- (NSString*) teamsAppId
+{
+    if([[NSNull null] isEqual:self.dictionary[@"teamsAppId"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"teamsAppId"];
+}
+
+- (void) setTeamsAppId: (NSString*) val
+{
+    self.dictionary[@"teamsAppId"] = val;
 }
 
 - (NSString*) version

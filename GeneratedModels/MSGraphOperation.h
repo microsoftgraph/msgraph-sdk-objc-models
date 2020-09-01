@@ -8,8 +8,8 @@
 
 @interface MSGraphOperation : MSGraphEntity
 
-  @property (nullable, nonatomic, setter=setStatus:, getter=status) MSGraphOperationStatus* status;
-    @property (nullable, nonatomic, setter=setCreatedDateTime:, getter=createdDateTime) NSDate* createdDateTime;
+  @property (nullable, nonatomic, setter=setCreatedDateTime:, getter=createdDateTime) NSDate* createdDateTime;
     @property (nullable, nonatomic, setter=setLastActionDateTime:, getter=lastActionDateTime) NSDate* lastActionDateTime;
+    @property (nullable, nonatomic, setter=setStatus:, getter=status) MSGraphOperationStatus* status;
   
 @end

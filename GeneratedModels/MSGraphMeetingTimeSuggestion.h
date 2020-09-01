@@ -10,12 +10,12 @@
 
 @interface MSGraphMeetingTimeSuggestion : MSObject
 
+@property (nullable, nonatomic, setter=setAttendeeAvailability:, getter=attendeeAvailability) NSArray* attendeeAvailability;
 @property (nonatomic, setter=setConfidence:, getter=confidence) double confidence;
+@property (nullable, nonatomic, setter=setLocations:, getter=locations) NSArray* locations;
+@property (nullable, nonatomic, setter=setMeetingTimeSlot:, getter=meetingTimeSlot) MSGraphTimeSlot* meetingTimeSlot;
 @property (nonatomic, setter=setOrder:, getter=order) int32_t order;
 @property (nullable, nonatomic, setter=setOrganizerAvailability:, getter=organizerAvailability) MSGraphFreeBusyStatus* organizerAvailability;
-@property (nullable, nonatomic, setter=setAttendeeAvailability:, getter=attendeeAvailability) NSArray* attendeeAvailability;
-@property (nullable, nonatomic, setter=setLocations:, getter=locations) NSArray* locations;
 @property (nullable, nonatomic, setter=setSuggestionReason:, getter=suggestionReason) NSString* suggestionReason;
-@property (nullable, nonatomic, setter=setMeetingTimeSlot:, getter=meetingTimeSlot) MSGraphTimeSlot* meetingTimeSlot;
 
 @end

@@ -14,14 +14,14 @@
 
 @interface MSGraphEnrollmentTroubleshootingEvent()
 {
-    NSString* _managedDeviceIdentifier;
-    NSString* _operatingSystem;
-    NSString* _osVersion;
-    NSString* _userId;
     NSString* _deviceId;
     MSGraphDeviceEnrollmentType* _enrollmentType;
     MSGraphDeviceEnrollmentFailureReason* _failureCategory;
     NSString* _failureReason;
+    NSString* _managedDeviceIdentifier;
+    NSString* _operatingSystem;
+    NSString* _osVersion;
+    NSString* _userId;
 }
 @end
 
@@ -34,62 +34,6 @@
     }
     return self;
 }
-- (NSString*) managedDeviceIdentifier
-{
-    if([[NSNull null] isEqual:self.dictionary[@"managedDeviceIdentifier"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"managedDeviceIdentifier"];
-}
-
-- (void) setManagedDeviceIdentifier: (NSString*) val
-{
-    self.dictionary[@"managedDeviceIdentifier"] = val;
-}
-
-- (NSString*) operatingSystem
-{
-    if([[NSNull null] isEqual:self.dictionary[@"operatingSystem"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"operatingSystem"];
-}
-
-- (void) setOperatingSystem: (NSString*) val
-{
-    self.dictionary[@"operatingSystem"] = val;
-}
-
-- (NSString*) osVersion
-{
-    if([[NSNull null] isEqual:self.dictionary[@"osVersion"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"osVersion"];
-}
-
-- (void) setOsVersion: (NSString*) val
-{
-    self.dictionary[@"osVersion"] = val;
-}
-
-- (NSString*) userId
-{
-    if([[NSNull null] isEqual:self.dictionary[@"userId"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"userId"];
-}
-
-- (void) setUserId: (NSString*) val
-{
-    self.dictionary[@"userId"] = val;
-}
-
 - (NSString*) deviceId
 {
     if([[NSNull null] isEqual:self.dictionary[@"deviceId"]])
@@ -144,6 +88,62 @@
 - (void) setFailureReason: (NSString*) val
 {
     self.dictionary[@"failureReason"] = val;
+}
+
+- (NSString*) managedDeviceIdentifier
+{
+    if([[NSNull null] isEqual:self.dictionary[@"managedDeviceIdentifier"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"managedDeviceIdentifier"];
+}
+
+- (void) setManagedDeviceIdentifier: (NSString*) val
+{
+    self.dictionary[@"managedDeviceIdentifier"] = val;
+}
+
+- (NSString*) operatingSystem
+{
+    if([[NSNull null] isEqual:self.dictionary[@"operatingSystem"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"operatingSystem"];
+}
+
+- (void) setOperatingSystem: (NSString*) val
+{
+    self.dictionary[@"operatingSystem"] = val;
+}
+
+- (NSString*) osVersion
+{
+    if([[NSNull null] isEqual:self.dictionary[@"osVersion"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"osVersion"];
+}
+
+- (void) setOsVersion: (NSString*) val
+{
+    self.dictionary[@"osVersion"] = val;
+}
+
+- (NSString*) userId
+{
+    if([[NSNull null] isEqual:self.dictionary[@"userId"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"userId"];
+}
+
+- (void) setUserId: (NSString*) val
+{
+    self.dictionary[@"userId"] = val;
 }
 
 

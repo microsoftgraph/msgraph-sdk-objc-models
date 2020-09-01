@@ -14,13 +14,27 @@
 
 @interface MSGraphSignInStatus()
 {
+    NSString* _additionalDetails;
     int32_t _errorCode;
     NSString* _failureReason;
-    NSString* _additionalDetails;
 }
 @end
 
 @implementation MSGraphSignInStatus
+
+- (NSString*) additionalDetails
+{
+    if([[NSNull null] isEqual:self.dictionary[@"additionalDetails"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"additionalDetails"];
+}
+
+- (void) setAdditionalDetails: (NSString*) val
+{
+    self.dictionary[@"additionalDetails"] = val;
+}
 
 - (int32_t) errorCode
 {
@@ -46,20 +60,6 @@
 - (void) setFailureReason: (NSString*) val
 {
     self.dictionary[@"failureReason"] = val;
-}
-
-- (NSString*) additionalDetails
-{
-    if([[NSNull null] isEqual:self.dictionary[@"additionalDetails"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"additionalDetails"];
-}
-
-- (void) setAdditionalDetails: (NSString*) val
-{
-    self.dictionary[@"additionalDetails"] = val;
 }
 
 @end

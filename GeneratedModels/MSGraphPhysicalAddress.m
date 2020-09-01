@@ -14,29 +14,15 @@
 
 @interface MSGraphPhysicalAddress()
 {
-    NSString* _street;
     NSString* _city;
-    NSString* _state;
     NSString* _countryOrRegion;
     NSString* _postalCode;
+    NSString* _state;
+    NSString* _street;
 }
 @end
 
 @implementation MSGraphPhysicalAddress
-
-- (NSString*) street
-{
-    if([[NSNull null] isEqual:self.dictionary[@"street"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"street"];
-}
-
-- (void) setStreet: (NSString*) val
-{
-    self.dictionary[@"street"] = val;
-}
 
 - (NSString*) city
 {
@@ -50,20 +36,6 @@
 - (void) setCity: (NSString*) val
 {
     self.dictionary[@"city"] = val;
-}
-
-- (NSString*) state
-{
-    if([[NSNull null] isEqual:self.dictionary[@"state"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"state"];
-}
-
-- (void) setState: (NSString*) val
-{
-    self.dictionary[@"state"] = val;
 }
 
 - (NSString*) countryOrRegion
@@ -92,6 +64,34 @@
 - (void) setPostalCode: (NSString*) val
 {
     self.dictionary[@"postalCode"] = val;
+}
+
+- (NSString*) state
+{
+    if([[NSNull null] isEqual:self.dictionary[@"state"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"state"];
+}
+
+- (void) setState: (NSString*) val
+{
+    self.dictionary[@"state"] = val;
+}
+
+- (NSString*) street
+{
+    if([[NSNull null] isEqual:self.dictionary[@"street"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"street"];
+}
+
+- (void) setStreet: (NSString*) val
+{
+    self.dictionary[@"street"] = val;
 }
 
 @end

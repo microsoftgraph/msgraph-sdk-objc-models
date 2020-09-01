@@ -8,7 +8,7 @@
 
 @interface MSGraphPlannerAssignedToTaskBoardTaskFormat : MSGraphEntity
 
-  @property (nullable, nonatomic, setter=setUnassignedOrderHint:, getter=unassignedOrderHint) NSString* unassignedOrderHint;
-    @property (nullable, nonatomic, setter=setOrderHintsByAssignee:, getter=orderHintsByAssignee) MSGraphPlannerOrderHintsByAssignee* orderHintsByAssignee;
+  @property (nullable, nonatomic, setter=setOrderHintsByAssignee:, getter=orderHintsByAssignee) MSGraphPlannerOrderHintsByAssignee* orderHintsByAssignee;
+    @property (nullable, nonatomic, setter=setUnassignedOrderHint:, getter=unassignedOrderHint) NSString* unassignedOrderHint;
   
 @end

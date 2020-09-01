@@ -14,26 +14,12 @@
 
 @interface MSGraphMeetingParticipants()
 {
-    MSGraphMeetingParticipantInfo* _organizer;
     NSArray* _attendees;
+    MSGraphMeetingParticipantInfo* _organizer;
 }
 @end
 
 @implementation MSGraphMeetingParticipants
-
-- (MSGraphMeetingParticipantInfo*) organizer
-{
-    if(!_organizer){
-        _organizer = [[MSGraphMeetingParticipantInfo alloc] initWithDictionary: self.dictionary[@"organizer"]];
-    }
-    return _organizer;
-}
-
-- (void) setOrganizer: (MSGraphMeetingParticipantInfo*) val
-{
-    _organizer = val;
-    self.dictionary[@"organizer"] = val;
-}
 
 - (NSArray*) attendees
 {
@@ -58,6 +44,20 @@
 {
     _attendees = val;
     self.dictionary[@"attendees"] = val;
+}
+
+- (MSGraphMeetingParticipantInfo*) organizer
+{
+    if(!_organizer){
+        _organizer = [[MSGraphMeetingParticipantInfo alloc] initWithDictionary: self.dictionary[@"organizer"]];
+    }
+    return _organizer;
+}
+
+- (void) setOrganizer: (MSGraphMeetingParticipantInfo*) val
+{
+    _organizer = val;
+    self.dictionary[@"organizer"] = val;
 }
 
 @end

@@ -14,10 +14,10 @@
 
 @interface MSGraphRoleDefinition()
 {
-    NSString* _displayName;
     NSString* _roleDefinitionDescription;
-    NSArray* _rolePermissions;
+    NSString* _displayName;
     BOOL _isBuiltIn;
+    NSArray* _rolePermissions;
     NSArray* _roleAssignments;
 }
 @end
@@ -31,6 +31,20 @@
     }
     return self;
 }
+- (NSString*) roleDefinitionDescription
+{
+    if([[NSNull null] isEqual:self.dictionary[@"description"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"description"];
+}
+
+- (void) setRoleDefinitionDescription: (NSString*) val
+{
+    self.dictionary[@"description"] = val;
+}
+
 - (NSString*) displayName
 {
     if([[NSNull null] isEqual:self.dictionary[@"displayName"]])
@@ -45,18 +59,16 @@
     self.dictionary[@"displayName"] = val;
 }
 
-- (NSString*) roleDefinitionDescription
+- (BOOL) isBuiltIn
 {
-    if([[NSNull null] isEqual:self.dictionary[@"description"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"description"];
+    _isBuiltIn = [self.dictionary[@"isBuiltIn"] boolValue];
+    return _isBuiltIn;
 }
 
-- (void) setRoleDefinitionDescription: (NSString*) val
+- (void) setIsBuiltIn: (BOOL) val
 {
-    self.dictionary[@"description"] = val;
+    _isBuiltIn = val;
+    self.dictionary[@"isBuiltIn"] = @(val);
 }
 
 - (NSArray*) rolePermissions
@@ -82,18 +94,6 @@
 {
     _rolePermissions = val;
     self.dictionary[@"rolePermissions"] = val;
-}
-
-- (BOOL) isBuiltIn
-{
-    _isBuiltIn = [self.dictionary[@"isBuiltIn"] boolValue];
-    return _isBuiltIn;
-}
-
-- (void) setIsBuiltIn: (BOOL) val
-{
-    _isBuiltIn = val;
-    self.dictionary[@"isBuiltIn"] = @(val);
 }
 
 - (NSArray*) roleAssignments

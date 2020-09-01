@@ -15,8 +15,8 @@
 @interface MSGraphModifiedProperty()
 {
     NSString* _displayName;
-    NSString* _oldValue;
     NSString* _newValue;
+    NSString* _oldValue;
 }
 @end
 
@@ -36,20 +36,6 @@
     self.dictionary[@"displayName"] = val;
 }
 
-- (NSString*) oldValue
-{
-    if([[NSNull null] isEqual:self.dictionary[@"oldValue"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"oldValue"];
-}
-
-- (void) setOldValue: (NSString*) val
-{
-    self.dictionary[@"oldValue"] = val;
-}
-
 - (NSString*) getNewValue
 {
     if([[NSNull null] isEqual:self.dictionary[@"newValue"]])
@@ -62,6 +48,20 @@
 - (void) setNewValue: (NSString*) val
 {
     self.dictionary[@"newValue"] = val;
+}
+
+- (NSString*) oldValue
+{
+    if([[NSNull null] isEqual:self.dictionary[@"oldValue"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"oldValue"];
+}
+
+- (void) setOldValue: (NSString*) val
+{
+    self.dictionary[@"oldValue"] = val;
 }
 
 @end

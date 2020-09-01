@@ -15,8 +15,8 @@
 @interface MSGraphUsedInsight()
 {
     MSGraphUsageDetails* _lastUsed;
-    MSGraphResourceVisualization* _resourceVisualization;
     MSGraphResourceReference* _resourceReference;
+    MSGraphResourceVisualization* _resourceVisualization;
     MSGraphEntity* _resource;
 }
 @end
@@ -44,20 +44,6 @@
     self.dictionary[@"lastUsed"] = val;
 }
 
-- (MSGraphResourceVisualization*) resourceVisualization
-{
-    if(!_resourceVisualization){
-        _resourceVisualization = [[MSGraphResourceVisualization alloc] initWithDictionary: self.dictionary[@"resourceVisualization"]];
-    }
-    return _resourceVisualization;
-}
-
-- (void) setResourceVisualization: (MSGraphResourceVisualization*) val
-{
-    _resourceVisualization = val;
-    self.dictionary[@"resourceVisualization"] = val;
-}
-
 - (MSGraphResourceReference*) resourceReference
 {
     if(!_resourceReference){
@@ -70,6 +56,20 @@
 {
     _resourceReference = val;
     self.dictionary[@"resourceReference"] = val;
+}
+
+- (MSGraphResourceVisualization*) resourceVisualization
+{
+    if(!_resourceVisualization){
+        _resourceVisualization = [[MSGraphResourceVisualization alloc] initWithDictionary: self.dictionary[@"resourceVisualization"]];
+    }
+    return _resourceVisualization;
+}
+
+- (void) setResourceVisualization: (MSGraphResourceVisualization*) val
+{
+    _resourceVisualization = val;
+    self.dictionary[@"resourceVisualization"] = val;
 }
 
 - (MSGraphEntity*) resource

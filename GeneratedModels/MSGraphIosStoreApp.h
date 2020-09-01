@@ -8,9 +8,9 @@
 
 @interface MSGraphIosStoreApp : MSGraphMobileApp
 
-  @property (nullable, nonatomic, setter=setBundleId:, getter=bundleId) NSString* bundleId;
+  @property (nonnull, nonatomic, setter=setApplicableDeviceType:, getter=applicableDeviceType) MSGraphIosDeviceType* applicableDeviceType;
     @property (nullable, nonatomic, setter=setAppStoreUrl:, getter=appStoreUrl) NSString* appStoreUrl;
-    @property (nonnull, nonatomic, setter=setApplicableDeviceType:, getter=applicableDeviceType) MSGraphIosDeviceType* applicableDeviceType;
+    @property (nullable, nonatomic, setter=setBundleId:, getter=bundleId) NSString* bundleId;
     @property (nullable, nonatomic, setter=setMinimumSupportedOperatingSystem:, getter=minimumSupportedOperatingSystem) MSGraphIosMinimumOperatingSystem* minimumSupportedOperatingSystem;
   
 @end

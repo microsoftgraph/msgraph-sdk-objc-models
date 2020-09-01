@@ -7,7 +7,7 @@
 
 @interface MSGraphWindowsInformationProtectionNetworkLearningSummary : MSGraphEntity
 
-  @property (nullable, nonatomic, setter=setUrl:, getter=url) NSString* url;
-    @property (nonatomic, setter=setDeviceCount:, getter=deviceCount) int32_t deviceCount;
+  @property (nonatomic, setter=setDeviceCount:, getter=deviceCount) int32_t deviceCount;
+    @property (nullable, nonatomic, setter=setUrl:, getter=url) NSString* url;
   
 @end

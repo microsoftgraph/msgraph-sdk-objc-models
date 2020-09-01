@@ -10,10 +10,10 @@
 
 @interface MSGraphParticipantInfo : MSObject
 
-@property (nonnull, nonatomic, setter=setIdentity:, getter=identity) MSGraphIdentitySet* identity;
-@property (nullable, nonatomic, setter=setEndpointType:, getter=endpointType) MSGraphEndpointType* endpointType;
-@property (nullable, nonatomic, setter=setRegion:, getter=region) NSString* region;
-@property (nullable, nonatomic, setter=setLanguageId:, getter=languageId) NSString* languageId;
 @property (nullable, nonatomic, setter=setCountryCode:, getter=countryCode) NSString* countryCode;
+@property (nullable, nonatomic, setter=setEndpointType:, getter=endpointType) MSGraphEndpointType* endpointType;
+@property (nonnull, nonatomic, setter=setIdentity:, getter=identity) MSGraphIdentitySet* identity;
+@property (nullable, nonatomic, setter=setLanguageId:, getter=languageId) NSString* languageId;
+@property (nullable, nonatomic, setter=setRegion:, getter=region) NSString* region;
 
 @end

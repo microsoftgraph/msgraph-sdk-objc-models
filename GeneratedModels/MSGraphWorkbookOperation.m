@@ -14,9 +14,9 @@
 
 @interface MSGraphWorkbookOperation()
 {
-    MSGraphWorkbookOperationStatus* _status;
-    NSString* _resourceLocation;
     MSGraphWorkbookOperationError* _error;
+    NSString* _resourceLocation;
+    MSGraphWorkbookOperationStatus* _status;
 }
 @end
 
@@ -29,18 +29,18 @@
     }
     return self;
 }
-- (MSGraphWorkbookOperationStatus*) status
+- (MSGraphWorkbookOperationError*) error
 {
-    if(!_status){
-        _status = [self.dictionary[@"status"] toMSGraphWorkbookOperationStatus];
+    if(!_error){
+        _error = [[MSGraphWorkbookOperationError alloc] initWithDictionary: self.dictionary[@"error"]];
     }
-    return _status;
+    return _error;
 }
 
-- (void) setStatus: (MSGraphWorkbookOperationStatus*) val
+- (void) setError: (MSGraphWorkbookOperationError*) val
 {
-    _status = val;
-    self.dictionary[@"status"] = val;
+    _error = val;
+    self.dictionary[@"error"] = val;
 }
 
 - (NSString*) resourceLocation
@@ -57,18 +57,18 @@
     self.dictionary[@"resourceLocation"] = val;
 }
 
-- (MSGraphWorkbookOperationError*) error
+- (MSGraphWorkbookOperationStatus*) status
 {
-    if(!_error){
-        _error = [[MSGraphWorkbookOperationError alloc] initWithDictionary: self.dictionary[@"error"]];
+    if(!_status){
+        _status = [self.dictionary[@"status"] toMSGraphWorkbookOperationStatus];
     }
-    return _error;
+    return _status;
 }
 
-- (void) setError: (MSGraphWorkbookOperationError*) val
+- (void) setStatus: (MSGraphWorkbookOperationStatus*) val
 {
-    _error = val;
-    self.dictionary[@"error"] = val;
+    _status = val;
+    self.dictionary[@"status"] = val;
 }
 
 

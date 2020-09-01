@@ -18,9 +18,9 @@
     NSDate* _createdDateTime;
     NSString* _owner;
     NSString* _title;
-    NSArray* _tasks;
     NSArray* _buckets;
     MSGraphPlannerPlanDetails* _details;
+    NSArray* _tasks;
 }
 @end
 
@@ -85,31 +85,6 @@
     self.dictionary[@"title"] = val;
 }
 
-- (NSArray*) tasks
-{
-    if(!_tasks){
-        
-    NSMutableArray *tasksResult = [NSMutableArray array];
-    NSArray *tasks = self.dictionary[@"tasks"];
-
-    if ([tasks isKindOfClass:[NSArray class]]){
-        for (id tempPlannerTask in tasks){
-            [tasksResult addObject:tempPlannerTask];
-        }
-    }
-
-    _tasks = tasksResult;
-        
-    }
-    return _tasks;
-}
-
-- (void) setTasks: (NSArray*) val
-{
-    _tasks = val;
-    self.dictionary[@"tasks"] = val;
-}
-
 - (NSArray*) buckets
 {
     if(!_buckets){
@@ -147,6 +122,31 @@
 {
     _details = val;
     self.dictionary[@"details"] = val;
+}
+
+- (NSArray*) tasks
+{
+    if(!_tasks){
+        
+    NSMutableArray *tasksResult = [NSMutableArray array];
+    NSArray *tasks = self.dictionary[@"tasks"];
+
+    if ([tasks isKindOfClass:[NSArray class]]){
+        for (id tempPlannerTask in tasks){
+            [tasksResult addObject:tempPlannerTask];
+        }
+    }
+
+    _tasks = tasksResult;
+        
+    }
+    return _tasks;
+}
+
+- (void) setTasks: (NSArray*) val
+{
+    _tasks = val;
+    self.dictionary[@"tasks"] = val;
 }
 
 

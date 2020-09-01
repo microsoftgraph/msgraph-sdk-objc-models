@@ -10,10 +10,10 @@
 
 @interface MSGraphRecurrenceRange : MSObject
 
-@property (nullable, nonatomic, setter=setType:, getter=type) MSGraphRecurrenceRangeType* type;
-@property (nullable, nonatomic, setter=setStartDate:, getter=startDate) MSDate* startDate;
 @property (nullable, nonatomic, setter=setEndDate:, getter=endDate) MSDate* endDate;
-@property (nullable, nonatomic, setter=setRecurrenceTimeZone:, getter=recurrenceTimeZone) NSString* recurrenceTimeZone;
 @property (nonatomic, setter=setNumberOfOccurrences:, getter=numberOfOccurrences) int32_t numberOfOccurrences;
+@property (nullable, nonatomic, setter=setRecurrenceTimeZone:, getter=recurrenceTimeZone) NSString* recurrenceTimeZone;
+@property (nullable, nonatomic, setter=setStartDate:, getter=startDate) MSDate* startDate;
+@property (nullable, nonatomic, setter=setType:, getter=type) MSGraphRecurrenceRangeType* type;
 
 @end

@@ -8,9 +8,9 @@
 
 @interface MSGraphTermsAndConditionsAcceptanceStatus : MSGraphEntity
 
-  @property (nullable, nonatomic, setter=setUserDisplayName:, getter=userDisplayName) NSString* userDisplayName;
+  @property (nonnull, nonatomic, setter=setAcceptedDateTime:, getter=acceptedDateTime) NSDate* acceptedDateTime;
     @property (nonatomic, setter=setAcceptedVersion:, getter=acceptedVersion) int32_t acceptedVersion;
-    @property (nonnull, nonatomic, setter=setAcceptedDateTime:, getter=acceptedDateTime) NSDate* acceptedDateTime;
+    @property (nullable, nonatomic, setter=setUserDisplayName:, getter=userDisplayName) NSString* userDisplayName;
     @property (nullable, nonatomic, setter=setUserPrincipalName:, getter=userPrincipalName) NSString* userPrincipalName;
     @property (nullable, nonatomic, setter=setTermsAndConditions:, getter=termsAndConditions) MSGraphTermsAndConditions* termsAndConditions;
   

@@ -14,19 +14,19 @@
 
 @interface MSGraphEducationClass()
 {
-    NSString* _displayName;
-    NSString* _mailNickname;
-    NSString* _educationClassDescription;
-    MSGraphIdentitySet* _createdBy;
     NSString* _classCode;
-    NSString* _externalName;
+    MSGraphIdentitySet* _createdBy;
+    NSString* _educationClassDescription;
+    NSString* _displayName;
     NSString* _externalId;
+    NSString* _externalName;
     MSGraphEducationExternalSource* _externalSource;
+    NSString* _mailNickname;
     MSGraphEducationTerm* _term;
-    NSArray* _schools;
-    NSArray* _members;
-    NSArray* _teachers;
     MSGraphGroup* _group;
+    NSArray* _members;
+    NSArray* _schools;
+    NSArray* _teachers;
 }
 @end
 
@@ -39,38 +39,18 @@
     }
     return self;
 }
-- (NSString*) displayName
+- (NSString*) classCode
 {
-    return self.dictionary[@"displayName"];
-}
-
-- (void) setDisplayName: (NSString*) val
-{
-    self.dictionary[@"displayName"] = val;
-}
-
-- (NSString*) mailNickname
-{
-    return self.dictionary[@"mailNickname"];
-}
-
-- (void) setMailNickname: (NSString*) val
-{
-    self.dictionary[@"mailNickname"] = val;
-}
-
-- (NSString*) educationClassDescription
-{
-    if([[NSNull null] isEqual:self.dictionary[@"description"]])
+    if([[NSNull null] isEqual:self.dictionary[@"classCode"]])
     {
         return nil;
     }   
-    return self.dictionary[@"description"];
+    return self.dictionary[@"classCode"];
 }
 
-- (void) setEducationClassDescription: (NSString*) val
+- (void) setClassCode: (NSString*) val
 {
-    self.dictionary[@"description"] = val;
+    self.dictionary[@"classCode"] = val;
 }
 
 - (MSGraphIdentitySet*) createdBy
@@ -87,32 +67,28 @@
     self.dictionary[@"createdBy"] = val;
 }
 
-- (NSString*) classCode
+- (NSString*) educationClassDescription
 {
-    if([[NSNull null] isEqual:self.dictionary[@"classCode"]])
+    if([[NSNull null] isEqual:self.dictionary[@"description"]])
     {
         return nil;
     }   
-    return self.dictionary[@"classCode"];
+    return self.dictionary[@"description"];
 }
 
-- (void) setClassCode: (NSString*) val
+- (void) setEducationClassDescription: (NSString*) val
 {
-    self.dictionary[@"classCode"] = val;
+    self.dictionary[@"description"] = val;
 }
 
-- (NSString*) externalName
+- (NSString*) displayName
 {
-    if([[NSNull null] isEqual:self.dictionary[@"externalName"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"externalName"];
+    return self.dictionary[@"displayName"];
 }
 
-- (void) setExternalName: (NSString*) val
+- (void) setDisplayName: (NSString*) val
 {
-    self.dictionary[@"externalName"] = val;
+    self.dictionary[@"displayName"] = val;
 }
 
 - (NSString*) externalId
@@ -129,6 +105,20 @@
     self.dictionary[@"externalId"] = val;
 }
 
+- (NSString*) externalName
+{
+    if([[NSNull null] isEqual:self.dictionary[@"externalName"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"externalName"];
+}
+
+- (void) setExternalName: (NSString*) val
+{
+    self.dictionary[@"externalName"] = val;
+}
+
 - (MSGraphEducationExternalSource*) externalSource
 {
     if(!_externalSource){
@@ -141,6 +131,16 @@
 {
     _externalSource = val;
     self.dictionary[@"externalSource"] = val;
+}
+
+- (NSString*) mailNickname
+{
+    return self.dictionary[@"mailNickname"];
+}
+
+- (void) setMailNickname: (NSString*) val
+{
+    self.dictionary[@"mailNickname"] = val;
 }
 
 - (MSGraphEducationTerm*) term
@@ -157,29 +157,18 @@
     self.dictionary[@"term"] = val;
 }
 
-- (NSArray*) schools
+- (MSGraphGroup*) group
 {
-    if(!_schools){
-        
-    NSMutableArray *schoolsResult = [NSMutableArray array];
-    NSArray *schools = self.dictionary[@"schools"];
-
-    if ([schools isKindOfClass:[NSArray class]]){
-        for (id tempEducationSchool in schools){
-            [schoolsResult addObject:tempEducationSchool];
-        }
+    if(!_group){
+        _group = [[MSGraphGroup alloc] initWithDictionary: self.dictionary[@"group"]];
     }
-
-    _schools = schoolsResult;
-        
-    }
-    return _schools;
+    return _group;
 }
 
-- (void) setSchools: (NSArray*) val
+- (void) setGroup: (MSGraphGroup*) val
 {
-    _schools = val;
-    self.dictionary[@"schools"] = val;
+    _group = val;
+    self.dictionary[@"group"] = val;
 }
 
 - (NSArray*) members
@@ -207,6 +196,31 @@
     self.dictionary[@"members"] = val;
 }
 
+- (NSArray*) schools
+{
+    if(!_schools){
+        
+    NSMutableArray *schoolsResult = [NSMutableArray array];
+    NSArray *schools = self.dictionary[@"schools"];
+
+    if ([schools isKindOfClass:[NSArray class]]){
+        for (id tempEducationSchool in schools){
+            [schoolsResult addObject:tempEducationSchool];
+        }
+    }
+
+    _schools = schoolsResult;
+        
+    }
+    return _schools;
+}
+
+- (void) setSchools: (NSArray*) val
+{
+    _schools = val;
+    self.dictionary[@"schools"] = val;
+}
+
 - (NSArray*) teachers
 {
     if(!_teachers){
@@ -230,20 +244,6 @@
 {
     _teachers = val;
     self.dictionary[@"teachers"] = val;
-}
-
-- (MSGraphGroup*) group
-{
-    if(!_group){
-        _group = [[MSGraphGroup alloc] initWithDictionary: self.dictionary[@"group"]];
-    }
-    return _group;
-}
-
-- (void) setGroup: (MSGraphGroup*) val
-{
-    _group = val;
-    self.dictionary[@"group"] = val;
 }
 
 

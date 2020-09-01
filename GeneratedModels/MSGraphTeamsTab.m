@@ -14,9 +14,9 @@
 
 @interface MSGraphTeamsTab()
 {
+    MSGraphTeamsTabConfiguration* _configuration;
     NSString* _displayName;
     NSString* _webUrl;
-    MSGraphTeamsTabConfiguration* _configuration;
     MSGraphTeamsApp* _teamsApp;
 }
 @end
@@ -30,6 +30,20 @@
     }
     return self;
 }
+- (MSGraphTeamsTabConfiguration*) configuration
+{
+    if(!_configuration){
+        _configuration = [[MSGraphTeamsTabConfiguration alloc] initWithDictionary: self.dictionary[@"configuration"]];
+    }
+    return _configuration;
+}
+
+- (void) setConfiguration: (MSGraphTeamsTabConfiguration*) val
+{
+    _configuration = val;
+    self.dictionary[@"configuration"] = val;
+}
+
 - (NSString*) displayName
 {
     if([[NSNull null] isEqual:self.dictionary[@"displayName"]])
@@ -56,20 +70,6 @@
 - (void) setWebUrl: (NSString*) val
 {
     self.dictionary[@"webUrl"] = val;
-}
-
-- (MSGraphTeamsTabConfiguration*) configuration
-{
-    if(!_configuration){
-        _configuration = [[MSGraphTeamsTabConfiguration alloc] initWithDictionary: self.dictionary[@"configuration"]];
-    }
-    return _configuration;
-}
-
-- (void) setConfiguration: (MSGraphTeamsTabConfiguration*) val
-{
-    _configuration = val;
-    self.dictionary[@"configuration"] = val;
 }
 
 - (MSGraphTeamsApp*) teamsApp

@@ -14,257 +14,37 @@
 
 @interface MSGraphManagedAppProtection()
 {
-    MSDuration* _periodOfflineBeforeAccessCheck;
-    MSDuration* _periodOnlineBeforeAccessCheck;
+    NSArray* _allowedDataStorageLocations;
     MSGraphManagedAppDataTransferLevel* _allowedInboundDataTransferSources;
-    MSGraphManagedAppDataTransferLevel* _allowedOutboundDataTransferDestinations;
-    BOOL _organizationalCredentialsRequired;
     MSGraphManagedAppClipboardSharingLevel* _allowedOutboundClipboardSharingLevel;
+    MSGraphManagedAppDataTransferLevel* _allowedOutboundDataTransferDestinations;
+    BOOL _contactSyncBlocked;
     BOOL _dataBackupBlocked;
     BOOL _deviceComplianceRequired;
-    BOOL _managedBrowserToOpenLinksRequired;
-    BOOL _saveAsBlocked;
-    MSDuration* _periodOfflineBeforeWipeIsEnforced;
-    BOOL _pinRequired;
-    int32_t _maximumPinRetries;
-    BOOL _simplePinBlocked;
-    int32_t _minimumPinLength;
-    MSGraphManagedAppPinCharacterSet* _pinCharacterSet;
-    MSDuration* _periodBeforePinReset;
-    NSArray* _allowedDataStorageLocations;
-    BOOL _contactSyncBlocked;
-    BOOL _printBlocked;
-    BOOL _fingerprintBlocked;
     BOOL _disableAppPinIfDevicePinIsSet;
-    NSString* _minimumRequiredOsVersion;
-    NSString* _minimumWarningOsVersion;
-    NSString* _minimumRequiredAppVersion;
-    NSString* _minimumWarningAppVersion;
+    BOOL _fingerprintBlocked;
     MSGraphManagedBrowserType* _managedBrowser;
+    BOOL _managedBrowserToOpenLinksRequired;
+    int32_t _maximumPinRetries;
+    int32_t _minimumPinLength;
+    NSString* _minimumRequiredAppVersion;
+    NSString* _minimumRequiredOsVersion;
+    NSString* _minimumWarningAppVersion;
+    NSString* _minimumWarningOsVersion;
+    BOOL _organizationalCredentialsRequired;
+    MSDuration* _periodBeforePinReset;
+    MSDuration* _periodOfflineBeforeAccessCheck;
+    MSDuration* _periodOfflineBeforeWipeIsEnforced;
+    MSDuration* _periodOnlineBeforeAccessCheck;
+    MSGraphManagedAppPinCharacterSet* _pinCharacterSet;
+    BOOL _pinRequired;
+    BOOL _printBlocked;
+    BOOL _saveAsBlocked;
+    BOOL _simplePinBlocked;
 }
 @end
 
 @implementation MSGraphManagedAppProtection
-
-- (MSDuration*) periodOfflineBeforeAccessCheck
-{
-    if(!_periodOfflineBeforeAccessCheck){
-        _periodOfflineBeforeAccessCheck = [MSDuration ms_durationFromString: self.dictionary[@"periodOfflineBeforeAccessCheck"]];
-    }
-    return _periodOfflineBeforeAccessCheck;
-}
-
-- (void) setPeriodOfflineBeforeAccessCheck: (MSDuration*) val
-{
-    _periodOfflineBeforeAccessCheck = val;
-    self.dictionary[@"periodOfflineBeforeAccessCheck"] = val.durationString;
-}
-
-- (MSDuration*) periodOnlineBeforeAccessCheck
-{
-    if(!_periodOnlineBeforeAccessCheck){
-        _periodOnlineBeforeAccessCheck = [MSDuration ms_durationFromString: self.dictionary[@"periodOnlineBeforeAccessCheck"]];
-    }
-    return _periodOnlineBeforeAccessCheck;
-}
-
-- (void) setPeriodOnlineBeforeAccessCheck: (MSDuration*) val
-{
-    _periodOnlineBeforeAccessCheck = val;
-    self.dictionary[@"periodOnlineBeforeAccessCheck"] = val.durationString;
-}
-
-- (MSGraphManagedAppDataTransferLevel*) allowedInboundDataTransferSources
-{
-    if(!_allowedInboundDataTransferSources){
-        _allowedInboundDataTransferSources = [self.dictionary[@"allowedInboundDataTransferSources"] toMSGraphManagedAppDataTransferLevel];
-    }
-    return _allowedInboundDataTransferSources;
-}
-
-- (void) setAllowedInboundDataTransferSources: (MSGraphManagedAppDataTransferLevel*) val
-{
-    _allowedInboundDataTransferSources = val;
-    self.dictionary[@"allowedInboundDataTransferSources"] = val;
-}
-
-- (MSGraphManagedAppDataTransferLevel*) allowedOutboundDataTransferDestinations
-{
-    if(!_allowedOutboundDataTransferDestinations){
-        _allowedOutboundDataTransferDestinations = [self.dictionary[@"allowedOutboundDataTransferDestinations"] toMSGraphManagedAppDataTransferLevel];
-    }
-    return _allowedOutboundDataTransferDestinations;
-}
-
-- (void) setAllowedOutboundDataTransferDestinations: (MSGraphManagedAppDataTransferLevel*) val
-{
-    _allowedOutboundDataTransferDestinations = val;
-    self.dictionary[@"allowedOutboundDataTransferDestinations"] = val;
-}
-
-- (BOOL) organizationalCredentialsRequired
-{
-    _organizationalCredentialsRequired = [self.dictionary[@"organizationalCredentialsRequired"] boolValue];
-    return _organizationalCredentialsRequired;
-}
-
-- (void) setOrganizationalCredentialsRequired: (BOOL) val
-{
-    _organizationalCredentialsRequired = val;
-    self.dictionary[@"organizationalCredentialsRequired"] = @(val);
-}
-
-- (MSGraphManagedAppClipboardSharingLevel*) allowedOutboundClipboardSharingLevel
-{
-    if(!_allowedOutboundClipboardSharingLevel){
-        _allowedOutboundClipboardSharingLevel = [self.dictionary[@"allowedOutboundClipboardSharingLevel"] toMSGraphManagedAppClipboardSharingLevel];
-    }
-    return _allowedOutboundClipboardSharingLevel;
-}
-
-- (void) setAllowedOutboundClipboardSharingLevel: (MSGraphManagedAppClipboardSharingLevel*) val
-{
-    _allowedOutboundClipboardSharingLevel = val;
-    self.dictionary[@"allowedOutboundClipboardSharingLevel"] = val;
-}
-
-- (BOOL) dataBackupBlocked
-{
-    _dataBackupBlocked = [self.dictionary[@"dataBackupBlocked"] boolValue];
-    return _dataBackupBlocked;
-}
-
-- (void) setDataBackupBlocked: (BOOL) val
-{
-    _dataBackupBlocked = val;
-    self.dictionary[@"dataBackupBlocked"] = @(val);
-}
-
-- (BOOL) deviceComplianceRequired
-{
-    _deviceComplianceRequired = [self.dictionary[@"deviceComplianceRequired"] boolValue];
-    return _deviceComplianceRequired;
-}
-
-- (void) setDeviceComplianceRequired: (BOOL) val
-{
-    _deviceComplianceRequired = val;
-    self.dictionary[@"deviceComplianceRequired"] = @(val);
-}
-
-- (BOOL) managedBrowserToOpenLinksRequired
-{
-    _managedBrowserToOpenLinksRequired = [self.dictionary[@"managedBrowserToOpenLinksRequired"] boolValue];
-    return _managedBrowserToOpenLinksRequired;
-}
-
-- (void) setManagedBrowserToOpenLinksRequired: (BOOL) val
-{
-    _managedBrowserToOpenLinksRequired = val;
-    self.dictionary[@"managedBrowserToOpenLinksRequired"] = @(val);
-}
-
-- (BOOL) saveAsBlocked
-{
-    _saveAsBlocked = [self.dictionary[@"saveAsBlocked"] boolValue];
-    return _saveAsBlocked;
-}
-
-- (void) setSaveAsBlocked: (BOOL) val
-{
-    _saveAsBlocked = val;
-    self.dictionary[@"saveAsBlocked"] = @(val);
-}
-
-- (MSDuration*) periodOfflineBeforeWipeIsEnforced
-{
-    if(!_periodOfflineBeforeWipeIsEnforced){
-        _periodOfflineBeforeWipeIsEnforced = [MSDuration ms_durationFromString: self.dictionary[@"periodOfflineBeforeWipeIsEnforced"]];
-    }
-    return _periodOfflineBeforeWipeIsEnforced;
-}
-
-- (void) setPeriodOfflineBeforeWipeIsEnforced: (MSDuration*) val
-{
-    _periodOfflineBeforeWipeIsEnforced = val;
-    self.dictionary[@"periodOfflineBeforeWipeIsEnforced"] = val.durationString;
-}
-
-- (BOOL) pinRequired
-{
-    _pinRequired = [self.dictionary[@"pinRequired"] boolValue];
-    return _pinRequired;
-}
-
-- (void) setPinRequired: (BOOL) val
-{
-    _pinRequired = val;
-    self.dictionary[@"pinRequired"] = @(val);
-}
-
-- (int32_t) maximumPinRetries
-{
-    _maximumPinRetries = [self.dictionary[@"maximumPinRetries"] intValue];
-    return _maximumPinRetries;
-}
-
-- (void) setMaximumPinRetries: (int32_t) val
-{
-    _maximumPinRetries = val;
-    self.dictionary[@"maximumPinRetries"] = @(val);
-}
-
-- (BOOL) simplePinBlocked
-{
-    _simplePinBlocked = [self.dictionary[@"simplePinBlocked"] boolValue];
-    return _simplePinBlocked;
-}
-
-- (void) setSimplePinBlocked: (BOOL) val
-{
-    _simplePinBlocked = val;
-    self.dictionary[@"simplePinBlocked"] = @(val);
-}
-
-- (int32_t) minimumPinLength
-{
-    _minimumPinLength = [self.dictionary[@"minimumPinLength"] intValue];
-    return _minimumPinLength;
-}
-
-- (void) setMinimumPinLength: (int32_t) val
-{
-    _minimumPinLength = val;
-    self.dictionary[@"minimumPinLength"] = @(val);
-}
-
-- (MSGraphManagedAppPinCharacterSet*) pinCharacterSet
-{
-    if(!_pinCharacterSet){
-        _pinCharacterSet = [self.dictionary[@"pinCharacterSet"] toMSGraphManagedAppPinCharacterSet];
-    }
-    return _pinCharacterSet;
-}
-
-- (void) setPinCharacterSet: (MSGraphManagedAppPinCharacterSet*) val
-{
-    _pinCharacterSet = val;
-    self.dictionary[@"pinCharacterSet"] = val;
-}
-
-- (MSDuration*) periodBeforePinReset
-{
-    if(!_periodBeforePinReset){
-        _periodBeforePinReset = [MSDuration ms_durationFromString: self.dictionary[@"periodBeforePinReset"]];
-    }
-    return _periodBeforePinReset;
-}
-
-- (void) setPeriodBeforePinReset: (MSDuration*) val
-{
-    _periodBeforePinReset = val;
-    self.dictionary[@"periodBeforePinReset"] = val.durationString;
-}
 
 - (NSArray*) allowedDataStorageLocations
 {
@@ -291,6 +71,48 @@
     self.dictionary[@"allowedDataStorageLocations"] = val;
 }
 
+- (MSGraphManagedAppDataTransferLevel*) allowedInboundDataTransferSources
+{
+    if(!_allowedInboundDataTransferSources){
+        _allowedInboundDataTransferSources = [self.dictionary[@"allowedInboundDataTransferSources"] toMSGraphManagedAppDataTransferLevel];
+    }
+    return _allowedInboundDataTransferSources;
+}
+
+- (void) setAllowedInboundDataTransferSources: (MSGraphManagedAppDataTransferLevel*) val
+{
+    _allowedInboundDataTransferSources = val;
+    self.dictionary[@"allowedInboundDataTransferSources"] = val;
+}
+
+- (MSGraphManagedAppClipboardSharingLevel*) allowedOutboundClipboardSharingLevel
+{
+    if(!_allowedOutboundClipboardSharingLevel){
+        _allowedOutboundClipboardSharingLevel = [self.dictionary[@"allowedOutboundClipboardSharingLevel"] toMSGraphManagedAppClipboardSharingLevel];
+    }
+    return _allowedOutboundClipboardSharingLevel;
+}
+
+- (void) setAllowedOutboundClipboardSharingLevel: (MSGraphManagedAppClipboardSharingLevel*) val
+{
+    _allowedOutboundClipboardSharingLevel = val;
+    self.dictionary[@"allowedOutboundClipboardSharingLevel"] = val;
+}
+
+- (MSGraphManagedAppDataTransferLevel*) allowedOutboundDataTransferDestinations
+{
+    if(!_allowedOutboundDataTransferDestinations){
+        _allowedOutboundDataTransferDestinations = [self.dictionary[@"allowedOutboundDataTransferDestinations"] toMSGraphManagedAppDataTransferLevel];
+    }
+    return _allowedOutboundDataTransferDestinations;
+}
+
+- (void) setAllowedOutboundDataTransferDestinations: (MSGraphManagedAppDataTransferLevel*) val
+{
+    _allowedOutboundDataTransferDestinations = val;
+    self.dictionary[@"allowedOutboundDataTransferDestinations"] = val;
+}
+
 - (BOOL) contactSyncBlocked
 {
     _contactSyncBlocked = [self.dictionary[@"contactSyncBlocked"] boolValue];
@@ -303,28 +125,28 @@
     self.dictionary[@"contactSyncBlocked"] = @(val);
 }
 
-- (BOOL) printBlocked
+- (BOOL) dataBackupBlocked
 {
-    _printBlocked = [self.dictionary[@"printBlocked"] boolValue];
-    return _printBlocked;
+    _dataBackupBlocked = [self.dictionary[@"dataBackupBlocked"] boolValue];
+    return _dataBackupBlocked;
 }
 
-- (void) setPrintBlocked: (BOOL) val
+- (void) setDataBackupBlocked: (BOOL) val
 {
-    _printBlocked = val;
-    self.dictionary[@"printBlocked"] = @(val);
+    _dataBackupBlocked = val;
+    self.dictionary[@"dataBackupBlocked"] = @(val);
 }
 
-- (BOOL) fingerprintBlocked
+- (BOOL) deviceComplianceRequired
 {
-    _fingerprintBlocked = [self.dictionary[@"fingerprintBlocked"] boolValue];
-    return _fingerprintBlocked;
+    _deviceComplianceRequired = [self.dictionary[@"deviceComplianceRequired"] boolValue];
+    return _deviceComplianceRequired;
 }
 
-- (void) setFingerprintBlocked: (BOOL) val
+- (void) setDeviceComplianceRequired: (BOOL) val
 {
-    _fingerprintBlocked = val;
-    self.dictionary[@"fingerprintBlocked"] = @(val);
+    _deviceComplianceRequired = val;
+    self.dictionary[@"deviceComplianceRequired"] = @(val);
 }
 
 - (BOOL) disableAppPinIfDevicePinIsSet
@@ -339,32 +161,66 @@
     self.dictionary[@"disableAppPinIfDevicePinIsSet"] = @(val);
 }
 
-- (NSString*) minimumRequiredOsVersion
+- (BOOL) fingerprintBlocked
 {
-    if([[NSNull null] isEqual:self.dictionary[@"minimumRequiredOsVersion"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"minimumRequiredOsVersion"];
+    _fingerprintBlocked = [self.dictionary[@"fingerprintBlocked"] boolValue];
+    return _fingerprintBlocked;
 }
 
-- (void) setMinimumRequiredOsVersion: (NSString*) val
+- (void) setFingerprintBlocked: (BOOL) val
 {
-    self.dictionary[@"minimumRequiredOsVersion"] = val;
+    _fingerprintBlocked = val;
+    self.dictionary[@"fingerprintBlocked"] = @(val);
 }
 
-- (NSString*) minimumWarningOsVersion
+- (MSGraphManagedBrowserType*) managedBrowser
 {
-    if([[NSNull null] isEqual:self.dictionary[@"minimumWarningOsVersion"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"minimumWarningOsVersion"];
+    if(!_managedBrowser){
+        _managedBrowser = [self.dictionary[@"managedBrowser"] toMSGraphManagedBrowserType];
+    }
+    return _managedBrowser;
 }
 
-- (void) setMinimumWarningOsVersion: (NSString*) val
+- (void) setManagedBrowser: (MSGraphManagedBrowserType*) val
 {
-    self.dictionary[@"minimumWarningOsVersion"] = val;
+    _managedBrowser = val;
+    self.dictionary[@"managedBrowser"] = val;
+}
+
+- (BOOL) managedBrowserToOpenLinksRequired
+{
+    _managedBrowserToOpenLinksRequired = [self.dictionary[@"managedBrowserToOpenLinksRequired"] boolValue];
+    return _managedBrowserToOpenLinksRequired;
+}
+
+- (void) setManagedBrowserToOpenLinksRequired: (BOOL) val
+{
+    _managedBrowserToOpenLinksRequired = val;
+    self.dictionary[@"managedBrowserToOpenLinksRequired"] = @(val);
+}
+
+- (int32_t) maximumPinRetries
+{
+    _maximumPinRetries = [self.dictionary[@"maximumPinRetries"] intValue];
+    return _maximumPinRetries;
+}
+
+- (void) setMaximumPinRetries: (int32_t) val
+{
+    _maximumPinRetries = val;
+    self.dictionary[@"maximumPinRetries"] = @(val);
+}
+
+- (int32_t) minimumPinLength
+{
+    _minimumPinLength = [self.dictionary[@"minimumPinLength"] intValue];
+    return _minimumPinLength;
+}
+
+- (void) setMinimumPinLength: (int32_t) val
+{
+    _minimumPinLength = val;
+    self.dictionary[@"minimumPinLength"] = @(val);
 }
 
 - (NSString*) minimumRequiredAppVersion
@@ -381,6 +237,20 @@
     self.dictionary[@"minimumRequiredAppVersion"] = val;
 }
 
+- (NSString*) minimumRequiredOsVersion
+{
+    if([[NSNull null] isEqual:self.dictionary[@"minimumRequiredOsVersion"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"minimumRequiredOsVersion"];
+}
+
+- (void) setMinimumRequiredOsVersion: (NSString*) val
+{
+    self.dictionary[@"minimumRequiredOsVersion"] = val;
+}
+
 - (NSString*) minimumWarningAppVersion
 {
     if([[NSNull null] isEqual:self.dictionary[@"minimumWarningAppVersion"]])
@@ -395,18 +265,148 @@
     self.dictionary[@"minimumWarningAppVersion"] = val;
 }
 
-- (MSGraphManagedBrowserType*) managedBrowser
+- (NSString*) minimumWarningOsVersion
 {
-    if(!_managedBrowser){
-        _managedBrowser = [self.dictionary[@"managedBrowser"] toMSGraphManagedBrowserType];
-    }
-    return _managedBrowser;
+    if([[NSNull null] isEqual:self.dictionary[@"minimumWarningOsVersion"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"minimumWarningOsVersion"];
 }
 
-- (void) setManagedBrowser: (MSGraphManagedBrowserType*) val
+- (void) setMinimumWarningOsVersion: (NSString*) val
 {
-    _managedBrowser = val;
-    self.dictionary[@"managedBrowser"] = val;
+    self.dictionary[@"minimumWarningOsVersion"] = val;
+}
+
+- (BOOL) organizationalCredentialsRequired
+{
+    _organizationalCredentialsRequired = [self.dictionary[@"organizationalCredentialsRequired"] boolValue];
+    return _organizationalCredentialsRequired;
+}
+
+- (void) setOrganizationalCredentialsRequired: (BOOL) val
+{
+    _organizationalCredentialsRequired = val;
+    self.dictionary[@"organizationalCredentialsRequired"] = @(val);
+}
+
+- (MSDuration*) periodBeforePinReset
+{
+    if(!_periodBeforePinReset){
+        _periodBeforePinReset = [MSDuration ms_durationFromString: self.dictionary[@"periodBeforePinReset"]];
+    }
+    return _periodBeforePinReset;
+}
+
+- (void) setPeriodBeforePinReset: (MSDuration*) val
+{
+    _periodBeforePinReset = val;
+    self.dictionary[@"periodBeforePinReset"] = val.durationString;
+}
+
+- (MSDuration*) periodOfflineBeforeAccessCheck
+{
+    if(!_periodOfflineBeforeAccessCheck){
+        _periodOfflineBeforeAccessCheck = [MSDuration ms_durationFromString: self.dictionary[@"periodOfflineBeforeAccessCheck"]];
+    }
+    return _periodOfflineBeforeAccessCheck;
+}
+
+- (void) setPeriodOfflineBeforeAccessCheck: (MSDuration*) val
+{
+    _periodOfflineBeforeAccessCheck = val;
+    self.dictionary[@"periodOfflineBeforeAccessCheck"] = val.durationString;
+}
+
+- (MSDuration*) periodOfflineBeforeWipeIsEnforced
+{
+    if(!_periodOfflineBeforeWipeIsEnforced){
+        _periodOfflineBeforeWipeIsEnforced = [MSDuration ms_durationFromString: self.dictionary[@"periodOfflineBeforeWipeIsEnforced"]];
+    }
+    return _periodOfflineBeforeWipeIsEnforced;
+}
+
+- (void) setPeriodOfflineBeforeWipeIsEnforced: (MSDuration*) val
+{
+    _periodOfflineBeforeWipeIsEnforced = val;
+    self.dictionary[@"periodOfflineBeforeWipeIsEnforced"] = val.durationString;
+}
+
+- (MSDuration*) periodOnlineBeforeAccessCheck
+{
+    if(!_periodOnlineBeforeAccessCheck){
+        _periodOnlineBeforeAccessCheck = [MSDuration ms_durationFromString: self.dictionary[@"periodOnlineBeforeAccessCheck"]];
+    }
+    return _periodOnlineBeforeAccessCheck;
+}
+
+- (void) setPeriodOnlineBeforeAccessCheck: (MSDuration*) val
+{
+    _periodOnlineBeforeAccessCheck = val;
+    self.dictionary[@"periodOnlineBeforeAccessCheck"] = val.durationString;
+}
+
+- (MSGraphManagedAppPinCharacterSet*) pinCharacterSet
+{
+    if(!_pinCharacterSet){
+        _pinCharacterSet = [self.dictionary[@"pinCharacterSet"] toMSGraphManagedAppPinCharacterSet];
+    }
+    return _pinCharacterSet;
+}
+
+- (void) setPinCharacterSet: (MSGraphManagedAppPinCharacterSet*) val
+{
+    _pinCharacterSet = val;
+    self.dictionary[@"pinCharacterSet"] = val;
+}
+
+- (BOOL) pinRequired
+{
+    _pinRequired = [self.dictionary[@"pinRequired"] boolValue];
+    return _pinRequired;
+}
+
+- (void) setPinRequired: (BOOL) val
+{
+    _pinRequired = val;
+    self.dictionary[@"pinRequired"] = @(val);
+}
+
+- (BOOL) printBlocked
+{
+    _printBlocked = [self.dictionary[@"printBlocked"] boolValue];
+    return _printBlocked;
+}
+
+- (void) setPrintBlocked: (BOOL) val
+{
+    _printBlocked = val;
+    self.dictionary[@"printBlocked"] = @(val);
+}
+
+- (BOOL) saveAsBlocked
+{
+    _saveAsBlocked = [self.dictionary[@"saveAsBlocked"] boolValue];
+    return _saveAsBlocked;
+}
+
+- (void) setSaveAsBlocked: (BOOL) val
+{
+    _saveAsBlocked = val;
+    self.dictionary[@"saveAsBlocked"] = @(val);
+}
+
+- (BOOL) simplePinBlocked
+{
+    _simplePinBlocked = [self.dictionary[@"simplePinBlocked"] boolValue];
+    return _simplePinBlocked;
+}
+
+- (void) setSimplePinBlocked: (BOOL) val
+{
+    _simplePinBlocked = val;
+    self.dictionary[@"simplePinBlocked"] = @(val);
 }
 
 

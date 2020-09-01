@@ -11,8 +11,8 @@
 @interface MSGraphWorkingHours : MSObject
 
 @property (nullable, nonatomic, setter=setDaysOfWeek:, getter=daysOfWeek) NSArray* daysOfWeek;
-@property (nullable, nonatomic, setter=setStartTime:, getter=startTime) MSTimeOfDay* startTime;
 @property (nullable, nonatomic, setter=setEndTime:, getter=endTime) MSTimeOfDay* endTime;
+@property (nullable, nonatomic, setter=setStartTime:, getter=startTime) MSTimeOfDay* startTime;
 @property (nullable, nonatomic, setter=setTimeZone:, getter=timeZone) MSGraphTimeZoneBase* timeZone;
 
 @end

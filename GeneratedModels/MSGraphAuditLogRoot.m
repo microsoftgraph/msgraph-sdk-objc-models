@@ -14,9 +14,9 @@
 
 @interface MSGraphAuditLogRoot()
 {
-    NSArray* _signIns;
     NSArray* _directoryAudits;
     NSArray* _restrictedSignIns;
+    NSArray* _signIns;
 }
 @end
 
@@ -29,31 +29,6 @@
     }
     return self;
 }
-- (NSArray*) signIns
-{
-    if(!_signIns){
-        
-    NSMutableArray *signInsResult = [NSMutableArray array];
-    NSArray *signIns = self.dictionary[@"signIns"];
-
-    if ([signIns isKindOfClass:[NSArray class]]){
-        for (id tempSignIn in signIns){
-            [signInsResult addObject:tempSignIn];
-        }
-    }
-
-    _signIns = signInsResult;
-        
-    }
-    return _signIns;
-}
-
-- (void) setSignIns: (NSArray*) val
-{
-    _signIns = val;
-    self.dictionary[@"signIns"] = val;
-}
-
 - (NSArray*) directoryAudits
 {
     if(!_directoryAudits){
@@ -102,6 +77,31 @@
 {
     _restrictedSignIns = val;
     self.dictionary[@"restrictedSignIns"] = val;
+}
+
+- (NSArray*) signIns
+{
+    if(!_signIns){
+        
+    NSMutableArray *signInsResult = [NSMutableArray array];
+    NSArray *signIns = self.dictionary[@"signIns"];
+
+    if ([signIns isKindOfClass:[NSArray class]]){
+        for (id tempSignIn in signIns){
+            [signInsResult addObject:tempSignIn];
+        }
+    }
+
+    _signIns = signInsResult;
+        
+    }
+    return _signIns;
+}
+
+- (void) setSignIns: (NSArray*) val
+{
+    _signIns = val;
+    self.dictionary[@"signIns"] = val;
 }
 
 

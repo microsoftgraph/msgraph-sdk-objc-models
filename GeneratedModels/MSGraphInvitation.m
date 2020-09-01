@@ -15,12 +15,12 @@
 @interface MSGraphInvitation()
 {
     NSString* _invitedUserDisplayName;
-    NSString* _invitedUserType;
     NSString* _invitedUserEmailAddress;
     MSGraphInvitedUserMessageInfo* _invitedUserMessageInfo;
-    BOOL _sendInvitationMessage;
-    NSString* _inviteRedirectUrl;
+    NSString* _invitedUserType;
     NSString* _inviteRedeemUrl;
+    NSString* _inviteRedirectUrl;
+    BOOL _sendInvitationMessage;
     NSString* _status;
     MSGraphUser* _invitedUser;
 }
@@ -49,20 +49,6 @@
     self.dictionary[@"invitedUserDisplayName"] = val;
 }
 
-- (NSString*) invitedUserType
-{
-    if([[NSNull null] isEqual:self.dictionary[@"invitedUserType"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"invitedUserType"];
-}
-
-- (void) setInvitedUserType: (NSString*) val
-{
-    self.dictionary[@"invitedUserType"] = val;
-}
-
 - (NSString*) invitedUserEmailAddress
 {
     return self.dictionary[@"invitedUserEmailAddress"];
@@ -87,26 +73,18 @@
     self.dictionary[@"invitedUserMessageInfo"] = val;
 }
 
-- (BOOL) sendInvitationMessage
+- (NSString*) invitedUserType
 {
-    _sendInvitationMessage = [self.dictionary[@"sendInvitationMessage"] boolValue];
-    return _sendInvitationMessage;
+    if([[NSNull null] isEqual:self.dictionary[@"invitedUserType"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"invitedUserType"];
 }
 
-- (void) setSendInvitationMessage: (BOOL) val
+- (void) setInvitedUserType: (NSString*) val
 {
-    _sendInvitationMessage = val;
-    self.dictionary[@"sendInvitationMessage"] = @(val);
-}
-
-- (NSString*) inviteRedirectUrl
-{
-    return self.dictionary[@"inviteRedirectUrl"];
-}
-
-- (void) setInviteRedirectUrl: (NSString*) val
-{
-    self.dictionary[@"inviteRedirectUrl"] = val;
+    self.dictionary[@"invitedUserType"] = val;
 }
 
 - (NSString*) inviteRedeemUrl
@@ -121,6 +99,28 @@
 - (void) setInviteRedeemUrl: (NSString*) val
 {
     self.dictionary[@"inviteRedeemUrl"] = val;
+}
+
+- (NSString*) inviteRedirectUrl
+{
+    return self.dictionary[@"inviteRedirectUrl"];
+}
+
+- (void) setInviteRedirectUrl: (NSString*) val
+{
+    self.dictionary[@"inviteRedirectUrl"] = val;
+}
+
+- (BOOL) sendInvitationMessage
+{
+    _sendInvitationMessage = [self.dictionary[@"sendInvitationMessage"] boolValue];
+    return _sendInvitationMessage;
+}
+
+- (void) setSendInvitationMessage: (BOOL) val
+{
+    _sendInvitationMessage = val;
+    self.dictionary[@"sendInvitationMessage"] = @(val);
 }
 
 - (NSString*) status

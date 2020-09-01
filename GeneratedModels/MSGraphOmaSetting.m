@@ -14,23 +14,13 @@
 
 @interface MSGraphOmaSetting()
 {
-    NSString* _displayName;
     NSString* _omaSettingDescription;
+    NSString* _displayName;
     NSString* _omaUri;
 }
 @end
 
 @implementation MSGraphOmaSetting
-
-- (NSString*) displayName
-{
-    return self.dictionary[@"displayName"];
-}
-
-- (void) setDisplayName: (NSString*) val
-{
-    self.dictionary[@"displayName"] = val;
-}
 
 - (NSString*) omaSettingDescription
 {
@@ -44,6 +34,16 @@
 - (void) setOmaSettingDescription: (NSString*) val
 {
     self.dictionary[@"description"] = val;
+}
+
+- (NSString*) displayName
+{
+    return self.dictionary[@"displayName"];
+}
+
+- (void) setDisplayName: (NSString*) val
+{
+    self.dictionary[@"displayName"] = val;
 }
 
 - (NSString*) omaUri

@@ -14,26 +14,12 @@
 
 @interface MSGraphSettingSource()
 {
-    NSString* _settingSourceId;
     NSString* _displayName;
+    NSString* _settingSourceId;
 }
 @end
 
 @implementation MSGraphSettingSource
-
-- (NSString*) settingSourceId
-{
-    if([[NSNull null] isEqual:self.dictionary[@"id"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"id"];
-}
-
-- (void) setSettingSourceId: (NSString*) val
-{
-    self.dictionary[@"id"] = val;
-}
 
 - (NSString*) displayName
 {
@@ -47,6 +33,20 @@
 - (void) setDisplayName: (NSString*) val
 {
     self.dictionary[@"displayName"] = val;
+}
+
+- (NSString*) settingSourceId
+{
+    if([[NSNull null] isEqual:self.dictionary[@"id"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"id"];
+}
+
+- (void) setSettingSourceId: (NSString*) val
+{
+    self.dictionary[@"id"] = val;
 }
 
 @end

@@ -15,10 +15,10 @@
 @interface MSGraphPublicError()
 {
     NSString* _code;
-    NSString* _message;
-    NSString* _target;
     NSArray* _details;
     MSGraphPublicInnerError* _innerError;
+    NSString* _message;
+    NSString* _target;
 }
 @end
 
@@ -36,34 +36,6 @@
 - (void) setCode: (NSString*) val
 {
     self.dictionary[@"code"] = val;
-}
-
-- (NSString*) message
-{
-    if([[NSNull null] isEqual:self.dictionary[@"message"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"message"];
-}
-
-- (void) setMessage: (NSString*) val
-{
-    self.dictionary[@"message"] = val;
-}
-
-- (NSString*) target
-{
-    if([[NSNull null] isEqual:self.dictionary[@"target"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"target"];
-}
-
-- (void) setTarget: (NSString*) val
-{
-    self.dictionary[@"target"] = val;
 }
 
 - (NSArray*) details
@@ -103,6 +75,34 @@
 {
     _innerError = val;
     self.dictionary[@"innerError"] = val;
+}
+
+- (NSString*) message
+{
+    if([[NSNull null] isEqual:self.dictionary[@"message"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"message"];
+}
+
+- (void) setMessage: (NSString*) val
+{
+    self.dictionary[@"message"] = val;
+}
+
+- (NSString*) target
+{
+    if([[NSNull null] isEqual:self.dictionary[@"target"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"target"];
+}
+
+- (void) setTarget: (NSString*) val
+{
+    self.dictionary[@"target"] = val;
 }
 
 @end

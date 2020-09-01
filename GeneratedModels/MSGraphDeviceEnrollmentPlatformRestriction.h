@@ -8,9 +8,9 @@
 
 @interface MSGraphDeviceEnrollmentPlatformRestriction : MSObject
 
-@property (nonatomic, setter=setPlatformBlocked:, getter=platformBlocked) BOOL platformBlocked;
-@property (nonatomic, setter=setPersonalDeviceEnrollmentBlocked:, getter=personalDeviceEnrollmentBlocked) BOOL personalDeviceEnrollmentBlocked;
-@property (nullable, nonatomic, setter=setOsMinimumVersion:, getter=osMinimumVersion) NSString* osMinimumVersion;
 @property (nullable, nonatomic, setter=setOsMaximumVersion:, getter=osMaximumVersion) NSString* osMaximumVersion;
+@property (nullable, nonatomic, setter=setOsMinimumVersion:, getter=osMinimumVersion) NSString* osMinimumVersion;
+@property (nonatomic, setter=setPersonalDeviceEnrollmentBlocked:, getter=personalDeviceEnrollmentBlocked) BOOL personalDeviceEnrollmentBlocked;
+@property (nonatomic, setter=setPlatformBlocked:, getter=platformBlocked) BOOL platformBlocked;
 
 @end

@@ -10,12 +10,12 @@
 @interface MSGraphScheduleChangeRequest : MSGraphChangeTrackedEntity
 
   @property (nullable, nonatomic, setter=setAssignedTo:, getter=assignedTo) MSGraphScheduleChangeRequestActor* assignedTo;
-    @property (nullable, nonatomic, setter=setState:, getter=state) MSGraphScheduleChangeState* state;
-    @property (nullable, nonatomic, setter=setSenderMessage:, getter=senderMessage) NSString* senderMessage;
-    @property (nullable, nonatomic, setter=setSenderDateTime:, getter=senderDateTime) NSDate* senderDateTime;
-    @property (nullable, nonatomic, setter=setManagerActionMessage:, getter=managerActionMessage) NSString* managerActionMessage;
     @property (nullable, nonatomic, setter=setManagerActionDateTime:, getter=managerActionDateTime) NSDate* managerActionDateTime;
-    @property (nullable, nonatomic, setter=setSenderUserId:, getter=senderUserId) NSString* senderUserId;
+    @property (nullable, nonatomic, setter=setManagerActionMessage:, getter=managerActionMessage) NSString* managerActionMessage;
     @property (nullable, nonatomic, setter=setManagerUserId:, getter=managerUserId) NSString* managerUserId;
+    @property (nullable, nonatomic, setter=setSenderDateTime:, getter=senderDateTime) NSDate* senderDateTime;
+    @property (nullable, nonatomic, setter=setSenderMessage:, getter=senderMessage) NSString* senderMessage;
+    @property (nullable, nonatomic, setter=setSenderUserId:, getter=senderUserId) NSString* senderUserId;
+    @property (nullable, nonatomic, setter=setState:, getter=state) MSGraphScheduleChangeState* state;
   
 @end

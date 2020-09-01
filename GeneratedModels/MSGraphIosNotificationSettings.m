@@ -14,28 +14,32 @@
 
 @interface MSGraphIosNotificationSettings()
 {
-    NSString* _bundleID;
+    MSGraphIosNotificationAlertType* _alertType;
     NSString* _appName;
-    NSString* _publisher;
+    BOOL _badgesEnabled;
+    NSString* _bundleID;
     BOOL _enabled;
+    NSString* _publisher;
     BOOL _showInNotificationCenter;
     BOOL _showOnLockScreen;
-    MSGraphIosNotificationAlertType* _alertType;
-    BOOL _badgesEnabled;
     BOOL _soundsEnabled;
 }
 @end
 
 @implementation MSGraphIosNotificationSettings
 
-- (NSString*) bundleID
+- (MSGraphIosNotificationAlertType*) alertType
 {
-    return self.dictionary[@"bundleID"];
+    if(!_alertType){
+        _alertType = [self.dictionary[@"alertType"] toMSGraphIosNotificationAlertType];
+    }
+    return _alertType;
 }
 
-- (void) setBundleID: (NSString*) val
+- (void) setAlertType: (MSGraphIosNotificationAlertType*) val
 {
-    self.dictionary[@"bundleID"] = val;
+    _alertType = val;
+    self.dictionary[@"alertType"] = val;
 }
 
 - (NSString*) appName
@@ -52,18 +56,26 @@
     self.dictionary[@"appName"] = val;
 }
 
-- (NSString*) publisher
+- (BOOL) badgesEnabled
 {
-    if([[NSNull null] isEqual:self.dictionary[@"publisher"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"publisher"];
+    _badgesEnabled = [self.dictionary[@"badgesEnabled"] boolValue];
+    return _badgesEnabled;
 }
 
-- (void) setPublisher: (NSString*) val
+- (void) setBadgesEnabled: (BOOL) val
 {
-    self.dictionary[@"publisher"] = val;
+    _badgesEnabled = val;
+    self.dictionary[@"badgesEnabled"] = @(val);
+}
+
+- (NSString*) bundleID
+{
+    return self.dictionary[@"bundleID"];
+}
+
+- (void) setBundleID: (NSString*) val
+{
+    self.dictionary[@"bundleID"] = val;
 }
 
 - (BOOL) enabled
@@ -76,6 +88,20 @@
 {
     _enabled = val;
     self.dictionary[@"enabled"] = @(val);
+}
+
+- (NSString*) publisher
+{
+    if([[NSNull null] isEqual:self.dictionary[@"publisher"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"publisher"];
+}
+
+- (void) setPublisher: (NSString*) val
+{
+    self.dictionary[@"publisher"] = val;
 }
 
 - (BOOL) showInNotificationCenter
@@ -100,32 +126,6 @@
 {
     _showOnLockScreen = val;
     self.dictionary[@"showOnLockScreen"] = @(val);
-}
-
-- (MSGraphIosNotificationAlertType*) alertType
-{
-    if(!_alertType){
-        _alertType = [self.dictionary[@"alertType"] toMSGraphIosNotificationAlertType];
-    }
-    return _alertType;
-}
-
-- (void) setAlertType: (MSGraphIosNotificationAlertType*) val
-{
-    _alertType = val;
-    self.dictionary[@"alertType"] = val;
-}
-
-- (BOOL) badgesEnabled
-{
-    _badgesEnabled = [self.dictionary[@"badgesEnabled"] boolValue];
-    return _badgesEnabled;
-}
-
-- (void) setBadgesEnabled: (BOOL) val
-{
-    _badgesEnabled = val;
-    self.dictionary[@"badgesEnabled"] = @(val);
 }
 
 - (BOOL) soundsEnabled

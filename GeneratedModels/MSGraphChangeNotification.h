@@ -10,13 +10,13 @@
 
 @interface MSGraphChangeNotification : MSObject
 
-@property (nullable, nonatomic, setter=setChangeNotificationId:, getter=changeNotificationId) NSString* changeNotificationId;
-@property (nonnull, nonatomic, setter=setSubscriptionId:, getter=subscriptionId) NSString* subscriptionId;
-@property (nonnull, nonatomic, setter=setSubscriptionExpirationDateTime:, getter=subscriptionExpirationDateTime) NSDate* subscriptionExpirationDateTime;
-@property (nullable, nonatomic, setter=setClientState:, getter=clientState) NSString* clientState;
 @property (nonnull, nonatomic, setter=setChangeType:, getter=changeType) MSGraphChangeType* changeType;
+@property (nullable, nonatomic, setter=setClientState:, getter=clientState) NSString* clientState;
+@property (nullable, nonatomic, setter=setChangeNotificationId:, getter=changeNotificationId) NSString* changeNotificationId;
 @property (nonnull, nonatomic, setter=setResource:, getter=resource) NSString* resource;
-@property (nonnull, nonatomic, setter=setTenantId:, getter=tenantId) NSString* tenantId;
 @property (nullable, nonatomic, setter=setResourceData:, getter=resourceData) MSGraphResourceData* resourceData;
+@property (nonnull, nonatomic, setter=setSubscriptionExpirationDateTime:, getter=subscriptionExpirationDateTime) NSDate* subscriptionExpirationDateTime;
+@property (nonnull, nonatomic, setter=setSubscriptionId:, getter=subscriptionId) NSString* subscriptionId;
+@property (nonnull, nonatomic, setter=setTenantId:, getter=tenantId) NSString* tenantId;
 
 @end

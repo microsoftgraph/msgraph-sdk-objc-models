@@ -15,11 +15,11 @@
 @interface MSGraphDataPolicyOperation()
 {
     NSDate* _completedDateTime;
+    double _progress;
     MSGraphDataPolicyOperationStatus* _status;
     NSString* _storageLocation;
-    NSString* _userId;
     NSDate* _submittedDateTime;
-    double _progress;
+    NSString* _userId;
 }
 @end
 
@@ -44,6 +44,18 @@
 {
     _completedDateTime = val;
     self.dictionary[@"completedDateTime"] = [val ms_toString];
+}
+
+- (double) progress
+{
+    _progress = [self.dictionary[@"progress"] floatValue];
+    return _progress;
+}
+
+- (void) setProgress: (double) val
+{
+    _progress = val;
+    self.dictionary[@"progress"] = @(val);
 }
 
 - (MSGraphDataPolicyOperationStatus*) status
@@ -74,16 +86,6 @@
     self.dictionary[@"storageLocation"] = val;
 }
 
-- (NSString*) userId
-{
-    return self.dictionary[@"userId"];
-}
-
-- (void) setUserId: (NSString*) val
-{
-    self.dictionary[@"userId"] = val;
-}
-
 - (NSDate*) submittedDateTime
 {
     if(!_submittedDateTime){
@@ -98,16 +100,14 @@
     self.dictionary[@"submittedDateTime"] = [val ms_toString];
 }
 
-- (double) progress
+- (NSString*) userId
 {
-    _progress = [self.dictionary[@"progress"] floatValue];
-    return _progress;
+    return self.dictionary[@"userId"];
 }
 
-- (void) setProgress: (double) val
+- (void) setUserId: (NSString*) val
 {
-    _progress = val;
-    self.dictionary[@"progress"] = @(val);
+    self.dictionary[@"userId"] = val;
 }
 
 

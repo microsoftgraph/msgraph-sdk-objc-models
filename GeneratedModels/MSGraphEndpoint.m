@@ -17,8 +17,8 @@
     NSString* _capability;
     NSString* _providerId;
     NSString* _providerName;
-    NSString* _uri;
     NSString* _providerResourceId;
+    NSString* _uri;
 }
 @end
 
@@ -69,16 +69,6 @@
     self.dictionary[@"providerName"] = val;
 }
 
-- (NSString*) uri
-{
-    return self.dictionary[@"uri"];
-}
-
-- (void) setUri: (NSString*) val
-{
-    self.dictionary[@"uri"] = val;
-}
-
 - (NSString*) providerResourceId
 {
     if([[NSNull null] isEqual:self.dictionary[@"providerResourceId"]])
@@ -91,6 +81,16 @@
 - (void) setProviderResourceId: (NSString*) val
 {
     self.dictionary[@"providerResourceId"] = val;
+}
+
+- (NSString*) uri
+{
+    return self.dictionary[@"uri"];
+}
+
+- (void) setUri: (NSString*) val
+{
+    self.dictionary[@"uri"] = val;
 }
 
 

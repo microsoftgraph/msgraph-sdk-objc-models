@@ -14,12 +14,12 @@
 
 @interface MSGraphCallRecordsSession()
 {
+    MSGraphCallRecordsEndpoint* _callee;
+    MSGraphCallRecordsEndpoint* _caller;
+    NSDate* _endDateTime;
+    MSGraphCallRecordsFailureInfo* _failureInfo;
     NSArray* _modalities;
     NSDate* _startDateTime;
-    NSDate* _endDateTime;
-    MSGraphCallRecordsEndpoint* _caller;
-    MSGraphCallRecordsEndpoint* _callee;
-    MSGraphCallRecordsFailureInfo* _failureInfo;
     NSArray* _segments;
 }
 @end
@@ -33,6 +33,62 @@
     }
     return self;
 }
+- (MSGraphCallRecordsEndpoint*) callee
+{
+    if(!_callee){
+        _callee = [[MSGraphCallRecordsEndpoint alloc] initWithDictionary: self.dictionary[@"callee"]];
+    }
+    return _callee;
+}
+
+- (void) setCallee: (MSGraphCallRecordsEndpoint*) val
+{
+    _callee = val;
+    self.dictionary[@"callee"] = val;
+}
+
+- (MSGraphCallRecordsEndpoint*) caller
+{
+    if(!_caller){
+        _caller = [[MSGraphCallRecordsEndpoint alloc] initWithDictionary: self.dictionary[@"caller"]];
+    }
+    return _caller;
+}
+
+- (void) setCaller: (MSGraphCallRecordsEndpoint*) val
+{
+    _caller = val;
+    self.dictionary[@"caller"] = val;
+}
+
+- (NSDate*) endDateTime
+{
+    if(!_endDateTime){
+        _endDateTime = [NSDate ms_dateFromString: self.dictionary[@"endDateTime"]];
+    }
+    return _endDateTime;
+}
+
+- (void) setEndDateTime: (NSDate*) val
+{
+    _endDateTime = val;
+    self.dictionary[@"endDateTime"] = [val ms_toString];
+}
+
+- (MSGraphCallRecordsFailureInfo*) failureInfo
+{
+    if(!_failureInfo){
+        _failureInfo = [[MSGraphCallRecordsFailureInfo alloc] initWithDictionary: self.dictionary[@"failureInfo"]];
+    }
+    return _failureInfo;
+}
+
+- (void) setFailureInfo: (MSGraphCallRecordsFailureInfo*) val
+{
+    _failureInfo = val;
+    self.dictionary[@"failureInfo"] = val;
+}
+
 - (NSArray*) modalities
 {
     if(!_modalities){
@@ -70,62 +126,6 @@
 {
     _startDateTime = val;
     self.dictionary[@"startDateTime"] = [val ms_toString];
-}
-
-- (NSDate*) endDateTime
-{
-    if(!_endDateTime){
-        _endDateTime = [NSDate ms_dateFromString: self.dictionary[@"endDateTime"]];
-    }
-    return _endDateTime;
-}
-
-- (void) setEndDateTime: (NSDate*) val
-{
-    _endDateTime = val;
-    self.dictionary[@"endDateTime"] = [val ms_toString];
-}
-
-- (MSGraphCallRecordsEndpoint*) caller
-{
-    if(!_caller){
-        _caller = [[MSGraphCallRecordsEndpoint alloc] initWithDictionary: self.dictionary[@"caller"]];
-    }
-    return _caller;
-}
-
-- (void) setCaller: (MSGraphCallRecordsEndpoint*) val
-{
-    _caller = val;
-    self.dictionary[@"caller"] = val;
-}
-
-- (MSGraphCallRecordsEndpoint*) callee
-{
-    if(!_callee){
-        _callee = [[MSGraphCallRecordsEndpoint alloc] initWithDictionary: self.dictionary[@"callee"]];
-    }
-    return _callee;
-}
-
-- (void) setCallee: (MSGraphCallRecordsEndpoint*) val
-{
-    _callee = val;
-    self.dictionary[@"callee"] = val;
-}
-
-- (MSGraphCallRecordsFailureInfo*) failureInfo
-{
-    if(!_failureInfo){
-        _failureInfo = [[MSGraphCallRecordsFailureInfo alloc] initWithDictionary: self.dictionary[@"failureInfo"]];
-    }
-    return _failureInfo;
-}
-
-- (void) setFailureInfo: (MSGraphCallRecordsFailureInfo*) val
-{
-    _failureInfo = val;
-    self.dictionary[@"failureInfo"] = val;
 }
 
 - (NSArray*) segments

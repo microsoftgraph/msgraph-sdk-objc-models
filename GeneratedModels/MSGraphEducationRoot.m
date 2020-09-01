@@ -15,9 +15,9 @@
 @interface MSGraphEducationRoot()
 {
     NSArray* _classes;
+    MSGraphEducationUser* _me;
     NSArray* _schools;
     NSArray* _users;
-    MSGraphEducationUser* _me;
 }
 @end
 
@@ -53,6 +53,20 @@
 {
     _classes = val;
     self.dictionary[@"classes"] = val;
+}
+
+- (MSGraphEducationUser*) me
+{
+    if(!_me){
+        _me = [[MSGraphEducationUser alloc] initWithDictionary: self.dictionary[@"me"]];
+    }
+    return _me;
+}
+
+- (void) setMe: (MSGraphEducationUser*) val
+{
+    _me = val;
+    self.dictionary[@"me"] = val;
 }
 
 - (NSArray*) schools
@@ -103,20 +117,6 @@
 {
     _users = val;
     self.dictionary[@"users"] = val;
-}
-
-- (MSGraphEducationUser*) me
-{
-    if(!_me){
-        _me = [[MSGraphEducationUser alloc] initWithDictionary: self.dictionary[@"me"]];
-    }
-    return _me;
-}
-
-- (void) setMe: (MSGraphEducationUser*) val
-{
-    _me = val;
-    self.dictionary[@"me"] = val;
 }
 
 

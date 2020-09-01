@@ -41,20 +41,20 @@
     NSString* _mail;
     NSString* _mailNickname;
     NSString* _mobilePhone;
+    NSString* _officeLocation;
     NSString* _onPremisesDistinguishedName;
+    NSString* _onPremisesDomainName;
     MSGraphOnPremisesExtensionAttributes* _onPremisesExtensionAttributes;
     NSString* _onPremisesImmutableId;
     NSDate* _onPremisesLastSyncDateTime;
     NSArray* _onPremisesProvisioningErrors;
+    NSString* _onPremisesSamAccountName;
     NSString* _onPremisesSecurityIdentifier;
     BOOL _onPremisesSyncEnabled;
-    NSString* _onPremisesDomainName;
-    NSString* _onPremisesSamAccountName;
     NSString* _onPremisesUserPrincipalName;
     NSArray* _otherMails;
     NSString* _passwordPolicies;
     MSGraphPasswordProfile* _passwordProfile;
-    NSString* _officeLocation;
     NSString* _postalCode;
     NSString* _preferredLanguage;
     NSArray* _provisionedPlans;
@@ -80,28 +80,28 @@
     NSArray* _schools;
     NSArray* _skills;
     NSArray* _appRoleAssignments;
-    NSArray* _ownedDevices;
-    NSArray* _registeredDevices;
-    MSGraphDirectoryObject* _manager;
-    NSArray* _directReports;
-    NSArray* _memberOf;
     NSArray* _createdObjects;
-    NSArray* _oauth2PermissionGrants;
-    NSArray* _ownedObjects;
+    NSArray* _directReports;
     NSArray* _licenseDetails;
+    MSGraphDirectoryObject* _manager;
+    NSArray* _memberOf;
+    NSArray* _oauth2PermissionGrants;
+    NSArray* _ownedDevices;
+    NSArray* _ownedObjects;
+    NSArray* _registeredDevices;
     NSArray* _transitiveMemberOf;
-    MSGraphOutlookUser* _outlook;
-    NSArray* _messages;
-    NSArray* _mailFolders;
     MSGraphCalendar* _calendar;
-    NSArray* _calendars;
     NSArray* _calendarGroups;
+    NSArray* _calendars;
     NSArray* _calendarView;
-    NSArray* _events;
-    NSArray* _people;
-    NSArray* _contacts;
     NSArray* _contactFolders;
+    NSArray* _contacts;
+    NSArray* _events;
     MSGraphInferenceClassification* _inferenceClassification;
+    NSArray* _mailFolders;
+    NSArray* _messages;
+    MSGraphOutlookUser* _outlook;
+    NSArray* _people;
     MSGraphProfilePhoto* _photo;
     NSArray* _photos;
     MSGraphDrive* _drive;
@@ -544,6 +544,20 @@
     self.dictionary[@"mobilePhone"] = val;
 }
 
+- (NSString*) officeLocation
+{
+    if([[NSNull null] isEqual:self.dictionary[@"officeLocation"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"officeLocation"];
+}
+
+- (void) setOfficeLocation: (NSString*) val
+{
+    self.dictionary[@"officeLocation"] = val;
+}
+
 - (NSString*) onPremisesDistinguishedName
 {
     if([[NSNull null] isEqual:self.dictionary[@"onPremisesDistinguishedName"]])
@@ -556,6 +570,20 @@
 - (void) setOnPremisesDistinguishedName: (NSString*) val
 {
     self.dictionary[@"onPremisesDistinguishedName"] = val;
+}
+
+- (NSString*) onPremisesDomainName
+{
+    if([[NSNull null] isEqual:self.dictionary[@"onPremisesDomainName"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"onPremisesDomainName"];
+}
+
+- (void) setOnPremisesDomainName: (NSString*) val
+{
+    self.dictionary[@"onPremisesDomainName"] = val;
 }
 
 - (MSGraphOnPremisesExtensionAttributes*) onPremisesExtensionAttributes
@@ -625,6 +653,20 @@
     self.dictionary[@"onPremisesProvisioningErrors"] = val;
 }
 
+- (NSString*) onPremisesSamAccountName
+{
+    if([[NSNull null] isEqual:self.dictionary[@"onPremisesSamAccountName"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"onPremisesSamAccountName"];
+}
+
+- (void) setOnPremisesSamAccountName: (NSString*) val
+{
+    self.dictionary[@"onPremisesSamAccountName"] = val;
+}
+
 - (NSString*) onPremisesSecurityIdentifier
 {
     if([[NSNull null] isEqual:self.dictionary[@"onPremisesSecurityIdentifier"]])
@@ -649,34 +691,6 @@
 {
     _onPremisesSyncEnabled = val;
     self.dictionary[@"onPremisesSyncEnabled"] = @(val);
-}
-
-- (NSString*) onPremisesDomainName
-{
-    if([[NSNull null] isEqual:self.dictionary[@"onPremisesDomainName"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"onPremisesDomainName"];
-}
-
-- (void) setOnPremisesDomainName: (NSString*) val
-{
-    self.dictionary[@"onPremisesDomainName"] = val;
-}
-
-- (NSString*) onPremisesSamAccountName
-{
-    if([[NSNull null] isEqual:self.dictionary[@"onPremisesSamAccountName"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"onPremisesSamAccountName"];
-}
-
-- (void) setOnPremisesSamAccountName: (NSString*) val
-{
-    self.dictionary[@"onPremisesSamAccountName"] = val;
 }
 
 - (NSString*) onPremisesUserPrincipalName
@@ -729,20 +743,6 @@
 {
     _passwordProfile = val;
     self.dictionary[@"passwordProfile"] = val;
-}
-
-- (NSString*) officeLocation
-{
-    if([[NSNull null] isEqual:self.dictionary[@"officeLocation"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"officeLocation"];
-}
-
-- (void) setOfficeLocation: (NSString*) val
-{
-    self.dictionary[@"officeLocation"] = val;
 }
 
 - (NSString*) postalCode
@@ -1109,68 +1109,29 @@
     self.dictionary[@"appRoleAssignments"] = val;
 }
 
-- (NSArray*) ownedDevices
+- (NSArray*) createdObjects
 {
-    if(!_ownedDevices){
+    if(!_createdObjects){
         
-    NSMutableArray *ownedDevicesResult = [NSMutableArray array];
-    NSArray *ownedDevices = self.dictionary[@"ownedDevices"];
+    NSMutableArray *createdObjectsResult = [NSMutableArray array];
+    NSArray *createdObjects = self.dictionary[@"createdObjects"];
 
-    if ([ownedDevices isKindOfClass:[NSArray class]]){
-        for (id tempDirectoryObject in ownedDevices){
-            [ownedDevicesResult addObject:tempDirectoryObject];
+    if ([createdObjects isKindOfClass:[NSArray class]]){
+        for (id tempDirectoryObject in createdObjects){
+            [createdObjectsResult addObject:tempDirectoryObject];
         }
     }
 
-    _ownedDevices = ownedDevicesResult;
+    _createdObjects = createdObjectsResult;
         
     }
-    return _ownedDevices;
+    return _createdObjects;
 }
 
-- (void) setOwnedDevices: (NSArray*) val
+- (void) setCreatedObjects: (NSArray*) val
 {
-    _ownedDevices = val;
-    self.dictionary[@"ownedDevices"] = val;
-}
-
-- (NSArray*) registeredDevices
-{
-    if(!_registeredDevices){
-        
-    NSMutableArray *registeredDevicesResult = [NSMutableArray array];
-    NSArray *registeredDevices = self.dictionary[@"registeredDevices"];
-
-    if ([registeredDevices isKindOfClass:[NSArray class]]){
-        for (id tempDirectoryObject in registeredDevices){
-            [registeredDevicesResult addObject:tempDirectoryObject];
-        }
-    }
-
-    _registeredDevices = registeredDevicesResult;
-        
-    }
-    return _registeredDevices;
-}
-
-- (void) setRegisteredDevices: (NSArray*) val
-{
-    _registeredDevices = val;
-    self.dictionary[@"registeredDevices"] = val;
-}
-
-- (MSGraphDirectoryObject*) manager
-{
-    if(!_manager){
-        _manager = [[MSGraphDirectoryObject alloc] initWithDictionary: self.dictionary[@"manager"]];
-    }
-    return _manager;
-}
-
-- (void) setManager: (MSGraphDirectoryObject*) val
-{
-    _manager = val;
-    self.dictionary[@"manager"] = val;
+    _createdObjects = val;
+    self.dictionary[@"createdObjects"] = val;
 }
 
 - (NSArray*) directReports
@@ -1198,6 +1159,45 @@
     self.dictionary[@"directReports"] = val;
 }
 
+- (NSArray*) licenseDetails
+{
+    if(!_licenseDetails){
+        
+    NSMutableArray *licenseDetailsResult = [NSMutableArray array];
+    NSArray *licenseDetails = self.dictionary[@"licenseDetails"];
+
+    if ([licenseDetails isKindOfClass:[NSArray class]]){
+        for (id tempLicenseDetails in licenseDetails){
+            [licenseDetailsResult addObject:tempLicenseDetails];
+        }
+    }
+
+    _licenseDetails = licenseDetailsResult;
+        
+    }
+    return _licenseDetails;
+}
+
+- (void) setLicenseDetails: (NSArray*) val
+{
+    _licenseDetails = val;
+    self.dictionary[@"licenseDetails"] = val;
+}
+
+- (MSGraphDirectoryObject*) manager
+{
+    if(!_manager){
+        _manager = [[MSGraphDirectoryObject alloc] initWithDictionary: self.dictionary[@"manager"]];
+    }
+    return _manager;
+}
+
+- (void) setManager: (MSGraphDirectoryObject*) val
+{
+    _manager = val;
+    self.dictionary[@"manager"] = val;
+}
+
 - (NSArray*) memberOf
 {
     if(!_memberOf){
@@ -1221,31 +1221,6 @@
 {
     _memberOf = val;
     self.dictionary[@"memberOf"] = val;
-}
-
-- (NSArray*) createdObjects
-{
-    if(!_createdObjects){
-        
-    NSMutableArray *createdObjectsResult = [NSMutableArray array];
-    NSArray *createdObjects = self.dictionary[@"createdObjects"];
-
-    if ([createdObjects isKindOfClass:[NSArray class]]){
-        for (id tempDirectoryObject in createdObjects){
-            [createdObjectsResult addObject:tempDirectoryObject];
-        }
-    }
-
-    _createdObjects = createdObjectsResult;
-        
-    }
-    return _createdObjects;
-}
-
-- (void) setCreatedObjects: (NSArray*) val
-{
-    _createdObjects = val;
-    self.dictionary[@"createdObjects"] = val;
 }
 
 - (NSArray*) oauth2PermissionGrants
@@ -1273,6 +1248,31 @@
     self.dictionary[@"oauth2PermissionGrants"] = val;
 }
 
+- (NSArray*) ownedDevices
+{
+    if(!_ownedDevices){
+        
+    NSMutableArray *ownedDevicesResult = [NSMutableArray array];
+    NSArray *ownedDevices = self.dictionary[@"ownedDevices"];
+
+    if ([ownedDevices isKindOfClass:[NSArray class]]){
+        for (id tempDirectoryObject in ownedDevices){
+            [ownedDevicesResult addObject:tempDirectoryObject];
+        }
+    }
+
+    _ownedDevices = ownedDevicesResult;
+        
+    }
+    return _ownedDevices;
+}
+
+- (void) setOwnedDevices: (NSArray*) val
+{
+    _ownedDevices = val;
+    self.dictionary[@"ownedDevices"] = val;
+}
+
 - (NSArray*) ownedObjects
 {
     if(!_ownedObjects){
@@ -1298,29 +1298,29 @@
     self.dictionary[@"ownedObjects"] = val;
 }
 
-- (NSArray*) licenseDetails
+- (NSArray*) registeredDevices
 {
-    if(!_licenseDetails){
+    if(!_registeredDevices){
         
-    NSMutableArray *licenseDetailsResult = [NSMutableArray array];
-    NSArray *licenseDetails = self.dictionary[@"licenseDetails"];
+    NSMutableArray *registeredDevicesResult = [NSMutableArray array];
+    NSArray *registeredDevices = self.dictionary[@"registeredDevices"];
 
-    if ([licenseDetails isKindOfClass:[NSArray class]]){
-        for (id tempLicenseDetails in licenseDetails){
-            [licenseDetailsResult addObject:tempLicenseDetails];
+    if ([registeredDevices isKindOfClass:[NSArray class]]){
+        for (id tempDirectoryObject in registeredDevices){
+            [registeredDevicesResult addObject:tempDirectoryObject];
         }
     }
 
-    _licenseDetails = licenseDetailsResult;
+    _registeredDevices = registeredDevicesResult;
         
     }
-    return _licenseDetails;
+    return _registeredDevices;
 }
 
-- (void) setLicenseDetails: (NSArray*) val
+- (void) setRegisteredDevices: (NSArray*) val
 {
-    _licenseDetails = val;
-    self.dictionary[@"licenseDetails"] = val;
+    _registeredDevices = val;
+    self.dictionary[@"registeredDevices"] = val;
 }
 
 - (NSArray*) transitiveMemberOf
@@ -1348,70 +1348,6 @@
     self.dictionary[@"transitiveMemberOf"] = val;
 }
 
-- (MSGraphOutlookUser*) outlook
-{
-    if(!_outlook){
-        _outlook = [[MSGraphOutlookUser alloc] initWithDictionary: self.dictionary[@"outlook"]];
-    }
-    return _outlook;
-}
-
-- (void) setOutlook: (MSGraphOutlookUser*) val
-{
-    _outlook = val;
-    self.dictionary[@"outlook"] = val;
-}
-
-- (NSArray*) messages
-{
-    if(!_messages){
-        
-    NSMutableArray *messagesResult = [NSMutableArray array];
-    NSArray *messages = self.dictionary[@"messages"];
-
-    if ([messages isKindOfClass:[NSArray class]]){
-        for (id tempMessage in messages){
-            [messagesResult addObject:tempMessage];
-        }
-    }
-
-    _messages = messagesResult;
-        
-    }
-    return _messages;
-}
-
-- (void) setMessages: (NSArray*) val
-{
-    _messages = val;
-    self.dictionary[@"messages"] = val;
-}
-
-- (NSArray*) mailFolders
-{
-    if(!_mailFolders){
-        
-    NSMutableArray *mailFoldersResult = [NSMutableArray array];
-    NSArray *mailFolders = self.dictionary[@"mailFolders"];
-
-    if ([mailFolders isKindOfClass:[NSArray class]]){
-        for (id tempMailFolder in mailFolders){
-            [mailFoldersResult addObject:tempMailFolder];
-        }
-    }
-
-    _mailFolders = mailFoldersResult;
-        
-    }
-    return _mailFolders;
-}
-
-- (void) setMailFolders: (NSArray*) val
-{
-    _mailFolders = val;
-    self.dictionary[@"mailFolders"] = val;
-}
-
 - (MSGraphCalendar*) calendar
 {
     if(!_calendar){
@@ -1424,31 +1360,6 @@
 {
     _calendar = val;
     self.dictionary[@"calendar"] = val;
-}
-
-- (NSArray*) calendars
-{
-    if(!_calendars){
-        
-    NSMutableArray *calendarsResult = [NSMutableArray array];
-    NSArray *calendars = self.dictionary[@"calendars"];
-
-    if ([calendars isKindOfClass:[NSArray class]]){
-        for (id tempCalendar in calendars){
-            [calendarsResult addObject:tempCalendar];
-        }
-    }
-
-    _calendars = calendarsResult;
-        
-    }
-    return _calendars;
-}
-
-- (void) setCalendars: (NSArray*) val
-{
-    _calendars = val;
-    self.dictionary[@"calendars"] = val;
 }
 
 - (NSArray*) calendarGroups
@@ -1476,6 +1387,31 @@
     self.dictionary[@"calendarGroups"] = val;
 }
 
+- (NSArray*) calendars
+{
+    if(!_calendars){
+        
+    NSMutableArray *calendarsResult = [NSMutableArray array];
+    NSArray *calendars = self.dictionary[@"calendars"];
+
+    if ([calendars isKindOfClass:[NSArray class]]){
+        for (id tempCalendar in calendars){
+            [calendarsResult addObject:tempCalendar];
+        }
+    }
+
+    _calendars = calendarsResult;
+        
+    }
+    return _calendars;
+}
+
+- (void) setCalendars: (NSArray*) val
+{
+    _calendars = val;
+    self.dictionary[@"calendars"] = val;
+}
+
 - (NSArray*) calendarView
 {
     if(!_calendarView){
@@ -1499,81 +1435,6 @@
 {
     _calendarView = val;
     self.dictionary[@"calendarView"] = val;
-}
-
-- (NSArray*) events
-{
-    if(!_events){
-        
-    NSMutableArray *eventsResult = [NSMutableArray array];
-    NSArray *events = self.dictionary[@"events"];
-
-    if ([events isKindOfClass:[NSArray class]]){
-        for (id tempEvent in events){
-            [eventsResult addObject:tempEvent];
-        }
-    }
-
-    _events = eventsResult;
-        
-    }
-    return _events;
-}
-
-- (void) setEvents: (NSArray*) val
-{
-    _events = val;
-    self.dictionary[@"events"] = val;
-}
-
-- (NSArray*) people
-{
-    if(!_people){
-        
-    NSMutableArray *peopleResult = [NSMutableArray array];
-    NSArray *people = self.dictionary[@"people"];
-
-    if ([people isKindOfClass:[NSArray class]]){
-        for (id tempPerson in people){
-            [peopleResult addObject:tempPerson];
-        }
-    }
-
-    _people = peopleResult;
-        
-    }
-    return _people;
-}
-
-- (void) setPeople: (NSArray*) val
-{
-    _people = val;
-    self.dictionary[@"people"] = val;
-}
-
-- (NSArray*) contacts
-{
-    if(!_contacts){
-        
-    NSMutableArray *contactsResult = [NSMutableArray array];
-    NSArray *contacts = self.dictionary[@"contacts"];
-
-    if ([contacts isKindOfClass:[NSArray class]]){
-        for (id tempContact in contacts){
-            [contactsResult addObject:tempContact];
-        }
-    }
-
-    _contacts = contactsResult;
-        
-    }
-    return _contacts;
-}
-
-- (void) setContacts: (NSArray*) val
-{
-    _contacts = val;
-    self.dictionary[@"contacts"] = val;
 }
 
 - (NSArray*) contactFolders
@@ -1601,6 +1462,56 @@
     self.dictionary[@"contactFolders"] = val;
 }
 
+- (NSArray*) contacts
+{
+    if(!_contacts){
+        
+    NSMutableArray *contactsResult = [NSMutableArray array];
+    NSArray *contacts = self.dictionary[@"contacts"];
+
+    if ([contacts isKindOfClass:[NSArray class]]){
+        for (id tempContact in contacts){
+            [contactsResult addObject:tempContact];
+        }
+    }
+
+    _contacts = contactsResult;
+        
+    }
+    return _contacts;
+}
+
+- (void) setContacts: (NSArray*) val
+{
+    _contacts = val;
+    self.dictionary[@"contacts"] = val;
+}
+
+- (NSArray*) events
+{
+    if(!_events){
+        
+    NSMutableArray *eventsResult = [NSMutableArray array];
+    NSArray *events = self.dictionary[@"events"];
+
+    if ([events isKindOfClass:[NSArray class]]){
+        for (id tempEvent in events){
+            [eventsResult addObject:tempEvent];
+        }
+    }
+
+    _events = eventsResult;
+        
+    }
+    return _events;
+}
+
+- (void) setEvents: (NSArray*) val
+{
+    _events = val;
+    self.dictionary[@"events"] = val;
+}
+
 - (MSGraphInferenceClassification*) inferenceClassification
 {
     if(!_inferenceClassification){
@@ -1613,6 +1524,95 @@
 {
     _inferenceClassification = val;
     self.dictionary[@"inferenceClassification"] = val;
+}
+
+- (NSArray*) mailFolders
+{
+    if(!_mailFolders){
+        
+    NSMutableArray *mailFoldersResult = [NSMutableArray array];
+    NSArray *mailFolders = self.dictionary[@"mailFolders"];
+
+    if ([mailFolders isKindOfClass:[NSArray class]]){
+        for (id tempMailFolder in mailFolders){
+            [mailFoldersResult addObject:tempMailFolder];
+        }
+    }
+
+    _mailFolders = mailFoldersResult;
+        
+    }
+    return _mailFolders;
+}
+
+- (void) setMailFolders: (NSArray*) val
+{
+    _mailFolders = val;
+    self.dictionary[@"mailFolders"] = val;
+}
+
+- (NSArray*) messages
+{
+    if(!_messages){
+        
+    NSMutableArray *messagesResult = [NSMutableArray array];
+    NSArray *messages = self.dictionary[@"messages"];
+
+    if ([messages isKindOfClass:[NSArray class]]){
+        for (id tempMessage in messages){
+            [messagesResult addObject:tempMessage];
+        }
+    }
+
+    _messages = messagesResult;
+        
+    }
+    return _messages;
+}
+
+- (void) setMessages: (NSArray*) val
+{
+    _messages = val;
+    self.dictionary[@"messages"] = val;
+}
+
+- (MSGraphOutlookUser*) outlook
+{
+    if(!_outlook){
+        _outlook = [[MSGraphOutlookUser alloc] initWithDictionary: self.dictionary[@"outlook"]];
+    }
+    return _outlook;
+}
+
+- (void) setOutlook: (MSGraphOutlookUser*) val
+{
+    _outlook = val;
+    self.dictionary[@"outlook"] = val;
+}
+
+- (NSArray*) people
+{
+    if(!_people){
+        
+    NSMutableArray *peopleResult = [NSMutableArray array];
+    NSArray *people = self.dictionary[@"people"];
+
+    if ([people isKindOfClass:[NSArray class]]){
+        for (id tempPerson in people){
+            [peopleResult addObject:tempPerson];
+        }
+    }
+
+    _people = peopleResult;
+        
+    }
+    return _people;
+}
+
+- (void) setPeople: (NSArray*) val
+{
+    _people = val;
+    self.dictionary[@"people"] = val;
 }
 
 - (MSGraphProfilePhoto*) photo

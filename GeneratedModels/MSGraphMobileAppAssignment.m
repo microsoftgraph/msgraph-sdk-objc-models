@@ -15,8 +15,8 @@
 @interface MSGraphMobileAppAssignment()
 {
     MSGraphInstallIntent* _intent;
-    MSGraphDeviceAndAppManagementAssignmentTarget* _target;
     MSGraphMobileAppAssignmentSettings* _settings;
+    MSGraphDeviceAndAppManagementAssignmentTarget* _target;
 }
 @end
 
@@ -43,20 +43,6 @@
     self.dictionary[@"intent"] = val;
 }
 
-- (MSGraphDeviceAndAppManagementAssignmentTarget*) target
-{
-    if(!_target){
-        _target = [[MSGraphDeviceAndAppManagementAssignmentTarget alloc] initWithDictionary: self.dictionary[@"target"]];
-    }
-    return _target;
-}
-
-- (void) setTarget: (MSGraphDeviceAndAppManagementAssignmentTarget*) val
-{
-    _target = val;
-    self.dictionary[@"target"] = val;
-}
-
 - (MSGraphMobileAppAssignmentSettings*) settings
 {
     if(!_settings){
@@ -69,6 +55,20 @@
 {
     _settings = val;
     self.dictionary[@"settings"] = val;
+}
+
+- (MSGraphDeviceAndAppManagementAssignmentTarget*) target
+{
+    if(!_target){
+        _target = [[MSGraphDeviceAndAppManagementAssignmentTarget alloc] initWithDictionary: self.dictionary[@"target"]];
+    }
+    return _target;
+}
+
+- (void) setTarget: (MSGraphDeviceAndAppManagementAssignmentTarget*) val
+{
+    _target = val;
+    self.dictionary[@"target"] = val;
 }
 
 

@@ -15,13 +15,13 @@
 @interface MSGraphMobileAppContentFile()
 {
     NSString* _azureStorageUri;
-    BOOL _isCommitted;
+    NSDate* _azureStorageUriExpirationDateTime;
     NSDate* _createdDateTime;
+    BOOL _isCommitted;
+    NSString* _manifest;
     NSString* _name;
     int64_t _size;
     int64_t _sizeEncrypted;
-    NSDate* _azureStorageUriExpirationDateTime;
-    NSString* _manifest;
     MSGraphMobileAppContentFileUploadState* _uploadState;
 }
 @end
@@ -49,16 +49,18 @@
     self.dictionary[@"azureStorageUri"] = val;
 }
 
-- (BOOL) isCommitted
+- (NSDate*) azureStorageUriExpirationDateTime
 {
-    _isCommitted = [self.dictionary[@"isCommitted"] boolValue];
-    return _isCommitted;
+    if(!_azureStorageUriExpirationDateTime){
+        _azureStorageUriExpirationDateTime = [NSDate ms_dateFromString: self.dictionary[@"azureStorageUriExpirationDateTime"]];
+    }
+    return _azureStorageUriExpirationDateTime;
 }
 
-- (void) setIsCommitted: (BOOL) val
+- (void) setAzureStorageUriExpirationDateTime: (NSDate*) val
 {
-    _isCommitted = val;
-    self.dictionary[@"isCommitted"] = @(val);
+    _azureStorageUriExpirationDateTime = val;
+    self.dictionary[@"azureStorageUriExpirationDateTime"] = [val ms_toString];
 }
 
 - (NSDate*) createdDateTime
@@ -73,6 +75,32 @@
 {
     _createdDateTime = val;
     self.dictionary[@"createdDateTime"] = [val ms_toString];
+}
+
+- (BOOL) isCommitted
+{
+    _isCommitted = [self.dictionary[@"isCommitted"] boolValue];
+    return _isCommitted;
+}
+
+- (void) setIsCommitted: (BOOL) val
+{
+    _isCommitted = val;
+    self.dictionary[@"isCommitted"] = @(val);
+}
+
+- (NSString*) manifest
+{
+    if([[NSNull null] isEqual:self.dictionary[@"manifest"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"manifest"];
+}
+
+- (void) setManifest: (NSString*) val
+{
+    self.dictionary[@"manifest"] = val;
 }
 
 - (NSString*) name
@@ -111,34 +139,6 @@
 {
     _sizeEncrypted = val;
     self.dictionary[@"sizeEncrypted"] = @(val);
-}
-
-- (NSDate*) azureStorageUriExpirationDateTime
-{
-    if(!_azureStorageUriExpirationDateTime){
-        _azureStorageUriExpirationDateTime = [NSDate ms_dateFromString: self.dictionary[@"azureStorageUriExpirationDateTime"]];
-    }
-    return _azureStorageUriExpirationDateTime;
-}
-
-- (void) setAzureStorageUriExpirationDateTime: (NSDate*) val
-{
-    _azureStorageUriExpirationDateTime = val;
-    self.dictionary[@"azureStorageUriExpirationDateTime"] = [val ms_toString];
-}
-
-- (NSString*) manifest
-{
-    if([[NSNull null] isEqual:self.dictionary[@"manifest"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"manifest"];
-}
-
-- (void) setManifest: (NSString*) val
-{
-    self.dictionary[@"manifest"] = val;
 }
 
 - (MSGraphMobileAppContentFileUploadState*) uploadState

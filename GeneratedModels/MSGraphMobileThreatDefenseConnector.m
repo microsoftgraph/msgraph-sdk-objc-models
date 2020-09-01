@@ -14,14 +14,14 @@
 
 @interface MSGraphMobileThreatDefenseConnector()
 {
+    BOOL _androidDeviceBlockedOnMissingPartnerData;
+    BOOL _androidEnabled;
+    BOOL _iosDeviceBlockedOnMissingPartnerData;
+    BOOL _iosEnabled;
     NSDate* _lastHeartbeatDateTime;
     MSGraphMobileThreatPartnerTenantState* _partnerState;
-    BOOL _androidEnabled;
-    BOOL _iosEnabled;
-    BOOL _androidDeviceBlockedOnMissingPartnerData;
-    BOOL _iosDeviceBlockedOnMissingPartnerData;
-    BOOL _partnerUnsupportedOsVersionBlocked;
     int32_t _partnerUnresponsivenessThresholdInDays;
+    BOOL _partnerUnsupportedOsVersionBlocked;
 }
 @end
 
@@ -34,6 +34,54 @@
     }
     return self;
 }
+- (BOOL) androidDeviceBlockedOnMissingPartnerData
+{
+    _androidDeviceBlockedOnMissingPartnerData = [self.dictionary[@"androidDeviceBlockedOnMissingPartnerData"] boolValue];
+    return _androidDeviceBlockedOnMissingPartnerData;
+}
+
+- (void) setAndroidDeviceBlockedOnMissingPartnerData: (BOOL) val
+{
+    _androidDeviceBlockedOnMissingPartnerData = val;
+    self.dictionary[@"androidDeviceBlockedOnMissingPartnerData"] = @(val);
+}
+
+- (BOOL) androidEnabled
+{
+    _androidEnabled = [self.dictionary[@"androidEnabled"] boolValue];
+    return _androidEnabled;
+}
+
+- (void) setAndroidEnabled: (BOOL) val
+{
+    _androidEnabled = val;
+    self.dictionary[@"androidEnabled"] = @(val);
+}
+
+- (BOOL) iosDeviceBlockedOnMissingPartnerData
+{
+    _iosDeviceBlockedOnMissingPartnerData = [self.dictionary[@"iosDeviceBlockedOnMissingPartnerData"] boolValue];
+    return _iosDeviceBlockedOnMissingPartnerData;
+}
+
+- (void) setIosDeviceBlockedOnMissingPartnerData: (BOOL) val
+{
+    _iosDeviceBlockedOnMissingPartnerData = val;
+    self.dictionary[@"iosDeviceBlockedOnMissingPartnerData"] = @(val);
+}
+
+- (BOOL) iosEnabled
+{
+    _iosEnabled = [self.dictionary[@"iosEnabled"] boolValue];
+    return _iosEnabled;
+}
+
+- (void) setIosEnabled: (BOOL) val
+{
+    _iosEnabled = val;
+    self.dictionary[@"iosEnabled"] = @(val);
+}
+
 - (NSDate*) lastHeartbeatDateTime
 {
     if(!_lastHeartbeatDateTime){
@@ -62,52 +110,16 @@
     self.dictionary[@"partnerState"] = val;
 }
 
-- (BOOL) androidEnabled
+- (int32_t) partnerUnresponsivenessThresholdInDays
 {
-    _androidEnabled = [self.dictionary[@"androidEnabled"] boolValue];
-    return _androidEnabled;
+    _partnerUnresponsivenessThresholdInDays = [self.dictionary[@"partnerUnresponsivenessThresholdInDays"] intValue];
+    return _partnerUnresponsivenessThresholdInDays;
 }
 
-- (void) setAndroidEnabled: (BOOL) val
+- (void) setPartnerUnresponsivenessThresholdInDays: (int32_t) val
 {
-    _androidEnabled = val;
-    self.dictionary[@"androidEnabled"] = @(val);
-}
-
-- (BOOL) iosEnabled
-{
-    _iosEnabled = [self.dictionary[@"iosEnabled"] boolValue];
-    return _iosEnabled;
-}
-
-- (void) setIosEnabled: (BOOL) val
-{
-    _iosEnabled = val;
-    self.dictionary[@"iosEnabled"] = @(val);
-}
-
-- (BOOL) androidDeviceBlockedOnMissingPartnerData
-{
-    _androidDeviceBlockedOnMissingPartnerData = [self.dictionary[@"androidDeviceBlockedOnMissingPartnerData"] boolValue];
-    return _androidDeviceBlockedOnMissingPartnerData;
-}
-
-- (void) setAndroidDeviceBlockedOnMissingPartnerData: (BOOL) val
-{
-    _androidDeviceBlockedOnMissingPartnerData = val;
-    self.dictionary[@"androidDeviceBlockedOnMissingPartnerData"] = @(val);
-}
-
-- (BOOL) iosDeviceBlockedOnMissingPartnerData
-{
-    _iosDeviceBlockedOnMissingPartnerData = [self.dictionary[@"iosDeviceBlockedOnMissingPartnerData"] boolValue];
-    return _iosDeviceBlockedOnMissingPartnerData;
-}
-
-- (void) setIosDeviceBlockedOnMissingPartnerData: (BOOL) val
-{
-    _iosDeviceBlockedOnMissingPartnerData = val;
-    self.dictionary[@"iosDeviceBlockedOnMissingPartnerData"] = @(val);
+    _partnerUnresponsivenessThresholdInDays = val;
+    self.dictionary[@"partnerUnresponsivenessThresholdInDays"] = @(val);
 }
 
 - (BOOL) partnerUnsupportedOsVersionBlocked
@@ -120,18 +132,6 @@
 {
     _partnerUnsupportedOsVersionBlocked = val;
     self.dictionary[@"partnerUnsupportedOsVersionBlocked"] = @(val);
-}
-
-- (int32_t) partnerUnresponsivenessThresholdInDays
-{
-    _partnerUnresponsivenessThresholdInDays = [self.dictionary[@"partnerUnresponsivenessThresholdInDays"] intValue];
-    return _partnerUnresponsivenessThresholdInDays;
-}
-
-- (void) setPartnerUnresponsivenessThresholdInDays: (int32_t) val
-{
-    _partnerUnresponsivenessThresholdInDays = val;
-    self.dictionary[@"partnerUnresponsivenessThresholdInDays"] = @(val);
 }
 
 

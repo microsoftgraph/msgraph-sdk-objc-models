@@ -8,15 +8,15 @@
 
 @interface MSGraphItemActivityStat : MSGraphEntity
 
-  @property (nullable, nonatomic, setter=setStartDateTime:, getter=startDateTime) NSDate* startDateTime;
-    @property (nullable, nonatomic, setter=setEndDateTime:, getter=endDateTime) NSDate* endDateTime;
-    @property (nullable, nonatomic, setter=setAccess:, getter=access) MSGraphItemActionStat* access;
+  @property (nullable, nonatomic, setter=setAccess:, getter=access) MSGraphItemActionStat* access;
     @property (nullable, nonatomic, setter=setCreate:, getter=create) MSGraphItemActionStat* create;
     @property (nullable, nonatomic, setter=setDelete:, getter=delete) MSGraphItemActionStat* delete;
     @property (nullable, nonatomic, setter=setEdit:, getter=edit) MSGraphItemActionStat* edit;
-    @property (nullable, nonatomic, setter=setMove:, getter=move) MSGraphItemActionStat* move;
-    @property (nonatomic, setter=setIsTrending:, getter=isTrending) BOOL isTrending;
+    @property (nullable, nonatomic, setter=setEndDateTime:, getter=endDateTime) NSDate* endDateTime;
     @property (nullable, nonatomic, setter=setIncompleteData:, getter=incompleteData) MSGraphIncompleteData* incompleteData;
+    @property (nonatomic, setter=setIsTrending:, getter=isTrending) BOOL isTrending;
+    @property (nullable, nonatomic, setter=setMove:, getter=move) MSGraphItemActionStat* move;
+    @property (nullable, nonatomic, setter=setStartDateTime:, getter=startDateTime) NSDate* startDateTime;
     @property (nullable, nonatomic, setter=setActivities:, getter=activities) NSArray* activities;
   
 @end

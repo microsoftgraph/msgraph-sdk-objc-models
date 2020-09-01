@@ -14,11 +14,11 @@
 
 @interface MSGraphTelecomExpenseManagementPartner()
 {
-    NSString* _displayName;
-    NSString* _url;
     BOOL _appAuthorized;
+    NSString* _displayName;
     BOOL _enabled;
     NSDate* _lastConnectionDateTime;
+    NSString* _url;
 }
 @end
 
@@ -31,6 +31,18 @@
     }
     return self;
 }
+- (BOOL) appAuthorized
+{
+    _appAuthorized = [self.dictionary[@"appAuthorized"] boolValue];
+    return _appAuthorized;
+}
+
+- (void) setAppAuthorized: (BOOL) val
+{
+    _appAuthorized = val;
+    self.dictionary[@"appAuthorized"] = @(val);
+}
+
 - (NSString*) displayName
 {
     if([[NSNull null] isEqual:self.dictionary[@"displayName"]])
@@ -43,32 +55,6 @@
 - (void) setDisplayName: (NSString*) val
 {
     self.dictionary[@"displayName"] = val;
-}
-
-- (NSString*) url
-{
-    if([[NSNull null] isEqual:self.dictionary[@"url"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"url"];
-}
-
-- (void) setUrl: (NSString*) val
-{
-    self.dictionary[@"url"] = val;
-}
-
-- (BOOL) appAuthorized
-{
-    _appAuthorized = [self.dictionary[@"appAuthorized"] boolValue];
-    return _appAuthorized;
-}
-
-- (void) setAppAuthorized: (BOOL) val
-{
-    _appAuthorized = val;
-    self.dictionary[@"appAuthorized"] = @(val);
 }
 
 - (BOOL) enabled
@@ -95,6 +81,20 @@
 {
     _lastConnectionDateTime = val;
     self.dictionary[@"lastConnectionDateTime"] = [val ms_toString];
+}
+
+- (NSString*) url
+{
+    if([[NSNull null] isEqual:self.dictionary[@"url"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"url"];
+}
+
+- (void) setUrl: (NSString*) val
+{
+    self.dictionary[@"url"] = val;
 }
 
 

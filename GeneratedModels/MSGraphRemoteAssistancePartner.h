@@ -9,8 +9,8 @@
 @interface MSGraphRemoteAssistancePartner : MSGraphEntity
 
   @property (nullable, nonatomic, setter=setDisplayName:, getter=displayName) NSString* displayName;
-    @property (nullable, nonatomic, setter=setOnboardingUrl:, getter=onboardingUrl) NSString* onboardingUrl;
-    @property (nonnull, nonatomic, setter=setOnboardingStatus:, getter=onboardingStatus) MSGraphRemoteAssistanceOnboardingStatus* onboardingStatus;
     @property (nonnull, nonatomic, setter=setLastConnectionDateTime:, getter=lastConnectionDateTime) NSDate* lastConnectionDateTime;
+    @property (nonnull, nonatomic, setter=setOnboardingStatus:, getter=onboardingStatus) MSGraphRemoteAssistanceOnboardingStatus* onboardingStatus;
+    @property (nullable, nonatomic, setter=setOnboardingUrl:, getter=onboardingUrl) NSString* onboardingUrl;
   
 @end

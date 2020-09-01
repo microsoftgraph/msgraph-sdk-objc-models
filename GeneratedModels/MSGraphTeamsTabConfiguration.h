@@ -8,8 +8,8 @@
 
 @interface MSGraphTeamsTabConfiguration : MSObject
 
-@property (nullable, nonatomic, setter=setEntityId:, getter=entityId) NSString* entityId;
 @property (nullable, nonatomic, setter=setContentUrl:, getter=contentUrl) NSString* contentUrl;
+@property (nullable, nonatomic, setter=setEntityId:, getter=entityId) NSString* entityId;
 @property (nullable, nonatomic, setter=setRemoveUrl:, getter=removeUrl) NSString* removeUrl;
 @property (nullable, nonatomic, setter=setWebsiteUrl:, getter=websiteUrl) NSString* websiteUrl;
 

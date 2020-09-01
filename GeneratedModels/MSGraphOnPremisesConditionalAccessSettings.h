@@ -8,8 +8,8 @@
 @interface MSGraphOnPremisesConditionalAccessSettings : MSGraphEntity
 
   @property (nonatomic, setter=setEnabled:, getter=enabled) BOOL enabled;
-    @property (nonnull, nonatomic, setter=setIncludedGroups:, getter=includedGroups) NSArray* includedGroups;
     @property (nonnull, nonatomic, setter=setExcludedGroups:, getter=excludedGroups) NSArray* excludedGroups;
+    @property (nonnull, nonatomic, setter=setIncludedGroups:, getter=includedGroups) NSArray* includedGroups;
     @property (nonatomic, setter=setOverrideDefaultRule:, getter=overrideDefaultRule) BOOL overrideDefaultRule;
   
 @end

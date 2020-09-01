@@ -9,7 +9,7 @@
 @interface MSGraphWindowsInformationProtectionDesktopApp : MSGraphWindowsInformationProtectionApp
 
 @property (nonnull, nonatomic, setter=setBinaryName:, getter=binaryName) NSString* binaryName;
-@property (nullable, nonatomic, setter=setBinaryVersionLow:, getter=binaryVersionLow) NSString* binaryVersionLow;
 @property (nullable, nonatomic, setter=setBinaryVersionHigh:, getter=binaryVersionHigh) NSString* binaryVersionHigh;
+@property (nullable, nonatomic, setter=setBinaryVersionLow:, getter=binaryVersionLow) NSString* binaryVersionLow;
 
 @end

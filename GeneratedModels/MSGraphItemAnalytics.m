@@ -14,8 +14,8 @@
 
 @interface MSGraphItemAnalytics()
 {
-    NSArray* _itemActivityStats;
     MSGraphItemActivityStat* _allTime;
+    NSArray* _itemActivityStats;
     MSGraphItemActivityStat* _lastSevenDays;
 }
 @end
@@ -29,6 +29,20 @@
     }
     return self;
 }
+- (MSGraphItemActivityStat*) allTime
+{
+    if(!_allTime){
+        _allTime = [[MSGraphItemActivityStat alloc] initWithDictionary: self.dictionary[@"allTime"]];
+    }
+    return _allTime;
+}
+
+- (void) setAllTime: (MSGraphItemActivityStat*) val
+{
+    _allTime = val;
+    self.dictionary[@"allTime"] = val;
+}
+
 - (NSArray*) itemActivityStats
 {
     if(!_itemActivityStats){
@@ -52,20 +66,6 @@
 {
     _itemActivityStats = val;
     self.dictionary[@"itemActivityStats"] = val;
-}
-
-- (MSGraphItemActivityStat*) allTime
-{
-    if(!_allTime){
-        _allTime = [[MSGraphItemActivityStat alloc] initWithDictionary: self.dictionary[@"allTime"]];
-    }
-    return _allTime;
-}
-
-- (void) setAllTime: (MSGraphItemActivityStat*) val
-{
-    _allTime = val;
-    self.dictionary[@"allTime"] = val;
 }
 
 - (MSGraphItemActivityStat*) lastSevenDays

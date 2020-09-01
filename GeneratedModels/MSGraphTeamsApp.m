@@ -14,9 +14,9 @@
 
 @interface MSGraphTeamsApp()
 {
-    NSString* _externalId;
     NSString* _displayName;
     MSGraphTeamsAppDistributionMethod* _distributionMethod;
+    NSString* _externalId;
     NSArray* _appDefinitions;
 }
 @end
@@ -30,20 +30,6 @@
     }
     return self;
 }
-- (NSString*) externalId
-{
-    if([[NSNull null] isEqual:self.dictionary[@"externalId"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"externalId"];
-}
-
-- (void) setExternalId: (NSString*) val
-{
-    self.dictionary[@"externalId"] = val;
-}
-
 - (NSString*) displayName
 {
     if([[NSNull null] isEqual:self.dictionary[@"displayName"]])
@@ -70,6 +56,20 @@
 {
     _distributionMethod = val;
     self.dictionary[@"distributionMethod"] = val;
+}
+
+- (NSString*) externalId
+{
+    if([[NSNull null] isEqual:self.dictionary[@"externalId"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"externalId"];
+}
+
+- (void) setExternalId: (NSString*) val
+{
+    self.dictionary[@"externalId"] = val;
 }
 
 - (NSArray*) appDefinitions

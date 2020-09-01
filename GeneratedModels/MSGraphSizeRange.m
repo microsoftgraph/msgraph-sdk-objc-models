@@ -14,24 +14,12 @@
 
 @interface MSGraphSizeRange()
 {
-    int32_t _minimumSize;
     int32_t _maximumSize;
+    int32_t _minimumSize;
 }
 @end
 
 @implementation MSGraphSizeRange
-
-- (int32_t) minimumSize
-{
-    _minimumSize = [self.dictionary[@"minimumSize"] intValue];
-    return _minimumSize;
-}
-
-- (void) setMinimumSize: (int32_t) val
-{
-    _minimumSize = val;
-    self.dictionary[@"minimumSize"] = @(val);
-}
 
 - (int32_t) maximumSize
 {
@@ -43,6 +31,18 @@
 {
     _maximumSize = val;
     self.dictionary[@"maximumSize"] = @(val);
+}
+
+- (int32_t) minimumSize
+{
+    _minimumSize = [self.dictionary[@"minimumSize"] intValue];
+    return _minimumSize;
+}
+
+- (void) setMinimumSize: (int32_t) val
+{
+    _minimumSize = val;
+    self.dictionary[@"minimumSize"] = @(val);
 }
 
 @end

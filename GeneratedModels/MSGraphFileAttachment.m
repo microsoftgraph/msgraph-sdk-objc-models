@@ -14,9 +14,9 @@
 
 @interface MSGraphFileAttachment()
 {
+    NSString* _contentBytes;
     NSString* _contentId;
     NSString* _contentLocation;
-    NSString* _contentBytes;
 }
 @end
 
@@ -29,6 +29,20 @@
     }
     return self;
 }
+- (NSString*) contentBytes
+{
+    if([[NSNull null] isEqual:self.dictionary[@"contentBytes"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"contentBytes"];
+}
+
+- (void) setContentBytes: (NSString*) val
+{
+    self.dictionary[@"contentBytes"] = val;
+}
+
 - (NSString*) contentId
 {
     if([[NSNull null] isEqual:self.dictionary[@"contentId"]])
@@ -55,20 +69,6 @@
 - (void) setContentLocation: (NSString*) val
 {
     self.dictionary[@"contentLocation"] = val;
-}
-
-- (NSString*) contentBytes
-{
-    if([[NSNull null] isEqual:self.dictionary[@"contentBytes"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"contentBytes"];
-}
-
-- (void) setContentBytes: (NSString*) val
-{
-    self.dictionary[@"contentBytes"] = val;
 }
 
 

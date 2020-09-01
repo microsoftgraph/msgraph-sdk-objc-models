@@ -14,26 +14,26 @@
 
 @interface MSGraphCalendarSharingMessageAction()
 {
-    MSGraphCalendarSharingActionImportance* _importance;
-    MSGraphCalendarSharingActionType* _actionType;
     MSGraphCalendarSharingAction* _action;
+    MSGraphCalendarSharingActionType* _actionType;
+    MSGraphCalendarSharingActionImportance* _importance;
 }
 @end
 
 @implementation MSGraphCalendarSharingMessageAction
 
-- (MSGraphCalendarSharingActionImportance*) importance
+- (MSGraphCalendarSharingAction*) action
 {
-    if(!_importance){
-        _importance = [self.dictionary[@"importance"] toMSGraphCalendarSharingActionImportance];
+    if(!_action){
+        _action = [self.dictionary[@"action"] toMSGraphCalendarSharingAction];
     }
-    return _importance;
+    return _action;
 }
 
-- (void) setImportance: (MSGraphCalendarSharingActionImportance*) val
+- (void) setAction: (MSGraphCalendarSharingAction*) val
 {
-    _importance = val;
-    self.dictionary[@"importance"] = val;
+    _action = val;
+    self.dictionary[@"action"] = val;
 }
 
 - (MSGraphCalendarSharingActionType*) actionType
@@ -50,18 +50,18 @@
     self.dictionary[@"actionType"] = val;
 }
 
-- (MSGraphCalendarSharingAction*) action
+- (MSGraphCalendarSharingActionImportance*) importance
 {
-    if(!_action){
-        _action = [self.dictionary[@"action"] toMSGraphCalendarSharingAction];
+    if(!_importance){
+        _importance = [self.dictionary[@"importance"] toMSGraphCalendarSharingActionImportance];
     }
-    return _action;
+    return _importance;
 }
 
-- (void) setAction: (MSGraphCalendarSharingAction*) val
+- (void) setImportance: (MSGraphCalendarSharingActionImportance*) val
 {
-    _action = val;
-    self.dictionary[@"action"] = val;
+    _importance = val;
+    self.dictionary[@"importance"] = val;
 }
 
 @end

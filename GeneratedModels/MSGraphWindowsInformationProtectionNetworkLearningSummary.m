@@ -14,8 +14,8 @@
 
 @interface MSGraphWindowsInformationProtectionNetworkLearningSummary()
 {
-    NSString* _url;
     int32_t _deviceCount;
+    NSString* _url;
 }
 @end
 
@@ -28,6 +28,18 @@
     }
     return self;
 }
+- (int32_t) deviceCount
+{
+    _deviceCount = [self.dictionary[@"deviceCount"] intValue];
+    return _deviceCount;
+}
+
+- (void) setDeviceCount: (int32_t) val
+{
+    _deviceCount = val;
+    self.dictionary[@"deviceCount"] = @(val);
+}
+
 - (NSString*) url
 {
     if([[NSNull null] isEqual:self.dictionary[@"url"]])
@@ -40,18 +52,6 @@
 - (void) setUrl: (NSString*) val
 {
     self.dictionary[@"url"] = val;
-}
-
-- (int32_t) deviceCount
-{
-    _deviceCount = [self.dictionary[@"deviceCount"] intValue];
-    return _deviceCount;
-}
-
-- (void) setDeviceCount: (int32_t) val
-{
-    _deviceCount = val;
-    self.dictionary[@"deviceCount"] = @(val);
 }
 
 

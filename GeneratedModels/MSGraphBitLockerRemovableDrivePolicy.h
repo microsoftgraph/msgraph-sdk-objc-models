@@ -9,8 +9,8 @@
 
 @interface MSGraphBitLockerRemovableDrivePolicy : MSObject
 
+@property (nonatomic, setter=setBlockCrossOrganizationWriteAccess:, getter=blockCrossOrganizationWriteAccess) BOOL blockCrossOrganizationWriteAccess;
 @property (nullable, nonatomic, setter=setEncryptionMethod:, getter=encryptionMethod) MSGraphBitLockerEncryptionMethod* encryptionMethod;
 @property (nonatomic, setter=setRequireEncryptionForWriteAccess:, getter=requireEncryptionForWriteAccess) BOOL requireEncryptionForWriteAccess;
-@property (nonatomic, setter=setBlockCrossOrganizationWriteAccess:, getter=blockCrossOrganizationWriteAccess) BOOL blockCrossOrganizationWriteAccess;
 
 @end

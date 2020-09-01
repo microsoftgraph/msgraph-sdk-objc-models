@@ -15,8 +15,8 @@
 @interface MSGraphResultInfo()
 {
     int32_t _code;
-    int32_t _subcode;
     NSString* _message;
+    int32_t _subcode;
 }
 @end
 
@@ -34,18 +34,6 @@
     self.dictionary[@"code"] = @(val);
 }
 
-- (int32_t) subcode
-{
-    _subcode = [self.dictionary[@"subcode"] intValue];
-    return _subcode;
-}
-
-- (void) setSubcode: (int32_t) val
-{
-    _subcode = val;
-    self.dictionary[@"subcode"] = @(val);
-}
-
 - (NSString*) message
 {
     if([[NSNull null] isEqual:self.dictionary[@"message"]])
@@ -58,6 +46,18 @@
 - (void) setMessage: (NSString*) val
 {
     self.dictionary[@"message"] = val;
+}
+
+- (int32_t) subcode
+{
+    _subcode = [self.dictionary[@"subcode"] intValue];
+    return _subcode;
+}
+
+- (void) setSubcode: (int32_t) val
+{
+    _subcode = val;
+    self.dictionary[@"subcode"] = @(val);
 }
 
 @end

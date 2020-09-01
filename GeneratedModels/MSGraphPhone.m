@@ -14,27 +14,27 @@
 
 @interface MSGraphPhone()
 {
-    MSGraphPhoneType* _type;
+    NSString* _language;
     NSString* _number;
     NSString* _region;
-    NSString* _language;
+    MSGraphPhoneType* _type;
 }
 @end
 
 @implementation MSGraphPhone
 
-- (MSGraphPhoneType*) type
+- (NSString*) language
 {
-    if(!_type){
-        _type = [self.dictionary[@"type"] toMSGraphPhoneType];
-    }
-    return _type;
+    if([[NSNull null] isEqual:self.dictionary[@"language"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"language"];
 }
 
-- (void) setType: (MSGraphPhoneType*) val
+- (void) setLanguage: (NSString*) val
 {
-    _type = val;
-    self.dictionary[@"type"] = val;
+    self.dictionary[@"language"] = val;
 }
 
 - (NSString*) number
@@ -65,18 +65,18 @@
     self.dictionary[@"region"] = val;
 }
 
-- (NSString*) language
+- (MSGraphPhoneType*) type
 {
-    if([[NSNull null] isEqual:self.dictionary[@"language"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"language"];
+    if(!_type){
+        _type = [self.dictionary[@"type"] toMSGraphPhoneType];
+    }
+    return _type;
 }
 
-- (void) setLanguage: (NSString*) val
+- (void) setType: (MSGraphPhoneType*) val
 {
-    self.dictionary[@"language"] = val;
+    _type = val;
+    self.dictionary[@"type"] = val;
 }
 
 @end

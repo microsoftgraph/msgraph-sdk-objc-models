@@ -14,8 +14,8 @@
 
 @interface MSGraphGroupSettingTemplate()
 {
-    NSString* _displayName;
     NSString* _groupSettingTemplateDescription;
+    NSString* _displayName;
     NSArray* _values;
 }
 @end
@@ -29,20 +29,6 @@
     }
     return self;
 }
-- (NSString*) displayName
-{
-    if([[NSNull null] isEqual:self.dictionary[@"displayName"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"displayName"];
-}
-
-- (void) setDisplayName: (NSString*) val
-{
-    self.dictionary[@"displayName"] = val;
-}
-
 - (NSString*) groupSettingTemplateDescription
 {
     if([[NSNull null] isEqual:self.dictionary[@"description"]])
@@ -55,6 +41,20 @@
 - (void) setGroupSettingTemplateDescription: (NSString*) val
 {
     self.dictionary[@"description"] = val;
+}
+
+- (NSString*) displayName
+{
+    if([[NSNull null] isEqual:self.dictionary[@"displayName"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"displayName"];
+}
+
+- (void) setDisplayName: (NSString*) val
+{
+    self.dictionary[@"displayName"] = val;
 }
 
 - (NSArray*) values

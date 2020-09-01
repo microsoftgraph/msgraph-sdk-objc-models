@@ -16,16 +16,16 @@
 {
     NSDate* _createdDateTime;
     NSString* _deviceCompliancePolicyDescription;
-    NSDate* _lastModifiedDateTime;
     NSString* _displayName;
+    NSDate* _lastModifiedDateTime;
     int32_t _version;
-    NSArray* _scheduledActionsForRule;
-    NSArray* _deviceStatuses;
-    NSArray* _userStatuses;
-    MSGraphDeviceComplianceDeviceOverview* _deviceStatusOverview;
-    MSGraphDeviceComplianceUserOverview* _userStatusOverview;
-    NSArray* _deviceSettingStateSummaries;
     NSArray* _assignments;
+    NSArray* _deviceSettingStateSummaries;
+    NSArray* _deviceStatuses;
+    MSGraphDeviceComplianceDeviceOverview* _deviceStatusOverview;
+    NSArray* _scheduledActionsForRule;
+    NSArray* _userStatuses;
+    MSGraphDeviceComplianceUserOverview* _userStatusOverview;
 }
 @end
 
@@ -59,6 +59,16 @@
     self.dictionary[@"description"] = val;
 }
 
+- (NSString*) displayName
+{
+    return self.dictionary[@"displayName"];
+}
+
+- (void) setDisplayName: (NSString*) val
+{
+    self.dictionary[@"displayName"] = val;
+}
+
 - (NSDate*) lastModifiedDateTime
 {
     if(!_lastModifiedDateTime){
@@ -73,16 +83,6 @@
     self.dictionary[@"lastModifiedDateTime"] = [val ms_toString];
 }
 
-- (NSString*) displayName
-{
-    return self.dictionary[@"displayName"];
-}
-
-- (void) setDisplayName: (NSString*) val
-{
-    self.dictionary[@"displayName"] = val;
-}
-
 - (int32_t) version
 {
     _version = [self.dictionary[@"version"] intValue];
@@ -95,107 +95,29 @@
     self.dictionary[@"version"] = @(val);
 }
 
-- (NSArray*) scheduledActionsForRule
+- (NSArray*) assignments
 {
-    if(!_scheduledActionsForRule){
+    if(!_assignments){
         
-    NSMutableArray *scheduledActionsForRuleResult = [NSMutableArray array];
-    NSArray *scheduledActionsForRule = self.dictionary[@"scheduledActionsForRule"];
+    NSMutableArray *assignmentsResult = [NSMutableArray array];
+    NSArray *assignments = self.dictionary[@"assignments"];
 
-    if ([scheduledActionsForRule isKindOfClass:[NSArray class]]){
-        for (id tempDeviceComplianceScheduledActionForRule in scheduledActionsForRule){
-            [scheduledActionsForRuleResult addObject:tempDeviceComplianceScheduledActionForRule];
+    if ([assignments isKindOfClass:[NSArray class]]){
+        for (id tempDeviceCompliancePolicyAssignment in assignments){
+            [assignmentsResult addObject:tempDeviceCompliancePolicyAssignment];
         }
     }
 
-    _scheduledActionsForRule = scheduledActionsForRuleResult;
+    _assignments = assignmentsResult;
         
     }
-    return _scheduledActionsForRule;
+    return _assignments;
 }
 
-- (void) setScheduledActionsForRule: (NSArray*) val
+- (void) setAssignments: (NSArray*) val
 {
-    _scheduledActionsForRule = val;
-    self.dictionary[@"scheduledActionsForRule"] = val;
-}
-
-- (NSArray*) deviceStatuses
-{
-    if(!_deviceStatuses){
-        
-    NSMutableArray *deviceStatusesResult = [NSMutableArray array];
-    NSArray *deviceStatuses = self.dictionary[@"deviceStatuses"];
-
-    if ([deviceStatuses isKindOfClass:[NSArray class]]){
-        for (id tempDeviceComplianceDeviceStatus in deviceStatuses){
-            [deviceStatusesResult addObject:tempDeviceComplianceDeviceStatus];
-        }
-    }
-
-    _deviceStatuses = deviceStatusesResult;
-        
-    }
-    return _deviceStatuses;
-}
-
-- (void) setDeviceStatuses: (NSArray*) val
-{
-    _deviceStatuses = val;
-    self.dictionary[@"deviceStatuses"] = val;
-}
-
-- (NSArray*) userStatuses
-{
-    if(!_userStatuses){
-        
-    NSMutableArray *userStatusesResult = [NSMutableArray array];
-    NSArray *userStatuses = self.dictionary[@"userStatuses"];
-
-    if ([userStatuses isKindOfClass:[NSArray class]]){
-        for (id tempDeviceComplianceUserStatus in userStatuses){
-            [userStatusesResult addObject:tempDeviceComplianceUserStatus];
-        }
-    }
-
-    _userStatuses = userStatusesResult;
-        
-    }
-    return _userStatuses;
-}
-
-- (void) setUserStatuses: (NSArray*) val
-{
-    _userStatuses = val;
-    self.dictionary[@"userStatuses"] = val;
-}
-
-- (MSGraphDeviceComplianceDeviceOverview*) deviceStatusOverview
-{
-    if(!_deviceStatusOverview){
-        _deviceStatusOverview = [[MSGraphDeviceComplianceDeviceOverview alloc] initWithDictionary: self.dictionary[@"deviceStatusOverview"]];
-    }
-    return _deviceStatusOverview;
-}
-
-- (void) setDeviceStatusOverview: (MSGraphDeviceComplianceDeviceOverview*) val
-{
-    _deviceStatusOverview = val;
-    self.dictionary[@"deviceStatusOverview"] = val;
-}
-
-- (MSGraphDeviceComplianceUserOverview*) userStatusOverview
-{
-    if(!_userStatusOverview){
-        _userStatusOverview = [[MSGraphDeviceComplianceUserOverview alloc] initWithDictionary: self.dictionary[@"userStatusOverview"]];
-    }
-    return _userStatusOverview;
-}
-
-- (void) setUserStatusOverview: (MSGraphDeviceComplianceUserOverview*) val
-{
-    _userStatusOverview = val;
-    self.dictionary[@"userStatusOverview"] = val;
+    _assignments = val;
+    self.dictionary[@"assignments"] = val;
 }
 
 - (NSArray*) deviceSettingStateSummaries
@@ -223,29 +145,107 @@
     self.dictionary[@"deviceSettingStateSummaries"] = val;
 }
 
-- (NSArray*) assignments
+- (NSArray*) deviceStatuses
 {
-    if(!_assignments){
+    if(!_deviceStatuses){
         
-    NSMutableArray *assignmentsResult = [NSMutableArray array];
-    NSArray *assignments = self.dictionary[@"assignments"];
+    NSMutableArray *deviceStatusesResult = [NSMutableArray array];
+    NSArray *deviceStatuses = self.dictionary[@"deviceStatuses"];
 
-    if ([assignments isKindOfClass:[NSArray class]]){
-        for (id tempDeviceCompliancePolicyAssignment in assignments){
-            [assignmentsResult addObject:tempDeviceCompliancePolicyAssignment];
+    if ([deviceStatuses isKindOfClass:[NSArray class]]){
+        for (id tempDeviceComplianceDeviceStatus in deviceStatuses){
+            [deviceStatusesResult addObject:tempDeviceComplianceDeviceStatus];
         }
     }
 
-    _assignments = assignmentsResult;
+    _deviceStatuses = deviceStatusesResult;
         
     }
-    return _assignments;
+    return _deviceStatuses;
 }
 
-- (void) setAssignments: (NSArray*) val
+- (void) setDeviceStatuses: (NSArray*) val
 {
-    _assignments = val;
-    self.dictionary[@"assignments"] = val;
+    _deviceStatuses = val;
+    self.dictionary[@"deviceStatuses"] = val;
+}
+
+- (MSGraphDeviceComplianceDeviceOverview*) deviceStatusOverview
+{
+    if(!_deviceStatusOverview){
+        _deviceStatusOverview = [[MSGraphDeviceComplianceDeviceOverview alloc] initWithDictionary: self.dictionary[@"deviceStatusOverview"]];
+    }
+    return _deviceStatusOverview;
+}
+
+- (void) setDeviceStatusOverview: (MSGraphDeviceComplianceDeviceOverview*) val
+{
+    _deviceStatusOverview = val;
+    self.dictionary[@"deviceStatusOverview"] = val;
+}
+
+- (NSArray*) scheduledActionsForRule
+{
+    if(!_scheduledActionsForRule){
+        
+    NSMutableArray *scheduledActionsForRuleResult = [NSMutableArray array];
+    NSArray *scheduledActionsForRule = self.dictionary[@"scheduledActionsForRule"];
+
+    if ([scheduledActionsForRule isKindOfClass:[NSArray class]]){
+        for (id tempDeviceComplianceScheduledActionForRule in scheduledActionsForRule){
+            [scheduledActionsForRuleResult addObject:tempDeviceComplianceScheduledActionForRule];
+        }
+    }
+
+    _scheduledActionsForRule = scheduledActionsForRuleResult;
+        
+    }
+    return _scheduledActionsForRule;
+}
+
+- (void) setScheduledActionsForRule: (NSArray*) val
+{
+    _scheduledActionsForRule = val;
+    self.dictionary[@"scheduledActionsForRule"] = val;
+}
+
+- (NSArray*) userStatuses
+{
+    if(!_userStatuses){
+        
+    NSMutableArray *userStatusesResult = [NSMutableArray array];
+    NSArray *userStatuses = self.dictionary[@"userStatuses"];
+
+    if ([userStatuses isKindOfClass:[NSArray class]]){
+        for (id tempDeviceComplianceUserStatus in userStatuses){
+            [userStatusesResult addObject:tempDeviceComplianceUserStatus];
+        }
+    }
+
+    _userStatuses = userStatusesResult;
+        
+    }
+    return _userStatuses;
+}
+
+- (void) setUserStatuses: (NSArray*) val
+{
+    _userStatuses = val;
+    self.dictionary[@"userStatuses"] = val;
+}
+
+- (MSGraphDeviceComplianceUserOverview*) userStatusOverview
+{
+    if(!_userStatusOverview){
+        _userStatusOverview = [[MSGraphDeviceComplianceUserOverview alloc] initWithDictionary: self.dictionary[@"userStatusOverview"]];
+    }
+    return _userStatusOverview;
+}
+
+- (void) setUserStatusOverview: (MSGraphDeviceComplianceUserOverview*) val
+{
+    _userStatusOverview = val;
+    self.dictionary[@"userStatusOverview"] = val;
 }
 
 

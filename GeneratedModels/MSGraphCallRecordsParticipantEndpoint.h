@@ -2,14 +2,14 @@
 
 
 
-@class MSGraphIdentitySet, MSGraphCallRecordsUserFeedback; 
+@class MSGraphCallRecordsUserFeedback, MSGraphIdentitySet; 
 
 
 #import "MSGraphCallRecordsEndpoint.h"
 
 @interface MSGraphCallRecordsParticipantEndpoint : MSGraphCallRecordsEndpoint
 
-@property (nullable, nonatomic, setter=setIdentity:, getter=identity) MSGraphIdentitySet* identity;
 @property (nullable, nonatomic, setter=setFeedback:, getter=feedback) MSGraphCallRecordsUserFeedback* feedback;
+@property (nullable, nonatomic, setter=setIdentity:, getter=identity) MSGraphIdentitySet* identity;
 
 @end

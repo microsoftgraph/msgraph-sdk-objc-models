@@ -7,7 +7,7 @@
 
 @interface MSGraphDeviceCategory : MSGraphEntity
 
-  @property (nullable, nonatomic, setter=setDisplayName:, getter=displayName) NSString* displayName;
-    @property (nullable, nonatomic, setter=setDeviceCategoryDescription:, getter=deviceCategoryDescription) NSString* deviceCategoryDescription;
+  @property (nullable, nonatomic, setter=setDeviceCategoryDescription:, getter=deviceCategoryDescription) NSString* deviceCategoryDescription;
+    @property (nullable, nonatomic, setter=setDisplayName:, getter=displayName) NSString* displayName;
   
 @end

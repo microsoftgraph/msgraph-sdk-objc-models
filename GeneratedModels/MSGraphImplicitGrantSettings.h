@@ -8,7 +8,7 @@
 
 @interface MSGraphImplicitGrantSettings : MSObject
 
-@property (nonatomic, setter=setEnableIdTokenIssuance:, getter=enableIdTokenIssuance) BOOL enableIdTokenIssuance;
 @property (nonatomic, setter=setEnableAccessTokenIssuance:, getter=enableAccessTokenIssuance) BOOL enableAccessTokenIssuance;
+@property (nonatomic, setter=setEnableIdTokenIssuance:, getter=enableIdTokenIssuance) BOOL enableIdTokenIssuance;
 
 @end

@@ -14,26 +14,12 @@
 
 @interface MSGraphRecordingInfo()
 {
-    MSGraphRecordingStatus* _recordingStatus;
     MSGraphIdentitySet* _initiator;
+    MSGraphRecordingStatus* _recordingStatus;
 }
 @end
 
 @implementation MSGraphRecordingInfo
-
-- (MSGraphRecordingStatus*) recordingStatus
-{
-    if(!_recordingStatus){
-        _recordingStatus = [self.dictionary[@"recordingStatus"] toMSGraphRecordingStatus];
-    }
-    return _recordingStatus;
-}
-
-- (void) setRecordingStatus: (MSGraphRecordingStatus*) val
-{
-    _recordingStatus = val;
-    self.dictionary[@"recordingStatus"] = val;
-}
 
 - (MSGraphIdentitySet*) initiator
 {
@@ -47,6 +33,20 @@
 {
     _initiator = val;
     self.dictionary[@"initiator"] = val;
+}
+
+- (MSGraphRecordingStatus*) recordingStatus
+{
+    if(!_recordingStatus){
+        _recordingStatus = [self.dictionary[@"recordingStatus"] toMSGraphRecordingStatus];
+    }
+    return _recordingStatus;
+}
+
+- (void) setRecordingStatus: (MSGraphRecordingStatus*) val
+{
+    _recordingStatus = val;
+    self.dictionary[@"recordingStatus"] = val;
 }
 
 @end

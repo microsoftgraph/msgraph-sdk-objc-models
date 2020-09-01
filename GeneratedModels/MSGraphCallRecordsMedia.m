@@ -14,43 +14,29 @@
 
 @interface MSGraphCallRecordsMedia()
 {
-    NSString* _label;
-    MSGraphCallRecordsNetworkInfo* _callerNetwork;
+    MSGraphCallRecordsDeviceInfo* _calleeDevice;
     MSGraphCallRecordsNetworkInfo* _calleeNetwork;
     MSGraphCallRecordsDeviceInfo* _callerDevice;
-    MSGraphCallRecordsDeviceInfo* _calleeDevice;
+    MSGraphCallRecordsNetworkInfo* _callerNetwork;
+    NSString* _label;
     NSArray* _streams;
 }
 @end
 
 @implementation MSGraphCallRecordsMedia
 
-- (NSString*) label
+- (MSGraphCallRecordsDeviceInfo*) calleeDevice
 {
-    if([[NSNull null] isEqual:self.dictionary[@"label"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"label"];
-}
-
-- (void) setLabel: (NSString*) val
-{
-    self.dictionary[@"label"] = val;
-}
-
-- (MSGraphCallRecordsNetworkInfo*) callerNetwork
-{
-    if(!_callerNetwork){
-        _callerNetwork = [[MSGraphCallRecordsNetworkInfo alloc] initWithDictionary: self.dictionary[@"callerNetwork"]];
+    if(!_calleeDevice){
+        _calleeDevice = [[MSGraphCallRecordsDeviceInfo alloc] initWithDictionary: self.dictionary[@"calleeDevice"]];
     }
-    return _callerNetwork;
+    return _calleeDevice;
 }
 
-- (void) setCallerNetwork: (MSGraphCallRecordsNetworkInfo*) val
+- (void) setCalleeDevice: (MSGraphCallRecordsDeviceInfo*) val
 {
-    _callerNetwork = val;
-    self.dictionary[@"callerNetwork"] = val;
+    _calleeDevice = val;
+    self.dictionary[@"calleeDevice"] = val;
 }
 
 - (MSGraphCallRecordsNetworkInfo*) calleeNetwork
@@ -81,18 +67,32 @@
     self.dictionary[@"callerDevice"] = val;
 }
 
-- (MSGraphCallRecordsDeviceInfo*) calleeDevice
+- (MSGraphCallRecordsNetworkInfo*) callerNetwork
 {
-    if(!_calleeDevice){
-        _calleeDevice = [[MSGraphCallRecordsDeviceInfo alloc] initWithDictionary: self.dictionary[@"calleeDevice"]];
+    if(!_callerNetwork){
+        _callerNetwork = [[MSGraphCallRecordsNetworkInfo alloc] initWithDictionary: self.dictionary[@"callerNetwork"]];
     }
-    return _calleeDevice;
+    return _callerNetwork;
 }
 
-- (void) setCalleeDevice: (MSGraphCallRecordsDeviceInfo*) val
+- (void) setCallerNetwork: (MSGraphCallRecordsNetworkInfo*) val
 {
-    _calleeDevice = val;
-    self.dictionary[@"calleeDevice"] = val;
+    _callerNetwork = val;
+    self.dictionary[@"callerNetwork"] = val;
+}
+
+- (NSString*) label
+{
+    if([[NSNull null] isEqual:self.dictionary[@"label"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"label"];
+}
+
+- (void) setLabel: (NSString*) val
+{
+    self.dictionary[@"label"] = val;
 }
 
 - (NSArray*) streams

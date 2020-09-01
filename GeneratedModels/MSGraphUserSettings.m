@@ -14,8 +14,8 @@
 
 @interface MSGraphUserSettings()
 {
-    BOOL _contributionToContentDiscoveryDisabled;
     BOOL _contributionToContentDiscoveryAsOrganizationDisabled;
+    BOOL _contributionToContentDiscoveryDisabled;
     MSGraphShiftPreferences* _shiftPreferences;
 }
 @end
@@ -29,18 +29,6 @@
     }
     return self;
 }
-- (BOOL) contributionToContentDiscoveryDisabled
-{
-    _contributionToContentDiscoveryDisabled = [self.dictionary[@"contributionToContentDiscoveryDisabled"] boolValue];
-    return _contributionToContentDiscoveryDisabled;
-}
-
-- (void) setContributionToContentDiscoveryDisabled: (BOOL) val
-{
-    _contributionToContentDiscoveryDisabled = val;
-    self.dictionary[@"contributionToContentDiscoveryDisabled"] = @(val);
-}
-
 - (BOOL) contributionToContentDiscoveryAsOrganizationDisabled
 {
     _contributionToContentDiscoveryAsOrganizationDisabled = [self.dictionary[@"contributionToContentDiscoveryAsOrganizationDisabled"] boolValue];
@@ -51,6 +39,18 @@
 {
     _contributionToContentDiscoveryAsOrganizationDisabled = val;
     self.dictionary[@"contributionToContentDiscoveryAsOrganizationDisabled"] = @(val);
+}
+
+- (BOOL) contributionToContentDiscoveryDisabled
+{
+    _contributionToContentDiscoveryDisabled = [self.dictionary[@"contributionToContentDiscoveryDisabled"] boolValue];
+    return _contributionToContentDiscoveryDisabled;
+}
+
+- (void) setContributionToContentDiscoveryDisabled: (BOOL) val
+{
+    _contributionToContentDiscoveryDisabled = val;
+    self.dictionary[@"contributionToContentDiscoveryDisabled"] = @(val);
 }
 
 - (MSGraphShiftPreferences*) shiftPreferences

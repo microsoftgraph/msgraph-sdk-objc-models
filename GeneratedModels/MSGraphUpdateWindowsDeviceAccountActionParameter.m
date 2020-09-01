@@ -14,16 +14,28 @@
 
 @interface MSGraphUpdateWindowsDeviceAccountActionParameter()
 {
-    MSGraphWindowsDeviceAccount* _deviceAccount;
-    BOOL _passwordRotationEnabled;
     BOOL _calendarSyncEnabled;
+    MSGraphWindowsDeviceAccount* _deviceAccount;
     NSString* _deviceAccountEmail;
     NSString* _exchangeServer;
+    BOOL _passwordRotationEnabled;
     NSString* _sessionInitiationProtocalAddress;
 }
 @end
 
 @implementation MSGraphUpdateWindowsDeviceAccountActionParameter
+
+- (BOOL) calendarSyncEnabled
+{
+    _calendarSyncEnabled = [self.dictionary[@"calendarSyncEnabled"] boolValue];
+    return _calendarSyncEnabled;
+}
+
+- (void) setCalendarSyncEnabled: (BOOL) val
+{
+    _calendarSyncEnabled = val;
+    self.dictionary[@"calendarSyncEnabled"] = @(val);
+}
 
 - (MSGraphWindowsDeviceAccount*) deviceAccount
 {
@@ -37,30 +49,6 @@
 {
     _deviceAccount = val;
     self.dictionary[@"deviceAccount"] = val;
-}
-
-- (BOOL) passwordRotationEnabled
-{
-    _passwordRotationEnabled = [self.dictionary[@"passwordRotationEnabled"] boolValue];
-    return _passwordRotationEnabled;
-}
-
-- (void) setPasswordRotationEnabled: (BOOL) val
-{
-    _passwordRotationEnabled = val;
-    self.dictionary[@"passwordRotationEnabled"] = @(val);
-}
-
-- (BOOL) calendarSyncEnabled
-{
-    _calendarSyncEnabled = [self.dictionary[@"calendarSyncEnabled"] boolValue];
-    return _calendarSyncEnabled;
-}
-
-- (void) setCalendarSyncEnabled: (BOOL) val
-{
-    _calendarSyncEnabled = val;
-    self.dictionary[@"calendarSyncEnabled"] = @(val);
 }
 
 - (NSString*) deviceAccountEmail
@@ -89,6 +77,18 @@
 - (void) setExchangeServer: (NSString*) val
 {
     self.dictionary[@"exchangeServer"] = val;
+}
+
+- (BOOL) passwordRotationEnabled
+{
+    _passwordRotationEnabled = [self.dictionary[@"passwordRotationEnabled"] boolValue];
+    return _passwordRotationEnabled;
+}
+
+- (void) setPasswordRotationEnabled: (BOOL) val
+{
+    _passwordRotationEnabled = val;
+    self.dictionary[@"passwordRotationEnabled"] = @(val);
 }
 
 - (NSString*) sessionInitiationProtocalAddress

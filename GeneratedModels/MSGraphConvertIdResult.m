@@ -14,13 +14,27 @@
 
 @interface MSGraphConvertIdResult()
 {
+    MSGraphGenericError* _errorDetails;
     NSString* _sourceId;
     NSString* _targetId;
-    MSGraphGenericError* _errorDetails;
 }
 @end
 
 @implementation MSGraphConvertIdResult
+
+- (MSGraphGenericError*) errorDetails
+{
+    if(!_errorDetails){
+        _errorDetails = [[MSGraphGenericError alloc] initWithDictionary: self.dictionary[@"errorDetails"]];
+    }
+    return _errorDetails;
+}
+
+- (void) setErrorDetails: (MSGraphGenericError*) val
+{
+    _errorDetails = val;
+    self.dictionary[@"errorDetails"] = val;
+}
 
 - (NSString*) sourceId
 {
@@ -48,20 +62,6 @@
 - (void) setTargetId: (NSString*) val
 {
     self.dictionary[@"targetId"] = val;
-}
-
-- (MSGraphGenericError*) errorDetails
-{
-    if(!_errorDetails){
-        _errorDetails = [[MSGraphGenericError alloc] initWithDictionary: self.dictionary[@"errorDetails"]];
-    }
-    return _errorDetails;
-}
-
-- (void) setErrorDetails: (MSGraphGenericError*) val
-{
-    _errorDetails = val;
-    self.dictionary[@"errorDetails"] = val;
 }
 
 @end

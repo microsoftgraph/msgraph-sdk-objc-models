@@ -2,14 +2,14 @@
 
 
 
-@class MSGraphResponseStatus, MSGraphTimeSlot; 
+@class MSGraphTimeSlot, MSGraphResponseStatus; 
 
 
 #import "MSGraphAttendeeBase.h"
 
 @interface MSGraphAttendee : MSGraphAttendeeBase
 
-@property (nullable, nonatomic, setter=setStatus:, getter=status) MSGraphResponseStatus* status;
 @property (nullable, nonatomic, setter=setProposedNewTime:, getter=proposedNewTime) MSGraphTimeSlot* proposedNewTime;
+@property (nullable, nonatomic, setter=setStatus:, getter=status) MSGraphResponseStatus* status;
 
 @end

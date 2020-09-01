@@ -10,8 +10,8 @@
 @interface MSGraphDriveItemUploadableProperties : MSObject
 
 @property (nullable, nonatomic, setter=setDriveItemUploadablePropertiesDescription:, getter=driveItemUploadablePropertiesDescription) NSString* driveItemUploadablePropertiesDescription;
+@property (nonatomic, setter=setFileSize:, getter=fileSize) int64_t fileSize;
 @property (nullable, nonatomic, setter=setFileSystemInfo:, getter=fileSystemInfo) MSGraphFileSystemInfo* fileSystemInfo;
 @property (nullable, nonatomic, setter=setName:, getter=name) NSString* name;
-@property (nonatomic, setter=setFileSize:, getter=fileSize) int64_t fileSize;
 
 @end

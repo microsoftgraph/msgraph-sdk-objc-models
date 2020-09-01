@@ -14,16 +14,16 @@
 
 @interface MSGraphIosVppApp()
 {
-    int32_t _usedLicenseCount;
-    int32_t _totalLicenseCount;
-    NSDate* _releaseDateTime;
-    NSString* _appStoreUrl;
-    MSGraphVppLicensingType* _licensingType;
     MSGraphIosDeviceType* _applicableDeviceType;
-    NSString* _vppTokenOrganizationName;
+    NSString* _appStoreUrl;
+    NSString* _bundleId;
+    MSGraphVppLicensingType* _licensingType;
+    NSDate* _releaseDateTime;
+    int32_t _totalLicenseCount;
+    int32_t _usedLicenseCount;
     MSGraphVppTokenAccountType* _vppTokenAccountType;
     NSString* _vppTokenAppleId;
-    NSString* _bundleId;
+    NSString* _vppTokenOrganizationName;
 }
 @end
 
@@ -36,42 +36,18 @@
     }
     return self;
 }
-- (int32_t) usedLicenseCount
+- (MSGraphIosDeviceType*) applicableDeviceType
 {
-    _usedLicenseCount = [self.dictionary[@"usedLicenseCount"] intValue];
-    return _usedLicenseCount;
-}
-
-- (void) setUsedLicenseCount: (int32_t) val
-{
-    _usedLicenseCount = val;
-    self.dictionary[@"usedLicenseCount"] = @(val);
-}
-
-- (int32_t) totalLicenseCount
-{
-    _totalLicenseCount = [self.dictionary[@"totalLicenseCount"] intValue];
-    return _totalLicenseCount;
-}
-
-- (void) setTotalLicenseCount: (int32_t) val
-{
-    _totalLicenseCount = val;
-    self.dictionary[@"totalLicenseCount"] = @(val);
-}
-
-- (NSDate*) releaseDateTime
-{
-    if(!_releaseDateTime){
-        _releaseDateTime = [NSDate ms_dateFromString: self.dictionary[@"releaseDateTime"]];
+    if(!_applicableDeviceType){
+        _applicableDeviceType = [[MSGraphIosDeviceType alloc] initWithDictionary: self.dictionary[@"applicableDeviceType"]];
     }
-    return _releaseDateTime;
+    return _applicableDeviceType;
 }
 
-- (void) setReleaseDateTime: (NSDate*) val
+- (void) setApplicableDeviceType: (MSGraphIosDeviceType*) val
 {
-    _releaseDateTime = val;
-    self.dictionary[@"releaseDateTime"] = [val ms_toString];
+    _applicableDeviceType = val;
+    self.dictionary[@"applicableDeviceType"] = val;
 }
 
 - (NSString*) appStoreUrl
@@ -88,6 +64,20 @@
     self.dictionary[@"appStoreUrl"] = val;
 }
 
+- (NSString*) bundleId
+{
+    if([[NSNull null] isEqual:self.dictionary[@"bundleId"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"bundleId"];
+}
+
+- (void) setBundleId: (NSString*) val
+{
+    self.dictionary[@"bundleId"] = val;
+}
+
 - (MSGraphVppLicensingType*) licensingType
 {
     if(!_licensingType){
@@ -102,32 +92,42 @@
     self.dictionary[@"licensingType"] = val;
 }
 
-- (MSGraphIosDeviceType*) applicableDeviceType
+- (NSDate*) releaseDateTime
 {
-    if(!_applicableDeviceType){
-        _applicableDeviceType = [[MSGraphIosDeviceType alloc] initWithDictionary: self.dictionary[@"applicableDeviceType"]];
+    if(!_releaseDateTime){
+        _releaseDateTime = [NSDate ms_dateFromString: self.dictionary[@"releaseDateTime"]];
     }
-    return _applicableDeviceType;
+    return _releaseDateTime;
 }
 
-- (void) setApplicableDeviceType: (MSGraphIosDeviceType*) val
+- (void) setReleaseDateTime: (NSDate*) val
 {
-    _applicableDeviceType = val;
-    self.dictionary[@"applicableDeviceType"] = val;
+    _releaseDateTime = val;
+    self.dictionary[@"releaseDateTime"] = [val ms_toString];
 }
 
-- (NSString*) vppTokenOrganizationName
+- (int32_t) totalLicenseCount
 {
-    if([[NSNull null] isEqual:self.dictionary[@"vppTokenOrganizationName"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"vppTokenOrganizationName"];
+    _totalLicenseCount = [self.dictionary[@"totalLicenseCount"] intValue];
+    return _totalLicenseCount;
 }
 
-- (void) setVppTokenOrganizationName: (NSString*) val
+- (void) setTotalLicenseCount: (int32_t) val
 {
-    self.dictionary[@"vppTokenOrganizationName"] = val;
+    _totalLicenseCount = val;
+    self.dictionary[@"totalLicenseCount"] = @(val);
+}
+
+- (int32_t) usedLicenseCount
+{
+    _usedLicenseCount = [self.dictionary[@"usedLicenseCount"] intValue];
+    return _usedLicenseCount;
+}
+
+- (void) setUsedLicenseCount: (int32_t) val
+{
+    _usedLicenseCount = val;
+    self.dictionary[@"usedLicenseCount"] = @(val);
 }
 
 - (MSGraphVppTokenAccountType*) vppTokenAccountType
@@ -158,18 +158,18 @@
     self.dictionary[@"vppTokenAppleId"] = val;
 }
 
-- (NSString*) bundleId
+- (NSString*) vppTokenOrganizationName
 {
-    if([[NSNull null] isEqual:self.dictionary[@"bundleId"]])
+    if([[NSNull null] isEqual:self.dictionary[@"vppTokenOrganizationName"]])
     {
         return nil;
     }   
-    return self.dictionary[@"bundleId"];
+    return self.dictionary[@"vppTokenOrganizationName"];
 }
 
-- (void) setBundleId: (NSString*) val
+- (void) setVppTokenOrganizationName: (NSString*) val
 {
-    self.dictionary[@"bundleId"] = val;
+    self.dictionary[@"vppTokenOrganizationName"] = val;
 }
 
 

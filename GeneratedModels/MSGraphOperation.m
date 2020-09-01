@@ -14,9 +14,9 @@
 
 @interface MSGraphOperation()
 {
-    MSGraphOperationStatus* _status;
     NSDate* _createdDateTime;
     NSDate* _lastActionDateTime;
+    MSGraphOperationStatus* _status;
 }
 @end
 
@@ -29,20 +29,6 @@
     }
     return self;
 }
-- (MSGraphOperationStatus*) status
-{
-    if(!_status){
-        _status = [self.dictionary[@"status"] toMSGraphOperationStatus];
-    }
-    return _status;
-}
-
-- (void) setStatus: (MSGraphOperationStatus*) val
-{
-    _status = val;
-    self.dictionary[@"status"] = val;
-}
-
 - (NSDate*) createdDateTime
 {
     if(!_createdDateTime){
@@ -69,6 +55,20 @@
 {
     _lastActionDateTime = val;
     self.dictionary[@"lastActionDateTime"] = [val ms_toString];
+}
+
+- (MSGraphOperationStatus*) status
+{
+    if(!_status){
+        _status = [self.dictionary[@"status"] toMSGraphOperationStatus];
+    }
+    return _status;
+}
+
+- (void) setStatus: (MSGraphOperationStatus*) val
+{
+    _status = val;
+    self.dictionary[@"status"] = val;
 }
 
 

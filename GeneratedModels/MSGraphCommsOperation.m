@@ -14,9 +14,9 @@
 
 @interface MSGraphCommsOperation()
 {
-    MSGraphOperationStatus* _status;
     NSString* _clientContext;
     MSGraphResultInfo* _resultInfo;
+    MSGraphOperationStatus* _status;
 }
 @end
 
@@ -29,20 +29,6 @@
     }
     return self;
 }
-- (MSGraphOperationStatus*) status
-{
-    if(!_status){
-        _status = [self.dictionary[@"status"] toMSGraphOperationStatus];
-    }
-    return _status;
-}
-
-- (void) setStatus: (MSGraphOperationStatus*) val
-{
-    _status = val;
-    self.dictionary[@"status"] = val;
-}
-
 - (NSString*) clientContext
 {
     if([[NSNull null] isEqual:self.dictionary[@"clientContext"]])
@@ -69,6 +55,20 @@
 {
     _resultInfo = val;
     self.dictionary[@"resultInfo"] = val;
+}
+
+- (MSGraphOperationStatus*) status
+{
+    if(!_status){
+        _status = [self.dictionary[@"status"] toMSGraphOperationStatus];
+    }
+    return _status;
+}
+
+- (void) setStatus: (MSGraphOperationStatus*) val
+{
+    _status = val;
+    self.dictionary[@"status"] = val;
 }
 
 

@@ -16,9 +16,9 @@
 {
     BOOL _acceptMappedClaims;
     NSArray* _knownClientApplications;
+    NSArray* _oauth2PermissionScopes;
     NSArray* _preAuthorizedApplications;
     int32_t _requestedAccessTokenVersion;
-    NSArray* _oauth2PermissionScopes;
 }
 @end
 
@@ -48,6 +48,31 @@
 - (void) setKnownClientApplications: (NSArray*) val
 {
     self.dictionary[@"knownClientApplications"] = val;
+}
+
+- (NSArray*) oauth2PermissionScopes
+{
+    if(!_oauth2PermissionScopes){
+        
+    NSMutableArray *oauth2PermissionScopesResult = [NSMutableArray array];
+    NSArray *oauth2PermissionScopes = self.dictionary[@"oauth2PermissionScopes"];
+
+    if ([oauth2PermissionScopes isKindOfClass:[NSArray class]]){
+        for (id tempPermissionScope in oauth2PermissionScopes){
+            [oauth2PermissionScopesResult addObject:tempPermissionScope];
+        }
+    }
+
+    _oauth2PermissionScopes = oauth2PermissionScopesResult;
+        
+    }
+    return _oauth2PermissionScopes;
+}
+
+- (void) setOauth2PermissionScopes: (NSArray*) val
+{
+    _oauth2PermissionScopes = val;
+    self.dictionary[@"oauth2PermissionScopes"] = val;
 }
 
 - (NSArray*) preAuthorizedApplications
@@ -85,31 +110,6 @@
 {
     _requestedAccessTokenVersion = val;
     self.dictionary[@"requestedAccessTokenVersion"] = @(val);
-}
-
-- (NSArray*) oauth2PermissionScopes
-{
-    if(!_oauth2PermissionScopes){
-        
-    NSMutableArray *oauth2PermissionScopesResult = [NSMutableArray array];
-    NSArray *oauth2PermissionScopes = self.dictionary[@"oauth2PermissionScopes"];
-
-    if ([oauth2PermissionScopes isKindOfClass:[NSArray class]]){
-        for (id tempPermissionScope in oauth2PermissionScopes){
-            [oauth2PermissionScopesResult addObject:tempPermissionScope];
-        }
-    }
-
-    _oauth2PermissionScopes = oauth2PermissionScopesResult;
-        
-    }
-    return _oauth2PermissionScopes;
-}
-
-- (void) setOauth2PermissionScopes: (NSArray*) val
-{
-    _oauth2PermissionScopes = val;
-    self.dictionary[@"oauth2PermissionScopes"] = val;
 }
 
 @end

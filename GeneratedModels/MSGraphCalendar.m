@@ -14,22 +14,22 @@
 
 @interface MSGraphCalendar()
 {
-    NSString* _name;
-    MSGraphCalendarColor* _color;
-    NSString* _changeKey;
+    NSArray* _allowedOnlineMeetingProviders;
+    BOOL _canEdit;
     BOOL _canShare;
     BOOL _canViewPrivateItems;
-    BOOL _canEdit;
-    MSGraphEmailAddress* _owner;
-    NSArray* _allowedOnlineMeetingProviders;
+    NSString* _changeKey;
+    MSGraphCalendarColor* _color;
     MSGraphOnlineMeetingProviderType* _defaultOnlineMeetingProvider;
-    BOOL _isTallyingResponses;
     BOOL _isRemovable;
-    NSArray* _singleValueExtendedProperties;
-    NSArray* _multiValueExtendedProperties;
+    BOOL _isTallyingResponses;
+    NSString* _name;
+    MSGraphEmailAddress* _owner;
     NSArray* _calendarPermissions;
-    NSArray* _events;
     NSArray* _calendarView;
+    NSArray* _events;
+    NSArray* _multiValueExtendedProperties;
+    NSArray* _singleValueExtendedProperties;
 }
 @end
 
@@ -42,46 +42,41 @@
     }
     return self;
 }
-- (NSString*) name
+- (NSArray*) allowedOnlineMeetingProviders
 {
-    if([[NSNull null] isEqual:self.dictionary[@"name"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"name"];
-}
+    if(!_allowedOnlineMeetingProviders){
+        
+    NSMutableArray *allowedOnlineMeetingProvidersResult = [NSMutableArray array];
+    NSArray *allowedOnlineMeetingProviders = self.dictionary[@"allowedOnlineMeetingProviders"];
 
-- (void) setName: (NSString*) val
-{
-    self.dictionary[@"name"] = val;
-}
-
-- (MSGraphCalendarColor*) color
-{
-    if(!_color){
-        _color = [self.dictionary[@"color"] toMSGraphCalendarColor];
+    if ([allowedOnlineMeetingProviders isKindOfClass:[NSArray class]]){
+        for (id tempOnlineMeetingProviderType in allowedOnlineMeetingProviders){
+            [allowedOnlineMeetingProvidersResult addObject:tempOnlineMeetingProviderType];
+        }
     }
-    return _color;
+
+    _allowedOnlineMeetingProviders = allowedOnlineMeetingProvidersResult;
+        
+    }
+    return _allowedOnlineMeetingProviders;
 }
 
-- (void) setColor: (MSGraphCalendarColor*) val
+- (void) setAllowedOnlineMeetingProviders: (NSArray*) val
 {
-    _color = val;
-    self.dictionary[@"color"] = val;
+    _allowedOnlineMeetingProviders = val;
+    self.dictionary[@"allowedOnlineMeetingProviders"] = val;
 }
 
-- (NSString*) changeKey
+- (BOOL) canEdit
 {
-    if([[NSNull null] isEqual:self.dictionary[@"changeKey"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"changeKey"];
+    _canEdit = [self.dictionary[@"canEdit"] boolValue];
+    return _canEdit;
 }
 
-- (void) setChangeKey: (NSString*) val
+- (void) setCanEdit: (BOOL) val
 {
-    self.dictionary[@"changeKey"] = val;
+    _canEdit = val;
+    self.dictionary[@"canEdit"] = @(val);
 }
 
 - (BOOL) canShare
@@ -108,55 +103,32 @@
     self.dictionary[@"canViewPrivateItems"] = @(val);
 }
 
-- (BOOL) canEdit
+- (NSString*) changeKey
 {
-    _canEdit = [self.dictionary[@"canEdit"] boolValue];
-    return _canEdit;
+    if([[NSNull null] isEqual:self.dictionary[@"changeKey"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"changeKey"];
 }
 
-- (void) setCanEdit: (BOOL) val
+- (void) setChangeKey: (NSString*) val
 {
-    _canEdit = val;
-    self.dictionary[@"canEdit"] = @(val);
+    self.dictionary[@"changeKey"] = val;
 }
 
-- (MSGraphEmailAddress*) owner
+- (MSGraphCalendarColor*) color
 {
-    if(!_owner){
-        _owner = [[MSGraphEmailAddress alloc] initWithDictionary: self.dictionary[@"owner"]];
+    if(!_color){
+        _color = [self.dictionary[@"color"] toMSGraphCalendarColor];
     }
-    return _owner;
+    return _color;
 }
 
-- (void) setOwner: (MSGraphEmailAddress*) val
+- (void) setColor: (MSGraphCalendarColor*) val
 {
-    _owner = val;
-    self.dictionary[@"owner"] = val;
-}
-
-- (NSArray*) allowedOnlineMeetingProviders
-{
-    if(!_allowedOnlineMeetingProviders){
-        
-    NSMutableArray *allowedOnlineMeetingProvidersResult = [NSMutableArray array];
-    NSArray *allowedOnlineMeetingProviders = self.dictionary[@"allowedOnlineMeetingProviders"];
-
-    if ([allowedOnlineMeetingProviders isKindOfClass:[NSArray class]]){
-        for (id tempOnlineMeetingProviderType in allowedOnlineMeetingProviders){
-            [allowedOnlineMeetingProvidersResult addObject:tempOnlineMeetingProviderType];
-        }
-    }
-
-    _allowedOnlineMeetingProviders = allowedOnlineMeetingProvidersResult;
-        
-    }
-    return _allowedOnlineMeetingProviders;
-}
-
-- (void) setAllowedOnlineMeetingProviders: (NSArray*) val
-{
-    _allowedOnlineMeetingProviders = val;
-    self.dictionary[@"allowedOnlineMeetingProviders"] = val;
+    _color = val;
+    self.dictionary[@"color"] = val;
 }
 
 - (MSGraphOnlineMeetingProviderType*) defaultOnlineMeetingProvider
@@ -173,18 +145,6 @@
     self.dictionary[@"defaultOnlineMeetingProvider"] = val;
 }
 
-- (BOOL) isTallyingResponses
-{
-    _isTallyingResponses = [self.dictionary[@"isTallyingResponses"] boolValue];
-    return _isTallyingResponses;
-}
-
-- (void) setIsTallyingResponses: (BOOL) val
-{
-    _isTallyingResponses = val;
-    self.dictionary[@"isTallyingResponses"] = @(val);
-}
-
 - (BOOL) isRemovable
 {
     _isRemovable = [self.dictionary[@"isRemovable"] boolValue];
@@ -197,54 +157,44 @@
     self.dictionary[@"isRemovable"] = @(val);
 }
 
-- (NSArray*) singleValueExtendedProperties
+- (BOOL) isTallyingResponses
 {
-    if(!_singleValueExtendedProperties){
-        
-    NSMutableArray *singleValueExtendedPropertiesResult = [NSMutableArray array];
-    NSArray *singleValueExtendedProperties = self.dictionary[@"singleValueExtendedProperties"];
-
-    if ([singleValueExtendedProperties isKindOfClass:[NSArray class]]){
-        for (id tempSingleValueLegacyExtendedProperty in singleValueExtendedProperties){
-            [singleValueExtendedPropertiesResult addObject:tempSingleValueLegacyExtendedProperty];
-        }
-    }
-
-    _singleValueExtendedProperties = singleValueExtendedPropertiesResult;
-        
-    }
-    return _singleValueExtendedProperties;
+    _isTallyingResponses = [self.dictionary[@"isTallyingResponses"] boolValue];
+    return _isTallyingResponses;
 }
 
-- (void) setSingleValueExtendedProperties: (NSArray*) val
+- (void) setIsTallyingResponses: (BOOL) val
 {
-    _singleValueExtendedProperties = val;
-    self.dictionary[@"singleValueExtendedProperties"] = val;
+    _isTallyingResponses = val;
+    self.dictionary[@"isTallyingResponses"] = @(val);
 }
 
-- (NSArray*) multiValueExtendedProperties
+- (NSString*) name
 {
-    if(!_multiValueExtendedProperties){
-        
-    NSMutableArray *multiValueExtendedPropertiesResult = [NSMutableArray array];
-    NSArray *multiValueExtendedProperties = self.dictionary[@"multiValueExtendedProperties"];
-
-    if ([multiValueExtendedProperties isKindOfClass:[NSArray class]]){
-        for (id tempMultiValueLegacyExtendedProperty in multiValueExtendedProperties){
-            [multiValueExtendedPropertiesResult addObject:tempMultiValueLegacyExtendedProperty];
-        }
-    }
-
-    _multiValueExtendedProperties = multiValueExtendedPropertiesResult;
-        
-    }
-    return _multiValueExtendedProperties;
+    if([[NSNull null] isEqual:self.dictionary[@"name"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"name"];
 }
 
-- (void) setMultiValueExtendedProperties: (NSArray*) val
+- (void) setName: (NSString*) val
 {
-    _multiValueExtendedProperties = val;
-    self.dictionary[@"multiValueExtendedProperties"] = val;
+    self.dictionary[@"name"] = val;
+}
+
+- (MSGraphEmailAddress*) owner
+{
+    if(!_owner){
+        _owner = [[MSGraphEmailAddress alloc] initWithDictionary: self.dictionary[@"owner"]];
+    }
+    return _owner;
+}
+
+- (void) setOwner: (MSGraphEmailAddress*) val
+{
+    _owner = val;
+    self.dictionary[@"owner"] = val;
 }
 
 - (NSArray*) calendarPermissions
@@ -272,6 +222,31 @@
     self.dictionary[@"calendarPermissions"] = val;
 }
 
+- (NSArray*) calendarView
+{
+    if(!_calendarView){
+        
+    NSMutableArray *calendarViewResult = [NSMutableArray array];
+    NSArray *calendarView = self.dictionary[@"calendarView"];
+
+    if ([calendarView isKindOfClass:[NSArray class]]){
+        for (id tempEvent in calendarView){
+            [calendarViewResult addObject:tempEvent];
+        }
+    }
+
+    _calendarView = calendarViewResult;
+        
+    }
+    return _calendarView;
+}
+
+- (void) setCalendarView: (NSArray*) val
+{
+    _calendarView = val;
+    self.dictionary[@"calendarView"] = val;
+}
+
 - (NSArray*) events
 {
     if(!_events){
@@ -297,29 +272,54 @@
     self.dictionary[@"events"] = val;
 }
 
-- (NSArray*) calendarView
+- (NSArray*) multiValueExtendedProperties
 {
-    if(!_calendarView){
+    if(!_multiValueExtendedProperties){
         
-    NSMutableArray *calendarViewResult = [NSMutableArray array];
-    NSArray *calendarView = self.dictionary[@"calendarView"];
+    NSMutableArray *multiValueExtendedPropertiesResult = [NSMutableArray array];
+    NSArray *multiValueExtendedProperties = self.dictionary[@"multiValueExtendedProperties"];
 
-    if ([calendarView isKindOfClass:[NSArray class]]){
-        for (id tempEvent in calendarView){
-            [calendarViewResult addObject:tempEvent];
+    if ([multiValueExtendedProperties isKindOfClass:[NSArray class]]){
+        for (id tempMultiValueLegacyExtendedProperty in multiValueExtendedProperties){
+            [multiValueExtendedPropertiesResult addObject:tempMultiValueLegacyExtendedProperty];
         }
     }
 
-    _calendarView = calendarViewResult;
+    _multiValueExtendedProperties = multiValueExtendedPropertiesResult;
         
     }
-    return _calendarView;
+    return _multiValueExtendedProperties;
 }
 
-- (void) setCalendarView: (NSArray*) val
+- (void) setMultiValueExtendedProperties: (NSArray*) val
 {
-    _calendarView = val;
-    self.dictionary[@"calendarView"] = val;
+    _multiValueExtendedProperties = val;
+    self.dictionary[@"multiValueExtendedProperties"] = val;
+}
+
+- (NSArray*) singleValueExtendedProperties
+{
+    if(!_singleValueExtendedProperties){
+        
+    NSMutableArray *singleValueExtendedPropertiesResult = [NSMutableArray array];
+    NSArray *singleValueExtendedProperties = self.dictionary[@"singleValueExtendedProperties"];
+
+    if ([singleValueExtendedProperties isKindOfClass:[NSArray class]]){
+        for (id tempSingleValueLegacyExtendedProperty in singleValueExtendedProperties){
+            [singleValueExtendedPropertiesResult addObject:tempSingleValueLegacyExtendedProperty];
+        }
+    }
+
+    _singleValueExtendedProperties = singleValueExtendedPropertiesResult;
+        
+    }
+    return _singleValueExtendedProperties;
+}
+
+- (void) setSingleValueExtendedProperties: (NSArray*) val
+{
+    _singleValueExtendedProperties = val;
+    self.dictionary[@"singleValueExtendedProperties"] = val;
 }
 
 

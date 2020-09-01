@@ -7,9 +7,9 @@
 
 @interface MSGraphOfferShiftRequest : MSGraphScheduleChangeRequest
 
-  @property (nullable, nonatomic, setter=setRecipientActionMessage:, getter=recipientActionMessage) NSString* recipientActionMessage;
-    @property (nullable, nonatomic, setter=setRecipientActionDateTime:, getter=recipientActionDateTime) NSDate* recipientActionDateTime;
-    @property (nullable, nonatomic, setter=setSenderShiftId:, getter=senderShiftId) NSString* senderShiftId;
+  @property (nullable, nonatomic, setter=setRecipientActionDateTime:, getter=recipientActionDateTime) NSDate* recipientActionDateTime;
+    @property (nullable, nonatomic, setter=setRecipientActionMessage:, getter=recipientActionMessage) NSString* recipientActionMessage;
     @property (nullable, nonatomic, setter=setRecipientUserId:, getter=recipientUserId) NSString* recipientUserId;
+    @property (nullable, nonatomic, setter=setSenderShiftId:, getter=senderShiftId) NSString* senderShiftId;
   
 @end

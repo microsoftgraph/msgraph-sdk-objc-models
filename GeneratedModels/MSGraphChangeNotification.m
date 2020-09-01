@@ -14,55 +14,31 @@
 
 @interface MSGraphChangeNotification()
 {
-    NSString* _changeNotificationId;
-    NSString* _subscriptionId;
-    NSDate* _subscriptionExpirationDateTime;
-    NSString* _clientState;
     MSGraphChangeType* _changeType;
+    NSString* _clientState;
+    NSString* _changeNotificationId;
     NSString* _resource;
-    NSString* _tenantId;
     MSGraphResourceData* _resourceData;
+    NSDate* _subscriptionExpirationDateTime;
+    NSString* _subscriptionId;
+    NSString* _tenantId;
 }
 @end
 
 @implementation MSGraphChangeNotification
 
-- (NSString*) changeNotificationId
+- (MSGraphChangeType*) changeType
 {
-    if([[NSNull null] isEqual:self.dictionary[@"id"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"id"];
-}
-
-- (void) setChangeNotificationId: (NSString*) val
-{
-    self.dictionary[@"id"] = val;
-}
-
-- (NSString*) subscriptionId
-{
-    return self.dictionary[@"subscriptionId"];
-}
-
-- (void) setSubscriptionId: (NSString*) val
-{
-    self.dictionary[@"subscriptionId"] = val;
-}
-
-- (NSDate*) subscriptionExpirationDateTime
-{
-    if(!_subscriptionExpirationDateTime){
-        _subscriptionExpirationDateTime = [NSDate ms_dateFromString: self.dictionary[@"subscriptionExpirationDateTime"]];
+    if(!_changeType){
+        _changeType = [self.dictionary[@"changeType"] toMSGraphChangeType];
     }
-    return _subscriptionExpirationDateTime;
+    return _changeType;
 }
 
-- (void) setSubscriptionExpirationDateTime: (NSDate*) val
+- (void) setChangeType: (MSGraphChangeType*) val
 {
-    _subscriptionExpirationDateTime = val;
-    self.dictionary[@"subscriptionExpirationDateTime"] = [val ms_toString];
+    _changeType = val;
+    self.dictionary[@"changeType"] = val;
 }
 
 - (NSString*) clientState
@@ -79,18 +55,18 @@
     self.dictionary[@"clientState"] = val;
 }
 
-- (MSGraphChangeType*) changeType
+- (NSString*) changeNotificationId
 {
-    if(!_changeType){
-        _changeType = [self.dictionary[@"changeType"] toMSGraphChangeType];
-    }
-    return _changeType;
+    if([[NSNull null] isEqual:self.dictionary[@"id"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"id"];
 }
 
-- (void) setChangeType: (MSGraphChangeType*) val
+- (void) setChangeNotificationId: (NSString*) val
 {
-    _changeType = val;
-    self.dictionary[@"changeType"] = val;
+    self.dictionary[@"id"] = val;
 }
 
 - (NSString*) resource
@@ -101,16 +77,6 @@
 - (void) setResource: (NSString*) val
 {
     self.dictionary[@"resource"] = val;
-}
-
-- (NSString*) tenantId
-{
-    return self.dictionary[@"tenantId"];
-}
-
-- (void) setTenantId: (NSString*) val
-{
-    self.dictionary[@"tenantId"] = val;
 }
 
 - (MSGraphResourceData*) resourceData
@@ -125,6 +91,40 @@
 {
     _resourceData = val;
     self.dictionary[@"resourceData"] = val;
+}
+
+- (NSDate*) subscriptionExpirationDateTime
+{
+    if(!_subscriptionExpirationDateTime){
+        _subscriptionExpirationDateTime = [NSDate ms_dateFromString: self.dictionary[@"subscriptionExpirationDateTime"]];
+    }
+    return _subscriptionExpirationDateTime;
+}
+
+- (void) setSubscriptionExpirationDateTime: (NSDate*) val
+{
+    _subscriptionExpirationDateTime = val;
+    self.dictionary[@"subscriptionExpirationDateTime"] = [val ms_toString];
+}
+
+- (NSString*) subscriptionId
+{
+    return self.dictionary[@"subscriptionId"];
+}
+
+- (void) setSubscriptionId: (NSString*) val
+{
+    self.dictionary[@"subscriptionId"] = val;
+}
+
+- (NSString*) tenantId
+{
+    return self.dictionary[@"tenantId"];
+}
+
+- (void) setTenantId: (NSString*) val
+{
+    self.dictionary[@"tenantId"] = val;
 }
 
 @end

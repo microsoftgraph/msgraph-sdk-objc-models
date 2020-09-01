@@ -14,25 +14,13 @@
 
 @interface MSGraphAlternativeSecurityId()
 {
-    int32_t _type;
     NSString* _identityProvider;
     NSString* _key;
+    int32_t _type;
 }
 @end
 
 @implementation MSGraphAlternativeSecurityId
-
-- (int32_t) type
-{
-    _type = [self.dictionary[@"type"] intValue];
-    return _type;
-}
-
-- (void) setType: (int32_t) val
-{
-    _type = val;
-    self.dictionary[@"type"] = @(val);
-}
 
 - (NSString*) identityProvider
 {
@@ -60,6 +48,18 @@
 - (void) setKey: (NSString*) val
 {
     self.dictionary[@"key"] = val;
+}
+
+- (int32_t) type
+{
+    _type = [self.dictionary[@"type"] intValue];
+    return _type;
+}
+
+- (void) setType: (int32_t) val
+{
+    _type = val;
+    self.dictionary[@"type"] = @(val);
 }
 
 @end

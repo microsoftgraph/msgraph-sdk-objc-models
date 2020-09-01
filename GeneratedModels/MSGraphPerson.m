@@ -14,25 +14,25 @@
 
 @interface MSGraphPerson()
 {
+    NSString* _birthday;
+    NSString* _companyName;
+    NSString* _department;
     NSString* _displayName;
     NSString* _givenName;
-    NSString* _surname;
-    NSString* _birthday;
-    NSString* _personNotes;
+    NSString* _imAddress;
     BOOL _isFavorite;
-    NSArray* _scoredEmailAddresses;
+    NSString* _jobTitle;
+    NSString* _officeLocation;
+    NSString* _personNotes;
+    MSGraphPersonType* _personType;
     NSArray* _phones;
     NSArray* _postalAddresses;
-    NSArray* _websites;
-    NSString* _jobTitle;
-    NSString* _companyName;
-    NSString* _yomiCompany;
-    NSString* _department;
-    NSString* _officeLocation;
     NSString* _profession;
-    MSGraphPersonType* _personType;
+    NSArray* _scoredEmailAddresses;
+    NSString* _surname;
     NSString* _userPrincipalName;
-    NSString* _imAddress;
+    NSArray* _websites;
+    NSString* _yomiCompany;
 }
 @end
 
@@ -45,6 +45,48 @@
     }
     return self;
 }
+- (NSString*) birthday
+{
+    if([[NSNull null] isEqual:self.dictionary[@"birthday"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"birthday"];
+}
+
+- (void) setBirthday: (NSString*) val
+{
+    self.dictionary[@"birthday"] = val;
+}
+
+- (NSString*) companyName
+{
+    if([[NSNull null] isEqual:self.dictionary[@"companyName"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"companyName"];
+}
+
+- (void) setCompanyName: (NSString*) val
+{
+    self.dictionary[@"companyName"] = val;
+}
+
+- (NSString*) department
+{
+    if([[NSNull null] isEqual:self.dictionary[@"department"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"department"];
+}
+
+- (void) setDepartment: (NSString*) val
+{
+    self.dictionary[@"department"] = val;
+}
+
 - (NSString*) displayName
 {
     if([[NSNull null] isEqual:self.dictionary[@"displayName"]])
@@ -73,32 +115,58 @@
     self.dictionary[@"givenName"] = val;
 }
 
-- (NSString*) surname
+- (NSString*) imAddress
 {
-    if([[NSNull null] isEqual:self.dictionary[@"surname"]])
+    if([[NSNull null] isEqual:self.dictionary[@"imAddress"]])
     {
         return nil;
     }   
-    return self.dictionary[@"surname"];
+    return self.dictionary[@"imAddress"];
 }
 
-- (void) setSurname: (NSString*) val
+- (void) setImAddress: (NSString*) val
 {
-    self.dictionary[@"surname"] = val;
+    self.dictionary[@"imAddress"] = val;
 }
 
-- (NSString*) birthday
+- (BOOL) isFavorite
 {
-    if([[NSNull null] isEqual:self.dictionary[@"birthday"]])
+    _isFavorite = [self.dictionary[@"isFavorite"] boolValue];
+    return _isFavorite;
+}
+
+- (void) setIsFavorite: (BOOL) val
+{
+    _isFavorite = val;
+    self.dictionary[@"isFavorite"] = @(val);
+}
+
+- (NSString*) jobTitle
+{
+    if([[NSNull null] isEqual:self.dictionary[@"jobTitle"]])
     {
         return nil;
     }   
-    return self.dictionary[@"birthday"];
+    return self.dictionary[@"jobTitle"];
 }
 
-- (void) setBirthday: (NSString*) val
+- (void) setJobTitle: (NSString*) val
 {
-    self.dictionary[@"birthday"] = val;
+    self.dictionary[@"jobTitle"] = val;
+}
+
+- (NSString*) officeLocation
+{
+    if([[NSNull null] isEqual:self.dictionary[@"officeLocation"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"officeLocation"];
+}
+
+- (void) setOfficeLocation: (NSString*) val
+{
+    self.dictionary[@"officeLocation"] = val;
 }
 
 - (NSString*) personNotes
@@ -115,41 +183,18 @@
     self.dictionary[@"personNotes"] = val;
 }
 
-- (BOOL) isFavorite
+- (MSGraphPersonType*) personType
 {
-    _isFavorite = [self.dictionary[@"isFavorite"] boolValue];
-    return _isFavorite;
-}
-
-- (void) setIsFavorite: (BOOL) val
-{
-    _isFavorite = val;
-    self.dictionary[@"isFavorite"] = @(val);
-}
-
-- (NSArray*) scoredEmailAddresses
-{
-    if(!_scoredEmailAddresses){
-        
-    NSMutableArray *scoredEmailAddressesResult = [NSMutableArray array];
-    NSArray *scoredEmailAddresses = self.dictionary[@"scoredEmailAddresses"];
-
-    if ([scoredEmailAddresses isKindOfClass:[NSArray class]]){
-        for (id tempScoredEmailAddress in scoredEmailAddresses){
-            [scoredEmailAddressesResult addObject:tempScoredEmailAddress];
-        }
+    if(!_personType){
+        _personType = [[MSGraphPersonType alloc] initWithDictionary: self.dictionary[@"personType"]];
     }
-
-    _scoredEmailAddresses = scoredEmailAddressesResult;
-        
-    }
-    return _scoredEmailAddresses;
+    return _personType;
 }
 
-- (void) setScoredEmailAddresses: (NSArray*) val
+- (void) setPersonType: (MSGraphPersonType*) val
 {
-    _scoredEmailAddresses = val;
-    self.dictionary[@"scoredEmailAddresses"] = val;
+    _personType = val;
+    self.dictionary[@"personType"] = val;
 }
 
 - (NSArray*) phones
@@ -202,6 +247,73 @@
     self.dictionary[@"postalAddresses"] = val;
 }
 
+- (NSString*) profession
+{
+    if([[NSNull null] isEqual:self.dictionary[@"profession"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"profession"];
+}
+
+- (void) setProfession: (NSString*) val
+{
+    self.dictionary[@"profession"] = val;
+}
+
+- (NSArray*) scoredEmailAddresses
+{
+    if(!_scoredEmailAddresses){
+        
+    NSMutableArray *scoredEmailAddressesResult = [NSMutableArray array];
+    NSArray *scoredEmailAddresses = self.dictionary[@"scoredEmailAddresses"];
+
+    if ([scoredEmailAddresses isKindOfClass:[NSArray class]]){
+        for (id tempScoredEmailAddress in scoredEmailAddresses){
+            [scoredEmailAddressesResult addObject:tempScoredEmailAddress];
+        }
+    }
+
+    _scoredEmailAddresses = scoredEmailAddressesResult;
+        
+    }
+    return _scoredEmailAddresses;
+}
+
+- (void) setScoredEmailAddresses: (NSArray*) val
+{
+    _scoredEmailAddresses = val;
+    self.dictionary[@"scoredEmailAddresses"] = val;
+}
+
+- (NSString*) surname
+{
+    if([[NSNull null] isEqual:self.dictionary[@"surname"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"surname"];
+}
+
+- (void) setSurname: (NSString*) val
+{
+    self.dictionary[@"surname"] = val;
+}
+
+- (NSString*) userPrincipalName
+{
+    if([[NSNull null] isEqual:self.dictionary[@"userPrincipalName"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"userPrincipalName"];
+}
+
+- (void) setUserPrincipalName: (NSString*) val
+{
+    self.dictionary[@"userPrincipalName"] = val;
+}
+
 - (NSArray*) websites
 {
     if(!_websites){
@@ -227,34 +339,6 @@
     self.dictionary[@"websites"] = val;
 }
 
-- (NSString*) jobTitle
-{
-    if([[NSNull null] isEqual:self.dictionary[@"jobTitle"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"jobTitle"];
-}
-
-- (void) setJobTitle: (NSString*) val
-{
-    self.dictionary[@"jobTitle"] = val;
-}
-
-- (NSString*) companyName
-{
-    if([[NSNull null] isEqual:self.dictionary[@"companyName"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"companyName"];
-}
-
-- (void) setCompanyName: (NSString*) val
-{
-    self.dictionary[@"companyName"] = val;
-}
-
 - (NSString*) yomiCompany
 {
     if([[NSNull null] isEqual:self.dictionary[@"yomiCompany"]])
@@ -267,90 +351,6 @@
 - (void) setYomiCompany: (NSString*) val
 {
     self.dictionary[@"yomiCompany"] = val;
-}
-
-- (NSString*) department
-{
-    if([[NSNull null] isEqual:self.dictionary[@"department"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"department"];
-}
-
-- (void) setDepartment: (NSString*) val
-{
-    self.dictionary[@"department"] = val;
-}
-
-- (NSString*) officeLocation
-{
-    if([[NSNull null] isEqual:self.dictionary[@"officeLocation"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"officeLocation"];
-}
-
-- (void) setOfficeLocation: (NSString*) val
-{
-    self.dictionary[@"officeLocation"] = val;
-}
-
-- (NSString*) profession
-{
-    if([[NSNull null] isEqual:self.dictionary[@"profession"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"profession"];
-}
-
-- (void) setProfession: (NSString*) val
-{
-    self.dictionary[@"profession"] = val;
-}
-
-- (MSGraphPersonType*) personType
-{
-    if(!_personType){
-        _personType = [[MSGraphPersonType alloc] initWithDictionary: self.dictionary[@"personType"]];
-    }
-    return _personType;
-}
-
-- (void) setPersonType: (MSGraphPersonType*) val
-{
-    _personType = val;
-    self.dictionary[@"personType"] = val;
-}
-
-- (NSString*) userPrincipalName
-{
-    if([[NSNull null] isEqual:self.dictionary[@"userPrincipalName"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"userPrincipalName"];
-}
-
-- (void) setUserPrincipalName: (NSString*) val
-{
-    self.dictionary[@"userPrincipalName"] = val;
-}
-
-- (NSString*) imAddress
-{
-    if([[NSNull null] isEqual:self.dictionary[@"imAddress"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"imAddress"];
-}
-
-- (void) setImAddress: (NSString*) val
-{
-    self.dictionary[@"imAddress"] = val;
 }
 
 

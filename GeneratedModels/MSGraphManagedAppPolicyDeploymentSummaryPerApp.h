@@ -9,7 +9,7 @@
 
 @interface MSGraphManagedAppPolicyDeploymentSummaryPerApp : MSObject
 
-@property (nullable, nonatomic, setter=setMobileAppIdentifier:, getter=mobileAppIdentifier) MSGraphMobileAppIdentifier* mobileAppIdentifier;
 @property (nonatomic, setter=setConfigurationAppliedUserCount:, getter=configurationAppliedUserCount) int32_t configurationAppliedUserCount;
+@property (nullable, nonatomic, setter=setMobileAppIdentifier:, getter=mobileAppIdentifier) MSGraphMobileAppIdentifier* mobileAppIdentifier;
 
 @end

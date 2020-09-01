@@ -8,8 +8,8 @@
 
 @interface MSGraphOmaSetting : MSObject
 
-@property (nonnull, nonatomic, setter=setDisplayName:, getter=displayName) NSString* displayName;
 @property (nullable, nonatomic, setter=setOmaSettingDescription:, getter=omaSettingDescription) NSString* omaSettingDescription;
+@property (nonnull, nonatomic, setter=setDisplayName:, getter=displayName) NSString* displayName;
 @property (nonnull, nonatomic, setter=setOmaUri:, getter=omaUri) NSString* omaUri;
 
 @end

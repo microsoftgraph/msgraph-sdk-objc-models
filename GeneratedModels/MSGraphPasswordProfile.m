@@ -14,27 +14,13 @@
 
 @interface MSGraphPasswordProfile()
 {
-    NSString* _password;
     BOOL _forceChangePasswordNextSignIn;
     BOOL _forceChangePasswordNextSignInWithMfa;
+    NSString* _password;
 }
 @end
 
 @implementation MSGraphPasswordProfile
-
-- (NSString*) password
-{
-    if([[NSNull null] isEqual:self.dictionary[@"password"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"password"];
-}
-
-- (void) setPassword: (NSString*) val
-{
-    self.dictionary[@"password"] = val;
-}
 
 - (BOOL) forceChangePasswordNextSignIn
 {
@@ -58,6 +44,20 @@
 {
     _forceChangePasswordNextSignInWithMfa = val;
     self.dictionary[@"forceChangePasswordNextSignInWithMfa"] = @(val);
+}
+
+- (NSString*) password
+{
+    if([[NSNull null] isEqual:self.dictionary[@"password"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"password"];
+}
+
+- (void) setPassword: (NSString*) val
+{
+    self.dictionary[@"password"] = val;
 }
 
 @end

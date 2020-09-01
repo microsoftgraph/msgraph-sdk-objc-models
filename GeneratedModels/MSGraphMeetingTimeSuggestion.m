@@ -14,17 +14,42 @@
 
 @interface MSGraphMeetingTimeSuggestion()
 {
+    NSArray* _attendeeAvailability;
     double _confidence;
+    NSArray* _locations;
+    MSGraphTimeSlot* _meetingTimeSlot;
     int32_t _order;
     MSGraphFreeBusyStatus* _organizerAvailability;
-    NSArray* _attendeeAvailability;
-    NSArray* _locations;
     NSString* _suggestionReason;
-    MSGraphTimeSlot* _meetingTimeSlot;
 }
 @end
 
 @implementation MSGraphMeetingTimeSuggestion
+
+- (NSArray*) attendeeAvailability
+{
+    if(!_attendeeAvailability){
+        
+    NSMutableArray *attendeeAvailabilityResult = [NSMutableArray array];
+    NSArray *attendeeAvailability = self.dictionary[@"attendeeAvailability"];
+
+    if ([attendeeAvailability isKindOfClass:[NSArray class]]){
+        for (id tempAttendeeAvailability in attendeeAvailability){
+            [attendeeAvailabilityResult addObject:tempAttendeeAvailability];
+        }
+    }
+
+    _attendeeAvailability = attendeeAvailabilityResult;
+        
+    }
+    return _attendeeAvailability;
+}
+
+- (void) setAttendeeAvailability: (NSArray*) val
+{
+    _attendeeAvailability = val;
+    self.dictionary[@"attendeeAvailability"] = val;
+}
 
 - (double) confidence
 {
@@ -36,6 +61,45 @@
 {
     _confidence = val;
     self.dictionary[@"confidence"] = @(val);
+}
+
+- (NSArray*) locations
+{
+    if(!_locations){
+        
+    NSMutableArray *locationsResult = [NSMutableArray array];
+    NSArray *locations = self.dictionary[@"locations"];
+
+    if ([locations isKindOfClass:[NSArray class]]){
+        for (id tempLocation in locations){
+            [locationsResult addObject:tempLocation];
+        }
+    }
+
+    _locations = locationsResult;
+        
+    }
+    return _locations;
+}
+
+- (void) setLocations: (NSArray*) val
+{
+    _locations = val;
+    self.dictionary[@"locations"] = val;
+}
+
+- (MSGraphTimeSlot*) meetingTimeSlot
+{
+    if(!_meetingTimeSlot){
+        _meetingTimeSlot = [[MSGraphTimeSlot alloc] initWithDictionary: self.dictionary[@"meetingTimeSlot"]];
+    }
+    return _meetingTimeSlot;
+}
+
+- (void) setMeetingTimeSlot: (MSGraphTimeSlot*) val
+{
+    _meetingTimeSlot = val;
+    self.dictionary[@"meetingTimeSlot"] = val;
 }
 
 - (int32_t) order
@@ -64,56 +128,6 @@
     self.dictionary[@"organizerAvailability"] = val;
 }
 
-- (NSArray*) attendeeAvailability
-{
-    if(!_attendeeAvailability){
-        
-    NSMutableArray *attendeeAvailabilityResult = [NSMutableArray array];
-    NSArray *attendeeAvailability = self.dictionary[@"attendeeAvailability"];
-
-    if ([attendeeAvailability isKindOfClass:[NSArray class]]){
-        for (id tempAttendeeAvailability in attendeeAvailability){
-            [attendeeAvailabilityResult addObject:tempAttendeeAvailability];
-        }
-    }
-
-    _attendeeAvailability = attendeeAvailabilityResult;
-        
-    }
-    return _attendeeAvailability;
-}
-
-- (void) setAttendeeAvailability: (NSArray*) val
-{
-    _attendeeAvailability = val;
-    self.dictionary[@"attendeeAvailability"] = val;
-}
-
-- (NSArray*) locations
-{
-    if(!_locations){
-        
-    NSMutableArray *locationsResult = [NSMutableArray array];
-    NSArray *locations = self.dictionary[@"locations"];
-
-    if ([locations isKindOfClass:[NSArray class]]){
-        for (id tempLocation in locations){
-            [locationsResult addObject:tempLocation];
-        }
-    }
-
-    _locations = locationsResult;
-        
-    }
-    return _locations;
-}
-
-- (void) setLocations: (NSArray*) val
-{
-    _locations = val;
-    self.dictionary[@"locations"] = val;
-}
-
 - (NSString*) suggestionReason
 {
     if([[NSNull null] isEqual:self.dictionary[@"suggestionReason"]])
@@ -126,20 +140,6 @@
 - (void) setSuggestionReason: (NSString*) val
 {
     self.dictionary[@"suggestionReason"] = val;
-}
-
-- (MSGraphTimeSlot*) meetingTimeSlot
-{
-    if(!_meetingTimeSlot){
-        _meetingTimeSlot = [[MSGraphTimeSlot alloc] initWithDictionary: self.dictionary[@"meetingTimeSlot"]];
-    }
-    return _meetingTimeSlot;
-}
-
-- (void) setMeetingTimeSlot: (MSGraphTimeSlot*) val
-{
-    _meetingTimeSlot = val;
-    self.dictionary[@"meetingTimeSlot"] = val;
 }
 
 @end

@@ -86,14 +86,14 @@
             return [MSGraphFreeBusyStatus free];
         case MSGraphFreeBusyStatusTentative:
             return [MSGraphFreeBusyStatus tentative];
+        case MSGraphFreeBusyStatusUnknown:
+            return [MSGraphFreeBusyStatus unknown];
         case MSGraphFreeBusyStatusBusy:
             return [MSGraphFreeBusyStatus busy];
         case MSGraphFreeBusyStatusOof:
             return [MSGraphFreeBusyStatus oof];
         case MSGraphFreeBusyStatusWorkingElsewhere:
             return [MSGraphFreeBusyStatus workingElsewhere];
-        case MSGraphFreeBusyStatusUnknown:
-            return [MSGraphFreeBusyStatus unknown];
         case MSGraphFreeBusyStatusEndOfEnum:
         default:
             return [MSGraphFreeBusyStatus UnknownEnumValue];
@@ -110,14 +110,14 @@
             return @"free";
         case MSGraphFreeBusyStatusTentative:
             return @"tentative";
+        case MSGraphFreeBusyStatusUnknown:
+            return @"unknown";
         case MSGraphFreeBusyStatusBusy:
             return @"busy";
         case MSGraphFreeBusyStatusOof:
             return @"oof";
         case MSGraphFreeBusyStatusWorkingElsewhere:
             return @"workingElsewhere";
-        case MSGraphFreeBusyStatusUnknown:
-            return @"unknown";
         case MSGraphFreeBusyStatusEndOfEnum:
         default:
             return nil;
@@ -144,6 +144,10 @@
     {
           return [MSGraphFreeBusyStatus tentative];
     }
+    else if([self isEqualToString:@"unknown"])
+    {
+          return [MSGraphFreeBusyStatus unknown];
+    }
     else if([self isEqualToString:@"busy"])
     {
           return [MSGraphFreeBusyStatus busy];
@@ -155,10 +159,6 @@
     else if([self isEqualToString:@"workingElsewhere"])
     {
           return [MSGraphFreeBusyStatus workingElsewhere];
-    }
-    else if([self isEqualToString:@"unknown"])
-    {
-          return [MSGraphFreeBusyStatus unknown];
     }
     else {
         return [MSGraphFreeBusyStatus UnknownEnumValue];

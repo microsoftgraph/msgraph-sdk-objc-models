@@ -19,8 +19,8 @@
     BOOL _bluetoothBlocked;
     BOOL _cameraBlocked;
     BOOL _cellularBlockWifiTethering;
-    NSArray* _compliantAppsList;
     MSGraphAppListType* _compliantAppListType;
+    NSArray* _compliantAppsList;
     BOOL _diagnosticDataBlockSubmission;
     BOOL _emailBlockAddingAccounts;
     BOOL _locationServicesBlocked;
@@ -28,19 +28,19 @@
     BOOL _nfcBlocked;
     BOOL _passwordBlockSimple;
     int32_t _passwordExpirationDays;
+    int32_t _passwordMinimumCharacterSetCount;
     int32_t _passwordMinimumLength;
     int32_t _passwordMinutesOfInactivityBeforeScreenTimeout;
-    int32_t _passwordMinimumCharacterSetCount;
     int32_t _passwordPreviousPasswordBlockCount;
-    int32_t _passwordSignInFailureCountBeforeFactoryReset;
-    MSGraphRequiredPasswordType* _passwordRequiredType;
     BOOL _passwordRequired;
+    MSGraphRequiredPasswordType* _passwordRequiredType;
+    int32_t _passwordSignInFailureCountBeforeFactoryReset;
     BOOL _screenCaptureBlocked;
     BOOL _storageBlockRemovableStorage;
     BOOL _storageRequireEncryption;
     BOOL _webBrowserBlocked;
-    BOOL _wifiBlocked;
     BOOL _wifiBlockAutomaticConnectHotspots;
+    BOOL _wifiBlocked;
     BOOL _wifiBlockHotspotReporting;
     BOOL _windowsStoreBlocked;
 }
@@ -115,6 +115,20 @@
     self.dictionary[@"cellularBlockWifiTethering"] = @(val);
 }
 
+- (MSGraphAppListType*) compliantAppListType
+{
+    if(!_compliantAppListType){
+        _compliantAppListType = [self.dictionary[@"compliantAppListType"] toMSGraphAppListType];
+    }
+    return _compliantAppListType;
+}
+
+- (void) setCompliantAppListType: (MSGraphAppListType*) val
+{
+    _compliantAppListType = val;
+    self.dictionary[@"compliantAppListType"] = val;
+}
+
 - (NSArray*) compliantAppsList
 {
     if(!_compliantAppsList){
@@ -138,20 +152,6 @@
 {
     _compliantAppsList = val;
     self.dictionary[@"compliantAppsList"] = val;
-}
-
-- (MSGraphAppListType*) compliantAppListType
-{
-    if(!_compliantAppListType){
-        _compliantAppListType = [self.dictionary[@"compliantAppListType"] toMSGraphAppListType];
-    }
-    return _compliantAppListType;
-}
-
-- (void) setCompliantAppListType: (MSGraphAppListType*) val
-{
-    _compliantAppListType = val;
-    self.dictionary[@"compliantAppListType"] = val;
 }
 
 - (BOOL) diagnosticDataBlockSubmission
@@ -238,6 +238,18 @@
     self.dictionary[@"passwordExpirationDays"] = @(val);
 }
 
+- (int32_t) passwordMinimumCharacterSetCount
+{
+    _passwordMinimumCharacterSetCount = [self.dictionary[@"passwordMinimumCharacterSetCount"] intValue];
+    return _passwordMinimumCharacterSetCount;
+}
+
+- (void) setPasswordMinimumCharacterSetCount: (int32_t) val
+{
+    _passwordMinimumCharacterSetCount = val;
+    self.dictionary[@"passwordMinimumCharacterSetCount"] = @(val);
+}
+
 - (int32_t) passwordMinimumLength
 {
     _passwordMinimumLength = [self.dictionary[@"passwordMinimumLength"] intValue];
@@ -262,18 +274,6 @@
     self.dictionary[@"passwordMinutesOfInactivityBeforeScreenTimeout"] = @(val);
 }
 
-- (int32_t) passwordMinimumCharacterSetCount
-{
-    _passwordMinimumCharacterSetCount = [self.dictionary[@"passwordMinimumCharacterSetCount"] intValue];
-    return _passwordMinimumCharacterSetCount;
-}
-
-- (void) setPasswordMinimumCharacterSetCount: (int32_t) val
-{
-    _passwordMinimumCharacterSetCount = val;
-    self.dictionary[@"passwordMinimumCharacterSetCount"] = @(val);
-}
-
 - (int32_t) passwordPreviousPasswordBlockCount
 {
     _passwordPreviousPasswordBlockCount = [self.dictionary[@"passwordPreviousPasswordBlockCount"] intValue];
@@ -286,16 +286,16 @@
     self.dictionary[@"passwordPreviousPasswordBlockCount"] = @(val);
 }
 
-- (int32_t) passwordSignInFailureCountBeforeFactoryReset
+- (BOOL) passwordRequired
 {
-    _passwordSignInFailureCountBeforeFactoryReset = [self.dictionary[@"passwordSignInFailureCountBeforeFactoryReset"] intValue];
-    return _passwordSignInFailureCountBeforeFactoryReset;
+    _passwordRequired = [self.dictionary[@"passwordRequired"] boolValue];
+    return _passwordRequired;
 }
 
-- (void) setPasswordSignInFailureCountBeforeFactoryReset: (int32_t) val
+- (void) setPasswordRequired: (BOOL) val
 {
-    _passwordSignInFailureCountBeforeFactoryReset = val;
-    self.dictionary[@"passwordSignInFailureCountBeforeFactoryReset"] = @(val);
+    _passwordRequired = val;
+    self.dictionary[@"passwordRequired"] = @(val);
 }
 
 - (MSGraphRequiredPasswordType*) passwordRequiredType
@@ -312,16 +312,16 @@
     self.dictionary[@"passwordRequiredType"] = val;
 }
 
-- (BOOL) passwordRequired
+- (int32_t) passwordSignInFailureCountBeforeFactoryReset
 {
-    _passwordRequired = [self.dictionary[@"passwordRequired"] boolValue];
-    return _passwordRequired;
+    _passwordSignInFailureCountBeforeFactoryReset = [self.dictionary[@"passwordSignInFailureCountBeforeFactoryReset"] intValue];
+    return _passwordSignInFailureCountBeforeFactoryReset;
 }
 
-- (void) setPasswordRequired: (BOOL) val
+- (void) setPasswordSignInFailureCountBeforeFactoryReset: (int32_t) val
 {
-    _passwordRequired = val;
-    self.dictionary[@"passwordRequired"] = @(val);
+    _passwordSignInFailureCountBeforeFactoryReset = val;
+    self.dictionary[@"passwordSignInFailureCountBeforeFactoryReset"] = @(val);
 }
 
 - (BOOL) screenCaptureBlocked
@@ -372,18 +372,6 @@
     self.dictionary[@"webBrowserBlocked"] = @(val);
 }
 
-- (BOOL) wifiBlocked
-{
-    _wifiBlocked = [self.dictionary[@"wifiBlocked"] boolValue];
-    return _wifiBlocked;
-}
-
-- (void) setWifiBlocked: (BOOL) val
-{
-    _wifiBlocked = val;
-    self.dictionary[@"wifiBlocked"] = @(val);
-}
-
 - (BOOL) wifiBlockAutomaticConnectHotspots
 {
     _wifiBlockAutomaticConnectHotspots = [self.dictionary[@"wifiBlockAutomaticConnectHotspots"] boolValue];
@@ -394,6 +382,18 @@
 {
     _wifiBlockAutomaticConnectHotspots = val;
     self.dictionary[@"wifiBlockAutomaticConnectHotspots"] = @(val);
+}
+
+- (BOOL) wifiBlocked
+{
+    _wifiBlocked = [self.dictionary[@"wifiBlocked"] boolValue];
+    return _wifiBlocked;
+}
+
+- (void) setWifiBlocked: (BOOL) val
+{
+    _wifiBlocked = val;
+    self.dictionary[@"wifiBlocked"] = @(val);
 }
 
 - (BOOL) wifiBlockHotspotReporting

@@ -15,8 +15,8 @@
 @interface MSGraphWindowsInformationProtectionDesktopApp()
 {
     NSString* _binaryName;
-    NSString* _binaryVersionLow;
     NSString* _binaryVersionHigh;
+    NSString* _binaryVersionLow;
 }
 @end
 
@@ -32,20 +32,6 @@
     self.dictionary[@"binaryName"] = val;
 }
 
-- (NSString*) binaryVersionLow
-{
-    if([[NSNull null] isEqual:self.dictionary[@"binaryVersionLow"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"binaryVersionLow"];
-}
-
-- (void) setBinaryVersionLow: (NSString*) val
-{
-    self.dictionary[@"binaryVersionLow"] = val;
-}
-
 - (NSString*) binaryVersionHigh
 {
     if([[NSNull null] isEqual:self.dictionary[@"binaryVersionHigh"]])
@@ -58,6 +44,20 @@
 - (void) setBinaryVersionHigh: (NSString*) val
 {
     self.dictionary[@"binaryVersionHigh"] = val;
+}
+
+- (NSString*) binaryVersionLow
+{
+    if([[NSNull null] isEqual:self.dictionary[@"binaryVersionLow"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"binaryVersionLow"];
+}
+
+- (void) setBinaryVersionLow: (NSString*) val
+{
+    self.dictionary[@"binaryVersionLow"] = val;
 }
 
 @end

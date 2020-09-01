@@ -14,26 +14,12 @@
 
 @interface MSGraphEducationTeacher()
 {
-    NSString* _teacherNumber;
     NSString* _externalId;
+    NSString* _teacherNumber;
 }
 @end
 
 @implementation MSGraphEducationTeacher
-
-- (NSString*) teacherNumber
-{
-    if([[NSNull null] isEqual:self.dictionary[@"teacherNumber"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"teacherNumber"];
-}
-
-- (void) setTeacherNumber: (NSString*) val
-{
-    self.dictionary[@"teacherNumber"] = val;
-}
 
 - (NSString*) externalId
 {
@@ -47,6 +33,20 @@
 - (void) setExternalId: (NSString*) val
 {
     self.dictionary[@"externalId"] = val;
+}
+
+- (NSString*) teacherNumber
+{
+    if([[NSNull null] isEqual:self.dictionary[@"teacherNumber"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"teacherNumber"];
+}
+
+- (void) setTeacherNumber: (NSString*) val
+{
+    self.dictionary[@"teacherNumber"] = val;
 }
 
 @end

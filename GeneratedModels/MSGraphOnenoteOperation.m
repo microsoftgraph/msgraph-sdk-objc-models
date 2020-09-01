@@ -14,10 +14,10 @@
 
 @interface MSGraphOnenoteOperation()
 {
-    NSString* _resourceLocation;
-    NSString* _resourceId;
     MSGraphOnenoteOperationError* _error;
     NSString* _percentComplete;
+    NSString* _resourceId;
+    NSString* _resourceLocation;
 }
 @end
 
@@ -30,34 +30,6 @@
     }
     return self;
 }
-- (NSString*) resourceLocation
-{
-    if([[NSNull null] isEqual:self.dictionary[@"resourceLocation"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"resourceLocation"];
-}
-
-- (void) setResourceLocation: (NSString*) val
-{
-    self.dictionary[@"resourceLocation"] = val;
-}
-
-- (NSString*) resourceId
-{
-    if([[NSNull null] isEqual:self.dictionary[@"resourceId"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"resourceId"];
-}
-
-- (void) setResourceId: (NSString*) val
-{
-    self.dictionary[@"resourceId"] = val;
-}
-
 - (MSGraphOnenoteOperationError*) error
 {
     if(!_error){
@@ -84,6 +56,34 @@
 - (void) setPercentComplete: (NSString*) val
 {
     self.dictionary[@"percentComplete"] = val;
+}
+
+- (NSString*) resourceId
+{
+    if([[NSNull null] isEqual:self.dictionary[@"resourceId"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"resourceId"];
+}
+
+- (void) setResourceId: (NSString*) val
+{
+    self.dictionary[@"resourceId"] = val;
+}
+
+- (NSString*) resourceLocation
+{
+    if([[NSNull null] isEqual:self.dictionary[@"resourceLocation"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"resourceLocation"];
+}
+
+- (void) setResourceLocation: (NSString*) val
+{
+    self.dictionary[@"resourceLocation"] = val;
 }
 
 

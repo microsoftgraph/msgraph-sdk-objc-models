@@ -14,18 +14,46 @@
 
 @interface MSGraphLocation()
 {
+    MSGraphPhysicalAddress* _address;
+    MSGraphOutlookGeoCoordinates* _coordinates;
     NSString* _displayName;
     NSString* _locationEmailAddress;
-    MSGraphPhysicalAddress* _address;
-    NSString* _locationUri;
-    MSGraphOutlookGeoCoordinates* _coordinates;
     MSGraphLocationType* _locationType;
+    NSString* _locationUri;
     NSString* _uniqueId;
     MSGraphLocationUniqueIdType* _uniqueIdType;
 }
 @end
 
 @implementation MSGraphLocation
+
+- (MSGraphPhysicalAddress*) address
+{
+    if(!_address){
+        _address = [[MSGraphPhysicalAddress alloc] initWithDictionary: self.dictionary[@"address"]];
+    }
+    return _address;
+}
+
+- (void) setAddress: (MSGraphPhysicalAddress*) val
+{
+    _address = val;
+    self.dictionary[@"address"] = val;
+}
+
+- (MSGraphOutlookGeoCoordinates*) coordinates
+{
+    if(!_coordinates){
+        _coordinates = [[MSGraphOutlookGeoCoordinates alloc] initWithDictionary: self.dictionary[@"coordinates"]];
+    }
+    return _coordinates;
+}
+
+- (void) setCoordinates: (MSGraphOutlookGeoCoordinates*) val
+{
+    _coordinates = val;
+    self.dictionary[@"coordinates"] = val;
+}
 
 - (NSString*) displayName
 {
@@ -55,18 +83,18 @@
     self.dictionary[@"locationEmailAddress"] = val;
 }
 
-- (MSGraphPhysicalAddress*) address
+- (MSGraphLocationType*) locationType
 {
-    if(!_address){
-        _address = [[MSGraphPhysicalAddress alloc] initWithDictionary: self.dictionary[@"address"]];
+    if(!_locationType){
+        _locationType = [self.dictionary[@"locationType"] toMSGraphLocationType];
     }
-    return _address;
+    return _locationType;
 }
 
-- (void) setAddress: (MSGraphPhysicalAddress*) val
+- (void) setLocationType: (MSGraphLocationType*) val
 {
-    _address = val;
-    self.dictionary[@"address"] = val;
+    _locationType = val;
+    self.dictionary[@"locationType"] = val;
 }
 
 - (NSString*) locationUri
@@ -81,34 +109,6 @@
 - (void) setLocationUri: (NSString*) val
 {
     self.dictionary[@"locationUri"] = val;
-}
-
-- (MSGraphOutlookGeoCoordinates*) coordinates
-{
-    if(!_coordinates){
-        _coordinates = [[MSGraphOutlookGeoCoordinates alloc] initWithDictionary: self.dictionary[@"coordinates"]];
-    }
-    return _coordinates;
-}
-
-- (void) setCoordinates: (MSGraphOutlookGeoCoordinates*) val
-{
-    _coordinates = val;
-    self.dictionary[@"coordinates"] = val;
-}
-
-- (MSGraphLocationType*) locationType
-{
-    if(!_locationType){
-        _locationType = [self.dictionary[@"locationType"] toMSGraphLocationType];
-    }
-    return _locationType;
-}
-
-- (void) setLocationType: (MSGraphLocationType*) val
-{
-    _locationType = val;
-    self.dictionary[@"locationType"] = val;
 }
 
 - (NSString*) uniqueId

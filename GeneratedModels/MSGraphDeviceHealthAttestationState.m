@@ -14,55 +14,181 @@
 
 @interface MSGraphDeviceHealthAttestationState()
 {
-    NSString* _lastUpdateDateTime;
-    NSString* _contentNamespaceUrl;
-    NSString* _deviceHealthAttestationStatus;
-    NSString* _contentVersion;
-    NSDate* _issuedDateTime;
     NSString* _attestationIdentityKey;
+    NSString* _bitLockerStatus;
+    NSString* _bootAppSecurityVersion;
+    NSString* _bootDebugging;
+    NSString* _bootManagerSecurityVersion;
+    NSString* _bootManagerVersion;
+    NSString* _bootRevisionListInfo;
+    NSString* _codeIntegrity;
+    NSString* _codeIntegrityCheckVersion;
+    NSString* _codeIntegrityPolicy;
+    NSString* _contentNamespaceUrl;
+    NSString* _contentVersion;
+    NSString* _dataExcutionPolicy;
+    NSString* _deviceHealthAttestationStatus;
+    NSString* _earlyLaunchAntiMalwareDriverProtection;
+    NSString* _healthAttestationSupportedStatus;
+    NSString* _healthStatusMismatchInfo;
+    NSDate* _issuedDateTime;
+    NSString* _lastUpdateDateTime;
+    NSString* _operatingSystemKernelDebugging;
+    NSString* _operatingSystemRevListInfo;
+    NSString* _pcr0;
+    NSString* _pcrHashAlgorithm;
     int64_t _resetCount;
     int64_t _restartCount;
-    NSString* _dataExcutionPolicy;
-    NSString* _bitLockerStatus;
-    NSString* _bootManagerVersion;
-    NSString* _codeIntegrityCheckVersion;
-    NSString* _secureBoot;
-    NSString* _bootDebugging;
-    NSString* _operatingSystemKernelDebugging;
-    NSString* _codeIntegrity;
-    NSString* _testSigning;
     NSString* _safeMode;
-    NSString* _windowsPE;
-    NSString* _earlyLaunchAntiMalwareDriverProtection;
-    NSString* _virtualSecureMode;
-    NSString* _pcrHashAlgorithm;
-    NSString* _bootAppSecurityVersion;
-    NSString* _bootManagerSecurityVersion;
-    NSString* _tpmVersion;
-    NSString* _pcr0;
+    NSString* _secureBoot;
     NSString* _secureBootConfigurationPolicyFingerPrint;
-    NSString* _codeIntegrityPolicy;
-    NSString* _bootRevisionListInfo;
-    NSString* _operatingSystemRevListInfo;
-    NSString* _healthStatusMismatchInfo;
-    NSString* _healthAttestationSupportedStatus;
+    NSString* _testSigning;
+    NSString* _tpmVersion;
+    NSString* _virtualSecureMode;
+    NSString* _windowsPE;
 }
 @end
 
 @implementation MSGraphDeviceHealthAttestationState
 
-- (NSString*) lastUpdateDateTime
+- (NSString*) attestationIdentityKey
 {
-    if([[NSNull null] isEqual:self.dictionary[@"lastUpdateDateTime"]])
+    if([[NSNull null] isEqual:self.dictionary[@"attestationIdentityKey"]])
     {
         return nil;
     }   
-    return self.dictionary[@"lastUpdateDateTime"];
+    return self.dictionary[@"attestationIdentityKey"];
 }
 
-- (void) setLastUpdateDateTime: (NSString*) val
+- (void) setAttestationIdentityKey: (NSString*) val
 {
-    self.dictionary[@"lastUpdateDateTime"] = val;
+    self.dictionary[@"attestationIdentityKey"] = val;
+}
+
+- (NSString*) bitLockerStatus
+{
+    if([[NSNull null] isEqual:self.dictionary[@"bitLockerStatus"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"bitLockerStatus"];
+}
+
+- (void) setBitLockerStatus: (NSString*) val
+{
+    self.dictionary[@"bitLockerStatus"] = val;
+}
+
+- (NSString*) bootAppSecurityVersion
+{
+    if([[NSNull null] isEqual:self.dictionary[@"bootAppSecurityVersion"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"bootAppSecurityVersion"];
+}
+
+- (void) setBootAppSecurityVersion: (NSString*) val
+{
+    self.dictionary[@"bootAppSecurityVersion"] = val;
+}
+
+- (NSString*) bootDebugging
+{
+    if([[NSNull null] isEqual:self.dictionary[@"bootDebugging"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"bootDebugging"];
+}
+
+- (void) setBootDebugging: (NSString*) val
+{
+    self.dictionary[@"bootDebugging"] = val;
+}
+
+- (NSString*) bootManagerSecurityVersion
+{
+    if([[NSNull null] isEqual:self.dictionary[@"bootManagerSecurityVersion"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"bootManagerSecurityVersion"];
+}
+
+- (void) setBootManagerSecurityVersion: (NSString*) val
+{
+    self.dictionary[@"bootManagerSecurityVersion"] = val;
+}
+
+- (NSString*) bootManagerVersion
+{
+    if([[NSNull null] isEqual:self.dictionary[@"bootManagerVersion"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"bootManagerVersion"];
+}
+
+- (void) setBootManagerVersion: (NSString*) val
+{
+    self.dictionary[@"bootManagerVersion"] = val;
+}
+
+- (NSString*) bootRevisionListInfo
+{
+    if([[NSNull null] isEqual:self.dictionary[@"bootRevisionListInfo"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"bootRevisionListInfo"];
+}
+
+- (void) setBootRevisionListInfo: (NSString*) val
+{
+    self.dictionary[@"bootRevisionListInfo"] = val;
+}
+
+- (NSString*) codeIntegrity
+{
+    if([[NSNull null] isEqual:self.dictionary[@"codeIntegrity"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"codeIntegrity"];
+}
+
+- (void) setCodeIntegrity: (NSString*) val
+{
+    self.dictionary[@"codeIntegrity"] = val;
+}
+
+- (NSString*) codeIntegrityCheckVersion
+{
+    if([[NSNull null] isEqual:self.dictionary[@"codeIntegrityCheckVersion"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"codeIntegrityCheckVersion"];
+}
+
+- (void) setCodeIntegrityCheckVersion: (NSString*) val
+{
+    self.dictionary[@"codeIntegrityCheckVersion"] = val;
+}
+
+- (NSString*) codeIntegrityPolicy
+{
+    if([[NSNull null] isEqual:self.dictionary[@"codeIntegrityPolicy"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"codeIntegrityPolicy"];
+}
+
+- (void) setCodeIntegrityPolicy: (NSString*) val
+{
+    self.dictionary[@"codeIntegrityPolicy"] = val;
 }
 
 - (NSString*) contentNamespaceUrl
@@ -79,6 +205,34 @@
     self.dictionary[@"contentNamespaceUrl"] = val;
 }
 
+- (NSString*) contentVersion
+{
+    if([[NSNull null] isEqual:self.dictionary[@"contentVersion"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"contentVersion"];
+}
+
+- (void) setContentVersion: (NSString*) val
+{
+    self.dictionary[@"contentVersion"] = val;
+}
+
+- (NSString*) dataExcutionPolicy
+{
+    if([[NSNull null] isEqual:self.dictionary[@"dataExcutionPolicy"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"dataExcutionPolicy"];
+}
+
+- (void) setDataExcutionPolicy: (NSString*) val
+{
+    self.dictionary[@"dataExcutionPolicy"] = val;
+}
+
 - (NSString*) deviceHealthAttestationStatus
 {
     if([[NSNull null] isEqual:self.dictionary[@"deviceHealthAttestationStatus"]])
@@ -93,18 +247,46 @@
     self.dictionary[@"deviceHealthAttestationStatus"] = val;
 }
 
-- (NSString*) contentVersion
+- (NSString*) earlyLaunchAntiMalwareDriverProtection
 {
-    if([[NSNull null] isEqual:self.dictionary[@"contentVersion"]])
+    if([[NSNull null] isEqual:self.dictionary[@"earlyLaunchAntiMalwareDriverProtection"]])
     {
         return nil;
     }   
-    return self.dictionary[@"contentVersion"];
+    return self.dictionary[@"earlyLaunchAntiMalwareDriverProtection"];
 }
 
-- (void) setContentVersion: (NSString*) val
+- (void) setEarlyLaunchAntiMalwareDriverProtection: (NSString*) val
 {
-    self.dictionary[@"contentVersion"] = val;
+    self.dictionary[@"earlyLaunchAntiMalwareDriverProtection"] = val;
+}
+
+- (NSString*) healthAttestationSupportedStatus
+{
+    if([[NSNull null] isEqual:self.dictionary[@"healthAttestationSupportedStatus"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"healthAttestationSupportedStatus"];
+}
+
+- (void) setHealthAttestationSupportedStatus: (NSString*) val
+{
+    self.dictionary[@"healthAttestationSupportedStatus"] = val;
+}
+
+- (NSString*) healthStatusMismatchInfo
+{
+    if([[NSNull null] isEqual:self.dictionary[@"healthStatusMismatchInfo"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"healthStatusMismatchInfo"];
+}
+
+- (void) setHealthStatusMismatchInfo: (NSString*) val
+{
+    self.dictionary[@"healthStatusMismatchInfo"] = val;
 }
 
 - (NSDate*) issuedDateTime
@@ -121,18 +303,74 @@
     self.dictionary[@"issuedDateTime"] = [val ms_toString];
 }
 
-- (NSString*) attestationIdentityKey
+- (NSString*) lastUpdateDateTime
 {
-    if([[NSNull null] isEqual:self.dictionary[@"attestationIdentityKey"]])
+    if([[NSNull null] isEqual:self.dictionary[@"lastUpdateDateTime"]])
     {
         return nil;
     }   
-    return self.dictionary[@"attestationIdentityKey"];
+    return self.dictionary[@"lastUpdateDateTime"];
 }
 
-- (void) setAttestationIdentityKey: (NSString*) val
+- (void) setLastUpdateDateTime: (NSString*) val
 {
-    self.dictionary[@"attestationIdentityKey"] = val;
+    self.dictionary[@"lastUpdateDateTime"] = val;
+}
+
+- (NSString*) operatingSystemKernelDebugging
+{
+    if([[NSNull null] isEqual:self.dictionary[@"operatingSystemKernelDebugging"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"operatingSystemKernelDebugging"];
+}
+
+- (void) setOperatingSystemKernelDebugging: (NSString*) val
+{
+    self.dictionary[@"operatingSystemKernelDebugging"] = val;
+}
+
+- (NSString*) operatingSystemRevListInfo
+{
+    if([[NSNull null] isEqual:self.dictionary[@"operatingSystemRevListInfo"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"operatingSystemRevListInfo"];
+}
+
+- (void) setOperatingSystemRevListInfo: (NSString*) val
+{
+    self.dictionary[@"operatingSystemRevListInfo"] = val;
+}
+
+- (NSString*) pcr0
+{
+    if([[NSNull null] isEqual:self.dictionary[@"pcr0"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"pcr0"];
+}
+
+- (void) setPcr0: (NSString*) val
+{
+    self.dictionary[@"pcr0"] = val;
+}
+
+- (NSString*) pcrHashAlgorithm
+{
+    if([[NSNull null] isEqual:self.dictionary[@"pcrHashAlgorithm"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"pcrHashAlgorithm"];
+}
+
+- (void) setPcrHashAlgorithm: (NSString*) val
+{
+    self.dictionary[@"pcrHashAlgorithm"] = val;
 }
 
 - (int64_t) resetCount
@@ -159,60 +397,18 @@
     self.dictionary[@"restartCount"] = @(val);
 }
 
-- (NSString*) dataExcutionPolicy
+- (NSString*) safeMode
 {
-    if([[NSNull null] isEqual:self.dictionary[@"dataExcutionPolicy"]])
+    if([[NSNull null] isEqual:self.dictionary[@"safeMode"]])
     {
         return nil;
     }   
-    return self.dictionary[@"dataExcutionPolicy"];
+    return self.dictionary[@"safeMode"];
 }
 
-- (void) setDataExcutionPolicy: (NSString*) val
+- (void) setSafeMode: (NSString*) val
 {
-    self.dictionary[@"dataExcutionPolicy"] = val;
-}
-
-- (NSString*) bitLockerStatus
-{
-    if([[NSNull null] isEqual:self.dictionary[@"bitLockerStatus"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"bitLockerStatus"];
-}
-
-- (void) setBitLockerStatus: (NSString*) val
-{
-    self.dictionary[@"bitLockerStatus"] = val;
-}
-
-- (NSString*) bootManagerVersion
-{
-    if([[NSNull null] isEqual:self.dictionary[@"bootManagerVersion"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"bootManagerVersion"];
-}
-
-- (void) setBootManagerVersion: (NSString*) val
-{
-    self.dictionary[@"bootManagerVersion"] = val;
-}
-
-- (NSString*) codeIntegrityCheckVersion
-{
-    if([[NSNull null] isEqual:self.dictionary[@"codeIntegrityCheckVersion"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"codeIntegrityCheckVersion"];
-}
-
-- (void) setCodeIntegrityCheckVersion: (NSString*) val
-{
-    self.dictionary[@"codeIntegrityCheckVersion"] = val;
+    self.dictionary[@"safeMode"] = val;
 }
 
 - (NSString*) secureBoot
@@ -229,46 +425,18 @@
     self.dictionary[@"secureBoot"] = val;
 }
 
-- (NSString*) bootDebugging
+- (NSString*) secureBootConfigurationPolicyFingerPrint
 {
-    if([[NSNull null] isEqual:self.dictionary[@"bootDebugging"]])
+    if([[NSNull null] isEqual:self.dictionary[@"secureBootConfigurationPolicyFingerPrint"]])
     {
         return nil;
     }   
-    return self.dictionary[@"bootDebugging"];
+    return self.dictionary[@"secureBootConfigurationPolicyFingerPrint"];
 }
 
-- (void) setBootDebugging: (NSString*) val
+- (void) setSecureBootConfigurationPolicyFingerPrint: (NSString*) val
 {
-    self.dictionary[@"bootDebugging"] = val;
-}
-
-- (NSString*) operatingSystemKernelDebugging
-{
-    if([[NSNull null] isEqual:self.dictionary[@"operatingSystemKernelDebugging"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"operatingSystemKernelDebugging"];
-}
-
-- (void) setOperatingSystemKernelDebugging: (NSString*) val
-{
-    self.dictionary[@"operatingSystemKernelDebugging"] = val;
-}
-
-- (NSString*) codeIntegrity
-{
-    if([[NSNull null] isEqual:self.dictionary[@"codeIntegrity"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"codeIntegrity"];
-}
-
-- (void) setCodeIntegrity: (NSString*) val
-{
-    self.dictionary[@"codeIntegrity"] = val;
+    self.dictionary[@"secureBootConfigurationPolicyFingerPrint"] = val;
 }
 
 - (NSString*) testSigning
@@ -285,46 +453,18 @@
     self.dictionary[@"testSigning"] = val;
 }
 
-- (NSString*) safeMode
+- (NSString*) tpmVersion
 {
-    if([[NSNull null] isEqual:self.dictionary[@"safeMode"]])
+    if([[NSNull null] isEqual:self.dictionary[@"tpmVersion"]])
     {
         return nil;
     }   
-    return self.dictionary[@"safeMode"];
+    return self.dictionary[@"tpmVersion"];
 }
 
-- (void) setSafeMode: (NSString*) val
+- (void) setTpmVersion: (NSString*) val
 {
-    self.dictionary[@"safeMode"] = val;
-}
-
-- (NSString*) windowsPE
-{
-    if([[NSNull null] isEqual:self.dictionary[@"windowsPE"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"windowsPE"];
-}
-
-- (void) setWindowsPE: (NSString*) val
-{
-    self.dictionary[@"windowsPE"] = val;
-}
-
-- (NSString*) earlyLaunchAntiMalwareDriverProtection
-{
-    if([[NSNull null] isEqual:self.dictionary[@"earlyLaunchAntiMalwareDriverProtection"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"earlyLaunchAntiMalwareDriverProtection"];
-}
-
-- (void) setEarlyLaunchAntiMalwareDriverProtection: (NSString*) val
-{
-    self.dictionary[@"earlyLaunchAntiMalwareDriverProtection"] = val;
+    self.dictionary[@"tpmVersion"] = val;
 }
 
 - (NSString*) virtualSecureMode
@@ -341,158 +481,18 @@
     self.dictionary[@"virtualSecureMode"] = val;
 }
 
-- (NSString*) pcrHashAlgorithm
+- (NSString*) windowsPE
 {
-    if([[NSNull null] isEqual:self.dictionary[@"pcrHashAlgorithm"]])
+    if([[NSNull null] isEqual:self.dictionary[@"windowsPE"]])
     {
         return nil;
     }   
-    return self.dictionary[@"pcrHashAlgorithm"];
+    return self.dictionary[@"windowsPE"];
 }
 
-- (void) setPcrHashAlgorithm: (NSString*) val
+- (void) setWindowsPE: (NSString*) val
 {
-    self.dictionary[@"pcrHashAlgorithm"] = val;
-}
-
-- (NSString*) bootAppSecurityVersion
-{
-    if([[NSNull null] isEqual:self.dictionary[@"bootAppSecurityVersion"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"bootAppSecurityVersion"];
-}
-
-- (void) setBootAppSecurityVersion: (NSString*) val
-{
-    self.dictionary[@"bootAppSecurityVersion"] = val;
-}
-
-- (NSString*) bootManagerSecurityVersion
-{
-    if([[NSNull null] isEqual:self.dictionary[@"bootManagerSecurityVersion"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"bootManagerSecurityVersion"];
-}
-
-- (void) setBootManagerSecurityVersion: (NSString*) val
-{
-    self.dictionary[@"bootManagerSecurityVersion"] = val;
-}
-
-- (NSString*) tpmVersion
-{
-    if([[NSNull null] isEqual:self.dictionary[@"tpmVersion"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"tpmVersion"];
-}
-
-- (void) setTpmVersion: (NSString*) val
-{
-    self.dictionary[@"tpmVersion"] = val;
-}
-
-- (NSString*) pcr0
-{
-    if([[NSNull null] isEqual:self.dictionary[@"pcr0"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"pcr0"];
-}
-
-- (void) setPcr0: (NSString*) val
-{
-    self.dictionary[@"pcr0"] = val;
-}
-
-- (NSString*) secureBootConfigurationPolicyFingerPrint
-{
-    if([[NSNull null] isEqual:self.dictionary[@"secureBootConfigurationPolicyFingerPrint"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"secureBootConfigurationPolicyFingerPrint"];
-}
-
-- (void) setSecureBootConfigurationPolicyFingerPrint: (NSString*) val
-{
-    self.dictionary[@"secureBootConfigurationPolicyFingerPrint"] = val;
-}
-
-- (NSString*) codeIntegrityPolicy
-{
-    if([[NSNull null] isEqual:self.dictionary[@"codeIntegrityPolicy"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"codeIntegrityPolicy"];
-}
-
-- (void) setCodeIntegrityPolicy: (NSString*) val
-{
-    self.dictionary[@"codeIntegrityPolicy"] = val;
-}
-
-- (NSString*) bootRevisionListInfo
-{
-    if([[NSNull null] isEqual:self.dictionary[@"bootRevisionListInfo"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"bootRevisionListInfo"];
-}
-
-- (void) setBootRevisionListInfo: (NSString*) val
-{
-    self.dictionary[@"bootRevisionListInfo"] = val;
-}
-
-- (NSString*) operatingSystemRevListInfo
-{
-    if([[NSNull null] isEqual:self.dictionary[@"operatingSystemRevListInfo"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"operatingSystemRevListInfo"];
-}
-
-- (void) setOperatingSystemRevListInfo: (NSString*) val
-{
-    self.dictionary[@"operatingSystemRevListInfo"] = val;
-}
-
-- (NSString*) healthStatusMismatchInfo
-{
-    if([[NSNull null] isEqual:self.dictionary[@"healthStatusMismatchInfo"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"healthStatusMismatchInfo"];
-}
-
-- (void) setHealthStatusMismatchInfo: (NSString*) val
-{
-    self.dictionary[@"healthStatusMismatchInfo"] = val;
-}
-
-- (NSString*) healthAttestationSupportedStatus
-{
-    if([[NSNull null] isEqual:self.dictionary[@"healthAttestationSupportedStatus"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"healthAttestationSupportedStatus"];
-}
-
-- (void) setHealthAttestationSupportedStatus: (NSString*) val
-{
-    self.dictionary[@"healthAttestationSupportedStatus"] = val;
+    self.dictionary[@"windowsPE"] = val;
 }
 
 @end

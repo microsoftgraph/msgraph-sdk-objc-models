@@ -14,12 +14,12 @@
 
 @interface MSGraphWorkforceIntegration()
 {
-    NSString* _displayName;
     int32_t _apiVersion;
+    NSString* _displayName;
     MSGraphWorkforceIntegrationEncryption* _encryption;
     BOOL _isActive;
-    NSString* _url;
     MSGraphWorkforceIntegrationSupportedEntities* _supportedEntities;
+    NSString* _url;
 }
 @end
 
@@ -32,6 +32,18 @@
     }
     return self;
 }
+- (int32_t) apiVersion
+{
+    _apiVersion = [self.dictionary[@"apiVersion"] intValue];
+    return _apiVersion;
+}
+
+- (void) setApiVersion: (int32_t) val
+{
+    _apiVersion = val;
+    self.dictionary[@"apiVersion"] = @(val);
+}
+
 - (NSString*) displayName
 {
     if([[NSNull null] isEqual:self.dictionary[@"displayName"]])
@@ -44,18 +56,6 @@
 - (void) setDisplayName: (NSString*) val
 {
     self.dictionary[@"displayName"] = val;
-}
-
-- (int32_t) apiVersion
-{
-    _apiVersion = [self.dictionary[@"apiVersion"] intValue];
-    return _apiVersion;
-}
-
-- (void) setApiVersion: (int32_t) val
-{
-    _apiVersion = val;
-    self.dictionary[@"apiVersion"] = @(val);
 }
 
 - (MSGraphWorkforceIntegrationEncryption*) encryption
@@ -84,20 +84,6 @@
     self.dictionary[@"isActive"] = @(val);
 }
 
-- (NSString*) url
-{
-    if([[NSNull null] isEqual:self.dictionary[@"url"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"url"];
-}
-
-- (void) setUrl: (NSString*) val
-{
-    self.dictionary[@"url"] = val;
-}
-
 - (MSGraphWorkforceIntegrationSupportedEntities*) supportedEntities
 {
     if(!_supportedEntities){
@@ -110,6 +96,20 @@
 {
     _supportedEntities = val;
     self.dictionary[@"supportedEntities"] = val;
+}
+
+- (NSString*) url
+{
+    if([[NSNull null] isEqual:self.dictionary[@"url"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"url"];
+}
+
+- (void) setUrl: (NSString*) val
+{
+    self.dictionary[@"url"] = val;
 }
 
 

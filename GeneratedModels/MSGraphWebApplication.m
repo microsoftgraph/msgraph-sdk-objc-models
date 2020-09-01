@@ -15,9 +15,9 @@
 @interface MSGraphWebApplication()
 {
     NSString* _homePageUrl;
-    NSArray* _redirectUris;
-    NSString* _logoutUrl;
     MSGraphImplicitGrantSettings* _implicitGrantSettings;
+    NSString* _logoutUrl;
+    NSArray* _redirectUris;
 }
 @end
 
@@ -37,14 +37,18 @@
     self.dictionary[@"homePageUrl"] = val;
 }
 
-- (NSArray*) redirectUris
+- (MSGraphImplicitGrantSettings*) implicitGrantSettings
 {
-    return self.dictionary[@"redirectUris"];
+    if(!_implicitGrantSettings){
+        _implicitGrantSettings = [[MSGraphImplicitGrantSettings alloc] initWithDictionary: self.dictionary[@"implicitGrantSettings"]];
+    }
+    return _implicitGrantSettings;
 }
 
-- (void) setRedirectUris: (NSArray*) val
+- (void) setImplicitGrantSettings: (MSGraphImplicitGrantSettings*) val
 {
-    self.dictionary[@"redirectUris"] = val;
+    _implicitGrantSettings = val;
+    self.dictionary[@"implicitGrantSettings"] = val;
 }
 
 - (NSString*) logoutUrl
@@ -61,18 +65,14 @@
     self.dictionary[@"logoutUrl"] = val;
 }
 
-- (MSGraphImplicitGrantSettings*) implicitGrantSettings
+- (NSArray*) redirectUris
 {
-    if(!_implicitGrantSettings){
-        _implicitGrantSettings = [[MSGraphImplicitGrantSettings alloc] initWithDictionary: self.dictionary[@"implicitGrantSettings"]];
-    }
-    return _implicitGrantSettings;
+    return self.dictionary[@"redirectUris"];
 }
 
-- (void) setImplicitGrantSettings: (MSGraphImplicitGrantSettings*) val
+- (void) setRedirectUris: (NSArray*) val
 {
-    _implicitGrantSettings = val;
-    self.dictionary[@"implicitGrantSettings"] = val;
+    self.dictionary[@"redirectUris"] = val;
 }
 
 @end

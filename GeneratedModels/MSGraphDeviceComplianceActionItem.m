@@ -14,10 +14,10 @@
 
 @interface MSGraphDeviceComplianceActionItem()
 {
-    int32_t _gracePeriodHours;
     MSGraphDeviceComplianceActionType* _actionType;
-    NSString* _notificationTemplateId;
+    int32_t _gracePeriodHours;
     NSArray* _notificationMessageCCList;
+    NSString* _notificationTemplateId;
 }
 @end
 
@@ -30,18 +30,6 @@
     }
     return self;
 }
-- (int32_t) gracePeriodHours
-{
-    _gracePeriodHours = [self.dictionary[@"gracePeriodHours"] intValue];
-    return _gracePeriodHours;
-}
-
-- (void) setGracePeriodHours: (int32_t) val
-{
-    _gracePeriodHours = val;
-    self.dictionary[@"gracePeriodHours"] = @(val);
-}
-
 - (MSGraphDeviceComplianceActionType*) actionType
 {
     if(!_actionType){
@@ -56,18 +44,16 @@
     self.dictionary[@"actionType"] = val;
 }
 
-- (NSString*) notificationTemplateId
+- (int32_t) gracePeriodHours
 {
-    if([[NSNull null] isEqual:self.dictionary[@"notificationTemplateId"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"notificationTemplateId"];
+    _gracePeriodHours = [self.dictionary[@"gracePeriodHours"] intValue];
+    return _gracePeriodHours;
 }
 
-- (void) setNotificationTemplateId: (NSString*) val
+- (void) setGracePeriodHours: (int32_t) val
 {
-    self.dictionary[@"notificationTemplateId"] = val;
+    _gracePeriodHours = val;
+    self.dictionary[@"gracePeriodHours"] = @(val);
 }
 
 - (NSArray*) notificationMessageCCList
@@ -82,6 +68,20 @@
 - (void) setNotificationMessageCCList: (NSArray*) val
 {
     self.dictionary[@"notificationMessageCCList"] = val;
+}
+
+- (NSString*) notificationTemplateId
+{
+    if([[NSNull null] isEqual:self.dictionary[@"notificationTemplateId"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"notificationTemplateId"];
+}
+
+- (void) setNotificationTemplateId: (NSString*) val
+{
+    self.dictionary[@"notificationTemplateId"] = val;
 }
 
 

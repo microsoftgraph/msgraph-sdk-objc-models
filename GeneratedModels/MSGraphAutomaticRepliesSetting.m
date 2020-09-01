@@ -14,30 +14,16 @@
 
 @interface MSGraphAutomaticRepliesSetting()
 {
-    MSGraphAutomaticRepliesStatus* _status;
     MSGraphExternalAudienceScope* _externalAudience;
-    MSGraphDateTimeTimeZone* _scheduledStartDateTime;
-    MSGraphDateTimeTimeZone* _scheduledEndDateTime;
-    NSString* _internalReplyMessage;
     NSString* _externalReplyMessage;
+    NSString* _internalReplyMessage;
+    MSGraphDateTimeTimeZone* _scheduledEndDateTime;
+    MSGraphDateTimeTimeZone* _scheduledStartDateTime;
+    MSGraphAutomaticRepliesStatus* _status;
 }
 @end
 
 @implementation MSGraphAutomaticRepliesSetting
-
-- (MSGraphAutomaticRepliesStatus*) status
-{
-    if(!_status){
-        _status = [self.dictionary[@"status"] toMSGraphAutomaticRepliesStatus];
-    }
-    return _status;
-}
-
-- (void) setStatus: (MSGraphAutomaticRepliesStatus*) val
-{
-    _status = val;
-    self.dictionary[@"status"] = val;
-}
 
 - (MSGraphExternalAudienceScope*) externalAudience
 {
@@ -53,32 +39,18 @@
     self.dictionary[@"externalAudience"] = val;
 }
 
-- (MSGraphDateTimeTimeZone*) scheduledStartDateTime
+- (NSString*) externalReplyMessage
 {
-    if(!_scheduledStartDateTime){
-        _scheduledStartDateTime = [[MSGraphDateTimeTimeZone alloc] initWithDictionary: self.dictionary[@"scheduledStartDateTime"]];
-    }
-    return _scheduledStartDateTime;
+    if([[NSNull null] isEqual:self.dictionary[@"externalReplyMessage"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"externalReplyMessage"];
 }
 
-- (void) setScheduledStartDateTime: (MSGraphDateTimeTimeZone*) val
+- (void) setExternalReplyMessage: (NSString*) val
 {
-    _scheduledStartDateTime = val;
-    self.dictionary[@"scheduledStartDateTime"] = val;
-}
-
-- (MSGraphDateTimeTimeZone*) scheduledEndDateTime
-{
-    if(!_scheduledEndDateTime){
-        _scheduledEndDateTime = [[MSGraphDateTimeTimeZone alloc] initWithDictionary: self.dictionary[@"scheduledEndDateTime"]];
-    }
-    return _scheduledEndDateTime;
-}
-
-- (void) setScheduledEndDateTime: (MSGraphDateTimeTimeZone*) val
-{
-    _scheduledEndDateTime = val;
-    self.dictionary[@"scheduledEndDateTime"] = val;
+    self.dictionary[@"externalReplyMessage"] = val;
 }
 
 - (NSString*) internalReplyMessage
@@ -95,18 +67,46 @@
     self.dictionary[@"internalReplyMessage"] = val;
 }
 
-- (NSString*) externalReplyMessage
+- (MSGraphDateTimeTimeZone*) scheduledEndDateTime
 {
-    if([[NSNull null] isEqual:self.dictionary[@"externalReplyMessage"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"externalReplyMessage"];
+    if(!_scheduledEndDateTime){
+        _scheduledEndDateTime = [[MSGraphDateTimeTimeZone alloc] initWithDictionary: self.dictionary[@"scheduledEndDateTime"]];
+    }
+    return _scheduledEndDateTime;
 }
 
-- (void) setExternalReplyMessage: (NSString*) val
+- (void) setScheduledEndDateTime: (MSGraphDateTimeTimeZone*) val
 {
-    self.dictionary[@"externalReplyMessage"] = val;
+    _scheduledEndDateTime = val;
+    self.dictionary[@"scheduledEndDateTime"] = val;
+}
+
+- (MSGraphDateTimeTimeZone*) scheduledStartDateTime
+{
+    if(!_scheduledStartDateTime){
+        _scheduledStartDateTime = [[MSGraphDateTimeTimeZone alloc] initWithDictionary: self.dictionary[@"scheduledStartDateTime"]];
+    }
+    return _scheduledStartDateTime;
+}
+
+- (void) setScheduledStartDateTime: (MSGraphDateTimeTimeZone*) val
+{
+    _scheduledStartDateTime = val;
+    self.dictionary[@"scheduledStartDateTime"] = val;
+}
+
+- (MSGraphAutomaticRepliesStatus*) status
+{
+    if(!_status){
+        _status = [self.dictionary[@"status"] toMSGraphAutomaticRepliesStatus];
+    }
+    return _status;
+}
+
+- (void) setStatus: (MSGraphAutomaticRepliesStatus*) val
+{
+    _status = val;
+    self.dictionary[@"status"] = val;
 }
 
 @end

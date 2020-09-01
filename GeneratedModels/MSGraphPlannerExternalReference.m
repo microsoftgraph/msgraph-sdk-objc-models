@@ -15,10 +15,10 @@
 @interface MSGraphPlannerExternalReference()
 {
     NSString* _alias;
-    NSString* _type;
-    NSString* _previewPriority;
     MSGraphIdentitySet* _lastModifiedBy;
     NSDate* _lastModifiedDateTime;
+    NSString* _previewPriority;
+    NSString* _type;
 }
 @end
 
@@ -36,34 +36,6 @@
 - (void) setAlias: (NSString*) val
 {
     self.dictionary[@"alias"] = val;
-}
-
-- (NSString*) type
-{
-    if([[NSNull null] isEqual:self.dictionary[@"type"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"type"];
-}
-
-- (void) setType: (NSString*) val
-{
-    self.dictionary[@"type"] = val;
-}
-
-- (NSString*) previewPriority
-{
-    if([[NSNull null] isEqual:self.dictionary[@"previewPriority"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"previewPriority"];
-}
-
-- (void) setPreviewPriority: (NSString*) val
-{
-    self.dictionary[@"previewPriority"] = val;
 }
 
 - (MSGraphIdentitySet*) lastModifiedBy
@@ -92,6 +64,34 @@
 {
     _lastModifiedDateTime = val;
     self.dictionary[@"lastModifiedDateTime"] = [val ms_toString];
+}
+
+- (NSString*) previewPriority
+{
+    if([[NSNull null] isEqual:self.dictionary[@"previewPriority"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"previewPriority"];
+}
+
+- (void) setPreviewPriority: (NSString*) val
+{
+    self.dictionary[@"previewPriority"] = val;
+}
+
+- (NSString*) type
+{
+    if([[NSNull null] isEqual:self.dictionary[@"type"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"type"];
+}
+
+- (void) setType: (NSString*) val
+{
+    self.dictionary[@"type"] = val;
 }
 
 @end

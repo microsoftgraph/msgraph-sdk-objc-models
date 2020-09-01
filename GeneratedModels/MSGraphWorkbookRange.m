@@ -29,8 +29,8 @@
     BOOL _rowHidden;
     int32_t _rowIndex;
     NSDictionary* _text;
-    NSDictionary* _valueTypes;
     NSDictionary* _values;
+    NSDictionary* _valueTypes;
     MSGraphWorkbookRangeFormat* _format;
     MSGraphWorkbookRangeSort* _sort;
     MSGraphWorkbookWorksheet* _worksheet;
@@ -240,20 +240,6 @@
     self.dictionary[@"text"] = val;
 }
 
-- (NSDictionary*) valueTypes
-{
-    if(!_valueTypes){
-        _valueTypes = [[NSDictionary alloc] initWithDictionary: self.dictionary[@"valueTypes"]];
-    }
-    return _valueTypes;
-}
-
-- (void) setValueTypes: (NSDictionary*) val
-{
-    _valueTypes = val;
-    self.dictionary[@"valueTypes"] = val;
-}
-
 - (NSDictionary*) values
 {
     if(!_values){
@@ -266,6 +252,20 @@
 {
     _values = val;
     self.dictionary[@"values"] = val;
+}
+
+- (NSDictionary*) valueTypes
+{
+    if(!_valueTypes){
+        _valueTypes = [[NSDictionary alloc] initWithDictionary: self.dictionary[@"valueTypes"]];
+    }
+    return _valueTypes;
+}
+
+- (void) setValueTypes: (NSDictionary*) val
+{
+    _valueTypes = val;
+    self.dictionary[@"valueTypes"] = val;
 }
 
 - (MSGraphWorkbookRangeFormat*) format

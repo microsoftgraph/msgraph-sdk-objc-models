@@ -14,24 +14,24 @@
 
 @interface MSGraphDeviceAppManagement()
 {
-    NSDate* _microsoftStoreForBusinessLastSuccessfulSyncDateTime;
     BOOL _isEnabledForMicrosoftStoreForBusiness;
     NSString* _microsoftStoreForBusinessLanguage;
     NSDate* _microsoftStoreForBusinessLastCompletedApplicationSyncTime;
+    NSDate* _microsoftStoreForBusinessLastSuccessfulSyncDateTime;
     NSArray* _managedEBooks;
-    NSArray* _mobileApps;
     NSArray* _mobileAppCategories;
     NSArray* _mobileAppConfigurations;
+    NSArray* _mobileApps;
     NSArray* _vppTokens;
-    NSArray* _managedAppPolicies;
-    NSArray* _iosManagedAppProtections;
     NSArray* _androidManagedAppProtections;
     NSArray* _defaultManagedAppProtections;
-    NSArray* _targetedManagedAppConfigurations;
-    NSArray* _mdmWindowsInformationProtectionPolicies;
-    NSArray* _windowsInformationProtectionPolicies;
+    NSArray* _iosManagedAppProtections;
+    NSArray* _managedAppPolicies;
     NSArray* _managedAppRegistrations;
     NSArray* _managedAppStatuses;
+    NSArray* _mdmWindowsInformationProtectionPolicies;
+    NSArray* _targetedManagedAppConfigurations;
+    NSArray* _windowsInformationProtectionPolicies;
 }
 @end
 
@@ -44,20 +44,6 @@
     }
     return self;
 }
-- (NSDate*) microsoftStoreForBusinessLastSuccessfulSyncDateTime
-{
-    if(!_microsoftStoreForBusinessLastSuccessfulSyncDateTime){
-        _microsoftStoreForBusinessLastSuccessfulSyncDateTime = [NSDate ms_dateFromString: self.dictionary[@"microsoftStoreForBusinessLastSuccessfulSyncDateTime"]];
-    }
-    return _microsoftStoreForBusinessLastSuccessfulSyncDateTime;
-}
-
-- (void) setMicrosoftStoreForBusinessLastSuccessfulSyncDateTime: (NSDate*) val
-{
-    _microsoftStoreForBusinessLastSuccessfulSyncDateTime = val;
-    self.dictionary[@"microsoftStoreForBusinessLastSuccessfulSyncDateTime"] = [val ms_toString];
-}
-
 - (BOOL) isEnabledForMicrosoftStoreForBusiness
 {
     _isEnabledForMicrosoftStoreForBusiness = [self.dictionary[@"isEnabledForMicrosoftStoreForBusiness"] boolValue];
@@ -98,6 +84,20 @@
     self.dictionary[@"microsoftStoreForBusinessLastCompletedApplicationSyncTime"] = [val ms_toString];
 }
 
+- (NSDate*) microsoftStoreForBusinessLastSuccessfulSyncDateTime
+{
+    if(!_microsoftStoreForBusinessLastSuccessfulSyncDateTime){
+        _microsoftStoreForBusinessLastSuccessfulSyncDateTime = [NSDate ms_dateFromString: self.dictionary[@"microsoftStoreForBusinessLastSuccessfulSyncDateTime"]];
+    }
+    return _microsoftStoreForBusinessLastSuccessfulSyncDateTime;
+}
+
+- (void) setMicrosoftStoreForBusinessLastSuccessfulSyncDateTime: (NSDate*) val
+{
+    _microsoftStoreForBusinessLastSuccessfulSyncDateTime = val;
+    self.dictionary[@"microsoftStoreForBusinessLastSuccessfulSyncDateTime"] = [val ms_toString];
+}
+
 - (NSArray*) managedEBooks
 {
     if(!_managedEBooks){
@@ -121,31 +121,6 @@
 {
     _managedEBooks = val;
     self.dictionary[@"managedEBooks"] = val;
-}
-
-- (NSArray*) mobileApps
-{
-    if(!_mobileApps){
-        
-    NSMutableArray *mobileAppsResult = [NSMutableArray array];
-    NSArray *mobileApps = self.dictionary[@"mobileApps"];
-
-    if ([mobileApps isKindOfClass:[NSArray class]]){
-        for (id tempMobileApp in mobileApps){
-            [mobileAppsResult addObject:tempMobileApp];
-        }
-    }
-
-    _mobileApps = mobileAppsResult;
-        
-    }
-    return _mobileApps;
-}
-
-- (void) setMobileApps: (NSArray*) val
-{
-    _mobileApps = val;
-    self.dictionary[@"mobileApps"] = val;
 }
 
 - (NSArray*) mobileAppCategories
@@ -198,6 +173,31 @@
     self.dictionary[@"mobileAppConfigurations"] = val;
 }
 
+- (NSArray*) mobileApps
+{
+    if(!_mobileApps){
+        
+    NSMutableArray *mobileAppsResult = [NSMutableArray array];
+    NSArray *mobileApps = self.dictionary[@"mobileApps"];
+
+    if ([mobileApps isKindOfClass:[NSArray class]]){
+        for (id tempMobileApp in mobileApps){
+            [mobileAppsResult addObject:tempMobileApp];
+        }
+    }
+
+    _mobileApps = mobileAppsResult;
+        
+    }
+    return _mobileApps;
+}
+
+- (void) setMobileApps: (NSArray*) val
+{
+    _mobileApps = val;
+    self.dictionary[@"mobileApps"] = val;
+}
+
 - (NSArray*) vppTokens
 {
     if(!_vppTokens){
@@ -221,56 +221,6 @@
 {
     _vppTokens = val;
     self.dictionary[@"vppTokens"] = val;
-}
-
-- (NSArray*) managedAppPolicies
-{
-    if(!_managedAppPolicies){
-        
-    NSMutableArray *managedAppPoliciesResult = [NSMutableArray array];
-    NSArray *managedAppPolicies = self.dictionary[@"managedAppPolicies"];
-
-    if ([managedAppPolicies isKindOfClass:[NSArray class]]){
-        for (id tempManagedAppPolicy in managedAppPolicies){
-            [managedAppPoliciesResult addObject:tempManagedAppPolicy];
-        }
-    }
-
-    _managedAppPolicies = managedAppPoliciesResult;
-        
-    }
-    return _managedAppPolicies;
-}
-
-- (void) setManagedAppPolicies: (NSArray*) val
-{
-    _managedAppPolicies = val;
-    self.dictionary[@"managedAppPolicies"] = val;
-}
-
-- (NSArray*) iosManagedAppProtections
-{
-    if(!_iosManagedAppProtections){
-        
-    NSMutableArray *iosManagedAppProtectionsResult = [NSMutableArray array];
-    NSArray *iosManagedAppProtections = self.dictionary[@"iosManagedAppProtections"];
-
-    if ([iosManagedAppProtections isKindOfClass:[NSArray class]]){
-        for (id tempIosManagedAppProtection in iosManagedAppProtections){
-            [iosManagedAppProtectionsResult addObject:tempIosManagedAppProtection];
-        }
-    }
-
-    _iosManagedAppProtections = iosManagedAppProtectionsResult;
-        
-    }
-    return _iosManagedAppProtections;
-}
-
-- (void) setIosManagedAppProtections: (NSArray*) val
-{
-    _iosManagedAppProtections = val;
-    self.dictionary[@"iosManagedAppProtections"] = val;
 }
 
 - (NSArray*) androidManagedAppProtections
@@ -323,79 +273,54 @@
     self.dictionary[@"defaultManagedAppProtections"] = val;
 }
 
-- (NSArray*) targetedManagedAppConfigurations
+- (NSArray*) iosManagedAppProtections
 {
-    if(!_targetedManagedAppConfigurations){
+    if(!_iosManagedAppProtections){
         
-    NSMutableArray *targetedManagedAppConfigurationsResult = [NSMutableArray array];
-    NSArray *targetedManagedAppConfigurations = self.dictionary[@"targetedManagedAppConfigurations"];
+    NSMutableArray *iosManagedAppProtectionsResult = [NSMutableArray array];
+    NSArray *iosManagedAppProtections = self.dictionary[@"iosManagedAppProtections"];
 
-    if ([targetedManagedAppConfigurations isKindOfClass:[NSArray class]]){
-        for (id tempTargetedManagedAppConfiguration in targetedManagedAppConfigurations){
-            [targetedManagedAppConfigurationsResult addObject:tempTargetedManagedAppConfiguration];
+    if ([iosManagedAppProtections isKindOfClass:[NSArray class]]){
+        for (id tempIosManagedAppProtection in iosManagedAppProtections){
+            [iosManagedAppProtectionsResult addObject:tempIosManagedAppProtection];
         }
     }
 
-    _targetedManagedAppConfigurations = targetedManagedAppConfigurationsResult;
+    _iosManagedAppProtections = iosManagedAppProtectionsResult;
         
     }
-    return _targetedManagedAppConfigurations;
+    return _iosManagedAppProtections;
 }
 
-- (void) setTargetedManagedAppConfigurations: (NSArray*) val
+- (void) setIosManagedAppProtections: (NSArray*) val
 {
-    _targetedManagedAppConfigurations = val;
-    self.dictionary[@"targetedManagedAppConfigurations"] = val;
+    _iosManagedAppProtections = val;
+    self.dictionary[@"iosManagedAppProtections"] = val;
 }
 
-- (NSArray*) mdmWindowsInformationProtectionPolicies
+- (NSArray*) managedAppPolicies
 {
-    if(!_mdmWindowsInformationProtectionPolicies){
+    if(!_managedAppPolicies){
         
-    NSMutableArray *mdmWindowsInformationProtectionPoliciesResult = [NSMutableArray array];
-    NSArray *mdmWindowsInformationProtectionPolicies = self.dictionary[@"mdmWindowsInformationProtectionPolicies"];
+    NSMutableArray *managedAppPoliciesResult = [NSMutableArray array];
+    NSArray *managedAppPolicies = self.dictionary[@"managedAppPolicies"];
 
-    if ([mdmWindowsInformationProtectionPolicies isKindOfClass:[NSArray class]]){
-        for (id tempMdmWindowsInformationProtectionPolicy in mdmWindowsInformationProtectionPolicies){
-            [mdmWindowsInformationProtectionPoliciesResult addObject:tempMdmWindowsInformationProtectionPolicy];
+    if ([managedAppPolicies isKindOfClass:[NSArray class]]){
+        for (id tempManagedAppPolicy in managedAppPolicies){
+            [managedAppPoliciesResult addObject:tempManagedAppPolicy];
         }
     }
 
-    _mdmWindowsInformationProtectionPolicies = mdmWindowsInformationProtectionPoliciesResult;
+    _managedAppPolicies = managedAppPoliciesResult;
         
     }
-    return _mdmWindowsInformationProtectionPolicies;
+    return _managedAppPolicies;
 }
 
-- (void) setMdmWindowsInformationProtectionPolicies: (NSArray*) val
+- (void) setManagedAppPolicies: (NSArray*) val
 {
-    _mdmWindowsInformationProtectionPolicies = val;
-    self.dictionary[@"mdmWindowsInformationProtectionPolicies"] = val;
-}
-
-- (NSArray*) windowsInformationProtectionPolicies
-{
-    if(!_windowsInformationProtectionPolicies){
-        
-    NSMutableArray *windowsInformationProtectionPoliciesResult = [NSMutableArray array];
-    NSArray *windowsInformationProtectionPolicies = self.dictionary[@"windowsInformationProtectionPolicies"];
-
-    if ([windowsInformationProtectionPolicies isKindOfClass:[NSArray class]]){
-        for (id tempWindowsInformationProtectionPolicy in windowsInformationProtectionPolicies){
-            [windowsInformationProtectionPoliciesResult addObject:tempWindowsInformationProtectionPolicy];
-        }
-    }
-
-    _windowsInformationProtectionPolicies = windowsInformationProtectionPoliciesResult;
-        
-    }
-    return _windowsInformationProtectionPolicies;
-}
-
-- (void) setWindowsInformationProtectionPolicies: (NSArray*) val
-{
-    _windowsInformationProtectionPolicies = val;
-    self.dictionary[@"windowsInformationProtectionPolicies"] = val;
+    _managedAppPolicies = val;
+    self.dictionary[@"managedAppPolicies"] = val;
 }
 
 - (NSArray*) managedAppRegistrations
@@ -446,6 +371,81 @@
 {
     _managedAppStatuses = val;
     self.dictionary[@"managedAppStatuses"] = val;
+}
+
+- (NSArray*) mdmWindowsInformationProtectionPolicies
+{
+    if(!_mdmWindowsInformationProtectionPolicies){
+        
+    NSMutableArray *mdmWindowsInformationProtectionPoliciesResult = [NSMutableArray array];
+    NSArray *mdmWindowsInformationProtectionPolicies = self.dictionary[@"mdmWindowsInformationProtectionPolicies"];
+
+    if ([mdmWindowsInformationProtectionPolicies isKindOfClass:[NSArray class]]){
+        for (id tempMdmWindowsInformationProtectionPolicy in mdmWindowsInformationProtectionPolicies){
+            [mdmWindowsInformationProtectionPoliciesResult addObject:tempMdmWindowsInformationProtectionPolicy];
+        }
+    }
+
+    _mdmWindowsInformationProtectionPolicies = mdmWindowsInformationProtectionPoliciesResult;
+        
+    }
+    return _mdmWindowsInformationProtectionPolicies;
+}
+
+- (void) setMdmWindowsInformationProtectionPolicies: (NSArray*) val
+{
+    _mdmWindowsInformationProtectionPolicies = val;
+    self.dictionary[@"mdmWindowsInformationProtectionPolicies"] = val;
+}
+
+- (NSArray*) targetedManagedAppConfigurations
+{
+    if(!_targetedManagedAppConfigurations){
+        
+    NSMutableArray *targetedManagedAppConfigurationsResult = [NSMutableArray array];
+    NSArray *targetedManagedAppConfigurations = self.dictionary[@"targetedManagedAppConfigurations"];
+
+    if ([targetedManagedAppConfigurations isKindOfClass:[NSArray class]]){
+        for (id tempTargetedManagedAppConfiguration in targetedManagedAppConfigurations){
+            [targetedManagedAppConfigurationsResult addObject:tempTargetedManagedAppConfiguration];
+        }
+    }
+
+    _targetedManagedAppConfigurations = targetedManagedAppConfigurationsResult;
+        
+    }
+    return _targetedManagedAppConfigurations;
+}
+
+- (void) setTargetedManagedAppConfigurations: (NSArray*) val
+{
+    _targetedManagedAppConfigurations = val;
+    self.dictionary[@"targetedManagedAppConfigurations"] = val;
+}
+
+- (NSArray*) windowsInformationProtectionPolicies
+{
+    if(!_windowsInformationProtectionPolicies){
+        
+    NSMutableArray *windowsInformationProtectionPoliciesResult = [NSMutableArray array];
+    NSArray *windowsInformationProtectionPolicies = self.dictionary[@"windowsInformationProtectionPolicies"];
+
+    if ([windowsInformationProtectionPolicies isKindOfClass:[NSArray class]]){
+        for (id tempWindowsInformationProtectionPolicy in windowsInformationProtectionPolicies){
+            [windowsInformationProtectionPoliciesResult addObject:tempWindowsInformationProtectionPolicy];
+        }
+    }
+
+    _windowsInformationProtectionPolicies = windowsInformationProtectionPoliciesResult;
+        
+    }
+    return _windowsInformationProtectionPolicies;
+}
+
+- (void) setWindowsInformationProtectionPolicies: (NSArray*) val
+{
+    _windowsInformationProtectionPolicies = val;
+    self.dictionary[@"windowsInformationProtectionPolicies"] = val;
 }
 
 

@@ -15,12 +15,12 @@
 @interface MSGraphWorkbook()
 {
     MSGraphWorkbookApplication* _application;
-    NSArray* _names;
-    NSArray* _tables;
-    NSArray* _worksheets;
     NSArray* _comments;
     MSGraphWorkbookFunctions* _functions;
+    NSArray* _names;
     NSArray* _workbookOperations;
+    NSArray* _tables;
+    NSArray* _worksheets;
 }
 @end
 
@@ -47,6 +47,45 @@
     self.dictionary[@"application"] = val;
 }
 
+- (NSArray*) comments
+{
+    if(!_comments){
+        
+    NSMutableArray *commentsResult = [NSMutableArray array];
+    NSArray *comments = self.dictionary[@"comments"];
+
+    if ([comments isKindOfClass:[NSArray class]]){
+        for (id tempWorkbookComment in comments){
+            [commentsResult addObject:tempWorkbookComment];
+        }
+    }
+
+    _comments = commentsResult;
+        
+    }
+    return _comments;
+}
+
+- (void) setComments: (NSArray*) val
+{
+    _comments = val;
+    self.dictionary[@"comments"] = val;
+}
+
+- (MSGraphWorkbookFunctions*) functions
+{
+    if(!_functions){
+        _functions = [[MSGraphWorkbookFunctions alloc] initWithDictionary: self.dictionary[@"functions"]];
+    }
+    return _functions;
+}
+
+- (void) setFunctions: (MSGraphWorkbookFunctions*) val
+{
+    _functions = val;
+    self.dictionary[@"functions"] = val;
+}
+
 - (NSArray*) names
 {
     if(!_names){
@@ -70,6 +109,31 @@
 {
     _names = val;
     self.dictionary[@"names"] = val;
+}
+
+- (NSArray*) workbookOperations
+{
+    if(!_workbookOperations){
+        
+    NSMutableArray *workbookOperationsResult = [NSMutableArray array];
+    NSArray *workbookOperations = self.dictionary[@"operations"];
+
+    if ([workbookOperations isKindOfClass:[NSArray class]]){
+        for (id tempWorkbookOperation in workbookOperations){
+            [workbookOperationsResult addObject:tempWorkbookOperation];
+        }
+    }
+
+    _workbookOperations = workbookOperationsResult;
+        
+    }
+    return _workbookOperations;
+}
+
+- (void) setWorkbookOperations: (NSArray*) val
+{
+    _workbookOperations = val;
+    self.dictionary[@"operations"] = val;
 }
 
 - (NSArray*) tables
@@ -120,70 +184,6 @@
 {
     _worksheets = val;
     self.dictionary[@"worksheets"] = val;
-}
-
-- (NSArray*) comments
-{
-    if(!_comments){
-        
-    NSMutableArray *commentsResult = [NSMutableArray array];
-    NSArray *comments = self.dictionary[@"comments"];
-
-    if ([comments isKindOfClass:[NSArray class]]){
-        for (id tempWorkbookComment in comments){
-            [commentsResult addObject:tempWorkbookComment];
-        }
-    }
-
-    _comments = commentsResult;
-        
-    }
-    return _comments;
-}
-
-- (void) setComments: (NSArray*) val
-{
-    _comments = val;
-    self.dictionary[@"comments"] = val;
-}
-
-- (MSGraphWorkbookFunctions*) functions
-{
-    if(!_functions){
-        _functions = [[MSGraphWorkbookFunctions alloc] initWithDictionary: self.dictionary[@"functions"]];
-    }
-    return _functions;
-}
-
-- (void) setFunctions: (MSGraphWorkbookFunctions*) val
-{
-    _functions = val;
-    self.dictionary[@"functions"] = val;
-}
-
-- (NSArray*) workbookOperations
-{
-    if(!_workbookOperations){
-        
-    NSMutableArray *workbookOperationsResult = [NSMutableArray array];
-    NSArray *workbookOperations = self.dictionary[@"operations"];
-
-    if ([workbookOperations isKindOfClass:[NSArray class]]){
-        for (id tempWorkbookOperation in workbookOperations){
-            [workbookOperationsResult addObject:tempWorkbookOperation];
-        }
-    }
-
-    _workbookOperations = workbookOperationsResult;
-        
-    }
-    return _workbookOperations;
-}
-
-- (void) setWorkbookOperations: (NSArray*) val
-{
-    _workbookOperations = val;
-    self.dictionary[@"operations"] = val;
 }
 
 

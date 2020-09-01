@@ -14,14 +14,14 @@
 
 @interface MSGraphMessageRule()
 {
-    NSString* _displayName;
-    int32_t _sequence;
-    MSGraphMessageRulePredicates* _conditions;
     MSGraphMessageRuleActions* _actions;
+    MSGraphMessageRulePredicates* _conditions;
+    NSString* _displayName;
     MSGraphMessageRulePredicates* _exceptions;
-    BOOL _isEnabled;
     BOOL _hasError;
+    BOOL _isEnabled;
     BOOL _isReadOnly;
+    int32_t _sequence;
 }
 @end
 
@@ -34,30 +34,18 @@
     }
     return self;
 }
-- (NSString*) displayName
+- (MSGraphMessageRuleActions*) actions
 {
-    if([[NSNull null] isEqual:self.dictionary[@"displayName"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"displayName"];
+    if(!_actions){
+        _actions = [[MSGraphMessageRuleActions alloc] initWithDictionary: self.dictionary[@"actions"]];
+    }
+    return _actions;
 }
 
-- (void) setDisplayName: (NSString*) val
+- (void) setActions: (MSGraphMessageRuleActions*) val
 {
-    self.dictionary[@"displayName"] = val;
-}
-
-- (int32_t) sequence
-{
-    _sequence = [self.dictionary[@"sequence"] intValue];
-    return _sequence;
-}
-
-- (void) setSequence: (int32_t) val
-{
-    _sequence = val;
-    self.dictionary[@"sequence"] = @(val);
+    _actions = val;
+    self.dictionary[@"actions"] = val;
 }
 
 - (MSGraphMessageRulePredicates*) conditions
@@ -74,18 +62,18 @@
     self.dictionary[@"conditions"] = val;
 }
 
-- (MSGraphMessageRuleActions*) actions
+- (NSString*) displayName
 {
-    if(!_actions){
-        _actions = [[MSGraphMessageRuleActions alloc] initWithDictionary: self.dictionary[@"actions"]];
-    }
-    return _actions;
+    if([[NSNull null] isEqual:self.dictionary[@"displayName"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"displayName"];
 }
 
-- (void) setActions: (MSGraphMessageRuleActions*) val
+- (void) setDisplayName: (NSString*) val
 {
-    _actions = val;
-    self.dictionary[@"actions"] = val;
+    self.dictionary[@"displayName"] = val;
 }
 
 - (MSGraphMessageRulePredicates*) exceptions
@@ -102,18 +90,6 @@
     self.dictionary[@"exceptions"] = val;
 }
 
-- (BOOL) isEnabled
-{
-    _isEnabled = [self.dictionary[@"isEnabled"] boolValue];
-    return _isEnabled;
-}
-
-- (void) setIsEnabled: (BOOL) val
-{
-    _isEnabled = val;
-    self.dictionary[@"isEnabled"] = @(val);
-}
-
 - (BOOL) hasError
 {
     _hasError = [self.dictionary[@"hasError"] boolValue];
@@ -126,6 +102,18 @@
     self.dictionary[@"hasError"] = @(val);
 }
 
+- (BOOL) isEnabled
+{
+    _isEnabled = [self.dictionary[@"isEnabled"] boolValue];
+    return _isEnabled;
+}
+
+- (void) setIsEnabled: (BOOL) val
+{
+    _isEnabled = val;
+    self.dictionary[@"isEnabled"] = @(val);
+}
+
 - (BOOL) isReadOnly
 {
     _isReadOnly = [self.dictionary[@"isReadOnly"] boolValue];
@@ -136,6 +124,18 @@
 {
     _isReadOnly = val;
     self.dictionary[@"isReadOnly"] = @(val);
+}
+
+- (int32_t) sequence
+{
+    _sequence = [self.dictionary[@"sequence"] intValue];
+    return _sequence;
+}
+
+- (void) setSequence: (int32_t) val
+{
+    _sequence = val;
+    self.dictionary[@"sequence"] = @(val);
 }
 
 

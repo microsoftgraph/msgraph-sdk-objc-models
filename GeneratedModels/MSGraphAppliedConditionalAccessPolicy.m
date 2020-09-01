@@ -14,29 +14,15 @@
 
 @interface MSGraphAppliedConditionalAccessPolicy()
 {
-    NSString* _appliedConditionalAccessPolicyId;
     NSString* _displayName;
     NSArray* _enforcedGrantControls;
     NSArray* _enforcedSessionControls;
+    NSString* _appliedConditionalAccessPolicyId;
     MSGraphAppliedConditionalAccessPolicyResult* _result;
 }
 @end
 
 @implementation MSGraphAppliedConditionalAccessPolicy
-
-- (NSString*) appliedConditionalAccessPolicyId
-{
-    if([[NSNull null] isEqual:self.dictionary[@"id"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"id"];
-}
-
-- (void) setAppliedConditionalAccessPolicyId: (NSString*) val
-{
-    self.dictionary[@"id"] = val;
-}
 
 - (NSString*) displayName
 {
@@ -78,6 +64,20 @@
 - (void) setEnforcedSessionControls: (NSArray*) val
 {
     self.dictionary[@"enforcedSessionControls"] = val;
+}
+
+- (NSString*) appliedConditionalAccessPolicyId
+{
+    if([[NSNull null] isEqual:self.dictionary[@"id"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"id"];
+}
+
+- (void) setAppliedConditionalAccessPolicyId: (NSString*) val
+{
+    self.dictionary[@"id"] = val;
 }
 
 - (MSGraphAppliedConditionalAccessPolicyResult*) result

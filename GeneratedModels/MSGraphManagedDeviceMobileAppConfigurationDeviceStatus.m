@@ -14,12 +14,12 @@
 
 @interface MSGraphManagedDeviceMobileAppConfigurationDeviceStatus()
 {
-    NSString* _deviceDisplayName;
-    NSString* _userName;
-    NSString* _deviceModel;
     NSDate* _complianceGracePeriodExpirationDateTime;
-    MSGraphComplianceStatus* _status;
+    NSString* _deviceDisplayName;
+    NSString* _deviceModel;
     NSDate* _lastReportedDateTime;
+    MSGraphComplianceStatus* _status;
+    NSString* _userName;
     NSString* _userPrincipalName;
 }
 @end
@@ -33,6 +33,20 @@
     }
     return self;
 }
+- (NSDate*) complianceGracePeriodExpirationDateTime
+{
+    if(!_complianceGracePeriodExpirationDateTime){
+        _complianceGracePeriodExpirationDateTime = [NSDate ms_dateFromString: self.dictionary[@"complianceGracePeriodExpirationDateTime"]];
+    }
+    return _complianceGracePeriodExpirationDateTime;
+}
+
+- (void) setComplianceGracePeriodExpirationDateTime: (NSDate*) val
+{
+    _complianceGracePeriodExpirationDateTime = val;
+    self.dictionary[@"complianceGracePeriodExpirationDateTime"] = [val ms_toString];
+}
+
 - (NSString*) deviceDisplayName
 {
     if([[NSNull null] isEqual:self.dictionary[@"deviceDisplayName"]])
@@ -45,20 +59,6 @@
 - (void) setDeviceDisplayName: (NSString*) val
 {
     self.dictionary[@"deviceDisplayName"] = val;
-}
-
-- (NSString*) userName
-{
-    if([[NSNull null] isEqual:self.dictionary[@"userName"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"userName"];
-}
-
-- (void) setUserName: (NSString*) val
-{
-    self.dictionary[@"userName"] = val;
 }
 
 - (NSString*) deviceModel
@@ -75,18 +75,18 @@
     self.dictionary[@"deviceModel"] = val;
 }
 
-- (NSDate*) complianceGracePeriodExpirationDateTime
+- (NSDate*) lastReportedDateTime
 {
-    if(!_complianceGracePeriodExpirationDateTime){
-        _complianceGracePeriodExpirationDateTime = [NSDate ms_dateFromString: self.dictionary[@"complianceGracePeriodExpirationDateTime"]];
+    if(!_lastReportedDateTime){
+        _lastReportedDateTime = [NSDate ms_dateFromString: self.dictionary[@"lastReportedDateTime"]];
     }
-    return _complianceGracePeriodExpirationDateTime;
+    return _lastReportedDateTime;
 }
 
-- (void) setComplianceGracePeriodExpirationDateTime: (NSDate*) val
+- (void) setLastReportedDateTime: (NSDate*) val
 {
-    _complianceGracePeriodExpirationDateTime = val;
-    self.dictionary[@"complianceGracePeriodExpirationDateTime"] = [val ms_toString];
+    _lastReportedDateTime = val;
+    self.dictionary[@"lastReportedDateTime"] = [val ms_toString];
 }
 
 - (MSGraphComplianceStatus*) status
@@ -103,18 +103,18 @@
     self.dictionary[@"status"] = val;
 }
 
-- (NSDate*) lastReportedDateTime
+- (NSString*) userName
 {
-    if(!_lastReportedDateTime){
-        _lastReportedDateTime = [NSDate ms_dateFromString: self.dictionary[@"lastReportedDateTime"]];
-    }
-    return _lastReportedDateTime;
+    if([[NSNull null] isEqual:self.dictionary[@"userName"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"userName"];
 }
 
-- (void) setLastReportedDateTime: (NSDate*) val
+- (void) setUserName: (NSString*) val
 {
-    _lastReportedDateTime = val;
-    self.dictionary[@"lastReportedDateTime"] = [val ms_toString];
+    self.dictionary[@"userName"] = val;
 }
 
 - (NSString*) userPrincipalName

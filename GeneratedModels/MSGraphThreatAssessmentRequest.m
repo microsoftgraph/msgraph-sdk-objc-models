@@ -14,31 +14,31 @@
 
 @interface MSGraphThreatAssessmentRequest()
 {
-    NSDate* _createdDateTime;
-    MSGraphThreatAssessmentContentType* _contentType;
-    MSGraphThreatExpectedAssessment* _expectedAssessment;
     MSGraphThreatCategory* _category;
-    MSGraphThreatAssessmentStatus* _status;
-    MSGraphThreatAssessmentRequestSource* _requestSource;
+    MSGraphThreatAssessmentContentType* _contentType;
     MSGraphIdentitySet* _createdBy;
+    NSDate* _createdDateTime;
+    MSGraphThreatExpectedAssessment* _expectedAssessment;
+    MSGraphThreatAssessmentRequestSource* _requestSource;
+    MSGraphThreatAssessmentStatus* _status;
     NSArray* _results;
 }
 @end
 
 @implementation MSGraphThreatAssessmentRequest
 
-- (NSDate*) createdDateTime
+- (MSGraphThreatCategory*) category
 {
-    if(!_createdDateTime){
-        _createdDateTime = [NSDate ms_dateFromString: self.dictionary[@"createdDateTime"]];
+    if(!_category){
+        _category = [self.dictionary[@"category"] toMSGraphThreatCategory];
     }
-    return _createdDateTime;
+    return _category;
 }
 
-- (void) setCreatedDateTime: (NSDate*) val
+- (void) setCategory: (MSGraphThreatCategory*) val
 {
-    _createdDateTime = val;
-    self.dictionary[@"createdDateTime"] = [val ms_toString];
+    _category = val;
+    self.dictionary[@"category"] = val;
 }
 
 - (MSGraphThreatAssessmentContentType*) contentType
@@ -55,6 +55,34 @@
     self.dictionary[@"contentType"] = val;
 }
 
+- (MSGraphIdentitySet*) createdBy
+{
+    if(!_createdBy){
+        _createdBy = [[MSGraphIdentitySet alloc] initWithDictionary: self.dictionary[@"createdBy"]];
+    }
+    return _createdBy;
+}
+
+- (void) setCreatedBy: (MSGraphIdentitySet*) val
+{
+    _createdBy = val;
+    self.dictionary[@"createdBy"] = val;
+}
+
+- (NSDate*) createdDateTime
+{
+    if(!_createdDateTime){
+        _createdDateTime = [NSDate ms_dateFromString: self.dictionary[@"createdDateTime"]];
+    }
+    return _createdDateTime;
+}
+
+- (void) setCreatedDateTime: (NSDate*) val
+{
+    _createdDateTime = val;
+    self.dictionary[@"createdDateTime"] = [val ms_toString];
+}
+
 - (MSGraphThreatExpectedAssessment*) expectedAssessment
 {
     if(!_expectedAssessment){
@@ -67,34 +95,6 @@
 {
     _expectedAssessment = val;
     self.dictionary[@"expectedAssessment"] = val;
-}
-
-- (MSGraphThreatCategory*) category
-{
-    if(!_category){
-        _category = [self.dictionary[@"category"] toMSGraphThreatCategory];
-    }
-    return _category;
-}
-
-- (void) setCategory: (MSGraphThreatCategory*) val
-{
-    _category = val;
-    self.dictionary[@"category"] = val;
-}
-
-- (MSGraphThreatAssessmentStatus*) status
-{
-    if(!_status){
-        _status = [self.dictionary[@"status"] toMSGraphThreatAssessmentStatus];
-    }
-    return _status;
-}
-
-- (void) setStatus: (MSGraphThreatAssessmentStatus*) val
-{
-    _status = val;
-    self.dictionary[@"status"] = val;
 }
 
 - (MSGraphThreatAssessmentRequestSource*) requestSource
@@ -111,18 +111,18 @@
     self.dictionary[@"requestSource"] = val;
 }
 
-- (MSGraphIdentitySet*) createdBy
+- (MSGraphThreatAssessmentStatus*) status
 {
-    if(!_createdBy){
-        _createdBy = [[MSGraphIdentitySet alloc] initWithDictionary: self.dictionary[@"createdBy"]];
+    if(!_status){
+        _status = [self.dictionary[@"status"] toMSGraphThreatAssessmentStatus];
     }
-    return _createdBy;
+    return _status;
 }
 
-- (void) setCreatedBy: (MSGraphIdentitySet*) val
+- (void) setStatus: (MSGraphThreatAssessmentStatus*) val
 {
-    _createdBy = val;
-    self.dictionary[@"createdBy"] = val;
+    _status = val;
+    self.dictionary[@"status"] = val;
 }
 
 - (NSArray*) results

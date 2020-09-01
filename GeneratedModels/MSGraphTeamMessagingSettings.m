@@ -14,38 +14,26 @@
 
 @interface MSGraphTeamMessagingSettings()
 {
-    BOOL _allowUserEditMessages;
-    BOOL _allowUserDeleteMessages;
+    BOOL _allowChannelMentions;
     BOOL _allowOwnerDeleteMessages;
     BOOL _allowTeamMentions;
-    BOOL _allowChannelMentions;
+    BOOL _allowUserDeleteMessages;
+    BOOL _allowUserEditMessages;
 }
 @end
 
 @implementation MSGraphTeamMessagingSettings
 
-- (BOOL) allowUserEditMessages
+- (BOOL) allowChannelMentions
 {
-    _allowUserEditMessages = [self.dictionary[@"allowUserEditMessages"] boolValue];
-    return _allowUserEditMessages;
+    _allowChannelMentions = [self.dictionary[@"allowChannelMentions"] boolValue];
+    return _allowChannelMentions;
 }
 
-- (void) setAllowUserEditMessages: (BOOL) val
+- (void) setAllowChannelMentions: (BOOL) val
 {
-    _allowUserEditMessages = val;
-    self.dictionary[@"allowUserEditMessages"] = @(val);
-}
-
-- (BOOL) allowUserDeleteMessages
-{
-    _allowUserDeleteMessages = [self.dictionary[@"allowUserDeleteMessages"] boolValue];
-    return _allowUserDeleteMessages;
-}
-
-- (void) setAllowUserDeleteMessages: (BOOL) val
-{
-    _allowUserDeleteMessages = val;
-    self.dictionary[@"allowUserDeleteMessages"] = @(val);
+    _allowChannelMentions = val;
+    self.dictionary[@"allowChannelMentions"] = @(val);
 }
 
 - (BOOL) allowOwnerDeleteMessages
@@ -72,16 +60,28 @@
     self.dictionary[@"allowTeamMentions"] = @(val);
 }
 
-- (BOOL) allowChannelMentions
+- (BOOL) allowUserDeleteMessages
 {
-    _allowChannelMentions = [self.dictionary[@"allowChannelMentions"] boolValue];
-    return _allowChannelMentions;
+    _allowUserDeleteMessages = [self.dictionary[@"allowUserDeleteMessages"] boolValue];
+    return _allowUserDeleteMessages;
 }
 
-- (void) setAllowChannelMentions: (BOOL) val
+- (void) setAllowUserDeleteMessages: (BOOL) val
 {
-    _allowChannelMentions = val;
-    self.dictionary[@"allowChannelMentions"] = @(val);
+    _allowUserDeleteMessages = val;
+    self.dictionary[@"allowUserDeleteMessages"] = @(val);
+}
+
+- (BOOL) allowUserEditMessages
+{
+    _allowUserEditMessages = [self.dictionary[@"allowUserEditMessages"] boolValue];
+    return _allowUserEditMessages;
+}
+
+- (void) setAllowUserEditMessages: (BOOL) val
+{
+    _allowUserEditMessages = val;
+    self.dictionary[@"allowUserEditMessages"] = @(val);
 }
 
 @end

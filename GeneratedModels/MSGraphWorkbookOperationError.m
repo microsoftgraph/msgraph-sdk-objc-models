@@ -15,8 +15,8 @@
 @interface MSGraphWorkbookOperationError()
 {
     NSString* _code;
-    NSString* _message;
     MSGraphWorkbookOperationError* _innerError;
+    NSString* _message;
 }
 @end
 
@@ -36,20 +36,6 @@
     self.dictionary[@"code"] = val;
 }
 
-- (NSString*) message
-{
-    if([[NSNull null] isEqual:self.dictionary[@"message"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"message"];
-}
-
-- (void) setMessage: (NSString*) val
-{
-    self.dictionary[@"message"] = val;
-}
-
 - (MSGraphWorkbookOperationError*) innerError
 {
     if(!_innerError){
@@ -62,6 +48,20 @@
 {
     _innerError = val;
     self.dictionary[@"innerError"] = val;
+}
+
+- (NSString*) message
+{
+    if([[NSNull null] isEqual:self.dictionary[@"message"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"message"];
+}
+
+- (void) setMessage: (NSString*) val
+{
+    self.dictionary[@"message"] = val;
 }
 
 @end

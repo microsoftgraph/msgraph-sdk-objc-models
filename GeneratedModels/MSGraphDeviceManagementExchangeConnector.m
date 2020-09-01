@@ -14,15 +14,15 @@
 
 @interface MSGraphDeviceManagementExchangeConnector()
 {
+    NSString* _connectorServerName;
+    NSString* _exchangeAlias;
+    MSGraphDeviceManagementExchangeConnectorType* _exchangeConnectorType;
+    NSString* _exchangeOrganization;
     NSDate* _lastSyncDateTime;
-    MSGraphDeviceManagementExchangeConnectorStatus* _status;
     NSString* _primarySmtpAddress;
     NSString* _serverName;
-    NSString* _connectorServerName;
-    MSGraphDeviceManagementExchangeConnectorType* _exchangeConnectorType;
+    MSGraphDeviceManagementExchangeConnectorStatus* _status;
     NSString* _version;
-    NSString* _exchangeAlias;
-    NSString* _exchangeOrganization;
 }
 @end
 
@@ -35,6 +35,62 @@
     }
     return self;
 }
+- (NSString*) connectorServerName
+{
+    if([[NSNull null] isEqual:self.dictionary[@"connectorServerName"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"connectorServerName"];
+}
+
+- (void) setConnectorServerName: (NSString*) val
+{
+    self.dictionary[@"connectorServerName"] = val;
+}
+
+- (NSString*) exchangeAlias
+{
+    if([[NSNull null] isEqual:self.dictionary[@"exchangeAlias"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"exchangeAlias"];
+}
+
+- (void) setExchangeAlias: (NSString*) val
+{
+    self.dictionary[@"exchangeAlias"] = val;
+}
+
+- (MSGraphDeviceManagementExchangeConnectorType*) exchangeConnectorType
+{
+    if(!_exchangeConnectorType){
+        _exchangeConnectorType = [self.dictionary[@"exchangeConnectorType"] toMSGraphDeviceManagementExchangeConnectorType];
+    }
+    return _exchangeConnectorType;
+}
+
+- (void) setExchangeConnectorType: (MSGraphDeviceManagementExchangeConnectorType*) val
+{
+    _exchangeConnectorType = val;
+    self.dictionary[@"exchangeConnectorType"] = val;
+}
+
+- (NSString*) exchangeOrganization
+{
+    if([[NSNull null] isEqual:self.dictionary[@"exchangeOrganization"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"exchangeOrganization"];
+}
+
+- (void) setExchangeOrganization: (NSString*) val
+{
+    self.dictionary[@"exchangeOrganization"] = val;
+}
+
 - (NSDate*) lastSyncDateTime
 {
     if(!_lastSyncDateTime){
@@ -47,20 +103,6 @@
 {
     _lastSyncDateTime = val;
     self.dictionary[@"lastSyncDateTime"] = [val ms_toString];
-}
-
-- (MSGraphDeviceManagementExchangeConnectorStatus*) status
-{
-    if(!_status){
-        _status = [self.dictionary[@"status"] toMSGraphDeviceManagementExchangeConnectorStatus];
-    }
-    return _status;
-}
-
-- (void) setStatus: (MSGraphDeviceManagementExchangeConnectorStatus*) val
-{
-    _status = val;
-    self.dictionary[@"status"] = val;
 }
 
 - (NSString*) primarySmtpAddress
@@ -91,32 +133,18 @@
     self.dictionary[@"serverName"] = val;
 }
 
-- (NSString*) connectorServerName
+- (MSGraphDeviceManagementExchangeConnectorStatus*) status
 {
-    if([[NSNull null] isEqual:self.dictionary[@"connectorServerName"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"connectorServerName"];
-}
-
-- (void) setConnectorServerName: (NSString*) val
-{
-    self.dictionary[@"connectorServerName"] = val;
-}
-
-- (MSGraphDeviceManagementExchangeConnectorType*) exchangeConnectorType
-{
-    if(!_exchangeConnectorType){
-        _exchangeConnectorType = [self.dictionary[@"exchangeConnectorType"] toMSGraphDeviceManagementExchangeConnectorType];
+    if(!_status){
+        _status = [self.dictionary[@"status"] toMSGraphDeviceManagementExchangeConnectorStatus];
     }
-    return _exchangeConnectorType;
+    return _status;
 }
 
-- (void) setExchangeConnectorType: (MSGraphDeviceManagementExchangeConnectorType*) val
+- (void) setStatus: (MSGraphDeviceManagementExchangeConnectorStatus*) val
 {
-    _exchangeConnectorType = val;
-    self.dictionary[@"exchangeConnectorType"] = val;
+    _status = val;
+    self.dictionary[@"status"] = val;
 }
 
 - (NSString*) version
@@ -131,34 +159,6 @@
 - (void) setVersion: (NSString*) val
 {
     self.dictionary[@"version"] = val;
-}
-
-- (NSString*) exchangeAlias
-{
-    if([[NSNull null] isEqual:self.dictionary[@"exchangeAlias"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"exchangeAlias"];
-}
-
-- (void) setExchangeAlias: (NSString*) val
-{
-    self.dictionary[@"exchangeAlias"] = val;
-}
-
-- (NSString*) exchangeOrganization
-{
-    if([[NSNull null] isEqual:self.dictionary[@"exchangeOrganization"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"exchangeOrganization"];
-}
-
-- (void) setExchangeOrganization: (NSString*) val
-{
-    self.dictionary[@"exchangeOrganization"] = val;
 }
 
 

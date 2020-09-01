@@ -17,9 +17,9 @@
     BOOL _isDefault;
     MSGraphSectionLinks* _links;
     NSString* _pagesUrl;
+    NSArray* _pages;
     MSGraphNotebook* _parentNotebook;
     MSGraphSectionGroup* _parentSectionGroup;
-    NSArray* _pages;
 }
 @end
 
@@ -72,6 +72,31 @@
     self.dictionary[@"pagesUrl"] = val;
 }
 
+- (NSArray*) pages
+{
+    if(!_pages){
+        
+    NSMutableArray *pagesResult = [NSMutableArray array];
+    NSArray *pages = self.dictionary[@"pages"];
+
+    if ([pages isKindOfClass:[NSArray class]]){
+        for (id tempOnenotePage in pages){
+            [pagesResult addObject:tempOnenotePage];
+        }
+    }
+
+    _pages = pagesResult;
+        
+    }
+    return _pages;
+}
+
+- (void) setPages: (NSArray*) val
+{
+    _pages = val;
+    self.dictionary[@"pages"] = val;
+}
+
 - (MSGraphNotebook*) parentNotebook
 {
     if(!_parentNotebook){
@@ -98,31 +123,6 @@
 {
     _parentSectionGroup = val;
     self.dictionary[@"parentSectionGroup"] = val;
-}
-
-- (NSArray*) pages
-{
-    if(!_pages){
-        
-    NSMutableArray *pagesResult = [NSMutableArray array];
-    NSArray *pages = self.dictionary[@"pages"];
-
-    if ([pages isKindOfClass:[NSArray class]]){
-        for (id tempOnenotePage in pages){
-            [pagesResult addObject:tempOnenotePage];
-        }
-    }
-
-    _pages = pagesResult;
-        
-    }
-    return _pages;
-}
-
-- (void) setPages: (NSArray*) val
-{
-    _pages = val;
-    self.dictionary[@"pages"] = val;
 }
 
 

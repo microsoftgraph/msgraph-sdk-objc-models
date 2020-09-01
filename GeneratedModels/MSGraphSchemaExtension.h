@@ -9,9 +9,9 @@
 @interface MSGraphSchemaExtension : MSGraphEntity
 
   @property (nullable, nonatomic, setter=setSchemaExtensionDescription:, getter=schemaExtensionDescription) NSString* schemaExtensionDescription;
-    @property (nonnull, nonatomic, setter=setTargetTypes:, getter=targetTypes) NSArray* targetTypes;
+    @property (nonnull, nonatomic, setter=setOwner:, getter=owner) NSString* owner;
     @property (nonnull, nonatomic, setter=setProperties:, getter=properties) NSArray* properties;
     @property (nonnull, nonatomic, setter=setStatus:, getter=status) NSString* status;
-    @property (nonnull, nonatomic, setter=setOwner:, getter=owner) NSString* owner;
+    @property (nonnull, nonatomic, setter=setTargetTypes:, getter=targetTypes) NSArray* targetTypes;
   
 @end

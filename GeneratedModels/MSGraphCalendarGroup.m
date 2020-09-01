@@ -14,9 +14,9 @@
 
 @interface MSGraphCalendarGroup()
 {
-    NSString* _name;
-    NSString* _classId;
     NSString* _changeKey;
+    NSString* _classId;
+    NSString* _name;
     NSArray* _calendars;
 }
 @end
@@ -30,18 +30,18 @@
     }
     return self;
 }
-- (NSString*) name
+- (NSString*) changeKey
 {
-    if([[NSNull null] isEqual:self.dictionary[@"name"]])
+    if([[NSNull null] isEqual:self.dictionary[@"changeKey"]])
     {
         return nil;
     }   
-    return self.dictionary[@"name"];
+    return self.dictionary[@"changeKey"];
 }
 
-- (void) setName: (NSString*) val
+- (void) setChangeKey: (NSString*) val
 {
-    self.dictionary[@"name"] = val;
+    self.dictionary[@"changeKey"] = val;
 }
 
 - (NSString*) classId
@@ -58,18 +58,18 @@
     self.dictionary[@"classId"] = val;
 }
 
-- (NSString*) changeKey
+- (NSString*) name
 {
-    if([[NSNull null] isEqual:self.dictionary[@"changeKey"]])
+    if([[NSNull null] isEqual:self.dictionary[@"name"]])
     {
         return nil;
     }   
-    return self.dictionary[@"changeKey"];
+    return self.dictionary[@"name"];
 }
 
-- (void) setChangeKey: (NSString*) val
+- (void) setName: (NSString*) val
 {
-    self.dictionary[@"changeKey"] = val;
+    self.dictionary[@"name"] = val;
 }
 
 - (NSArray*) calendars

@@ -14,10 +14,10 @@
 
 @interface MSGraphPlannerTaskDetails()
 {
+    MSGraphPlannerChecklistItems* _checklist;
     NSString* _plannerTaskDetailsDescription;
     MSGraphPlannerPreviewType* _previewType;
     MSGraphPlannerExternalReferences* _references;
-    MSGraphPlannerChecklistItems* _checklist;
 }
 @end
 
@@ -30,6 +30,20 @@
     }
     return self;
 }
+- (MSGraphPlannerChecklistItems*) checklist
+{
+    if(!_checklist){
+        _checklist = [[MSGraphPlannerChecklistItems alloc] initWithDictionary: self.dictionary[@"checklist"]];
+    }
+    return _checklist;
+}
+
+- (void) setChecklist: (MSGraphPlannerChecklistItems*) val
+{
+    _checklist = val;
+    self.dictionary[@"checklist"] = val;
+}
+
 - (NSString*) plannerTaskDetailsDescription
 {
     if([[NSNull null] isEqual:self.dictionary[@"description"]])
@@ -70,20 +84,6 @@
 {
     _references = val;
     self.dictionary[@"references"] = val;
-}
-
-- (MSGraphPlannerChecklistItems*) checklist
-{
-    if(!_checklist){
-        _checklist = [[MSGraphPlannerChecklistItems alloc] initWithDictionary: self.dictionary[@"checklist"]];
-    }
-    return _checklist;
-}
-
-- (void) setChecklist: (MSGraphPlannerChecklistItems*) val
-{
-    _checklist = val;
-    self.dictionary[@"checklist"] = val;
 }
 
 

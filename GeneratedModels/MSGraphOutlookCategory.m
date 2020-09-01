@@ -14,8 +14,8 @@
 
 @interface MSGraphOutlookCategory()
 {
-    NSString* _displayName;
     MSGraphCategoryColor* _color;
+    NSString* _displayName;
 }
 @end
 
@@ -28,20 +28,6 @@
     }
     return self;
 }
-- (NSString*) displayName
-{
-    if([[NSNull null] isEqual:self.dictionary[@"displayName"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"displayName"];
-}
-
-- (void) setDisplayName: (NSString*) val
-{
-    self.dictionary[@"displayName"] = val;
-}
-
 - (MSGraphCategoryColor*) color
 {
     if(!_color){
@@ -54,6 +40,20 @@
 {
     _color = val;
     self.dictionary[@"color"] = val;
+}
+
+- (NSString*) displayName
+{
+    if([[NSNull null] isEqual:self.dictionary[@"displayName"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"displayName"];
+}
+
+- (void) setDisplayName: (NSString*) val
+{
+    self.dictionary[@"displayName"] = val;
 }
 
 

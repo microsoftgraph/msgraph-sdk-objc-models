@@ -17,8 +17,8 @@
     @property (nullable, nonatomic, setter=setNumberFormat:, getter=numberFormat) NSDictionary* numberFormat;
     @property (nonatomic, setter=setRowCount:, getter=rowCount) int32_t rowCount;
     @property (nullable, nonatomic, setter=setText:, getter=text) NSDictionary* text;
-    @property (nullable, nonatomic, setter=setValueTypes:, getter=valueTypes) NSDictionary* valueTypes;
     @property (nullable, nonatomic, setter=setValues:, getter=values) NSDictionary* values;
+    @property (nullable, nonatomic, setter=setValueTypes:, getter=valueTypes) NSDictionary* valueTypes;
     @property (nullable, nonatomic, setter=setRows:, getter=rows) NSArray* rows;
   
 @end

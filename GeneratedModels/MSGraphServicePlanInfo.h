@@ -8,9 +8,9 @@
 
 @interface MSGraphServicePlanInfo : MSObject
 
+@property (nullable, nonatomic, setter=setAppliesTo:, getter=appliesTo) NSString* appliesTo;
+@property (nullable, nonatomic, setter=setProvisioningStatus:, getter=provisioningStatus) NSString* provisioningStatus;
 @property (nullable, nonatomic, setter=setServicePlanId:, getter=servicePlanId) NSString* servicePlanId;
 @property (nullable, nonatomic, setter=setServicePlanName:, getter=servicePlanName) NSString* servicePlanName;
-@property (nullable, nonatomic, setter=setProvisioningStatus:, getter=provisioningStatus) NSString* provisioningStatus;
-@property (nullable, nonatomic, setter=setAppliesTo:, getter=appliesTo) NSString* appliesTo;
 
 @end

@@ -19,17 +19,17 @@
     BOOL _airDropBlocked;
     BOOL _airDropForceUnmanagedDropTarget;
     BOOL _airPlayForcePairingPasswordForOutgoingRequests;
+    BOOL _appleNewsBlocked;
     BOOL _appleWatchBlockPairing;
     BOOL _appleWatchForceWristDetection;
-    BOOL _appleNewsBlocked;
     NSArray* _appsSingleAppModeList;
-    NSArray* _appsVisibilityList;
-    MSGraphAppListType* _appsVisibilityListType;
     BOOL _appStoreBlockAutomaticDownloads;
     BOOL _appStoreBlocked;
     BOOL _appStoreBlockInAppPurchases;
     BOOL _appStoreBlockUIAppInstallation;
     BOOL _appStoreRequirePassword;
+    NSArray* _appsVisibilityList;
+    MSGraphAppListType* _appsVisibilityListType;
     BOOL _bluetoothBlockModification;
     BOOL _cameraBlocked;
     BOOL _cellularBlockDataRoaming;
@@ -40,8 +40,8 @@
     BOOL _certificatesBlockUntrustedTlsCertificates;
     BOOL _classroomAppBlockRemoteScreenObservation;
     BOOL _classroomAppForceUnpromptedScreenObservation;
-    NSArray* _compliantAppsList;
     MSGraphAppListType* _compliantAppListType;
+    NSArray* _compliantAppsList;
     BOOL _configurationProfileBlockChanges;
     BOOL _definitionLookupBlocked;
     BOOL _deviceBlockEnableRestrictions;
@@ -56,9 +56,9 @@
     BOOL _enterpriseAppBlockTrustModification;
     BOOL _faceTimeBlocked;
     BOOL _findMyFriendsBlocked;
+    BOOL _gameCenterBlocked;
     BOOL _gamingBlockGameCenterFriends;
     BOOL _gamingBlockMultiplayer;
-    BOOL _gameCenterBlocked;
     BOOL _hostPairingBlocked;
     BOOL _iBooksStoreBlocked;
     BOOL _iBooksStoreBlockErotica;
@@ -91,16 +91,17 @@
     BOOL _kioskModeAllowZoomSettings;
     NSString* _kioskModeAppStoreUrl;
     NSString* _kioskModeBuiltInAppId;
+    NSString* _kioskModeManagedAppId;
     BOOL _kioskModeRequireAssistiveTouch;
     BOOL _kioskModeRequireColorInversion;
     BOOL _kioskModeRequireMonoAudio;
     BOOL _kioskModeRequireVoiceOver;
     BOOL _kioskModeRequireZoom;
-    NSString* _kioskModeManagedAppId;
     BOOL _lockScreenBlockControlCenter;
     BOOL _lockScreenBlockNotificationView;
     BOOL _lockScreenBlockPassbook;
     BOOL _lockScreenBlockTodayView;
+    MSGraphRatingAppsType* _mediaContentRatingApps;
     MSGraphMediaContentRatingAustralia* _mediaContentRatingAustralia;
     MSGraphMediaContentRatingCanada* _mediaContentRatingCanada;
     MSGraphMediaContentRatingFrance* _mediaContentRatingFrance;
@@ -110,28 +111,27 @@
     MSGraphMediaContentRatingNewZealand* _mediaContentRatingNewZealand;
     MSGraphMediaContentRatingUnitedKingdom* _mediaContentRatingUnitedKingdom;
     MSGraphMediaContentRatingUnitedStates* _mediaContentRatingUnitedStates;
-    NSArray* _networkUsageRules;
-    MSGraphRatingAppsType* _mediaContentRatingApps;
     BOOL _messagesBlocked;
+    NSArray* _networkUsageRules;
     BOOL _notificationsBlockSettingsModification;
-    BOOL _passcodeBlockFingerprintUnlock;
     BOOL _passcodeBlockFingerprintModification;
+    BOOL _passcodeBlockFingerprintUnlock;
     BOOL _passcodeBlockModification;
     BOOL _passcodeBlockSimple;
     int32_t _passcodeExpirationDays;
+    int32_t _passcodeMinimumCharacterSetCount;
     int32_t _passcodeMinimumLength;
     int32_t _passcodeMinutesOfInactivityBeforeLock;
     int32_t _passcodeMinutesOfInactivityBeforeScreenTimeout;
-    int32_t _passcodeMinimumCharacterSetCount;
     int32_t _passcodePreviousPasscodeBlockCount;
-    int32_t _passcodeSignInFailureCountBeforeWipe;
-    MSGraphRequiredPasswordType* _passcodeRequiredType;
     BOOL _passcodeRequired;
+    MSGraphRequiredPasswordType* _passcodeRequiredType;
+    int32_t _passcodeSignInFailureCountBeforeWipe;
     BOOL _podcastsBlocked;
     BOOL _safariBlockAutofill;
+    BOOL _safariBlocked;
     BOOL _safariBlockJavaScript;
     BOOL _safariBlockPopups;
-    BOOL _safariBlocked;
     MSGraphWebBrowserCookieSettings* _safariCookieSettings;
     NSArray* _safariManagedDomains;
     NSArray* _safariPasswordAutoFillDomains;
@@ -217,6 +217,18 @@
     self.dictionary[@"airPlayForcePairingPasswordForOutgoingRequests"] = @(val);
 }
 
+- (BOOL) appleNewsBlocked
+{
+    _appleNewsBlocked = [self.dictionary[@"appleNewsBlocked"] boolValue];
+    return _appleNewsBlocked;
+}
+
+- (void) setAppleNewsBlocked: (BOOL) val
+{
+    _appleNewsBlocked = val;
+    self.dictionary[@"appleNewsBlocked"] = @(val);
+}
+
 - (BOOL) appleWatchBlockPairing
 {
     _appleWatchBlockPairing = [self.dictionary[@"appleWatchBlockPairing"] boolValue];
@@ -239,18 +251,6 @@
 {
     _appleWatchForceWristDetection = val;
     self.dictionary[@"appleWatchForceWristDetection"] = @(val);
-}
-
-- (BOOL) appleNewsBlocked
-{
-    _appleNewsBlocked = [self.dictionary[@"appleNewsBlocked"] boolValue];
-    return _appleNewsBlocked;
-}
-
-- (void) setAppleNewsBlocked: (BOOL) val
-{
-    _appleNewsBlocked = val;
-    self.dictionary[@"appleNewsBlocked"] = @(val);
 }
 
 - (NSArray*) appsSingleAppModeList
@@ -276,45 +276,6 @@
 {
     _appsSingleAppModeList = val;
     self.dictionary[@"appsSingleAppModeList"] = val;
-}
-
-- (NSArray*) appsVisibilityList
-{
-    if(!_appsVisibilityList){
-        
-    NSMutableArray *appsVisibilityListResult = [NSMutableArray array];
-    NSArray *appsVisibilityList = self.dictionary[@"appsVisibilityList"];
-
-    if ([appsVisibilityList isKindOfClass:[NSArray class]]){
-        for (id tempAppListItem in appsVisibilityList){
-            [appsVisibilityListResult addObject:tempAppListItem];
-        }
-    }
-
-    _appsVisibilityList = appsVisibilityListResult;
-        
-    }
-    return _appsVisibilityList;
-}
-
-- (void) setAppsVisibilityList: (NSArray*) val
-{
-    _appsVisibilityList = val;
-    self.dictionary[@"appsVisibilityList"] = val;
-}
-
-- (MSGraphAppListType*) appsVisibilityListType
-{
-    if(!_appsVisibilityListType){
-        _appsVisibilityListType = [self.dictionary[@"appsVisibilityListType"] toMSGraphAppListType];
-    }
-    return _appsVisibilityListType;
-}
-
-- (void) setAppsVisibilityListType: (MSGraphAppListType*) val
-{
-    _appsVisibilityListType = val;
-    self.dictionary[@"appsVisibilityListType"] = val;
 }
 
 - (BOOL) appStoreBlockAutomaticDownloads
@@ -375,6 +336,45 @@
 {
     _appStoreRequirePassword = val;
     self.dictionary[@"appStoreRequirePassword"] = @(val);
+}
+
+- (NSArray*) appsVisibilityList
+{
+    if(!_appsVisibilityList){
+        
+    NSMutableArray *appsVisibilityListResult = [NSMutableArray array];
+    NSArray *appsVisibilityList = self.dictionary[@"appsVisibilityList"];
+
+    if ([appsVisibilityList isKindOfClass:[NSArray class]]){
+        for (id tempAppListItem in appsVisibilityList){
+            [appsVisibilityListResult addObject:tempAppListItem];
+        }
+    }
+
+    _appsVisibilityList = appsVisibilityListResult;
+        
+    }
+    return _appsVisibilityList;
+}
+
+- (void) setAppsVisibilityList: (NSArray*) val
+{
+    _appsVisibilityList = val;
+    self.dictionary[@"appsVisibilityList"] = val;
+}
+
+- (MSGraphAppListType*) appsVisibilityListType
+{
+    if(!_appsVisibilityListType){
+        _appsVisibilityListType = [self.dictionary[@"appsVisibilityListType"] toMSGraphAppListType];
+    }
+    return _appsVisibilityListType;
+}
+
+- (void) setAppsVisibilityListType: (MSGraphAppListType*) val
+{
+    _appsVisibilityListType = val;
+    self.dictionary[@"appsVisibilityListType"] = val;
 }
 
 - (BOOL) bluetoothBlockModification
@@ -497,6 +497,20 @@
     self.dictionary[@"classroomAppForceUnpromptedScreenObservation"] = @(val);
 }
 
+- (MSGraphAppListType*) compliantAppListType
+{
+    if(!_compliantAppListType){
+        _compliantAppListType = [self.dictionary[@"compliantAppListType"] toMSGraphAppListType];
+    }
+    return _compliantAppListType;
+}
+
+- (void) setCompliantAppListType: (MSGraphAppListType*) val
+{
+    _compliantAppListType = val;
+    self.dictionary[@"compliantAppListType"] = val;
+}
+
 - (NSArray*) compliantAppsList
 {
     if(!_compliantAppsList){
@@ -520,20 +534,6 @@
 {
     _compliantAppsList = val;
     self.dictionary[@"compliantAppsList"] = val;
-}
-
-- (MSGraphAppListType*) compliantAppListType
-{
-    if(!_compliantAppListType){
-        _compliantAppListType = [self.dictionary[@"compliantAppListType"] toMSGraphAppListType];
-    }
-    return _compliantAppListType;
-}
-
-- (void) setCompliantAppListType: (MSGraphAppListType*) val
-{
-    _compliantAppListType = val;
-    self.dictionary[@"compliantAppListType"] = val;
 }
 
 - (BOOL) configurationProfileBlockChanges
@@ -706,6 +706,18 @@
     self.dictionary[@"findMyFriendsBlocked"] = @(val);
 }
 
+- (BOOL) gameCenterBlocked
+{
+    _gameCenterBlocked = [self.dictionary[@"gameCenterBlocked"] boolValue];
+    return _gameCenterBlocked;
+}
+
+- (void) setGameCenterBlocked: (BOOL) val
+{
+    _gameCenterBlocked = val;
+    self.dictionary[@"gameCenterBlocked"] = @(val);
+}
+
 - (BOOL) gamingBlockGameCenterFriends
 {
     _gamingBlockGameCenterFriends = [self.dictionary[@"gamingBlockGameCenterFriends"] boolValue];
@@ -728,18 +740,6 @@
 {
     _gamingBlockMultiplayer = val;
     self.dictionary[@"gamingBlockMultiplayer"] = @(val);
-}
-
-- (BOOL) gameCenterBlocked
-{
-    _gameCenterBlocked = [self.dictionary[@"gameCenterBlocked"] boolValue];
-    return _gameCenterBlocked;
-}
-
-- (void) setGameCenterBlocked: (BOOL) val
-{
-    _gameCenterBlocked = val;
-    self.dictionary[@"gameCenterBlocked"] = @(val);
 }
 
 - (BOOL) hostPairingBlocked
@@ -1130,6 +1130,20 @@
     self.dictionary[@"kioskModeBuiltInAppId"] = val;
 }
 
+- (NSString*) kioskModeManagedAppId
+{
+    if([[NSNull null] isEqual:self.dictionary[@"kioskModeManagedAppId"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"kioskModeManagedAppId"];
+}
+
+- (void) setKioskModeManagedAppId: (NSString*) val
+{
+    self.dictionary[@"kioskModeManagedAppId"] = val;
+}
+
 - (BOOL) kioskModeRequireAssistiveTouch
 {
     _kioskModeRequireAssistiveTouch = [self.dictionary[@"kioskModeRequireAssistiveTouch"] boolValue];
@@ -1190,20 +1204,6 @@
     self.dictionary[@"kioskModeRequireZoom"] = @(val);
 }
 
-- (NSString*) kioskModeManagedAppId
-{
-    if([[NSNull null] isEqual:self.dictionary[@"kioskModeManagedAppId"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"kioskModeManagedAppId"];
-}
-
-- (void) setKioskModeManagedAppId: (NSString*) val
-{
-    self.dictionary[@"kioskModeManagedAppId"] = val;
-}
-
 - (BOOL) lockScreenBlockControlCenter
 {
     _lockScreenBlockControlCenter = [self.dictionary[@"lockScreenBlockControlCenter"] boolValue];
@@ -1250,6 +1250,20 @@
 {
     _lockScreenBlockTodayView = val;
     self.dictionary[@"lockScreenBlockTodayView"] = @(val);
+}
+
+- (MSGraphRatingAppsType*) mediaContentRatingApps
+{
+    if(!_mediaContentRatingApps){
+        _mediaContentRatingApps = [self.dictionary[@"mediaContentRatingApps"] toMSGraphRatingAppsType];
+    }
+    return _mediaContentRatingApps;
+}
+
+- (void) setMediaContentRatingApps: (MSGraphRatingAppsType*) val
+{
+    _mediaContentRatingApps = val;
+    self.dictionary[@"mediaContentRatingApps"] = val;
 }
 
 - (MSGraphMediaContentRatingAustralia*) mediaContentRatingAustralia
@@ -1378,6 +1392,18 @@
     self.dictionary[@"mediaContentRatingUnitedStates"] = val;
 }
 
+- (BOOL) messagesBlocked
+{
+    _messagesBlocked = [self.dictionary[@"messagesBlocked"] boolValue];
+    return _messagesBlocked;
+}
+
+- (void) setMessagesBlocked: (BOOL) val
+{
+    _messagesBlocked = val;
+    self.dictionary[@"messagesBlocked"] = @(val);
+}
+
 - (NSArray*) networkUsageRules
 {
     if(!_networkUsageRules){
@@ -1403,32 +1429,6 @@
     self.dictionary[@"networkUsageRules"] = val;
 }
 
-- (MSGraphRatingAppsType*) mediaContentRatingApps
-{
-    if(!_mediaContentRatingApps){
-        _mediaContentRatingApps = [self.dictionary[@"mediaContentRatingApps"] toMSGraphRatingAppsType];
-    }
-    return _mediaContentRatingApps;
-}
-
-- (void) setMediaContentRatingApps: (MSGraphRatingAppsType*) val
-{
-    _mediaContentRatingApps = val;
-    self.dictionary[@"mediaContentRatingApps"] = val;
-}
-
-- (BOOL) messagesBlocked
-{
-    _messagesBlocked = [self.dictionary[@"messagesBlocked"] boolValue];
-    return _messagesBlocked;
-}
-
-- (void) setMessagesBlocked: (BOOL) val
-{
-    _messagesBlocked = val;
-    self.dictionary[@"messagesBlocked"] = @(val);
-}
-
 - (BOOL) notificationsBlockSettingsModification
 {
     _notificationsBlockSettingsModification = [self.dictionary[@"notificationsBlockSettingsModification"] boolValue];
@@ -1441,18 +1441,6 @@
     self.dictionary[@"notificationsBlockSettingsModification"] = @(val);
 }
 
-- (BOOL) passcodeBlockFingerprintUnlock
-{
-    _passcodeBlockFingerprintUnlock = [self.dictionary[@"passcodeBlockFingerprintUnlock"] boolValue];
-    return _passcodeBlockFingerprintUnlock;
-}
-
-- (void) setPasscodeBlockFingerprintUnlock: (BOOL) val
-{
-    _passcodeBlockFingerprintUnlock = val;
-    self.dictionary[@"passcodeBlockFingerprintUnlock"] = @(val);
-}
-
 - (BOOL) passcodeBlockFingerprintModification
 {
     _passcodeBlockFingerprintModification = [self.dictionary[@"passcodeBlockFingerprintModification"] boolValue];
@@ -1463,6 +1451,18 @@
 {
     _passcodeBlockFingerprintModification = val;
     self.dictionary[@"passcodeBlockFingerprintModification"] = @(val);
+}
+
+- (BOOL) passcodeBlockFingerprintUnlock
+{
+    _passcodeBlockFingerprintUnlock = [self.dictionary[@"passcodeBlockFingerprintUnlock"] boolValue];
+    return _passcodeBlockFingerprintUnlock;
+}
+
+- (void) setPasscodeBlockFingerprintUnlock: (BOOL) val
+{
+    _passcodeBlockFingerprintUnlock = val;
+    self.dictionary[@"passcodeBlockFingerprintUnlock"] = @(val);
 }
 
 - (BOOL) passcodeBlockModification
@@ -1501,6 +1501,18 @@
     self.dictionary[@"passcodeExpirationDays"] = @(val);
 }
 
+- (int32_t) passcodeMinimumCharacterSetCount
+{
+    _passcodeMinimumCharacterSetCount = [self.dictionary[@"passcodeMinimumCharacterSetCount"] intValue];
+    return _passcodeMinimumCharacterSetCount;
+}
+
+- (void) setPasscodeMinimumCharacterSetCount: (int32_t) val
+{
+    _passcodeMinimumCharacterSetCount = val;
+    self.dictionary[@"passcodeMinimumCharacterSetCount"] = @(val);
+}
+
 - (int32_t) passcodeMinimumLength
 {
     _passcodeMinimumLength = [self.dictionary[@"passcodeMinimumLength"] intValue];
@@ -1537,18 +1549,6 @@
     self.dictionary[@"passcodeMinutesOfInactivityBeforeScreenTimeout"] = @(val);
 }
 
-- (int32_t) passcodeMinimumCharacterSetCount
-{
-    _passcodeMinimumCharacterSetCount = [self.dictionary[@"passcodeMinimumCharacterSetCount"] intValue];
-    return _passcodeMinimumCharacterSetCount;
-}
-
-- (void) setPasscodeMinimumCharacterSetCount: (int32_t) val
-{
-    _passcodeMinimumCharacterSetCount = val;
-    self.dictionary[@"passcodeMinimumCharacterSetCount"] = @(val);
-}
-
 - (int32_t) passcodePreviousPasscodeBlockCount
 {
     _passcodePreviousPasscodeBlockCount = [self.dictionary[@"passcodePreviousPasscodeBlockCount"] intValue];
@@ -1561,16 +1561,16 @@
     self.dictionary[@"passcodePreviousPasscodeBlockCount"] = @(val);
 }
 
-- (int32_t) passcodeSignInFailureCountBeforeWipe
+- (BOOL) passcodeRequired
 {
-    _passcodeSignInFailureCountBeforeWipe = [self.dictionary[@"passcodeSignInFailureCountBeforeWipe"] intValue];
-    return _passcodeSignInFailureCountBeforeWipe;
+    _passcodeRequired = [self.dictionary[@"passcodeRequired"] boolValue];
+    return _passcodeRequired;
 }
 
-- (void) setPasscodeSignInFailureCountBeforeWipe: (int32_t) val
+- (void) setPasscodeRequired: (BOOL) val
 {
-    _passcodeSignInFailureCountBeforeWipe = val;
-    self.dictionary[@"passcodeSignInFailureCountBeforeWipe"] = @(val);
+    _passcodeRequired = val;
+    self.dictionary[@"passcodeRequired"] = @(val);
 }
 
 - (MSGraphRequiredPasswordType*) passcodeRequiredType
@@ -1587,16 +1587,16 @@
     self.dictionary[@"passcodeRequiredType"] = val;
 }
 
-- (BOOL) passcodeRequired
+- (int32_t) passcodeSignInFailureCountBeforeWipe
 {
-    _passcodeRequired = [self.dictionary[@"passcodeRequired"] boolValue];
-    return _passcodeRequired;
+    _passcodeSignInFailureCountBeforeWipe = [self.dictionary[@"passcodeSignInFailureCountBeforeWipe"] intValue];
+    return _passcodeSignInFailureCountBeforeWipe;
 }
 
-- (void) setPasscodeRequired: (BOOL) val
+- (void) setPasscodeSignInFailureCountBeforeWipe: (int32_t) val
 {
-    _passcodeRequired = val;
-    self.dictionary[@"passcodeRequired"] = @(val);
+    _passcodeSignInFailureCountBeforeWipe = val;
+    self.dictionary[@"passcodeSignInFailureCountBeforeWipe"] = @(val);
 }
 
 - (BOOL) podcastsBlocked
@@ -1623,6 +1623,18 @@
     self.dictionary[@"safariBlockAutofill"] = @(val);
 }
 
+- (BOOL) safariBlocked
+{
+    _safariBlocked = [self.dictionary[@"safariBlocked"] boolValue];
+    return _safariBlocked;
+}
+
+- (void) setSafariBlocked: (BOOL) val
+{
+    _safariBlocked = val;
+    self.dictionary[@"safariBlocked"] = @(val);
+}
+
 - (BOOL) safariBlockJavaScript
 {
     _safariBlockJavaScript = [self.dictionary[@"safariBlockJavaScript"] boolValue];
@@ -1645,18 +1657,6 @@
 {
     _safariBlockPopups = val;
     self.dictionary[@"safariBlockPopups"] = @(val);
-}
-
-- (BOOL) safariBlocked
-{
-    _safariBlocked = [self.dictionary[@"safariBlocked"] boolValue];
-    return _safariBlocked;
-}
-
-- (void) setSafariBlocked: (BOOL) val
-{
-    _safariBlocked = val;
-    self.dictionary[@"safariBlocked"] = @(val);
 }
 
 - (MSGraphWebBrowserCookieSettings*) safariCookieSettings

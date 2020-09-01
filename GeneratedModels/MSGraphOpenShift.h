@@ -8,8 +8,8 @@
 
 @interface MSGraphOpenShift : MSGraphChangeTrackedEntity
 
-  @property (nullable, nonatomic, setter=setSharedOpenShift:, getter=sharedOpenShift) MSGraphOpenShiftItem* sharedOpenShift;
-    @property (nullable, nonatomic, setter=setDraftOpenShift:, getter=draftOpenShift) MSGraphOpenShiftItem* draftOpenShift;
+  @property (nullable, nonatomic, setter=setDraftOpenShift:, getter=draftOpenShift) MSGraphOpenShiftItem* draftOpenShift;
     @property (nullable, nonatomic, setter=setSchedulingGroupId:, getter=schedulingGroupId) NSString* schedulingGroupId;
+    @property (nullable, nonatomic, setter=setSharedOpenShift:, getter=sharedOpenShift) MSGraphOpenShiftItem* sharedOpenShift;
   
 @end

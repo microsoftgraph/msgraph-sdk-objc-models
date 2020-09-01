@@ -15,8 +15,8 @@
 @interface MSGraphPlannerBucket()
 {
     NSString* _name;
-    NSString* _planId;
     NSString* _orderHint;
+    NSString* _planId;
     NSArray* _tasks;
 }
 @end
@@ -40,20 +40,6 @@
     self.dictionary[@"name"] = val;
 }
 
-- (NSString*) planId
-{
-    if([[NSNull null] isEqual:self.dictionary[@"planId"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"planId"];
-}
-
-- (void) setPlanId: (NSString*) val
-{
-    self.dictionary[@"planId"] = val;
-}
-
 - (NSString*) orderHint
 {
     if([[NSNull null] isEqual:self.dictionary[@"orderHint"]])
@@ -66,6 +52,20 @@
 - (void) setOrderHint: (NSString*) val
 {
     self.dictionary[@"orderHint"] = val;
+}
+
+- (NSString*) planId
+{
+    if([[NSNull null] isEqual:self.dictionary[@"planId"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"planId"];
+}
+
+- (void) setPlanId: (NSString*) val
+{
+    self.dictionary[@"planId"] = val;
 }
 
 - (NSArray*) tasks

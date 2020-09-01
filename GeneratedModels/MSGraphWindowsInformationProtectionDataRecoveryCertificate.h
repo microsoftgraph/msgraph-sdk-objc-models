@@ -8,9 +8,9 @@
 
 @interface MSGraphWindowsInformationProtectionDataRecoveryCertificate : MSObject
 
-@property (nullable, nonatomic, setter=setSubjectName:, getter=subjectName) NSString* subjectName;
+@property (nullable, nonatomic, setter=setCertificate:, getter=certificate) NSString* certificate;
 @property (nullable, nonatomic, setter=setWindowsInformationProtectionDataRecoveryCertificateDescription:, getter=windowsInformationProtectionDataRecoveryCertificateDescription) NSString* windowsInformationProtectionDataRecoveryCertificateDescription;
 @property (nonnull, nonatomic, setter=setExpirationDateTime:, getter=expirationDateTime) NSDate* expirationDateTime;
-@property (nullable, nonatomic, setter=setCertificate:, getter=certificate) NSString* certificate;
+@property (nullable, nonatomic, setter=setSubjectName:, getter=subjectName) NSString* subjectName;
 
 @end

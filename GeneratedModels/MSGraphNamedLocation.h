@@ -7,8 +7,8 @@
 
 @interface MSGraphNamedLocation : MSGraphEntity
 
-  @property (nonnull, nonatomic, setter=setDisplayName:, getter=displayName) NSString* displayName;
-    @property (nullable, nonatomic, setter=setCreatedDateTime:, getter=createdDateTime) NSDate* createdDateTime;
+  @property (nullable, nonatomic, setter=setCreatedDateTime:, getter=createdDateTime) NSDate* createdDateTime;
+    @property (nonnull, nonatomic, setter=setDisplayName:, getter=displayName) NSString* displayName;
     @property (nullable, nonatomic, setter=setModifiedDateTime:, getter=modifiedDateTime) NSDate* modifiedDateTime;
   
 @end

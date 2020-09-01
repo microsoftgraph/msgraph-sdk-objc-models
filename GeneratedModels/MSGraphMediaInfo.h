@@ -8,7 +8,7 @@
 
 @interface MSGraphMediaInfo : MSObject
 
-@property (nonnull, nonatomic, setter=setUri:, getter=uri) NSString* uri;
 @property (nullable, nonatomic, setter=setResourceId:, getter=resourceId) NSString* resourceId;
+@property (nonnull, nonatomic, setter=setUri:, getter=uri) NSString* uri;
 
 @end

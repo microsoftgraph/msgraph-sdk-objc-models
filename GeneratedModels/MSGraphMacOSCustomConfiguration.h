@@ -7,8 +7,8 @@
 
 @interface MSGraphMacOSCustomConfiguration : MSGraphDeviceConfiguration
 
-  @property (nonnull, nonatomic, setter=setPayloadName:, getter=payloadName) NSString* payloadName;
+  @property (nonnull, nonatomic, setter=setPayload:, getter=payload) NSString* payload;
     @property (nullable, nonatomic, setter=setPayloadFileName:, getter=payloadFileName) NSString* payloadFileName;
-    @property (nonnull, nonatomic, setter=setPayload:, getter=payload) NSString* payload;
+    @property (nonnull, nonatomic, setter=setPayloadName:, getter=payloadName) NSString* payloadName;
   
 @end

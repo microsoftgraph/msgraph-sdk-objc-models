@@ -2,7 +2,7 @@
 
 
 
-@class MSGraphPreAuthorizedApplication, MSGraphPermissionScope; 
+@class MSGraphPermissionScope, MSGraphPreAuthorizedApplication; 
 
 
 #import "MSObject.h"
@@ -11,8 +11,8 @@
 
 @property (nonatomic, setter=setAcceptMappedClaims:, getter=acceptMappedClaims) BOOL acceptMappedClaims;
 @property (nullable, nonatomic, setter=setKnownClientApplications:, getter=knownClientApplications) NSArray* knownClientApplications;
+@property (nonnull, nonatomic, setter=setOauth2PermissionScopes:, getter=oauth2PermissionScopes) NSArray* oauth2PermissionScopes;
 @property (nullable, nonatomic, setter=setPreAuthorizedApplications:, getter=preAuthorizedApplications) NSArray* preAuthorizedApplications;
 @property (nonatomic, setter=setRequestedAccessTokenVersion:, getter=requestedAccessTokenVersion) int32_t requestedAccessTokenVersion;
-@property (nonnull, nonatomic, setter=setOauth2PermissionScopes:, getter=oauth2PermissionScopes) NSArray* oauth2PermissionScopes;
 
 @end

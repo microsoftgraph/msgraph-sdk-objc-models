@@ -28,6 +28,7 @@
     @property (nullable, nonatomic, setter=setState:, getter=state) NSString* state;
     @property (nullable, nonatomic, setter=setStreet:, getter=street) NSString* street;
     @property (nonnull, nonatomic, setter=setTechnicalNotificationMails:, getter=technicalNotificationMails) NSArray* technicalNotificationMails;
+    @property (nullable, nonatomic, setter=setTenantType:, getter=tenantType) NSString* tenantType;
     @property (nonnull, nonatomic, setter=setVerifiedDomains:, getter=verifiedDomains) NSArray* verifiedDomains;
     @property (nonnull, nonatomic, setter=setMobileDeviceManagementAuthority:, getter=mobileDeviceManagementAuthority) MSGraphMdmAuthority* mobileDeviceManagementAuthority;
     @property (nullable, nonatomic, setter=setCertificateBasedAuthConfiguration:, getter=certificateBasedAuthConfiguration) NSArray* certificateBasedAuthConfiguration;

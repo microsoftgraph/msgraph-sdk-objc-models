@@ -8,7 +8,7 @@
 
 @interface MSGraphSettingSource : MSObject
 
-@property (nullable, nonatomic, setter=setSettingSourceId:, getter=settingSourceId) NSString* settingSourceId;
 @property (nullable, nonatomic, setter=setDisplayName:, getter=displayName) NSString* displayName;
+@property (nullable, nonatomic, setter=setSettingSourceId:, getter=settingSourceId) NSString* settingSourceId;
 
 @end

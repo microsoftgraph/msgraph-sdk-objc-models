@@ -15,11 +15,11 @@
 @interface MSGraphConditionalAccessConditionSet()
 {
     MSGraphConditionalAccessApplications* _applications;
-    MSGraphConditionalAccessUsers* _users;
-    NSArray* _signInRiskLevels;
-    MSGraphConditionalAccessPlatforms* _platforms;
-    MSGraphConditionalAccessLocations* _locations;
     NSArray* _clientAppTypes;
+    MSGraphConditionalAccessLocations* _locations;
+    MSGraphConditionalAccessPlatforms* _platforms;
+    NSArray* _signInRiskLevels;
+    MSGraphConditionalAccessUsers* _users;
 }
 @end
 
@@ -39,18 +39,57 @@
     self.dictionary[@"applications"] = val;
 }
 
-- (MSGraphConditionalAccessUsers*) users
+- (NSArray*) clientAppTypes
 {
-    if(!_users){
-        _users = [[MSGraphConditionalAccessUsers alloc] initWithDictionary: self.dictionary[@"users"]];
+    if(!_clientAppTypes){
+        
+    NSMutableArray *clientAppTypesResult = [NSMutableArray array];
+    NSArray *clientAppTypes = self.dictionary[@"clientAppTypes"];
+
+    if ([clientAppTypes isKindOfClass:[NSArray class]]){
+        for (id tempConditionalAccessClientApp in clientAppTypes){
+            [clientAppTypesResult addObject:tempConditionalAccessClientApp];
+        }
     }
-    return _users;
+
+    _clientAppTypes = clientAppTypesResult;
+        
+    }
+    return _clientAppTypes;
 }
 
-- (void) setUsers: (MSGraphConditionalAccessUsers*) val
+- (void) setClientAppTypes: (NSArray*) val
 {
-    _users = val;
-    self.dictionary[@"users"] = val;
+    _clientAppTypes = val;
+    self.dictionary[@"clientAppTypes"] = val;
+}
+
+- (MSGraphConditionalAccessLocations*) locations
+{
+    if(!_locations){
+        _locations = [[MSGraphConditionalAccessLocations alloc] initWithDictionary: self.dictionary[@"locations"]];
+    }
+    return _locations;
+}
+
+- (void) setLocations: (MSGraphConditionalAccessLocations*) val
+{
+    _locations = val;
+    self.dictionary[@"locations"] = val;
+}
+
+- (MSGraphConditionalAccessPlatforms*) platforms
+{
+    if(!_platforms){
+        _platforms = [[MSGraphConditionalAccessPlatforms alloc] initWithDictionary: self.dictionary[@"platforms"]];
+    }
+    return _platforms;
+}
+
+- (void) setPlatforms: (MSGraphConditionalAccessPlatforms*) val
+{
+    _platforms = val;
+    self.dictionary[@"platforms"] = val;
 }
 
 - (NSArray*) signInRiskLevels
@@ -78,57 +117,18 @@
     self.dictionary[@"signInRiskLevels"] = val;
 }
 
-- (MSGraphConditionalAccessPlatforms*) platforms
+- (MSGraphConditionalAccessUsers*) users
 {
-    if(!_platforms){
-        _platforms = [[MSGraphConditionalAccessPlatforms alloc] initWithDictionary: self.dictionary[@"platforms"]];
+    if(!_users){
+        _users = [[MSGraphConditionalAccessUsers alloc] initWithDictionary: self.dictionary[@"users"]];
     }
-    return _platforms;
+    return _users;
 }
 
-- (void) setPlatforms: (MSGraphConditionalAccessPlatforms*) val
+- (void) setUsers: (MSGraphConditionalAccessUsers*) val
 {
-    _platforms = val;
-    self.dictionary[@"platforms"] = val;
-}
-
-- (MSGraphConditionalAccessLocations*) locations
-{
-    if(!_locations){
-        _locations = [[MSGraphConditionalAccessLocations alloc] initWithDictionary: self.dictionary[@"locations"]];
-    }
-    return _locations;
-}
-
-- (void) setLocations: (MSGraphConditionalAccessLocations*) val
-{
-    _locations = val;
-    self.dictionary[@"locations"] = val;
-}
-
-- (NSArray*) clientAppTypes
-{
-    if(!_clientAppTypes){
-        
-    NSMutableArray *clientAppTypesResult = [NSMutableArray array];
-    NSArray *clientAppTypes = self.dictionary[@"clientAppTypes"];
-
-    if ([clientAppTypes isKindOfClass:[NSArray class]]){
-        for (id tempConditionalAccessClientApp in clientAppTypes){
-            [clientAppTypesResult addObject:tempConditionalAccessClientApp];
-        }
-    }
-
-    _clientAppTypes = clientAppTypesResult;
-        
-    }
-    return _clientAppTypes;
-}
-
-- (void) setClientAppTypes: (NSArray*) val
-{
-    _clientAppTypes = val;
-    self.dictionary[@"clientAppTypes"] = val;
+    _users = val;
+    self.dictionary[@"users"] = val;
 }
 
 @end

@@ -14,14 +14,42 @@
 
 @interface MSGraphServicePlanInfo()
 {
+    NSString* _appliesTo;
+    NSString* _provisioningStatus;
     NSString* _servicePlanId;
     NSString* _servicePlanName;
-    NSString* _provisioningStatus;
-    NSString* _appliesTo;
 }
 @end
 
 @implementation MSGraphServicePlanInfo
+
+- (NSString*) appliesTo
+{
+    if([[NSNull null] isEqual:self.dictionary[@"appliesTo"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"appliesTo"];
+}
+
+- (void) setAppliesTo: (NSString*) val
+{
+    self.dictionary[@"appliesTo"] = val;
+}
+
+- (NSString*) provisioningStatus
+{
+    if([[NSNull null] isEqual:self.dictionary[@"provisioningStatus"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"provisioningStatus"];
+}
+
+- (void) setProvisioningStatus: (NSString*) val
+{
+    self.dictionary[@"provisioningStatus"] = val;
+}
 
 - (NSString*) servicePlanId
 {
@@ -49,34 +77,6 @@
 - (void) setServicePlanName: (NSString*) val
 {
     self.dictionary[@"servicePlanName"] = val;
-}
-
-- (NSString*) provisioningStatus
-{
-    if([[NSNull null] isEqual:self.dictionary[@"provisioningStatus"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"provisioningStatus"];
-}
-
-- (void) setProvisioningStatus: (NSString*) val
-{
-    self.dictionary[@"provisioningStatus"] = val;
-}
-
-- (NSString*) appliesTo
-{
-    if([[NSNull null] isEqual:self.dictionary[@"appliesTo"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"appliesTo"];
-}
-
-- (void) setAppliesTo: (NSString*) val
-{
-    self.dictionary[@"appliesTo"] = val;
 }
 
 @end

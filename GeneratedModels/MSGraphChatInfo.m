@@ -14,27 +14,13 @@
 
 @interface MSGraphChatInfo()
 {
-    NSString* _threadId;
     NSString* _messageId;
     NSString* _replyChainMessageId;
+    NSString* _threadId;
 }
 @end
 
 @implementation MSGraphChatInfo
-
-- (NSString*) threadId
-{
-    if([[NSNull null] isEqual:self.dictionary[@"threadId"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"threadId"];
-}
-
-- (void) setThreadId: (NSString*) val
-{
-    self.dictionary[@"threadId"] = val;
-}
 
 - (NSString*) messageId
 {
@@ -62,6 +48,20 @@
 - (void) setReplyChainMessageId: (NSString*) val
 {
     self.dictionary[@"replyChainMessageId"] = val;
+}
+
+- (NSString*) threadId
+{
+    if([[NSNull null] isEqual:self.dictionary[@"threadId"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"threadId"];
+}
+
+- (void) setThreadId: (NSString*) val
+{
+    self.dictionary[@"threadId"] = val;
 }
 
 @end

@@ -14,9 +14,9 @@
 
 @interface MSGraphPlanner()
 {
-    NSArray* _tasks;
-    NSArray* _plans;
     NSArray* _buckets;
+    NSArray* _plans;
+    NSArray* _tasks;
 }
 @end
 
@@ -29,29 +29,29 @@
     }
     return self;
 }
-- (NSArray*) tasks
+- (NSArray*) buckets
 {
-    if(!_tasks){
+    if(!_buckets){
         
-    NSMutableArray *tasksResult = [NSMutableArray array];
-    NSArray *tasks = self.dictionary[@"tasks"];
+    NSMutableArray *bucketsResult = [NSMutableArray array];
+    NSArray *buckets = self.dictionary[@"buckets"];
 
-    if ([tasks isKindOfClass:[NSArray class]]){
-        for (id tempPlannerTask in tasks){
-            [tasksResult addObject:tempPlannerTask];
+    if ([buckets isKindOfClass:[NSArray class]]){
+        for (id tempPlannerBucket in buckets){
+            [bucketsResult addObject:tempPlannerBucket];
         }
     }
 
-    _tasks = tasksResult;
+    _buckets = bucketsResult;
         
     }
-    return _tasks;
+    return _buckets;
 }
 
-- (void) setTasks: (NSArray*) val
+- (void) setBuckets: (NSArray*) val
 {
-    _tasks = val;
-    self.dictionary[@"tasks"] = val;
+    _buckets = val;
+    self.dictionary[@"buckets"] = val;
 }
 
 - (NSArray*) plans
@@ -79,29 +79,29 @@
     self.dictionary[@"plans"] = val;
 }
 
-- (NSArray*) buckets
+- (NSArray*) tasks
 {
-    if(!_buckets){
+    if(!_tasks){
         
-    NSMutableArray *bucketsResult = [NSMutableArray array];
-    NSArray *buckets = self.dictionary[@"buckets"];
+    NSMutableArray *tasksResult = [NSMutableArray array];
+    NSArray *tasks = self.dictionary[@"tasks"];
 
-    if ([buckets isKindOfClass:[NSArray class]]){
-        for (id tempPlannerBucket in buckets){
-            [bucketsResult addObject:tempPlannerBucket];
+    if ([tasks isKindOfClass:[NSArray class]]){
+        for (id tempPlannerTask in tasks){
+            [tasksResult addObject:tempPlannerTask];
         }
     }
 
-    _buckets = bucketsResult;
+    _tasks = tasksResult;
         
     }
-    return _buckets;
+    return _tasks;
 }
 
-- (void) setBuckets: (NSArray*) val
+- (void) setTasks: (NSArray*) val
 {
-    _buckets = val;
-    self.dictionary[@"buckets"] = val;
+    _tasks = val;
+    self.dictionary[@"tasks"] = val;
 }
 
 

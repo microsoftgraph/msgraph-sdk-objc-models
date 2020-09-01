@@ -14,22 +14,76 @@
 
 @interface MSGraphDeviceConfigurationSettingState()
 {
-    NSString* _setting;
-    NSString* _settingName;
-    NSString* _instanceDisplayName;
-    MSGraphComplianceStatus* _state;
+    NSString* _currentValue;
     int64_t _errorCode;
     NSString* _errorDescription;
+    NSString* _instanceDisplayName;
+    NSString* _setting;
+    NSString* _settingName;
+    NSArray* _sources;
+    MSGraphComplianceStatus* _state;
+    NSString* _userEmail;
     NSString* _userId;
     NSString* _userName;
-    NSString* _userEmail;
     NSString* _userPrincipalName;
-    NSArray* _sources;
-    NSString* _currentValue;
 }
 @end
 
 @implementation MSGraphDeviceConfigurationSettingState
+
+- (NSString*) currentValue
+{
+    if([[NSNull null] isEqual:self.dictionary[@"currentValue"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"currentValue"];
+}
+
+- (void) setCurrentValue: (NSString*) val
+{
+    self.dictionary[@"currentValue"] = val;
+}
+
+- (int64_t) errorCode
+{
+    _errorCode = [self.dictionary[@"errorCode"] longLongValue];
+    return _errorCode;
+}
+
+- (void) setErrorCode: (int64_t) val
+{
+    _errorCode = val;
+    self.dictionary[@"errorCode"] = @(val);
+}
+
+- (NSString*) errorDescription
+{
+    if([[NSNull null] isEqual:self.dictionary[@"errorDescription"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"errorDescription"];
+}
+
+- (void) setErrorDescription: (NSString*) val
+{
+    self.dictionary[@"errorDescription"] = val;
+}
+
+- (NSString*) instanceDisplayName
+{
+    if([[NSNull null] isEqual:self.dictionary[@"instanceDisplayName"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"instanceDisplayName"];
+}
+
+- (void) setInstanceDisplayName: (NSString*) val
+{
+    self.dictionary[@"instanceDisplayName"] = val;
+}
 
 - (NSString*) setting
 {
@@ -59,18 +113,29 @@
     self.dictionary[@"settingName"] = val;
 }
 
-- (NSString*) instanceDisplayName
+- (NSArray*) sources
 {
-    if([[NSNull null] isEqual:self.dictionary[@"instanceDisplayName"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"instanceDisplayName"];
+    if(!_sources){
+        
+    NSMutableArray *sourcesResult = [NSMutableArray array];
+    NSArray *sources = self.dictionary[@"sources"];
+
+    if ([sources isKindOfClass:[NSArray class]]){
+        for (id tempSettingSource in sources){
+            [sourcesResult addObject:tempSettingSource];
+        }
+    }
+
+    _sources = sourcesResult;
+        
+    }
+    return _sources;
 }
 
-- (void) setInstanceDisplayName: (NSString*) val
+- (void) setSources: (NSArray*) val
 {
-    self.dictionary[@"instanceDisplayName"] = val;
+    _sources = val;
+    self.dictionary[@"sources"] = val;
 }
 
 - (MSGraphComplianceStatus*) state
@@ -87,30 +152,18 @@
     self.dictionary[@"state"] = val;
 }
 
-- (int64_t) errorCode
+- (NSString*) userEmail
 {
-    _errorCode = [self.dictionary[@"errorCode"] longLongValue];
-    return _errorCode;
-}
-
-- (void) setErrorCode: (int64_t) val
-{
-    _errorCode = val;
-    self.dictionary[@"errorCode"] = @(val);
-}
-
-- (NSString*) errorDescription
-{
-    if([[NSNull null] isEqual:self.dictionary[@"errorDescription"]])
+    if([[NSNull null] isEqual:self.dictionary[@"userEmail"]])
     {
         return nil;
     }   
-    return self.dictionary[@"errorDescription"];
+    return self.dictionary[@"userEmail"];
 }
 
-- (void) setErrorDescription: (NSString*) val
+- (void) setUserEmail: (NSString*) val
 {
-    self.dictionary[@"errorDescription"] = val;
+    self.dictionary[@"userEmail"] = val;
 }
 
 - (NSString*) userId
@@ -141,20 +194,6 @@
     self.dictionary[@"userName"] = val;
 }
 
-- (NSString*) userEmail
-{
-    if([[NSNull null] isEqual:self.dictionary[@"userEmail"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"userEmail"];
-}
-
-- (void) setUserEmail: (NSString*) val
-{
-    self.dictionary[@"userEmail"] = val;
-}
-
 - (NSString*) userPrincipalName
 {
     if([[NSNull null] isEqual:self.dictionary[@"userPrincipalName"]])
@@ -167,45 +206,6 @@
 - (void) setUserPrincipalName: (NSString*) val
 {
     self.dictionary[@"userPrincipalName"] = val;
-}
-
-- (NSArray*) sources
-{
-    if(!_sources){
-        
-    NSMutableArray *sourcesResult = [NSMutableArray array];
-    NSArray *sources = self.dictionary[@"sources"];
-
-    if ([sources isKindOfClass:[NSArray class]]){
-        for (id tempSettingSource in sources){
-            [sourcesResult addObject:tempSettingSource];
-        }
-    }
-
-    _sources = sourcesResult;
-        
-    }
-    return _sources;
-}
-
-- (void) setSources: (NSArray*) val
-{
-    _sources = val;
-    self.dictionary[@"sources"] = val;
-}
-
-- (NSString*) currentValue
-{
-    if([[NSNull null] isEqual:self.dictionary[@"currentValue"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"currentValue"];
-}
-
-- (void) setCurrentValue: (NSString*) val
-{
-    self.dictionary[@"currentValue"] = val;
 }
 
 @end

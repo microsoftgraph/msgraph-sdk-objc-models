@@ -14,16 +14,16 @@
 
 @interface MSGraphWindows81CompliancePolicy()
 {
-    BOOL _passwordRequired;
+    NSString* _osMaximumVersion;
+    NSString* _osMinimumVersion;
     BOOL _passwordBlockSimple;
     int32_t _passwordExpirationDays;
+    int32_t _passwordMinimumCharacterSetCount;
     int32_t _passwordMinimumLength;
     int32_t _passwordMinutesOfInactivityBeforeLock;
-    int32_t _passwordMinimumCharacterSetCount;
-    MSGraphRequiredPasswordType* _passwordRequiredType;
     int32_t _passwordPreviousPasswordBlockCount;
-    NSString* _osMinimumVersion;
-    NSString* _osMaximumVersion;
+    BOOL _passwordRequired;
+    MSGraphRequiredPasswordType* _passwordRequiredType;
     BOOL _storageRequireEncryption;
 }
 @end
@@ -37,16 +37,32 @@
     }
     return self;
 }
-- (BOOL) passwordRequired
+- (NSString*) osMaximumVersion
 {
-    _passwordRequired = [self.dictionary[@"passwordRequired"] boolValue];
-    return _passwordRequired;
+    if([[NSNull null] isEqual:self.dictionary[@"osMaximumVersion"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"osMaximumVersion"];
 }
 
-- (void) setPasswordRequired: (BOOL) val
+- (void) setOsMaximumVersion: (NSString*) val
 {
-    _passwordRequired = val;
-    self.dictionary[@"passwordRequired"] = @(val);
+    self.dictionary[@"osMaximumVersion"] = val;
+}
+
+- (NSString*) osMinimumVersion
+{
+    if([[NSNull null] isEqual:self.dictionary[@"osMinimumVersion"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"osMinimumVersion"];
+}
+
+- (void) setOsMinimumVersion: (NSString*) val
+{
+    self.dictionary[@"osMinimumVersion"] = val;
 }
 
 - (BOOL) passwordBlockSimple
@@ -73,6 +89,18 @@
     self.dictionary[@"passwordExpirationDays"] = @(val);
 }
 
+- (int32_t) passwordMinimumCharacterSetCount
+{
+    _passwordMinimumCharacterSetCount = [self.dictionary[@"passwordMinimumCharacterSetCount"] intValue];
+    return _passwordMinimumCharacterSetCount;
+}
+
+- (void) setPasswordMinimumCharacterSetCount: (int32_t) val
+{
+    _passwordMinimumCharacterSetCount = val;
+    self.dictionary[@"passwordMinimumCharacterSetCount"] = @(val);
+}
+
 - (int32_t) passwordMinimumLength
 {
     _passwordMinimumLength = [self.dictionary[@"passwordMinimumLength"] intValue];
@@ -97,16 +125,28 @@
     self.dictionary[@"passwordMinutesOfInactivityBeforeLock"] = @(val);
 }
 
-- (int32_t) passwordMinimumCharacterSetCount
+- (int32_t) passwordPreviousPasswordBlockCount
 {
-    _passwordMinimumCharacterSetCount = [self.dictionary[@"passwordMinimumCharacterSetCount"] intValue];
-    return _passwordMinimumCharacterSetCount;
+    _passwordPreviousPasswordBlockCount = [self.dictionary[@"passwordPreviousPasswordBlockCount"] intValue];
+    return _passwordPreviousPasswordBlockCount;
 }
 
-- (void) setPasswordMinimumCharacterSetCount: (int32_t) val
+- (void) setPasswordPreviousPasswordBlockCount: (int32_t) val
 {
-    _passwordMinimumCharacterSetCount = val;
-    self.dictionary[@"passwordMinimumCharacterSetCount"] = @(val);
+    _passwordPreviousPasswordBlockCount = val;
+    self.dictionary[@"passwordPreviousPasswordBlockCount"] = @(val);
+}
+
+- (BOOL) passwordRequired
+{
+    _passwordRequired = [self.dictionary[@"passwordRequired"] boolValue];
+    return _passwordRequired;
+}
+
+- (void) setPasswordRequired: (BOOL) val
+{
+    _passwordRequired = val;
+    self.dictionary[@"passwordRequired"] = @(val);
 }
 
 - (MSGraphRequiredPasswordType*) passwordRequiredType
@@ -121,46 +161,6 @@
 {
     _passwordRequiredType = val;
     self.dictionary[@"passwordRequiredType"] = val;
-}
-
-- (int32_t) passwordPreviousPasswordBlockCount
-{
-    _passwordPreviousPasswordBlockCount = [self.dictionary[@"passwordPreviousPasswordBlockCount"] intValue];
-    return _passwordPreviousPasswordBlockCount;
-}
-
-- (void) setPasswordPreviousPasswordBlockCount: (int32_t) val
-{
-    _passwordPreviousPasswordBlockCount = val;
-    self.dictionary[@"passwordPreviousPasswordBlockCount"] = @(val);
-}
-
-- (NSString*) osMinimumVersion
-{
-    if([[NSNull null] isEqual:self.dictionary[@"osMinimumVersion"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"osMinimumVersion"];
-}
-
-- (void) setOsMinimumVersion: (NSString*) val
-{
-    self.dictionary[@"osMinimumVersion"] = val;
-}
-
-- (NSString*) osMaximumVersion
-{
-    if([[NSNull null] isEqual:self.dictionary[@"osMaximumVersion"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"osMaximumVersion"];
-}
-
-- (void) setOsMaximumVersion: (NSString*) val
-{
-    self.dictionary[@"osMaximumVersion"] = val;
 }
 
 - (BOOL) storageRequireEncryption

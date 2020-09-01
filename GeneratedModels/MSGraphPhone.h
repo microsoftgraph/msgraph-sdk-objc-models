@@ -9,9 +9,9 @@
 
 @interface MSGraphPhone : MSObject
 
-@property (nullable, nonatomic, setter=setType:, getter=type) MSGraphPhoneType* type;
+@property (nullable, nonatomic, setter=setLanguage:, getter=language) NSString* language;
 @property (nullable, nonatomic, setter=setNumber:, getter=number) NSString* number;
 @property (nullable, nonatomic, setter=setRegion:, getter=region) NSString* region;
-@property (nullable, nonatomic, setter=setLanguage:, getter=language) NSString* language;
+@property (nullable, nonatomic, setter=setType:, getter=type) MSGraphPhoneType* type;
 
 @end

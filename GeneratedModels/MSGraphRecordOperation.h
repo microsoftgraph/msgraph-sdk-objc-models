@@ -7,7 +7,7 @@
 
 @interface MSGraphRecordOperation : MSGraphCommsOperation
 
-  @property (nullable, nonatomic, setter=setRecordingLocation:, getter=recordingLocation) NSString* recordingLocation;
-    @property (nullable, nonatomic, setter=setRecordingAccessToken:, getter=recordingAccessToken) NSString* recordingAccessToken;
+  @property (nullable, nonatomic, setter=setRecordingAccessToken:, getter=recordingAccessToken) NSString* recordingAccessToken;
+    @property (nullable, nonatomic, setter=setRecordingLocation:, getter=recordingLocation) NSString* recordingLocation;
   
 @end

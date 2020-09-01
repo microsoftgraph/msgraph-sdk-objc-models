@@ -14,15 +14,15 @@
 
 @interface MSGraphComplianceManagementPartner()
 {
-    NSDate* _lastHeartbeatDateTime;
-    MSGraphDeviceManagementPartnerTenantState* _partnerState;
-    NSString* _displayName;
-    BOOL _macOsOnboarded;
-    BOOL _androidOnboarded;
-    BOOL _iosOnboarded;
-    NSArray* _macOsEnrollmentAssignments;
     NSArray* _androidEnrollmentAssignments;
+    BOOL _androidOnboarded;
+    NSString* _displayName;
     NSArray* _iosEnrollmentAssignments;
+    BOOL _iosOnboarded;
+    NSDate* _lastHeartbeatDateTime;
+    NSArray* _macOsEnrollmentAssignments;
+    BOOL _macOsOnboarded;
+    MSGraphDeviceManagementPartnerTenantState* _partnerState;
 }
 @end
 
@@ -35,32 +35,41 @@
     }
     return self;
 }
-- (NSDate*) lastHeartbeatDateTime
+- (NSArray*) androidEnrollmentAssignments
 {
-    if(!_lastHeartbeatDateTime){
-        _lastHeartbeatDateTime = [NSDate ms_dateFromString: self.dictionary[@"lastHeartbeatDateTime"]];
+    if(!_androidEnrollmentAssignments){
+        
+    NSMutableArray *androidEnrollmentAssignmentsResult = [NSMutableArray array];
+    NSArray *androidEnrollmentAssignments = self.dictionary[@"androidEnrollmentAssignments"];
+
+    if ([androidEnrollmentAssignments isKindOfClass:[NSArray class]]){
+        for (id tempComplianceManagementPartnerAssignment in androidEnrollmentAssignments){
+            [androidEnrollmentAssignmentsResult addObject:tempComplianceManagementPartnerAssignment];
+        }
     }
-    return _lastHeartbeatDateTime;
-}
 
-- (void) setLastHeartbeatDateTime: (NSDate*) val
-{
-    _lastHeartbeatDateTime = val;
-    self.dictionary[@"lastHeartbeatDateTime"] = [val ms_toString];
-}
-
-- (MSGraphDeviceManagementPartnerTenantState*) partnerState
-{
-    if(!_partnerState){
-        _partnerState = [self.dictionary[@"partnerState"] toMSGraphDeviceManagementPartnerTenantState];
+    _androidEnrollmentAssignments = androidEnrollmentAssignmentsResult;
+        
     }
-    return _partnerState;
+    return _androidEnrollmentAssignments;
 }
 
-- (void) setPartnerState: (MSGraphDeviceManagementPartnerTenantState*) val
+- (void) setAndroidEnrollmentAssignments: (NSArray*) val
 {
-    _partnerState = val;
-    self.dictionary[@"partnerState"] = val;
+    _androidEnrollmentAssignments = val;
+    self.dictionary[@"androidEnrollmentAssignments"] = val;
+}
+
+- (BOOL) androidOnboarded
+{
+    _androidOnboarded = [self.dictionary[@"androidOnboarded"] boolValue];
+    return _androidOnboarded;
+}
+
+- (void) setAndroidOnboarded: (BOOL) val
+{
+    _androidOnboarded = val;
+    self.dictionary[@"androidOnboarded"] = @(val);
 }
 
 - (NSString*) displayName
@@ -77,28 +86,29 @@
     self.dictionary[@"displayName"] = val;
 }
 
-- (BOOL) macOsOnboarded
+- (NSArray*) iosEnrollmentAssignments
 {
-    _macOsOnboarded = [self.dictionary[@"macOsOnboarded"] boolValue];
-    return _macOsOnboarded;
+    if(!_iosEnrollmentAssignments){
+        
+    NSMutableArray *iosEnrollmentAssignmentsResult = [NSMutableArray array];
+    NSArray *iosEnrollmentAssignments = self.dictionary[@"iosEnrollmentAssignments"];
+
+    if ([iosEnrollmentAssignments isKindOfClass:[NSArray class]]){
+        for (id tempComplianceManagementPartnerAssignment in iosEnrollmentAssignments){
+            [iosEnrollmentAssignmentsResult addObject:tempComplianceManagementPartnerAssignment];
+        }
+    }
+
+    _iosEnrollmentAssignments = iosEnrollmentAssignmentsResult;
+        
+    }
+    return _iosEnrollmentAssignments;
 }
 
-- (void) setMacOsOnboarded: (BOOL) val
+- (void) setIosEnrollmentAssignments: (NSArray*) val
 {
-    _macOsOnboarded = val;
-    self.dictionary[@"macOsOnboarded"] = @(val);
-}
-
-- (BOOL) androidOnboarded
-{
-    _androidOnboarded = [self.dictionary[@"androidOnboarded"] boolValue];
-    return _androidOnboarded;
-}
-
-- (void) setAndroidOnboarded: (BOOL) val
-{
-    _androidOnboarded = val;
-    self.dictionary[@"androidOnboarded"] = @(val);
+    _iosEnrollmentAssignments = val;
+    self.dictionary[@"iosEnrollmentAssignments"] = val;
 }
 
 - (BOOL) iosOnboarded
@@ -111,6 +121,20 @@
 {
     _iosOnboarded = val;
     self.dictionary[@"iosOnboarded"] = @(val);
+}
+
+- (NSDate*) lastHeartbeatDateTime
+{
+    if(!_lastHeartbeatDateTime){
+        _lastHeartbeatDateTime = [NSDate ms_dateFromString: self.dictionary[@"lastHeartbeatDateTime"]];
+    }
+    return _lastHeartbeatDateTime;
+}
+
+- (void) setLastHeartbeatDateTime: (NSDate*) val
+{
+    _lastHeartbeatDateTime = val;
+    self.dictionary[@"lastHeartbeatDateTime"] = [val ms_toString];
 }
 
 - (NSArray*) macOsEnrollmentAssignments
@@ -138,54 +162,30 @@
     self.dictionary[@"macOsEnrollmentAssignments"] = val;
 }
 
-- (NSArray*) androidEnrollmentAssignments
+- (BOOL) macOsOnboarded
 {
-    if(!_androidEnrollmentAssignments){
-        
-    NSMutableArray *androidEnrollmentAssignmentsResult = [NSMutableArray array];
-    NSArray *androidEnrollmentAssignments = self.dictionary[@"androidEnrollmentAssignments"];
-
-    if ([androidEnrollmentAssignments isKindOfClass:[NSArray class]]){
-        for (id tempComplianceManagementPartnerAssignment in androidEnrollmentAssignments){
-            [androidEnrollmentAssignmentsResult addObject:tempComplianceManagementPartnerAssignment];
-        }
-    }
-
-    _androidEnrollmentAssignments = androidEnrollmentAssignmentsResult;
-        
-    }
-    return _androidEnrollmentAssignments;
+    _macOsOnboarded = [self.dictionary[@"macOsOnboarded"] boolValue];
+    return _macOsOnboarded;
 }
 
-- (void) setAndroidEnrollmentAssignments: (NSArray*) val
+- (void) setMacOsOnboarded: (BOOL) val
 {
-    _androidEnrollmentAssignments = val;
-    self.dictionary[@"androidEnrollmentAssignments"] = val;
+    _macOsOnboarded = val;
+    self.dictionary[@"macOsOnboarded"] = @(val);
 }
 
-- (NSArray*) iosEnrollmentAssignments
+- (MSGraphDeviceManagementPartnerTenantState*) partnerState
 {
-    if(!_iosEnrollmentAssignments){
-        
-    NSMutableArray *iosEnrollmentAssignmentsResult = [NSMutableArray array];
-    NSArray *iosEnrollmentAssignments = self.dictionary[@"iosEnrollmentAssignments"];
-
-    if ([iosEnrollmentAssignments isKindOfClass:[NSArray class]]){
-        for (id tempComplianceManagementPartnerAssignment in iosEnrollmentAssignments){
-            [iosEnrollmentAssignmentsResult addObject:tempComplianceManagementPartnerAssignment];
-        }
+    if(!_partnerState){
+        _partnerState = [self.dictionary[@"partnerState"] toMSGraphDeviceManagementPartnerTenantState];
     }
-
-    _iosEnrollmentAssignments = iosEnrollmentAssignmentsResult;
-        
-    }
-    return _iosEnrollmentAssignments;
+    return _partnerState;
 }
 
-- (void) setIosEnrollmentAssignments: (NSArray*) val
+- (void) setPartnerState: (MSGraphDeviceManagementPartnerTenantState*) val
 {
-    _iosEnrollmentAssignments = val;
-    self.dictionary[@"iosEnrollmentAssignments"] = val;
+    _partnerState = val;
+    self.dictionary[@"partnerState"] = val;
 }
 
 

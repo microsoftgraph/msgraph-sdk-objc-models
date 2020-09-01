@@ -14,26 +14,26 @@
 
 @interface MSGraphCallRoute()
 {
-    MSGraphRoutingType* _routingType;
-    MSGraphIdentitySet* _original;
     MSGraphIdentitySet* _final;
+    MSGraphIdentitySet* _original;
+    MSGraphRoutingType* _routingType;
 }
 @end
 
 @implementation MSGraphCallRoute
 
-- (MSGraphRoutingType*) routingType
+- (MSGraphIdentitySet*) final
 {
-    if(!_routingType){
-        _routingType = [self.dictionary[@"routingType"] toMSGraphRoutingType];
+    if(!_final){
+        _final = [[MSGraphIdentitySet alloc] initWithDictionary: self.dictionary[@"final"]];
     }
-    return _routingType;
+    return _final;
 }
 
-- (void) setRoutingType: (MSGraphRoutingType*) val
+- (void) setFinal: (MSGraphIdentitySet*) val
 {
-    _routingType = val;
-    self.dictionary[@"routingType"] = val;
+    _final = val;
+    self.dictionary[@"final"] = val;
 }
 
 - (MSGraphIdentitySet*) original
@@ -50,18 +50,18 @@
     self.dictionary[@"original"] = val;
 }
 
-- (MSGraphIdentitySet*) final
+- (MSGraphRoutingType*) routingType
 {
-    if(!_final){
-        _final = [[MSGraphIdentitySet alloc] initWithDictionary: self.dictionary[@"final"]];
+    if(!_routingType){
+        _routingType = [self.dictionary[@"routingType"] toMSGraphRoutingType];
     }
-    return _final;
+    return _routingType;
 }
 
-- (void) setFinal: (MSGraphIdentitySet*) val
+- (void) setRoutingType: (MSGraphRoutingType*) val
 {
-    _final = val;
-    self.dictionary[@"final"] = val;
+    _routingType = val;
+    self.dictionary[@"routingType"] = val;
 }
 
 @end

@@ -11,7 +11,7 @@
 @property (nonatomic, setter=setAllowedDeviceCount:, getter=allowedDeviceCount) int32_t allowedDeviceCount;
 @property (nonatomic, setter=setBlockedDeviceCount:, getter=blockedDeviceCount) int32_t blockedDeviceCount;
 @property (nonatomic, setter=setQuarantinedDeviceCount:, getter=quarantinedDeviceCount) int32_t quarantinedDeviceCount;
-@property (nonatomic, setter=setUnknownDeviceCount:, getter=unknownDeviceCount) int32_t unknownDeviceCount;
 @property (nonatomic, setter=setUnavailableDeviceCount:, getter=unavailableDeviceCount) int32_t unavailableDeviceCount;
+@property (nonatomic, setter=setUnknownDeviceCount:, getter=unknownDeviceCount) int32_t unknownDeviceCount;
 
 @end

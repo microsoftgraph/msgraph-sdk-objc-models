@@ -14,8 +14,8 @@
 
 @interface MSGraphRoleAssignment()
 {
-    NSString* _displayName;
     NSString* _roleAssignmentDescription;
+    NSString* _displayName;
     NSArray* _resourceScopes;
     MSGraphRoleDefinition* _roleDefinition;
 }
@@ -30,20 +30,6 @@
     }
     return self;
 }
-- (NSString*) displayName
-{
-    if([[NSNull null] isEqual:self.dictionary[@"displayName"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"displayName"];
-}
-
-- (void) setDisplayName: (NSString*) val
-{
-    self.dictionary[@"displayName"] = val;
-}
-
 - (NSString*) roleAssignmentDescription
 {
     if([[NSNull null] isEqual:self.dictionary[@"description"]])
@@ -56,6 +42,20 @@
 - (void) setRoleAssignmentDescription: (NSString*) val
 {
     self.dictionary[@"description"] = val;
+}
+
+- (NSString*) displayName
+{
+    if([[NSNull null] isEqual:self.dictionary[@"displayName"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"displayName"];
+}
+
+- (void) setDisplayName: (NSString*) val
+{
+    self.dictionary[@"displayName"] = val;
 }
 
 - (NSArray*) resourceScopes

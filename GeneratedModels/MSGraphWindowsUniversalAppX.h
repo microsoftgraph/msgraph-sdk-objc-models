@@ -15,8 +15,8 @@
     @property (nullable, nonatomic, setter=setIdentityName:, getter=identityName) NSString* identityName;
     @property (nonnull, nonatomic, setter=setIdentityPublisherHash:, getter=identityPublisherHash) NSString* identityPublisherHash;
     @property (nullable, nonatomic, setter=setIdentityResourceIdentifier:, getter=identityResourceIdentifier) NSString* identityResourceIdentifier;
+    @property (nullable, nonatomic, setter=setIdentityVersion:, getter=identityVersion) NSString* identityVersion;
     @property (nonatomic, setter=setIsBundle:, getter=isBundle) BOOL isBundle;
     @property (nonnull, nonatomic, setter=setMinimumSupportedOperatingSystem:, getter=minimumSupportedOperatingSystem) MSGraphWindowsMinimumOperatingSystem* minimumSupportedOperatingSystem;
-    @property (nullable, nonatomic, setter=setIdentityVersion:, getter=identityVersion) NSString* identityVersion;
   
 @end

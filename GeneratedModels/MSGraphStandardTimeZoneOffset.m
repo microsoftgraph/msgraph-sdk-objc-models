@@ -14,29 +14,15 @@
 
 @interface MSGraphStandardTimeZoneOffset()
 {
-    MSTimeOfDay* _time;
     int32_t _dayOccurrence;
     MSGraphDayOfWeek* _dayOfWeek;
     int32_t _month;
+    MSTimeOfDay* _time;
     int32_t _year;
 }
 @end
 
 @implementation MSGraphStandardTimeZoneOffset
-
-- (MSTimeOfDay*) time
-{
-    if(!_time){
-        _time = [MSTimeOfDay ms_timeFromString: self.dictionary[@"time"]];
-    }
-    return _time;
-}
-
-- (void) setTime: (MSTimeOfDay*) val
-{
-    _time = val;
-    self.dictionary[@"time"] = [val ms_toString];
-}
 
 - (int32_t) dayOccurrence
 {
@@ -74,6 +60,20 @@
 {
     _month = val;
     self.dictionary[@"month"] = @(val);
+}
+
+- (MSTimeOfDay*) time
+{
+    if(!_time){
+        _time = [MSTimeOfDay ms_timeFromString: self.dictionary[@"time"]];
+    }
+    return _time;
+}
+
+- (void) setTime: (MSTimeOfDay*) val
+{
+    _time = val;
+    self.dictionary[@"time"] = [val ms_toString];
 }
 
 - (int32_t) year

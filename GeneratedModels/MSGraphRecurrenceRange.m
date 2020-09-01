@@ -14,43 +14,15 @@
 
 @interface MSGraphRecurrenceRange()
 {
-    MSGraphRecurrenceRangeType* _type;
-    MSDate* _startDate;
     MSDate* _endDate;
-    NSString* _recurrenceTimeZone;
     int32_t _numberOfOccurrences;
+    NSString* _recurrenceTimeZone;
+    MSDate* _startDate;
+    MSGraphRecurrenceRangeType* _type;
 }
 @end
 
 @implementation MSGraphRecurrenceRange
-
-- (MSGraphRecurrenceRangeType*) type
-{
-    if(!_type){
-        _type = [self.dictionary[@"type"] toMSGraphRecurrenceRangeType];
-    }
-    return _type;
-}
-
-- (void) setType: (MSGraphRecurrenceRangeType*) val
-{
-    _type = val;
-    self.dictionary[@"type"] = val;
-}
-
-- (MSDate*) startDate
-{
-    if(!_startDate){
-        _startDate = [MSDate ms_dateFromString: self.dictionary[@"startDate"]];
-    }
-    return _startDate;
-}
-
-- (void) setStartDate: (MSDate*) val
-{
-    _startDate = val;
-    self.dictionary[@"startDate"] = [val ms_toString];
-}
 
 - (MSDate*) endDate
 {
@@ -64,6 +36,18 @@
 {
     _endDate = val;
     self.dictionary[@"endDate"] = [val ms_toString];
+}
+
+- (int32_t) numberOfOccurrences
+{
+    _numberOfOccurrences = [self.dictionary[@"numberOfOccurrences"] intValue];
+    return _numberOfOccurrences;
+}
+
+- (void) setNumberOfOccurrences: (int32_t) val
+{
+    _numberOfOccurrences = val;
+    self.dictionary[@"numberOfOccurrences"] = @(val);
 }
 
 - (NSString*) recurrenceTimeZone
@@ -80,16 +64,32 @@
     self.dictionary[@"recurrenceTimeZone"] = val;
 }
 
-- (int32_t) numberOfOccurrences
+- (MSDate*) startDate
 {
-    _numberOfOccurrences = [self.dictionary[@"numberOfOccurrences"] intValue];
-    return _numberOfOccurrences;
+    if(!_startDate){
+        _startDate = [MSDate ms_dateFromString: self.dictionary[@"startDate"]];
+    }
+    return _startDate;
 }
 
-- (void) setNumberOfOccurrences: (int32_t) val
+- (void) setStartDate: (MSDate*) val
 {
-    _numberOfOccurrences = val;
-    self.dictionary[@"numberOfOccurrences"] = @(val);
+    _startDate = val;
+    self.dictionary[@"startDate"] = [val ms_toString];
+}
+
+- (MSGraphRecurrenceRangeType*) type
+{
+    if(!_type){
+        _type = [self.dictionary[@"type"] toMSGraphRecurrenceRangeType];
+    }
+    return _type;
+}
+
+- (void) setType: (MSGraphRecurrenceRangeType*) val
+{
+    _type = val;
+    self.dictionary[@"type"] = val;
 }
 
 @end

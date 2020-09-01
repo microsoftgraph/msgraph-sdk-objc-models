@@ -14,30 +14,16 @@
 
 @interface MSGraphOnlineMeetingInfo()
 {
-    NSString* _joinUrl;
     NSString* _conferenceId;
-    NSString* _tollNumber;
-    NSArray* _tollFreeNumbers;
-    NSString* _quickDial;
+    NSString* _joinUrl;
     NSArray* _phones;
+    NSString* _quickDial;
+    NSArray* _tollFreeNumbers;
+    NSString* _tollNumber;
 }
 @end
 
 @implementation MSGraphOnlineMeetingInfo
-
-- (NSString*) joinUrl
-{
-    if([[NSNull null] isEqual:self.dictionary[@"joinUrl"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"joinUrl"];
-}
-
-- (void) setJoinUrl: (NSString*) val
-{
-    self.dictionary[@"joinUrl"] = val;
-}
 
 - (NSString*) conferenceId
 {
@@ -53,46 +39,18 @@
     self.dictionary[@"conferenceId"] = val;
 }
 
-- (NSString*) tollNumber
+- (NSString*) joinUrl
 {
-    if([[NSNull null] isEqual:self.dictionary[@"tollNumber"]])
+    if([[NSNull null] isEqual:self.dictionary[@"joinUrl"]])
     {
         return nil;
     }   
-    return self.dictionary[@"tollNumber"];
+    return self.dictionary[@"joinUrl"];
 }
 
-- (void) setTollNumber: (NSString*) val
+- (void) setJoinUrl: (NSString*) val
 {
-    self.dictionary[@"tollNumber"] = val;
-}
-
-- (NSArray*) tollFreeNumbers
-{
-    if([[NSNull null] isEqual:self.dictionary[@"tollFreeNumbers"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"tollFreeNumbers"];
-}
-
-- (void) setTollFreeNumbers: (NSArray*) val
-{
-    self.dictionary[@"tollFreeNumbers"] = val;
-}
-
-- (NSString*) quickDial
-{
-    if([[NSNull null] isEqual:self.dictionary[@"quickDial"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"quickDial"];
-}
-
-- (void) setQuickDial: (NSString*) val
-{
-    self.dictionary[@"quickDial"] = val;
+    self.dictionary[@"joinUrl"] = val;
 }
 
 - (NSArray*) phones
@@ -118,6 +76,48 @@
 {
     _phones = val;
     self.dictionary[@"phones"] = val;
+}
+
+- (NSString*) quickDial
+{
+    if([[NSNull null] isEqual:self.dictionary[@"quickDial"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"quickDial"];
+}
+
+- (void) setQuickDial: (NSString*) val
+{
+    self.dictionary[@"quickDial"] = val;
+}
+
+- (NSArray*) tollFreeNumbers
+{
+    if([[NSNull null] isEqual:self.dictionary[@"tollFreeNumbers"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"tollFreeNumbers"];
+}
+
+- (void) setTollFreeNumbers: (NSArray*) val
+{
+    self.dictionary[@"tollFreeNumbers"] = val;
+}
+
+- (NSString*) tollNumber
+{
+    if([[NSNull null] isEqual:self.dictionary[@"tollNumber"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"tollNumber"];
+}
+
+- (void) setTollNumber: (NSString*) val
+{
+    self.dictionary[@"tollNumber"] = val;
 }
 
 @end

@@ -14,13 +14,13 @@
 
 @interface MSGraphActivityHistoryItem()
 {
-    MSGraphStatus* _status;
     int32_t _activeDurationSeconds;
     NSDate* _createdDateTime;
+    NSDate* _expirationDateTime;
     NSDate* _lastActiveDateTime;
     NSDate* _lastModifiedDateTime;
-    NSDate* _expirationDateTime;
     NSDate* _startedDateTime;
+    MSGraphStatus* _status;
     NSString* _userTimezone;
     MSGraphUserActivity* _activity;
 }
@@ -35,20 +35,6 @@
     }
     return self;
 }
-- (MSGraphStatus*) status
-{
-    if(!_status){
-        _status = [self.dictionary[@"status"] toMSGraphStatus];
-    }
-    return _status;
-}
-
-- (void) setStatus: (MSGraphStatus*) val
-{
-    _status = val;
-    self.dictionary[@"status"] = val;
-}
-
 - (int32_t) activeDurationSeconds
 {
     _activeDurationSeconds = [self.dictionary[@"activeDurationSeconds"] intValue];
@@ -73,6 +59,20 @@
 {
     _createdDateTime = val;
     self.dictionary[@"createdDateTime"] = [val ms_toString];
+}
+
+- (NSDate*) expirationDateTime
+{
+    if(!_expirationDateTime){
+        _expirationDateTime = [NSDate ms_dateFromString: self.dictionary[@"expirationDateTime"]];
+    }
+    return _expirationDateTime;
+}
+
+- (void) setExpirationDateTime: (NSDate*) val
+{
+    _expirationDateTime = val;
+    self.dictionary[@"expirationDateTime"] = [val ms_toString];
 }
 
 - (NSDate*) lastActiveDateTime
@@ -103,20 +103,6 @@
     self.dictionary[@"lastModifiedDateTime"] = [val ms_toString];
 }
 
-- (NSDate*) expirationDateTime
-{
-    if(!_expirationDateTime){
-        _expirationDateTime = [NSDate ms_dateFromString: self.dictionary[@"expirationDateTime"]];
-    }
-    return _expirationDateTime;
-}
-
-- (void) setExpirationDateTime: (NSDate*) val
-{
-    _expirationDateTime = val;
-    self.dictionary[@"expirationDateTime"] = [val ms_toString];
-}
-
 - (NSDate*) startedDateTime
 {
     if(!_startedDateTime){
@@ -129,6 +115,20 @@
 {
     _startedDateTime = val;
     self.dictionary[@"startedDateTime"] = [val ms_toString];
+}
+
+- (MSGraphStatus*) status
+{
+    if(!_status){
+        _status = [self.dictionary[@"status"] toMSGraphStatus];
+    }
+    return _status;
+}
+
+- (void) setStatus: (MSGraphStatus*) val
+{
+    _status = val;
+    self.dictionary[@"status"] = val;
 }
 
 - (NSString*) userTimezone

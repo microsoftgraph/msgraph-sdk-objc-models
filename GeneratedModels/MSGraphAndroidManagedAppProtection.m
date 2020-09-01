@@ -14,14 +14,14 @@
 
 @interface MSGraphAndroidManagedAppProtection()
 {
-    BOOL _screenCaptureBlocked;
+    NSString* _customBrowserDisplayName;
+    NSString* _customBrowserPackageId;
+    int32_t _deployedAppCount;
     BOOL _disableAppEncryptionIfDeviceEncryptionIsEnabled;
     BOOL _encryptAppData;
-    int32_t _deployedAppCount;
     NSString* _minimumRequiredPatchVersion;
     NSString* _minimumWarningPatchVersion;
-    NSString* _customBrowserPackageId;
-    NSString* _customBrowserDisplayName;
+    BOOL _screenCaptureBlocked;
     NSArray* _apps;
     MSGraphManagedAppPolicyDeploymentSummary* _deploymentSummary;
 }
@@ -36,16 +36,44 @@
     }
     return self;
 }
-- (BOOL) screenCaptureBlocked
+- (NSString*) customBrowserDisplayName
 {
-    _screenCaptureBlocked = [self.dictionary[@"screenCaptureBlocked"] boolValue];
-    return _screenCaptureBlocked;
+    if([[NSNull null] isEqual:self.dictionary[@"customBrowserDisplayName"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"customBrowserDisplayName"];
 }
 
-- (void) setScreenCaptureBlocked: (BOOL) val
+- (void) setCustomBrowserDisplayName: (NSString*) val
 {
-    _screenCaptureBlocked = val;
-    self.dictionary[@"screenCaptureBlocked"] = @(val);
+    self.dictionary[@"customBrowserDisplayName"] = val;
+}
+
+- (NSString*) customBrowserPackageId
+{
+    if([[NSNull null] isEqual:self.dictionary[@"customBrowserPackageId"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"customBrowserPackageId"];
+}
+
+- (void) setCustomBrowserPackageId: (NSString*) val
+{
+    self.dictionary[@"customBrowserPackageId"] = val;
+}
+
+- (int32_t) deployedAppCount
+{
+    _deployedAppCount = [self.dictionary[@"deployedAppCount"] intValue];
+    return _deployedAppCount;
+}
+
+- (void) setDeployedAppCount: (int32_t) val
+{
+    _deployedAppCount = val;
+    self.dictionary[@"deployedAppCount"] = @(val);
 }
 
 - (BOOL) disableAppEncryptionIfDeviceEncryptionIsEnabled
@@ -70,18 +98,6 @@
 {
     _encryptAppData = val;
     self.dictionary[@"encryptAppData"] = @(val);
-}
-
-- (int32_t) deployedAppCount
-{
-    _deployedAppCount = [self.dictionary[@"deployedAppCount"] intValue];
-    return _deployedAppCount;
-}
-
-- (void) setDeployedAppCount: (int32_t) val
-{
-    _deployedAppCount = val;
-    self.dictionary[@"deployedAppCount"] = @(val);
 }
 
 - (NSString*) minimumRequiredPatchVersion
@@ -112,32 +128,16 @@
     self.dictionary[@"minimumWarningPatchVersion"] = val;
 }
 
-- (NSString*) customBrowserPackageId
+- (BOOL) screenCaptureBlocked
 {
-    if([[NSNull null] isEqual:self.dictionary[@"customBrowserPackageId"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"customBrowserPackageId"];
+    _screenCaptureBlocked = [self.dictionary[@"screenCaptureBlocked"] boolValue];
+    return _screenCaptureBlocked;
 }
 
-- (void) setCustomBrowserPackageId: (NSString*) val
+- (void) setScreenCaptureBlocked: (BOOL) val
 {
-    self.dictionary[@"customBrowserPackageId"] = val;
-}
-
-- (NSString*) customBrowserDisplayName
-{
-    if([[NSNull null] isEqual:self.dictionary[@"customBrowserDisplayName"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"customBrowserDisplayName"];
-}
-
-- (void) setCustomBrowserDisplayName: (NSString*) val
-{
-    self.dictionary[@"customBrowserDisplayName"] = val;
+    _screenCaptureBlocked = val;
+    self.dictionary[@"screenCaptureBlocked"] = @(val);
 }
 
 - (NSArray*) apps

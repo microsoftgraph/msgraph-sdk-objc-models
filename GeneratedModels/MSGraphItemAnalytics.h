@@ -8,8 +8,8 @@
 
 @interface MSGraphItemAnalytics : MSGraphEntity
 
-  @property (nullable, nonatomic, setter=setItemActivityStats:, getter=itemActivityStats) NSArray* itemActivityStats;
-    @property (nullable, nonatomic, setter=setAllTime:, getter=allTime) MSGraphItemActivityStat* allTime;
+  @property (nullable, nonatomic, setter=setAllTime:, getter=allTime) MSGraphItemActivityStat* allTime;
+    @property (nullable, nonatomic, setter=setItemActivityStats:, getter=itemActivityStats) NSArray* itemActivityStats;
     @property (nullable, nonatomic, setter=setLastSevenDays:, getter=lastSevenDays) MSGraphItemActivityStat* lastSevenDays;
   
 @end

@@ -14,27 +14,13 @@
 
 @interface MSGraphObjectIdentity()
 {
-    NSString* _signInType;
     NSString* _issuer;
     NSString* _issuerAssignedId;
+    NSString* _signInType;
 }
 @end
 
 @implementation MSGraphObjectIdentity
-
-- (NSString*) signInType
-{
-    if([[NSNull null] isEqual:self.dictionary[@"signInType"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"signInType"];
-}
-
-- (void) setSignInType: (NSString*) val
-{
-    self.dictionary[@"signInType"] = val;
-}
 
 - (NSString*) issuer
 {
@@ -62,6 +48,20 @@
 - (void) setIssuerAssignedId: (NSString*) val
 {
     self.dictionary[@"issuerAssignedId"] = val;
+}
+
+- (NSString*) signInType
+{
+    if([[NSNull null] isEqual:self.dictionary[@"signInType"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"signInType"];
+}
+
+- (void) setSignInType: (NSString*) val
+{
+    self.dictionary[@"signInType"] = val;
 }
 
 @end

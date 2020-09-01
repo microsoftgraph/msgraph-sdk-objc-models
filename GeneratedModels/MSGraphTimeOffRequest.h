@@ -7,8 +7,8 @@
 
 @interface MSGraphTimeOffRequest : MSGraphScheduleChangeRequest
 
-  @property (nullable, nonatomic, setter=setStartDateTime:, getter=startDateTime) NSDate* startDateTime;
-    @property (nullable, nonatomic, setter=setEndDateTime:, getter=endDateTime) NSDate* endDateTime;
+  @property (nullable, nonatomic, setter=setEndDateTime:, getter=endDateTime) NSDate* endDateTime;
+    @property (nullable, nonatomic, setter=setStartDateTime:, getter=startDateTime) NSDate* startDateTime;
     @property (nullable, nonatomic, setter=setTimeOffReasonId:, getter=timeOffReasonId) NSString* timeOffReasonId;
   
 @end

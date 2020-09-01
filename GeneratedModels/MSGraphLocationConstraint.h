@@ -9,8 +9,8 @@
 
 @interface MSGraphLocationConstraint : MSObject
 
-@property (nullable, nonatomic, setter=setLocations:, getter=locations) NSArray* locations;
 @property (nonatomic, setter=setIsRequired:, getter=isRequired) BOOL isRequired;
+@property (nullable, nonatomic, setter=setLocations:, getter=locations) NSArray* locations;
 @property (nonatomic, setter=setSuggestLocation:, getter=suggestLocation) BOOL suggestLocation;
 
 @end

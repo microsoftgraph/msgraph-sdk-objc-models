@@ -21,8 +21,8 @@
     NSString* _groupDescription;
     NSString* _displayName;
     NSDate* _expirationDateTime;
-    BOOL _hasMembersWithLicenseErrors;
     NSArray* _groupTypes;
+    BOOL _hasMembersWithLicenseErrors;
     MSGraphLicenseProcessingState* _licenseProcessingState;
     NSString* _mail;
     BOOL _mailEnabled;
@@ -46,29 +46,29 @@
     NSString* _visibility;
     BOOL _allowExternalSenders;
     BOOL _autoSubscribeNewMembers;
+    BOOL _hideFromAddressLists;
+    BOOL _hideFromOutlookClients;
     BOOL _isSubscribedByMail;
     int32_t _unseenCount;
-    BOOL _hideFromOutlookClients;
-    BOOL _hideFromAddressLists;
     BOOL _isArchived;
     NSArray* _appRoleAssignments;
-    NSArray* _members;
-    NSArray* _memberOf;
-    NSArray* _membersWithLicenseErrors;
-    NSArray* _transitiveMembers;
-    NSArray* _transitiveMemberOf;
     MSGraphDirectoryObject* _createdOnBehalfOf;
+    NSArray* _memberOf;
+    NSArray* _members;
+    NSArray* _membersWithLicenseErrors;
     NSArray* _owners;
     NSArray* _settings;
-    NSArray* _conversations;
-    NSArray* _photos;
+    NSArray* _transitiveMemberOf;
+    NSArray* _transitiveMembers;
     NSArray* _acceptedSenders;
-    NSArray* _rejectedSenders;
-    NSArray* _threads;
     MSGraphCalendar* _calendar;
     NSArray* _calendarView;
+    NSArray* _conversations;
     NSArray* _events;
     MSGraphProfilePhoto* _photo;
+    NSArray* _photos;
+    NSArray* _rejectedSenders;
+    NSArray* _threads;
     MSGraphDrive* _drive;
     NSArray* _drives;
     NSArray* _sites;
@@ -209,6 +209,16 @@
     self.dictionary[@"expirationDateTime"] = [val ms_toString];
 }
 
+- (NSArray*) groupTypes
+{
+    return self.dictionary[@"groupTypes"];
+}
+
+- (void) setGroupTypes: (NSArray*) val
+{
+    self.dictionary[@"groupTypes"] = val;
+}
+
 - (BOOL) hasMembersWithLicenseErrors
 {
     _hasMembersWithLicenseErrors = [self.dictionary[@"hasMembersWithLicenseErrors"] boolValue];
@@ -219,16 +229,6 @@
 {
     _hasMembersWithLicenseErrors = val;
     self.dictionary[@"hasMembersWithLicenseErrors"] = @(val);
-}
-
-- (NSArray*) groupTypes
-{
-    return self.dictionary[@"groupTypes"];
-}
-
-- (void) setGroupTypes: (NSArray*) val
-{
-    self.dictionary[@"groupTypes"] = val;
 }
 
 - (MSGraphLicenseProcessingState*) licenseProcessingState
@@ -550,6 +550,30 @@
     self.dictionary[@"autoSubscribeNewMembers"] = @(val);
 }
 
+- (BOOL) hideFromAddressLists
+{
+    _hideFromAddressLists = [self.dictionary[@"hideFromAddressLists"] boolValue];
+    return _hideFromAddressLists;
+}
+
+- (void) setHideFromAddressLists: (BOOL) val
+{
+    _hideFromAddressLists = val;
+    self.dictionary[@"hideFromAddressLists"] = @(val);
+}
+
+- (BOOL) hideFromOutlookClients
+{
+    _hideFromOutlookClients = [self.dictionary[@"hideFromOutlookClients"] boolValue];
+    return _hideFromOutlookClients;
+}
+
+- (void) setHideFromOutlookClients: (BOOL) val
+{
+    _hideFromOutlookClients = val;
+    self.dictionary[@"hideFromOutlookClients"] = @(val);
+}
+
 - (BOOL) isSubscribedByMail
 {
     _isSubscribedByMail = [self.dictionary[@"isSubscribedByMail"] boolValue];
@@ -572,30 +596,6 @@
 {
     _unseenCount = val;
     self.dictionary[@"unseenCount"] = @(val);
-}
-
-- (BOOL) hideFromOutlookClients
-{
-    _hideFromOutlookClients = [self.dictionary[@"hideFromOutlookClients"] boolValue];
-    return _hideFromOutlookClients;
-}
-
-- (void) setHideFromOutlookClients: (BOOL) val
-{
-    _hideFromOutlookClients = val;
-    self.dictionary[@"hideFromOutlookClients"] = @(val);
-}
-
-- (BOOL) hideFromAddressLists
-{
-    _hideFromAddressLists = [self.dictionary[@"hideFromAddressLists"] boolValue];
-    return _hideFromAddressLists;
-}
-
-- (void) setHideFromAddressLists: (BOOL) val
-{
-    _hideFromAddressLists = val;
-    self.dictionary[@"hideFromAddressLists"] = @(val);
 }
 
 - (BOOL) isArchived
@@ -635,29 +635,18 @@
     self.dictionary[@"appRoleAssignments"] = val;
 }
 
-- (NSArray*) members
+- (MSGraphDirectoryObject*) createdOnBehalfOf
 {
-    if(!_members){
-        
-    NSMutableArray *membersResult = [NSMutableArray array];
-    NSArray *members = self.dictionary[@"members"];
-
-    if ([members isKindOfClass:[NSArray class]]){
-        for (id tempDirectoryObject in members){
-            [membersResult addObject:tempDirectoryObject];
-        }
+    if(!_createdOnBehalfOf){
+        _createdOnBehalfOf = [[MSGraphDirectoryObject alloc] initWithDictionary: self.dictionary[@"createdOnBehalfOf"]];
     }
-
-    _members = membersResult;
-        
-    }
-    return _members;
+    return _createdOnBehalfOf;
 }
 
-- (void) setMembers: (NSArray*) val
+- (void) setCreatedOnBehalfOf: (MSGraphDirectoryObject*) val
 {
-    _members = val;
-    self.dictionary[@"members"] = val;
+    _createdOnBehalfOf = val;
+    self.dictionary[@"createdOnBehalfOf"] = val;
 }
 
 - (NSArray*) memberOf
@@ -685,6 +674,31 @@
     self.dictionary[@"memberOf"] = val;
 }
 
+- (NSArray*) members
+{
+    if(!_members){
+        
+    NSMutableArray *membersResult = [NSMutableArray array];
+    NSArray *members = self.dictionary[@"members"];
+
+    if ([members isKindOfClass:[NSArray class]]){
+        for (id tempDirectoryObject in members){
+            [membersResult addObject:tempDirectoryObject];
+        }
+    }
+
+    _members = membersResult;
+        
+    }
+    return _members;
+}
+
+- (void) setMembers: (NSArray*) val
+{
+    _members = val;
+    self.dictionary[@"members"] = val;
+}
+
 - (NSArray*) membersWithLicenseErrors
 {
     if(!_membersWithLicenseErrors){
@@ -708,70 +722,6 @@
 {
     _membersWithLicenseErrors = val;
     self.dictionary[@"membersWithLicenseErrors"] = val;
-}
-
-- (NSArray*) transitiveMembers
-{
-    if(!_transitiveMembers){
-        
-    NSMutableArray *transitiveMembersResult = [NSMutableArray array];
-    NSArray *transitiveMembers = self.dictionary[@"transitiveMembers"];
-
-    if ([transitiveMembers isKindOfClass:[NSArray class]]){
-        for (id tempDirectoryObject in transitiveMembers){
-            [transitiveMembersResult addObject:tempDirectoryObject];
-        }
-    }
-
-    _transitiveMembers = transitiveMembersResult;
-        
-    }
-    return _transitiveMembers;
-}
-
-- (void) setTransitiveMembers: (NSArray*) val
-{
-    _transitiveMembers = val;
-    self.dictionary[@"transitiveMembers"] = val;
-}
-
-- (NSArray*) transitiveMemberOf
-{
-    if(!_transitiveMemberOf){
-        
-    NSMutableArray *transitiveMemberOfResult = [NSMutableArray array];
-    NSArray *transitiveMemberOf = self.dictionary[@"transitiveMemberOf"];
-
-    if ([transitiveMemberOf isKindOfClass:[NSArray class]]){
-        for (id tempDirectoryObject in transitiveMemberOf){
-            [transitiveMemberOfResult addObject:tempDirectoryObject];
-        }
-    }
-
-    _transitiveMemberOf = transitiveMemberOfResult;
-        
-    }
-    return _transitiveMemberOf;
-}
-
-- (void) setTransitiveMemberOf: (NSArray*) val
-{
-    _transitiveMemberOf = val;
-    self.dictionary[@"transitiveMemberOf"] = val;
-}
-
-- (MSGraphDirectoryObject*) createdOnBehalfOf
-{
-    if(!_createdOnBehalfOf){
-        _createdOnBehalfOf = [[MSGraphDirectoryObject alloc] initWithDictionary: self.dictionary[@"createdOnBehalfOf"]];
-    }
-    return _createdOnBehalfOf;
-}
-
-- (void) setCreatedOnBehalfOf: (MSGraphDirectoryObject*) val
-{
-    _createdOnBehalfOf = val;
-    self.dictionary[@"createdOnBehalfOf"] = val;
 }
 
 - (NSArray*) owners
@@ -824,54 +774,54 @@
     self.dictionary[@"settings"] = val;
 }
 
-- (NSArray*) conversations
+- (NSArray*) transitiveMemberOf
 {
-    if(!_conversations){
+    if(!_transitiveMemberOf){
         
-    NSMutableArray *conversationsResult = [NSMutableArray array];
-    NSArray *conversations = self.dictionary[@"conversations"];
+    NSMutableArray *transitiveMemberOfResult = [NSMutableArray array];
+    NSArray *transitiveMemberOf = self.dictionary[@"transitiveMemberOf"];
 
-    if ([conversations isKindOfClass:[NSArray class]]){
-        for (id tempConversation in conversations){
-            [conversationsResult addObject:tempConversation];
+    if ([transitiveMemberOf isKindOfClass:[NSArray class]]){
+        for (id tempDirectoryObject in transitiveMemberOf){
+            [transitiveMemberOfResult addObject:tempDirectoryObject];
         }
     }
 
-    _conversations = conversationsResult;
+    _transitiveMemberOf = transitiveMemberOfResult;
         
     }
-    return _conversations;
+    return _transitiveMemberOf;
 }
 
-- (void) setConversations: (NSArray*) val
+- (void) setTransitiveMemberOf: (NSArray*) val
 {
-    _conversations = val;
-    self.dictionary[@"conversations"] = val;
+    _transitiveMemberOf = val;
+    self.dictionary[@"transitiveMemberOf"] = val;
 }
 
-- (NSArray*) photos
+- (NSArray*) transitiveMembers
 {
-    if(!_photos){
+    if(!_transitiveMembers){
         
-    NSMutableArray *photosResult = [NSMutableArray array];
-    NSArray *photos = self.dictionary[@"photos"];
+    NSMutableArray *transitiveMembersResult = [NSMutableArray array];
+    NSArray *transitiveMembers = self.dictionary[@"transitiveMembers"];
 
-    if ([photos isKindOfClass:[NSArray class]]){
-        for (id tempProfilePhoto in photos){
-            [photosResult addObject:tempProfilePhoto];
+    if ([transitiveMembers isKindOfClass:[NSArray class]]){
+        for (id tempDirectoryObject in transitiveMembers){
+            [transitiveMembersResult addObject:tempDirectoryObject];
         }
     }
 
-    _photos = photosResult;
+    _transitiveMembers = transitiveMembersResult;
         
     }
-    return _photos;
+    return _transitiveMembers;
 }
 
-- (void) setPhotos: (NSArray*) val
+- (void) setTransitiveMembers: (NSArray*) val
 {
-    _photos = val;
-    self.dictionary[@"photos"] = val;
+    _transitiveMembers = val;
+    self.dictionary[@"transitiveMembers"] = val;
 }
 
 - (NSArray*) acceptedSenders
@@ -897,6 +847,134 @@
 {
     _acceptedSenders = val;
     self.dictionary[@"acceptedSenders"] = val;
+}
+
+- (MSGraphCalendar*) calendar
+{
+    if(!_calendar){
+        _calendar = [[MSGraphCalendar alloc] initWithDictionary: self.dictionary[@"calendar"]];
+    }
+    return _calendar;
+}
+
+- (void) setCalendar: (MSGraphCalendar*) val
+{
+    _calendar = val;
+    self.dictionary[@"calendar"] = val;
+}
+
+- (NSArray*) calendarView
+{
+    if(!_calendarView){
+        
+    NSMutableArray *calendarViewResult = [NSMutableArray array];
+    NSArray *calendarView = self.dictionary[@"calendarView"];
+
+    if ([calendarView isKindOfClass:[NSArray class]]){
+        for (id tempEvent in calendarView){
+            [calendarViewResult addObject:tempEvent];
+        }
+    }
+
+    _calendarView = calendarViewResult;
+        
+    }
+    return _calendarView;
+}
+
+- (void) setCalendarView: (NSArray*) val
+{
+    _calendarView = val;
+    self.dictionary[@"calendarView"] = val;
+}
+
+- (NSArray*) conversations
+{
+    if(!_conversations){
+        
+    NSMutableArray *conversationsResult = [NSMutableArray array];
+    NSArray *conversations = self.dictionary[@"conversations"];
+
+    if ([conversations isKindOfClass:[NSArray class]]){
+        for (id tempConversation in conversations){
+            [conversationsResult addObject:tempConversation];
+        }
+    }
+
+    _conversations = conversationsResult;
+        
+    }
+    return _conversations;
+}
+
+- (void) setConversations: (NSArray*) val
+{
+    _conversations = val;
+    self.dictionary[@"conversations"] = val;
+}
+
+- (NSArray*) events
+{
+    if(!_events){
+        
+    NSMutableArray *eventsResult = [NSMutableArray array];
+    NSArray *events = self.dictionary[@"events"];
+
+    if ([events isKindOfClass:[NSArray class]]){
+        for (id tempEvent in events){
+            [eventsResult addObject:tempEvent];
+        }
+    }
+
+    _events = eventsResult;
+        
+    }
+    return _events;
+}
+
+- (void) setEvents: (NSArray*) val
+{
+    _events = val;
+    self.dictionary[@"events"] = val;
+}
+
+- (MSGraphProfilePhoto*) photo
+{
+    if(!_photo){
+        _photo = [[MSGraphProfilePhoto alloc] initWithDictionary: self.dictionary[@"photo"]];
+    }
+    return _photo;
+}
+
+- (void) setPhoto: (MSGraphProfilePhoto*) val
+{
+    _photo = val;
+    self.dictionary[@"photo"] = val;
+}
+
+- (NSArray*) photos
+{
+    if(!_photos){
+        
+    NSMutableArray *photosResult = [NSMutableArray array];
+    NSArray *photos = self.dictionary[@"photos"];
+
+    if ([photos isKindOfClass:[NSArray class]]){
+        for (id tempProfilePhoto in photos){
+            [photosResult addObject:tempProfilePhoto];
+        }
+    }
+
+    _photos = photosResult;
+        
+    }
+    return _photos;
+}
+
+- (void) setPhotos: (NSArray*) val
+{
+    _photos = val;
+    self.dictionary[@"photos"] = val;
 }
 
 - (NSArray*) rejectedSenders
@@ -947,84 +1025,6 @@
 {
     _threads = val;
     self.dictionary[@"threads"] = val;
-}
-
-- (MSGraphCalendar*) calendar
-{
-    if(!_calendar){
-        _calendar = [[MSGraphCalendar alloc] initWithDictionary: self.dictionary[@"calendar"]];
-    }
-    return _calendar;
-}
-
-- (void) setCalendar: (MSGraphCalendar*) val
-{
-    _calendar = val;
-    self.dictionary[@"calendar"] = val;
-}
-
-- (NSArray*) calendarView
-{
-    if(!_calendarView){
-        
-    NSMutableArray *calendarViewResult = [NSMutableArray array];
-    NSArray *calendarView = self.dictionary[@"calendarView"];
-
-    if ([calendarView isKindOfClass:[NSArray class]]){
-        for (id tempEvent in calendarView){
-            [calendarViewResult addObject:tempEvent];
-        }
-    }
-
-    _calendarView = calendarViewResult;
-        
-    }
-    return _calendarView;
-}
-
-- (void) setCalendarView: (NSArray*) val
-{
-    _calendarView = val;
-    self.dictionary[@"calendarView"] = val;
-}
-
-- (NSArray*) events
-{
-    if(!_events){
-        
-    NSMutableArray *eventsResult = [NSMutableArray array];
-    NSArray *events = self.dictionary[@"events"];
-
-    if ([events isKindOfClass:[NSArray class]]){
-        for (id tempEvent in events){
-            [eventsResult addObject:tempEvent];
-        }
-    }
-
-    _events = eventsResult;
-        
-    }
-    return _events;
-}
-
-- (void) setEvents: (NSArray*) val
-{
-    _events = val;
-    self.dictionary[@"events"] = val;
-}
-
-- (MSGraphProfilePhoto*) photo
-{
-    if(!_photo){
-        _photo = [[MSGraphProfilePhoto alloc] initWithDictionary: self.dictionary[@"photo"]];
-    }
-    return _photo;
-}
-
-- (void) setPhoto: (MSGraphProfilePhoto*) val
-{
-    _photo = val;
-    self.dictionary[@"photo"] = val;
 }
 
 - (MSGraphDrive*) drive

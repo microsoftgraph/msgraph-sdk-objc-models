@@ -14,8 +14,8 @@
 
 @interface MSGraphManagedEBookAssignment()
 {
-    MSGraphDeviceAndAppManagementAssignmentTarget* _target;
     MSGraphInstallIntent* _installIntent;
+    MSGraphDeviceAndAppManagementAssignmentTarget* _target;
 }
 @end
 
@@ -28,20 +28,6 @@
     }
     return self;
 }
-- (MSGraphDeviceAndAppManagementAssignmentTarget*) target
-{
-    if(!_target){
-        _target = [[MSGraphDeviceAndAppManagementAssignmentTarget alloc] initWithDictionary: self.dictionary[@"target"]];
-    }
-    return _target;
-}
-
-- (void) setTarget: (MSGraphDeviceAndAppManagementAssignmentTarget*) val
-{
-    _target = val;
-    self.dictionary[@"target"] = val;
-}
-
 - (MSGraphInstallIntent*) installIntent
 {
     if(!_installIntent){
@@ -54,6 +40,20 @@
 {
     _installIntent = val;
     self.dictionary[@"installIntent"] = val;
+}
+
+- (MSGraphDeviceAndAppManagementAssignmentTarget*) target
+{
+    if(!_target){
+        _target = [[MSGraphDeviceAndAppManagementAssignmentTarget alloc] initWithDictionary: self.dictionary[@"target"]];
+    }
+    return _target;
+}
+
+- (void) setTarget: (MSGraphDeviceAndAppManagementAssignmentTarget*) val
+{
+    _target = val;
+    self.dictionary[@"target"] = val;
 }
 
 

@@ -9,8 +9,8 @@
 
 @interface MSGraphScheduleEntity : MSObject
 
-@property (nullable, nonatomic, setter=setStartDateTime:, getter=startDateTime) NSDate* startDateTime;
 @property (nullable, nonatomic, setter=setEndDateTime:, getter=endDateTime) NSDate* endDateTime;
+@property (nullable, nonatomic, setter=setStartDateTime:, getter=startDateTime) NSDate* startDateTime;
 @property (nonnull, nonatomic, setter=setTheme:, getter=theme) MSGraphScheduleEntityTheme* theme;
 
 @end

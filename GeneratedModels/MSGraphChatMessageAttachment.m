@@ -14,10 +14,10 @@
 
 @interface MSGraphChatMessageAttachment()
 {
-    NSString* _chatMessageAttachmentId;
+    NSString* _content;
     NSString* _contentType;
     NSString* _contentUrl;
-    NSString* _content;
+    NSString* _chatMessageAttachmentId;
     NSString* _name;
     NSString* _thumbnailUrl;
 }
@@ -25,18 +25,18 @@
 
 @implementation MSGraphChatMessageAttachment
 
-- (NSString*) chatMessageAttachmentId
+- (NSString*) content
 {
-    if([[NSNull null] isEqual:self.dictionary[@"id"]])
+    if([[NSNull null] isEqual:self.dictionary[@"content"]])
     {
         return nil;
     }   
-    return self.dictionary[@"id"];
+    return self.dictionary[@"content"];
 }
 
-- (void) setChatMessageAttachmentId: (NSString*) val
+- (void) setContent: (NSString*) val
 {
-    self.dictionary[@"id"] = val;
+    self.dictionary[@"content"] = val;
 }
 
 - (NSString*) contentType
@@ -67,18 +67,18 @@
     self.dictionary[@"contentUrl"] = val;
 }
 
-- (NSString*) content
+- (NSString*) chatMessageAttachmentId
 {
-    if([[NSNull null] isEqual:self.dictionary[@"content"]])
+    if([[NSNull null] isEqual:self.dictionary[@"id"]])
     {
         return nil;
     }   
-    return self.dictionary[@"content"];
+    return self.dictionary[@"id"];
 }
 
-- (void) setContent: (NSString*) val
+- (void) setChatMessageAttachmentId: (NSString*) val
 {
-    self.dictionary[@"content"] = val;
+    self.dictionary[@"id"] = val;
 }
 
 - (NSString*) name

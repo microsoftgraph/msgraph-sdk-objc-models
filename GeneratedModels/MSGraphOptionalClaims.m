@@ -14,38 +14,13 @@
 
 @interface MSGraphOptionalClaims()
 {
-    NSArray* _idToken;
     NSArray* _accessToken;
+    NSArray* _idToken;
     NSArray* _saml2Token;
 }
 @end
 
 @implementation MSGraphOptionalClaims
-
-- (NSArray*) idToken
-{
-    if(!_idToken){
-        
-    NSMutableArray *idTokenResult = [NSMutableArray array];
-    NSArray *idToken = self.dictionary[@"idToken"];
-
-    if ([idToken isKindOfClass:[NSArray class]]){
-        for (id tempOptionalClaim in idToken){
-            [idTokenResult addObject:tempOptionalClaim];
-        }
-    }
-
-    _idToken = idTokenResult;
-        
-    }
-    return _idToken;
-}
-
-- (void) setIdToken: (NSArray*) val
-{
-    _idToken = val;
-    self.dictionary[@"idToken"] = val;
-}
 
 - (NSArray*) accessToken
 {
@@ -70,6 +45,31 @@
 {
     _accessToken = val;
     self.dictionary[@"accessToken"] = val;
+}
+
+- (NSArray*) idToken
+{
+    if(!_idToken){
+        
+    NSMutableArray *idTokenResult = [NSMutableArray array];
+    NSArray *idToken = self.dictionary[@"idToken"];
+
+    if ([idToken isKindOfClass:[NSArray class]]){
+        for (id tempOptionalClaim in idToken){
+            [idTokenResult addObject:tempOptionalClaim];
+        }
+    }
+
+    _idToken = idTokenResult;
+        
+    }
+    return _idToken;
+}
+
+- (void) setIdToken: (NSArray*) val
+{
+    _idToken = val;
+    self.dictionary[@"idToken"] = val;
 }
 
 - (NSArray*) saml2Token

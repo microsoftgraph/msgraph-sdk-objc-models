@@ -17,10 +17,10 @@
     NSString* _customKeyIdentifier;
     NSString* _displayName;
     NSDate* _endDateTime;
-    NSString* _keyId;
-    NSDate* _startDateTime;
-    NSString* _secretText;
     NSString* _hint;
+    NSString* _keyId;
+    NSString* _secretText;
+    NSDate* _startDateTime;
 }
 @end
 
@@ -68,6 +68,20 @@
     self.dictionary[@"endDateTime"] = [val ms_toString];
 }
 
+- (NSString*) hint
+{
+    if([[NSNull null] isEqual:self.dictionary[@"hint"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"hint"];
+}
+
+- (void) setHint: (NSString*) val
+{
+    self.dictionary[@"hint"] = val;
+}
+
 - (NSString*) keyId
 {
     if([[NSNull null] isEqual:self.dictionary[@"keyId"]])
@@ -80,20 +94,6 @@
 - (void) setKeyId: (NSString*) val
 {
     self.dictionary[@"keyId"] = val;
-}
-
-- (NSDate*) startDateTime
-{
-    if(!_startDateTime){
-        _startDateTime = [NSDate ms_dateFromString: self.dictionary[@"startDateTime"]];
-    }
-    return _startDateTime;
-}
-
-- (void) setStartDateTime: (NSDate*) val
-{
-    _startDateTime = val;
-    self.dictionary[@"startDateTime"] = [val ms_toString];
 }
 
 - (NSString*) secretText
@@ -110,18 +110,18 @@
     self.dictionary[@"secretText"] = val;
 }
 
-- (NSString*) hint
+- (NSDate*) startDateTime
 {
-    if([[NSNull null] isEqual:self.dictionary[@"hint"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"hint"];
+    if(!_startDateTime){
+        _startDateTime = [NSDate ms_dateFromString: self.dictionary[@"startDateTime"]];
+    }
+    return _startDateTime;
 }
 
-- (void) setHint: (NSString*) val
+- (void) setStartDateTime: (NSDate*) val
 {
-    self.dictionary[@"hint"] = val;
+    _startDateTime = val;
+    self.dictionary[@"startDateTime"] = [val ms_toString];
 }
 
 @end

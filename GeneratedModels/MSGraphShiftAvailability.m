@@ -15,8 +15,8 @@
 @interface MSGraphShiftAvailability()
 {
     MSGraphPatternedRecurrence* _recurrence;
-    NSString* _timeZone;
     NSArray* _timeSlots;
+    NSString* _timeZone;
 }
 @end
 
@@ -34,20 +34,6 @@
 {
     _recurrence = val;
     self.dictionary[@"recurrence"] = val;
-}
-
-- (NSString*) timeZone
-{
-    if([[NSNull null] isEqual:self.dictionary[@"timeZone"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"timeZone"];
-}
-
-- (void) setTimeZone: (NSString*) val
-{
-    self.dictionary[@"timeZone"] = val;
 }
 
 - (NSArray*) timeSlots
@@ -73,6 +59,20 @@
 {
     _timeSlots = val;
     self.dictionary[@"timeSlots"] = val;
+}
+
+- (NSString*) timeZone
+{
+    if([[NSNull null] isEqual:self.dictionary[@"timeZone"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"timeZone"];
+}
+
+- (void) setTimeZone: (NSString*) val
+{
+    self.dictionary[@"timeZone"] = val;
 }
 
 @end

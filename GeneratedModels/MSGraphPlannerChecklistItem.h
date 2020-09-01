@@ -10,9 +10,9 @@
 @interface MSGraphPlannerChecklistItem : MSObject
 
 @property (nonatomic, setter=setIsChecked:, getter=isChecked) BOOL isChecked;
-@property (nullable, nonatomic, setter=setTitle:, getter=title) NSString* title;
-@property (nullable, nonatomic, setter=setOrderHint:, getter=orderHint) NSString* orderHint;
 @property (nullable, nonatomic, setter=setLastModifiedBy:, getter=lastModifiedBy) MSGraphIdentitySet* lastModifiedBy;
 @property (nullable, nonatomic, setter=setLastModifiedDateTime:, getter=lastModifiedDateTime) NSDate* lastModifiedDateTime;
+@property (nullable, nonatomic, setter=setOrderHint:, getter=orderHint) NSString* orderHint;
+@property (nullable, nonatomic, setter=setTitle:, getter=title) NSString* title;
 
 @end

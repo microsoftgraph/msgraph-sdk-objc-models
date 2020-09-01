@@ -10,7 +10,7 @@
 @interface MSGraphShiftAvailability : MSObject
 
 @property (nullable, nonatomic, setter=setRecurrence:, getter=recurrence) MSGraphPatternedRecurrence* recurrence;
-@property (nullable, nonatomic, setter=setTimeZone:, getter=timeZone) NSString* timeZone;
 @property (nullable, nonatomic, setter=setTimeSlots:, getter=timeSlots) NSArray* timeSlots;
+@property (nullable, nonatomic, setter=setTimeZone:, getter=timeZone) NSString* timeZone;
 
 @end

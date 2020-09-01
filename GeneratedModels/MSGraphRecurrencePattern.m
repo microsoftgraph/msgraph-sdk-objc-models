@@ -14,55 +14,17 @@
 
 @interface MSGraphRecurrencePattern()
 {
-    MSGraphRecurrencePatternType* _type;
-    int32_t _interval;
-    int32_t _month;
     int32_t _dayOfMonth;
     NSArray* _daysOfWeek;
     MSGraphDayOfWeek* _firstDayOfWeek;
     MSGraphWeekIndex* _index;
+    int32_t _interval;
+    int32_t _month;
+    MSGraphRecurrencePatternType* _type;
 }
 @end
 
 @implementation MSGraphRecurrencePattern
-
-- (MSGraphRecurrencePatternType*) type
-{
-    if(!_type){
-        _type = [self.dictionary[@"type"] toMSGraphRecurrencePatternType];
-    }
-    return _type;
-}
-
-- (void) setType: (MSGraphRecurrencePatternType*) val
-{
-    _type = val;
-    self.dictionary[@"type"] = val;
-}
-
-- (int32_t) interval
-{
-    _interval = [self.dictionary[@"interval"] intValue];
-    return _interval;
-}
-
-- (void) setInterval: (int32_t) val
-{
-    _interval = val;
-    self.dictionary[@"interval"] = @(val);
-}
-
-- (int32_t) month
-{
-    _month = [self.dictionary[@"month"] intValue];
-    return _month;
-}
-
-- (void) setMonth: (int32_t) val
-{
-    _month = val;
-    self.dictionary[@"month"] = @(val);
-}
 
 - (int32_t) dayOfMonth
 {
@@ -127,6 +89,44 @@
 {
     _index = val;
     self.dictionary[@"index"] = val;
+}
+
+- (int32_t) interval
+{
+    _interval = [self.dictionary[@"interval"] intValue];
+    return _interval;
+}
+
+- (void) setInterval: (int32_t) val
+{
+    _interval = val;
+    self.dictionary[@"interval"] = @(val);
+}
+
+- (int32_t) month
+{
+    _month = [self.dictionary[@"month"] intValue];
+    return _month;
+}
+
+- (void) setMonth: (int32_t) val
+{
+    _month = val;
+    self.dictionary[@"month"] = @(val);
+}
+
+- (MSGraphRecurrencePatternType*) type
+{
+    if(!_type){
+        _type = [self.dictionary[@"type"] toMSGraphRecurrencePatternType];
+    }
+    return _type;
+}
+
+- (void) setType: (MSGraphRecurrencePatternType*) val
+{
+    _type = val;
+    self.dictionary[@"type"] = val;
 }
 
 @end

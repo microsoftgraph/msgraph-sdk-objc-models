@@ -15,9 +15,9 @@
 @interface MSGraphScoredEmailAddress()
 {
     NSString* _address;
+    NSString* _itemId;
     double _relevanceScore;
     MSGraphSelectionLikelihoodInfo* _selectionLikelihood;
-    NSString* _itemId;
 }
 @end
 
@@ -35,6 +35,20 @@
 - (void) setAddress: (NSString*) val
 {
     self.dictionary[@"address"] = val;
+}
+
+- (NSString*) itemId
+{
+    if([[NSNull null] isEqual:self.dictionary[@"itemId"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"itemId"];
+}
+
+- (void) setItemId: (NSString*) val
+{
+    self.dictionary[@"itemId"] = val;
 }
 
 - (double) relevanceScore
@@ -61,20 +75,6 @@
 {
     _selectionLikelihood = val;
     self.dictionary[@"selectionLikelihood"] = val;
-}
-
-- (NSString*) itemId
-{
-    if([[NSNull null] isEqual:self.dictionary[@"itemId"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"itemId"];
-}
-
-- (void) setItemId: (NSString*) val
-{
-    self.dictionary[@"itemId"] = val;
 }
 
 @end

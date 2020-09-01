@@ -15,8 +15,8 @@
 @interface MSGraphCustomTimeZone()
 {
     int32_t _bias;
-    MSGraphStandardTimeZoneOffset* _standardOffset;
     MSGraphDaylightTimeZoneOffset* _daylightOffset;
+    MSGraphStandardTimeZoneOffset* _standardOffset;
 }
 @end
 
@@ -34,20 +34,6 @@
     self.dictionary[@"bias"] = @(val);
 }
 
-- (MSGraphStandardTimeZoneOffset*) standardOffset
-{
-    if(!_standardOffset){
-        _standardOffset = [[MSGraphStandardTimeZoneOffset alloc] initWithDictionary: self.dictionary[@"standardOffset"]];
-    }
-    return _standardOffset;
-}
-
-- (void) setStandardOffset: (MSGraphStandardTimeZoneOffset*) val
-{
-    _standardOffset = val;
-    self.dictionary[@"standardOffset"] = val;
-}
-
 - (MSGraphDaylightTimeZoneOffset*) daylightOffset
 {
     if(!_daylightOffset){
@@ -60,6 +46,20 @@
 {
     _daylightOffset = val;
     self.dictionary[@"daylightOffset"] = val;
+}
+
+- (MSGraphStandardTimeZoneOffset*) standardOffset
+{
+    if(!_standardOffset){
+        _standardOffset = [[MSGraphStandardTimeZoneOffset alloc] initWithDictionary: self.dictionary[@"standardOffset"]];
+    }
+    return _standardOffset;
+}
+
+- (void) setStandardOffset: (MSGraphStandardTimeZoneOffset*) val
+{
+    _standardOffset = val;
+    self.dictionary[@"standardOffset"] = val;
 }
 
 @end

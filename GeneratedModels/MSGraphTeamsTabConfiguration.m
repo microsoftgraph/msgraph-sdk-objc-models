@@ -14,28 +14,14 @@
 
 @interface MSGraphTeamsTabConfiguration()
 {
-    NSString* _entityId;
     NSString* _contentUrl;
+    NSString* _entityId;
     NSString* _removeUrl;
     NSString* _websiteUrl;
 }
 @end
 
 @implementation MSGraphTeamsTabConfiguration
-
-- (NSString*) entityId
-{
-    if([[NSNull null] isEqual:self.dictionary[@"entityId"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"entityId"];
-}
-
-- (void) setEntityId: (NSString*) val
-{
-    self.dictionary[@"entityId"] = val;
-}
 
 - (NSString*) contentUrl
 {
@@ -49,6 +35,20 @@
 - (void) setContentUrl: (NSString*) val
 {
     self.dictionary[@"contentUrl"] = val;
+}
+
+- (NSString*) entityId
+{
+    if([[NSNull null] isEqual:self.dictionary[@"entityId"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"entityId"];
+}
+
+- (void) setEntityId: (NSString*) val
+{
+    self.dictionary[@"entityId"] = val;
 }
 
 - (NSString*) removeUrl

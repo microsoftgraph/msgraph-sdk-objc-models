@@ -15,8 +15,8 @@
 @interface MSGraphWindowsInformationProtectionAppLockerFile()
 {
     NSString* _displayName;
-    NSString* _fileHash;
     NSString* _file;
+    NSString* _fileHash;
     NSString* _version;
 }
 @end
@@ -44,20 +44,6 @@
     self.dictionary[@"displayName"] = val;
 }
 
-- (NSString*) fileHash
-{
-    if([[NSNull null] isEqual:self.dictionary[@"fileHash"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"fileHash"];
-}
-
-- (void) setFileHash: (NSString*) val
-{
-    self.dictionary[@"fileHash"] = val;
-}
-
 - (NSString*) file
 {
     if([[NSNull null] isEqual:self.dictionary[@"file"]])
@@ -70,6 +56,20 @@
 - (void) setFile: (NSString*) val
 {
     self.dictionary[@"file"] = val;
+}
+
+- (NSString*) fileHash
+{
+    if([[NSNull null] isEqual:self.dictionary[@"fileHash"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"fileHash"];
+}
+
+- (void) setFileHash: (NSString*) val
+{
+    self.dictionary[@"fileHash"] = val;
 }
 
 - (NSString*) version

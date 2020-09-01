@@ -15,9 +15,9 @@
 @interface MSGraphIosDeviceFeaturesConfiguration()
 {
     NSString* _assetTagTemplate;
-    NSString* _lockScreenFootnote;
     NSArray* _homeScreenDockIcons;
     NSArray* _homeScreenPages;
+    NSString* _lockScreenFootnote;
     NSArray* _notificationSettings;
 }
 @end
@@ -43,20 +43,6 @@
 - (void) setAssetTagTemplate: (NSString*) val
 {
     self.dictionary[@"assetTagTemplate"] = val;
-}
-
-- (NSString*) lockScreenFootnote
-{
-    if([[NSNull null] isEqual:self.dictionary[@"lockScreenFootnote"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"lockScreenFootnote"];
-}
-
-- (void) setLockScreenFootnote: (NSString*) val
-{
-    self.dictionary[@"lockScreenFootnote"] = val;
 }
 
 - (NSArray*) homeScreenDockIcons
@@ -107,6 +93,20 @@
 {
     _homeScreenPages = val;
     self.dictionary[@"homeScreenPages"] = val;
+}
+
+- (NSString*) lockScreenFootnote
+{
+    if([[NSNull null] isEqual:self.dictionary[@"lockScreenFootnote"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"lockScreenFootnote"];
+}
+
+- (void) setLockScreenFootnote: (NSString*) val
+{
+    self.dictionary[@"lockScreenFootnote"] = val;
 }
 
 - (NSArray*) notificationSettings

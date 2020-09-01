@@ -131,6 +131,8 @@
             return [MSGraphCalendarColor lightBlue];
         case MSGraphCalendarColorLightGreen:
             return [MSGraphCalendarColor lightGreen];
+        case MSGraphCalendarColorAuto:
+            return [MSGraphCalendarColor auto];
         case MSGraphCalendarColorLightOrange:
             return [MSGraphCalendarColor lightOrange];
         case MSGraphCalendarColorLightGray:
@@ -147,8 +149,6 @@
             return [MSGraphCalendarColor lightRed];
         case MSGraphCalendarColorMaxColor:
             return [MSGraphCalendarColor maxColor];
-        case MSGraphCalendarColorAuto:
-            return [MSGraphCalendarColor auto];
         case MSGraphCalendarColorEndOfEnum:
         default:
             return [MSGraphCalendarColor UnknownEnumValue];
@@ -165,6 +165,8 @@
             return @"lightBlue";
         case MSGraphCalendarColorLightGreen:
             return @"lightGreen";
+        case MSGraphCalendarColorAuto:
+            return @"auto";
         case MSGraphCalendarColorLightOrange:
             return @"lightOrange";
         case MSGraphCalendarColorLightGray:
@@ -181,8 +183,6 @@
             return @"lightRed";
         case MSGraphCalendarColorMaxColor:
             return @"maxColor";
-        case MSGraphCalendarColorAuto:
-            return @"auto";
         case MSGraphCalendarColorEndOfEnum:
         default:
             return nil;
@@ -208,6 +208,10 @@
     else if([self isEqualToString:@"lightGreen"])
     {
           return [MSGraphCalendarColor lightGreen];
+    }
+    else if([self isEqualToString:@"auto"])
+    {
+          return [MSGraphCalendarColor auto];
     }
     else if([self isEqualToString:@"lightOrange"])
     {
@@ -240,10 +244,6 @@
     else if([self isEqualToString:@"maxColor"])
     {
           return [MSGraphCalendarColor maxColor];
-    }
-    else if([self isEqualToString:@"auto"])
-    {
-          return [MSGraphCalendarColor auto];
     }
     else {
         return [MSGraphCalendarColor UnknownEnumValue];

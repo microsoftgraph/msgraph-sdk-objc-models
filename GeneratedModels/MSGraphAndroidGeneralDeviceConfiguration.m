@@ -17,21 +17,26 @@
     BOOL _appsBlockClipboardSharing;
     BOOL _appsBlockCopyPaste;
     BOOL _appsBlockYouTube;
+    NSArray* _appsHideList;
+    NSArray* _appsInstallAllowList;
+    NSArray* _appsLaunchBlockList;
     BOOL _bluetoothBlocked;
     BOOL _cameraBlocked;
     BOOL _cellularBlockDataRoaming;
     BOOL _cellularBlockMessaging;
     BOOL _cellularBlockVoiceRoaming;
     BOOL _cellularBlockWiFiTethering;
-    NSArray* _compliantAppsList;
     MSGraphAppListType* _compliantAppListType;
+    NSArray* _compliantAppsList;
+    BOOL _deviceSharingAllowed;
     BOOL _diagnosticDataBlockSubmission;
-    BOOL _locationServicesBlocked;
+    BOOL _factoryResetBlocked;
     BOOL _googleAccountBlockAutoSync;
     BOOL _googlePlayStoreBlocked;
+    NSArray* _kioskModeApps;
     BOOL _kioskModeBlockSleepButton;
     BOOL _kioskModeBlockVolumeButtons;
-    NSArray* _kioskModeApps;
+    BOOL _locationServicesBlocked;
     BOOL _nfcBlocked;
     BOOL _passwordBlockFingerprintUnlock;
     BOOL _passwordBlockTrustAgents;
@@ -39,29 +44,24 @@
     int32_t _passwordMinimumLength;
     int32_t _passwordMinutesOfInactivityBeforeScreenTimeout;
     int32_t _passwordPreviousPasswordBlockCount;
-    int32_t _passwordSignInFailureCountBeforeFactoryReset;
-    MSGraphAndroidRequiredPasswordType* _passwordRequiredType;
     BOOL _passwordRequired;
+    MSGraphAndroidRequiredPasswordType* _passwordRequiredType;
+    int32_t _passwordSignInFailureCountBeforeFactoryReset;
     BOOL _powerOffBlocked;
-    BOOL _factoryResetBlocked;
     BOOL _screenCaptureBlocked;
-    BOOL _deviceSharingAllowed;
+    BOOL _securityRequireVerifyApps;
     BOOL _storageBlockGoogleBackup;
     BOOL _storageBlockRemovableStorage;
     BOOL _storageRequireDeviceEncryption;
     BOOL _storageRequireRemovableStorageEncryption;
     BOOL _voiceAssistantBlocked;
     BOOL _voiceDialingBlocked;
-    BOOL _webBrowserBlockPopups;
     BOOL _webBrowserBlockAutofill;
-    BOOL _webBrowserBlockJavaScript;
     BOOL _webBrowserBlocked;
+    BOOL _webBrowserBlockJavaScript;
+    BOOL _webBrowserBlockPopups;
     MSGraphWebBrowserCookieSettings* _webBrowserCookieSettings;
     BOOL _wiFiBlocked;
-    NSArray* _appsInstallAllowList;
-    NSArray* _appsLaunchBlockList;
-    NSArray* _appsHideList;
-    BOOL _securityRequireVerifyApps;
 }
 @end
 
@@ -108,6 +108,81 @@
 {
     _appsBlockYouTube = val;
     self.dictionary[@"appsBlockYouTube"] = @(val);
+}
+
+- (NSArray*) appsHideList
+{
+    if(!_appsHideList){
+        
+    NSMutableArray *appsHideListResult = [NSMutableArray array];
+    NSArray *appsHideList = self.dictionary[@"appsHideList"];
+
+    if ([appsHideList isKindOfClass:[NSArray class]]){
+        for (id tempAppListItem in appsHideList){
+            [appsHideListResult addObject:tempAppListItem];
+        }
+    }
+
+    _appsHideList = appsHideListResult;
+        
+    }
+    return _appsHideList;
+}
+
+- (void) setAppsHideList: (NSArray*) val
+{
+    _appsHideList = val;
+    self.dictionary[@"appsHideList"] = val;
+}
+
+- (NSArray*) appsInstallAllowList
+{
+    if(!_appsInstallAllowList){
+        
+    NSMutableArray *appsInstallAllowListResult = [NSMutableArray array];
+    NSArray *appsInstallAllowList = self.dictionary[@"appsInstallAllowList"];
+
+    if ([appsInstallAllowList isKindOfClass:[NSArray class]]){
+        for (id tempAppListItem in appsInstallAllowList){
+            [appsInstallAllowListResult addObject:tempAppListItem];
+        }
+    }
+
+    _appsInstallAllowList = appsInstallAllowListResult;
+        
+    }
+    return _appsInstallAllowList;
+}
+
+- (void) setAppsInstallAllowList: (NSArray*) val
+{
+    _appsInstallAllowList = val;
+    self.dictionary[@"appsInstallAllowList"] = val;
+}
+
+- (NSArray*) appsLaunchBlockList
+{
+    if(!_appsLaunchBlockList){
+        
+    NSMutableArray *appsLaunchBlockListResult = [NSMutableArray array];
+    NSArray *appsLaunchBlockList = self.dictionary[@"appsLaunchBlockList"];
+
+    if ([appsLaunchBlockList isKindOfClass:[NSArray class]]){
+        for (id tempAppListItem in appsLaunchBlockList){
+            [appsLaunchBlockListResult addObject:tempAppListItem];
+        }
+    }
+
+    _appsLaunchBlockList = appsLaunchBlockListResult;
+        
+    }
+    return _appsLaunchBlockList;
+}
+
+- (void) setAppsLaunchBlockList: (NSArray*) val
+{
+    _appsLaunchBlockList = val;
+    self.dictionary[@"appsLaunchBlockList"] = val;
 }
 
 - (BOOL) bluetoothBlocked
@@ -182,6 +257,20 @@
     self.dictionary[@"cellularBlockWiFiTethering"] = @(val);
 }
 
+- (MSGraphAppListType*) compliantAppListType
+{
+    if(!_compliantAppListType){
+        _compliantAppListType = [self.dictionary[@"compliantAppListType"] toMSGraphAppListType];
+    }
+    return _compliantAppListType;
+}
+
+- (void) setCompliantAppListType: (MSGraphAppListType*) val
+{
+    _compliantAppListType = val;
+    self.dictionary[@"compliantAppListType"] = val;
+}
+
 - (NSArray*) compliantAppsList
 {
     if(!_compliantAppsList){
@@ -207,18 +296,16 @@
     self.dictionary[@"compliantAppsList"] = val;
 }
 
-- (MSGraphAppListType*) compliantAppListType
+- (BOOL) deviceSharingAllowed
 {
-    if(!_compliantAppListType){
-        _compliantAppListType = [self.dictionary[@"compliantAppListType"] toMSGraphAppListType];
-    }
-    return _compliantAppListType;
+    _deviceSharingAllowed = [self.dictionary[@"deviceSharingAllowed"] boolValue];
+    return _deviceSharingAllowed;
 }
 
-- (void) setCompliantAppListType: (MSGraphAppListType*) val
+- (void) setDeviceSharingAllowed: (BOOL) val
 {
-    _compliantAppListType = val;
-    self.dictionary[@"compliantAppListType"] = val;
+    _deviceSharingAllowed = val;
+    self.dictionary[@"deviceSharingAllowed"] = @(val);
 }
 
 - (BOOL) diagnosticDataBlockSubmission
@@ -233,16 +320,16 @@
     self.dictionary[@"diagnosticDataBlockSubmission"] = @(val);
 }
 
-- (BOOL) locationServicesBlocked
+- (BOOL) factoryResetBlocked
 {
-    _locationServicesBlocked = [self.dictionary[@"locationServicesBlocked"] boolValue];
-    return _locationServicesBlocked;
+    _factoryResetBlocked = [self.dictionary[@"factoryResetBlocked"] boolValue];
+    return _factoryResetBlocked;
 }
 
-- (void) setLocationServicesBlocked: (BOOL) val
+- (void) setFactoryResetBlocked: (BOOL) val
 {
-    _locationServicesBlocked = val;
-    self.dictionary[@"locationServicesBlocked"] = @(val);
+    _factoryResetBlocked = val;
+    self.dictionary[@"factoryResetBlocked"] = @(val);
 }
 
 - (BOOL) googleAccountBlockAutoSync
@@ -269,6 +356,31 @@
     self.dictionary[@"googlePlayStoreBlocked"] = @(val);
 }
 
+- (NSArray*) kioskModeApps
+{
+    if(!_kioskModeApps){
+        
+    NSMutableArray *kioskModeAppsResult = [NSMutableArray array];
+    NSArray *kioskModeApps = self.dictionary[@"kioskModeApps"];
+
+    if ([kioskModeApps isKindOfClass:[NSArray class]]){
+        for (id tempAppListItem in kioskModeApps){
+            [kioskModeAppsResult addObject:tempAppListItem];
+        }
+    }
+
+    _kioskModeApps = kioskModeAppsResult;
+        
+    }
+    return _kioskModeApps;
+}
+
+- (void) setKioskModeApps: (NSArray*) val
+{
+    _kioskModeApps = val;
+    self.dictionary[@"kioskModeApps"] = val;
+}
+
 - (BOOL) kioskModeBlockSleepButton
 {
     _kioskModeBlockSleepButton = [self.dictionary[@"kioskModeBlockSleepButton"] boolValue];
@@ -293,29 +405,16 @@
     self.dictionary[@"kioskModeBlockVolumeButtons"] = @(val);
 }
 
-- (NSArray*) kioskModeApps
+- (BOOL) locationServicesBlocked
 {
-    if(!_kioskModeApps){
-        
-    NSMutableArray *kioskModeAppsResult = [NSMutableArray array];
-    NSArray *kioskModeApps = self.dictionary[@"kioskModeApps"];
-
-    if ([kioskModeApps isKindOfClass:[NSArray class]]){
-        for (id tempAppListItem in kioskModeApps){
-            [kioskModeAppsResult addObject:tempAppListItem];
-        }
-    }
-
-    _kioskModeApps = kioskModeAppsResult;
-        
-    }
-    return _kioskModeApps;
+    _locationServicesBlocked = [self.dictionary[@"locationServicesBlocked"] boolValue];
+    return _locationServicesBlocked;
 }
 
-- (void) setKioskModeApps: (NSArray*) val
+- (void) setLocationServicesBlocked: (BOOL) val
 {
-    _kioskModeApps = val;
-    self.dictionary[@"kioskModeApps"] = val;
+    _locationServicesBlocked = val;
+    self.dictionary[@"locationServicesBlocked"] = @(val);
 }
 
 - (BOOL) nfcBlocked
@@ -402,16 +501,16 @@
     self.dictionary[@"passwordPreviousPasswordBlockCount"] = @(val);
 }
 
-- (int32_t) passwordSignInFailureCountBeforeFactoryReset
+- (BOOL) passwordRequired
 {
-    _passwordSignInFailureCountBeforeFactoryReset = [self.dictionary[@"passwordSignInFailureCountBeforeFactoryReset"] intValue];
-    return _passwordSignInFailureCountBeforeFactoryReset;
+    _passwordRequired = [self.dictionary[@"passwordRequired"] boolValue];
+    return _passwordRequired;
 }
 
-- (void) setPasswordSignInFailureCountBeforeFactoryReset: (int32_t) val
+- (void) setPasswordRequired: (BOOL) val
 {
-    _passwordSignInFailureCountBeforeFactoryReset = val;
-    self.dictionary[@"passwordSignInFailureCountBeforeFactoryReset"] = @(val);
+    _passwordRequired = val;
+    self.dictionary[@"passwordRequired"] = @(val);
 }
 
 - (MSGraphAndroidRequiredPasswordType*) passwordRequiredType
@@ -428,16 +527,16 @@
     self.dictionary[@"passwordRequiredType"] = val;
 }
 
-- (BOOL) passwordRequired
+- (int32_t) passwordSignInFailureCountBeforeFactoryReset
 {
-    _passwordRequired = [self.dictionary[@"passwordRequired"] boolValue];
-    return _passwordRequired;
+    _passwordSignInFailureCountBeforeFactoryReset = [self.dictionary[@"passwordSignInFailureCountBeforeFactoryReset"] intValue];
+    return _passwordSignInFailureCountBeforeFactoryReset;
 }
 
-- (void) setPasswordRequired: (BOOL) val
+- (void) setPasswordSignInFailureCountBeforeFactoryReset: (int32_t) val
 {
-    _passwordRequired = val;
-    self.dictionary[@"passwordRequired"] = @(val);
+    _passwordSignInFailureCountBeforeFactoryReset = val;
+    self.dictionary[@"passwordSignInFailureCountBeforeFactoryReset"] = @(val);
 }
 
 - (BOOL) powerOffBlocked
@@ -452,18 +551,6 @@
     self.dictionary[@"powerOffBlocked"] = @(val);
 }
 
-- (BOOL) factoryResetBlocked
-{
-    _factoryResetBlocked = [self.dictionary[@"factoryResetBlocked"] boolValue];
-    return _factoryResetBlocked;
-}
-
-- (void) setFactoryResetBlocked: (BOOL) val
-{
-    _factoryResetBlocked = val;
-    self.dictionary[@"factoryResetBlocked"] = @(val);
-}
-
 - (BOOL) screenCaptureBlocked
 {
     _screenCaptureBlocked = [self.dictionary[@"screenCaptureBlocked"] boolValue];
@@ -476,16 +563,16 @@
     self.dictionary[@"screenCaptureBlocked"] = @(val);
 }
 
-- (BOOL) deviceSharingAllowed
+- (BOOL) securityRequireVerifyApps
 {
-    _deviceSharingAllowed = [self.dictionary[@"deviceSharingAllowed"] boolValue];
-    return _deviceSharingAllowed;
+    _securityRequireVerifyApps = [self.dictionary[@"securityRequireVerifyApps"] boolValue];
+    return _securityRequireVerifyApps;
 }
 
-- (void) setDeviceSharingAllowed: (BOOL) val
+- (void) setSecurityRequireVerifyApps: (BOOL) val
 {
-    _deviceSharingAllowed = val;
-    self.dictionary[@"deviceSharingAllowed"] = @(val);
+    _securityRequireVerifyApps = val;
+    self.dictionary[@"securityRequireVerifyApps"] = @(val);
 }
 
 - (BOOL) storageBlockGoogleBackup
@@ -560,18 +647,6 @@
     self.dictionary[@"voiceDialingBlocked"] = @(val);
 }
 
-- (BOOL) webBrowserBlockPopups
-{
-    _webBrowserBlockPopups = [self.dictionary[@"webBrowserBlockPopups"] boolValue];
-    return _webBrowserBlockPopups;
-}
-
-- (void) setWebBrowserBlockPopups: (BOOL) val
-{
-    _webBrowserBlockPopups = val;
-    self.dictionary[@"webBrowserBlockPopups"] = @(val);
-}
-
 - (BOOL) webBrowserBlockAutofill
 {
     _webBrowserBlockAutofill = [self.dictionary[@"webBrowserBlockAutofill"] boolValue];
@@ -582,6 +657,18 @@
 {
     _webBrowserBlockAutofill = val;
     self.dictionary[@"webBrowserBlockAutofill"] = @(val);
+}
+
+- (BOOL) webBrowserBlocked
+{
+    _webBrowserBlocked = [self.dictionary[@"webBrowserBlocked"] boolValue];
+    return _webBrowserBlocked;
+}
+
+- (void) setWebBrowserBlocked: (BOOL) val
+{
+    _webBrowserBlocked = val;
+    self.dictionary[@"webBrowserBlocked"] = @(val);
 }
 
 - (BOOL) webBrowserBlockJavaScript
@@ -596,16 +683,16 @@
     self.dictionary[@"webBrowserBlockJavaScript"] = @(val);
 }
 
-- (BOOL) webBrowserBlocked
+- (BOOL) webBrowserBlockPopups
 {
-    _webBrowserBlocked = [self.dictionary[@"webBrowserBlocked"] boolValue];
-    return _webBrowserBlocked;
+    _webBrowserBlockPopups = [self.dictionary[@"webBrowserBlockPopups"] boolValue];
+    return _webBrowserBlockPopups;
 }
 
-- (void) setWebBrowserBlocked: (BOOL) val
+- (void) setWebBrowserBlockPopups: (BOOL) val
 {
-    _webBrowserBlocked = val;
-    self.dictionary[@"webBrowserBlocked"] = @(val);
+    _webBrowserBlockPopups = val;
+    self.dictionary[@"webBrowserBlockPopups"] = @(val);
 }
 
 - (MSGraphWebBrowserCookieSettings*) webBrowserCookieSettings
@@ -632,93 +719,6 @@
 {
     _wiFiBlocked = val;
     self.dictionary[@"wiFiBlocked"] = @(val);
-}
-
-- (NSArray*) appsInstallAllowList
-{
-    if(!_appsInstallAllowList){
-        
-    NSMutableArray *appsInstallAllowListResult = [NSMutableArray array];
-    NSArray *appsInstallAllowList = self.dictionary[@"appsInstallAllowList"];
-
-    if ([appsInstallAllowList isKindOfClass:[NSArray class]]){
-        for (id tempAppListItem in appsInstallAllowList){
-            [appsInstallAllowListResult addObject:tempAppListItem];
-        }
-    }
-
-    _appsInstallAllowList = appsInstallAllowListResult;
-        
-    }
-    return _appsInstallAllowList;
-}
-
-- (void) setAppsInstallAllowList: (NSArray*) val
-{
-    _appsInstallAllowList = val;
-    self.dictionary[@"appsInstallAllowList"] = val;
-}
-
-- (NSArray*) appsLaunchBlockList
-{
-    if(!_appsLaunchBlockList){
-        
-    NSMutableArray *appsLaunchBlockListResult = [NSMutableArray array];
-    NSArray *appsLaunchBlockList = self.dictionary[@"appsLaunchBlockList"];
-
-    if ([appsLaunchBlockList isKindOfClass:[NSArray class]]){
-        for (id tempAppListItem in appsLaunchBlockList){
-            [appsLaunchBlockListResult addObject:tempAppListItem];
-        }
-    }
-
-    _appsLaunchBlockList = appsLaunchBlockListResult;
-        
-    }
-    return _appsLaunchBlockList;
-}
-
-- (void) setAppsLaunchBlockList: (NSArray*) val
-{
-    _appsLaunchBlockList = val;
-    self.dictionary[@"appsLaunchBlockList"] = val;
-}
-
-- (NSArray*) appsHideList
-{
-    if(!_appsHideList){
-        
-    NSMutableArray *appsHideListResult = [NSMutableArray array];
-    NSArray *appsHideList = self.dictionary[@"appsHideList"];
-
-    if ([appsHideList isKindOfClass:[NSArray class]]){
-        for (id tempAppListItem in appsHideList){
-            [appsHideListResult addObject:tempAppListItem];
-        }
-    }
-
-    _appsHideList = appsHideListResult;
-        
-    }
-    return _appsHideList;
-}
-
-- (void) setAppsHideList: (NSArray*) val
-{
-    _appsHideList = val;
-    self.dictionary[@"appsHideList"] = val;
-}
-
-- (BOOL) securityRequireVerifyApps
-{
-    _securityRequireVerifyApps = [self.dictionary[@"securityRequireVerifyApps"] boolValue];
-    return _securityRequireVerifyApps;
-}
-
-- (void) setSecurityRequireVerifyApps: (BOOL) val
-{
-    _securityRequireVerifyApps = val;
-    self.dictionary[@"securityRequireVerifyApps"] = @(val);
 }
 
 

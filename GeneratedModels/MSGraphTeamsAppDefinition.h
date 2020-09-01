@@ -7,8 +7,8 @@
 
 @interface MSGraphTeamsAppDefinition : MSGraphEntity
 
-  @property (nullable, nonatomic, setter=setTeamsAppId:, getter=teamsAppId) NSString* teamsAppId;
-    @property (nullable, nonatomic, setter=setDisplayName:, getter=displayName) NSString* displayName;
+  @property (nullable, nonatomic, setter=setDisplayName:, getter=displayName) NSString* displayName;
+    @property (nullable, nonatomic, setter=setTeamsAppId:, getter=teamsAppId) NSString* teamsAppId;
     @property (nullable, nonatomic, setter=setVersion:, getter=version) NSString* version;
   
 @end

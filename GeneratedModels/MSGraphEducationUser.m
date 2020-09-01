@@ -14,37 +14,37 @@
 
 @interface MSGraphEducationUser()
 {
-    MSGraphEducationUserRole* _primaryRole;
-    NSString* _middleName;
-    MSGraphEducationExternalSource* _externalSource;
-    MSGraphPhysicalAddress* _residenceAddress;
-    MSGraphPhysicalAddress* _mailingAddress;
-    MSGraphEducationStudent* _student;
-    MSGraphEducationTeacher* _teacher;
-    MSGraphIdentitySet* _createdBy;
     BOOL _accountEnabled;
     NSArray* _assignedLicenses;
     NSArray* _assignedPlans;
     NSArray* _businessPhones;
+    MSGraphIdentitySet* _createdBy;
     NSString* _department;
     NSString* _displayName;
+    MSGraphEducationExternalSource* _externalSource;
     NSString* _givenName;
     NSString* _mail;
+    MSGraphPhysicalAddress* _mailingAddress;
     NSString* _mailNickname;
+    NSString* _middleName;
     NSString* _mobilePhone;
+    NSString* _officeLocation;
     NSString* _passwordPolicies;
     MSGraphPasswordProfile* _passwordProfile;
-    NSString* _officeLocation;
     NSString* _preferredLanguage;
+    MSGraphEducationUserRole* _primaryRole;
     NSArray* _provisionedPlans;
     NSDate* _refreshTokensValidFromDateTime;
+    MSGraphPhysicalAddress* _residenceAddress;
     BOOL _showInAddressList;
+    MSGraphEducationStudent* _student;
     NSString* _surname;
+    MSGraphEducationTeacher* _teacher;
     NSString* _usageLocation;
     NSString* _userPrincipalName;
     NSString* _userType;
-    NSArray* _schools;
     NSArray* _classes;
+    NSArray* _schools;
     MSGraphUser* _user;
 }
 @end
@@ -58,118 +58,6 @@
     }
     return self;
 }
-- (MSGraphEducationUserRole*) primaryRole
-{
-    if(!_primaryRole){
-        _primaryRole = [self.dictionary[@"primaryRole"] toMSGraphEducationUserRole];
-    }
-    return _primaryRole;
-}
-
-- (void) setPrimaryRole: (MSGraphEducationUserRole*) val
-{
-    _primaryRole = val;
-    self.dictionary[@"primaryRole"] = val;
-}
-
-- (NSString*) middleName
-{
-    if([[NSNull null] isEqual:self.dictionary[@"middleName"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"middleName"];
-}
-
-- (void) setMiddleName: (NSString*) val
-{
-    self.dictionary[@"middleName"] = val;
-}
-
-- (MSGraphEducationExternalSource*) externalSource
-{
-    if(!_externalSource){
-        _externalSource = [self.dictionary[@"externalSource"] toMSGraphEducationExternalSource];
-    }
-    return _externalSource;
-}
-
-- (void) setExternalSource: (MSGraphEducationExternalSource*) val
-{
-    _externalSource = val;
-    self.dictionary[@"externalSource"] = val;
-}
-
-- (MSGraphPhysicalAddress*) residenceAddress
-{
-    if(!_residenceAddress){
-        _residenceAddress = [[MSGraphPhysicalAddress alloc] initWithDictionary: self.dictionary[@"residenceAddress"]];
-    }
-    return _residenceAddress;
-}
-
-- (void) setResidenceAddress: (MSGraphPhysicalAddress*) val
-{
-    _residenceAddress = val;
-    self.dictionary[@"residenceAddress"] = val;
-}
-
-- (MSGraphPhysicalAddress*) mailingAddress
-{
-    if(!_mailingAddress){
-        _mailingAddress = [[MSGraphPhysicalAddress alloc] initWithDictionary: self.dictionary[@"mailingAddress"]];
-    }
-    return _mailingAddress;
-}
-
-- (void) setMailingAddress: (MSGraphPhysicalAddress*) val
-{
-    _mailingAddress = val;
-    self.dictionary[@"mailingAddress"] = val;
-}
-
-- (MSGraphEducationStudent*) student
-{
-    if(!_student){
-        _student = [[MSGraphEducationStudent alloc] initWithDictionary: self.dictionary[@"student"]];
-    }
-    return _student;
-}
-
-- (void) setStudent: (MSGraphEducationStudent*) val
-{
-    _student = val;
-    self.dictionary[@"student"] = val;
-}
-
-- (MSGraphEducationTeacher*) teacher
-{
-    if(!_teacher){
-        _teacher = [[MSGraphEducationTeacher alloc] initWithDictionary: self.dictionary[@"teacher"]];
-    }
-    return _teacher;
-}
-
-- (void) setTeacher: (MSGraphEducationTeacher*) val
-{
-    _teacher = val;
-    self.dictionary[@"teacher"] = val;
-}
-
-- (MSGraphIdentitySet*) createdBy
-{
-    if(!_createdBy){
-        _createdBy = [[MSGraphIdentitySet alloc] initWithDictionary: self.dictionary[@"createdBy"]];
-    }
-    return _createdBy;
-}
-
-- (void) setCreatedBy: (MSGraphIdentitySet*) val
-{
-    _createdBy = val;
-    self.dictionary[@"createdBy"] = val;
-}
-
 - (BOOL) accountEnabled
 {
     _accountEnabled = [self.dictionary[@"accountEnabled"] boolValue];
@@ -242,6 +130,20 @@
     self.dictionary[@"businessPhones"] = val;
 }
 
+- (MSGraphIdentitySet*) createdBy
+{
+    if(!_createdBy){
+        _createdBy = [[MSGraphIdentitySet alloc] initWithDictionary: self.dictionary[@"createdBy"]];
+    }
+    return _createdBy;
+}
+
+- (void) setCreatedBy: (MSGraphIdentitySet*) val
+{
+    _createdBy = val;
+    self.dictionary[@"createdBy"] = val;
+}
+
 - (NSString*) department
 {
     if([[NSNull null] isEqual:self.dictionary[@"department"]])
@@ -268,6 +170,20 @@
 - (void) setDisplayName: (NSString*) val
 {
     self.dictionary[@"displayName"] = val;
+}
+
+- (MSGraphEducationExternalSource*) externalSource
+{
+    if(!_externalSource){
+        _externalSource = [self.dictionary[@"externalSource"] toMSGraphEducationExternalSource];
+    }
+    return _externalSource;
+}
+
+- (void) setExternalSource: (MSGraphEducationExternalSource*) val
+{
+    _externalSource = val;
+    self.dictionary[@"externalSource"] = val;
 }
 
 - (NSString*) givenName
@@ -298,6 +214,20 @@
     self.dictionary[@"mail"] = val;
 }
 
+- (MSGraphPhysicalAddress*) mailingAddress
+{
+    if(!_mailingAddress){
+        _mailingAddress = [[MSGraphPhysicalAddress alloc] initWithDictionary: self.dictionary[@"mailingAddress"]];
+    }
+    return _mailingAddress;
+}
+
+- (void) setMailingAddress: (MSGraphPhysicalAddress*) val
+{
+    _mailingAddress = val;
+    self.dictionary[@"mailingAddress"] = val;
+}
+
 - (NSString*) mailNickname
 {
     if([[NSNull null] isEqual:self.dictionary[@"mailNickname"]])
@@ -312,6 +242,20 @@
     self.dictionary[@"mailNickname"] = val;
 }
 
+- (NSString*) middleName
+{
+    if([[NSNull null] isEqual:self.dictionary[@"middleName"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"middleName"];
+}
+
+- (void) setMiddleName: (NSString*) val
+{
+    self.dictionary[@"middleName"] = val;
+}
+
 - (NSString*) mobilePhone
 {
     if([[NSNull null] isEqual:self.dictionary[@"mobilePhone"]])
@@ -324,6 +268,20 @@
 - (void) setMobilePhone: (NSString*) val
 {
     self.dictionary[@"mobilePhone"] = val;
+}
+
+- (NSString*) officeLocation
+{
+    if([[NSNull null] isEqual:self.dictionary[@"officeLocation"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"officeLocation"];
+}
+
+- (void) setOfficeLocation: (NSString*) val
+{
+    self.dictionary[@"officeLocation"] = val;
 }
 
 - (NSString*) passwordPolicies
@@ -354,20 +312,6 @@
     self.dictionary[@"passwordProfile"] = val;
 }
 
-- (NSString*) officeLocation
-{
-    if([[NSNull null] isEqual:self.dictionary[@"officeLocation"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"officeLocation"];
-}
-
-- (void) setOfficeLocation: (NSString*) val
-{
-    self.dictionary[@"officeLocation"] = val;
-}
-
 - (NSString*) preferredLanguage
 {
     if([[NSNull null] isEqual:self.dictionary[@"preferredLanguage"]])
@@ -380,6 +324,20 @@
 - (void) setPreferredLanguage: (NSString*) val
 {
     self.dictionary[@"preferredLanguage"] = val;
+}
+
+- (MSGraphEducationUserRole*) primaryRole
+{
+    if(!_primaryRole){
+        _primaryRole = [self.dictionary[@"primaryRole"] toMSGraphEducationUserRole];
+    }
+    return _primaryRole;
+}
+
+- (void) setPrimaryRole: (MSGraphEducationUserRole*) val
+{
+    _primaryRole = val;
+    self.dictionary[@"primaryRole"] = val;
 }
 
 - (NSArray*) provisionedPlans
@@ -421,6 +379,20 @@
     self.dictionary[@"refreshTokensValidFromDateTime"] = [val ms_toString];
 }
 
+- (MSGraphPhysicalAddress*) residenceAddress
+{
+    if(!_residenceAddress){
+        _residenceAddress = [[MSGraphPhysicalAddress alloc] initWithDictionary: self.dictionary[@"residenceAddress"]];
+    }
+    return _residenceAddress;
+}
+
+- (void) setResidenceAddress: (MSGraphPhysicalAddress*) val
+{
+    _residenceAddress = val;
+    self.dictionary[@"residenceAddress"] = val;
+}
+
 - (BOOL) showInAddressList
 {
     _showInAddressList = [self.dictionary[@"showInAddressList"] boolValue];
@@ -431,6 +403,20 @@
 {
     _showInAddressList = val;
     self.dictionary[@"showInAddressList"] = @(val);
+}
+
+- (MSGraphEducationStudent*) student
+{
+    if(!_student){
+        _student = [[MSGraphEducationStudent alloc] initWithDictionary: self.dictionary[@"student"]];
+    }
+    return _student;
+}
+
+- (void) setStudent: (MSGraphEducationStudent*) val
+{
+    _student = val;
+    self.dictionary[@"student"] = val;
 }
 
 - (NSString*) surname
@@ -445,6 +431,20 @@
 - (void) setSurname: (NSString*) val
 {
     self.dictionary[@"surname"] = val;
+}
+
+- (MSGraphEducationTeacher*) teacher
+{
+    if(!_teacher){
+        _teacher = [[MSGraphEducationTeacher alloc] initWithDictionary: self.dictionary[@"teacher"]];
+    }
+    return _teacher;
+}
+
+- (void) setTeacher: (MSGraphEducationTeacher*) val
+{
+    _teacher = val;
+    self.dictionary[@"teacher"] = val;
 }
 
 - (NSString*) usageLocation
@@ -489,31 +489,6 @@
     self.dictionary[@"userType"] = val;
 }
 
-- (NSArray*) schools
-{
-    if(!_schools){
-        
-    NSMutableArray *schoolsResult = [NSMutableArray array];
-    NSArray *schools = self.dictionary[@"schools"];
-
-    if ([schools isKindOfClass:[NSArray class]]){
-        for (id tempEducationSchool in schools){
-            [schoolsResult addObject:tempEducationSchool];
-        }
-    }
-
-    _schools = schoolsResult;
-        
-    }
-    return _schools;
-}
-
-- (void) setSchools: (NSArray*) val
-{
-    _schools = val;
-    self.dictionary[@"schools"] = val;
-}
-
 - (NSArray*) classes
 {
     if(!_classes){
@@ -537,6 +512,31 @@
 {
     _classes = val;
     self.dictionary[@"classes"] = val;
+}
+
+- (NSArray*) schools
+{
+    if(!_schools){
+        
+    NSMutableArray *schoolsResult = [NSMutableArray array];
+    NSArray *schools = self.dictionary[@"schools"];
+
+    if ([schools isKindOfClass:[NSArray class]]){
+        for (id tempEducationSchool in schools){
+            [schoolsResult addObject:tempEducationSchool];
+        }
+    }
+
+    _schools = schoolsResult;
+        
+    }
+    return _schools;
+}
+
+- (void) setSchools: (NSArray*) val
+{
+    _schools = val;
+    self.dictionary[@"schools"] = val;
 }
 
 - (MSGraphUser*) user

@@ -17,9 +17,9 @@
     int32_t _androidCount;
     int32_t _iosCount;
     int32_t _macOSCount;
-    int32_t _windowsMobileCount;
-    int32_t _windowsCount;
     int32_t _unknownCount;
+    int32_t _windowsCount;
+    int32_t _windowsMobileCount;
 }
 @end
 
@@ -61,16 +61,16 @@
     self.dictionary[@"macOSCount"] = @(val);
 }
 
-- (int32_t) windowsMobileCount
+- (int32_t) unknownCount
 {
-    _windowsMobileCount = [self.dictionary[@"windowsMobileCount"] intValue];
-    return _windowsMobileCount;
+    _unknownCount = [self.dictionary[@"unknownCount"] intValue];
+    return _unknownCount;
 }
 
-- (void) setWindowsMobileCount: (int32_t) val
+- (void) setUnknownCount: (int32_t) val
 {
-    _windowsMobileCount = val;
-    self.dictionary[@"windowsMobileCount"] = @(val);
+    _unknownCount = val;
+    self.dictionary[@"unknownCount"] = @(val);
 }
 
 - (int32_t) windowsCount
@@ -85,16 +85,16 @@
     self.dictionary[@"windowsCount"] = @(val);
 }
 
-- (int32_t) unknownCount
+- (int32_t) windowsMobileCount
 {
-    _unknownCount = [self.dictionary[@"unknownCount"] intValue];
-    return _unknownCount;
+    _windowsMobileCount = [self.dictionary[@"windowsMobileCount"] intValue];
+    return _windowsMobileCount;
 }
 
-- (void) setUnknownCount: (int32_t) val
+- (void) setWindowsMobileCount: (int32_t) val
 {
-    _unknownCount = val;
-    self.dictionary[@"unknownCount"] = @(val);
+    _windowsMobileCount = val;
+    self.dictionary[@"windowsMobileCount"] = @(val);
 }
 
 @end

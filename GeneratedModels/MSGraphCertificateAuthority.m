@@ -14,10 +14,10 @@
 
 @interface MSGraphCertificateAuthority()
 {
-    BOOL _isRootAuthority;
+    NSString* _certificate;
     NSString* _certificateRevocationListUrl;
     NSString* _deltaCertificateRevocationListUrl;
-    NSString* _certificate;
+    BOOL _isRootAuthority;
     NSString* _issuer;
     NSString* _issuerSki;
 }
@@ -25,16 +25,14 @@
 
 @implementation MSGraphCertificateAuthority
 
-- (BOOL) isRootAuthority
+- (NSString*) certificate
 {
-    _isRootAuthority = [self.dictionary[@"isRootAuthority"] boolValue];
-    return _isRootAuthority;
+    return self.dictionary[@"certificate"];
 }
 
-- (void) setIsRootAuthority: (BOOL) val
+- (void) setCertificate: (NSString*) val
 {
-    _isRootAuthority = val;
-    self.dictionary[@"isRootAuthority"] = @(val);
+    self.dictionary[@"certificate"] = val;
 }
 
 - (NSString*) certificateRevocationListUrl
@@ -65,14 +63,16 @@
     self.dictionary[@"deltaCertificateRevocationListUrl"] = val;
 }
 
-- (NSString*) certificate
+- (BOOL) isRootAuthority
 {
-    return self.dictionary[@"certificate"];
+    _isRootAuthority = [self.dictionary[@"isRootAuthority"] boolValue];
+    return _isRootAuthority;
 }
 
-- (void) setCertificate: (NSString*) val
+- (void) setIsRootAuthority: (BOOL) val
 {
-    self.dictionary[@"certificate"] = val;
+    _isRootAuthority = val;
+    self.dictionary[@"isRootAuthority"] = @(val);
 }
 
 - (NSString*) issuer

@@ -17,8 +17,8 @@
     int32_t _allowedDeviceCount;
     int32_t _blockedDeviceCount;
     int32_t _quarantinedDeviceCount;
-    int32_t _unknownDeviceCount;
     int32_t _unavailableDeviceCount;
+    int32_t _unknownDeviceCount;
 }
 @end
 
@@ -60,18 +60,6 @@
     self.dictionary[@"quarantinedDeviceCount"] = @(val);
 }
 
-- (int32_t) unknownDeviceCount
-{
-    _unknownDeviceCount = [self.dictionary[@"unknownDeviceCount"] intValue];
-    return _unknownDeviceCount;
-}
-
-- (void) setUnknownDeviceCount: (int32_t) val
-{
-    _unknownDeviceCount = val;
-    self.dictionary[@"unknownDeviceCount"] = @(val);
-}
-
 - (int32_t) unavailableDeviceCount
 {
     _unavailableDeviceCount = [self.dictionary[@"unavailableDeviceCount"] intValue];
@@ -82,6 +70,18 @@
 {
     _unavailableDeviceCount = val;
     self.dictionary[@"unavailableDeviceCount"] = @(val);
+}
+
+- (int32_t) unknownDeviceCount
+{
+    _unknownDeviceCount = [self.dictionary[@"unknownDeviceCount"] intValue];
+    return _unknownDeviceCount;
+}
+
+- (void) setUnknownDeviceCount: (int32_t) val
+{
+    _unknownDeviceCount = val;
+    self.dictionary[@"unknownDeviceCount"] = @(val);
 }
 
 @end

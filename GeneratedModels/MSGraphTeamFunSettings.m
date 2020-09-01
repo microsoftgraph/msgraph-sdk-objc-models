@@ -14,14 +14,26 @@
 
 @interface MSGraphTeamFunSettings()
 {
-    BOOL _allowGiphy;
-    MSGraphGiphyRatingType* _giphyContentRating;
-    BOOL _allowStickersAndMemes;
     BOOL _allowCustomMemes;
+    BOOL _allowGiphy;
+    BOOL _allowStickersAndMemes;
+    MSGraphGiphyRatingType* _giphyContentRating;
 }
 @end
 
 @implementation MSGraphTeamFunSettings
+
+- (BOOL) allowCustomMemes
+{
+    _allowCustomMemes = [self.dictionary[@"allowCustomMemes"] boolValue];
+    return _allowCustomMemes;
+}
+
+- (void) setAllowCustomMemes: (BOOL) val
+{
+    _allowCustomMemes = val;
+    self.dictionary[@"allowCustomMemes"] = @(val);
+}
 
 - (BOOL) allowGiphy
 {
@@ -33,20 +45,6 @@
 {
     _allowGiphy = val;
     self.dictionary[@"allowGiphy"] = @(val);
-}
-
-- (MSGraphGiphyRatingType*) giphyContentRating
-{
-    if(!_giphyContentRating){
-        _giphyContentRating = [self.dictionary[@"giphyContentRating"] toMSGraphGiphyRatingType];
-    }
-    return _giphyContentRating;
-}
-
-- (void) setGiphyContentRating: (MSGraphGiphyRatingType*) val
-{
-    _giphyContentRating = val;
-    self.dictionary[@"giphyContentRating"] = val;
 }
 
 - (BOOL) allowStickersAndMemes
@@ -61,16 +59,18 @@
     self.dictionary[@"allowStickersAndMemes"] = @(val);
 }
 
-- (BOOL) allowCustomMemes
+- (MSGraphGiphyRatingType*) giphyContentRating
 {
-    _allowCustomMemes = [self.dictionary[@"allowCustomMemes"] boolValue];
-    return _allowCustomMemes;
+    if(!_giphyContentRating){
+        _giphyContentRating = [self.dictionary[@"giphyContentRating"] toMSGraphGiphyRatingType];
+    }
+    return _giphyContentRating;
 }
 
-- (void) setAllowCustomMemes: (BOOL) val
+- (void) setGiphyContentRating: (MSGraphGiphyRatingType*) val
 {
-    _allowCustomMemes = val;
-    self.dictionary[@"allowCustomMemes"] = @(val);
+    _giphyContentRating = val;
+    self.dictionary[@"giphyContentRating"] = val;
 }
 
 @end

@@ -15,9 +15,9 @@
 @interface MSGraphSignInLocation()
 {
     NSString* _city;
-    NSString* _state;
     NSString* _countryOrRegion;
     MSGraphGeoCoordinates* _geoCoordinates;
+    NSString* _state;
 }
 @end
 
@@ -35,20 +35,6 @@
 - (void) setCity: (NSString*) val
 {
     self.dictionary[@"city"] = val;
-}
-
-- (NSString*) state
-{
-    if([[NSNull null] isEqual:self.dictionary[@"state"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"state"];
-}
-
-- (void) setState: (NSString*) val
-{
-    self.dictionary[@"state"] = val;
 }
 
 - (NSString*) countryOrRegion
@@ -77,6 +63,20 @@
 {
     _geoCoordinates = val;
     self.dictionary[@"geoCoordinates"] = val;
+}
+
+- (NSString*) state
+{
+    if([[NSNull null] isEqual:self.dictionary[@"state"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"state"];
+}
+
+- (void) setState: (NSString*) val
+{
+    self.dictionary[@"state"] = val;
 }
 
 @end

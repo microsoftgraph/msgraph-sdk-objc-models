@@ -10,7 +10,7 @@
   @property (nonnull, nonatomic, setter=setCapability:, getter=capability) NSString* capability;
     @property (nullable, nonatomic, setter=setProviderId:, getter=providerId) NSString* providerId;
     @property (nullable, nonatomic, setter=setProviderName:, getter=providerName) NSString* providerName;
-    @property (nonnull, nonatomic, setter=setUri:, getter=uri) NSString* uri;
     @property (nullable, nonatomic, setter=setProviderResourceId:, getter=providerResourceId) NSString* providerResourceId;
+    @property (nonnull, nonatomic, setter=setUri:, getter=uri) NSString* uri;
   
 @end

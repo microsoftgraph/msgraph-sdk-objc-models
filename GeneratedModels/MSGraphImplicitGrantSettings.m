@@ -14,24 +14,12 @@
 
 @interface MSGraphImplicitGrantSettings()
 {
-    BOOL _enableIdTokenIssuance;
     BOOL _enableAccessTokenIssuance;
+    BOOL _enableIdTokenIssuance;
 }
 @end
 
 @implementation MSGraphImplicitGrantSettings
-
-- (BOOL) enableIdTokenIssuance
-{
-    _enableIdTokenIssuance = [self.dictionary[@"enableIdTokenIssuance"] boolValue];
-    return _enableIdTokenIssuance;
-}
-
-- (void) setEnableIdTokenIssuance: (BOOL) val
-{
-    _enableIdTokenIssuance = val;
-    self.dictionary[@"enableIdTokenIssuance"] = @(val);
-}
 
 - (BOOL) enableAccessTokenIssuance
 {
@@ -43,6 +31,18 @@
 {
     _enableAccessTokenIssuance = val;
     self.dictionary[@"enableAccessTokenIssuance"] = @(val);
+}
+
+- (BOOL) enableIdTokenIssuance
+{
+    _enableIdTokenIssuance = [self.dictionary[@"enableIdTokenIssuance"] boolValue];
+    return _enableIdTokenIssuance;
+}
+
+- (void) setEnableIdTokenIssuance: (BOOL) val
+{
+    _enableIdTokenIssuance = val;
+    self.dictionary[@"enableIdTokenIssuance"] = @(val);
 }
 
 @end

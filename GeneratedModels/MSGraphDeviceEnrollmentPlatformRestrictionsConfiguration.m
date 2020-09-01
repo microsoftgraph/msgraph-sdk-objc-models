@@ -14,11 +14,11 @@
 
 @interface MSGraphDeviceEnrollmentPlatformRestrictionsConfiguration()
 {
-    MSGraphDeviceEnrollmentPlatformRestriction* _iosRestriction;
-    MSGraphDeviceEnrollmentPlatformRestriction* _windowsRestriction;
-    MSGraphDeviceEnrollmentPlatformRestriction* _windowsMobileRestriction;
     MSGraphDeviceEnrollmentPlatformRestriction* _androidRestriction;
+    MSGraphDeviceEnrollmentPlatformRestriction* _iosRestriction;
     MSGraphDeviceEnrollmentPlatformRestriction* _macOSRestriction;
+    MSGraphDeviceEnrollmentPlatformRestriction* _windowsMobileRestriction;
+    MSGraphDeviceEnrollmentPlatformRestriction* _windowsRestriction;
 }
 @end
 
@@ -31,6 +31,20 @@
     }
     return self;
 }
+- (MSGraphDeviceEnrollmentPlatformRestriction*) androidRestriction
+{
+    if(!_androidRestriction){
+        _androidRestriction = [[MSGraphDeviceEnrollmentPlatformRestriction alloc] initWithDictionary: self.dictionary[@"androidRestriction"]];
+    }
+    return _androidRestriction;
+}
+
+- (void) setAndroidRestriction: (MSGraphDeviceEnrollmentPlatformRestriction*) val
+{
+    _androidRestriction = val;
+    self.dictionary[@"androidRestriction"] = val;
+}
+
 - (MSGraphDeviceEnrollmentPlatformRestriction*) iosRestriction
 {
     if(!_iosRestriction){
@@ -45,18 +59,18 @@
     self.dictionary[@"iosRestriction"] = val;
 }
 
-- (MSGraphDeviceEnrollmentPlatformRestriction*) windowsRestriction
+- (MSGraphDeviceEnrollmentPlatformRestriction*) macOSRestriction
 {
-    if(!_windowsRestriction){
-        _windowsRestriction = [[MSGraphDeviceEnrollmentPlatformRestriction alloc] initWithDictionary: self.dictionary[@"windowsRestriction"]];
+    if(!_macOSRestriction){
+        _macOSRestriction = [[MSGraphDeviceEnrollmentPlatformRestriction alloc] initWithDictionary: self.dictionary[@"macOSRestriction"]];
     }
-    return _windowsRestriction;
+    return _macOSRestriction;
 }
 
-- (void) setWindowsRestriction: (MSGraphDeviceEnrollmentPlatformRestriction*) val
+- (void) setMacOSRestriction: (MSGraphDeviceEnrollmentPlatformRestriction*) val
 {
-    _windowsRestriction = val;
-    self.dictionary[@"windowsRestriction"] = val;
+    _macOSRestriction = val;
+    self.dictionary[@"macOSRestriction"] = val;
 }
 
 - (MSGraphDeviceEnrollmentPlatformRestriction*) windowsMobileRestriction
@@ -73,32 +87,18 @@
     self.dictionary[@"windowsMobileRestriction"] = val;
 }
 
-- (MSGraphDeviceEnrollmentPlatformRestriction*) androidRestriction
+- (MSGraphDeviceEnrollmentPlatformRestriction*) windowsRestriction
 {
-    if(!_androidRestriction){
-        _androidRestriction = [[MSGraphDeviceEnrollmentPlatformRestriction alloc] initWithDictionary: self.dictionary[@"androidRestriction"]];
+    if(!_windowsRestriction){
+        _windowsRestriction = [[MSGraphDeviceEnrollmentPlatformRestriction alloc] initWithDictionary: self.dictionary[@"windowsRestriction"]];
     }
-    return _androidRestriction;
+    return _windowsRestriction;
 }
 
-- (void) setAndroidRestriction: (MSGraphDeviceEnrollmentPlatformRestriction*) val
+- (void) setWindowsRestriction: (MSGraphDeviceEnrollmentPlatformRestriction*) val
 {
-    _androidRestriction = val;
-    self.dictionary[@"androidRestriction"] = val;
-}
-
-- (MSGraphDeviceEnrollmentPlatformRestriction*) macOSRestriction
-{
-    if(!_macOSRestriction){
-        _macOSRestriction = [[MSGraphDeviceEnrollmentPlatformRestriction alloc] initWithDictionary: self.dictionary[@"macOSRestriction"]];
-    }
-    return _macOSRestriction;
-}
-
-- (void) setMacOSRestriction: (MSGraphDeviceEnrollmentPlatformRestriction*) val
-{
-    _macOSRestriction = val;
-    self.dictionary[@"macOSRestriction"] = val;
+    _windowsRestriction = val;
+    self.dictionary[@"windowsRestriction"] = val;
 }
 
 

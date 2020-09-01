@@ -8,10 +8,10 @@
 
 @interface MSGraphDeviceEnrollmentPlatformRestrictionsConfiguration : MSGraphDeviceEnrollmentConfiguration
 
-  @property (nullable, nonatomic, setter=setIosRestriction:, getter=iosRestriction) MSGraphDeviceEnrollmentPlatformRestriction* iosRestriction;
-    @property (nullable, nonatomic, setter=setWindowsRestriction:, getter=windowsRestriction) MSGraphDeviceEnrollmentPlatformRestriction* windowsRestriction;
-    @property (nullable, nonatomic, setter=setWindowsMobileRestriction:, getter=windowsMobileRestriction) MSGraphDeviceEnrollmentPlatformRestriction* windowsMobileRestriction;
-    @property (nullable, nonatomic, setter=setAndroidRestriction:, getter=androidRestriction) MSGraphDeviceEnrollmentPlatformRestriction* androidRestriction;
+  @property (nullable, nonatomic, setter=setAndroidRestriction:, getter=androidRestriction) MSGraphDeviceEnrollmentPlatformRestriction* androidRestriction;
+    @property (nullable, nonatomic, setter=setIosRestriction:, getter=iosRestriction) MSGraphDeviceEnrollmentPlatformRestriction* iosRestriction;
     @property (nullable, nonatomic, setter=setMacOSRestriction:, getter=macOSRestriction) MSGraphDeviceEnrollmentPlatformRestriction* macOSRestriction;
+    @property (nullable, nonatomic, setter=setWindowsMobileRestriction:, getter=windowsMobileRestriction) MSGraphDeviceEnrollmentPlatformRestriction* windowsMobileRestriction;
+    @property (nullable, nonatomic, setter=setWindowsRestriction:, getter=windowsRestriction) MSGraphDeviceEnrollmentPlatformRestriction* windowsRestriction;
   
 @end

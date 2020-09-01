@@ -248,6 +248,8 @@
             return [MSGraphSecurityNetworkProtocol ip];
         case MSGraphSecurityNetworkProtocolIcmp:
             return [MSGraphSecurityNetworkProtocol icmp];
+        case MSGraphSecurityNetworkProtocolUnknown:
+            return [MSGraphSecurityNetworkProtocol unknown];
         case MSGraphSecurityNetworkProtocolIgmp:
             return [MSGraphSecurityNetworkProtocol igmp];
         case MSGraphSecurityNetworkProtocolGgp:
@@ -290,8 +292,6 @@
             return [MSGraphSecurityNetworkProtocol spxII];
         case MSGraphSecurityNetworkProtocolUnknownFutureValue:
             return [MSGraphSecurityNetworkProtocol unknownFutureValue];
-        case MSGraphSecurityNetworkProtocolUnknown:
-            return [MSGraphSecurityNetworkProtocol unknown];
         case MSGraphSecurityNetworkProtocolEndOfEnum:
         default:
             return [MSGraphSecurityNetworkProtocol UnknownEnumValue];
@@ -308,6 +308,8 @@
             return @"ip";
         case MSGraphSecurityNetworkProtocolIcmp:
             return @"icmp";
+        case MSGraphSecurityNetworkProtocolUnknown:
+            return @"unknown";
         case MSGraphSecurityNetworkProtocolIgmp:
             return @"igmp";
         case MSGraphSecurityNetworkProtocolGgp:
@@ -350,8 +352,6 @@
             return @"spxII";
         case MSGraphSecurityNetworkProtocolUnknownFutureValue:
             return @"unknownFutureValue";
-        case MSGraphSecurityNetworkProtocolUnknown:
-            return @"unknown";
         case MSGraphSecurityNetworkProtocolEndOfEnum:
         default:
             return nil;
@@ -377,6 +377,10 @@
     else if([self isEqualToString:@"icmp"])
     {
           return [MSGraphSecurityNetworkProtocol icmp];
+    }
+    else if([self isEqualToString:@"unknown"])
+    {
+          return [MSGraphSecurityNetworkProtocol unknown];
     }
     else if([self isEqualToString:@"igmp"])
     {
@@ -461,10 +465,6 @@
     else if([self isEqualToString:@"unknownFutureValue"])
     {
           return [MSGraphSecurityNetworkProtocol unknownFutureValue];
-    }
-    else if([self isEqualToString:@"unknown"])
-    {
-          return [MSGraphSecurityNetworkProtocol unknown];
     }
     else {
         return [MSGraphSecurityNetworkProtocol UnknownEnumValue];

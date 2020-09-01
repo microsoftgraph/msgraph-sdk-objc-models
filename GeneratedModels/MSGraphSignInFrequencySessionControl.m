@@ -14,24 +14,12 @@
 
 @interface MSGraphSignInFrequencySessionControl()
 {
-    int32_t _value;
     MSGraphSigninFrequencyType* _type;
+    int32_t _value;
 }
 @end
 
 @implementation MSGraphSignInFrequencySessionControl
-
-- (int32_t) value
-{
-    _value = [self.dictionary[@"value"] intValue];
-    return _value;
-}
-
-- (void) setValue: (int32_t) val
-{
-    _value = val;
-    self.dictionary[@"value"] = @(val);
-}
 
 - (MSGraphSigninFrequencyType*) type
 {
@@ -45,6 +33,18 @@
 {
     _type = val;
     self.dictionary[@"type"] = val;
+}
+
+- (int32_t) value
+{
+    _value = [self.dictionary[@"value"] intValue];
+    return _value;
+}
+
+- (void) setValue: (int32_t) val
+{
+    _value = val;
+    self.dictionary[@"value"] = @(val);
 }
 
 @end

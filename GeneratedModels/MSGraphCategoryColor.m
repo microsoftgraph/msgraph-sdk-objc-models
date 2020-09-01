@@ -266,6 +266,8 @@
             return [MSGraphCategoryColor preset0];
         case MSGraphCategoryColorPreset1:
             return [MSGraphCategoryColor preset1];
+        case MSGraphCategoryColorNone:
+            return [MSGraphCategoryColor none];
         case MSGraphCategoryColorPreset2:
             return [MSGraphCategoryColor preset2];
         case MSGraphCategoryColorPreset3:
@@ -312,8 +314,6 @@
             return [MSGraphCategoryColor preset23];
         case MSGraphCategoryColorPreset24:
             return [MSGraphCategoryColor preset24];
-        case MSGraphCategoryColorNone:
-            return [MSGraphCategoryColor none];
         case MSGraphCategoryColorEndOfEnum:
         default:
             return [MSGraphCategoryColor UnknownEnumValue];
@@ -330,6 +330,8 @@
             return @"preset0";
         case MSGraphCategoryColorPreset1:
             return @"preset1";
+        case MSGraphCategoryColorNone:
+            return @"none";
         case MSGraphCategoryColorPreset2:
             return @"preset2";
         case MSGraphCategoryColorPreset3:
@@ -376,8 +378,6 @@
             return @"preset23";
         case MSGraphCategoryColorPreset24:
             return @"preset24";
-        case MSGraphCategoryColorNone:
-            return @"none";
         case MSGraphCategoryColorEndOfEnum:
         default:
             return nil;
@@ -403,6 +403,10 @@
     else if([self isEqualToString:@"preset1"])
     {
           return [MSGraphCategoryColor preset1];
+    }
+    else if([self isEqualToString:@"none"])
+    {
+          return [MSGraphCategoryColor none];
     }
     else if([self isEqualToString:@"preset2"])
     {
@@ -495,10 +499,6 @@
     else if([self isEqualToString:@"preset24"])
     {
           return [MSGraphCategoryColor preset24];
-    }
-    else if([self isEqualToString:@"none"])
-    {
-          return [MSGraphCategoryColor none];
     }
     else {
         return [MSGraphCategoryColor UnknownEnumValue];

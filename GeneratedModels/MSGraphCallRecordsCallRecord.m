@@ -14,15 +14,15 @@
 
 @interface MSGraphCallRecordsCallRecord()
 {
-    int64_t _version;
-    MSGraphCallRecordsCallType* _type;
-    NSArray* _modalities;
-    NSDate* _lastModifiedDateTime;
-    NSDate* _startDateTime;
     NSDate* _endDateTime;
+    NSString* _joinWebUrl;
+    NSDate* _lastModifiedDateTime;
+    NSArray* _modalities;
     MSGraphIdentitySet* _organizer;
     NSArray* _participants;
-    NSString* _joinWebUrl;
+    NSDate* _startDateTime;
+    MSGraphCallRecordsCallType* _type;
+    int64_t _version;
     NSArray* _sessions;
 }
 @end
@@ -36,30 +36,46 @@
     }
     return self;
 }
-- (int64_t) version
+- (NSDate*) endDateTime
 {
-    _version = [self.dictionary[@"version"] longLongValue];
-    return _version;
-}
-
-- (void) setVersion: (int64_t) val
-{
-    _version = val;
-    self.dictionary[@"version"] = @(val);
-}
-
-- (MSGraphCallRecordsCallType*) type
-{
-    if(!_type){
-        _type = [self.dictionary[@"type"] toMSGraphCallRecordsCallType];
+    if(!_endDateTime){
+        _endDateTime = [NSDate ms_dateFromString: self.dictionary[@"endDateTime"]];
     }
-    return _type;
+    return _endDateTime;
 }
 
-- (void) setType: (MSGraphCallRecordsCallType*) val
+- (void) setEndDateTime: (NSDate*) val
 {
-    _type = val;
-    self.dictionary[@"type"] = val;
+    _endDateTime = val;
+    self.dictionary[@"endDateTime"] = [val ms_toString];
+}
+
+- (NSString*) joinWebUrl
+{
+    if([[NSNull null] isEqual:self.dictionary[@"joinWebUrl"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"joinWebUrl"];
+}
+
+- (void) setJoinWebUrl: (NSString*) val
+{
+    self.dictionary[@"joinWebUrl"] = val;
+}
+
+- (NSDate*) lastModifiedDateTime
+{
+    if(!_lastModifiedDateTime){
+        _lastModifiedDateTime = [NSDate ms_dateFromString: self.dictionary[@"lastModifiedDateTime"]];
+    }
+    return _lastModifiedDateTime;
+}
+
+- (void) setLastModifiedDateTime: (NSDate*) val
+{
+    _lastModifiedDateTime = val;
+    self.dictionary[@"lastModifiedDateTime"] = [val ms_toString];
 }
 
 - (NSArray*) modalities
@@ -85,48 +101,6 @@
 {
     _modalities = val;
     self.dictionary[@"modalities"] = val;
-}
-
-- (NSDate*) lastModifiedDateTime
-{
-    if(!_lastModifiedDateTime){
-        _lastModifiedDateTime = [NSDate ms_dateFromString: self.dictionary[@"lastModifiedDateTime"]];
-    }
-    return _lastModifiedDateTime;
-}
-
-- (void) setLastModifiedDateTime: (NSDate*) val
-{
-    _lastModifiedDateTime = val;
-    self.dictionary[@"lastModifiedDateTime"] = [val ms_toString];
-}
-
-- (NSDate*) startDateTime
-{
-    if(!_startDateTime){
-        _startDateTime = [NSDate ms_dateFromString: self.dictionary[@"startDateTime"]];
-    }
-    return _startDateTime;
-}
-
-- (void) setStartDateTime: (NSDate*) val
-{
-    _startDateTime = val;
-    self.dictionary[@"startDateTime"] = [val ms_toString];
-}
-
-- (NSDate*) endDateTime
-{
-    if(!_endDateTime){
-        _endDateTime = [NSDate ms_dateFromString: self.dictionary[@"endDateTime"]];
-    }
-    return _endDateTime;
-}
-
-- (void) setEndDateTime: (NSDate*) val
-{
-    _endDateTime = val;
-    self.dictionary[@"endDateTime"] = [val ms_toString];
 }
 
 - (MSGraphIdentitySet*) organizer
@@ -168,18 +142,44 @@
     self.dictionary[@"participants"] = val;
 }
 
-- (NSString*) joinWebUrl
+- (NSDate*) startDateTime
 {
-    if([[NSNull null] isEqual:self.dictionary[@"joinWebUrl"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"joinWebUrl"];
+    if(!_startDateTime){
+        _startDateTime = [NSDate ms_dateFromString: self.dictionary[@"startDateTime"]];
+    }
+    return _startDateTime;
 }
 
-- (void) setJoinWebUrl: (NSString*) val
+- (void) setStartDateTime: (NSDate*) val
 {
-    self.dictionary[@"joinWebUrl"] = val;
+    _startDateTime = val;
+    self.dictionary[@"startDateTime"] = [val ms_toString];
+}
+
+- (MSGraphCallRecordsCallType*) type
+{
+    if(!_type){
+        _type = [self.dictionary[@"type"] toMSGraphCallRecordsCallType];
+    }
+    return _type;
+}
+
+- (void) setType: (MSGraphCallRecordsCallType*) val
+{
+    _type = val;
+    self.dictionary[@"type"] = val;
+}
+
+- (int64_t) version
+{
+    _version = [self.dictionary[@"version"] longLongValue];
+    return _version;
+}
+
+- (void) setVersion: (int64_t) val
+{
+    _version = val;
+    self.dictionary[@"version"] = @(val);
 }
 
 - (NSArray*) sessions

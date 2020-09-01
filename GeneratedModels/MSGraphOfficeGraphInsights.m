@@ -14,8 +14,8 @@
 
 @interface MSGraphOfficeGraphInsights()
 {
-    NSArray* _trending;
     NSArray* _shared;
+    NSArray* _trending;
     NSArray* _used;
 }
 @end
@@ -29,31 +29,6 @@
     }
     return self;
 }
-- (NSArray*) trending
-{
-    if(!_trending){
-        
-    NSMutableArray *trendingResult = [NSMutableArray array];
-    NSArray *trending = self.dictionary[@"trending"];
-
-    if ([trending isKindOfClass:[NSArray class]]){
-        for (id tempTrending in trending){
-            [trendingResult addObject:tempTrending];
-        }
-    }
-
-    _trending = trendingResult;
-        
-    }
-    return _trending;
-}
-
-- (void) setTrending: (NSArray*) val
-{
-    _trending = val;
-    self.dictionary[@"trending"] = val;
-}
-
 - (NSArray*) shared
 {
     if(!_shared){
@@ -77,6 +52,31 @@
 {
     _shared = val;
     self.dictionary[@"shared"] = val;
+}
+
+- (NSArray*) trending
+{
+    if(!_trending){
+        
+    NSMutableArray *trendingResult = [NSMutableArray array];
+    NSArray *trending = self.dictionary[@"trending"];
+
+    if ([trending isKindOfClass:[NSArray class]]){
+        for (id tempTrending in trending){
+            [trendingResult addObject:tempTrending];
+        }
+    }
+
+    _trending = trendingResult;
+        
+    }
+    return _trending;
+}
+
+- (void) setTrending: (NSArray*) val
+{
+    _trending = val;
+    self.dictionary[@"trending"] = val;
 }
 
 - (NSArray*) used

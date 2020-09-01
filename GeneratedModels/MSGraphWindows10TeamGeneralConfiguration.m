@@ -21,8 +21,8 @@
     BOOL _maintenanceWindowBlocked;
     int32_t _maintenanceWindowDurationInHours;
     MSTimeOfDay* _maintenanceWindowStartTime;
-    MSGraphMiracastChannel* _miracastChannel;
     BOOL _miracastBlocked;
+    MSGraphMiracastChannel* _miracastChannel;
     BOOL _miracastRequirePin;
     BOOL _settingsBlockMyMeetingsAndFiles;
     BOOL _settingsBlockSessionResume;
@@ -31,8 +31,8 @@
     int32_t _settingsScreenTimeoutInMinutes;
     int32_t _settingsSessionTimeoutInMinutes;
     int32_t _settingsSleepTimeoutInMinutes;
-    BOOL _welcomeScreenBlockAutomaticWakeUp;
     NSString* _welcomeScreenBackgroundImageUrl;
+    BOOL _welcomeScreenBlockAutomaticWakeUp;
     MSGraphWelcomeScreenMeetingInformation* _welcomeScreenMeetingInformation;
 }
 @end
@@ -136,6 +136,18 @@
     self.dictionary[@"maintenanceWindowStartTime"] = [val ms_toString];
 }
 
+- (BOOL) miracastBlocked
+{
+    _miracastBlocked = [self.dictionary[@"miracastBlocked"] boolValue];
+    return _miracastBlocked;
+}
+
+- (void) setMiracastBlocked: (BOOL) val
+{
+    _miracastBlocked = val;
+    self.dictionary[@"miracastBlocked"] = @(val);
+}
+
 - (MSGraphMiracastChannel*) miracastChannel
 {
     if(!_miracastChannel){
@@ -148,18 +160,6 @@
 {
     _miracastChannel = val;
     self.dictionary[@"miracastChannel"] = val;
-}
-
-- (BOOL) miracastBlocked
-{
-    _miracastBlocked = [self.dictionary[@"miracastBlocked"] boolValue];
-    return _miracastBlocked;
-}
-
-- (void) setMiracastBlocked: (BOOL) val
-{
-    _miracastBlocked = val;
-    self.dictionary[@"miracastBlocked"] = @(val);
 }
 
 - (BOOL) miracastRequirePin
@@ -258,18 +258,6 @@
     self.dictionary[@"settingsSleepTimeoutInMinutes"] = @(val);
 }
 
-- (BOOL) welcomeScreenBlockAutomaticWakeUp
-{
-    _welcomeScreenBlockAutomaticWakeUp = [self.dictionary[@"welcomeScreenBlockAutomaticWakeUp"] boolValue];
-    return _welcomeScreenBlockAutomaticWakeUp;
-}
-
-- (void) setWelcomeScreenBlockAutomaticWakeUp: (BOOL) val
-{
-    _welcomeScreenBlockAutomaticWakeUp = val;
-    self.dictionary[@"welcomeScreenBlockAutomaticWakeUp"] = @(val);
-}
-
 - (NSString*) welcomeScreenBackgroundImageUrl
 {
     if([[NSNull null] isEqual:self.dictionary[@"welcomeScreenBackgroundImageUrl"]])
@@ -282,6 +270,18 @@
 - (void) setWelcomeScreenBackgroundImageUrl: (NSString*) val
 {
     self.dictionary[@"welcomeScreenBackgroundImageUrl"] = val;
+}
+
+- (BOOL) welcomeScreenBlockAutomaticWakeUp
+{
+    _welcomeScreenBlockAutomaticWakeUp = [self.dictionary[@"welcomeScreenBlockAutomaticWakeUp"] boolValue];
+    return _welcomeScreenBlockAutomaticWakeUp;
+}
+
+- (void) setWelcomeScreenBlockAutomaticWakeUp: (BOOL) val
+{
+    _welcomeScreenBlockAutomaticWakeUp = val;
+    self.dictionary[@"welcomeScreenBlockAutomaticWakeUp"] = @(val);
 }
 
 - (MSGraphWelcomeScreenMeetingInformation*) welcomeScreenMeetingInformation

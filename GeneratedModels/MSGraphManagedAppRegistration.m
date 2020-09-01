@@ -14,17 +14,17 @@
 
 @interface MSGraphManagedAppRegistration()
 {
-    NSDate* _createdDateTime;
-    NSDate* _lastSyncDateTime;
+    MSGraphMobileAppIdentifier* _appIdentifier;
     NSString* _applicationVersion;
+    NSDate* _createdDateTime;
+    NSString* _deviceName;
+    NSString* _deviceTag;
+    NSString* _deviceType;
+    NSArray* _flaggedReasons;
+    NSDate* _lastSyncDateTime;
     NSString* _managementSdkVersion;
     NSString* _platformVersion;
-    NSString* _deviceType;
-    NSString* _deviceTag;
-    NSString* _deviceName;
-    NSArray* _flaggedReasons;
     NSString* _userId;
-    MSGraphMobileAppIdentifier* _appIdentifier;
     NSString* _version;
     NSArray* _appliedPolicies;
     NSArray* _intendedPolicies;
@@ -33,6 +33,34 @@
 @end
 
 @implementation MSGraphManagedAppRegistration
+
+- (MSGraphMobileAppIdentifier*) appIdentifier
+{
+    if(!_appIdentifier){
+        _appIdentifier = [[MSGraphMobileAppIdentifier alloc] initWithDictionary: self.dictionary[@"appIdentifier"]];
+    }
+    return _appIdentifier;
+}
+
+- (void) setAppIdentifier: (MSGraphMobileAppIdentifier*) val
+{
+    _appIdentifier = val;
+    self.dictionary[@"appIdentifier"] = val;
+}
+
+- (NSString*) applicationVersion
+{
+    if([[NSNull null] isEqual:self.dictionary[@"applicationVersion"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"applicationVersion"];
+}
+
+- (void) setApplicationVersion: (NSString*) val
+{
+    self.dictionary[@"applicationVersion"] = val;
+}
 
 - (NSDate*) createdDateTime
 {
@@ -48,6 +76,73 @@
     self.dictionary[@"createdDateTime"] = [val ms_toString];
 }
 
+- (NSString*) deviceName
+{
+    if([[NSNull null] isEqual:self.dictionary[@"deviceName"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"deviceName"];
+}
+
+- (void) setDeviceName: (NSString*) val
+{
+    self.dictionary[@"deviceName"] = val;
+}
+
+- (NSString*) deviceTag
+{
+    if([[NSNull null] isEqual:self.dictionary[@"deviceTag"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"deviceTag"];
+}
+
+- (void) setDeviceTag: (NSString*) val
+{
+    self.dictionary[@"deviceTag"] = val;
+}
+
+- (NSString*) deviceType
+{
+    if([[NSNull null] isEqual:self.dictionary[@"deviceType"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"deviceType"];
+}
+
+- (void) setDeviceType: (NSString*) val
+{
+    self.dictionary[@"deviceType"] = val;
+}
+
+- (NSArray*) flaggedReasons
+{
+    if(!_flaggedReasons){
+        
+    NSMutableArray *flaggedReasonsResult = [NSMutableArray array];
+    NSArray *flaggedReasons = self.dictionary[@"flaggedReasons"];
+
+    if ([flaggedReasons isKindOfClass:[NSArray class]]){
+        for (id tempManagedAppFlaggedReason in flaggedReasons){
+            [flaggedReasonsResult addObject:tempManagedAppFlaggedReason];
+        }
+    }
+
+    _flaggedReasons = flaggedReasonsResult;
+        
+    }
+    return _flaggedReasons;
+}
+
+- (void) setFlaggedReasons: (NSArray*) val
+{
+    _flaggedReasons = val;
+    self.dictionary[@"flaggedReasons"] = val;
+}
+
 - (NSDate*) lastSyncDateTime
 {
     if(!_lastSyncDateTime){
@@ -60,20 +155,6 @@
 {
     _lastSyncDateTime = val;
     self.dictionary[@"lastSyncDateTime"] = [val ms_toString];
-}
-
-- (NSString*) applicationVersion
-{
-    if([[NSNull null] isEqual:self.dictionary[@"applicationVersion"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"applicationVersion"];
-}
-
-- (void) setApplicationVersion: (NSString*) val
-{
-    self.dictionary[@"applicationVersion"] = val;
 }
 
 - (NSString*) managementSdkVersion
@@ -104,73 +185,6 @@
     self.dictionary[@"platformVersion"] = val;
 }
 
-- (NSString*) deviceType
-{
-    if([[NSNull null] isEqual:self.dictionary[@"deviceType"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"deviceType"];
-}
-
-- (void) setDeviceType: (NSString*) val
-{
-    self.dictionary[@"deviceType"] = val;
-}
-
-- (NSString*) deviceTag
-{
-    if([[NSNull null] isEqual:self.dictionary[@"deviceTag"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"deviceTag"];
-}
-
-- (void) setDeviceTag: (NSString*) val
-{
-    self.dictionary[@"deviceTag"] = val;
-}
-
-- (NSString*) deviceName
-{
-    if([[NSNull null] isEqual:self.dictionary[@"deviceName"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"deviceName"];
-}
-
-- (void) setDeviceName: (NSString*) val
-{
-    self.dictionary[@"deviceName"] = val;
-}
-
-- (NSArray*) flaggedReasons
-{
-    if(!_flaggedReasons){
-        
-    NSMutableArray *flaggedReasonsResult = [NSMutableArray array];
-    NSArray *flaggedReasons = self.dictionary[@"flaggedReasons"];
-
-    if ([flaggedReasons isKindOfClass:[NSArray class]]){
-        for (id tempManagedAppFlaggedReason in flaggedReasons){
-            [flaggedReasonsResult addObject:tempManagedAppFlaggedReason];
-        }
-    }
-
-    _flaggedReasons = flaggedReasonsResult;
-        
-    }
-    return _flaggedReasons;
-}
-
-- (void) setFlaggedReasons: (NSArray*) val
-{
-    _flaggedReasons = val;
-    self.dictionary[@"flaggedReasons"] = val;
-}
-
 - (NSString*) userId
 {
     if([[NSNull null] isEqual:self.dictionary[@"userId"]])
@@ -183,20 +197,6 @@
 - (void) setUserId: (NSString*) val
 {
     self.dictionary[@"userId"] = val;
-}
-
-- (MSGraphMobileAppIdentifier*) appIdentifier
-{
-    if(!_appIdentifier){
-        _appIdentifier = [[MSGraphMobileAppIdentifier alloc] initWithDictionary: self.dictionary[@"appIdentifier"]];
-    }
-    return _appIdentifier;
-}
-
-- (void) setAppIdentifier: (MSGraphMobileAppIdentifier*) val
-{
-    _appIdentifier = val;
-    self.dictionary[@"appIdentifier"] = val;
 }
 
 - (NSString*) version

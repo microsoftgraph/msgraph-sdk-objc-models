@@ -14,26 +14,12 @@
 
 @interface MSGraphCallRecordsParticipantEndpoint()
 {
-    MSGraphIdentitySet* _identity;
     MSGraphCallRecordsUserFeedback* _feedback;
+    MSGraphIdentitySet* _identity;
 }
 @end
 
 @implementation MSGraphCallRecordsParticipantEndpoint
-
-- (MSGraphIdentitySet*) identity
-{
-    if(!_identity){
-        _identity = [[MSGraphIdentitySet alloc] initWithDictionary: self.dictionary[@"identity"]];
-    }
-    return _identity;
-}
-
-- (void) setIdentity: (MSGraphIdentitySet*) val
-{
-    _identity = val;
-    self.dictionary[@"identity"] = val;
-}
 
 - (MSGraphCallRecordsUserFeedback*) feedback
 {
@@ -47,6 +33,20 @@
 {
     _feedback = val;
     self.dictionary[@"feedback"] = val;
+}
+
+- (MSGraphIdentitySet*) identity
+{
+    if(!_identity){
+        _identity = [[MSGraphIdentitySet alloc] initWithDictionary: self.dictionary[@"identity"]];
+    }
+    return _identity;
+}
+
+- (void) setIdentity: (MSGraphIdentitySet*) val
+{
+    _identity = val;
+    self.dictionary[@"identity"] = val;
 }
 
 @end

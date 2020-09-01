@@ -9,9 +9,9 @@
 
 @interface MSGraphEducationTerm : MSObject
 
+@property (nullable, nonatomic, setter=setDisplayName:, getter=displayName) NSString* displayName;
+@property (nullable, nonatomic, setter=setEndDate:, getter=endDate) MSDate* endDate;
 @property (nullable, nonatomic, setter=setExternalId:, getter=externalId) NSString* externalId;
 @property (nullable, nonatomic, setter=setStartDate:, getter=startDate) MSDate* startDate;
-@property (nullable, nonatomic, setter=setEndDate:, getter=endDate) MSDate* endDate;
-@property (nullable, nonatomic, setter=setDisplayName:, getter=displayName) NSString* displayName;
 
 @end

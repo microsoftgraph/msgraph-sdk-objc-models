@@ -14,15 +14,15 @@
 
 @interface MSGraphItemActivityStat()
 {
-    NSDate* _startDateTime;
-    NSDate* _endDateTime;
     MSGraphItemActionStat* _access;
     MSGraphItemActionStat* _create;
     MSGraphItemActionStat* _delete;
     MSGraphItemActionStat* _edit;
-    MSGraphItemActionStat* _move;
-    BOOL _isTrending;
+    NSDate* _endDateTime;
     MSGraphIncompleteData* _incompleteData;
+    BOOL _isTrending;
+    MSGraphItemActionStat* _move;
+    NSDate* _startDateTime;
     NSArray* _activities;
 }
 @end
@@ -36,34 +36,6 @@
     }
     return self;
 }
-- (NSDate*) startDateTime
-{
-    if(!_startDateTime){
-        _startDateTime = [NSDate ms_dateFromString: self.dictionary[@"startDateTime"]];
-    }
-    return _startDateTime;
-}
-
-- (void) setStartDateTime: (NSDate*) val
-{
-    _startDateTime = val;
-    self.dictionary[@"startDateTime"] = [val ms_toString];
-}
-
-- (NSDate*) endDateTime
-{
-    if(!_endDateTime){
-        _endDateTime = [NSDate ms_dateFromString: self.dictionary[@"endDateTime"]];
-    }
-    return _endDateTime;
-}
-
-- (void) setEndDateTime: (NSDate*) val
-{
-    _endDateTime = val;
-    self.dictionary[@"endDateTime"] = [val ms_toString];
-}
-
 - (MSGraphItemActionStat*) access
 {
     if(!_access){
@@ -120,30 +92,18 @@
     self.dictionary[@"edit"] = val;
 }
 
-- (MSGraphItemActionStat*) move
+- (NSDate*) endDateTime
 {
-    if(!_move){
-        _move = [[MSGraphItemActionStat alloc] initWithDictionary: self.dictionary[@"move"]];
+    if(!_endDateTime){
+        _endDateTime = [NSDate ms_dateFromString: self.dictionary[@"endDateTime"]];
     }
-    return _move;
+    return _endDateTime;
 }
 
-- (void) setMove: (MSGraphItemActionStat*) val
+- (void) setEndDateTime: (NSDate*) val
 {
-    _move = val;
-    self.dictionary[@"move"] = val;
-}
-
-- (BOOL) isTrending
-{
-    _isTrending = [self.dictionary[@"isTrending"] boolValue];
-    return _isTrending;
-}
-
-- (void) setIsTrending: (BOOL) val
-{
-    _isTrending = val;
-    self.dictionary[@"isTrending"] = @(val);
+    _endDateTime = val;
+    self.dictionary[@"endDateTime"] = [val ms_toString];
 }
 
 - (MSGraphIncompleteData*) incompleteData
@@ -158,6 +118,46 @@
 {
     _incompleteData = val;
     self.dictionary[@"incompleteData"] = val;
+}
+
+- (BOOL) isTrending
+{
+    _isTrending = [self.dictionary[@"isTrending"] boolValue];
+    return _isTrending;
+}
+
+- (void) setIsTrending: (BOOL) val
+{
+    _isTrending = val;
+    self.dictionary[@"isTrending"] = @(val);
+}
+
+- (MSGraphItemActionStat*) move
+{
+    if(!_move){
+        _move = [[MSGraphItemActionStat alloc] initWithDictionary: self.dictionary[@"move"]];
+    }
+    return _move;
+}
+
+- (void) setMove: (MSGraphItemActionStat*) val
+{
+    _move = val;
+    self.dictionary[@"move"] = val;
+}
+
+- (NSDate*) startDateTime
+{
+    if(!_startDateTime){
+        _startDateTime = [NSDate ms_dateFromString: self.dictionary[@"startDateTime"]];
+    }
+    return _startDateTime;
+}
+
+- (void) setStartDateTime: (NSDate*) val
+{
+    _startDateTime = val;
+    self.dictionary[@"startDateTime"] = [val ms_toString];
 }
 
 - (NSArray*) activities

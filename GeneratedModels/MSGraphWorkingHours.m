@@ -15,8 +15,8 @@
 @interface MSGraphWorkingHours()
 {
     NSArray* _daysOfWeek;
-    MSTimeOfDay* _startTime;
     MSTimeOfDay* _endTime;
+    MSTimeOfDay* _startTime;
     MSGraphTimeZoneBase* _timeZone;
 }
 @end
@@ -48,20 +48,6 @@
     self.dictionary[@"daysOfWeek"] = val;
 }
 
-- (MSTimeOfDay*) startTime
-{
-    if(!_startTime){
-        _startTime = [MSTimeOfDay ms_timeFromString: self.dictionary[@"startTime"]];
-    }
-    return _startTime;
-}
-
-- (void) setStartTime: (MSTimeOfDay*) val
-{
-    _startTime = val;
-    self.dictionary[@"startTime"] = [val ms_toString];
-}
-
 - (MSTimeOfDay*) endTime
 {
     if(!_endTime){
@@ -74,6 +60,20 @@
 {
     _endTime = val;
     self.dictionary[@"endTime"] = [val ms_toString];
+}
+
+- (MSTimeOfDay*) startTime
+{
+    if(!_startTime){
+        _startTime = [MSTimeOfDay ms_timeFromString: self.dictionary[@"startTime"]];
+    }
+    return _startTime;
+}
+
+- (void) setStartTime: (MSTimeOfDay*) val
+{
+    _startTime = val;
+    self.dictionary[@"startTime"] = [val ms_toString];
 }
 
 - (MSGraphTimeZoneBase*) timeZone

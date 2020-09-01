@@ -14,10 +14,10 @@
 
 @interface MSGraphMailSearchFolder()
 {
-    BOOL _isSupported;
-    BOOL _includeNestedFolders;
-    NSArray* _sourceFolderIds;
     NSString* _filterQuery;
+    BOOL _includeNestedFolders;
+    BOOL _isSupported;
+    NSArray* _sourceFolderIds;
 }
 @end
 
@@ -30,16 +30,18 @@
     }
     return self;
 }
-- (BOOL) isSupported
+- (NSString*) filterQuery
 {
-    _isSupported = [self.dictionary[@"isSupported"] boolValue];
-    return _isSupported;
+    if([[NSNull null] isEqual:self.dictionary[@"filterQuery"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"filterQuery"];
 }
 
-- (void) setIsSupported: (BOOL) val
+- (void) setFilterQuery: (NSString*) val
 {
-    _isSupported = val;
-    self.dictionary[@"isSupported"] = @(val);
+    self.dictionary[@"filterQuery"] = val;
 }
 
 - (BOOL) includeNestedFolders
@@ -54,6 +56,18 @@
     self.dictionary[@"includeNestedFolders"] = @(val);
 }
 
+- (BOOL) isSupported
+{
+    _isSupported = [self.dictionary[@"isSupported"] boolValue];
+    return _isSupported;
+}
+
+- (void) setIsSupported: (BOOL) val
+{
+    _isSupported = val;
+    self.dictionary[@"isSupported"] = @(val);
+}
+
 - (NSArray*) sourceFolderIds
 {
     if([[NSNull null] isEqual:self.dictionary[@"sourceFolderIds"]])
@@ -66,20 +80,6 @@
 - (void) setSourceFolderIds: (NSArray*) val
 {
     self.dictionary[@"sourceFolderIds"] = val;
-}
-
-- (NSString*) filterQuery
-{
-    if([[NSNull null] isEqual:self.dictionary[@"filterQuery"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"filterQuery"];
-}
-
-- (void) setFilterQuery: (NSString*) val
-{
-    self.dictionary[@"filterQuery"] = val;
 }
 
 

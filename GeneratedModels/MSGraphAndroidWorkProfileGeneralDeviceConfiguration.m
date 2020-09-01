@@ -20,34 +20,34 @@
     int32_t _passwordMinimumLength;
     int32_t _passwordMinutesOfInactivityBeforeScreenTimeout;
     int32_t _passwordPreviousPasswordBlockCount;
-    int32_t _passwordSignInFailureCountBeforeFactoryReset;
     MSGraphAndroidWorkProfileRequiredPasswordType* _passwordRequiredType;
-    MSGraphAndroidWorkProfileCrossProfileDataSharingType* _workProfileDataSharingType;
-    BOOL _workProfileBlockNotificationsWhileDeviceLocked;
+    int32_t _passwordSignInFailureCountBeforeFactoryReset;
+    BOOL _securityRequireVerifyApps;
     BOOL _workProfileBlockAddingAccounts;
-    BOOL _workProfileBluetoothEnableContactSharing;
-    BOOL _workProfileBlockScreenCapture;
-    BOOL _workProfileBlockCrossProfileCallerId;
     BOOL _workProfileBlockCamera;
+    BOOL _workProfileBlockCrossProfileCallerId;
     BOOL _workProfileBlockCrossProfileContactsSearch;
     BOOL _workProfileBlockCrossProfileCopyPaste;
+    BOOL _workProfileBlockNotificationsWhileDeviceLocked;
+    BOOL _workProfileBlockScreenCapture;
+    BOOL _workProfileBluetoothEnableContactSharing;
+    MSGraphAndroidWorkProfileCrossProfileDataSharingType* _workProfileDataSharingType;
     MSGraphAndroidWorkProfileDefaultAppPermissionPolicyType* _workProfileDefaultAppPermissionPolicy;
     BOOL _workProfilePasswordBlockFingerprintUnlock;
     BOOL _workProfilePasswordBlockTrustAgents;
     int32_t _workProfilePasswordExpirationDays;
     int32_t _workProfilePasswordMinimumLength;
-    int32_t _workProfilePasswordMinNumericCharacters;
-    int32_t _workProfilePasswordMinNonLetterCharacters;
     int32_t _workProfilePasswordMinLetterCharacters;
     int32_t _workProfilePasswordMinLowerCaseCharacters;
-    int32_t _workProfilePasswordMinUpperCaseCharacters;
+    int32_t _workProfilePasswordMinNonLetterCharacters;
+    int32_t _workProfilePasswordMinNumericCharacters;
     int32_t _workProfilePasswordMinSymbolCharacters;
+    int32_t _workProfilePasswordMinUpperCaseCharacters;
     int32_t _workProfilePasswordMinutesOfInactivityBeforeScreenTimeout;
     int32_t _workProfilePasswordPreviousPasswordBlockCount;
-    int32_t _workProfilePasswordSignInFailureCountBeforeFactoryReset;
     MSGraphAndroidWorkProfileRequiredPasswordType* _workProfilePasswordRequiredType;
+    int32_t _workProfilePasswordSignInFailureCountBeforeFactoryReset;
     BOOL _workProfileRequirePassword;
-    BOOL _securityRequireVerifyApps;
 }
 @end
 
@@ -132,18 +132,6 @@
     self.dictionary[@"passwordPreviousPasswordBlockCount"] = @(val);
 }
 
-- (int32_t) passwordSignInFailureCountBeforeFactoryReset
-{
-    _passwordSignInFailureCountBeforeFactoryReset = [self.dictionary[@"passwordSignInFailureCountBeforeFactoryReset"] intValue];
-    return _passwordSignInFailureCountBeforeFactoryReset;
-}
-
-- (void) setPasswordSignInFailureCountBeforeFactoryReset: (int32_t) val
-{
-    _passwordSignInFailureCountBeforeFactoryReset = val;
-    self.dictionary[@"passwordSignInFailureCountBeforeFactoryReset"] = @(val);
-}
-
 - (MSGraphAndroidWorkProfileRequiredPasswordType*) passwordRequiredType
 {
     if(!_passwordRequiredType){
@@ -158,30 +146,28 @@
     self.dictionary[@"passwordRequiredType"] = val;
 }
 
-- (MSGraphAndroidWorkProfileCrossProfileDataSharingType*) workProfileDataSharingType
+- (int32_t) passwordSignInFailureCountBeforeFactoryReset
 {
-    if(!_workProfileDataSharingType){
-        _workProfileDataSharingType = [self.dictionary[@"workProfileDataSharingType"] toMSGraphAndroidWorkProfileCrossProfileDataSharingType];
-    }
-    return _workProfileDataSharingType;
+    _passwordSignInFailureCountBeforeFactoryReset = [self.dictionary[@"passwordSignInFailureCountBeforeFactoryReset"] intValue];
+    return _passwordSignInFailureCountBeforeFactoryReset;
 }
 
-- (void) setWorkProfileDataSharingType: (MSGraphAndroidWorkProfileCrossProfileDataSharingType*) val
+- (void) setPasswordSignInFailureCountBeforeFactoryReset: (int32_t) val
 {
-    _workProfileDataSharingType = val;
-    self.dictionary[@"workProfileDataSharingType"] = val;
+    _passwordSignInFailureCountBeforeFactoryReset = val;
+    self.dictionary[@"passwordSignInFailureCountBeforeFactoryReset"] = @(val);
 }
 
-- (BOOL) workProfileBlockNotificationsWhileDeviceLocked
+- (BOOL) securityRequireVerifyApps
 {
-    _workProfileBlockNotificationsWhileDeviceLocked = [self.dictionary[@"workProfileBlockNotificationsWhileDeviceLocked"] boolValue];
-    return _workProfileBlockNotificationsWhileDeviceLocked;
+    _securityRequireVerifyApps = [self.dictionary[@"securityRequireVerifyApps"] boolValue];
+    return _securityRequireVerifyApps;
 }
 
-- (void) setWorkProfileBlockNotificationsWhileDeviceLocked: (BOOL) val
+- (void) setSecurityRequireVerifyApps: (BOOL) val
 {
-    _workProfileBlockNotificationsWhileDeviceLocked = val;
-    self.dictionary[@"workProfileBlockNotificationsWhileDeviceLocked"] = @(val);
+    _securityRequireVerifyApps = val;
+    self.dictionary[@"securityRequireVerifyApps"] = @(val);
 }
 
 - (BOOL) workProfileBlockAddingAccounts
@@ -196,28 +182,16 @@
     self.dictionary[@"workProfileBlockAddingAccounts"] = @(val);
 }
 
-- (BOOL) workProfileBluetoothEnableContactSharing
+- (BOOL) workProfileBlockCamera
 {
-    _workProfileBluetoothEnableContactSharing = [self.dictionary[@"workProfileBluetoothEnableContactSharing"] boolValue];
-    return _workProfileBluetoothEnableContactSharing;
+    _workProfileBlockCamera = [self.dictionary[@"workProfileBlockCamera"] boolValue];
+    return _workProfileBlockCamera;
 }
 
-- (void) setWorkProfileBluetoothEnableContactSharing: (BOOL) val
+- (void) setWorkProfileBlockCamera: (BOOL) val
 {
-    _workProfileBluetoothEnableContactSharing = val;
-    self.dictionary[@"workProfileBluetoothEnableContactSharing"] = @(val);
-}
-
-- (BOOL) workProfileBlockScreenCapture
-{
-    _workProfileBlockScreenCapture = [self.dictionary[@"workProfileBlockScreenCapture"] boolValue];
-    return _workProfileBlockScreenCapture;
-}
-
-- (void) setWorkProfileBlockScreenCapture: (BOOL) val
-{
-    _workProfileBlockScreenCapture = val;
-    self.dictionary[@"workProfileBlockScreenCapture"] = @(val);
+    _workProfileBlockCamera = val;
+    self.dictionary[@"workProfileBlockCamera"] = @(val);
 }
 
 - (BOOL) workProfileBlockCrossProfileCallerId
@@ -230,18 +204,6 @@
 {
     _workProfileBlockCrossProfileCallerId = val;
     self.dictionary[@"workProfileBlockCrossProfileCallerId"] = @(val);
-}
-
-- (BOOL) workProfileBlockCamera
-{
-    _workProfileBlockCamera = [self.dictionary[@"workProfileBlockCamera"] boolValue];
-    return _workProfileBlockCamera;
-}
-
-- (void) setWorkProfileBlockCamera: (BOOL) val
-{
-    _workProfileBlockCamera = val;
-    self.dictionary[@"workProfileBlockCamera"] = @(val);
 }
 
 - (BOOL) workProfileBlockCrossProfileContactsSearch
@@ -266,6 +228,56 @@
 {
     _workProfileBlockCrossProfileCopyPaste = val;
     self.dictionary[@"workProfileBlockCrossProfileCopyPaste"] = @(val);
+}
+
+- (BOOL) workProfileBlockNotificationsWhileDeviceLocked
+{
+    _workProfileBlockNotificationsWhileDeviceLocked = [self.dictionary[@"workProfileBlockNotificationsWhileDeviceLocked"] boolValue];
+    return _workProfileBlockNotificationsWhileDeviceLocked;
+}
+
+- (void) setWorkProfileBlockNotificationsWhileDeviceLocked: (BOOL) val
+{
+    _workProfileBlockNotificationsWhileDeviceLocked = val;
+    self.dictionary[@"workProfileBlockNotificationsWhileDeviceLocked"] = @(val);
+}
+
+- (BOOL) workProfileBlockScreenCapture
+{
+    _workProfileBlockScreenCapture = [self.dictionary[@"workProfileBlockScreenCapture"] boolValue];
+    return _workProfileBlockScreenCapture;
+}
+
+- (void) setWorkProfileBlockScreenCapture: (BOOL) val
+{
+    _workProfileBlockScreenCapture = val;
+    self.dictionary[@"workProfileBlockScreenCapture"] = @(val);
+}
+
+- (BOOL) workProfileBluetoothEnableContactSharing
+{
+    _workProfileBluetoothEnableContactSharing = [self.dictionary[@"workProfileBluetoothEnableContactSharing"] boolValue];
+    return _workProfileBluetoothEnableContactSharing;
+}
+
+- (void) setWorkProfileBluetoothEnableContactSharing: (BOOL) val
+{
+    _workProfileBluetoothEnableContactSharing = val;
+    self.dictionary[@"workProfileBluetoothEnableContactSharing"] = @(val);
+}
+
+- (MSGraphAndroidWorkProfileCrossProfileDataSharingType*) workProfileDataSharingType
+{
+    if(!_workProfileDataSharingType){
+        _workProfileDataSharingType = [self.dictionary[@"workProfileDataSharingType"] toMSGraphAndroidWorkProfileCrossProfileDataSharingType];
+    }
+    return _workProfileDataSharingType;
+}
+
+- (void) setWorkProfileDataSharingType: (MSGraphAndroidWorkProfileCrossProfileDataSharingType*) val
+{
+    _workProfileDataSharingType = val;
+    self.dictionary[@"workProfileDataSharingType"] = val;
 }
 
 - (MSGraphAndroidWorkProfileDefaultAppPermissionPolicyType*) workProfileDefaultAppPermissionPolicy
@@ -330,30 +342,6 @@
     self.dictionary[@"workProfilePasswordMinimumLength"] = @(val);
 }
 
-- (int32_t) workProfilePasswordMinNumericCharacters
-{
-    _workProfilePasswordMinNumericCharacters = [self.dictionary[@"workProfilePasswordMinNumericCharacters"] intValue];
-    return _workProfilePasswordMinNumericCharacters;
-}
-
-- (void) setWorkProfilePasswordMinNumericCharacters: (int32_t) val
-{
-    _workProfilePasswordMinNumericCharacters = val;
-    self.dictionary[@"workProfilePasswordMinNumericCharacters"] = @(val);
-}
-
-- (int32_t) workProfilePasswordMinNonLetterCharacters
-{
-    _workProfilePasswordMinNonLetterCharacters = [self.dictionary[@"workProfilePasswordMinNonLetterCharacters"] intValue];
-    return _workProfilePasswordMinNonLetterCharacters;
-}
-
-- (void) setWorkProfilePasswordMinNonLetterCharacters: (int32_t) val
-{
-    _workProfilePasswordMinNonLetterCharacters = val;
-    self.dictionary[@"workProfilePasswordMinNonLetterCharacters"] = @(val);
-}
-
 - (int32_t) workProfilePasswordMinLetterCharacters
 {
     _workProfilePasswordMinLetterCharacters = [self.dictionary[@"workProfilePasswordMinLetterCharacters"] intValue];
@@ -378,16 +366,28 @@
     self.dictionary[@"workProfilePasswordMinLowerCaseCharacters"] = @(val);
 }
 
-- (int32_t) workProfilePasswordMinUpperCaseCharacters
+- (int32_t) workProfilePasswordMinNonLetterCharacters
 {
-    _workProfilePasswordMinUpperCaseCharacters = [self.dictionary[@"workProfilePasswordMinUpperCaseCharacters"] intValue];
-    return _workProfilePasswordMinUpperCaseCharacters;
+    _workProfilePasswordMinNonLetterCharacters = [self.dictionary[@"workProfilePasswordMinNonLetterCharacters"] intValue];
+    return _workProfilePasswordMinNonLetterCharacters;
 }
 
-- (void) setWorkProfilePasswordMinUpperCaseCharacters: (int32_t) val
+- (void) setWorkProfilePasswordMinNonLetterCharacters: (int32_t) val
 {
-    _workProfilePasswordMinUpperCaseCharacters = val;
-    self.dictionary[@"workProfilePasswordMinUpperCaseCharacters"] = @(val);
+    _workProfilePasswordMinNonLetterCharacters = val;
+    self.dictionary[@"workProfilePasswordMinNonLetterCharacters"] = @(val);
+}
+
+- (int32_t) workProfilePasswordMinNumericCharacters
+{
+    _workProfilePasswordMinNumericCharacters = [self.dictionary[@"workProfilePasswordMinNumericCharacters"] intValue];
+    return _workProfilePasswordMinNumericCharacters;
+}
+
+- (void) setWorkProfilePasswordMinNumericCharacters: (int32_t) val
+{
+    _workProfilePasswordMinNumericCharacters = val;
+    self.dictionary[@"workProfilePasswordMinNumericCharacters"] = @(val);
 }
 
 - (int32_t) workProfilePasswordMinSymbolCharacters
@@ -400,6 +400,18 @@
 {
     _workProfilePasswordMinSymbolCharacters = val;
     self.dictionary[@"workProfilePasswordMinSymbolCharacters"] = @(val);
+}
+
+- (int32_t) workProfilePasswordMinUpperCaseCharacters
+{
+    _workProfilePasswordMinUpperCaseCharacters = [self.dictionary[@"workProfilePasswordMinUpperCaseCharacters"] intValue];
+    return _workProfilePasswordMinUpperCaseCharacters;
+}
+
+- (void) setWorkProfilePasswordMinUpperCaseCharacters: (int32_t) val
+{
+    _workProfilePasswordMinUpperCaseCharacters = val;
+    self.dictionary[@"workProfilePasswordMinUpperCaseCharacters"] = @(val);
 }
 
 - (int32_t) workProfilePasswordMinutesOfInactivityBeforeScreenTimeout
@@ -426,18 +438,6 @@
     self.dictionary[@"workProfilePasswordPreviousPasswordBlockCount"] = @(val);
 }
 
-- (int32_t) workProfilePasswordSignInFailureCountBeforeFactoryReset
-{
-    _workProfilePasswordSignInFailureCountBeforeFactoryReset = [self.dictionary[@"workProfilePasswordSignInFailureCountBeforeFactoryReset"] intValue];
-    return _workProfilePasswordSignInFailureCountBeforeFactoryReset;
-}
-
-- (void) setWorkProfilePasswordSignInFailureCountBeforeFactoryReset: (int32_t) val
-{
-    _workProfilePasswordSignInFailureCountBeforeFactoryReset = val;
-    self.dictionary[@"workProfilePasswordSignInFailureCountBeforeFactoryReset"] = @(val);
-}
-
 - (MSGraphAndroidWorkProfileRequiredPasswordType*) workProfilePasswordRequiredType
 {
     if(!_workProfilePasswordRequiredType){
@@ -452,6 +452,18 @@
     self.dictionary[@"workProfilePasswordRequiredType"] = val;
 }
 
+- (int32_t) workProfilePasswordSignInFailureCountBeforeFactoryReset
+{
+    _workProfilePasswordSignInFailureCountBeforeFactoryReset = [self.dictionary[@"workProfilePasswordSignInFailureCountBeforeFactoryReset"] intValue];
+    return _workProfilePasswordSignInFailureCountBeforeFactoryReset;
+}
+
+- (void) setWorkProfilePasswordSignInFailureCountBeforeFactoryReset: (int32_t) val
+{
+    _workProfilePasswordSignInFailureCountBeforeFactoryReset = val;
+    self.dictionary[@"workProfilePasswordSignInFailureCountBeforeFactoryReset"] = @(val);
+}
+
 - (BOOL) workProfileRequirePassword
 {
     _workProfileRequirePassword = [self.dictionary[@"workProfileRequirePassword"] boolValue];
@@ -462,18 +474,6 @@
 {
     _workProfileRequirePassword = val;
     self.dictionary[@"workProfileRequirePassword"] = @(val);
-}
-
-- (BOOL) securityRequireVerifyApps
-{
-    _securityRequireVerifyApps = [self.dictionary[@"securityRequireVerifyApps"] boolValue];
-    return _securityRequireVerifyApps;
-}
-
-- (void) setSecurityRequireVerifyApps: (BOOL) val
-{
-    _securityRequireVerifyApps = val;
-    self.dictionary[@"securityRequireVerifyApps"] = @(val);
 }
 
 

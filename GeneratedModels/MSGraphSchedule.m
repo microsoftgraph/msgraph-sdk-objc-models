@@ -15,24 +15,24 @@
 @interface MSGraphSchedule()
 {
     BOOL _enabled;
-    NSString* _timeZone;
+    BOOL _offerShiftRequestsEnabled;
+    BOOL _openShiftsEnabled;
     MSGraphOperationStatus* _provisionStatus;
     NSString* _provisionStatusCode;
-    NSArray* _workforceIntegrationIds;
-    BOOL _timeClockEnabled;
-    BOOL _openShiftsEnabled;
     BOOL _swapShiftsRequestsEnabled;
-    BOOL _offerShiftRequestsEnabled;
+    BOOL _timeClockEnabled;
     BOOL _timeOffRequestsEnabled;
-    NSArray* _shifts;
-    NSArray* _openShifts;
-    NSArray* _timesOff;
-    NSArray* _timeOffReasons;
-    NSArray* _schedulingGroups;
-    NSArray* _swapShiftsChangeRequests;
-    NSArray* _openShiftChangeRequests;
+    NSString* _timeZone;
+    NSArray* _workforceIntegrationIds;
     NSArray* _offerShiftRequests;
+    NSArray* _openShiftChangeRequests;
+    NSArray* _openShifts;
+    NSArray* _schedulingGroups;
+    NSArray* _shifts;
+    NSArray* _swapShiftsChangeRequests;
+    NSArray* _timeOffReasons;
     NSArray* _timeOffRequests;
+    NSArray* _timesOff;
 }
 @end
 
@@ -57,18 +57,28 @@
     self.dictionary[@"enabled"] = @(val);
 }
 
-- (NSString*) timeZone
+- (BOOL) offerShiftRequestsEnabled
 {
-    if([[NSNull null] isEqual:self.dictionary[@"timeZone"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"timeZone"];
+    _offerShiftRequestsEnabled = [self.dictionary[@"offerShiftRequestsEnabled"] boolValue];
+    return _offerShiftRequestsEnabled;
 }
 
-- (void) setTimeZone: (NSString*) val
+- (void) setOfferShiftRequestsEnabled: (BOOL) val
 {
-    self.dictionary[@"timeZone"] = val;
+    _offerShiftRequestsEnabled = val;
+    self.dictionary[@"offerShiftRequestsEnabled"] = @(val);
+}
+
+- (BOOL) openShiftsEnabled
+{
+    _openShiftsEnabled = [self.dictionary[@"openShiftsEnabled"] boolValue];
+    return _openShiftsEnabled;
+}
+
+- (void) setOpenShiftsEnabled: (BOOL) val
+{
+    _openShiftsEnabled = val;
+    self.dictionary[@"openShiftsEnabled"] = @(val);
 }
 
 - (MSGraphOperationStatus*) provisionStatus
@@ -99,18 +109,16 @@
     self.dictionary[@"provisionStatusCode"] = val;
 }
 
-- (NSArray*) workforceIntegrationIds
+- (BOOL) swapShiftsRequestsEnabled
 {
-    if([[NSNull null] isEqual:self.dictionary[@"workforceIntegrationIds"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"workforceIntegrationIds"];
+    _swapShiftsRequestsEnabled = [self.dictionary[@"swapShiftsRequestsEnabled"] boolValue];
+    return _swapShiftsRequestsEnabled;
 }
 
-- (void) setWorkforceIntegrationIds: (NSArray*) val
+- (void) setSwapShiftsRequestsEnabled: (BOOL) val
 {
-    self.dictionary[@"workforceIntegrationIds"] = val;
+    _swapShiftsRequestsEnabled = val;
+    self.dictionary[@"swapShiftsRequestsEnabled"] = @(val);
 }
 
 - (BOOL) timeClockEnabled
@@ -125,42 +133,6 @@
     self.dictionary[@"timeClockEnabled"] = @(val);
 }
 
-- (BOOL) openShiftsEnabled
-{
-    _openShiftsEnabled = [self.dictionary[@"openShiftsEnabled"] boolValue];
-    return _openShiftsEnabled;
-}
-
-- (void) setOpenShiftsEnabled: (BOOL) val
-{
-    _openShiftsEnabled = val;
-    self.dictionary[@"openShiftsEnabled"] = @(val);
-}
-
-- (BOOL) swapShiftsRequestsEnabled
-{
-    _swapShiftsRequestsEnabled = [self.dictionary[@"swapShiftsRequestsEnabled"] boolValue];
-    return _swapShiftsRequestsEnabled;
-}
-
-- (void) setSwapShiftsRequestsEnabled: (BOOL) val
-{
-    _swapShiftsRequestsEnabled = val;
-    self.dictionary[@"swapShiftsRequestsEnabled"] = @(val);
-}
-
-- (BOOL) offerShiftRequestsEnabled
-{
-    _offerShiftRequestsEnabled = [self.dictionary[@"offerShiftRequestsEnabled"] boolValue];
-    return _offerShiftRequestsEnabled;
-}
-
-- (void) setOfferShiftRequestsEnabled: (BOOL) val
-{
-    _offerShiftRequestsEnabled = val;
-    self.dictionary[@"offerShiftRequestsEnabled"] = @(val);
-}
-
 - (BOOL) timeOffRequestsEnabled
 {
     _timeOffRequestsEnabled = [self.dictionary[@"timeOffRequestsEnabled"] boolValue];
@@ -173,179 +145,32 @@
     self.dictionary[@"timeOffRequestsEnabled"] = @(val);
 }
 
-- (NSArray*) shifts
+- (NSString*) timeZone
 {
-    if(!_shifts){
-        
-    NSMutableArray *shiftsResult = [NSMutableArray array];
-    NSArray *shifts = self.dictionary[@"shifts"];
-
-    if ([shifts isKindOfClass:[NSArray class]]){
-        for (id tempShift in shifts){
-            [shiftsResult addObject:tempShift];
-        }
-    }
-
-    _shifts = shiftsResult;
-        
-    }
-    return _shifts;
+    if([[NSNull null] isEqual:self.dictionary[@"timeZone"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"timeZone"];
 }
 
-- (void) setShifts: (NSArray*) val
+- (void) setTimeZone: (NSString*) val
 {
-    _shifts = val;
-    self.dictionary[@"shifts"] = val;
+    self.dictionary[@"timeZone"] = val;
 }
 
-- (NSArray*) openShifts
+- (NSArray*) workforceIntegrationIds
 {
-    if(!_openShifts){
-        
-    NSMutableArray *openShiftsResult = [NSMutableArray array];
-    NSArray *openShifts = self.dictionary[@"openShifts"];
-
-    if ([openShifts isKindOfClass:[NSArray class]]){
-        for (id tempOpenShift in openShifts){
-            [openShiftsResult addObject:tempOpenShift];
-        }
-    }
-
-    _openShifts = openShiftsResult;
-        
-    }
-    return _openShifts;
+    if([[NSNull null] isEqual:self.dictionary[@"workforceIntegrationIds"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"workforceIntegrationIds"];
 }
 
-- (void) setOpenShifts: (NSArray*) val
+- (void) setWorkforceIntegrationIds: (NSArray*) val
 {
-    _openShifts = val;
-    self.dictionary[@"openShifts"] = val;
-}
-
-- (NSArray*) timesOff
-{
-    if(!_timesOff){
-        
-    NSMutableArray *timesOffResult = [NSMutableArray array];
-    NSArray *timesOff = self.dictionary[@"timesOff"];
-
-    if ([timesOff isKindOfClass:[NSArray class]]){
-        for (id tempTimeOff in timesOff){
-            [timesOffResult addObject:tempTimeOff];
-        }
-    }
-
-    _timesOff = timesOffResult;
-        
-    }
-    return _timesOff;
-}
-
-- (void) setTimesOff: (NSArray*) val
-{
-    _timesOff = val;
-    self.dictionary[@"timesOff"] = val;
-}
-
-- (NSArray*) timeOffReasons
-{
-    if(!_timeOffReasons){
-        
-    NSMutableArray *timeOffReasonsResult = [NSMutableArray array];
-    NSArray *timeOffReasons = self.dictionary[@"timeOffReasons"];
-
-    if ([timeOffReasons isKindOfClass:[NSArray class]]){
-        for (id tempTimeOffReason in timeOffReasons){
-            [timeOffReasonsResult addObject:tempTimeOffReason];
-        }
-    }
-
-    _timeOffReasons = timeOffReasonsResult;
-        
-    }
-    return _timeOffReasons;
-}
-
-- (void) setTimeOffReasons: (NSArray*) val
-{
-    _timeOffReasons = val;
-    self.dictionary[@"timeOffReasons"] = val;
-}
-
-- (NSArray*) schedulingGroups
-{
-    if(!_schedulingGroups){
-        
-    NSMutableArray *schedulingGroupsResult = [NSMutableArray array];
-    NSArray *schedulingGroups = self.dictionary[@"schedulingGroups"];
-
-    if ([schedulingGroups isKindOfClass:[NSArray class]]){
-        for (id tempSchedulingGroup in schedulingGroups){
-            [schedulingGroupsResult addObject:tempSchedulingGroup];
-        }
-    }
-
-    _schedulingGroups = schedulingGroupsResult;
-        
-    }
-    return _schedulingGroups;
-}
-
-- (void) setSchedulingGroups: (NSArray*) val
-{
-    _schedulingGroups = val;
-    self.dictionary[@"schedulingGroups"] = val;
-}
-
-- (NSArray*) swapShiftsChangeRequests
-{
-    if(!_swapShiftsChangeRequests){
-        
-    NSMutableArray *swapShiftsChangeRequestsResult = [NSMutableArray array];
-    NSArray *swapShiftsChangeRequests = self.dictionary[@"swapShiftsChangeRequests"];
-
-    if ([swapShiftsChangeRequests isKindOfClass:[NSArray class]]){
-        for (id tempSwapShiftsChangeRequest in swapShiftsChangeRequests){
-            [swapShiftsChangeRequestsResult addObject:tempSwapShiftsChangeRequest];
-        }
-    }
-
-    _swapShiftsChangeRequests = swapShiftsChangeRequestsResult;
-        
-    }
-    return _swapShiftsChangeRequests;
-}
-
-- (void) setSwapShiftsChangeRequests: (NSArray*) val
-{
-    _swapShiftsChangeRequests = val;
-    self.dictionary[@"swapShiftsChangeRequests"] = val;
-}
-
-- (NSArray*) openShiftChangeRequests
-{
-    if(!_openShiftChangeRequests){
-        
-    NSMutableArray *openShiftChangeRequestsResult = [NSMutableArray array];
-    NSArray *openShiftChangeRequests = self.dictionary[@"openShiftChangeRequests"];
-
-    if ([openShiftChangeRequests isKindOfClass:[NSArray class]]){
-        for (id tempOpenShiftChangeRequest in openShiftChangeRequests){
-            [openShiftChangeRequestsResult addObject:tempOpenShiftChangeRequest];
-        }
-    }
-
-    _openShiftChangeRequests = openShiftChangeRequestsResult;
-        
-    }
-    return _openShiftChangeRequests;
-}
-
-- (void) setOpenShiftChangeRequests: (NSArray*) val
-{
-    _openShiftChangeRequests = val;
-    self.dictionary[@"openShiftChangeRequests"] = val;
+    self.dictionary[@"workforceIntegrationIds"] = val;
 }
 
 - (NSArray*) offerShiftRequests
@@ -373,6 +198,156 @@
     self.dictionary[@"offerShiftRequests"] = val;
 }
 
+- (NSArray*) openShiftChangeRequests
+{
+    if(!_openShiftChangeRequests){
+        
+    NSMutableArray *openShiftChangeRequestsResult = [NSMutableArray array];
+    NSArray *openShiftChangeRequests = self.dictionary[@"openShiftChangeRequests"];
+
+    if ([openShiftChangeRequests isKindOfClass:[NSArray class]]){
+        for (id tempOpenShiftChangeRequest in openShiftChangeRequests){
+            [openShiftChangeRequestsResult addObject:tempOpenShiftChangeRequest];
+        }
+    }
+
+    _openShiftChangeRequests = openShiftChangeRequestsResult;
+        
+    }
+    return _openShiftChangeRequests;
+}
+
+- (void) setOpenShiftChangeRequests: (NSArray*) val
+{
+    _openShiftChangeRequests = val;
+    self.dictionary[@"openShiftChangeRequests"] = val;
+}
+
+- (NSArray*) openShifts
+{
+    if(!_openShifts){
+        
+    NSMutableArray *openShiftsResult = [NSMutableArray array];
+    NSArray *openShifts = self.dictionary[@"openShifts"];
+
+    if ([openShifts isKindOfClass:[NSArray class]]){
+        for (id tempOpenShift in openShifts){
+            [openShiftsResult addObject:tempOpenShift];
+        }
+    }
+
+    _openShifts = openShiftsResult;
+        
+    }
+    return _openShifts;
+}
+
+- (void) setOpenShifts: (NSArray*) val
+{
+    _openShifts = val;
+    self.dictionary[@"openShifts"] = val;
+}
+
+- (NSArray*) schedulingGroups
+{
+    if(!_schedulingGroups){
+        
+    NSMutableArray *schedulingGroupsResult = [NSMutableArray array];
+    NSArray *schedulingGroups = self.dictionary[@"schedulingGroups"];
+
+    if ([schedulingGroups isKindOfClass:[NSArray class]]){
+        for (id tempSchedulingGroup in schedulingGroups){
+            [schedulingGroupsResult addObject:tempSchedulingGroup];
+        }
+    }
+
+    _schedulingGroups = schedulingGroupsResult;
+        
+    }
+    return _schedulingGroups;
+}
+
+- (void) setSchedulingGroups: (NSArray*) val
+{
+    _schedulingGroups = val;
+    self.dictionary[@"schedulingGroups"] = val;
+}
+
+- (NSArray*) shifts
+{
+    if(!_shifts){
+        
+    NSMutableArray *shiftsResult = [NSMutableArray array];
+    NSArray *shifts = self.dictionary[@"shifts"];
+
+    if ([shifts isKindOfClass:[NSArray class]]){
+        for (id tempShift in shifts){
+            [shiftsResult addObject:tempShift];
+        }
+    }
+
+    _shifts = shiftsResult;
+        
+    }
+    return _shifts;
+}
+
+- (void) setShifts: (NSArray*) val
+{
+    _shifts = val;
+    self.dictionary[@"shifts"] = val;
+}
+
+- (NSArray*) swapShiftsChangeRequests
+{
+    if(!_swapShiftsChangeRequests){
+        
+    NSMutableArray *swapShiftsChangeRequestsResult = [NSMutableArray array];
+    NSArray *swapShiftsChangeRequests = self.dictionary[@"swapShiftsChangeRequests"];
+
+    if ([swapShiftsChangeRequests isKindOfClass:[NSArray class]]){
+        for (id tempSwapShiftsChangeRequest in swapShiftsChangeRequests){
+            [swapShiftsChangeRequestsResult addObject:tempSwapShiftsChangeRequest];
+        }
+    }
+
+    _swapShiftsChangeRequests = swapShiftsChangeRequestsResult;
+        
+    }
+    return _swapShiftsChangeRequests;
+}
+
+- (void) setSwapShiftsChangeRequests: (NSArray*) val
+{
+    _swapShiftsChangeRequests = val;
+    self.dictionary[@"swapShiftsChangeRequests"] = val;
+}
+
+- (NSArray*) timeOffReasons
+{
+    if(!_timeOffReasons){
+        
+    NSMutableArray *timeOffReasonsResult = [NSMutableArray array];
+    NSArray *timeOffReasons = self.dictionary[@"timeOffReasons"];
+
+    if ([timeOffReasons isKindOfClass:[NSArray class]]){
+        for (id tempTimeOffReason in timeOffReasons){
+            [timeOffReasonsResult addObject:tempTimeOffReason];
+        }
+    }
+
+    _timeOffReasons = timeOffReasonsResult;
+        
+    }
+    return _timeOffReasons;
+}
+
+- (void) setTimeOffReasons: (NSArray*) val
+{
+    _timeOffReasons = val;
+    self.dictionary[@"timeOffReasons"] = val;
+}
+
 - (NSArray*) timeOffRequests
 {
     if(!_timeOffRequests){
@@ -396,6 +371,31 @@
 {
     _timeOffRequests = val;
     self.dictionary[@"timeOffRequests"] = val;
+}
+
+- (NSArray*) timesOff
+{
+    if(!_timesOff){
+        
+    NSMutableArray *timesOffResult = [NSMutableArray array];
+    NSArray *timesOff = self.dictionary[@"timesOff"];
+
+    if ([timesOff isKindOfClass:[NSArray class]]){
+        for (id tempTimeOff in timesOff){
+            [timesOffResult addObject:tempTimeOff];
+        }
+    }
+
+    _timesOff = timesOffResult;
+        
+    }
+    return _timesOff;
+}
+
+- (void) setTimesOff: (NSArray*) val
+{
+    _timesOff = val;
+    self.dictionary[@"timesOff"] = val;
 }
 
 

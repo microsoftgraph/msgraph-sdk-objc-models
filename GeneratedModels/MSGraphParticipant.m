@@ -15,10 +15,10 @@
 @interface MSGraphParticipant()
 {
     MSGraphParticipantInfo* _info;
-    MSGraphRecordingInfo* _recordingInfo;
-    NSArray* _mediaStreams;
-    BOOL _isMuted;
     BOOL _isInLobby;
+    BOOL _isMuted;
+    NSArray* _mediaStreams;
+    MSGraphRecordingInfo* _recordingInfo;
 }
 @end
 
@@ -45,18 +45,28 @@
     self.dictionary[@"info"] = val;
 }
 
-- (MSGraphRecordingInfo*) recordingInfo
+- (BOOL) isInLobby
 {
-    if(!_recordingInfo){
-        _recordingInfo = [[MSGraphRecordingInfo alloc] initWithDictionary: self.dictionary[@"recordingInfo"]];
-    }
-    return _recordingInfo;
+    _isInLobby = [self.dictionary[@"isInLobby"] boolValue];
+    return _isInLobby;
 }
 
-- (void) setRecordingInfo: (MSGraphRecordingInfo*) val
+- (void) setIsInLobby: (BOOL) val
 {
-    _recordingInfo = val;
-    self.dictionary[@"recordingInfo"] = val;
+    _isInLobby = val;
+    self.dictionary[@"isInLobby"] = @(val);
+}
+
+- (BOOL) isMuted
+{
+    _isMuted = [self.dictionary[@"isMuted"] boolValue];
+    return _isMuted;
+}
+
+- (void) setIsMuted: (BOOL) val
+{
+    _isMuted = val;
+    self.dictionary[@"isMuted"] = @(val);
 }
 
 - (NSArray*) mediaStreams
@@ -84,28 +94,18 @@
     self.dictionary[@"mediaStreams"] = val;
 }
 
-- (BOOL) isMuted
+- (MSGraphRecordingInfo*) recordingInfo
 {
-    _isMuted = [self.dictionary[@"isMuted"] boolValue];
-    return _isMuted;
+    if(!_recordingInfo){
+        _recordingInfo = [[MSGraphRecordingInfo alloc] initWithDictionary: self.dictionary[@"recordingInfo"]];
+    }
+    return _recordingInfo;
 }
 
-- (void) setIsMuted: (BOOL) val
+- (void) setRecordingInfo: (MSGraphRecordingInfo*) val
 {
-    _isMuted = val;
-    self.dictionary[@"isMuted"] = @(val);
-}
-
-- (BOOL) isInLobby
-{
-    _isInLobby = [self.dictionary[@"isInLobby"] boolValue];
-    return _isInLobby;
-}
-
-- (void) setIsInLobby: (BOOL) val
-{
-    _isInLobby = val;
-    self.dictionary[@"isInLobby"] = @(val);
+    _recordingInfo = val;
+    self.dictionary[@"recordingInfo"] = val;
 }
 
 

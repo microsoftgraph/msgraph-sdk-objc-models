@@ -14,115 +14,37 @@
 
 @interface MSGraphIntuneBrand()
 {
-    NSString* _displayName;
-    MSGraphRgbColor* _themeColor;
-    BOOL _showLogo;
-    MSGraphMimeContent* _lightBackgroundLogo;
-    MSGraphMimeContent* _darkBackgroundLogo;
-    BOOL _showNameNextToLogo;
-    BOOL _showDisplayNameNextToLogo;
-    NSString* _contactITName;
-    NSString* _contactITPhoneNumber;
     NSString* _contactITEmailAddress;
+    NSString* _contactITName;
     NSString* _contactITNotes;
-    NSString* _onlineSupportSiteUrl;
+    NSString* _contactITPhoneNumber;
+    MSGraphMimeContent* _darkBackgroundLogo;
+    NSString* _displayName;
+    MSGraphMimeContent* _lightBackgroundLogo;
     NSString* _onlineSupportSiteName;
+    NSString* _onlineSupportSiteUrl;
     NSString* _privacyUrl;
+    BOOL _showDisplayNameNextToLogo;
+    BOOL _showLogo;
+    BOOL _showNameNextToLogo;
+    MSGraphRgbColor* _themeColor;
 }
 @end
 
 @implementation MSGraphIntuneBrand
 
-- (NSString*) displayName
+- (NSString*) contactITEmailAddress
 {
-    if([[NSNull null] isEqual:self.dictionary[@"displayName"]])
+    if([[NSNull null] isEqual:self.dictionary[@"contactITEmailAddress"]])
     {
         return nil;
     }   
-    return self.dictionary[@"displayName"];
+    return self.dictionary[@"contactITEmailAddress"];
 }
 
-- (void) setDisplayName: (NSString*) val
+- (void) setContactITEmailAddress: (NSString*) val
 {
-    self.dictionary[@"displayName"] = val;
-}
-
-- (MSGraphRgbColor*) themeColor
-{
-    if(!_themeColor){
-        _themeColor = [[MSGraphRgbColor alloc] initWithDictionary: self.dictionary[@"themeColor"]];
-    }
-    return _themeColor;
-}
-
-- (void) setThemeColor: (MSGraphRgbColor*) val
-{
-    _themeColor = val;
-    self.dictionary[@"themeColor"] = val;
-}
-
-- (BOOL) showLogo
-{
-    _showLogo = [self.dictionary[@"showLogo"] boolValue];
-    return _showLogo;
-}
-
-- (void) setShowLogo: (BOOL) val
-{
-    _showLogo = val;
-    self.dictionary[@"showLogo"] = @(val);
-}
-
-- (MSGraphMimeContent*) lightBackgroundLogo
-{
-    if(!_lightBackgroundLogo){
-        _lightBackgroundLogo = [[MSGraphMimeContent alloc] initWithDictionary: self.dictionary[@"lightBackgroundLogo"]];
-    }
-    return _lightBackgroundLogo;
-}
-
-- (void) setLightBackgroundLogo: (MSGraphMimeContent*) val
-{
-    _lightBackgroundLogo = val;
-    self.dictionary[@"lightBackgroundLogo"] = val;
-}
-
-- (MSGraphMimeContent*) darkBackgroundLogo
-{
-    if(!_darkBackgroundLogo){
-        _darkBackgroundLogo = [[MSGraphMimeContent alloc] initWithDictionary: self.dictionary[@"darkBackgroundLogo"]];
-    }
-    return _darkBackgroundLogo;
-}
-
-- (void) setDarkBackgroundLogo: (MSGraphMimeContent*) val
-{
-    _darkBackgroundLogo = val;
-    self.dictionary[@"darkBackgroundLogo"] = val;
-}
-
-- (BOOL) showNameNextToLogo
-{
-    _showNameNextToLogo = [self.dictionary[@"showNameNextToLogo"] boolValue];
-    return _showNameNextToLogo;
-}
-
-- (void) setShowNameNextToLogo: (BOOL) val
-{
-    _showNameNextToLogo = val;
-    self.dictionary[@"showNameNextToLogo"] = @(val);
-}
-
-- (BOOL) showDisplayNameNextToLogo
-{
-    _showDisplayNameNextToLogo = [self.dictionary[@"showDisplayNameNextToLogo"] boolValue];
-    return _showDisplayNameNextToLogo;
-}
-
-- (void) setShowDisplayNameNextToLogo: (BOOL) val
-{
-    _showDisplayNameNextToLogo = val;
-    self.dictionary[@"showDisplayNameNextToLogo"] = @(val);
+    self.dictionary[@"contactITEmailAddress"] = val;
 }
 
 - (NSString*) contactITName
@@ -139,34 +61,6 @@
     self.dictionary[@"contactITName"] = val;
 }
 
-- (NSString*) contactITPhoneNumber
-{
-    if([[NSNull null] isEqual:self.dictionary[@"contactITPhoneNumber"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"contactITPhoneNumber"];
-}
-
-- (void) setContactITPhoneNumber: (NSString*) val
-{
-    self.dictionary[@"contactITPhoneNumber"] = val;
-}
-
-- (NSString*) contactITEmailAddress
-{
-    if([[NSNull null] isEqual:self.dictionary[@"contactITEmailAddress"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"contactITEmailAddress"];
-}
-
-- (void) setContactITEmailAddress: (NSString*) val
-{
-    self.dictionary[@"contactITEmailAddress"] = val;
-}
-
 - (NSString*) contactITNotes
 {
     if([[NSNull null] isEqual:self.dictionary[@"contactITNotes"]])
@@ -181,18 +75,60 @@
     self.dictionary[@"contactITNotes"] = val;
 }
 
-- (NSString*) onlineSupportSiteUrl
+- (NSString*) contactITPhoneNumber
 {
-    if([[NSNull null] isEqual:self.dictionary[@"onlineSupportSiteUrl"]])
+    if([[NSNull null] isEqual:self.dictionary[@"contactITPhoneNumber"]])
     {
         return nil;
     }   
-    return self.dictionary[@"onlineSupportSiteUrl"];
+    return self.dictionary[@"contactITPhoneNumber"];
 }
 
-- (void) setOnlineSupportSiteUrl: (NSString*) val
+- (void) setContactITPhoneNumber: (NSString*) val
 {
-    self.dictionary[@"onlineSupportSiteUrl"] = val;
+    self.dictionary[@"contactITPhoneNumber"] = val;
+}
+
+- (MSGraphMimeContent*) darkBackgroundLogo
+{
+    if(!_darkBackgroundLogo){
+        _darkBackgroundLogo = [[MSGraphMimeContent alloc] initWithDictionary: self.dictionary[@"darkBackgroundLogo"]];
+    }
+    return _darkBackgroundLogo;
+}
+
+- (void) setDarkBackgroundLogo: (MSGraphMimeContent*) val
+{
+    _darkBackgroundLogo = val;
+    self.dictionary[@"darkBackgroundLogo"] = val;
+}
+
+- (NSString*) displayName
+{
+    if([[NSNull null] isEqual:self.dictionary[@"displayName"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"displayName"];
+}
+
+- (void) setDisplayName: (NSString*) val
+{
+    self.dictionary[@"displayName"] = val;
+}
+
+- (MSGraphMimeContent*) lightBackgroundLogo
+{
+    if(!_lightBackgroundLogo){
+        _lightBackgroundLogo = [[MSGraphMimeContent alloc] initWithDictionary: self.dictionary[@"lightBackgroundLogo"]];
+    }
+    return _lightBackgroundLogo;
+}
+
+- (void) setLightBackgroundLogo: (MSGraphMimeContent*) val
+{
+    _lightBackgroundLogo = val;
+    self.dictionary[@"lightBackgroundLogo"] = val;
 }
 
 - (NSString*) onlineSupportSiteName
@@ -209,6 +145,20 @@
     self.dictionary[@"onlineSupportSiteName"] = val;
 }
 
+- (NSString*) onlineSupportSiteUrl
+{
+    if([[NSNull null] isEqual:self.dictionary[@"onlineSupportSiteUrl"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"onlineSupportSiteUrl"];
+}
+
+- (void) setOnlineSupportSiteUrl: (NSString*) val
+{
+    self.dictionary[@"onlineSupportSiteUrl"] = val;
+}
+
 - (NSString*) privacyUrl
 {
     if([[NSNull null] isEqual:self.dictionary[@"privacyUrl"]])
@@ -221,6 +171,56 @@
 - (void) setPrivacyUrl: (NSString*) val
 {
     self.dictionary[@"privacyUrl"] = val;
+}
+
+- (BOOL) showDisplayNameNextToLogo
+{
+    _showDisplayNameNextToLogo = [self.dictionary[@"showDisplayNameNextToLogo"] boolValue];
+    return _showDisplayNameNextToLogo;
+}
+
+- (void) setShowDisplayNameNextToLogo: (BOOL) val
+{
+    _showDisplayNameNextToLogo = val;
+    self.dictionary[@"showDisplayNameNextToLogo"] = @(val);
+}
+
+- (BOOL) showLogo
+{
+    _showLogo = [self.dictionary[@"showLogo"] boolValue];
+    return _showLogo;
+}
+
+- (void) setShowLogo: (BOOL) val
+{
+    _showLogo = val;
+    self.dictionary[@"showLogo"] = @(val);
+}
+
+- (BOOL) showNameNextToLogo
+{
+    _showNameNextToLogo = [self.dictionary[@"showNameNextToLogo"] boolValue];
+    return _showNameNextToLogo;
+}
+
+- (void) setShowNameNextToLogo: (BOOL) val
+{
+    _showNameNextToLogo = val;
+    self.dictionary[@"showNameNextToLogo"] = @(val);
+}
+
+- (MSGraphRgbColor*) themeColor
+{
+    if(!_themeColor){
+        _themeColor = [[MSGraphRgbColor alloc] initWithDictionary: self.dictionary[@"themeColor"]];
+    }
+    return _themeColor;
+}
+
+- (void) setThemeColor: (MSGraphRgbColor*) val
+{
+    _themeColor = val;
+    self.dictionary[@"themeColor"] = val;
 }
 
 @end

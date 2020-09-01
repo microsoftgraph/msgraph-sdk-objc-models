@@ -8,8 +8,8 @@
 
 @interface MSGraphUserSettings : MSGraphEntity
 
-  @property (nonatomic, setter=setContributionToContentDiscoveryDisabled:, getter=contributionToContentDiscoveryDisabled) BOOL contributionToContentDiscoveryDisabled;
-    @property (nonatomic, setter=setContributionToContentDiscoveryAsOrganizationDisabled:, getter=contributionToContentDiscoveryAsOrganizationDisabled) BOOL contributionToContentDiscoveryAsOrganizationDisabled;
+  @property (nonatomic, setter=setContributionToContentDiscoveryAsOrganizationDisabled:, getter=contributionToContentDiscoveryAsOrganizationDisabled) BOOL contributionToContentDiscoveryAsOrganizationDisabled;
+    @property (nonatomic, setter=setContributionToContentDiscoveryDisabled:, getter=contributionToContentDiscoveryDisabled) BOOL contributionToContentDiscoveryDisabled;
     @property (nullable, nonatomic, setter=setShiftPreferences:, getter=shiftPreferences) MSGraphShiftPreferences* shiftPreferences;
   
 @end

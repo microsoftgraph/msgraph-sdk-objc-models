@@ -9,7 +9,7 @@
 
 @interface MSGraphOnenotePagePreview : MSObject
 
-@property (nullable, nonatomic, setter=setPreviewText:, getter=previewText) NSString* previewText;
 @property (nullable, nonatomic, setter=setLinks:, getter=links) MSGraphOnenotePagePreviewLinks* links;
+@property (nullable, nonatomic, setter=setPreviewText:, getter=previewText) NSString* previewText;
 
 @end

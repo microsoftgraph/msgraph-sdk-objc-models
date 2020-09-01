@@ -8,7 +8,7 @@
 
 @interface MSGraphGenericError : MSObject
 
-@property (nullable, nonatomic, setter=setMessage:, getter=message) NSString* message;
 @property (nullable, nonatomic, setter=setCode:, getter=code) NSString* code;
+@property (nullable, nonatomic, setter=setMessage:, getter=message) NSString* message;
 
 @end

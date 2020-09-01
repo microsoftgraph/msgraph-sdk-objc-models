@@ -14,12 +14,12 @@
 
 @interface MSGraphContactFolder()
 {
-    NSString* _parentFolderId;
     NSString* _displayName;
-    NSArray* _singleValueExtendedProperties;
-    NSArray* _multiValueExtendedProperties;
-    NSArray* _contacts;
+    NSString* _parentFolderId;
     NSArray* _childFolders;
+    NSArray* _contacts;
+    NSArray* _multiValueExtendedProperties;
+    NSArray* _singleValueExtendedProperties;
 }
 @end
 
@@ -32,20 +32,6 @@
     }
     return self;
 }
-- (NSString*) parentFolderId
-{
-    if([[NSNull null] isEqual:self.dictionary[@"parentFolderId"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"parentFolderId"];
-}
-
-- (void) setParentFolderId: (NSString*) val
-{
-    self.dictionary[@"parentFolderId"] = val;
-}
-
 - (NSString*) displayName
 {
     if([[NSNull null] isEqual:self.dictionary[@"displayName"]])
@@ -60,54 +46,43 @@
     self.dictionary[@"displayName"] = val;
 }
 
-- (NSArray*) singleValueExtendedProperties
+- (NSString*) parentFolderId
 {
-    if(!_singleValueExtendedProperties){
-        
-    NSMutableArray *singleValueExtendedPropertiesResult = [NSMutableArray array];
-    NSArray *singleValueExtendedProperties = self.dictionary[@"singleValueExtendedProperties"];
+    if([[NSNull null] isEqual:self.dictionary[@"parentFolderId"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"parentFolderId"];
+}
 
-    if ([singleValueExtendedProperties isKindOfClass:[NSArray class]]){
-        for (id tempSingleValueLegacyExtendedProperty in singleValueExtendedProperties){
-            [singleValueExtendedPropertiesResult addObject:tempSingleValueLegacyExtendedProperty];
+- (void) setParentFolderId: (NSString*) val
+{
+    self.dictionary[@"parentFolderId"] = val;
+}
+
+- (NSArray*) childFolders
+{
+    if(!_childFolders){
+        
+    NSMutableArray *childFoldersResult = [NSMutableArray array];
+    NSArray *childFolders = self.dictionary[@"childFolders"];
+
+    if ([childFolders isKindOfClass:[NSArray class]]){
+        for (id tempContactFolder in childFolders){
+            [childFoldersResult addObject:tempContactFolder];
         }
     }
 
-    _singleValueExtendedProperties = singleValueExtendedPropertiesResult;
+    _childFolders = childFoldersResult;
         
     }
-    return _singleValueExtendedProperties;
+    return _childFolders;
 }
 
-- (void) setSingleValueExtendedProperties: (NSArray*) val
+- (void) setChildFolders: (NSArray*) val
 {
-    _singleValueExtendedProperties = val;
-    self.dictionary[@"singleValueExtendedProperties"] = val;
-}
-
-- (NSArray*) multiValueExtendedProperties
-{
-    if(!_multiValueExtendedProperties){
-        
-    NSMutableArray *multiValueExtendedPropertiesResult = [NSMutableArray array];
-    NSArray *multiValueExtendedProperties = self.dictionary[@"multiValueExtendedProperties"];
-
-    if ([multiValueExtendedProperties isKindOfClass:[NSArray class]]){
-        for (id tempMultiValueLegacyExtendedProperty in multiValueExtendedProperties){
-            [multiValueExtendedPropertiesResult addObject:tempMultiValueLegacyExtendedProperty];
-        }
-    }
-
-    _multiValueExtendedProperties = multiValueExtendedPropertiesResult;
-        
-    }
-    return _multiValueExtendedProperties;
-}
-
-- (void) setMultiValueExtendedProperties: (NSArray*) val
-{
-    _multiValueExtendedProperties = val;
-    self.dictionary[@"multiValueExtendedProperties"] = val;
+    _childFolders = val;
+    self.dictionary[@"childFolders"] = val;
 }
 
 - (NSArray*) contacts
@@ -135,29 +110,54 @@
     self.dictionary[@"contacts"] = val;
 }
 
-- (NSArray*) childFolders
+- (NSArray*) multiValueExtendedProperties
 {
-    if(!_childFolders){
+    if(!_multiValueExtendedProperties){
         
-    NSMutableArray *childFoldersResult = [NSMutableArray array];
-    NSArray *childFolders = self.dictionary[@"childFolders"];
+    NSMutableArray *multiValueExtendedPropertiesResult = [NSMutableArray array];
+    NSArray *multiValueExtendedProperties = self.dictionary[@"multiValueExtendedProperties"];
 
-    if ([childFolders isKindOfClass:[NSArray class]]){
-        for (id tempContactFolder in childFolders){
-            [childFoldersResult addObject:tempContactFolder];
+    if ([multiValueExtendedProperties isKindOfClass:[NSArray class]]){
+        for (id tempMultiValueLegacyExtendedProperty in multiValueExtendedProperties){
+            [multiValueExtendedPropertiesResult addObject:tempMultiValueLegacyExtendedProperty];
         }
     }
 
-    _childFolders = childFoldersResult;
+    _multiValueExtendedProperties = multiValueExtendedPropertiesResult;
         
     }
-    return _childFolders;
+    return _multiValueExtendedProperties;
 }
 
-- (void) setChildFolders: (NSArray*) val
+- (void) setMultiValueExtendedProperties: (NSArray*) val
 {
-    _childFolders = val;
-    self.dictionary[@"childFolders"] = val;
+    _multiValueExtendedProperties = val;
+    self.dictionary[@"multiValueExtendedProperties"] = val;
+}
+
+- (NSArray*) singleValueExtendedProperties
+{
+    if(!_singleValueExtendedProperties){
+        
+    NSMutableArray *singleValueExtendedPropertiesResult = [NSMutableArray array];
+    NSArray *singleValueExtendedProperties = self.dictionary[@"singleValueExtendedProperties"];
+
+    if ([singleValueExtendedProperties isKindOfClass:[NSArray class]]){
+        for (id tempSingleValueLegacyExtendedProperty in singleValueExtendedProperties){
+            [singleValueExtendedPropertiesResult addObject:tempSingleValueLegacyExtendedProperty];
+        }
+    }
+
+    _singleValueExtendedProperties = singleValueExtendedPropertiesResult;
+        
+    }
+    return _singleValueExtendedProperties;
+}
+
+- (void) setSingleValueExtendedProperties: (NSArray*) val
+{
+    _singleValueExtendedProperties = val;
+    self.dictionary[@"singleValueExtendedProperties"] = val;
 }
 
 

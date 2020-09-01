@@ -8,8 +8,8 @@
 
 @interface MSGraphDomainState : MSObject
 
-@property (nullable, nonatomic, setter=setStatus:, getter=status) NSString* status;
-@property (nullable, nonatomic, setter=setOperation:, getter=operation) NSString* operation;
 @property (nullable, nonatomic, setter=setLastActionDateTime:, getter=lastActionDateTime) NSDate* lastActionDateTime;
+@property (nullable, nonatomic, setter=setOperation:, getter=operation) NSString* operation;
+@property (nullable, nonatomic, setter=setStatus:, getter=status) NSString* status;
 
 @end

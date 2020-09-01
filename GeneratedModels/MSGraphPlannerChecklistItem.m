@@ -15,10 +15,10 @@
 @interface MSGraphPlannerChecklistItem()
 {
     BOOL _isChecked;
-    NSString* _title;
-    NSString* _orderHint;
     MSGraphIdentitySet* _lastModifiedBy;
     NSDate* _lastModifiedDateTime;
+    NSString* _orderHint;
+    NSString* _title;
 }
 @end
 
@@ -34,34 +34,6 @@
 {
     _isChecked = val;
     self.dictionary[@"isChecked"] = @(val);
-}
-
-- (NSString*) title
-{
-    if([[NSNull null] isEqual:self.dictionary[@"title"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"title"];
-}
-
-- (void) setTitle: (NSString*) val
-{
-    self.dictionary[@"title"] = val;
-}
-
-- (NSString*) orderHint
-{
-    if([[NSNull null] isEqual:self.dictionary[@"orderHint"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"orderHint"];
-}
-
-- (void) setOrderHint: (NSString*) val
-{
-    self.dictionary[@"orderHint"] = val;
 }
 
 - (MSGraphIdentitySet*) lastModifiedBy
@@ -90,6 +62,34 @@
 {
     _lastModifiedDateTime = val;
     self.dictionary[@"lastModifiedDateTime"] = [val ms_toString];
+}
+
+- (NSString*) orderHint
+{
+    if([[NSNull null] isEqual:self.dictionary[@"orderHint"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"orderHint"];
+}
+
+- (void) setOrderHint: (NSString*) val
+{
+    self.dictionary[@"orderHint"] = val;
+}
+
+- (NSString*) title
+{
+    if([[NSNull null] isEqual:self.dictionary[@"title"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"title"];
+}
+
+- (void) setTitle: (NSString*) val
+{
+    self.dictionary[@"title"] = val;
 }
 
 @end

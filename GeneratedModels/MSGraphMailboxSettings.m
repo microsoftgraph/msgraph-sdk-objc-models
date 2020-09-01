@@ -14,32 +14,18 @@
 
 @interface MSGraphMailboxSettings()
 {
-    MSGraphAutomaticRepliesSetting* _automaticRepliesSetting;
     NSString* _archiveFolder;
-    NSString* _timeZone;
-    MSGraphLocaleInfo* _language;
-    MSGraphDelegateMeetingMessageDeliveryOptions* _delegateMeetingMessageDeliveryOptions;
-    MSGraphWorkingHours* _workingHours;
+    MSGraphAutomaticRepliesSetting* _automaticRepliesSetting;
     NSString* _dateFormat;
+    MSGraphDelegateMeetingMessageDeliveryOptions* _delegateMeetingMessageDeliveryOptions;
+    MSGraphLocaleInfo* _language;
     NSString* _timeFormat;
+    NSString* _timeZone;
+    MSGraphWorkingHours* _workingHours;
 }
 @end
 
 @implementation MSGraphMailboxSettings
-
-- (MSGraphAutomaticRepliesSetting*) automaticRepliesSetting
-{
-    if(!_automaticRepliesSetting){
-        _automaticRepliesSetting = [[MSGraphAutomaticRepliesSetting alloc] initWithDictionary: self.dictionary[@"automaticRepliesSetting"]];
-    }
-    return _automaticRepliesSetting;
-}
-
-- (void) setAutomaticRepliesSetting: (MSGraphAutomaticRepliesSetting*) val
-{
-    _automaticRepliesSetting = val;
-    self.dictionary[@"automaticRepliesSetting"] = val;
-}
 
 - (NSString*) archiveFolder
 {
@@ -55,60 +41,18 @@
     self.dictionary[@"archiveFolder"] = val;
 }
 
-- (NSString*) timeZone
+- (MSGraphAutomaticRepliesSetting*) automaticRepliesSetting
 {
-    if([[NSNull null] isEqual:self.dictionary[@"timeZone"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"timeZone"];
-}
-
-- (void) setTimeZone: (NSString*) val
-{
-    self.dictionary[@"timeZone"] = val;
-}
-
-- (MSGraphLocaleInfo*) language
-{
-    if(!_language){
-        _language = [[MSGraphLocaleInfo alloc] initWithDictionary: self.dictionary[@"language"]];
+    if(!_automaticRepliesSetting){
+        _automaticRepliesSetting = [[MSGraphAutomaticRepliesSetting alloc] initWithDictionary: self.dictionary[@"automaticRepliesSetting"]];
     }
-    return _language;
+    return _automaticRepliesSetting;
 }
 
-- (void) setLanguage: (MSGraphLocaleInfo*) val
+- (void) setAutomaticRepliesSetting: (MSGraphAutomaticRepliesSetting*) val
 {
-    _language = val;
-    self.dictionary[@"language"] = val;
-}
-
-- (MSGraphDelegateMeetingMessageDeliveryOptions*) delegateMeetingMessageDeliveryOptions
-{
-    if(!_delegateMeetingMessageDeliveryOptions){
-        _delegateMeetingMessageDeliveryOptions = [self.dictionary[@"delegateMeetingMessageDeliveryOptions"] toMSGraphDelegateMeetingMessageDeliveryOptions];
-    }
-    return _delegateMeetingMessageDeliveryOptions;
-}
-
-- (void) setDelegateMeetingMessageDeliveryOptions: (MSGraphDelegateMeetingMessageDeliveryOptions*) val
-{
-    _delegateMeetingMessageDeliveryOptions = val;
-    self.dictionary[@"delegateMeetingMessageDeliveryOptions"] = val;
-}
-
-- (MSGraphWorkingHours*) workingHours
-{
-    if(!_workingHours){
-        _workingHours = [[MSGraphWorkingHours alloc] initWithDictionary: self.dictionary[@"workingHours"]];
-    }
-    return _workingHours;
-}
-
-- (void) setWorkingHours: (MSGraphWorkingHours*) val
-{
-    _workingHours = val;
-    self.dictionary[@"workingHours"] = val;
+    _automaticRepliesSetting = val;
+    self.dictionary[@"automaticRepliesSetting"] = val;
 }
 
 - (NSString*) dateFormat
@@ -125,6 +69,34 @@
     self.dictionary[@"dateFormat"] = val;
 }
 
+- (MSGraphDelegateMeetingMessageDeliveryOptions*) delegateMeetingMessageDeliveryOptions
+{
+    if(!_delegateMeetingMessageDeliveryOptions){
+        _delegateMeetingMessageDeliveryOptions = [self.dictionary[@"delegateMeetingMessageDeliveryOptions"] toMSGraphDelegateMeetingMessageDeliveryOptions];
+    }
+    return _delegateMeetingMessageDeliveryOptions;
+}
+
+- (void) setDelegateMeetingMessageDeliveryOptions: (MSGraphDelegateMeetingMessageDeliveryOptions*) val
+{
+    _delegateMeetingMessageDeliveryOptions = val;
+    self.dictionary[@"delegateMeetingMessageDeliveryOptions"] = val;
+}
+
+- (MSGraphLocaleInfo*) language
+{
+    if(!_language){
+        _language = [[MSGraphLocaleInfo alloc] initWithDictionary: self.dictionary[@"language"]];
+    }
+    return _language;
+}
+
+- (void) setLanguage: (MSGraphLocaleInfo*) val
+{
+    _language = val;
+    self.dictionary[@"language"] = val;
+}
+
 - (NSString*) timeFormat
 {
     if([[NSNull null] isEqual:self.dictionary[@"timeFormat"]])
@@ -137,6 +109,34 @@
 - (void) setTimeFormat: (NSString*) val
 {
     self.dictionary[@"timeFormat"] = val;
+}
+
+- (NSString*) timeZone
+{
+    if([[NSNull null] isEqual:self.dictionary[@"timeZone"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"timeZone"];
+}
+
+- (void) setTimeZone: (NSString*) val
+{
+    self.dictionary[@"timeZone"] = val;
+}
+
+- (MSGraphWorkingHours*) workingHours
+{
+    if(!_workingHours){
+        _workingHours = [[MSGraphWorkingHours alloc] initWithDictionary: self.dictionary[@"workingHours"]];
+    }
+    return _workingHours;
+}
+
+- (void) setWorkingHours: (MSGraphWorkingHours*) val
+{
+    _workingHours = val;
+    self.dictionary[@"workingHours"] = val;
 }
 
 @end
