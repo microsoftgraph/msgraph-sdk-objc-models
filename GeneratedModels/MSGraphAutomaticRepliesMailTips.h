@@ -11,7 +11,7 @@
 
 @property (nullable, nonatomic, setter=setMessage:, getter=message) NSString* message;
 @property (nullable, nonatomic, setter=setMessageLanguage:, getter=messageLanguage) MSGraphLocaleInfo* messageLanguage;
-@property (nullable, nonatomic, setter=setScheduledStartTime:, getter=scheduledStartTime) MSGraphDateTimeTimeZone* scheduledStartTime;
 @property (nullable, nonatomic, setter=setScheduledEndTime:, getter=scheduledEndTime) MSGraphDateTimeTimeZone* scheduledEndTime;
+@property (nullable, nonatomic, setter=setScheduledStartTime:, getter=scheduledStartTime) MSGraphDateTimeTimeZone* scheduledStartTime;
 
 @end

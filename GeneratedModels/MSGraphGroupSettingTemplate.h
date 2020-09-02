@@ -8,8 +8,8 @@
 
 @interface MSGraphGroupSettingTemplate : MSGraphDirectoryObject
 
-  @property (nullable, nonatomic, setter=setDisplayName:, getter=displayName) NSString* displayName;
-    @property (nullable, nonatomic, setter=setGroupSettingTemplateDescription:, getter=groupSettingTemplateDescription) NSString* groupSettingTemplateDescription;
+  @property (nullable, nonatomic, setter=setGroupSettingTemplateDescription:, getter=groupSettingTemplateDescription) NSString* groupSettingTemplateDescription;
+    @property (nullable, nonatomic, setter=setDisplayName:, getter=displayName) NSString* displayName;
     @property (nonnull, nonatomic, setter=setValues:, getter=values) NSArray* values;
   
 @end

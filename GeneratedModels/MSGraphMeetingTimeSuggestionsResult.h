@@ -9,7 +9,7 @@
 
 @interface MSGraphMeetingTimeSuggestionsResult : MSObject
 
-@property (nullable, nonatomic, setter=setMeetingTimeSuggestions:, getter=meetingTimeSuggestions) NSArray* meetingTimeSuggestions;
 @property (nullable, nonatomic, setter=setEmptySuggestionsReason:, getter=emptySuggestionsReason) NSString* emptySuggestionsReason;
+@property (nullable, nonatomic, setter=setMeetingTimeSuggestions:, getter=meetingTimeSuggestions) NSArray* meetingTimeSuggestions;
 
 @end

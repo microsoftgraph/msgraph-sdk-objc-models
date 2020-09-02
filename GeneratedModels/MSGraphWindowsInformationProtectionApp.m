@@ -14,24 +14,26 @@
 
 @interface MSGraphWindowsInformationProtectionApp()
 {
-    NSString* _displayName;
-    NSString* _windowsInformationProtectionAppDescription;
-    NSString* _publisherName;
-    NSString* _productName;
     BOOL _denied;
+    NSString* _windowsInformationProtectionAppDescription;
+    NSString* _displayName;
+    NSString* _productName;
+    NSString* _publisherName;
 }
 @end
 
 @implementation MSGraphWindowsInformationProtectionApp
 
-- (NSString*) displayName
+- (BOOL) denied
 {
-    return self.dictionary[@"displayName"];
+    _denied = [self.dictionary[@"denied"] boolValue];
+    return _denied;
 }
 
-- (void) setDisplayName: (NSString*) val
+- (void) setDenied: (BOOL) val
 {
-    self.dictionary[@"displayName"] = val;
+    _denied = val;
+    self.dictionary[@"denied"] = @(val);
 }
 
 - (NSString*) windowsInformationProtectionAppDescription
@@ -48,18 +50,14 @@
     self.dictionary[@"description"] = val;
 }
 
-- (NSString*) publisherName
+- (NSString*) displayName
 {
-    if([[NSNull null] isEqual:self.dictionary[@"publisherName"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"publisherName"];
+    return self.dictionary[@"displayName"];
 }
 
-- (void) setPublisherName: (NSString*) val
+- (void) setDisplayName: (NSString*) val
 {
-    self.dictionary[@"publisherName"] = val;
+    self.dictionary[@"displayName"] = val;
 }
 
 - (NSString*) productName
@@ -76,16 +74,18 @@
     self.dictionary[@"productName"] = val;
 }
 
-- (BOOL) denied
+- (NSString*) publisherName
 {
-    _denied = [self.dictionary[@"denied"] boolValue];
-    return _denied;
+    if([[NSNull null] isEqual:self.dictionary[@"publisherName"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"publisherName"];
 }
 
-- (void) setDenied: (BOOL) val
+- (void) setPublisherName: (NSString*) val
 {
-    _denied = val;
-    self.dictionary[@"denied"] = @(val);
+    self.dictionary[@"publisherName"] = val;
 }
 
 @end

@@ -14,13 +14,15 @@
 
 @interface MSGraphChannel()
 {
-    NSString* _displayName;
     NSString* _channelDescription;
+    NSString* _displayName;
     NSString* _email;
+    MSGraphChannelMembershipType* _membershipType;
     NSString* _webUrl;
+    MSGraphDriveItem* _filesFolder;
+    NSArray* _members;
     NSArray* _messages;
     NSArray* _tabs;
-    MSGraphDriveItem* _filesFolder;
 }
 @end
 
@@ -33,16 +35,6 @@
     }
     return self;
 }
-- (NSString*) displayName
-{
-    return self.dictionary[@"displayName"];
-}
-
-- (void) setDisplayName: (NSString*) val
-{
-    self.dictionary[@"displayName"] = val;
-}
-
 - (NSString*) channelDescription
 {
     if([[NSNull null] isEqual:self.dictionary[@"description"]])
@@ -55,6 +47,16 @@
 - (void) setChannelDescription: (NSString*) val
 {
     self.dictionary[@"description"] = val;
+}
+
+- (NSString*) displayName
+{
+    return self.dictionary[@"displayName"];
+}
+
+- (void) setDisplayName: (NSString*) val
+{
+    self.dictionary[@"displayName"] = val;
 }
 
 - (NSString*) email
@@ -71,6 +73,20 @@
     self.dictionary[@"email"] = val;
 }
 
+- (MSGraphChannelMembershipType*) membershipType
+{
+    if(!_membershipType){
+        _membershipType = [self.dictionary[@"membershipType"] toMSGraphChannelMembershipType];
+    }
+    return _membershipType;
+}
+
+- (void) setMembershipType: (MSGraphChannelMembershipType*) val
+{
+    _membershipType = val;
+    self.dictionary[@"membershipType"] = val;
+}
+
 - (NSString*) webUrl
 {
     if([[NSNull null] isEqual:self.dictionary[@"webUrl"]])
@@ -83,6 +99,45 @@
 - (void) setWebUrl: (NSString*) val
 {
     self.dictionary[@"webUrl"] = val;
+}
+
+- (MSGraphDriveItem*) filesFolder
+{
+    if(!_filesFolder){
+        _filesFolder = [[MSGraphDriveItem alloc] initWithDictionary: self.dictionary[@"filesFolder"]];
+    }
+    return _filesFolder;
+}
+
+- (void) setFilesFolder: (MSGraphDriveItem*) val
+{
+    _filesFolder = val;
+    self.dictionary[@"filesFolder"] = val;
+}
+
+- (NSArray*) members
+{
+    if(!_members){
+        
+    NSMutableArray *membersResult = [NSMutableArray array];
+    NSArray *members = self.dictionary[@"members"];
+
+    if ([members isKindOfClass:[NSArray class]]){
+        for (id tempConversationMember in members){
+            [membersResult addObject:tempConversationMember];
+        }
+    }
+
+    _members = membersResult;
+        
+    }
+    return _members;
+}
+
+- (void) setMembers: (NSArray*) val
+{
+    _members = val;
+    self.dictionary[@"members"] = val;
 }
 
 - (NSArray*) messages
@@ -133,20 +188,6 @@
 {
     _tabs = val;
     self.dictionary[@"tabs"] = val;
-}
-
-- (MSGraphDriveItem*) filesFolder
-{
-    if(!_filesFolder){
-        _filesFolder = [[MSGraphDriveItem alloc] initWithDictionary: self.dictionary[@"filesFolder"]];
-    }
-    return _filesFolder;
-}
-
-- (void) setFilesFolder: (MSGraphDriveItem*) val
-{
-    _filesFolder = val;
-    self.dictionary[@"filesFolder"] = val;
 }
 
 

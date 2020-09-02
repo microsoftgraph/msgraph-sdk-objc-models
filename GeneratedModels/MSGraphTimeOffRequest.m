@@ -14,8 +14,8 @@
 
 @interface MSGraphTimeOffRequest()
 {
-    NSDate* _startDateTime;
     NSDate* _endDateTime;
+    NSDate* _startDateTime;
     NSString* _timeOffReasonId;
 }
 @end
@@ -29,20 +29,6 @@
     }
     return self;
 }
-- (NSDate*) startDateTime
-{
-    if(!_startDateTime){
-        _startDateTime = [NSDate ms_dateFromString: self.dictionary[@"startDateTime"]];
-    }
-    return _startDateTime;
-}
-
-- (void) setStartDateTime: (NSDate*) val
-{
-    _startDateTime = val;
-    self.dictionary[@"startDateTime"] = [val ms_toString];
-}
-
 - (NSDate*) endDateTime
 {
     if(!_endDateTime){
@@ -55,6 +41,20 @@
 {
     _endDateTime = val;
     self.dictionary[@"endDateTime"] = [val ms_toString];
+}
+
+- (NSDate*) startDateTime
+{
+    if(!_startDateTime){
+        _startDateTime = [NSDate ms_dateFromString: self.dictionary[@"startDateTime"]];
+    }
+    return _startDateTime;
+}
+
+- (void) setStartDateTime: (NSDate*) val
+{
+    _startDateTime = val;
+    self.dictionary[@"startDateTime"] = [val ms_toString];
 }
 
 - (NSString*) timeOffReasonId

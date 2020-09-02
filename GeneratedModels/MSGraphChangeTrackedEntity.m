@@ -15,8 +15,8 @@
 @interface MSGraphChangeTrackedEntity()
 {
     NSDate* _createdDateTime;
-    NSDate* _lastModifiedDateTime;
     MSGraphIdentitySet* _lastModifiedBy;
+    NSDate* _lastModifiedDateTime;
 }
 @end
 
@@ -36,20 +36,6 @@
     self.dictionary[@"createdDateTime"] = [val ms_toString];
 }
 
-- (NSDate*) lastModifiedDateTime
-{
-    if(!_lastModifiedDateTime){
-        _lastModifiedDateTime = [NSDate ms_dateFromString: self.dictionary[@"lastModifiedDateTime"]];
-    }
-    return _lastModifiedDateTime;
-}
-
-- (void) setLastModifiedDateTime: (NSDate*) val
-{
-    _lastModifiedDateTime = val;
-    self.dictionary[@"lastModifiedDateTime"] = [val ms_toString];
-}
-
 - (MSGraphIdentitySet*) lastModifiedBy
 {
     if(!_lastModifiedBy){
@@ -62,6 +48,20 @@
 {
     _lastModifiedBy = val;
     self.dictionary[@"lastModifiedBy"] = val;
+}
+
+- (NSDate*) lastModifiedDateTime
+{
+    if(!_lastModifiedDateTime){
+        _lastModifiedDateTime = [NSDate ms_dateFromString: self.dictionary[@"lastModifiedDateTime"]];
+    }
+    return _lastModifiedDateTime;
+}
+
+- (void) setLastModifiedDateTime: (NSDate*) val
+{
+    _lastModifiedDateTime = val;
+    self.dictionary[@"lastModifiedDateTime"] = [val ms_toString];
 }
 
 

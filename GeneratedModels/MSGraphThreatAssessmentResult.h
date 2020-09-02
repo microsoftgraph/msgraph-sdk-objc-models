@@ -9,7 +9,7 @@
 @interface MSGraphThreatAssessmentResult : MSGraphEntity
 
   @property (nullable, nonatomic, setter=setCreatedDateTime:, getter=createdDateTime) NSDate* createdDateTime;
-    @property (nullable, nonatomic, setter=setResultType:, getter=resultType) MSGraphThreatAssessmentResultType* resultType;
     @property (nullable, nonatomic, setter=setMessage:, getter=message) NSString* message;
+    @property (nullable, nonatomic, setter=setResultType:, getter=resultType) MSGraphThreatAssessmentResultType* resultType;
   
 @end

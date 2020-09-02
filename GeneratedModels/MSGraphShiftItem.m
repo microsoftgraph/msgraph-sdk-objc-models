@@ -14,13 +14,38 @@
 
 @interface MSGraphShiftItem()
 {
+    NSArray* _activities;
     NSString* _displayName;
     NSString* _notes;
-    NSArray* _activities;
 }
 @end
 
 @implementation MSGraphShiftItem
+
+- (NSArray*) activities
+{
+    if(!_activities){
+        
+    NSMutableArray *activitiesResult = [NSMutableArray array];
+    NSArray *activities = self.dictionary[@"activities"];
+
+    if ([activities isKindOfClass:[NSArray class]]){
+        for (id tempShiftActivity in activities){
+            [activitiesResult addObject:tempShiftActivity];
+        }
+    }
+
+    _activities = activitiesResult;
+        
+    }
+    return _activities;
+}
+
+- (void) setActivities: (NSArray*) val
+{
+    _activities = val;
+    self.dictionary[@"activities"] = val;
+}
 
 - (NSString*) displayName
 {
@@ -48,31 +73,6 @@
 - (void) setNotes: (NSString*) val
 {
     self.dictionary[@"notes"] = val;
-}
-
-- (NSArray*) activities
-{
-    if(!_activities){
-        
-    NSMutableArray *activitiesResult = [NSMutableArray array];
-    NSArray *activities = self.dictionary[@"activities"];
-
-    if ([activities isKindOfClass:[NSArray class]]){
-        for (id tempShiftActivity in activities){
-            [activitiesResult addObject:tempShiftActivity];
-        }
-    }
-
-    _activities = activitiesResult;
-        
-    }
-    return _activities;
-}
-
-- (void) setActivities: (NSArray*) val
-{
-    _activities = val;
-    self.dictionary[@"activities"] = val;
 }
 
 @end

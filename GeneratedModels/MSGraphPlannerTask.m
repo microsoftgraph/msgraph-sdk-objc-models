@@ -14,30 +14,30 @@
 
 @interface MSGraphPlannerTask()
 {
-    MSGraphIdentitySet* _createdBy;
-    NSString* _planId;
-    NSString* _bucketId;
-    NSString* _title;
-    NSString* _orderHint;
+    int32_t _activeChecklistItemCount;
+    MSGraphPlannerAppliedCategories* _appliedCategories;
     NSString* _assigneePriority;
-    int32_t _percentComplete;
-    NSDate* _startDateTime;
+    MSGraphPlannerAssignments* _assignments;
+    NSString* _bucketId;
+    int32_t _checklistItemCount;
+    MSGraphIdentitySet* _completedBy;
+    NSDate* _completedDateTime;
+    NSString* _conversationThreadId;
+    MSGraphIdentitySet* _createdBy;
     NSDate* _createdDateTime;
     NSDate* _dueDateTime;
     BOOL _hasDescription;
+    NSString* _orderHint;
+    int32_t _percentComplete;
+    NSString* _planId;
     MSGraphPlannerPreviewType* _previewType;
-    NSDate* _completedDateTime;
-    MSGraphIdentitySet* _completedBy;
     int32_t _referenceCount;
-    int32_t _checklistItemCount;
-    int32_t _activeChecklistItemCount;
-    MSGraphPlannerAppliedCategories* _appliedCategories;
-    MSGraphPlannerAssignments* _assignments;
-    NSString* _conversationThreadId;
-    MSGraphPlannerTaskDetails* _details;
+    NSDate* _startDateTime;
+    NSString* _title;
     MSGraphPlannerAssignedToTaskBoardTaskFormat* _assignedToTaskBoardFormat;
-    MSGraphPlannerProgressTaskBoardTaskFormat* _progressTaskBoardFormat;
     MSGraphPlannerBucketTaskBoardTaskFormat* _bucketTaskBoardFormat;
+    MSGraphPlannerTaskDetails* _details;
+    MSGraphPlannerProgressTaskBoardTaskFormat* _progressTaskBoardFormat;
 }
 @end
 
@@ -50,70 +50,30 @@
     }
     return self;
 }
-- (MSGraphIdentitySet*) createdBy
+- (int32_t) activeChecklistItemCount
 {
-    if(!_createdBy){
-        _createdBy = [[MSGraphIdentitySet alloc] initWithDictionary: self.dictionary[@"createdBy"]];
+    _activeChecklistItemCount = [self.dictionary[@"activeChecklistItemCount"] intValue];
+    return _activeChecklistItemCount;
+}
+
+- (void) setActiveChecklistItemCount: (int32_t) val
+{
+    _activeChecklistItemCount = val;
+    self.dictionary[@"activeChecklistItemCount"] = @(val);
+}
+
+- (MSGraphPlannerAppliedCategories*) appliedCategories
+{
+    if(!_appliedCategories){
+        _appliedCategories = [[MSGraphPlannerAppliedCategories alloc] initWithDictionary: self.dictionary[@"appliedCategories"]];
     }
-    return _createdBy;
+    return _appliedCategories;
 }
 
-- (void) setCreatedBy: (MSGraphIdentitySet*) val
+- (void) setAppliedCategories: (MSGraphPlannerAppliedCategories*) val
 {
-    _createdBy = val;
-    self.dictionary[@"createdBy"] = val;
-}
-
-- (NSString*) planId
-{
-    if([[NSNull null] isEqual:self.dictionary[@"planId"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"planId"];
-}
-
-- (void) setPlanId: (NSString*) val
-{
-    self.dictionary[@"planId"] = val;
-}
-
-- (NSString*) bucketId
-{
-    if([[NSNull null] isEqual:self.dictionary[@"bucketId"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"bucketId"];
-}
-
-- (void) setBucketId: (NSString*) val
-{
-    self.dictionary[@"bucketId"] = val;
-}
-
-- (NSString*) title
-{
-    return self.dictionary[@"title"];
-}
-
-- (void) setTitle: (NSString*) val
-{
-    self.dictionary[@"title"] = val;
-}
-
-- (NSString*) orderHint
-{
-    if([[NSNull null] isEqual:self.dictionary[@"orderHint"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"orderHint"];
-}
-
-- (void) setOrderHint: (NSString*) val
-{
-    self.dictionary[@"orderHint"] = val;
+    _appliedCategories = val;
+    self.dictionary[@"appliedCategories"] = val;
 }
 
 - (NSString*) assigneePriority
@@ -130,30 +90,100 @@
     self.dictionary[@"assigneePriority"] = val;
 }
 
-- (int32_t) percentComplete
+- (MSGraphPlannerAssignments*) assignments
 {
-    _percentComplete = [self.dictionary[@"percentComplete"] intValue];
-    return _percentComplete;
-}
-
-- (void) setPercentComplete: (int32_t) val
-{
-    _percentComplete = val;
-    self.dictionary[@"percentComplete"] = @(val);
-}
-
-- (NSDate*) startDateTime
-{
-    if(!_startDateTime){
-        _startDateTime = [NSDate ms_dateFromString: self.dictionary[@"startDateTime"]];
+    if(!_assignments){
+        _assignments = [[MSGraphPlannerAssignments alloc] initWithDictionary: self.dictionary[@"assignments"]];
     }
-    return _startDateTime;
+    return _assignments;
 }
 
-- (void) setStartDateTime: (NSDate*) val
+- (void) setAssignments: (MSGraphPlannerAssignments*) val
 {
-    _startDateTime = val;
-    self.dictionary[@"startDateTime"] = [val ms_toString];
+    _assignments = val;
+    self.dictionary[@"assignments"] = val;
+}
+
+- (NSString*) bucketId
+{
+    if([[NSNull null] isEqual:self.dictionary[@"bucketId"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"bucketId"];
+}
+
+- (void) setBucketId: (NSString*) val
+{
+    self.dictionary[@"bucketId"] = val;
+}
+
+- (int32_t) checklistItemCount
+{
+    _checklistItemCount = [self.dictionary[@"checklistItemCount"] intValue];
+    return _checklistItemCount;
+}
+
+- (void) setChecklistItemCount: (int32_t) val
+{
+    _checklistItemCount = val;
+    self.dictionary[@"checklistItemCount"] = @(val);
+}
+
+- (MSGraphIdentitySet*) completedBy
+{
+    if(!_completedBy){
+        _completedBy = [[MSGraphIdentitySet alloc] initWithDictionary: self.dictionary[@"completedBy"]];
+    }
+    return _completedBy;
+}
+
+- (void) setCompletedBy: (MSGraphIdentitySet*) val
+{
+    _completedBy = val;
+    self.dictionary[@"completedBy"] = val;
+}
+
+- (NSDate*) completedDateTime
+{
+    if(!_completedDateTime){
+        _completedDateTime = [NSDate ms_dateFromString: self.dictionary[@"completedDateTime"]];
+    }
+    return _completedDateTime;
+}
+
+- (void) setCompletedDateTime: (NSDate*) val
+{
+    _completedDateTime = val;
+    self.dictionary[@"completedDateTime"] = [val ms_toString];
+}
+
+- (NSString*) conversationThreadId
+{
+    if([[NSNull null] isEqual:self.dictionary[@"conversationThreadId"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"conversationThreadId"];
+}
+
+- (void) setConversationThreadId: (NSString*) val
+{
+    self.dictionary[@"conversationThreadId"] = val;
+}
+
+- (MSGraphIdentitySet*) createdBy
+{
+    if(!_createdBy){
+        _createdBy = [[MSGraphIdentitySet alloc] initWithDictionary: self.dictionary[@"createdBy"]];
+    }
+    return _createdBy;
+}
+
+- (void) setCreatedBy: (MSGraphIdentitySet*) val
+{
+    _createdBy = val;
+    self.dictionary[@"createdBy"] = val;
 }
 
 - (NSDate*) createdDateTime
@@ -196,6 +226,46 @@
     self.dictionary[@"hasDescription"] = @(val);
 }
 
+- (NSString*) orderHint
+{
+    if([[NSNull null] isEqual:self.dictionary[@"orderHint"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"orderHint"];
+}
+
+- (void) setOrderHint: (NSString*) val
+{
+    self.dictionary[@"orderHint"] = val;
+}
+
+- (int32_t) percentComplete
+{
+    _percentComplete = [self.dictionary[@"percentComplete"] intValue];
+    return _percentComplete;
+}
+
+- (void) setPercentComplete: (int32_t) val
+{
+    _percentComplete = val;
+    self.dictionary[@"percentComplete"] = @(val);
+}
+
+- (NSString*) planId
+{
+    if([[NSNull null] isEqual:self.dictionary[@"planId"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"planId"];
+}
+
+- (void) setPlanId: (NSString*) val
+{
+    self.dictionary[@"planId"] = val;
+}
+
 - (MSGraphPlannerPreviewType*) previewType
 {
     if(!_previewType){
@@ -210,34 +280,6 @@
     self.dictionary[@"previewType"] = val;
 }
 
-- (NSDate*) completedDateTime
-{
-    if(!_completedDateTime){
-        _completedDateTime = [NSDate ms_dateFromString: self.dictionary[@"completedDateTime"]];
-    }
-    return _completedDateTime;
-}
-
-- (void) setCompletedDateTime: (NSDate*) val
-{
-    _completedDateTime = val;
-    self.dictionary[@"completedDateTime"] = [val ms_toString];
-}
-
-- (MSGraphIdentitySet*) completedBy
-{
-    if(!_completedBy){
-        _completedBy = [[MSGraphIdentitySet alloc] initWithDictionary: self.dictionary[@"completedBy"]];
-    }
-    return _completedBy;
-}
-
-- (void) setCompletedBy: (MSGraphIdentitySet*) val
-{
-    _completedBy = val;
-    self.dictionary[@"completedBy"] = val;
-}
-
 - (int32_t) referenceCount
 {
     _referenceCount = [self.dictionary[@"referenceCount"] intValue];
@@ -250,84 +292,28 @@
     self.dictionary[@"referenceCount"] = @(val);
 }
 
-- (int32_t) checklistItemCount
+- (NSDate*) startDateTime
 {
-    _checklistItemCount = [self.dictionary[@"checklistItemCount"] intValue];
-    return _checklistItemCount;
-}
-
-- (void) setChecklistItemCount: (int32_t) val
-{
-    _checklistItemCount = val;
-    self.dictionary[@"checklistItemCount"] = @(val);
-}
-
-- (int32_t) activeChecklistItemCount
-{
-    _activeChecklistItemCount = [self.dictionary[@"activeChecklistItemCount"] intValue];
-    return _activeChecklistItemCount;
-}
-
-- (void) setActiveChecklistItemCount: (int32_t) val
-{
-    _activeChecklistItemCount = val;
-    self.dictionary[@"activeChecklistItemCount"] = @(val);
-}
-
-- (MSGraphPlannerAppliedCategories*) appliedCategories
-{
-    if(!_appliedCategories){
-        _appliedCategories = [[MSGraphPlannerAppliedCategories alloc] initWithDictionary: self.dictionary[@"appliedCategories"]];
+    if(!_startDateTime){
+        _startDateTime = [NSDate ms_dateFromString: self.dictionary[@"startDateTime"]];
     }
-    return _appliedCategories;
+    return _startDateTime;
 }
 
-- (void) setAppliedCategories: (MSGraphPlannerAppliedCategories*) val
+- (void) setStartDateTime: (NSDate*) val
 {
-    _appliedCategories = val;
-    self.dictionary[@"appliedCategories"] = val;
+    _startDateTime = val;
+    self.dictionary[@"startDateTime"] = [val ms_toString];
 }
 
-- (MSGraphPlannerAssignments*) assignments
+- (NSString*) title
 {
-    if(!_assignments){
-        _assignments = [[MSGraphPlannerAssignments alloc] initWithDictionary: self.dictionary[@"assignments"]];
-    }
-    return _assignments;
+    return self.dictionary[@"title"];
 }
 
-- (void) setAssignments: (MSGraphPlannerAssignments*) val
+- (void) setTitle: (NSString*) val
 {
-    _assignments = val;
-    self.dictionary[@"assignments"] = val;
-}
-
-- (NSString*) conversationThreadId
-{
-    if([[NSNull null] isEqual:self.dictionary[@"conversationThreadId"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"conversationThreadId"];
-}
-
-- (void) setConversationThreadId: (NSString*) val
-{
-    self.dictionary[@"conversationThreadId"] = val;
-}
-
-- (MSGraphPlannerTaskDetails*) details
-{
-    if(!_details){
-        _details = [[MSGraphPlannerTaskDetails alloc] initWithDictionary: self.dictionary[@"details"]];
-    }
-    return _details;
-}
-
-- (void) setDetails: (MSGraphPlannerTaskDetails*) val
-{
-    _details = val;
-    self.dictionary[@"details"] = val;
+    self.dictionary[@"title"] = val;
 }
 
 - (MSGraphPlannerAssignedToTaskBoardTaskFormat*) assignedToTaskBoardFormat
@@ -344,20 +330,6 @@
     self.dictionary[@"assignedToTaskBoardFormat"] = val;
 }
 
-- (MSGraphPlannerProgressTaskBoardTaskFormat*) progressTaskBoardFormat
-{
-    if(!_progressTaskBoardFormat){
-        _progressTaskBoardFormat = [[MSGraphPlannerProgressTaskBoardTaskFormat alloc] initWithDictionary: self.dictionary[@"progressTaskBoardFormat"]];
-    }
-    return _progressTaskBoardFormat;
-}
-
-- (void) setProgressTaskBoardFormat: (MSGraphPlannerProgressTaskBoardTaskFormat*) val
-{
-    _progressTaskBoardFormat = val;
-    self.dictionary[@"progressTaskBoardFormat"] = val;
-}
-
 - (MSGraphPlannerBucketTaskBoardTaskFormat*) bucketTaskBoardFormat
 {
     if(!_bucketTaskBoardFormat){
@@ -370,6 +342,34 @@
 {
     _bucketTaskBoardFormat = val;
     self.dictionary[@"bucketTaskBoardFormat"] = val;
+}
+
+- (MSGraphPlannerTaskDetails*) details
+{
+    if(!_details){
+        _details = [[MSGraphPlannerTaskDetails alloc] initWithDictionary: self.dictionary[@"details"]];
+    }
+    return _details;
+}
+
+- (void) setDetails: (MSGraphPlannerTaskDetails*) val
+{
+    _details = val;
+    self.dictionary[@"details"] = val;
+}
+
+- (MSGraphPlannerProgressTaskBoardTaskFormat*) progressTaskBoardFormat
+{
+    if(!_progressTaskBoardFormat){
+        _progressTaskBoardFormat = [[MSGraphPlannerProgressTaskBoardTaskFormat alloc] initWithDictionary: self.dictionary[@"progressTaskBoardFormat"]];
+    }
+    return _progressTaskBoardFormat;
+}
+
+- (void) setProgressTaskBoardFormat: (MSGraphPlannerProgressTaskBoardTaskFormat*) val
+{
+    _progressTaskBoardFormat = val;
+    self.dictionary[@"progressTaskBoardFormat"] = val;
 }
 
 

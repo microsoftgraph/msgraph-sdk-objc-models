@@ -33,6 +33,7 @@
     NSString* _state;
     NSString* _street;
     NSArray* _technicalNotificationMails;
+    NSString* _tenantType;
     NSArray* _verifiedDomains;
     MSGraphMdmAuthority* _mobileDeviceManagementAuthority;
     NSArray* _certificateBasedAuthConfiguration;
@@ -313,6 +314,20 @@
 - (void) setTechnicalNotificationMails: (NSArray*) val
 {
     self.dictionary[@"technicalNotificationMails"] = val;
+}
+
+- (NSString*) tenantType
+{
+    if([[NSNull null] isEqual:self.dictionary[@"tenantType"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"tenantType"];
+}
+
+- (void) setTenantType: (NSString*) val
+{
+    self.dictionary[@"tenantType"] = val;
 }
 
 - (NSArray*) verifiedDomains

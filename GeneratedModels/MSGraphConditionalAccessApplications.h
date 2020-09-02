@@ -8,8 +8,8 @@
 
 @interface MSGraphConditionalAccessApplications : MSObject
 
-@property (nonnull, nonatomic, setter=setIncludeApplications:, getter=includeApplications) NSArray* includeApplications;
 @property (nonnull, nonatomic, setter=setExcludeApplications:, getter=excludeApplications) NSArray* excludeApplications;
+@property (nonnull, nonatomic, setter=setIncludeApplications:, getter=includeApplications) NSArray* includeApplications;
 @property (nonnull, nonatomic, setter=setIncludeUserActions:, getter=includeUserActions) NSArray* includeUserActions;
 
 @end

@@ -9,7 +9,7 @@
 
 @interface MSGraphWindowsUpdateActiveHoursInstall : MSGraphWindowsUpdateInstallScheduleType
 
-@property (nonnull, nonatomic, setter=setActiveHoursStart:, getter=activeHoursStart) MSTimeOfDay* activeHoursStart;
 @property (nonnull, nonatomic, setter=setActiveHoursEnd:, getter=activeHoursEnd) MSTimeOfDay* activeHoursEnd;
+@property (nonnull, nonatomic, setter=setActiveHoursStart:, getter=activeHoursStart) MSTimeOfDay* activeHoursStart;
 
 @end

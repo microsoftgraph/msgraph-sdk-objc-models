@@ -9,8 +9,8 @@
 
 @interface MSGraphShiftItem : MSGraphScheduleEntity
 
+@property (nullable, nonatomic, setter=setActivities:, getter=activities) NSArray* activities;
 @property (nullable, nonatomic, setter=setDisplayName:, getter=displayName) NSString* displayName;
 @property (nullable, nonatomic, setter=setNotes:, getter=notes) NSString* notes;
-@property (nullable, nonatomic, setter=setActivities:, getter=activities) NSArray* activities;
 
 @end

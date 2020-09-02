@@ -14,13 +14,13 @@
 
 @interface MSGraphSubscribedSku()
 {
+    NSString* _appliesTo;
     NSString* _capabilityStatus;
     int32_t _consumedUnits;
     MSGraphLicenseUnitsDetail* _prepaidUnits;
     NSArray* _servicePlans;
     NSString* _skuId;
     NSString* _skuPartNumber;
-    NSString* _appliesTo;
 }
 @end
 
@@ -33,6 +33,20 @@
     }
     return self;
 }
+- (NSString*) appliesTo
+{
+    if([[NSNull null] isEqual:self.dictionary[@"appliesTo"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"appliesTo"];
+}
+
+- (void) setAppliesTo: (NSString*) val
+{
+    self.dictionary[@"appliesTo"] = val;
+}
+
 - (NSString*) capabilityStatus
 {
     if([[NSNull null] isEqual:self.dictionary[@"capabilityStatus"]])
@@ -124,20 +138,6 @@
 - (void) setSkuPartNumber: (NSString*) val
 {
     self.dictionary[@"skuPartNumber"] = val;
-}
-
-- (NSString*) appliesTo
-{
-    if([[NSNull null] isEqual:self.dictionary[@"appliesTo"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"appliesTo"];
-}
-
-- (void) setAppliesTo: (NSString*) val
-{
-    self.dictionary[@"appliesTo"] = val;
 }
 
 

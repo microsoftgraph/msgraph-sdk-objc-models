@@ -14,13 +14,27 @@
 
 @interface MSGraphInsightIdentity()
 {
+    NSString* _address;
     NSString* _displayName;
     NSString* _insightIdentityId;
-    NSString* _address;
 }
 @end
 
 @implementation MSGraphInsightIdentity
+
+- (NSString*) address
+{
+    if([[NSNull null] isEqual:self.dictionary[@"address"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"address"];
+}
+
+- (void) setAddress: (NSString*) val
+{
+    self.dictionary[@"address"] = val;
+}
 
 - (NSString*) displayName
 {
@@ -48,20 +62,6 @@
 - (void) setInsightIdentityId: (NSString*) val
 {
     self.dictionary[@"id"] = val;
-}
-
-- (NSString*) address
-{
-    if([[NSNull null] isEqual:self.dictionary[@"address"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"address"];
-}
-
-- (void) setAddress: (NSString*) val
-{
-    self.dictionary[@"address"] = val;
 }
 
 @end

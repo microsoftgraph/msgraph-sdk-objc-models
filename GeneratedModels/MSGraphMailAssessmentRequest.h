@@ -8,8 +8,8 @@
 
 @interface MSGraphMailAssessmentRequest : MSGraphThreatAssessmentRequest
 
-  @property (nonnull, nonatomic, setter=setRecipientEmail:, getter=recipientEmail) NSString* recipientEmail;
-    @property (nullable, nonatomic, setter=setDestinationRoutingReason:, getter=destinationRoutingReason) MSGraphMailDestinationRoutingReason* destinationRoutingReason;
+  @property (nullable, nonatomic, setter=setDestinationRoutingReason:, getter=destinationRoutingReason) MSGraphMailDestinationRoutingReason* destinationRoutingReason;
     @property (nonnull, nonatomic, setter=setMessageUri:, getter=messageUri) NSString* messageUri;
+    @property (nonnull, nonatomic, setter=setRecipientEmail:, getter=recipientEmail) NSString* recipientEmail;
   
 @end

@@ -7,9 +7,9 @@
 
 @interface MSGraphIdentityProvider : MSGraphEntity
 
-  @property (nullable, nonatomic, setter=setType:, getter=type) NSString* type;
-    @property (nullable, nonatomic, setter=setName:, getter=name) NSString* name;
-    @property (nullable, nonatomic, setter=setClientId:, getter=clientId) NSString* clientId;
+  @property (nullable, nonatomic, setter=setClientId:, getter=clientId) NSString* clientId;
     @property (nullable, nonatomic, setter=setClientSecret:, getter=clientSecret) NSString* clientSecret;
+    @property (nullable, nonatomic, setter=setName:, getter=name) NSString* name;
+    @property (nullable, nonatomic, setter=setType:, getter=type) NSString* type;
   
 @end

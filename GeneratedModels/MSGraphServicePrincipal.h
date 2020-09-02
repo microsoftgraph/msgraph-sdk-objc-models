@@ -1,7 +1,7 @@
 // Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 
 
-@class MSGraphAddIn, MSGraphAppRole, MSGraphInformationalUrl, MSGraphKeyCredential, MSGraphPermissionScope, MSGraphPasswordCredential, MSGraphSamlSingleSignOnSettings, MSGraphAppRoleAssignment, MSGraphClaimsMappingPolicy, MSGraphEndpoint, MSGraphHomeRealmDiscoveryPolicy, MSGraphOAuth2PermissionGrant, MSGraphDirectoryObject, MSGraphTokenIssuancePolicy, MSGraphTokenLifetimePolicy; 
+@class MSGraphAddIn, MSGraphAppRole, MSGraphInformationalUrl, MSGraphKeyCredential, MSGraphPermissionScope, MSGraphPasswordCredential, MSGraphSamlSingleSignOnSettings, MSGraphAppRoleAssignment, MSGraphClaimsMappingPolicy, MSGraphDirectoryObject, MSGraphEndpoint, MSGraphHomeRealmDiscoveryPolicy, MSGraphOAuth2PermissionGrant, MSGraphTokenIssuancePolicy, MSGraphTokenLifetimePolicy; 
 
 
 #import "MSGraphDirectoryObject.h"
@@ -11,8 +11,8 @@
   @property (nonatomic, setter=setAccountEnabled:, getter=accountEnabled) BOOL accountEnabled;
     @property (nonnull, nonatomic, setter=setAddIns:, getter=addIns) NSArray* addIns;
     @property (nonnull, nonatomic, setter=setAlternativeNames:, getter=alternativeNames) NSArray* alternativeNames;
-    @property (nullable, nonatomic, setter=setAppDisplayName:, getter=appDisplayName) NSString* appDisplayName;
     @property (nullable, nonatomic, setter=setAppDescription:, getter=appDescription) NSString* appDescription;
+    @property (nullable, nonatomic, setter=setAppDisplayName:, getter=appDisplayName) NSString* appDisplayName;
     @property (nullable, nonatomic, setter=setAppId:, getter=appId) NSString* appId;
     @property (nullable, nonatomic, setter=setApplicationTemplateId:, getter=applicationTemplateId) NSString* applicationTemplateId;
     @property (nullable, nonatomic, setter=setAppOwnerOrganizationId:, getter=appOwnerOrganizationId) NSString* appOwnerOrganizationId;
@@ -29,26 +29,26 @@
     @property (nonnull, nonatomic, setter=setNotificationEmailAddresses:, getter=notificationEmailAddresses) NSArray* notificationEmailAddresses;
     @property (nonnull, nonatomic, setter=setOauth2PermissionScopes:, getter=oauth2PermissionScopes) NSArray* oauth2PermissionScopes;
     @property (nonnull, nonatomic, setter=setPasswordCredentials:, getter=passwordCredentials) NSArray* passwordCredentials;
-    @property (nullable, nonatomic, setter=setPreferredTokenSigningKeyThumbprint:, getter=preferredTokenSigningKeyThumbprint) NSString* preferredTokenSigningKeyThumbprint;
     @property (nullable, nonatomic, setter=setPreferredSingleSignOnMode:, getter=preferredSingleSignOnMode) NSString* preferredSingleSignOnMode;
+    @property (nullable, nonatomic, setter=setPreferredTokenSigningKeyThumbprint:, getter=preferredTokenSigningKeyThumbprint) NSString* preferredTokenSigningKeyThumbprint;
     @property (nonnull, nonatomic, setter=setReplyUrls:, getter=replyUrls) NSArray* replyUrls;
-    @property (nonnull, nonatomic, setter=setServicePrincipalNames:, getter=servicePrincipalNames) NSArray* servicePrincipalNames;
     @property (nullable, nonatomic, setter=setSamlSingleSignOnSettings:, getter=samlSingleSignOnSettings) MSGraphSamlSingleSignOnSettings* samlSingleSignOnSettings;
+    @property (nonnull, nonatomic, setter=setServicePrincipalNames:, getter=servicePrincipalNames) NSArray* servicePrincipalNames;
     @property (nullable, nonatomic, setter=setServicePrincipalType:, getter=servicePrincipalType) NSString* servicePrincipalType;
     @property (nonnull, nonatomic, setter=setTags:, getter=tags) NSArray* tags;
     @property (nullable, nonatomic, setter=setTokenEncryptionKeyId:, getter=tokenEncryptionKeyId) NSString* tokenEncryptionKeyId;
     @property (nullable, nonatomic, setter=setAppRoleAssignedTo:, getter=appRoleAssignedTo) NSArray* appRoleAssignedTo;
     @property (nullable, nonatomic, setter=setAppRoleAssignments:, getter=appRoleAssignments) NSArray* appRoleAssignments;
     @property (nullable, nonatomic, setter=setClaimsMappingPolicies:, getter=claimsMappingPolicies) NSArray* claimsMappingPolicies;
+    @property (nullable, nonatomic, setter=setCreatedObjects:, getter=createdObjects) NSArray* createdObjects;
     @property (nullable, nonatomic, setter=setEndpoints:, getter=endpoints) NSArray* endpoints;
     @property (nullable, nonatomic, setter=setHomeRealmDiscoveryPolicies:, getter=homeRealmDiscoveryPolicies) NSArray* homeRealmDiscoveryPolicies;
-    @property (nullable, nonatomic, setter=setOauth2PermissionGrants:, getter=oauth2PermissionGrants) NSArray* oauth2PermissionGrants;
     @property (nullable, nonatomic, setter=setMemberOf:, getter=memberOf) NSArray* memberOf;
-    @property (nullable, nonatomic, setter=setTransitiveMemberOf:, getter=transitiveMemberOf) NSArray* transitiveMemberOf;
-    @property (nullable, nonatomic, setter=setCreatedObjects:, getter=createdObjects) NSArray* createdObjects;
-    @property (nullable, nonatomic, setter=setOwners:, getter=owners) NSArray* owners;
+    @property (nullable, nonatomic, setter=setOauth2PermissionGrants:, getter=oauth2PermissionGrants) NSArray* oauth2PermissionGrants;
     @property (nullable, nonatomic, setter=setOwnedObjects:, getter=ownedObjects) NSArray* ownedObjects;
+    @property (nullable, nonatomic, setter=setOwners:, getter=owners) NSArray* owners;
     @property (nullable, nonatomic, setter=setTokenIssuancePolicies:, getter=tokenIssuancePolicies) NSArray* tokenIssuancePolicies;
     @property (nullable, nonatomic, setter=setTokenLifetimePolicies:, getter=tokenLifetimePolicies) NSArray* tokenLifetimePolicies;
+    @property (nullable, nonatomic, setter=setTransitiveMemberOf:, getter=transitiveMemberOf) NSArray* transitiveMemberOf;
   
 @end

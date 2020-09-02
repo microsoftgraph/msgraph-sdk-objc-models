@@ -23,8 +23,8 @@
     @property (nonatomic, setter=setRowHidden:, getter=rowHidden) BOOL rowHidden;
     @property (nonatomic, setter=setRowIndex:, getter=rowIndex) int32_t rowIndex;
     @property (nullable, nonatomic, setter=setText:, getter=text) NSDictionary* text;
-    @property (nullable, nonatomic, setter=setValueTypes:, getter=valueTypes) NSDictionary* valueTypes;
     @property (nullable, nonatomic, setter=setValues:, getter=values) NSDictionary* values;
+    @property (nullable, nonatomic, setter=setValueTypes:, getter=valueTypes) NSDictionary* valueTypes;
     @property (nullable, nonatomic, setter=setFormat:, getter=format) MSGraphWorkbookRangeFormat* format;
     @property (nullable, nonatomic, setter=setSort:, getter=sort) MSGraphWorkbookRangeSort* sort;
     @property (nullable, nonatomic, setter=setWorksheet:, getter=worksheet) MSGraphWorkbookWorksheet* worksheet;

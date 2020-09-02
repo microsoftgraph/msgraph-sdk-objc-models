@@ -15,10 +15,10 @@
 @interface MSGraphSchemaExtension()
 {
     NSString* _schemaExtensionDescription;
-    NSArray* _targetTypes;
+    NSString* _owner;
     NSArray* _properties;
     NSString* _status;
-    NSString* _owner;
+    NSArray* _targetTypes;
 }
 @end
 
@@ -45,14 +45,14 @@
     self.dictionary[@"description"] = val;
 }
 
-- (NSArray*) targetTypes
+- (NSString*) owner
 {
-    return self.dictionary[@"targetTypes"];
+    return self.dictionary[@"owner"];
 }
 
-- (void) setTargetTypes: (NSArray*) val
+- (void) setOwner: (NSString*) val
 {
-    self.dictionary[@"targetTypes"] = val;
+    self.dictionary[@"owner"] = val;
 }
 
 - (NSArray*) properties
@@ -90,14 +90,14 @@
     self.dictionary[@"status"] = val;
 }
 
-- (NSString*) owner
+- (NSArray*) targetTypes
 {
-    return self.dictionary[@"owner"];
+    return self.dictionary[@"targetTypes"];
 }
 
-- (void) setOwner: (NSString*) val
+- (void) setTargetTypes: (NSArray*) val
 {
-    self.dictionary[@"owner"] = val;
+    self.dictionary[@"targetTypes"] = val;
 }
 
 

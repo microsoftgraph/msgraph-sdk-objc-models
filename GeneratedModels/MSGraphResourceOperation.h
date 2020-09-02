@@ -7,8 +7,8 @@
 
 @interface MSGraphResourceOperation : MSGraphEntity
 
-  @property (nullable, nonatomic, setter=setResourceName:, getter=resourceName) NSString* resourceName;
-    @property (nullable, nonatomic, setter=setActionName:, getter=actionName) NSString* actionName;
+  @property (nullable, nonatomic, setter=setActionName:, getter=actionName) NSString* actionName;
     @property (nullable, nonatomic, setter=setResourceOperationDescription:, getter=resourceOperationDescription) NSString* resourceOperationDescription;
+    @property (nullable, nonatomic, setter=setResourceName:, getter=resourceName) NSString* resourceName;
   
 @end

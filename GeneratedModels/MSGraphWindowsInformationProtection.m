@@ -14,35 +14,61 @@
 
 @interface MSGraphWindowsInformationProtection()
 {
+    BOOL _azureRightsManagementServicesAllowed;
+    MSGraphWindowsInformationProtectionDataRecoveryCertificate* _dataRecoveryCertificate;
     MSGraphWindowsInformationProtectionEnforcementLevel* _enforcementLevel;
     NSString* _enterpriseDomain;
-    NSArray* _enterpriseProtectedDomainNames;
-    BOOL _protectionUnderLockConfigRequired;
-    MSGraphWindowsInformationProtectionDataRecoveryCertificate* _dataRecoveryCertificate;
-    BOOL _revokeOnUnenrollDisabled;
-    NSString* _rightsManagementServicesTemplateId;
-    BOOL _azureRightsManagementServicesAllowed;
-    BOOL _iconsVisible;
-    NSArray* _protectedApps;
-    NSArray* _exemptApps;
-    NSArray* _enterpriseNetworkDomainNames;
-    NSArray* _enterpriseProxiedDomains;
+    NSArray* _enterpriseInternalProxyServers;
     NSArray* _enterpriseIPRanges;
     BOOL _enterpriseIPRangesAreAuthoritative;
+    NSArray* _enterpriseNetworkDomainNames;
+    NSArray* _enterpriseProtectedDomainNames;
+    NSArray* _enterpriseProxiedDomains;
     NSArray* _enterpriseProxyServers;
-    NSArray* _enterpriseInternalProxyServers;
     BOOL _enterpriseProxyServersAreAuthoritative;
-    NSArray* _neutralDomainResources;
+    NSArray* _exemptApps;
+    BOOL _iconsVisible;
     BOOL _indexingEncryptedStoresOrItemsBlocked;
-    NSArray* _smbAutoEncryptedFileExtensions;
     BOOL _isAssigned;
-    NSArray* _protectedAppLockerFiles;
-    NSArray* _exemptAppLockerFiles;
+    NSArray* _neutralDomainResources;
+    NSArray* _protectedApps;
+    BOOL _protectionUnderLockConfigRequired;
+    BOOL _revokeOnUnenrollDisabled;
+    NSString* _rightsManagementServicesTemplateId;
+    NSArray* _smbAutoEncryptedFileExtensions;
     NSArray* _assignments;
+    NSArray* _exemptAppLockerFiles;
+    NSArray* _protectedAppLockerFiles;
 }
 @end
 
 @implementation MSGraphWindowsInformationProtection
+
+- (BOOL) azureRightsManagementServicesAllowed
+{
+    _azureRightsManagementServicesAllowed = [self.dictionary[@"azureRightsManagementServicesAllowed"] boolValue];
+    return _azureRightsManagementServicesAllowed;
+}
+
+- (void) setAzureRightsManagementServicesAllowed: (BOOL) val
+{
+    _azureRightsManagementServicesAllowed = val;
+    self.dictionary[@"azureRightsManagementServicesAllowed"] = @(val);
+}
+
+- (MSGraphWindowsInformationProtectionDataRecoveryCertificate*) dataRecoveryCertificate
+{
+    if(!_dataRecoveryCertificate){
+        _dataRecoveryCertificate = [[MSGraphWindowsInformationProtectionDataRecoveryCertificate alloc] initWithDictionary: self.dictionary[@"dataRecoveryCertificate"]];
+    }
+    return _dataRecoveryCertificate;
+}
+
+- (void) setDataRecoveryCertificate: (MSGraphWindowsInformationProtectionDataRecoveryCertificate*) val
+{
+    _dataRecoveryCertificate = val;
+    self.dictionary[@"dataRecoveryCertificate"] = val;
+}
 
 - (MSGraphWindowsInformationProtectionEnforcementLevel*) enforcementLevel
 {
@@ -72,205 +98,29 @@
     self.dictionary[@"enterpriseDomain"] = val;
 }
 
-- (NSArray*) enterpriseProtectedDomainNames
+- (NSArray*) enterpriseInternalProxyServers
 {
-    if(!_enterpriseProtectedDomainNames){
+    if(!_enterpriseInternalProxyServers){
         
-    NSMutableArray *enterpriseProtectedDomainNamesResult = [NSMutableArray array];
-    NSArray *enterpriseProtectedDomainNames = self.dictionary[@"enterpriseProtectedDomainNames"];
+    NSMutableArray *enterpriseInternalProxyServersResult = [NSMutableArray array];
+    NSArray *enterpriseInternalProxyServers = self.dictionary[@"enterpriseInternalProxyServers"];
 
-    if ([enterpriseProtectedDomainNames isKindOfClass:[NSArray class]]){
-        for (id tempWindowsInformationProtectionResourceCollection in enterpriseProtectedDomainNames){
-            [enterpriseProtectedDomainNamesResult addObject:tempWindowsInformationProtectionResourceCollection];
+    if ([enterpriseInternalProxyServers isKindOfClass:[NSArray class]]){
+        for (id tempWindowsInformationProtectionResourceCollection in enterpriseInternalProxyServers){
+            [enterpriseInternalProxyServersResult addObject:tempWindowsInformationProtectionResourceCollection];
         }
     }
 
-    _enterpriseProtectedDomainNames = enterpriseProtectedDomainNamesResult;
+    _enterpriseInternalProxyServers = enterpriseInternalProxyServersResult;
         
     }
-    return _enterpriseProtectedDomainNames;
+    return _enterpriseInternalProxyServers;
 }
 
-- (void) setEnterpriseProtectedDomainNames: (NSArray*) val
+- (void) setEnterpriseInternalProxyServers: (NSArray*) val
 {
-    _enterpriseProtectedDomainNames = val;
-    self.dictionary[@"enterpriseProtectedDomainNames"] = val;
-}
-
-- (BOOL) protectionUnderLockConfigRequired
-{
-    _protectionUnderLockConfigRequired = [self.dictionary[@"protectionUnderLockConfigRequired"] boolValue];
-    return _protectionUnderLockConfigRequired;
-}
-
-- (void) setProtectionUnderLockConfigRequired: (BOOL) val
-{
-    _protectionUnderLockConfigRequired = val;
-    self.dictionary[@"protectionUnderLockConfigRequired"] = @(val);
-}
-
-- (MSGraphWindowsInformationProtectionDataRecoveryCertificate*) dataRecoveryCertificate
-{
-    if(!_dataRecoveryCertificate){
-        _dataRecoveryCertificate = [[MSGraphWindowsInformationProtectionDataRecoveryCertificate alloc] initWithDictionary: self.dictionary[@"dataRecoveryCertificate"]];
-    }
-    return _dataRecoveryCertificate;
-}
-
-- (void) setDataRecoveryCertificate: (MSGraphWindowsInformationProtectionDataRecoveryCertificate*) val
-{
-    _dataRecoveryCertificate = val;
-    self.dictionary[@"dataRecoveryCertificate"] = val;
-}
-
-- (BOOL) revokeOnUnenrollDisabled
-{
-    _revokeOnUnenrollDisabled = [self.dictionary[@"revokeOnUnenrollDisabled"] boolValue];
-    return _revokeOnUnenrollDisabled;
-}
-
-- (void) setRevokeOnUnenrollDisabled: (BOOL) val
-{
-    _revokeOnUnenrollDisabled = val;
-    self.dictionary[@"revokeOnUnenrollDisabled"] = @(val);
-}
-
-- (NSString*) rightsManagementServicesTemplateId
-{
-    if([[NSNull null] isEqual:self.dictionary[@"rightsManagementServicesTemplateId"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"rightsManagementServicesTemplateId"];
-}
-
-- (void) setRightsManagementServicesTemplateId: (NSString*) val
-{
-    self.dictionary[@"rightsManagementServicesTemplateId"] = val;
-}
-
-- (BOOL) azureRightsManagementServicesAllowed
-{
-    _azureRightsManagementServicesAllowed = [self.dictionary[@"azureRightsManagementServicesAllowed"] boolValue];
-    return _azureRightsManagementServicesAllowed;
-}
-
-- (void) setAzureRightsManagementServicesAllowed: (BOOL) val
-{
-    _azureRightsManagementServicesAllowed = val;
-    self.dictionary[@"azureRightsManagementServicesAllowed"] = @(val);
-}
-
-- (BOOL) iconsVisible
-{
-    _iconsVisible = [self.dictionary[@"iconsVisible"] boolValue];
-    return _iconsVisible;
-}
-
-- (void) setIconsVisible: (BOOL) val
-{
-    _iconsVisible = val;
-    self.dictionary[@"iconsVisible"] = @(val);
-}
-
-- (NSArray*) protectedApps
-{
-    if(!_protectedApps){
-        
-    NSMutableArray *protectedAppsResult = [NSMutableArray array];
-    NSArray *protectedApps = self.dictionary[@"protectedApps"];
-
-    if ([protectedApps isKindOfClass:[NSArray class]]){
-        for (id tempWindowsInformationProtectionApp in protectedApps){
-            [protectedAppsResult addObject:tempWindowsInformationProtectionApp];
-        }
-    }
-
-    _protectedApps = protectedAppsResult;
-        
-    }
-    return _protectedApps;
-}
-
-- (void) setProtectedApps: (NSArray*) val
-{
-    _protectedApps = val;
-    self.dictionary[@"protectedApps"] = val;
-}
-
-- (NSArray*) exemptApps
-{
-    if(!_exemptApps){
-        
-    NSMutableArray *exemptAppsResult = [NSMutableArray array];
-    NSArray *exemptApps = self.dictionary[@"exemptApps"];
-
-    if ([exemptApps isKindOfClass:[NSArray class]]){
-        for (id tempWindowsInformationProtectionApp in exemptApps){
-            [exemptAppsResult addObject:tempWindowsInformationProtectionApp];
-        }
-    }
-
-    _exemptApps = exemptAppsResult;
-        
-    }
-    return _exemptApps;
-}
-
-- (void) setExemptApps: (NSArray*) val
-{
-    _exemptApps = val;
-    self.dictionary[@"exemptApps"] = val;
-}
-
-- (NSArray*) enterpriseNetworkDomainNames
-{
-    if(!_enterpriseNetworkDomainNames){
-        
-    NSMutableArray *enterpriseNetworkDomainNamesResult = [NSMutableArray array];
-    NSArray *enterpriseNetworkDomainNames = self.dictionary[@"enterpriseNetworkDomainNames"];
-
-    if ([enterpriseNetworkDomainNames isKindOfClass:[NSArray class]]){
-        for (id tempWindowsInformationProtectionResourceCollection in enterpriseNetworkDomainNames){
-            [enterpriseNetworkDomainNamesResult addObject:tempWindowsInformationProtectionResourceCollection];
-        }
-    }
-
-    _enterpriseNetworkDomainNames = enterpriseNetworkDomainNamesResult;
-        
-    }
-    return _enterpriseNetworkDomainNames;
-}
-
-- (void) setEnterpriseNetworkDomainNames: (NSArray*) val
-{
-    _enterpriseNetworkDomainNames = val;
-    self.dictionary[@"enterpriseNetworkDomainNames"] = val;
-}
-
-- (NSArray*) enterpriseProxiedDomains
-{
-    if(!_enterpriseProxiedDomains){
-        
-    NSMutableArray *enterpriseProxiedDomainsResult = [NSMutableArray array];
-    NSArray *enterpriseProxiedDomains = self.dictionary[@"enterpriseProxiedDomains"];
-
-    if ([enterpriseProxiedDomains isKindOfClass:[NSArray class]]){
-        for (id tempWindowsInformationProtectionProxiedDomainCollection in enterpriseProxiedDomains){
-            [enterpriseProxiedDomainsResult addObject:tempWindowsInformationProtectionProxiedDomainCollection];
-        }
-    }
-
-    _enterpriseProxiedDomains = enterpriseProxiedDomainsResult;
-        
-    }
-    return _enterpriseProxiedDomains;
-}
-
-- (void) setEnterpriseProxiedDomains: (NSArray*) val
-{
-    _enterpriseProxiedDomains = val;
-    self.dictionary[@"enterpriseProxiedDomains"] = val;
+    _enterpriseInternalProxyServers = val;
+    self.dictionary[@"enterpriseInternalProxyServers"] = val;
 }
 
 - (NSArray*) enterpriseIPRanges
@@ -310,6 +160,81 @@
     self.dictionary[@"enterpriseIPRangesAreAuthoritative"] = @(val);
 }
 
+- (NSArray*) enterpriseNetworkDomainNames
+{
+    if(!_enterpriseNetworkDomainNames){
+        
+    NSMutableArray *enterpriseNetworkDomainNamesResult = [NSMutableArray array];
+    NSArray *enterpriseNetworkDomainNames = self.dictionary[@"enterpriseNetworkDomainNames"];
+
+    if ([enterpriseNetworkDomainNames isKindOfClass:[NSArray class]]){
+        for (id tempWindowsInformationProtectionResourceCollection in enterpriseNetworkDomainNames){
+            [enterpriseNetworkDomainNamesResult addObject:tempWindowsInformationProtectionResourceCollection];
+        }
+    }
+
+    _enterpriseNetworkDomainNames = enterpriseNetworkDomainNamesResult;
+        
+    }
+    return _enterpriseNetworkDomainNames;
+}
+
+- (void) setEnterpriseNetworkDomainNames: (NSArray*) val
+{
+    _enterpriseNetworkDomainNames = val;
+    self.dictionary[@"enterpriseNetworkDomainNames"] = val;
+}
+
+- (NSArray*) enterpriseProtectedDomainNames
+{
+    if(!_enterpriseProtectedDomainNames){
+        
+    NSMutableArray *enterpriseProtectedDomainNamesResult = [NSMutableArray array];
+    NSArray *enterpriseProtectedDomainNames = self.dictionary[@"enterpriseProtectedDomainNames"];
+
+    if ([enterpriseProtectedDomainNames isKindOfClass:[NSArray class]]){
+        for (id tempWindowsInformationProtectionResourceCollection in enterpriseProtectedDomainNames){
+            [enterpriseProtectedDomainNamesResult addObject:tempWindowsInformationProtectionResourceCollection];
+        }
+    }
+
+    _enterpriseProtectedDomainNames = enterpriseProtectedDomainNamesResult;
+        
+    }
+    return _enterpriseProtectedDomainNames;
+}
+
+- (void) setEnterpriseProtectedDomainNames: (NSArray*) val
+{
+    _enterpriseProtectedDomainNames = val;
+    self.dictionary[@"enterpriseProtectedDomainNames"] = val;
+}
+
+- (NSArray*) enterpriseProxiedDomains
+{
+    if(!_enterpriseProxiedDomains){
+        
+    NSMutableArray *enterpriseProxiedDomainsResult = [NSMutableArray array];
+    NSArray *enterpriseProxiedDomains = self.dictionary[@"enterpriseProxiedDomains"];
+
+    if ([enterpriseProxiedDomains isKindOfClass:[NSArray class]]){
+        for (id tempWindowsInformationProtectionProxiedDomainCollection in enterpriseProxiedDomains){
+            [enterpriseProxiedDomainsResult addObject:tempWindowsInformationProtectionProxiedDomainCollection];
+        }
+    }
+
+    _enterpriseProxiedDomains = enterpriseProxiedDomainsResult;
+        
+    }
+    return _enterpriseProxiedDomains;
+}
+
+- (void) setEnterpriseProxiedDomains: (NSArray*) val
+{
+    _enterpriseProxiedDomains = val;
+    self.dictionary[@"enterpriseProxiedDomains"] = val;
+}
+
 - (NSArray*) enterpriseProxyServers
 {
     if(!_enterpriseProxyServers){
@@ -335,31 +260,6 @@
     self.dictionary[@"enterpriseProxyServers"] = val;
 }
 
-- (NSArray*) enterpriseInternalProxyServers
-{
-    if(!_enterpriseInternalProxyServers){
-        
-    NSMutableArray *enterpriseInternalProxyServersResult = [NSMutableArray array];
-    NSArray *enterpriseInternalProxyServers = self.dictionary[@"enterpriseInternalProxyServers"];
-
-    if ([enterpriseInternalProxyServers isKindOfClass:[NSArray class]]){
-        for (id tempWindowsInformationProtectionResourceCollection in enterpriseInternalProxyServers){
-            [enterpriseInternalProxyServersResult addObject:tempWindowsInformationProtectionResourceCollection];
-        }
-    }
-
-    _enterpriseInternalProxyServers = enterpriseInternalProxyServersResult;
-        
-    }
-    return _enterpriseInternalProxyServers;
-}
-
-- (void) setEnterpriseInternalProxyServers: (NSArray*) val
-{
-    _enterpriseInternalProxyServers = val;
-    self.dictionary[@"enterpriseInternalProxyServers"] = val;
-}
-
 - (BOOL) enterpriseProxyServersAreAuthoritative
 {
     _enterpriseProxyServersAreAuthoritative = [self.dictionary[@"enterpriseProxyServersAreAuthoritative"] boolValue];
@@ -370,6 +270,67 @@
 {
     _enterpriseProxyServersAreAuthoritative = val;
     self.dictionary[@"enterpriseProxyServersAreAuthoritative"] = @(val);
+}
+
+- (NSArray*) exemptApps
+{
+    if(!_exemptApps){
+        
+    NSMutableArray *exemptAppsResult = [NSMutableArray array];
+    NSArray *exemptApps = self.dictionary[@"exemptApps"];
+
+    if ([exemptApps isKindOfClass:[NSArray class]]){
+        for (id tempWindowsInformationProtectionApp in exemptApps){
+            [exemptAppsResult addObject:tempWindowsInformationProtectionApp];
+        }
+    }
+
+    _exemptApps = exemptAppsResult;
+        
+    }
+    return _exemptApps;
+}
+
+- (void) setExemptApps: (NSArray*) val
+{
+    _exemptApps = val;
+    self.dictionary[@"exemptApps"] = val;
+}
+
+- (BOOL) iconsVisible
+{
+    _iconsVisible = [self.dictionary[@"iconsVisible"] boolValue];
+    return _iconsVisible;
+}
+
+- (void) setIconsVisible: (BOOL) val
+{
+    _iconsVisible = val;
+    self.dictionary[@"iconsVisible"] = @(val);
+}
+
+- (BOOL) indexingEncryptedStoresOrItemsBlocked
+{
+    _indexingEncryptedStoresOrItemsBlocked = [self.dictionary[@"indexingEncryptedStoresOrItemsBlocked"] boolValue];
+    return _indexingEncryptedStoresOrItemsBlocked;
+}
+
+- (void) setIndexingEncryptedStoresOrItemsBlocked: (BOOL) val
+{
+    _indexingEncryptedStoresOrItemsBlocked = val;
+    self.dictionary[@"indexingEncryptedStoresOrItemsBlocked"] = @(val);
+}
+
+- (BOOL) isAssigned
+{
+    _isAssigned = [self.dictionary[@"isAssigned"] boolValue];
+    return _isAssigned;
+}
+
+- (void) setIsAssigned: (BOOL) val
+{
+    _isAssigned = val;
+    self.dictionary[@"isAssigned"] = @(val);
 }
 
 - (NSArray*) neutralDomainResources
@@ -397,16 +358,67 @@
     self.dictionary[@"neutralDomainResources"] = val;
 }
 
-- (BOOL) indexingEncryptedStoresOrItemsBlocked
+- (NSArray*) protectedApps
 {
-    _indexingEncryptedStoresOrItemsBlocked = [self.dictionary[@"indexingEncryptedStoresOrItemsBlocked"] boolValue];
-    return _indexingEncryptedStoresOrItemsBlocked;
+    if(!_protectedApps){
+        
+    NSMutableArray *protectedAppsResult = [NSMutableArray array];
+    NSArray *protectedApps = self.dictionary[@"protectedApps"];
+
+    if ([protectedApps isKindOfClass:[NSArray class]]){
+        for (id tempWindowsInformationProtectionApp in protectedApps){
+            [protectedAppsResult addObject:tempWindowsInformationProtectionApp];
+        }
+    }
+
+    _protectedApps = protectedAppsResult;
+        
+    }
+    return _protectedApps;
 }
 
-- (void) setIndexingEncryptedStoresOrItemsBlocked: (BOOL) val
+- (void) setProtectedApps: (NSArray*) val
 {
-    _indexingEncryptedStoresOrItemsBlocked = val;
-    self.dictionary[@"indexingEncryptedStoresOrItemsBlocked"] = @(val);
+    _protectedApps = val;
+    self.dictionary[@"protectedApps"] = val;
+}
+
+- (BOOL) protectionUnderLockConfigRequired
+{
+    _protectionUnderLockConfigRequired = [self.dictionary[@"protectionUnderLockConfigRequired"] boolValue];
+    return _protectionUnderLockConfigRequired;
+}
+
+- (void) setProtectionUnderLockConfigRequired: (BOOL) val
+{
+    _protectionUnderLockConfigRequired = val;
+    self.dictionary[@"protectionUnderLockConfigRequired"] = @(val);
+}
+
+- (BOOL) revokeOnUnenrollDisabled
+{
+    _revokeOnUnenrollDisabled = [self.dictionary[@"revokeOnUnenrollDisabled"] boolValue];
+    return _revokeOnUnenrollDisabled;
+}
+
+- (void) setRevokeOnUnenrollDisabled: (BOOL) val
+{
+    _revokeOnUnenrollDisabled = val;
+    self.dictionary[@"revokeOnUnenrollDisabled"] = @(val);
+}
+
+- (NSString*) rightsManagementServicesTemplateId
+{
+    if([[NSNull null] isEqual:self.dictionary[@"rightsManagementServicesTemplateId"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"rightsManagementServicesTemplateId"];
+}
+
+- (void) setRightsManagementServicesTemplateId: (NSString*) val
+{
+    self.dictionary[@"rightsManagementServicesTemplateId"] = val;
 }
 
 - (NSArray*) smbAutoEncryptedFileExtensions
@@ -434,41 +446,29 @@
     self.dictionary[@"smbAutoEncryptedFileExtensions"] = val;
 }
 
-- (BOOL) isAssigned
+- (NSArray*) assignments
 {
-    _isAssigned = [self.dictionary[@"isAssigned"] boolValue];
-    return _isAssigned;
-}
-
-- (void) setIsAssigned: (BOOL) val
-{
-    _isAssigned = val;
-    self.dictionary[@"isAssigned"] = @(val);
-}
-
-- (NSArray*) protectedAppLockerFiles
-{
-    if(!_protectedAppLockerFiles){
+    if(!_assignments){
         
-    NSMutableArray *protectedAppLockerFilesResult = [NSMutableArray array];
-    NSArray *protectedAppLockerFiles = self.dictionary[@"protectedAppLockerFiles"];
+    NSMutableArray *assignmentsResult = [NSMutableArray array];
+    NSArray *assignments = self.dictionary[@"assignments"];
 
-    if ([protectedAppLockerFiles isKindOfClass:[NSArray class]]){
-        for (id tempWindowsInformationProtectionAppLockerFile in protectedAppLockerFiles){
-            [protectedAppLockerFilesResult addObject:tempWindowsInformationProtectionAppLockerFile];
+    if ([assignments isKindOfClass:[NSArray class]]){
+        for (id tempTargetedManagedAppPolicyAssignment in assignments){
+            [assignmentsResult addObject:tempTargetedManagedAppPolicyAssignment];
         }
     }
 
-    _protectedAppLockerFiles = protectedAppLockerFilesResult;
+    _assignments = assignmentsResult;
         
     }
-    return _protectedAppLockerFiles;
+    return _assignments;
 }
 
-- (void) setProtectedAppLockerFiles: (NSArray*) val
+- (void) setAssignments: (NSArray*) val
 {
-    _protectedAppLockerFiles = val;
-    self.dictionary[@"protectedAppLockerFiles"] = val;
+    _assignments = val;
+    self.dictionary[@"assignments"] = val;
 }
 
 - (NSArray*) exemptAppLockerFiles
@@ -496,29 +496,29 @@
     self.dictionary[@"exemptAppLockerFiles"] = val;
 }
 
-- (NSArray*) assignments
+- (NSArray*) protectedAppLockerFiles
 {
-    if(!_assignments){
+    if(!_protectedAppLockerFiles){
         
-    NSMutableArray *assignmentsResult = [NSMutableArray array];
-    NSArray *assignments = self.dictionary[@"assignments"];
+    NSMutableArray *protectedAppLockerFilesResult = [NSMutableArray array];
+    NSArray *protectedAppLockerFiles = self.dictionary[@"protectedAppLockerFiles"];
 
-    if ([assignments isKindOfClass:[NSArray class]]){
-        for (id tempTargetedManagedAppPolicyAssignment in assignments){
-            [assignmentsResult addObject:tempTargetedManagedAppPolicyAssignment];
+    if ([protectedAppLockerFiles isKindOfClass:[NSArray class]]){
+        for (id tempWindowsInformationProtectionAppLockerFile in protectedAppLockerFiles){
+            [protectedAppLockerFilesResult addObject:tempWindowsInformationProtectionAppLockerFile];
         }
     }
 
-    _assignments = assignmentsResult;
+    _protectedAppLockerFiles = protectedAppLockerFilesResult;
         
     }
-    return _assignments;
+    return _protectedAppLockerFiles;
 }
 
-- (void) setAssignments: (NSArray*) val
+- (void) setProtectedAppLockerFiles: (NSArray*) val
 {
-    _assignments = val;
-    self.dictionary[@"assignments"] = val;
+    _protectedAppLockerFiles = val;
+    self.dictionary[@"protectedAppLockerFiles"] = val;
 }
 
 

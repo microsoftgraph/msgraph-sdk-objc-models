@@ -1,7 +1,7 @@
 // Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 
 
-@class MSGraphDomainState, MSGraphDomainDnsRecord, MSGraphDirectoryObject; 
+@class MSGraphDomainState, MSGraphDirectoryObject, MSGraphDomainDnsRecord; 
 
 
 #import "MSGraphEntity.h"
@@ -19,10 +19,10 @@
     @property (nullable, nonatomic, setter=setModel:, getter=model) NSString* model;
     @property (nonatomic, setter=setPasswordNotificationWindowInDays:, getter=passwordNotificationWindowInDays) int32_t passwordNotificationWindowInDays;
     @property (nonatomic, setter=setPasswordValidityPeriodInDays:, getter=passwordValidityPeriodInDays) int32_t passwordValidityPeriodInDays;
-    @property (nonnull, nonatomic, setter=setSupportedServices:, getter=supportedServices) NSArray* supportedServices;
     @property (nullable, nonatomic, setter=setState:, getter=state) MSGraphDomainState* state;
+    @property (nonnull, nonatomic, setter=setSupportedServices:, getter=supportedServices) NSArray* supportedServices;
+    @property (nullable, nonatomic, setter=setDomainNameReferences:, getter=domainNameReferences) NSArray* domainNameReferences;
     @property (nullable, nonatomic, setter=setServiceConfigurationRecords:, getter=serviceConfigurationRecords) NSArray* serviceConfigurationRecords;
     @property (nullable, nonatomic, setter=setVerificationDnsRecords:, getter=verificationDnsRecords) NSArray* verificationDnsRecords;
-    @property (nullable, nonatomic, setter=setDomainNameReferences:, getter=domainNameReferences) NSArray* domainNameReferences;
   
 @end

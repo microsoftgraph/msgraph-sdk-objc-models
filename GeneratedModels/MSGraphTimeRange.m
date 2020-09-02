@@ -14,26 +14,12 @@
 
 @interface MSGraphTimeRange()
 {
-    MSTimeOfDay* _startTime;
     MSTimeOfDay* _endTime;
+    MSTimeOfDay* _startTime;
 }
 @end
 
 @implementation MSGraphTimeRange
-
-- (MSTimeOfDay*) startTime
-{
-    if(!_startTime){
-        _startTime = [MSTimeOfDay ms_timeFromString: self.dictionary[@"startTime"]];
-    }
-    return _startTime;
-}
-
-- (void) setStartTime: (MSTimeOfDay*) val
-{
-    _startTime = val;
-    self.dictionary[@"startTime"] = [val ms_toString];
-}
 
 - (MSTimeOfDay*) endTime
 {
@@ -47,6 +33,20 @@
 {
     _endTime = val;
     self.dictionary[@"endTime"] = [val ms_toString];
+}
+
+- (MSTimeOfDay*) startTime
+{
+    if(!_startTime){
+        _startTime = [MSTimeOfDay ms_timeFromString: self.dictionary[@"startTime"]];
+    }
+    return _startTime;
+}
+
+- (void) setStartTime: (MSTimeOfDay*) val
+{
+    _startTime = val;
+    self.dictionary[@"startTime"] = [val ms_toString];
 }
 
 @end

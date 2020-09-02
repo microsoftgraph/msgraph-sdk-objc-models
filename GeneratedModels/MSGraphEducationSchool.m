@@ -14,17 +14,17 @@
 
 @interface MSGraphEducationSchool()
 {
+    MSGraphPhysicalAddress* _address;
+    MSGraphIdentitySet* _createdBy;
+    NSString* _externalId;
+    NSString* _externalPrincipalId;
+    NSString* _fax;
+    NSString* _highestGrade;
+    NSString* _lowestGrade;
+    NSString* _phone;
     NSString* _principalEmail;
     NSString* _principalName;
-    NSString* _externalPrincipalId;
-    NSString* _lowestGrade;
-    NSString* _highestGrade;
     NSString* _schoolNumber;
-    NSString* _externalId;
-    NSString* _phone;
-    NSString* _fax;
-    MSGraphIdentitySet* _createdBy;
-    MSGraphPhysicalAddress* _address;
     NSArray* _classes;
     NSArray* _users;
 }
@@ -39,6 +39,118 @@
     }
     return self;
 }
+- (MSGraphPhysicalAddress*) address
+{
+    if(!_address){
+        _address = [[MSGraphPhysicalAddress alloc] initWithDictionary: self.dictionary[@"address"]];
+    }
+    return _address;
+}
+
+- (void) setAddress: (MSGraphPhysicalAddress*) val
+{
+    _address = val;
+    self.dictionary[@"address"] = val;
+}
+
+- (MSGraphIdentitySet*) createdBy
+{
+    if(!_createdBy){
+        _createdBy = [[MSGraphIdentitySet alloc] initWithDictionary: self.dictionary[@"createdBy"]];
+    }
+    return _createdBy;
+}
+
+- (void) setCreatedBy: (MSGraphIdentitySet*) val
+{
+    _createdBy = val;
+    self.dictionary[@"createdBy"] = val;
+}
+
+- (NSString*) externalId
+{
+    if([[NSNull null] isEqual:self.dictionary[@"externalId"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"externalId"];
+}
+
+- (void) setExternalId: (NSString*) val
+{
+    self.dictionary[@"externalId"] = val;
+}
+
+- (NSString*) externalPrincipalId
+{
+    if([[NSNull null] isEqual:self.dictionary[@"externalPrincipalId"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"externalPrincipalId"];
+}
+
+- (void) setExternalPrincipalId: (NSString*) val
+{
+    self.dictionary[@"externalPrincipalId"] = val;
+}
+
+- (NSString*) fax
+{
+    if([[NSNull null] isEqual:self.dictionary[@"fax"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"fax"];
+}
+
+- (void) setFax: (NSString*) val
+{
+    self.dictionary[@"fax"] = val;
+}
+
+- (NSString*) highestGrade
+{
+    if([[NSNull null] isEqual:self.dictionary[@"highestGrade"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"highestGrade"];
+}
+
+- (void) setHighestGrade: (NSString*) val
+{
+    self.dictionary[@"highestGrade"] = val;
+}
+
+- (NSString*) lowestGrade
+{
+    if([[NSNull null] isEqual:self.dictionary[@"lowestGrade"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"lowestGrade"];
+}
+
+- (void) setLowestGrade: (NSString*) val
+{
+    self.dictionary[@"lowestGrade"] = val;
+}
+
+- (NSString*) phone
+{
+    if([[NSNull null] isEqual:self.dictionary[@"phone"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"phone"];
+}
+
+- (void) setPhone: (NSString*) val
+{
+    self.dictionary[@"phone"] = val;
+}
+
 - (NSString*) principalEmail
 {
     if([[NSNull null] isEqual:self.dictionary[@"principalEmail"]])
@@ -67,48 +179,6 @@
     self.dictionary[@"principalName"] = val;
 }
 
-- (NSString*) externalPrincipalId
-{
-    if([[NSNull null] isEqual:self.dictionary[@"externalPrincipalId"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"externalPrincipalId"];
-}
-
-- (void) setExternalPrincipalId: (NSString*) val
-{
-    self.dictionary[@"externalPrincipalId"] = val;
-}
-
-- (NSString*) lowestGrade
-{
-    if([[NSNull null] isEqual:self.dictionary[@"lowestGrade"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"lowestGrade"];
-}
-
-- (void) setLowestGrade: (NSString*) val
-{
-    self.dictionary[@"lowestGrade"] = val;
-}
-
-- (NSString*) highestGrade
-{
-    if([[NSNull null] isEqual:self.dictionary[@"highestGrade"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"highestGrade"];
-}
-
-- (void) setHighestGrade: (NSString*) val
-{
-    self.dictionary[@"highestGrade"] = val;
-}
-
 - (NSString*) schoolNumber
 {
     if([[NSNull null] isEqual:self.dictionary[@"schoolNumber"]])
@@ -121,76 +191,6 @@
 - (void) setSchoolNumber: (NSString*) val
 {
     self.dictionary[@"schoolNumber"] = val;
-}
-
-- (NSString*) externalId
-{
-    if([[NSNull null] isEqual:self.dictionary[@"externalId"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"externalId"];
-}
-
-- (void) setExternalId: (NSString*) val
-{
-    self.dictionary[@"externalId"] = val;
-}
-
-- (NSString*) phone
-{
-    if([[NSNull null] isEqual:self.dictionary[@"phone"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"phone"];
-}
-
-- (void) setPhone: (NSString*) val
-{
-    self.dictionary[@"phone"] = val;
-}
-
-- (NSString*) fax
-{
-    if([[NSNull null] isEqual:self.dictionary[@"fax"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"fax"];
-}
-
-- (void) setFax: (NSString*) val
-{
-    self.dictionary[@"fax"] = val;
-}
-
-- (MSGraphIdentitySet*) createdBy
-{
-    if(!_createdBy){
-        _createdBy = [[MSGraphIdentitySet alloc] initWithDictionary: self.dictionary[@"createdBy"]];
-    }
-    return _createdBy;
-}
-
-- (void) setCreatedBy: (MSGraphIdentitySet*) val
-{
-    _createdBy = val;
-    self.dictionary[@"createdBy"] = val;
-}
-
-- (MSGraphPhysicalAddress*) address
-{
-    if(!_address){
-        _address = [[MSGraphPhysicalAddress alloc] initWithDictionary: self.dictionary[@"address"]];
-    }
-    return _address;
-}
-
-- (void) setAddress: (MSGraphPhysicalAddress*) val
-{
-    _address = val;
-    self.dictionary[@"address"] = val;
 }
 
 - (NSArray*) classes

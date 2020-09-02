@@ -14,13 +14,13 @@
 
 @interface MSGraphDeviceInstallState()
 {
-    NSString* _deviceName;
     NSString* _deviceId;
-    NSDate* _lastSyncDateTime;
-    MSGraphInstallState* _installState;
+    NSString* _deviceName;
     NSString* _errorCode;
-    NSString* _osVersion;
+    MSGraphInstallState* _installState;
+    NSDate* _lastSyncDateTime;
     NSString* _osDescription;
+    NSString* _osVersion;
     NSString* _userName;
 }
 @end
@@ -34,20 +34,6 @@
     }
     return self;
 }
-- (NSString*) deviceName
-{
-    if([[NSNull null] isEqual:self.dictionary[@"deviceName"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"deviceName"];
-}
-
-- (void) setDeviceName: (NSString*) val
-{
-    self.dictionary[@"deviceName"] = val;
-}
-
 - (NSString*) deviceId
 {
     if([[NSNull null] isEqual:self.dictionary[@"deviceId"]])
@@ -62,32 +48,18 @@
     self.dictionary[@"deviceId"] = val;
 }
 
-- (NSDate*) lastSyncDateTime
+- (NSString*) deviceName
 {
-    if(!_lastSyncDateTime){
-        _lastSyncDateTime = [NSDate ms_dateFromString: self.dictionary[@"lastSyncDateTime"]];
-    }
-    return _lastSyncDateTime;
+    if([[NSNull null] isEqual:self.dictionary[@"deviceName"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"deviceName"];
 }
 
-- (void) setLastSyncDateTime: (NSDate*) val
+- (void) setDeviceName: (NSString*) val
 {
-    _lastSyncDateTime = val;
-    self.dictionary[@"lastSyncDateTime"] = [val ms_toString];
-}
-
-- (MSGraphInstallState*) installState
-{
-    if(!_installState){
-        _installState = [self.dictionary[@"installState"] toMSGraphInstallState];
-    }
-    return _installState;
-}
-
-- (void) setInstallState: (MSGraphInstallState*) val
-{
-    _installState = val;
-    self.dictionary[@"installState"] = val;
+    self.dictionary[@"deviceName"] = val;
 }
 
 - (NSString*) errorCode
@@ -104,18 +76,32 @@
     self.dictionary[@"errorCode"] = val;
 }
 
-- (NSString*) osVersion
+- (MSGraphInstallState*) installState
 {
-    if([[NSNull null] isEqual:self.dictionary[@"osVersion"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"osVersion"];
+    if(!_installState){
+        _installState = [self.dictionary[@"installState"] toMSGraphInstallState];
+    }
+    return _installState;
 }
 
-- (void) setOsVersion: (NSString*) val
+- (void) setInstallState: (MSGraphInstallState*) val
 {
-    self.dictionary[@"osVersion"] = val;
+    _installState = val;
+    self.dictionary[@"installState"] = val;
+}
+
+- (NSDate*) lastSyncDateTime
+{
+    if(!_lastSyncDateTime){
+        _lastSyncDateTime = [NSDate ms_dateFromString: self.dictionary[@"lastSyncDateTime"]];
+    }
+    return _lastSyncDateTime;
+}
+
+- (void) setLastSyncDateTime: (NSDate*) val
+{
+    _lastSyncDateTime = val;
+    self.dictionary[@"lastSyncDateTime"] = [val ms_toString];
 }
 
 - (NSString*) osDescription
@@ -130,6 +116,20 @@
 - (void) setOsDescription: (NSString*) val
 {
     self.dictionary[@"osDescription"] = val;
+}
+
+- (NSString*) osVersion
+{
+    if([[NSNull null] isEqual:self.dictionary[@"osVersion"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"osVersion"];
+}
+
+- (void) setOsVersion: (NSString*) val
+{
+    self.dictionary[@"osVersion"] = val;
 }
 
 - (NSString*) userName

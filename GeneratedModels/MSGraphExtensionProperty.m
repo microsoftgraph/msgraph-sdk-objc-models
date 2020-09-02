@@ -15,9 +15,9 @@
 @interface MSGraphExtensionProperty()
 {
     NSString* _appDisplayName;
-    NSString* _name;
     NSString* _dataType;
     BOOL _isSyncedFromOnPremises;
+    NSString* _name;
     NSArray* _targetObjects;
 }
 @end
@@ -45,16 +45,6 @@
     self.dictionary[@"appDisplayName"] = val;
 }
 
-- (NSString*) name
-{
-    return self.dictionary[@"name"];
-}
-
-- (void) setName: (NSString*) val
-{
-    self.dictionary[@"name"] = val;
-}
-
 - (NSString*) dataType
 {
     return self.dictionary[@"dataType"];
@@ -75,6 +65,16 @@
 {
     _isSyncedFromOnPremises = val;
     self.dictionary[@"isSyncedFromOnPremises"] = @(val);
+}
+
+- (NSString*) name
+{
+    return self.dictionary[@"name"];
+}
+
+- (void) setName: (NSString*) val
+{
+    self.dictionary[@"name"] = val;
 }
 
 - (NSArray*) targetObjects

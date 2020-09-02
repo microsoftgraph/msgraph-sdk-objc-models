@@ -15,8 +15,8 @@
 @interface MSGraphInvitedUserMessageInfo()
 {
     NSArray* _ccRecipients;
-    NSString* _messageLanguage;
     NSString* _customizedMessageBody;
+    NSString* _messageLanguage;
 }
 @end
 
@@ -47,20 +47,6 @@
     self.dictionary[@"ccRecipients"] = val;
 }
 
-- (NSString*) messageLanguage
-{
-    if([[NSNull null] isEqual:self.dictionary[@"messageLanguage"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"messageLanguage"];
-}
-
-- (void) setMessageLanguage: (NSString*) val
-{
-    self.dictionary[@"messageLanguage"] = val;
-}
-
 - (NSString*) customizedMessageBody
 {
     if([[NSNull null] isEqual:self.dictionary[@"customizedMessageBody"]])
@@ -73,6 +59,20 @@
 - (void) setCustomizedMessageBody: (NSString*) val
 {
     self.dictionary[@"customizedMessageBody"] = val;
+}
+
+- (NSString*) messageLanguage
+{
+    if([[NSNull null] isEqual:self.dictionary[@"messageLanguage"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"messageLanguage"];
+}
+
+- (void) setMessageLanguage: (NSString*) val
+{
+    self.dictionary[@"messageLanguage"] = val;
 }
 
 @end

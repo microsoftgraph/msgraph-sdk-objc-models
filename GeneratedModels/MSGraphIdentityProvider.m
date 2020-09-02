@@ -14,10 +14,10 @@
 
 @interface MSGraphIdentityProvider()
 {
-    NSString* _type;
-    NSString* _name;
     NSString* _clientId;
     NSString* _clientSecret;
+    NSString* _name;
+    NSString* _type;
 }
 @end
 
@@ -30,34 +30,6 @@
     }
     return self;
 }
-- (NSString*) type
-{
-    if([[NSNull null] isEqual:self.dictionary[@"type"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"type"];
-}
-
-- (void) setType: (NSString*) val
-{
-    self.dictionary[@"type"] = val;
-}
-
-- (NSString*) name
-{
-    if([[NSNull null] isEqual:self.dictionary[@"name"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"name"];
-}
-
-- (void) setName: (NSString*) val
-{
-    self.dictionary[@"name"] = val;
-}
-
 - (NSString*) clientId
 {
     if([[NSNull null] isEqual:self.dictionary[@"clientId"]])
@@ -84,6 +56,34 @@
 - (void) setClientSecret: (NSString*) val
 {
     self.dictionary[@"clientSecret"] = val;
+}
+
+- (NSString*) name
+{
+    if([[NSNull null] isEqual:self.dictionary[@"name"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"name"];
+}
+
+- (void) setName: (NSString*) val
+{
+    self.dictionary[@"name"] = val;
+}
+
+- (NSString*) type
+{
+    if([[NSNull null] isEqual:self.dictionary[@"type"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"type"];
+}
+
+- (void) setType: (NSString*) val
+{
+    self.dictionary[@"type"] = val;
 }
 
 

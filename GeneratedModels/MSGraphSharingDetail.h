@@ -11,8 +11,8 @@
 
 @property (nullable, nonatomic, setter=setSharedBy:, getter=sharedBy) MSGraphInsightIdentity* sharedBy;
 @property (nullable, nonatomic, setter=setSharedDateTime:, getter=sharedDateTime) NSDate* sharedDateTime;
+@property (nullable, nonatomic, setter=setSharingReference:, getter=sharingReference) MSGraphResourceReference* sharingReference;
 @property (nullable, nonatomic, setter=setSharingSubject:, getter=sharingSubject) NSString* sharingSubject;
 @property (nullable, nonatomic, setter=setSharingType:, getter=sharingType) NSString* sharingType;
-@property (nullable, nonatomic, setter=setSharingReference:, getter=sharingReference) MSGraphResourceReference* sharingReference;
 
 @end

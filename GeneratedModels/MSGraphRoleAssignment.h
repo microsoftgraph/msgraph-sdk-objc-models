@@ -8,8 +8,8 @@
 
 @interface MSGraphRoleAssignment : MSGraphEntity
 
-  @property (nullable, nonatomic, setter=setDisplayName:, getter=displayName) NSString* displayName;
-    @property (nullable, nonatomic, setter=setRoleAssignmentDescription:, getter=roleAssignmentDescription) NSString* roleAssignmentDescription;
+  @property (nullable, nonatomic, setter=setRoleAssignmentDescription:, getter=roleAssignmentDescription) NSString* roleAssignmentDescription;
+    @property (nullable, nonatomic, setter=setDisplayName:, getter=displayName) NSString* displayName;
     @property (nullable, nonatomic, setter=setResourceScopes:, getter=resourceScopes) NSArray* resourceScopes;
     @property (nullable, nonatomic, setter=setRoleDefinition:, getter=roleDefinition) MSGraphRoleDefinition* roleDefinition;
   

@@ -9,14 +9,14 @@
 
 @interface MSGraphComplianceManagementPartner : MSGraphEntity
 
-  @property (nonnull, nonatomic, setter=setLastHeartbeatDateTime:, getter=lastHeartbeatDateTime) NSDate* lastHeartbeatDateTime;
-    @property (nonnull, nonatomic, setter=setPartnerState:, getter=partnerState) MSGraphDeviceManagementPartnerTenantState* partnerState;
-    @property (nullable, nonatomic, setter=setDisplayName:, getter=displayName) NSString* displayName;
-    @property (nonatomic, setter=setMacOsOnboarded:, getter=macOsOnboarded) BOOL macOsOnboarded;
+  @property (nullable, nonatomic, setter=setAndroidEnrollmentAssignments:, getter=androidEnrollmentAssignments) NSArray* androidEnrollmentAssignments;
     @property (nonatomic, setter=setAndroidOnboarded:, getter=androidOnboarded) BOOL androidOnboarded;
-    @property (nonatomic, setter=setIosOnboarded:, getter=iosOnboarded) BOOL iosOnboarded;
-    @property (nullable, nonatomic, setter=setMacOsEnrollmentAssignments:, getter=macOsEnrollmentAssignments) NSArray* macOsEnrollmentAssignments;
-    @property (nullable, nonatomic, setter=setAndroidEnrollmentAssignments:, getter=androidEnrollmentAssignments) NSArray* androidEnrollmentAssignments;
+    @property (nullable, nonatomic, setter=setDisplayName:, getter=displayName) NSString* displayName;
     @property (nullable, nonatomic, setter=setIosEnrollmentAssignments:, getter=iosEnrollmentAssignments) NSArray* iosEnrollmentAssignments;
+    @property (nonatomic, setter=setIosOnboarded:, getter=iosOnboarded) BOOL iosOnboarded;
+    @property (nonnull, nonatomic, setter=setLastHeartbeatDateTime:, getter=lastHeartbeatDateTime) NSDate* lastHeartbeatDateTime;
+    @property (nullable, nonatomic, setter=setMacOsEnrollmentAssignments:, getter=macOsEnrollmentAssignments) NSArray* macOsEnrollmentAssignments;
+    @property (nonatomic, setter=setMacOsOnboarded:, getter=macOsOnboarded) BOOL macOsOnboarded;
+    @property (nonnull, nonatomic, setter=setPartnerState:, getter=partnerState) MSGraphDeviceManagementPartnerTenantState* partnerState;
   
 @end

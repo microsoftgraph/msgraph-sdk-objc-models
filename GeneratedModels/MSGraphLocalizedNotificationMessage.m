@@ -14,11 +14,11 @@
 
 @interface MSGraphLocalizedNotificationMessage()
 {
+    BOOL _isDefault;
     NSDate* _lastModifiedDateTime;
     NSString* _locale;
-    NSString* _subject;
     NSString* _messageTemplate;
-    BOOL _isDefault;
+    NSString* _subject;
 }
 @end
 
@@ -31,6 +31,18 @@
     }
     return self;
 }
+- (BOOL) isDefault
+{
+    _isDefault = [self.dictionary[@"isDefault"] boolValue];
+    return _isDefault;
+}
+
+- (void) setIsDefault: (BOOL) val
+{
+    _isDefault = val;
+    self.dictionary[@"isDefault"] = @(val);
+}
+
 - (NSDate*) lastModifiedDateTime
 {
     if(!_lastModifiedDateTime){
@@ -55,16 +67,6 @@
     self.dictionary[@"locale"] = val;
 }
 
-- (NSString*) subject
-{
-    return self.dictionary[@"subject"];
-}
-
-- (void) setSubject: (NSString*) val
-{
-    self.dictionary[@"subject"] = val;
-}
-
 - (NSString*) messageTemplate
 {
     return self.dictionary[@"messageTemplate"];
@@ -75,16 +77,14 @@
     self.dictionary[@"messageTemplate"] = val;
 }
 
-- (BOOL) isDefault
+- (NSString*) subject
 {
-    _isDefault = [self.dictionary[@"isDefault"] boolValue];
-    return _isDefault;
+    return self.dictionary[@"subject"];
 }
 
-- (void) setIsDefault: (BOOL) val
+- (void) setSubject: (NSString*) val
 {
-    _isDefault = val;
-    self.dictionary[@"isDefault"] = @(val);
+    self.dictionary[@"subject"] = val;
 }
 
 

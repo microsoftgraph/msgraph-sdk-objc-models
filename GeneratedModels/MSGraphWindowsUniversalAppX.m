@@ -19,9 +19,9 @@
     NSString* _identityName;
     NSString* _identityPublisherHash;
     NSString* _identityResourceIdentifier;
+    NSString* _identityVersion;
     BOOL _isBundle;
     MSGraphWindowsMinimumOperatingSystem* _minimumSupportedOperatingSystem;
-    NSString* _identityVersion;
 }
 @end
 
@@ -100,6 +100,20 @@
     self.dictionary[@"identityResourceIdentifier"] = val;
 }
 
+- (NSString*) identityVersion
+{
+    if([[NSNull null] isEqual:self.dictionary[@"identityVersion"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"identityVersion"];
+}
+
+- (void) setIdentityVersion: (NSString*) val
+{
+    self.dictionary[@"identityVersion"] = val;
+}
+
 - (BOOL) isBundle
 {
     _isBundle = [self.dictionary[@"isBundle"] boolValue];
@@ -124,20 +138,6 @@
 {
     _minimumSupportedOperatingSystem = val;
     self.dictionary[@"minimumSupportedOperatingSystem"] = val;
-}
-
-- (NSString*) identityVersion
-{
-    if([[NSNull null] isEqual:self.dictionary[@"identityVersion"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"identityVersion"];
-}
-
-- (void) setIdentityVersion: (NSString*) val
-{
-    self.dictionary[@"identityVersion"] = val;
 }
 
 

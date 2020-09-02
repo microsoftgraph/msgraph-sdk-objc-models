@@ -14,23 +14,13 @@
 
 @interface MSGraphEducationOrganization()
 {
-    NSString* _displayName;
     NSString* _educationOrganizationDescription;
+    NSString* _displayName;
     MSGraphEducationExternalSource* _externalSource;
 }
 @end
 
 @implementation MSGraphEducationOrganization
-
-- (NSString*) displayName
-{
-    return self.dictionary[@"displayName"];
-}
-
-- (void) setDisplayName: (NSString*) val
-{
-    self.dictionary[@"displayName"] = val;
-}
 
 - (NSString*) educationOrganizationDescription
 {
@@ -44,6 +34,16 @@
 - (void) setEducationOrganizationDescription: (NSString*) val
 {
     self.dictionary[@"description"] = val;
+}
+
+- (NSString*) displayName
+{
+    return self.dictionary[@"displayName"];
+}
+
+- (void) setDisplayName: (NSString*) val
+{
+    self.dictionary[@"displayName"] = val;
 }
 
 - (MSGraphEducationExternalSource*) externalSource

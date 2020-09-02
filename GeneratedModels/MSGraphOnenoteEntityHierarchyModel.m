@@ -14,28 +14,14 @@
 
 @interface MSGraphOnenoteEntityHierarchyModel()
 {
-    NSString* _displayName;
     MSGraphIdentitySet* _createdBy;
+    NSString* _displayName;
     MSGraphIdentitySet* _lastModifiedBy;
     NSDate* _lastModifiedDateTime;
 }
 @end
 
 @implementation MSGraphOnenoteEntityHierarchyModel
-
-- (NSString*) displayName
-{
-    if([[NSNull null] isEqual:self.dictionary[@"displayName"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"displayName"];
-}
-
-- (void) setDisplayName: (NSString*) val
-{
-    self.dictionary[@"displayName"] = val;
-}
 
 - (MSGraphIdentitySet*) createdBy
 {
@@ -49,6 +35,20 @@
 {
     _createdBy = val;
     self.dictionary[@"createdBy"] = val;
+}
+
+- (NSString*) displayName
+{
+    if([[NSNull null] isEqual:self.dictionary[@"displayName"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"displayName"];
+}
+
+- (void) setDisplayName: (NSString*) val
+{
+    self.dictionary[@"displayName"] = val;
 }
 
 - (MSGraphIdentitySet*) lastModifiedBy

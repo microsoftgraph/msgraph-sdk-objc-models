@@ -15,9 +15,9 @@
 @interface MSGraphWindowsMobileMSI()
 {
     NSString* _commandLine;
+    BOOL _ignoreVersionDetection;
     NSString* _productCode;
     NSString* _productVersion;
-    BOOL _ignoreVersionDetection;
 }
 @end
 
@@ -42,6 +42,18 @@
 - (void) setCommandLine: (NSString*) val
 {
     self.dictionary[@"commandLine"] = val;
+}
+
+- (BOOL) ignoreVersionDetection
+{
+    _ignoreVersionDetection = [self.dictionary[@"ignoreVersionDetection"] boolValue];
+    return _ignoreVersionDetection;
+}
+
+- (void) setIgnoreVersionDetection: (BOOL) val
+{
+    _ignoreVersionDetection = val;
+    self.dictionary[@"ignoreVersionDetection"] = @(val);
 }
 
 - (NSString*) productCode
@@ -70,18 +82,6 @@
 - (void) setProductVersion: (NSString*) val
 {
     self.dictionary[@"productVersion"] = val;
-}
-
-- (BOOL) ignoreVersionDetection
-{
-    _ignoreVersionDetection = [self.dictionary[@"ignoreVersionDetection"] boolValue];
-    return _ignoreVersionDetection;
-}
-
-- (void) setIgnoreVersionDetection: (BOOL) val
-{
-    _ignoreVersionDetection = val;
-    self.dictionary[@"ignoreVersionDetection"] = @(val);
 }
 
 

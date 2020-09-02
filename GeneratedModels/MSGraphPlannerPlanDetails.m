@@ -14,8 +14,8 @@
 
 @interface MSGraphPlannerPlanDetails()
 {
-    MSGraphPlannerUserIds* _sharedWith;
     MSGraphPlannerCategoryDescriptions* _categoryDescriptions;
+    MSGraphPlannerUserIds* _sharedWith;
 }
 @end
 
@@ -28,20 +28,6 @@
     }
     return self;
 }
-- (MSGraphPlannerUserIds*) sharedWith
-{
-    if(!_sharedWith){
-        _sharedWith = [[MSGraphPlannerUserIds alloc] initWithDictionary: self.dictionary[@"sharedWith"]];
-    }
-    return _sharedWith;
-}
-
-- (void) setSharedWith: (MSGraphPlannerUserIds*) val
-{
-    _sharedWith = val;
-    self.dictionary[@"sharedWith"] = val;
-}
-
 - (MSGraphPlannerCategoryDescriptions*) categoryDescriptions
 {
     if(!_categoryDescriptions){
@@ -54,6 +40,20 @@
 {
     _categoryDescriptions = val;
     self.dictionary[@"categoryDescriptions"] = val;
+}
+
+- (MSGraphPlannerUserIds*) sharedWith
+{
+    if(!_sharedWith){
+        _sharedWith = [[MSGraphPlannerUserIds alloc] initWithDictionary: self.dictionary[@"sharedWith"]];
+    }
+    return _sharedWith;
+}
+
+- (void) setSharedWith: (MSGraphPlannerUserIds*) val
+{
+    _sharedWith = val;
+    self.dictionary[@"sharedWith"] = val;
 }
 
 

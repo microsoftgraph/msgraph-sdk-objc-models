@@ -16,8 +16,8 @@
 {
     NSString* _message;
     MSGraphLocaleInfo* _messageLanguage;
-    MSGraphDateTimeTimeZone* _scheduledStartTime;
     MSGraphDateTimeTimeZone* _scheduledEndTime;
+    MSGraphDateTimeTimeZone* _scheduledStartTime;
 }
 @end
 
@@ -51,20 +51,6 @@
     self.dictionary[@"messageLanguage"] = val;
 }
 
-- (MSGraphDateTimeTimeZone*) scheduledStartTime
-{
-    if(!_scheduledStartTime){
-        _scheduledStartTime = [[MSGraphDateTimeTimeZone alloc] initWithDictionary: self.dictionary[@"scheduledStartTime"]];
-    }
-    return _scheduledStartTime;
-}
-
-- (void) setScheduledStartTime: (MSGraphDateTimeTimeZone*) val
-{
-    _scheduledStartTime = val;
-    self.dictionary[@"scheduledStartTime"] = val;
-}
-
 - (MSGraphDateTimeTimeZone*) scheduledEndTime
 {
     if(!_scheduledEndTime){
@@ -77,6 +63,20 @@
 {
     _scheduledEndTime = val;
     self.dictionary[@"scheduledEndTime"] = val;
+}
+
+- (MSGraphDateTimeTimeZone*) scheduledStartTime
+{
+    if(!_scheduledStartTime){
+        _scheduledStartTime = [[MSGraphDateTimeTimeZone alloc] initWithDictionary: self.dictionary[@"scheduledStartTime"]];
+    }
+    return _scheduledStartTime;
+}
+
+- (void) setScheduledStartTime: (MSGraphDateTimeTimeZone*) val
+{
+    _scheduledStartTime = val;
+    self.dictionary[@"scheduledStartTime"] = val;
 }
 
 @end

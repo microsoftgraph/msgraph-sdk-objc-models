@@ -16,9 +16,9 @@
 {
     MSGraphInsightIdentity* _sharedBy;
     NSDate* _sharedDateTime;
+    MSGraphResourceReference* _sharingReference;
     NSString* _sharingSubject;
     NSString* _sharingType;
-    MSGraphResourceReference* _sharingReference;
 }
 @end
 
@@ -52,6 +52,20 @@
     self.dictionary[@"sharedDateTime"] = [val ms_toString];
 }
 
+- (MSGraphResourceReference*) sharingReference
+{
+    if(!_sharingReference){
+        _sharingReference = [[MSGraphResourceReference alloc] initWithDictionary: self.dictionary[@"sharingReference"]];
+    }
+    return _sharingReference;
+}
+
+- (void) setSharingReference: (MSGraphResourceReference*) val
+{
+    _sharingReference = val;
+    self.dictionary[@"sharingReference"] = val;
+}
+
 - (NSString*) sharingSubject
 {
     if([[NSNull null] isEqual:self.dictionary[@"sharingSubject"]])
@@ -78,20 +92,6 @@
 - (void) setSharingType: (NSString*) val
 {
     self.dictionary[@"sharingType"] = val;
-}
-
-- (MSGraphResourceReference*) sharingReference
-{
-    if(!_sharingReference){
-        _sharingReference = [[MSGraphResourceReference alloc] initWithDictionary: self.dictionary[@"sharingReference"]];
-    }
-    return _sharingReference;
-}
-
-- (void) setSharingReference: (MSGraphResourceReference*) val
-{
-    _sharingReference = val;
-    self.dictionary[@"sharingReference"] = val;
 }
 
 @end

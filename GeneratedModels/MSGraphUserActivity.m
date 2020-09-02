@@ -14,19 +14,19 @@
 
 @interface MSGraphUserActivity()
 {
-    MSGraphVisualInfo* _visualElements;
-    NSString* _activitySourceHost;
     NSString* _activationUrl;
+    NSString* _activitySourceHost;
     NSString* _appActivityId;
     NSString* _appDisplayName;
+    NSDictionary* _contentInfo;
     NSString* _contentUrl;
     NSDate* _createdDateTime;
     NSDate* _expirationDateTime;
     NSString* _fallbackUrl;
     NSDate* _lastModifiedDateTime;
-    NSString* _userTimezone;
-    NSDictionary* _contentInfo;
     MSGraphStatus* _status;
+    NSString* _userTimezone;
+    MSGraphVisualInfo* _visualElements;
     NSArray* _historyItems;
 }
 @end
@@ -40,18 +40,14 @@
     }
     return self;
 }
-- (MSGraphVisualInfo*) visualElements
+- (NSString*) activationUrl
 {
-    if(!_visualElements){
-        _visualElements = [[MSGraphVisualInfo alloc] initWithDictionary: self.dictionary[@"visualElements"]];
-    }
-    return _visualElements;
+    return self.dictionary[@"activationUrl"];
 }
 
-- (void) setVisualElements: (MSGraphVisualInfo*) val
+- (void) setActivationUrl: (NSString*) val
 {
-    _visualElements = val;
-    self.dictionary[@"visualElements"] = val;
+    self.dictionary[@"activationUrl"] = val;
 }
 
 - (NSString*) activitySourceHost
@@ -62,16 +58,6 @@
 - (void) setActivitySourceHost: (NSString*) val
 {
     self.dictionary[@"activitySourceHost"] = val;
-}
-
-- (NSString*) activationUrl
-{
-    return self.dictionary[@"activationUrl"];
-}
-
-- (void) setActivationUrl: (NSString*) val
-{
-    self.dictionary[@"activationUrl"] = val;
 }
 
 - (NSString*) appActivityId
@@ -96,6 +82,20 @@
 - (void) setAppDisplayName: (NSString*) val
 {
     self.dictionary[@"appDisplayName"] = val;
+}
+
+- (NSDictionary*) contentInfo
+{
+    if(!_contentInfo){
+        _contentInfo = [[NSDictionary alloc] initWithDictionary: self.dictionary[@"contentInfo"]];
+    }
+    return _contentInfo;
+}
+
+- (void) setContentInfo: (NSDictionary*) val
+{
+    _contentInfo = val;
+    self.dictionary[@"contentInfo"] = val;
 }
 
 - (NSString*) contentUrl
@@ -168,6 +168,20 @@
     self.dictionary[@"lastModifiedDateTime"] = [val ms_toString];
 }
 
+- (MSGraphStatus*) status
+{
+    if(!_status){
+        _status = [self.dictionary[@"status"] toMSGraphStatus];
+    }
+    return _status;
+}
+
+- (void) setStatus: (MSGraphStatus*) val
+{
+    _status = val;
+    self.dictionary[@"status"] = val;
+}
+
 - (NSString*) userTimezone
 {
     if([[NSNull null] isEqual:self.dictionary[@"userTimezone"]])
@@ -182,32 +196,18 @@
     self.dictionary[@"userTimezone"] = val;
 }
 
-- (NSDictionary*) contentInfo
+- (MSGraphVisualInfo*) visualElements
 {
-    if(!_contentInfo){
-        _contentInfo = [[NSDictionary alloc] initWithDictionary: self.dictionary[@"contentInfo"]];
+    if(!_visualElements){
+        _visualElements = [[MSGraphVisualInfo alloc] initWithDictionary: self.dictionary[@"visualElements"]];
     }
-    return _contentInfo;
+    return _visualElements;
 }
 
-- (void) setContentInfo: (NSDictionary*) val
+- (void) setVisualElements: (MSGraphVisualInfo*) val
 {
-    _contentInfo = val;
-    self.dictionary[@"contentInfo"] = val;
-}
-
-- (MSGraphStatus*) status
-{
-    if(!_status){
-        _status = [self.dictionary[@"status"] toMSGraphStatus];
-    }
-    return _status;
-}
-
-- (void) setStatus: (MSGraphStatus*) val
-{
-    _status = val;
-    self.dictionary[@"status"] = val;
+    _visualElements = val;
+    self.dictionary[@"visualElements"] = val;
 }
 
 - (NSArray*) historyItems

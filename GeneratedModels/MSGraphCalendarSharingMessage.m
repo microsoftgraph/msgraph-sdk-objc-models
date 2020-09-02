@@ -15,9 +15,9 @@
 @interface MSGraphCalendarSharingMessage()
 {
     BOOL _canAccept;
-    NSString* _suggestedCalendarName;
     MSGraphCalendarSharingMessageAction* _sharingMessageAction;
     NSArray* _sharingMessageActions;
+    NSString* _suggestedCalendarName;
 }
 @end
 
@@ -40,20 +40,6 @@
 {
     _canAccept = val;
     self.dictionary[@"canAccept"] = @(val);
-}
-
-- (NSString*) suggestedCalendarName
-{
-    if([[NSNull null] isEqual:self.dictionary[@"suggestedCalendarName"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"suggestedCalendarName"];
-}
-
-- (void) setSuggestedCalendarName: (NSString*) val
-{
-    self.dictionary[@"suggestedCalendarName"] = val;
 }
 
 - (MSGraphCalendarSharingMessageAction*) sharingMessageAction
@@ -93,6 +79,20 @@
 {
     _sharingMessageActions = val;
     self.dictionary[@"sharingMessageActions"] = val;
+}
+
+- (NSString*) suggestedCalendarName
+{
+    if([[NSNull null] isEqual:self.dictionary[@"suggestedCalendarName"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"suggestedCalendarName"];
+}
+
+- (void) setSuggestedCalendarName: (NSString*) val
+{
+    self.dictionary[@"suggestedCalendarName"] = val;
 }
 
 

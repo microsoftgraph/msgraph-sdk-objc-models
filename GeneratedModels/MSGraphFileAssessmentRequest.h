@@ -7,7 +7,7 @@
 
 @interface MSGraphFileAssessmentRequest : MSGraphThreatAssessmentRequest
 
-  @property (nonnull, nonatomic, setter=setFileName:, getter=fileName) NSString* fileName;
-    @property (nonnull, nonatomic, setter=setContentData:, getter=contentData) NSString* contentData;
+  @property (nonnull, nonatomic, setter=setContentData:, getter=contentData) NSString* contentData;
+    @property (nonnull, nonatomic, setter=setFileName:, getter=fileName) NSString* fileName;
   
 @end

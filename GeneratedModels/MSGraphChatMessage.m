@@ -14,25 +14,25 @@
 
 @interface MSGraphChatMessage()
 {
-    NSString* _replyToId;
-    MSGraphIdentitySet* _from;
-    NSString* _etag;
-    MSGraphChatMessageType* _messageType;
-    NSDate* _createdDateTime;
-    NSDate* _lastModifiedDateTime;
-    NSDate* _deletedDateTime;
-    NSString* _subject;
-    MSGraphItemBody* _body;
-    NSString* _summary;
     NSArray* _attachments;
-    NSArray* _mentions;
+    MSGraphItemBody* _body;
+    NSDate* _createdDateTime;
+    NSDate* _deletedDateTime;
+    NSString* _etag;
+    MSGraphIdentitySet* _from;
     MSGraphChatMessageImportance* _importance;
+    NSDate* _lastModifiedDateTime;
+    NSString* _locale;
+    NSArray* _mentions;
+    MSGraphChatMessageType* _messageType;
     MSGraphChatMessagePolicyViolation* _policyViolation;
     NSArray* _reactions;
-    NSString* _locale;
+    NSString* _replyToId;
+    NSString* _subject;
+    NSString* _summary;
     NSString* _webUrl;
-    NSArray* _replies;
     NSArray* _hostedContents;
+    NSArray* _replies;
 }
 @end
 
@@ -45,146 +45,6 @@
     }
     return self;
 }
-- (NSString*) replyToId
-{
-    if([[NSNull null] isEqual:self.dictionary[@"replyToId"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"replyToId"];
-}
-
-- (void) setReplyToId: (NSString*) val
-{
-    self.dictionary[@"replyToId"] = val;
-}
-
-- (MSGraphIdentitySet*) from
-{
-    if(!_from){
-        _from = [[MSGraphIdentitySet alloc] initWithDictionary: self.dictionary[@"from"]];
-    }
-    return _from;
-}
-
-- (void) setFrom: (MSGraphIdentitySet*) val
-{
-    _from = val;
-    self.dictionary[@"from"] = val;
-}
-
-- (NSString*) etag
-{
-    if([[NSNull null] isEqual:self.dictionary[@"etag"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"etag"];
-}
-
-- (void) setEtag: (NSString*) val
-{
-    self.dictionary[@"etag"] = val;
-}
-
-- (MSGraphChatMessageType*) messageType
-{
-    if(!_messageType){
-        _messageType = [self.dictionary[@"messageType"] toMSGraphChatMessageType];
-    }
-    return _messageType;
-}
-
-- (void) setMessageType: (MSGraphChatMessageType*) val
-{
-    _messageType = val;
-    self.dictionary[@"messageType"] = val;
-}
-
-- (NSDate*) createdDateTime
-{
-    if(!_createdDateTime){
-        _createdDateTime = [NSDate ms_dateFromString: self.dictionary[@"createdDateTime"]];
-    }
-    return _createdDateTime;
-}
-
-- (void) setCreatedDateTime: (NSDate*) val
-{
-    _createdDateTime = val;
-    self.dictionary[@"createdDateTime"] = [val ms_toString];
-}
-
-- (NSDate*) lastModifiedDateTime
-{
-    if(!_lastModifiedDateTime){
-        _lastModifiedDateTime = [NSDate ms_dateFromString: self.dictionary[@"lastModifiedDateTime"]];
-    }
-    return _lastModifiedDateTime;
-}
-
-- (void) setLastModifiedDateTime: (NSDate*) val
-{
-    _lastModifiedDateTime = val;
-    self.dictionary[@"lastModifiedDateTime"] = [val ms_toString];
-}
-
-- (NSDate*) deletedDateTime
-{
-    if(!_deletedDateTime){
-        _deletedDateTime = [NSDate ms_dateFromString: self.dictionary[@"deletedDateTime"]];
-    }
-    return _deletedDateTime;
-}
-
-- (void) setDeletedDateTime: (NSDate*) val
-{
-    _deletedDateTime = val;
-    self.dictionary[@"deletedDateTime"] = [val ms_toString];
-}
-
-- (NSString*) subject
-{
-    if([[NSNull null] isEqual:self.dictionary[@"subject"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"subject"];
-}
-
-- (void) setSubject: (NSString*) val
-{
-    self.dictionary[@"subject"] = val;
-}
-
-- (MSGraphItemBody*) body
-{
-    if(!_body){
-        _body = [[MSGraphItemBody alloc] initWithDictionary: self.dictionary[@"body"]];
-    }
-    return _body;
-}
-
-- (void) setBody: (MSGraphItemBody*) val
-{
-    _body = val;
-    self.dictionary[@"body"] = val;
-}
-
-- (NSString*) summary
-{
-    if([[NSNull null] isEqual:self.dictionary[@"summary"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"summary"];
-}
-
-- (void) setSummary: (NSString*) val
-{
-    self.dictionary[@"summary"] = val;
-}
-
 - (NSArray*) attachments
 {
     if(!_attachments){
@@ -208,6 +68,114 @@
 {
     _attachments = val;
     self.dictionary[@"attachments"] = val;
+}
+
+- (MSGraphItemBody*) body
+{
+    if(!_body){
+        _body = [[MSGraphItemBody alloc] initWithDictionary: self.dictionary[@"body"]];
+    }
+    return _body;
+}
+
+- (void) setBody: (MSGraphItemBody*) val
+{
+    _body = val;
+    self.dictionary[@"body"] = val;
+}
+
+- (NSDate*) createdDateTime
+{
+    if(!_createdDateTime){
+        _createdDateTime = [NSDate ms_dateFromString: self.dictionary[@"createdDateTime"]];
+    }
+    return _createdDateTime;
+}
+
+- (void) setCreatedDateTime: (NSDate*) val
+{
+    _createdDateTime = val;
+    self.dictionary[@"createdDateTime"] = [val ms_toString];
+}
+
+- (NSDate*) deletedDateTime
+{
+    if(!_deletedDateTime){
+        _deletedDateTime = [NSDate ms_dateFromString: self.dictionary[@"deletedDateTime"]];
+    }
+    return _deletedDateTime;
+}
+
+- (void) setDeletedDateTime: (NSDate*) val
+{
+    _deletedDateTime = val;
+    self.dictionary[@"deletedDateTime"] = [val ms_toString];
+}
+
+- (NSString*) etag
+{
+    if([[NSNull null] isEqual:self.dictionary[@"etag"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"etag"];
+}
+
+- (void) setEtag: (NSString*) val
+{
+    self.dictionary[@"etag"] = val;
+}
+
+- (MSGraphIdentitySet*) from
+{
+    if(!_from){
+        _from = [[MSGraphIdentitySet alloc] initWithDictionary: self.dictionary[@"from"]];
+    }
+    return _from;
+}
+
+- (void) setFrom: (MSGraphIdentitySet*) val
+{
+    _from = val;
+    self.dictionary[@"from"] = val;
+}
+
+- (MSGraphChatMessageImportance*) importance
+{
+    if(!_importance){
+        _importance = [self.dictionary[@"importance"] toMSGraphChatMessageImportance];
+    }
+    return _importance;
+}
+
+- (void) setImportance: (MSGraphChatMessageImportance*) val
+{
+    _importance = val;
+    self.dictionary[@"importance"] = val;
+}
+
+- (NSDate*) lastModifiedDateTime
+{
+    if(!_lastModifiedDateTime){
+        _lastModifiedDateTime = [NSDate ms_dateFromString: self.dictionary[@"lastModifiedDateTime"]];
+    }
+    return _lastModifiedDateTime;
+}
+
+- (void) setLastModifiedDateTime: (NSDate*) val
+{
+    _lastModifiedDateTime = val;
+    self.dictionary[@"lastModifiedDateTime"] = [val ms_toString];
+}
+
+- (NSString*) locale
+{
+    return self.dictionary[@"locale"];
+}
+
+- (void) setLocale: (NSString*) val
+{
+    self.dictionary[@"locale"] = val;
 }
 
 - (NSArray*) mentions
@@ -235,18 +203,18 @@
     self.dictionary[@"mentions"] = val;
 }
 
-- (MSGraphChatMessageImportance*) importance
+- (MSGraphChatMessageType*) messageType
 {
-    if(!_importance){
-        _importance = [self.dictionary[@"importance"] toMSGraphChatMessageImportance];
+    if(!_messageType){
+        _messageType = [self.dictionary[@"messageType"] toMSGraphChatMessageType];
     }
-    return _importance;
+    return _messageType;
 }
 
-- (void) setImportance: (MSGraphChatMessageImportance*) val
+- (void) setMessageType: (MSGraphChatMessageType*) val
 {
-    _importance = val;
-    self.dictionary[@"importance"] = val;
+    _messageType = val;
+    self.dictionary[@"messageType"] = val;
 }
 
 - (MSGraphChatMessagePolicyViolation*) policyViolation
@@ -288,14 +256,46 @@
     self.dictionary[@"reactions"] = val;
 }
 
-- (NSString*) locale
+- (NSString*) replyToId
 {
-    return self.dictionary[@"locale"];
+    if([[NSNull null] isEqual:self.dictionary[@"replyToId"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"replyToId"];
 }
 
-- (void) setLocale: (NSString*) val
+- (void) setReplyToId: (NSString*) val
 {
-    self.dictionary[@"locale"] = val;
+    self.dictionary[@"replyToId"] = val;
+}
+
+- (NSString*) subject
+{
+    if([[NSNull null] isEqual:self.dictionary[@"subject"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"subject"];
+}
+
+- (void) setSubject: (NSString*) val
+{
+    self.dictionary[@"subject"] = val;
+}
+
+- (NSString*) summary
+{
+    if([[NSNull null] isEqual:self.dictionary[@"summary"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"summary"];
+}
+
+- (void) setSummary: (NSString*) val
+{
+    self.dictionary[@"summary"] = val;
 }
 
 - (NSString*) webUrl
@@ -310,31 +310,6 @@
 - (void) setWebUrl: (NSString*) val
 {
     self.dictionary[@"webUrl"] = val;
-}
-
-- (NSArray*) replies
-{
-    if(!_replies){
-        
-    NSMutableArray *repliesResult = [NSMutableArray array];
-    NSArray *replies = self.dictionary[@"replies"];
-
-    if ([replies isKindOfClass:[NSArray class]]){
-        for (id tempChatMessage in replies){
-            [repliesResult addObject:tempChatMessage];
-        }
-    }
-
-    _replies = repliesResult;
-        
-    }
-    return _replies;
-}
-
-- (void) setReplies: (NSArray*) val
-{
-    _replies = val;
-    self.dictionary[@"replies"] = val;
 }
 
 - (NSArray*) hostedContents
@@ -360,6 +335,31 @@
 {
     _hostedContents = val;
     self.dictionary[@"hostedContents"] = val;
+}
+
+- (NSArray*) replies
+{
+    if(!_replies){
+        
+    NSMutableArray *repliesResult = [NSMutableArray array];
+    NSArray *replies = self.dictionary[@"replies"];
+
+    if ([replies isKindOfClass:[NSArray class]]){
+        for (id tempChatMessage in replies){
+            [repliesResult addObject:tempChatMessage];
+        }
+    }
+
+    _replies = repliesResult;
+        
+    }
+    return _replies;
+}
+
+- (void) setReplies: (NSArray*) val
+{
+    _replies = val;
+    self.dictionary[@"replies"] = val;
 }
 
 

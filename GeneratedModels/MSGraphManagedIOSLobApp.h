@@ -8,11 +8,11 @@
 
 @interface MSGraphManagedIOSLobApp : MSGraphManagedMobileLobApp
 
-  @property (nullable, nonatomic, setter=setBundleId:, getter=bundleId) NSString* bundleId;
-    @property (nonnull, nonatomic, setter=setApplicableDeviceType:, getter=applicableDeviceType) MSGraphIosDeviceType* applicableDeviceType;
-    @property (nullable, nonatomic, setter=setMinimumSupportedOperatingSystem:, getter=minimumSupportedOperatingSystem) MSGraphIosMinimumOperatingSystem* minimumSupportedOperatingSystem;
-    @property (nullable, nonatomic, setter=setExpirationDateTime:, getter=expirationDateTime) NSDate* expirationDateTime;
-    @property (nullable, nonatomic, setter=setVersionNumber:, getter=versionNumber) NSString* versionNumber;
+  @property (nonnull, nonatomic, setter=setApplicableDeviceType:, getter=applicableDeviceType) MSGraphIosDeviceType* applicableDeviceType;
     @property (nullable, nonatomic, setter=setBuildNumber:, getter=buildNumber) NSString* buildNumber;
+    @property (nullable, nonatomic, setter=setBundleId:, getter=bundleId) NSString* bundleId;
+    @property (nullable, nonatomic, setter=setExpirationDateTime:, getter=expirationDateTime) NSDate* expirationDateTime;
+    @property (nullable, nonatomic, setter=setMinimumSupportedOperatingSystem:, getter=minimumSupportedOperatingSystem) MSGraphIosMinimumOperatingSystem* minimumSupportedOperatingSystem;
+    @property (nullable, nonatomic, setter=setVersionNumber:, getter=versionNumber) NSString* versionNumber;
   
 @end

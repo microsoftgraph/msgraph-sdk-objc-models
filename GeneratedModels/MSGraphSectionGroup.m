@@ -14,12 +14,12 @@
 
 @interface MSGraphSectionGroup()
 {
-    NSString* _sectionsUrl;
     NSString* _sectionGroupsUrl;
+    NSString* _sectionsUrl;
     MSGraphNotebook* _parentNotebook;
     MSGraphSectionGroup* _parentSectionGroup;
-    NSArray* _sections;
     NSArray* _sectionGroups;
+    NSArray* _sections;
 }
 @end
 
@@ -32,20 +32,6 @@
     }
     return self;
 }
-- (NSString*) sectionsUrl
-{
-    if([[NSNull null] isEqual:self.dictionary[@"sectionsUrl"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"sectionsUrl"];
-}
-
-- (void) setSectionsUrl: (NSString*) val
-{
-    self.dictionary[@"sectionsUrl"] = val;
-}
-
 - (NSString*) sectionGroupsUrl
 {
     if([[NSNull null] isEqual:self.dictionary[@"sectionGroupsUrl"]])
@@ -58,6 +44,20 @@
 - (void) setSectionGroupsUrl: (NSString*) val
 {
     self.dictionary[@"sectionGroupsUrl"] = val;
+}
+
+- (NSString*) sectionsUrl
+{
+    if([[NSNull null] isEqual:self.dictionary[@"sectionsUrl"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"sectionsUrl"];
+}
+
+- (void) setSectionsUrl: (NSString*) val
+{
+    self.dictionary[@"sectionsUrl"] = val;
 }
 
 - (MSGraphNotebook*) parentNotebook
@@ -88,31 +88,6 @@
     self.dictionary[@"parentSectionGroup"] = val;
 }
 
-- (NSArray*) sections
-{
-    if(!_sections){
-        
-    NSMutableArray *sectionsResult = [NSMutableArray array];
-    NSArray *sections = self.dictionary[@"sections"];
-
-    if ([sections isKindOfClass:[NSArray class]]){
-        for (id tempOnenoteSection in sections){
-            [sectionsResult addObject:tempOnenoteSection];
-        }
-    }
-
-    _sections = sectionsResult;
-        
-    }
-    return _sections;
-}
-
-- (void) setSections: (NSArray*) val
-{
-    _sections = val;
-    self.dictionary[@"sections"] = val;
-}
-
 - (NSArray*) sectionGroups
 {
     if(!_sectionGroups){
@@ -136,6 +111,31 @@
 {
     _sectionGroups = val;
     self.dictionary[@"sectionGroups"] = val;
+}
+
+- (NSArray*) sections
+{
+    if(!_sections){
+        
+    NSMutableArray *sectionsResult = [NSMutableArray array];
+    NSArray *sections = self.dictionary[@"sections"];
+
+    if ([sections isKindOfClass:[NSArray class]]){
+        for (id tempOnenoteSection in sections){
+            [sectionsResult addObject:tempOnenoteSection];
+        }
+    }
+
+    _sections = sectionsResult;
+        
+    }
+    return _sections;
+}
+
+- (void) setSections: (NSArray*) val
+{
+    _sections = val;
+    self.dictionary[@"sections"] = val;
 }
 
 

@@ -14,17 +14,17 @@
 
 @interface MSGraphDeviceComplianceSettingState()
 {
+    NSDate* _complianceGracePeriodExpirationDateTime;
+    NSString* _deviceId;
+    NSString* _deviceModel;
+    NSString* _deviceName;
     NSString* _setting;
     NSString* _settingName;
-    NSString* _deviceId;
-    NSString* _deviceName;
-    NSString* _userId;
+    MSGraphComplianceStatus* _state;
     NSString* _userEmail;
+    NSString* _userId;
     NSString* _userName;
     NSString* _userPrincipalName;
-    NSString* _deviceModel;
-    MSGraphComplianceStatus* _state;
-    NSDate* _complianceGracePeriodExpirationDateTime;
 }
 @end
 
@@ -37,6 +37,62 @@
     }
     return self;
 }
+- (NSDate*) complianceGracePeriodExpirationDateTime
+{
+    if(!_complianceGracePeriodExpirationDateTime){
+        _complianceGracePeriodExpirationDateTime = [NSDate ms_dateFromString: self.dictionary[@"complianceGracePeriodExpirationDateTime"]];
+    }
+    return _complianceGracePeriodExpirationDateTime;
+}
+
+- (void) setComplianceGracePeriodExpirationDateTime: (NSDate*) val
+{
+    _complianceGracePeriodExpirationDateTime = val;
+    self.dictionary[@"complianceGracePeriodExpirationDateTime"] = [val ms_toString];
+}
+
+- (NSString*) deviceId
+{
+    if([[NSNull null] isEqual:self.dictionary[@"deviceId"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"deviceId"];
+}
+
+- (void) setDeviceId: (NSString*) val
+{
+    self.dictionary[@"deviceId"] = val;
+}
+
+- (NSString*) deviceModel
+{
+    if([[NSNull null] isEqual:self.dictionary[@"deviceModel"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"deviceModel"];
+}
+
+- (void) setDeviceModel: (NSString*) val
+{
+    self.dictionary[@"deviceModel"] = val;
+}
+
+- (NSString*) deviceName
+{
+    if([[NSNull null] isEqual:self.dictionary[@"deviceName"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"deviceName"];
+}
+
+- (void) setDeviceName: (NSString*) val
+{
+    self.dictionary[@"deviceName"] = val;
+}
+
 - (NSString*) setting
 {
     if([[NSNull null] isEqual:self.dictionary[@"setting"]])
@@ -65,46 +121,18 @@
     self.dictionary[@"settingName"] = val;
 }
 
-- (NSString*) deviceId
+- (MSGraphComplianceStatus*) state
 {
-    if([[NSNull null] isEqual:self.dictionary[@"deviceId"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"deviceId"];
+    if(!_state){
+        _state = [self.dictionary[@"state"] toMSGraphComplianceStatus];
+    }
+    return _state;
 }
 
-- (void) setDeviceId: (NSString*) val
+- (void) setState: (MSGraphComplianceStatus*) val
 {
-    self.dictionary[@"deviceId"] = val;
-}
-
-- (NSString*) deviceName
-{
-    if([[NSNull null] isEqual:self.dictionary[@"deviceName"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"deviceName"];
-}
-
-- (void) setDeviceName: (NSString*) val
-{
-    self.dictionary[@"deviceName"] = val;
-}
-
-- (NSString*) userId
-{
-    if([[NSNull null] isEqual:self.dictionary[@"userId"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"userId"];
-}
-
-- (void) setUserId: (NSString*) val
-{
-    self.dictionary[@"userId"] = val;
+    _state = val;
+    self.dictionary[@"state"] = val;
 }
 
 - (NSString*) userEmail
@@ -119,6 +147,20 @@
 - (void) setUserEmail: (NSString*) val
 {
     self.dictionary[@"userEmail"] = val;
+}
+
+- (NSString*) userId
+{
+    if([[NSNull null] isEqual:self.dictionary[@"userId"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"userId"];
+}
+
+- (void) setUserId: (NSString*) val
+{
+    self.dictionary[@"userId"] = val;
 }
 
 - (NSString*) userName
@@ -147,48 +189,6 @@
 - (void) setUserPrincipalName: (NSString*) val
 {
     self.dictionary[@"userPrincipalName"] = val;
-}
-
-- (NSString*) deviceModel
-{
-    if([[NSNull null] isEqual:self.dictionary[@"deviceModel"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"deviceModel"];
-}
-
-- (void) setDeviceModel: (NSString*) val
-{
-    self.dictionary[@"deviceModel"] = val;
-}
-
-- (MSGraphComplianceStatus*) state
-{
-    if(!_state){
-        _state = [self.dictionary[@"state"] toMSGraphComplianceStatus];
-    }
-    return _state;
-}
-
-- (void) setState: (MSGraphComplianceStatus*) val
-{
-    _state = val;
-    self.dictionary[@"state"] = val;
-}
-
-- (NSDate*) complianceGracePeriodExpirationDateTime
-{
-    if(!_complianceGracePeriodExpirationDateTime){
-        _complianceGracePeriodExpirationDateTime = [NSDate ms_dateFromString: self.dictionary[@"complianceGracePeriodExpirationDateTime"]];
-    }
-    return _complianceGracePeriodExpirationDateTime;
-}
-
-- (void) setComplianceGracePeriodExpirationDateTime: (NSDate*) val
-{
-    _complianceGracePeriodExpirationDateTime = val;
-    self.dictionary[@"complianceGracePeriodExpirationDateTime"] = [val ms_toString];
 }
 
 

@@ -8,8 +8,8 @@
 
 @interface MSGraphAlternativeSecurityId : MSObject
 
-@property (nonatomic, setter=setType:, getter=type) int32_t type;
 @property (nullable, nonatomic, setter=setIdentityProvider:, getter=identityProvider) NSString* identityProvider;
 @property (nullable, nonatomic, setter=setKey:, getter=key) NSString* key;
+@property (nonatomic, setter=setType:, getter=type) int32_t type;
 
 @end

@@ -14,54 +14,29 @@
 
 @interface MSGraphWindows10GeneralConfiguration()
 {
-    NSString* _enterpriseCloudPrintDiscoveryEndPoint;
-    NSString* _enterpriseCloudPrintOAuthAuthority;
-    NSString* _enterpriseCloudPrintOAuthClientIdentifier;
-    NSString* _enterpriseCloudPrintResourceIdentifier;
-    int32_t _enterpriseCloudPrintDiscoveryMaxLimit;
-    NSString* _enterpriseCloudPrintMopriaDiscoveryResourceIdentifier;
-    BOOL _searchBlockDiacritics;
-    BOOL _searchDisableAutoLanguageDetection;
-    BOOL _searchDisableIndexingEncryptedItems;
-    BOOL _searchEnableRemoteQueries;
-    BOOL _searchDisableIndexerBackoff;
-    BOOL _searchDisableIndexingRemovableDrive;
-    BOOL _searchEnableAutomaticIndexSizeManangement;
-    MSGraphDiagnosticDataSubmissionMode* _diagnosticsDataSubmissionMode;
-    BOOL _oneDriveDisableFileSync;
-    BOOL _smartScreenEnableAppInstallControl;
-    NSString* _personalizationDesktopImageUrl;
-    NSString* _personalizationLockScreenImageUrl;
+    BOOL _accountsBlockAddingNonMicrosoftAccountEmail;
+    BOOL _antiTheftModeBlocked;
+    MSGraphStateManagementSetting* _appsAllowTrustedAppsSideloading;
+    BOOL _appsBlockWindowsStoreOriginatedApps;
     NSArray* _bluetoothAllowedServices;
     BOOL _bluetoothBlockAdvertising;
     BOOL _bluetoothBlockDiscoverableMode;
+    BOOL _bluetoothBlocked;
     BOOL _bluetoothBlockPrePairing;
-    BOOL _edgeBlockAutofill;
-    BOOL _edgeBlocked;
-    MSGraphEdgeCookiePolicy* _edgeCookiePolicy;
-    BOOL _edgeBlockDeveloperTools;
-    BOOL _edgeBlockSendingDoNotTrackHeader;
-    BOOL _edgeBlockExtensions;
-    BOOL _edgeBlockInPrivateBrowsing;
-    BOOL _edgeBlockJavaScript;
-    BOOL _edgeBlockPasswordManager;
-    BOOL _edgeBlockAddressBarDropdown;
-    BOOL _edgeBlockCompatibilityList;
-    BOOL _edgeClearBrowsingDataOnExit;
-    BOOL _edgeAllowStartPagesModification;
-    BOOL _edgeDisableFirstRunPage;
-    BOOL _edgeBlockLiveTileDataCollection;
-    BOOL _edgeSyncFavoritesWithInternetExplorer;
+    BOOL _cameraBlocked;
     BOOL _cellularBlockDataWhenRoaming;
     BOOL _cellularBlockVpn;
     BOOL _cellularBlockVpnWhenRoaming;
+    BOOL _certificatesBlockManualRootCertificateInstallation;
+    BOOL _connectedDevicesServiceBlocked;
+    BOOL _copyPasteBlocked;
+    BOOL _cortanaBlocked;
     BOOL _defenderBlockEndUserAccess;
+    MSGraphDefenderCloudBlockLevelType* _defenderCloudBlockLevel;
     int32_t _defenderDaysBeforeDeletingQuarantinedMalware;
     MSGraphDefenderDetectedMalwareActions* _defenderDetectedMalwareActions;
-    MSGraphWeeklySchedule* _defenderSystemScanSchedule;
-    NSArray* _defenderFilesAndFoldersToExclude;
     NSArray* _defenderFileExtensionsToExclude;
-    int32_t _defenderScanMaxCpu;
+    NSArray* _defenderFilesAndFoldersToExclude;
     MSGraphDefenderMonitorFileActivity* _defenderMonitorFileActivity;
     NSArray* _defenderProcessesToExclude;
     MSGraphDefenderPromptForSampleSubmission* _defenderPromptForSampleSubmission;
@@ -71,34 +46,121 @@
     BOOL _defenderRequireRealTimeMonitoring;
     BOOL _defenderScanArchiveFiles;
     BOOL _defenderScanDownloads;
-    BOOL _defenderScanNetworkFiles;
     BOOL _defenderScanIncomingMail;
     BOOL _defenderScanMappedNetworkDrivesDuringFullScan;
+    int32_t _defenderScanMaxCpu;
+    BOOL _defenderScanNetworkFiles;
     BOOL _defenderScanRemovableDrivesDuringFullScan;
     BOOL _defenderScanScriptsLoadedInInternetExplorer;
-    int32_t _defenderSignatureUpdateIntervalInHours;
     MSGraphDefenderScanType* _defenderScanType;
-    MSTimeOfDay* _defenderScheduledScanTime;
     MSTimeOfDay* _defenderScheduledQuickScanTime;
-    MSGraphDefenderCloudBlockLevelType* _defenderCloudBlockLevel;
+    MSTimeOfDay* _defenderScheduledScanTime;
+    int32_t _defenderSignatureUpdateIntervalInHours;
+    MSGraphWeeklySchedule* _defenderSystemScanSchedule;
+    MSGraphStateManagementSetting* _developerUnlockSetting;
+    BOOL _deviceManagementBlockFactoryResetOnMobile;
+    BOOL _deviceManagementBlockManualUnenroll;
+    MSGraphDiagnosticDataSubmissionMode* _diagnosticsDataSubmissionMode;
+    BOOL _edgeAllowStartPagesModification;
+    BOOL _edgeBlockAccessToAboutFlags;
+    BOOL _edgeBlockAddressBarDropdown;
+    BOOL _edgeBlockAutofill;
+    BOOL _edgeBlockCompatibilityList;
+    BOOL _edgeBlockDeveloperTools;
+    BOOL _edgeBlocked;
+    BOOL _edgeBlockExtensions;
+    BOOL _edgeBlockInPrivateBrowsing;
+    BOOL _edgeBlockJavaScript;
+    BOOL _edgeBlockLiveTileDataCollection;
+    BOOL _edgeBlockPasswordManager;
+    BOOL _edgeBlockPopups;
+    BOOL _edgeBlockSearchSuggestions;
+    BOOL _edgeBlockSendingDoNotTrackHeader;
+    BOOL _edgeBlockSendingIntranetTrafficToInternetExplorer;
+    BOOL _edgeClearBrowsingDataOnExit;
+    MSGraphEdgeCookiePolicy* _edgeCookiePolicy;
+    BOOL _edgeDisableFirstRunPage;
+    NSString* _edgeEnterpriseModeSiteListLocation;
+    NSString* _edgeFirstRunUrl;
+    NSArray* _edgeHomepageUrls;
+    BOOL _edgeRequireSmartScreen;
+    MSGraphEdgeSearchEngineBase* _edgeSearchEngine;
+    BOOL _edgeSendIntranetTrafficToInternetExplorer;
+    BOOL _edgeSyncFavoritesWithInternetExplorer;
+    NSString* _enterpriseCloudPrintDiscoveryEndPoint;
+    int32_t _enterpriseCloudPrintDiscoveryMaxLimit;
+    NSString* _enterpriseCloudPrintMopriaDiscoveryResourceIdentifier;
+    NSString* _enterpriseCloudPrintOAuthAuthority;
+    NSString* _enterpriseCloudPrintOAuthClientIdentifier;
+    NSString* _enterpriseCloudPrintResourceIdentifier;
+    BOOL _experienceBlockDeviceDiscovery;
+    BOOL _experienceBlockErrorDialogWhenNoSIM;
+    BOOL _experienceBlockTaskSwitcher;
+    BOOL _gameDvrBlocked;
+    BOOL _internetSharingBlocked;
+    BOOL _locationServicesBlocked;
     BOOL _lockScreenAllowTimeoutConfiguration;
     BOOL _lockScreenBlockActionCenterNotifications;
     BOOL _lockScreenBlockCortana;
     BOOL _lockScreenBlockToastNotifications;
     int32_t _lockScreenTimeoutInSeconds;
+    BOOL _logonBlockFastUserSwitching;
+    BOOL _microsoftAccountBlocked;
+    BOOL _microsoftAccountBlockSettingsSync;
+    BOOL _networkProxyApplySettingsDeviceWide;
+    NSString* _networkProxyAutomaticConfigurationUrl;
+    BOOL _networkProxyDisableAutoDetect;
+    MSGraphWindows10NetworkProxyServer* _networkProxyServer;
+    BOOL _nfcBlocked;
+    BOOL _oneDriveDisableFileSync;
     BOOL _passwordBlockSimple;
     int32_t _passwordExpirationDays;
+    int32_t _passwordMinimumCharacterSetCount;
     int32_t _passwordMinimumLength;
     int32_t _passwordMinutesOfInactivityBeforeScreenTimeout;
-    int32_t _passwordMinimumCharacterSetCount;
     int32_t _passwordPreviousPasswordBlockCount;
     BOOL _passwordRequired;
-    BOOL _passwordRequireWhenResumeFromIdleState;
     MSGraphRequiredPasswordType* _passwordRequiredType;
+    BOOL _passwordRequireWhenResumeFromIdleState;
     int32_t _passwordSignInFailureCountBeforeFactoryReset;
+    NSString* _personalizationDesktopImageUrl;
+    NSString* _personalizationLockScreenImageUrl;
     MSGraphStateManagementSetting* _privacyAdvertisingId;
     BOOL _privacyAutoAcceptPairingAndConsentPrompts;
     BOOL _privacyBlockInputPersonalization;
+    BOOL _resetProtectionModeBlocked;
+    MSGraphSafeSearchFilterType* _safeSearchFilter;
+    BOOL _screenCaptureBlocked;
+    BOOL _searchBlockDiacritics;
+    BOOL _searchDisableAutoLanguageDetection;
+    BOOL _searchDisableIndexerBackoff;
+    BOOL _searchDisableIndexingEncryptedItems;
+    BOOL _searchDisableIndexingRemovableDrive;
+    BOOL _searchEnableAutomaticIndexSizeManangement;
+    BOOL _searchEnableRemoteQueries;
+    BOOL _settingsBlockAccountsPage;
+    BOOL _settingsBlockAddProvisioningPackage;
+    BOOL _settingsBlockAppsPage;
+    BOOL _settingsBlockChangeLanguage;
+    BOOL _settingsBlockChangePowerSleep;
+    BOOL _settingsBlockChangeRegion;
+    BOOL _settingsBlockChangeSystemTime;
+    BOOL _settingsBlockDevicesPage;
+    BOOL _settingsBlockEaseOfAccessPage;
+    BOOL _settingsBlockEditDeviceName;
+    BOOL _settingsBlockGamingPage;
+    BOOL _settingsBlockNetworkInternetPage;
+    BOOL _settingsBlockPersonalizationPage;
+    BOOL _settingsBlockPrivacyPage;
+    BOOL _settingsBlockRemoveProvisioningPackage;
+    BOOL _settingsBlockSettingsApp;
+    BOOL _settingsBlockSystemPage;
+    BOOL _settingsBlockTimeLanguagePage;
+    BOOL _settingsBlockUpdateSecurityPage;
+    BOOL _sharedUserAppDataAllowed;
+    BOOL _smartScreenBlockPromptOverride;
+    BOOL _smartScreenBlockPromptOverrideForFiles;
+    BOOL _smartScreenEnableAppInstallControl;
     BOOL _startBlockUnpinningAppsFromTaskbar;
     MSGraphWindowsStartMenuAppListVisibilityType* _startMenuAppListVisibility;
     BOOL _startMenuHideChangeAccountSettings;
@@ -127,18 +189,18 @@
     MSGraphVisibilitySetting* _startMenuPinnedFolderPictures;
     MSGraphVisibilitySetting* _startMenuPinnedFolderSettings;
     MSGraphVisibilitySetting* _startMenuPinnedFolderVideos;
-    BOOL _settingsBlockSettingsApp;
-    BOOL _settingsBlockSystemPage;
-    BOOL _settingsBlockDevicesPage;
-    BOOL _settingsBlockNetworkInternetPage;
-    BOOL _settingsBlockPersonalizationPage;
-    BOOL _settingsBlockAccountsPage;
-    BOOL _settingsBlockTimeLanguagePage;
-    BOOL _settingsBlockEaseOfAccessPage;
-    BOOL _settingsBlockPrivacyPage;
-    BOOL _settingsBlockUpdateSecurityPage;
-    BOOL _settingsBlockAppsPage;
-    BOOL _settingsBlockGamingPage;
+    BOOL _storageBlockRemovableStorage;
+    BOOL _storageRequireMobileDeviceEncryption;
+    BOOL _storageRestrictAppDataToSystemVolume;
+    BOOL _storageRestrictAppInstallToSystemVolume;
+    BOOL _tenantLockdownRequireNetworkDuringOutOfBoxExperience;
+    BOOL _usbBlocked;
+    BOOL _voiceRecordingBlocked;
+    BOOL _webRtcBlockLocalhostIpAddress;
+    BOOL _wiFiBlockAutomaticConnectHotspots;
+    BOOL _wiFiBlocked;
+    BOOL _wiFiBlockManualConfiguration;
+    int32_t _wiFiScanInterval;
     BOOL _windowsSpotlightBlockConsumerSpecificFeatures;
     BOOL _windowsSpotlightBlocked;
     BOOL _windowsSpotlightBlockOnActionCenter;
@@ -147,74 +209,12 @@
     BOOL _windowsSpotlightBlockWelcomeExperience;
     BOOL _windowsSpotlightBlockWindowsTips;
     MSGraphWindowsSpotlightEnablementSettings* _windowsSpotlightConfigureOnLockScreen;
-    BOOL _networkProxyApplySettingsDeviceWide;
-    BOOL _networkProxyDisableAutoDetect;
-    NSString* _networkProxyAutomaticConfigurationUrl;
-    MSGraphWindows10NetworkProxyServer* _networkProxyServer;
-    BOOL _accountsBlockAddingNonMicrosoftAccountEmail;
-    BOOL _antiTheftModeBlocked;
-    BOOL _bluetoothBlocked;
-    BOOL _cameraBlocked;
-    BOOL _connectedDevicesServiceBlocked;
-    BOOL _certificatesBlockManualRootCertificateInstallation;
-    BOOL _copyPasteBlocked;
-    BOOL _cortanaBlocked;
-    BOOL _deviceManagementBlockFactoryResetOnMobile;
-    BOOL _deviceManagementBlockManualUnenroll;
-    MSGraphSafeSearchFilterType* _safeSearchFilter;
-    BOOL _edgeBlockPopups;
-    BOOL _edgeBlockSearchSuggestions;
-    BOOL _edgeBlockSendingIntranetTrafficToInternetExplorer;
-    BOOL _edgeSendIntranetTrafficToInternetExplorer;
-    BOOL _edgeRequireSmartScreen;
-    NSString* _edgeEnterpriseModeSiteListLocation;
-    NSString* _edgeFirstRunUrl;
-    MSGraphEdgeSearchEngineBase* _edgeSearchEngine;
-    NSArray* _edgeHomepageUrls;
-    BOOL _edgeBlockAccessToAboutFlags;
-    BOOL _smartScreenBlockPromptOverride;
-    BOOL _smartScreenBlockPromptOverrideForFiles;
-    BOOL _webRtcBlockLocalhostIpAddress;
-    BOOL _internetSharingBlocked;
-    BOOL _settingsBlockAddProvisioningPackage;
-    BOOL _settingsBlockRemoveProvisioningPackage;
-    BOOL _settingsBlockChangeSystemTime;
-    BOOL _settingsBlockEditDeviceName;
-    BOOL _settingsBlockChangeRegion;
-    BOOL _settingsBlockChangeLanguage;
-    BOOL _settingsBlockChangePowerSleep;
-    BOOL _locationServicesBlocked;
-    BOOL _microsoftAccountBlocked;
-    BOOL _microsoftAccountBlockSettingsSync;
-    BOOL _nfcBlocked;
-    BOOL _resetProtectionModeBlocked;
-    BOOL _screenCaptureBlocked;
-    BOOL _storageBlockRemovableStorage;
-    BOOL _storageRequireMobileDeviceEncryption;
-    BOOL _usbBlocked;
-    BOOL _voiceRecordingBlocked;
-    BOOL _wiFiBlockAutomaticConnectHotspots;
-    BOOL _wiFiBlocked;
-    BOOL _wiFiBlockManualConfiguration;
-    int32_t _wiFiScanInterval;
+    BOOL _windowsStoreBlockAutoUpdate;
+    BOOL _windowsStoreBlocked;
+    BOOL _windowsStoreEnablePrivateStoreOnly;
     BOOL _wirelessDisplayBlockProjectionToThisDevice;
     BOOL _wirelessDisplayBlockUserInputFromReceiver;
     BOOL _wirelessDisplayRequirePinForPairing;
-    BOOL _windowsStoreBlocked;
-    MSGraphStateManagementSetting* _appsAllowTrustedAppsSideloading;
-    BOOL _windowsStoreBlockAutoUpdate;
-    MSGraphStateManagementSetting* _developerUnlockSetting;
-    BOOL _sharedUserAppDataAllowed;
-    BOOL _appsBlockWindowsStoreOriginatedApps;
-    BOOL _windowsStoreEnablePrivateStoreOnly;
-    BOOL _storageRestrictAppDataToSystemVolume;
-    BOOL _storageRestrictAppInstallToSystemVolume;
-    BOOL _gameDvrBlocked;
-    BOOL _experienceBlockDeviceDiscovery;
-    BOOL _experienceBlockErrorDialogWhenNoSIM;
-    BOOL _experienceBlockTaskSwitcher;
-    BOOL _logonBlockFastUserSwitching;
-    BOOL _tenantLockdownRequireNetworkDuringOutOfBoxExperience;
 }
 @end
 
@@ -227,236 +227,54 @@
     }
     return self;
 }
-- (NSString*) enterpriseCloudPrintDiscoveryEndPoint
+- (BOOL) accountsBlockAddingNonMicrosoftAccountEmail
 {
-    if([[NSNull null] isEqual:self.dictionary[@"enterpriseCloudPrintDiscoveryEndPoint"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"enterpriseCloudPrintDiscoveryEndPoint"];
+    _accountsBlockAddingNonMicrosoftAccountEmail = [self.dictionary[@"accountsBlockAddingNonMicrosoftAccountEmail"] boolValue];
+    return _accountsBlockAddingNonMicrosoftAccountEmail;
 }
 
-- (void) setEnterpriseCloudPrintDiscoveryEndPoint: (NSString*) val
+- (void) setAccountsBlockAddingNonMicrosoftAccountEmail: (BOOL) val
 {
-    self.dictionary[@"enterpriseCloudPrintDiscoveryEndPoint"] = val;
+    _accountsBlockAddingNonMicrosoftAccountEmail = val;
+    self.dictionary[@"accountsBlockAddingNonMicrosoftAccountEmail"] = @(val);
 }
 
-- (NSString*) enterpriseCloudPrintOAuthAuthority
+- (BOOL) antiTheftModeBlocked
 {
-    if([[NSNull null] isEqual:self.dictionary[@"enterpriseCloudPrintOAuthAuthority"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"enterpriseCloudPrintOAuthAuthority"];
+    _antiTheftModeBlocked = [self.dictionary[@"antiTheftModeBlocked"] boolValue];
+    return _antiTheftModeBlocked;
 }
 
-- (void) setEnterpriseCloudPrintOAuthAuthority: (NSString*) val
+- (void) setAntiTheftModeBlocked: (BOOL) val
 {
-    self.dictionary[@"enterpriseCloudPrintOAuthAuthority"] = val;
+    _antiTheftModeBlocked = val;
+    self.dictionary[@"antiTheftModeBlocked"] = @(val);
 }
 
-- (NSString*) enterpriseCloudPrintOAuthClientIdentifier
+- (MSGraphStateManagementSetting*) appsAllowTrustedAppsSideloading
 {
-    if([[NSNull null] isEqual:self.dictionary[@"enterpriseCloudPrintOAuthClientIdentifier"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"enterpriseCloudPrintOAuthClientIdentifier"];
-}
-
-- (void) setEnterpriseCloudPrintOAuthClientIdentifier: (NSString*) val
-{
-    self.dictionary[@"enterpriseCloudPrintOAuthClientIdentifier"] = val;
-}
-
-- (NSString*) enterpriseCloudPrintResourceIdentifier
-{
-    if([[NSNull null] isEqual:self.dictionary[@"enterpriseCloudPrintResourceIdentifier"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"enterpriseCloudPrintResourceIdentifier"];
-}
-
-- (void) setEnterpriseCloudPrintResourceIdentifier: (NSString*) val
-{
-    self.dictionary[@"enterpriseCloudPrintResourceIdentifier"] = val;
-}
-
-- (int32_t) enterpriseCloudPrintDiscoveryMaxLimit
-{
-    _enterpriseCloudPrintDiscoveryMaxLimit = [self.dictionary[@"enterpriseCloudPrintDiscoveryMaxLimit"] intValue];
-    return _enterpriseCloudPrintDiscoveryMaxLimit;
-}
-
-- (void) setEnterpriseCloudPrintDiscoveryMaxLimit: (int32_t) val
-{
-    _enterpriseCloudPrintDiscoveryMaxLimit = val;
-    self.dictionary[@"enterpriseCloudPrintDiscoveryMaxLimit"] = @(val);
-}
-
-- (NSString*) enterpriseCloudPrintMopriaDiscoveryResourceIdentifier
-{
-    if([[NSNull null] isEqual:self.dictionary[@"enterpriseCloudPrintMopriaDiscoveryResourceIdentifier"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"enterpriseCloudPrintMopriaDiscoveryResourceIdentifier"];
-}
-
-- (void) setEnterpriseCloudPrintMopriaDiscoveryResourceIdentifier: (NSString*) val
-{
-    self.dictionary[@"enterpriseCloudPrintMopriaDiscoveryResourceIdentifier"] = val;
-}
-
-- (BOOL) searchBlockDiacritics
-{
-    _searchBlockDiacritics = [self.dictionary[@"searchBlockDiacritics"] boolValue];
-    return _searchBlockDiacritics;
-}
-
-- (void) setSearchBlockDiacritics: (BOOL) val
-{
-    _searchBlockDiacritics = val;
-    self.dictionary[@"searchBlockDiacritics"] = @(val);
-}
-
-- (BOOL) searchDisableAutoLanguageDetection
-{
-    _searchDisableAutoLanguageDetection = [self.dictionary[@"searchDisableAutoLanguageDetection"] boolValue];
-    return _searchDisableAutoLanguageDetection;
-}
-
-- (void) setSearchDisableAutoLanguageDetection: (BOOL) val
-{
-    _searchDisableAutoLanguageDetection = val;
-    self.dictionary[@"searchDisableAutoLanguageDetection"] = @(val);
-}
-
-- (BOOL) searchDisableIndexingEncryptedItems
-{
-    _searchDisableIndexingEncryptedItems = [self.dictionary[@"searchDisableIndexingEncryptedItems"] boolValue];
-    return _searchDisableIndexingEncryptedItems;
-}
-
-- (void) setSearchDisableIndexingEncryptedItems: (BOOL) val
-{
-    _searchDisableIndexingEncryptedItems = val;
-    self.dictionary[@"searchDisableIndexingEncryptedItems"] = @(val);
-}
-
-- (BOOL) searchEnableRemoteQueries
-{
-    _searchEnableRemoteQueries = [self.dictionary[@"searchEnableRemoteQueries"] boolValue];
-    return _searchEnableRemoteQueries;
-}
-
-- (void) setSearchEnableRemoteQueries: (BOOL) val
-{
-    _searchEnableRemoteQueries = val;
-    self.dictionary[@"searchEnableRemoteQueries"] = @(val);
-}
-
-- (BOOL) searchDisableIndexerBackoff
-{
-    _searchDisableIndexerBackoff = [self.dictionary[@"searchDisableIndexerBackoff"] boolValue];
-    return _searchDisableIndexerBackoff;
-}
-
-- (void) setSearchDisableIndexerBackoff: (BOOL) val
-{
-    _searchDisableIndexerBackoff = val;
-    self.dictionary[@"searchDisableIndexerBackoff"] = @(val);
-}
-
-- (BOOL) searchDisableIndexingRemovableDrive
-{
-    _searchDisableIndexingRemovableDrive = [self.dictionary[@"searchDisableIndexingRemovableDrive"] boolValue];
-    return _searchDisableIndexingRemovableDrive;
-}
-
-- (void) setSearchDisableIndexingRemovableDrive: (BOOL) val
-{
-    _searchDisableIndexingRemovableDrive = val;
-    self.dictionary[@"searchDisableIndexingRemovableDrive"] = @(val);
-}
-
-- (BOOL) searchEnableAutomaticIndexSizeManangement
-{
-    _searchEnableAutomaticIndexSizeManangement = [self.dictionary[@"searchEnableAutomaticIndexSizeManangement"] boolValue];
-    return _searchEnableAutomaticIndexSizeManangement;
-}
-
-- (void) setSearchEnableAutomaticIndexSizeManangement: (BOOL) val
-{
-    _searchEnableAutomaticIndexSizeManangement = val;
-    self.dictionary[@"searchEnableAutomaticIndexSizeManangement"] = @(val);
-}
-
-- (MSGraphDiagnosticDataSubmissionMode*) diagnosticsDataSubmissionMode
-{
-    if(!_diagnosticsDataSubmissionMode){
-        _diagnosticsDataSubmissionMode = [self.dictionary[@"diagnosticsDataSubmissionMode"] toMSGraphDiagnosticDataSubmissionMode];
+    if(!_appsAllowTrustedAppsSideloading){
+        _appsAllowTrustedAppsSideloading = [self.dictionary[@"appsAllowTrustedAppsSideloading"] toMSGraphStateManagementSetting];
     }
-    return _diagnosticsDataSubmissionMode;
+    return _appsAllowTrustedAppsSideloading;
 }
 
-- (void) setDiagnosticsDataSubmissionMode: (MSGraphDiagnosticDataSubmissionMode*) val
+- (void) setAppsAllowTrustedAppsSideloading: (MSGraphStateManagementSetting*) val
 {
-    _diagnosticsDataSubmissionMode = val;
-    self.dictionary[@"diagnosticsDataSubmissionMode"] = val;
+    _appsAllowTrustedAppsSideloading = val;
+    self.dictionary[@"appsAllowTrustedAppsSideloading"] = val;
 }
 
-- (BOOL) oneDriveDisableFileSync
+- (BOOL) appsBlockWindowsStoreOriginatedApps
 {
-    _oneDriveDisableFileSync = [self.dictionary[@"oneDriveDisableFileSync"] boolValue];
-    return _oneDriveDisableFileSync;
+    _appsBlockWindowsStoreOriginatedApps = [self.dictionary[@"appsBlockWindowsStoreOriginatedApps"] boolValue];
+    return _appsBlockWindowsStoreOriginatedApps;
 }
 
-- (void) setOneDriveDisableFileSync: (BOOL) val
+- (void) setAppsBlockWindowsStoreOriginatedApps: (BOOL) val
 {
-    _oneDriveDisableFileSync = val;
-    self.dictionary[@"oneDriveDisableFileSync"] = @(val);
-}
-
-- (BOOL) smartScreenEnableAppInstallControl
-{
-    _smartScreenEnableAppInstallControl = [self.dictionary[@"smartScreenEnableAppInstallControl"] boolValue];
-    return _smartScreenEnableAppInstallControl;
-}
-
-- (void) setSmartScreenEnableAppInstallControl: (BOOL) val
-{
-    _smartScreenEnableAppInstallControl = val;
-    self.dictionary[@"smartScreenEnableAppInstallControl"] = @(val);
-}
-
-- (NSString*) personalizationDesktopImageUrl
-{
-    if([[NSNull null] isEqual:self.dictionary[@"personalizationDesktopImageUrl"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"personalizationDesktopImageUrl"];
-}
-
-- (void) setPersonalizationDesktopImageUrl: (NSString*) val
-{
-    self.dictionary[@"personalizationDesktopImageUrl"] = val;
-}
-
-- (NSString*) personalizationLockScreenImageUrl
-{
-    if([[NSNull null] isEqual:self.dictionary[@"personalizationLockScreenImageUrl"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"personalizationLockScreenImageUrl"];
-}
-
-- (void) setPersonalizationLockScreenImageUrl: (NSString*) val
-{
-    self.dictionary[@"personalizationLockScreenImageUrl"] = val;
+    _appsBlockWindowsStoreOriginatedApps = val;
+    self.dictionary[@"appsBlockWindowsStoreOriginatedApps"] = @(val);
 }
 
 - (NSArray*) bluetoothAllowedServices
@@ -497,6 +315,18 @@
     self.dictionary[@"bluetoothBlockDiscoverableMode"] = @(val);
 }
 
+- (BOOL) bluetoothBlocked
+{
+    _bluetoothBlocked = [self.dictionary[@"bluetoothBlocked"] boolValue];
+    return _bluetoothBlocked;
+}
+
+- (void) setBluetoothBlocked: (BOOL) val
+{
+    _bluetoothBlocked = val;
+    self.dictionary[@"bluetoothBlocked"] = @(val);
+}
+
 - (BOOL) bluetoothBlockPrePairing
 {
     _bluetoothBlockPrePairing = [self.dictionary[@"bluetoothBlockPrePairing"] boolValue];
@@ -509,198 +339,16 @@
     self.dictionary[@"bluetoothBlockPrePairing"] = @(val);
 }
 
-- (BOOL) edgeBlockAutofill
+- (BOOL) cameraBlocked
 {
-    _edgeBlockAutofill = [self.dictionary[@"edgeBlockAutofill"] boolValue];
-    return _edgeBlockAutofill;
+    _cameraBlocked = [self.dictionary[@"cameraBlocked"] boolValue];
+    return _cameraBlocked;
 }
 
-- (void) setEdgeBlockAutofill: (BOOL) val
+- (void) setCameraBlocked: (BOOL) val
 {
-    _edgeBlockAutofill = val;
-    self.dictionary[@"edgeBlockAutofill"] = @(val);
-}
-
-- (BOOL) edgeBlocked
-{
-    _edgeBlocked = [self.dictionary[@"edgeBlocked"] boolValue];
-    return _edgeBlocked;
-}
-
-- (void) setEdgeBlocked: (BOOL) val
-{
-    _edgeBlocked = val;
-    self.dictionary[@"edgeBlocked"] = @(val);
-}
-
-- (MSGraphEdgeCookiePolicy*) edgeCookiePolicy
-{
-    if(!_edgeCookiePolicy){
-        _edgeCookiePolicy = [self.dictionary[@"edgeCookiePolicy"] toMSGraphEdgeCookiePolicy];
-    }
-    return _edgeCookiePolicy;
-}
-
-- (void) setEdgeCookiePolicy: (MSGraphEdgeCookiePolicy*) val
-{
-    _edgeCookiePolicy = val;
-    self.dictionary[@"edgeCookiePolicy"] = val;
-}
-
-- (BOOL) edgeBlockDeveloperTools
-{
-    _edgeBlockDeveloperTools = [self.dictionary[@"edgeBlockDeveloperTools"] boolValue];
-    return _edgeBlockDeveloperTools;
-}
-
-- (void) setEdgeBlockDeveloperTools: (BOOL) val
-{
-    _edgeBlockDeveloperTools = val;
-    self.dictionary[@"edgeBlockDeveloperTools"] = @(val);
-}
-
-- (BOOL) edgeBlockSendingDoNotTrackHeader
-{
-    _edgeBlockSendingDoNotTrackHeader = [self.dictionary[@"edgeBlockSendingDoNotTrackHeader"] boolValue];
-    return _edgeBlockSendingDoNotTrackHeader;
-}
-
-- (void) setEdgeBlockSendingDoNotTrackHeader: (BOOL) val
-{
-    _edgeBlockSendingDoNotTrackHeader = val;
-    self.dictionary[@"edgeBlockSendingDoNotTrackHeader"] = @(val);
-}
-
-- (BOOL) edgeBlockExtensions
-{
-    _edgeBlockExtensions = [self.dictionary[@"edgeBlockExtensions"] boolValue];
-    return _edgeBlockExtensions;
-}
-
-- (void) setEdgeBlockExtensions: (BOOL) val
-{
-    _edgeBlockExtensions = val;
-    self.dictionary[@"edgeBlockExtensions"] = @(val);
-}
-
-- (BOOL) edgeBlockInPrivateBrowsing
-{
-    _edgeBlockInPrivateBrowsing = [self.dictionary[@"edgeBlockInPrivateBrowsing"] boolValue];
-    return _edgeBlockInPrivateBrowsing;
-}
-
-- (void) setEdgeBlockInPrivateBrowsing: (BOOL) val
-{
-    _edgeBlockInPrivateBrowsing = val;
-    self.dictionary[@"edgeBlockInPrivateBrowsing"] = @(val);
-}
-
-- (BOOL) edgeBlockJavaScript
-{
-    _edgeBlockJavaScript = [self.dictionary[@"edgeBlockJavaScript"] boolValue];
-    return _edgeBlockJavaScript;
-}
-
-- (void) setEdgeBlockJavaScript: (BOOL) val
-{
-    _edgeBlockJavaScript = val;
-    self.dictionary[@"edgeBlockJavaScript"] = @(val);
-}
-
-- (BOOL) edgeBlockPasswordManager
-{
-    _edgeBlockPasswordManager = [self.dictionary[@"edgeBlockPasswordManager"] boolValue];
-    return _edgeBlockPasswordManager;
-}
-
-- (void) setEdgeBlockPasswordManager: (BOOL) val
-{
-    _edgeBlockPasswordManager = val;
-    self.dictionary[@"edgeBlockPasswordManager"] = @(val);
-}
-
-- (BOOL) edgeBlockAddressBarDropdown
-{
-    _edgeBlockAddressBarDropdown = [self.dictionary[@"edgeBlockAddressBarDropdown"] boolValue];
-    return _edgeBlockAddressBarDropdown;
-}
-
-- (void) setEdgeBlockAddressBarDropdown: (BOOL) val
-{
-    _edgeBlockAddressBarDropdown = val;
-    self.dictionary[@"edgeBlockAddressBarDropdown"] = @(val);
-}
-
-- (BOOL) edgeBlockCompatibilityList
-{
-    _edgeBlockCompatibilityList = [self.dictionary[@"edgeBlockCompatibilityList"] boolValue];
-    return _edgeBlockCompatibilityList;
-}
-
-- (void) setEdgeBlockCompatibilityList: (BOOL) val
-{
-    _edgeBlockCompatibilityList = val;
-    self.dictionary[@"edgeBlockCompatibilityList"] = @(val);
-}
-
-- (BOOL) edgeClearBrowsingDataOnExit
-{
-    _edgeClearBrowsingDataOnExit = [self.dictionary[@"edgeClearBrowsingDataOnExit"] boolValue];
-    return _edgeClearBrowsingDataOnExit;
-}
-
-- (void) setEdgeClearBrowsingDataOnExit: (BOOL) val
-{
-    _edgeClearBrowsingDataOnExit = val;
-    self.dictionary[@"edgeClearBrowsingDataOnExit"] = @(val);
-}
-
-- (BOOL) edgeAllowStartPagesModification
-{
-    _edgeAllowStartPagesModification = [self.dictionary[@"edgeAllowStartPagesModification"] boolValue];
-    return _edgeAllowStartPagesModification;
-}
-
-- (void) setEdgeAllowStartPagesModification: (BOOL) val
-{
-    _edgeAllowStartPagesModification = val;
-    self.dictionary[@"edgeAllowStartPagesModification"] = @(val);
-}
-
-- (BOOL) edgeDisableFirstRunPage
-{
-    _edgeDisableFirstRunPage = [self.dictionary[@"edgeDisableFirstRunPage"] boolValue];
-    return _edgeDisableFirstRunPage;
-}
-
-- (void) setEdgeDisableFirstRunPage: (BOOL) val
-{
-    _edgeDisableFirstRunPage = val;
-    self.dictionary[@"edgeDisableFirstRunPage"] = @(val);
-}
-
-- (BOOL) edgeBlockLiveTileDataCollection
-{
-    _edgeBlockLiveTileDataCollection = [self.dictionary[@"edgeBlockLiveTileDataCollection"] boolValue];
-    return _edgeBlockLiveTileDataCollection;
-}
-
-- (void) setEdgeBlockLiveTileDataCollection: (BOOL) val
-{
-    _edgeBlockLiveTileDataCollection = val;
-    self.dictionary[@"edgeBlockLiveTileDataCollection"] = @(val);
-}
-
-- (BOOL) edgeSyncFavoritesWithInternetExplorer
-{
-    _edgeSyncFavoritesWithInternetExplorer = [self.dictionary[@"edgeSyncFavoritesWithInternetExplorer"] boolValue];
-    return _edgeSyncFavoritesWithInternetExplorer;
-}
-
-- (void) setEdgeSyncFavoritesWithInternetExplorer: (BOOL) val
-{
-    _edgeSyncFavoritesWithInternetExplorer = val;
-    self.dictionary[@"edgeSyncFavoritesWithInternetExplorer"] = @(val);
+    _cameraBlocked = val;
+    self.dictionary[@"cameraBlocked"] = @(val);
 }
 
 - (BOOL) cellularBlockDataWhenRoaming
@@ -739,6 +387,54 @@
     self.dictionary[@"cellularBlockVpnWhenRoaming"] = @(val);
 }
 
+- (BOOL) certificatesBlockManualRootCertificateInstallation
+{
+    _certificatesBlockManualRootCertificateInstallation = [self.dictionary[@"certificatesBlockManualRootCertificateInstallation"] boolValue];
+    return _certificatesBlockManualRootCertificateInstallation;
+}
+
+- (void) setCertificatesBlockManualRootCertificateInstallation: (BOOL) val
+{
+    _certificatesBlockManualRootCertificateInstallation = val;
+    self.dictionary[@"certificatesBlockManualRootCertificateInstallation"] = @(val);
+}
+
+- (BOOL) connectedDevicesServiceBlocked
+{
+    _connectedDevicesServiceBlocked = [self.dictionary[@"connectedDevicesServiceBlocked"] boolValue];
+    return _connectedDevicesServiceBlocked;
+}
+
+- (void) setConnectedDevicesServiceBlocked: (BOOL) val
+{
+    _connectedDevicesServiceBlocked = val;
+    self.dictionary[@"connectedDevicesServiceBlocked"] = @(val);
+}
+
+- (BOOL) getCopyPasteBlocked
+{
+    _copyPasteBlocked = [self.dictionary[@"copyPasteBlocked"] boolValue];
+    return _copyPasteBlocked;
+}
+
+- (void) setCopyPasteBlocked: (BOOL) val
+{
+    _copyPasteBlocked = val;
+    self.dictionary[@"copyPasteBlocked"] = @(val);
+}
+
+- (BOOL) cortanaBlocked
+{
+    _cortanaBlocked = [self.dictionary[@"cortanaBlocked"] boolValue];
+    return _cortanaBlocked;
+}
+
+- (void) setCortanaBlocked: (BOOL) val
+{
+    _cortanaBlocked = val;
+    self.dictionary[@"cortanaBlocked"] = @(val);
+}
+
 - (BOOL) defenderBlockEndUserAccess
 {
     _defenderBlockEndUserAccess = [self.dictionary[@"defenderBlockEndUserAccess"] boolValue];
@@ -749,6 +445,20 @@
 {
     _defenderBlockEndUserAccess = val;
     self.dictionary[@"defenderBlockEndUserAccess"] = @(val);
+}
+
+- (MSGraphDefenderCloudBlockLevelType*) defenderCloudBlockLevel
+{
+    if(!_defenderCloudBlockLevel){
+        _defenderCloudBlockLevel = [self.dictionary[@"defenderCloudBlockLevel"] toMSGraphDefenderCloudBlockLevelType];
+    }
+    return _defenderCloudBlockLevel;
+}
+
+- (void) setDefenderCloudBlockLevel: (MSGraphDefenderCloudBlockLevelType*) val
+{
+    _defenderCloudBlockLevel = val;
+    self.dictionary[@"defenderCloudBlockLevel"] = val;
 }
 
 - (int32_t) defenderDaysBeforeDeletingQuarantinedMalware
@@ -777,34 +487,6 @@
     self.dictionary[@"defenderDetectedMalwareActions"] = val;
 }
 
-- (MSGraphWeeklySchedule*) defenderSystemScanSchedule
-{
-    if(!_defenderSystemScanSchedule){
-        _defenderSystemScanSchedule = [self.dictionary[@"defenderSystemScanSchedule"] toMSGraphWeeklySchedule];
-    }
-    return _defenderSystemScanSchedule;
-}
-
-- (void) setDefenderSystemScanSchedule: (MSGraphWeeklySchedule*) val
-{
-    _defenderSystemScanSchedule = val;
-    self.dictionary[@"defenderSystemScanSchedule"] = val;
-}
-
-- (NSArray*) defenderFilesAndFoldersToExclude
-{
-    if([[NSNull null] isEqual:self.dictionary[@"defenderFilesAndFoldersToExclude"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"defenderFilesAndFoldersToExclude"];
-}
-
-- (void) setDefenderFilesAndFoldersToExclude: (NSArray*) val
-{
-    self.dictionary[@"defenderFilesAndFoldersToExclude"] = val;
-}
-
 - (NSArray*) defenderFileExtensionsToExclude
 {
     if([[NSNull null] isEqual:self.dictionary[@"defenderFileExtensionsToExclude"]])
@@ -819,16 +501,18 @@
     self.dictionary[@"defenderFileExtensionsToExclude"] = val;
 }
 
-- (int32_t) defenderScanMaxCpu
+- (NSArray*) defenderFilesAndFoldersToExclude
 {
-    _defenderScanMaxCpu = [self.dictionary[@"defenderScanMaxCpu"] intValue];
-    return _defenderScanMaxCpu;
+    if([[NSNull null] isEqual:self.dictionary[@"defenderFilesAndFoldersToExclude"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"defenderFilesAndFoldersToExclude"];
 }
 
-- (void) setDefenderScanMaxCpu: (int32_t) val
+- (void) setDefenderFilesAndFoldersToExclude: (NSArray*) val
 {
-    _defenderScanMaxCpu = val;
-    self.dictionary[@"defenderScanMaxCpu"] = @(val);
+    self.dictionary[@"defenderFilesAndFoldersToExclude"] = val;
 }
 
 - (MSGraphDefenderMonitorFileActivity*) defenderMonitorFileActivity
@@ -945,18 +629,6 @@
     self.dictionary[@"defenderScanDownloads"] = @(val);
 }
 
-- (BOOL) defenderScanNetworkFiles
-{
-    _defenderScanNetworkFiles = [self.dictionary[@"defenderScanNetworkFiles"] boolValue];
-    return _defenderScanNetworkFiles;
-}
-
-- (void) setDefenderScanNetworkFiles: (BOOL) val
-{
-    _defenderScanNetworkFiles = val;
-    self.dictionary[@"defenderScanNetworkFiles"] = @(val);
-}
-
 - (BOOL) defenderScanIncomingMail
 {
     _defenderScanIncomingMail = [self.dictionary[@"defenderScanIncomingMail"] boolValue];
@@ -979,6 +651,30 @@
 {
     _defenderScanMappedNetworkDrivesDuringFullScan = val;
     self.dictionary[@"defenderScanMappedNetworkDrivesDuringFullScan"] = @(val);
+}
+
+- (int32_t) defenderScanMaxCpu
+{
+    _defenderScanMaxCpu = [self.dictionary[@"defenderScanMaxCpu"] intValue];
+    return _defenderScanMaxCpu;
+}
+
+- (void) setDefenderScanMaxCpu: (int32_t) val
+{
+    _defenderScanMaxCpu = val;
+    self.dictionary[@"defenderScanMaxCpu"] = @(val);
+}
+
+- (BOOL) defenderScanNetworkFiles
+{
+    _defenderScanNetworkFiles = [self.dictionary[@"defenderScanNetworkFiles"] boolValue];
+    return _defenderScanNetworkFiles;
+}
+
+- (void) setDefenderScanNetworkFiles: (BOOL) val
+{
+    _defenderScanNetworkFiles = val;
+    self.dictionary[@"defenderScanNetworkFiles"] = @(val);
 }
 
 - (BOOL) defenderScanRemovableDrivesDuringFullScan
@@ -1005,18 +701,6 @@
     self.dictionary[@"defenderScanScriptsLoadedInInternetExplorer"] = @(val);
 }
 
-- (int32_t) defenderSignatureUpdateIntervalInHours
-{
-    _defenderSignatureUpdateIntervalInHours = [self.dictionary[@"defenderSignatureUpdateIntervalInHours"] intValue];
-    return _defenderSignatureUpdateIntervalInHours;
-}
-
-- (void) setDefenderSignatureUpdateIntervalInHours: (int32_t) val
-{
-    _defenderSignatureUpdateIntervalInHours = val;
-    self.dictionary[@"defenderSignatureUpdateIntervalInHours"] = @(val);
-}
-
 - (MSGraphDefenderScanType*) defenderScanType
 {
     if(!_defenderScanType){
@@ -1029,20 +713,6 @@
 {
     _defenderScanType = val;
     self.dictionary[@"defenderScanType"] = val;
-}
-
-- (MSTimeOfDay*) defenderScheduledScanTime
-{
-    if(!_defenderScheduledScanTime){
-        _defenderScheduledScanTime = [MSTimeOfDay ms_timeFromString: self.dictionary[@"defenderScheduledScanTime"]];
-    }
-    return _defenderScheduledScanTime;
-}
-
-- (void) setDefenderScheduledScanTime: (MSTimeOfDay*) val
-{
-    _defenderScheduledScanTime = val;
-    self.dictionary[@"defenderScheduledScanTime"] = [val ms_toString];
 }
 
 - (MSTimeOfDay*) defenderScheduledQuickScanTime
@@ -1059,18 +729,572 @@
     self.dictionary[@"defenderScheduledQuickScanTime"] = [val ms_toString];
 }
 
-- (MSGraphDefenderCloudBlockLevelType*) defenderCloudBlockLevel
+- (MSTimeOfDay*) defenderScheduledScanTime
 {
-    if(!_defenderCloudBlockLevel){
-        _defenderCloudBlockLevel = [self.dictionary[@"defenderCloudBlockLevel"] toMSGraphDefenderCloudBlockLevelType];
+    if(!_defenderScheduledScanTime){
+        _defenderScheduledScanTime = [MSTimeOfDay ms_timeFromString: self.dictionary[@"defenderScheduledScanTime"]];
     }
-    return _defenderCloudBlockLevel;
+    return _defenderScheduledScanTime;
 }
 
-- (void) setDefenderCloudBlockLevel: (MSGraphDefenderCloudBlockLevelType*) val
+- (void) setDefenderScheduledScanTime: (MSTimeOfDay*) val
 {
-    _defenderCloudBlockLevel = val;
-    self.dictionary[@"defenderCloudBlockLevel"] = val;
+    _defenderScheduledScanTime = val;
+    self.dictionary[@"defenderScheduledScanTime"] = [val ms_toString];
+}
+
+- (int32_t) defenderSignatureUpdateIntervalInHours
+{
+    _defenderSignatureUpdateIntervalInHours = [self.dictionary[@"defenderSignatureUpdateIntervalInHours"] intValue];
+    return _defenderSignatureUpdateIntervalInHours;
+}
+
+- (void) setDefenderSignatureUpdateIntervalInHours: (int32_t) val
+{
+    _defenderSignatureUpdateIntervalInHours = val;
+    self.dictionary[@"defenderSignatureUpdateIntervalInHours"] = @(val);
+}
+
+- (MSGraphWeeklySchedule*) defenderSystemScanSchedule
+{
+    if(!_defenderSystemScanSchedule){
+        _defenderSystemScanSchedule = [self.dictionary[@"defenderSystemScanSchedule"] toMSGraphWeeklySchedule];
+    }
+    return _defenderSystemScanSchedule;
+}
+
+- (void) setDefenderSystemScanSchedule: (MSGraphWeeklySchedule*) val
+{
+    _defenderSystemScanSchedule = val;
+    self.dictionary[@"defenderSystemScanSchedule"] = val;
+}
+
+- (MSGraphStateManagementSetting*) developerUnlockSetting
+{
+    if(!_developerUnlockSetting){
+        _developerUnlockSetting = [self.dictionary[@"developerUnlockSetting"] toMSGraphStateManagementSetting];
+    }
+    return _developerUnlockSetting;
+}
+
+- (void) setDeveloperUnlockSetting: (MSGraphStateManagementSetting*) val
+{
+    _developerUnlockSetting = val;
+    self.dictionary[@"developerUnlockSetting"] = val;
+}
+
+- (BOOL) deviceManagementBlockFactoryResetOnMobile
+{
+    _deviceManagementBlockFactoryResetOnMobile = [self.dictionary[@"deviceManagementBlockFactoryResetOnMobile"] boolValue];
+    return _deviceManagementBlockFactoryResetOnMobile;
+}
+
+- (void) setDeviceManagementBlockFactoryResetOnMobile: (BOOL) val
+{
+    _deviceManagementBlockFactoryResetOnMobile = val;
+    self.dictionary[@"deviceManagementBlockFactoryResetOnMobile"] = @(val);
+}
+
+- (BOOL) deviceManagementBlockManualUnenroll
+{
+    _deviceManagementBlockManualUnenroll = [self.dictionary[@"deviceManagementBlockManualUnenroll"] boolValue];
+    return _deviceManagementBlockManualUnenroll;
+}
+
+- (void) setDeviceManagementBlockManualUnenroll: (BOOL) val
+{
+    _deviceManagementBlockManualUnenroll = val;
+    self.dictionary[@"deviceManagementBlockManualUnenroll"] = @(val);
+}
+
+- (MSGraphDiagnosticDataSubmissionMode*) diagnosticsDataSubmissionMode
+{
+    if(!_diagnosticsDataSubmissionMode){
+        _diagnosticsDataSubmissionMode = [self.dictionary[@"diagnosticsDataSubmissionMode"] toMSGraphDiagnosticDataSubmissionMode];
+    }
+    return _diagnosticsDataSubmissionMode;
+}
+
+- (void) setDiagnosticsDataSubmissionMode: (MSGraphDiagnosticDataSubmissionMode*) val
+{
+    _diagnosticsDataSubmissionMode = val;
+    self.dictionary[@"diagnosticsDataSubmissionMode"] = val;
+}
+
+- (BOOL) edgeAllowStartPagesModification
+{
+    _edgeAllowStartPagesModification = [self.dictionary[@"edgeAllowStartPagesModification"] boolValue];
+    return _edgeAllowStartPagesModification;
+}
+
+- (void) setEdgeAllowStartPagesModification: (BOOL) val
+{
+    _edgeAllowStartPagesModification = val;
+    self.dictionary[@"edgeAllowStartPagesModification"] = @(val);
+}
+
+- (BOOL) edgeBlockAccessToAboutFlags
+{
+    _edgeBlockAccessToAboutFlags = [self.dictionary[@"edgeBlockAccessToAboutFlags"] boolValue];
+    return _edgeBlockAccessToAboutFlags;
+}
+
+- (void) setEdgeBlockAccessToAboutFlags: (BOOL) val
+{
+    _edgeBlockAccessToAboutFlags = val;
+    self.dictionary[@"edgeBlockAccessToAboutFlags"] = @(val);
+}
+
+- (BOOL) edgeBlockAddressBarDropdown
+{
+    _edgeBlockAddressBarDropdown = [self.dictionary[@"edgeBlockAddressBarDropdown"] boolValue];
+    return _edgeBlockAddressBarDropdown;
+}
+
+- (void) setEdgeBlockAddressBarDropdown: (BOOL) val
+{
+    _edgeBlockAddressBarDropdown = val;
+    self.dictionary[@"edgeBlockAddressBarDropdown"] = @(val);
+}
+
+- (BOOL) edgeBlockAutofill
+{
+    _edgeBlockAutofill = [self.dictionary[@"edgeBlockAutofill"] boolValue];
+    return _edgeBlockAutofill;
+}
+
+- (void) setEdgeBlockAutofill: (BOOL) val
+{
+    _edgeBlockAutofill = val;
+    self.dictionary[@"edgeBlockAutofill"] = @(val);
+}
+
+- (BOOL) edgeBlockCompatibilityList
+{
+    _edgeBlockCompatibilityList = [self.dictionary[@"edgeBlockCompatibilityList"] boolValue];
+    return _edgeBlockCompatibilityList;
+}
+
+- (void) setEdgeBlockCompatibilityList: (BOOL) val
+{
+    _edgeBlockCompatibilityList = val;
+    self.dictionary[@"edgeBlockCompatibilityList"] = @(val);
+}
+
+- (BOOL) edgeBlockDeveloperTools
+{
+    _edgeBlockDeveloperTools = [self.dictionary[@"edgeBlockDeveloperTools"] boolValue];
+    return _edgeBlockDeveloperTools;
+}
+
+- (void) setEdgeBlockDeveloperTools: (BOOL) val
+{
+    _edgeBlockDeveloperTools = val;
+    self.dictionary[@"edgeBlockDeveloperTools"] = @(val);
+}
+
+- (BOOL) edgeBlocked
+{
+    _edgeBlocked = [self.dictionary[@"edgeBlocked"] boolValue];
+    return _edgeBlocked;
+}
+
+- (void) setEdgeBlocked: (BOOL) val
+{
+    _edgeBlocked = val;
+    self.dictionary[@"edgeBlocked"] = @(val);
+}
+
+- (BOOL) edgeBlockExtensions
+{
+    _edgeBlockExtensions = [self.dictionary[@"edgeBlockExtensions"] boolValue];
+    return _edgeBlockExtensions;
+}
+
+- (void) setEdgeBlockExtensions: (BOOL) val
+{
+    _edgeBlockExtensions = val;
+    self.dictionary[@"edgeBlockExtensions"] = @(val);
+}
+
+- (BOOL) edgeBlockInPrivateBrowsing
+{
+    _edgeBlockInPrivateBrowsing = [self.dictionary[@"edgeBlockInPrivateBrowsing"] boolValue];
+    return _edgeBlockInPrivateBrowsing;
+}
+
+- (void) setEdgeBlockInPrivateBrowsing: (BOOL) val
+{
+    _edgeBlockInPrivateBrowsing = val;
+    self.dictionary[@"edgeBlockInPrivateBrowsing"] = @(val);
+}
+
+- (BOOL) edgeBlockJavaScript
+{
+    _edgeBlockJavaScript = [self.dictionary[@"edgeBlockJavaScript"] boolValue];
+    return _edgeBlockJavaScript;
+}
+
+- (void) setEdgeBlockJavaScript: (BOOL) val
+{
+    _edgeBlockJavaScript = val;
+    self.dictionary[@"edgeBlockJavaScript"] = @(val);
+}
+
+- (BOOL) edgeBlockLiveTileDataCollection
+{
+    _edgeBlockLiveTileDataCollection = [self.dictionary[@"edgeBlockLiveTileDataCollection"] boolValue];
+    return _edgeBlockLiveTileDataCollection;
+}
+
+- (void) setEdgeBlockLiveTileDataCollection: (BOOL) val
+{
+    _edgeBlockLiveTileDataCollection = val;
+    self.dictionary[@"edgeBlockLiveTileDataCollection"] = @(val);
+}
+
+- (BOOL) edgeBlockPasswordManager
+{
+    _edgeBlockPasswordManager = [self.dictionary[@"edgeBlockPasswordManager"] boolValue];
+    return _edgeBlockPasswordManager;
+}
+
+- (void) setEdgeBlockPasswordManager: (BOOL) val
+{
+    _edgeBlockPasswordManager = val;
+    self.dictionary[@"edgeBlockPasswordManager"] = @(val);
+}
+
+- (BOOL) edgeBlockPopups
+{
+    _edgeBlockPopups = [self.dictionary[@"edgeBlockPopups"] boolValue];
+    return _edgeBlockPopups;
+}
+
+- (void) setEdgeBlockPopups: (BOOL) val
+{
+    _edgeBlockPopups = val;
+    self.dictionary[@"edgeBlockPopups"] = @(val);
+}
+
+- (BOOL) edgeBlockSearchSuggestions
+{
+    _edgeBlockSearchSuggestions = [self.dictionary[@"edgeBlockSearchSuggestions"] boolValue];
+    return _edgeBlockSearchSuggestions;
+}
+
+- (void) setEdgeBlockSearchSuggestions: (BOOL) val
+{
+    _edgeBlockSearchSuggestions = val;
+    self.dictionary[@"edgeBlockSearchSuggestions"] = @(val);
+}
+
+- (BOOL) edgeBlockSendingDoNotTrackHeader
+{
+    _edgeBlockSendingDoNotTrackHeader = [self.dictionary[@"edgeBlockSendingDoNotTrackHeader"] boolValue];
+    return _edgeBlockSendingDoNotTrackHeader;
+}
+
+- (void) setEdgeBlockSendingDoNotTrackHeader: (BOOL) val
+{
+    _edgeBlockSendingDoNotTrackHeader = val;
+    self.dictionary[@"edgeBlockSendingDoNotTrackHeader"] = @(val);
+}
+
+- (BOOL) edgeBlockSendingIntranetTrafficToInternetExplorer
+{
+    _edgeBlockSendingIntranetTrafficToInternetExplorer = [self.dictionary[@"edgeBlockSendingIntranetTrafficToInternetExplorer"] boolValue];
+    return _edgeBlockSendingIntranetTrafficToInternetExplorer;
+}
+
+- (void) setEdgeBlockSendingIntranetTrafficToInternetExplorer: (BOOL) val
+{
+    _edgeBlockSendingIntranetTrafficToInternetExplorer = val;
+    self.dictionary[@"edgeBlockSendingIntranetTrafficToInternetExplorer"] = @(val);
+}
+
+- (BOOL) edgeClearBrowsingDataOnExit
+{
+    _edgeClearBrowsingDataOnExit = [self.dictionary[@"edgeClearBrowsingDataOnExit"] boolValue];
+    return _edgeClearBrowsingDataOnExit;
+}
+
+- (void) setEdgeClearBrowsingDataOnExit: (BOOL) val
+{
+    _edgeClearBrowsingDataOnExit = val;
+    self.dictionary[@"edgeClearBrowsingDataOnExit"] = @(val);
+}
+
+- (MSGraphEdgeCookiePolicy*) edgeCookiePolicy
+{
+    if(!_edgeCookiePolicy){
+        _edgeCookiePolicy = [self.dictionary[@"edgeCookiePolicy"] toMSGraphEdgeCookiePolicy];
+    }
+    return _edgeCookiePolicy;
+}
+
+- (void) setEdgeCookiePolicy: (MSGraphEdgeCookiePolicy*) val
+{
+    _edgeCookiePolicy = val;
+    self.dictionary[@"edgeCookiePolicy"] = val;
+}
+
+- (BOOL) edgeDisableFirstRunPage
+{
+    _edgeDisableFirstRunPage = [self.dictionary[@"edgeDisableFirstRunPage"] boolValue];
+    return _edgeDisableFirstRunPage;
+}
+
+- (void) setEdgeDisableFirstRunPage: (BOOL) val
+{
+    _edgeDisableFirstRunPage = val;
+    self.dictionary[@"edgeDisableFirstRunPage"] = @(val);
+}
+
+- (NSString*) edgeEnterpriseModeSiteListLocation
+{
+    if([[NSNull null] isEqual:self.dictionary[@"edgeEnterpriseModeSiteListLocation"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"edgeEnterpriseModeSiteListLocation"];
+}
+
+- (void) setEdgeEnterpriseModeSiteListLocation: (NSString*) val
+{
+    self.dictionary[@"edgeEnterpriseModeSiteListLocation"] = val;
+}
+
+- (NSString*) edgeFirstRunUrl
+{
+    if([[NSNull null] isEqual:self.dictionary[@"edgeFirstRunUrl"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"edgeFirstRunUrl"];
+}
+
+- (void) setEdgeFirstRunUrl: (NSString*) val
+{
+    self.dictionary[@"edgeFirstRunUrl"] = val;
+}
+
+- (NSArray*) edgeHomepageUrls
+{
+    if([[NSNull null] isEqual:self.dictionary[@"edgeHomepageUrls"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"edgeHomepageUrls"];
+}
+
+- (void) setEdgeHomepageUrls: (NSArray*) val
+{
+    self.dictionary[@"edgeHomepageUrls"] = val;
+}
+
+- (BOOL) edgeRequireSmartScreen
+{
+    _edgeRequireSmartScreen = [self.dictionary[@"edgeRequireSmartScreen"] boolValue];
+    return _edgeRequireSmartScreen;
+}
+
+- (void) setEdgeRequireSmartScreen: (BOOL) val
+{
+    _edgeRequireSmartScreen = val;
+    self.dictionary[@"edgeRequireSmartScreen"] = @(val);
+}
+
+- (MSGraphEdgeSearchEngineBase*) edgeSearchEngine
+{
+    if(!_edgeSearchEngine){
+        _edgeSearchEngine = [[MSGraphEdgeSearchEngineBase alloc] initWithDictionary: self.dictionary[@"edgeSearchEngine"]];
+    }
+    return _edgeSearchEngine;
+}
+
+- (void) setEdgeSearchEngine: (MSGraphEdgeSearchEngineBase*) val
+{
+    _edgeSearchEngine = val;
+    self.dictionary[@"edgeSearchEngine"] = val;
+}
+
+- (BOOL) edgeSendIntranetTrafficToInternetExplorer
+{
+    _edgeSendIntranetTrafficToInternetExplorer = [self.dictionary[@"edgeSendIntranetTrafficToInternetExplorer"] boolValue];
+    return _edgeSendIntranetTrafficToInternetExplorer;
+}
+
+- (void) setEdgeSendIntranetTrafficToInternetExplorer: (BOOL) val
+{
+    _edgeSendIntranetTrafficToInternetExplorer = val;
+    self.dictionary[@"edgeSendIntranetTrafficToInternetExplorer"] = @(val);
+}
+
+- (BOOL) edgeSyncFavoritesWithInternetExplorer
+{
+    _edgeSyncFavoritesWithInternetExplorer = [self.dictionary[@"edgeSyncFavoritesWithInternetExplorer"] boolValue];
+    return _edgeSyncFavoritesWithInternetExplorer;
+}
+
+- (void) setEdgeSyncFavoritesWithInternetExplorer: (BOOL) val
+{
+    _edgeSyncFavoritesWithInternetExplorer = val;
+    self.dictionary[@"edgeSyncFavoritesWithInternetExplorer"] = @(val);
+}
+
+- (NSString*) enterpriseCloudPrintDiscoveryEndPoint
+{
+    if([[NSNull null] isEqual:self.dictionary[@"enterpriseCloudPrintDiscoveryEndPoint"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"enterpriseCloudPrintDiscoveryEndPoint"];
+}
+
+- (void) setEnterpriseCloudPrintDiscoveryEndPoint: (NSString*) val
+{
+    self.dictionary[@"enterpriseCloudPrintDiscoveryEndPoint"] = val;
+}
+
+- (int32_t) enterpriseCloudPrintDiscoveryMaxLimit
+{
+    _enterpriseCloudPrintDiscoveryMaxLimit = [self.dictionary[@"enterpriseCloudPrintDiscoveryMaxLimit"] intValue];
+    return _enterpriseCloudPrintDiscoveryMaxLimit;
+}
+
+- (void) setEnterpriseCloudPrintDiscoveryMaxLimit: (int32_t) val
+{
+    _enterpriseCloudPrintDiscoveryMaxLimit = val;
+    self.dictionary[@"enterpriseCloudPrintDiscoveryMaxLimit"] = @(val);
+}
+
+- (NSString*) enterpriseCloudPrintMopriaDiscoveryResourceIdentifier
+{
+    if([[NSNull null] isEqual:self.dictionary[@"enterpriseCloudPrintMopriaDiscoveryResourceIdentifier"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"enterpriseCloudPrintMopriaDiscoveryResourceIdentifier"];
+}
+
+- (void) setEnterpriseCloudPrintMopriaDiscoveryResourceIdentifier: (NSString*) val
+{
+    self.dictionary[@"enterpriseCloudPrintMopriaDiscoveryResourceIdentifier"] = val;
+}
+
+- (NSString*) enterpriseCloudPrintOAuthAuthority
+{
+    if([[NSNull null] isEqual:self.dictionary[@"enterpriseCloudPrintOAuthAuthority"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"enterpriseCloudPrintOAuthAuthority"];
+}
+
+- (void) setEnterpriseCloudPrintOAuthAuthority: (NSString*) val
+{
+    self.dictionary[@"enterpriseCloudPrintOAuthAuthority"] = val;
+}
+
+- (NSString*) enterpriseCloudPrintOAuthClientIdentifier
+{
+    if([[NSNull null] isEqual:self.dictionary[@"enterpriseCloudPrintOAuthClientIdentifier"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"enterpriseCloudPrintOAuthClientIdentifier"];
+}
+
+- (void) setEnterpriseCloudPrintOAuthClientIdentifier: (NSString*) val
+{
+    self.dictionary[@"enterpriseCloudPrintOAuthClientIdentifier"] = val;
+}
+
+- (NSString*) enterpriseCloudPrintResourceIdentifier
+{
+    if([[NSNull null] isEqual:self.dictionary[@"enterpriseCloudPrintResourceIdentifier"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"enterpriseCloudPrintResourceIdentifier"];
+}
+
+- (void) setEnterpriseCloudPrintResourceIdentifier: (NSString*) val
+{
+    self.dictionary[@"enterpriseCloudPrintResourceIdentifier"] = val;
+}
+
+- (BOOL) experienceBlockDeviceDiscovery
+{
+    _experienceBlockDeviceDiscovery = [self.dictionary[@"experienceBlockDeviceDiscovery"] boolValue];
+    return _experienceBlockDeviceDiscovery;
+}
+
+- (void) setExperienceBlockDeviceDiscovery: (BOOL) val
+{
+    _experienceBlockDeviceDiscovery = val;
+    self.dictionary[@"experienceBlockDeviceDiscovery"] = @(val);
+}
+
+- (BOOL) experienceBlockErrorDialogWhenNoSIM
+{
+    _experienceBlockErrorDialogWhenNoSIM = [self.dictionary[@"experienceBlockErrorDialogWhenNoSIM"] boolValue];
+    return _experienceBlockErrorDialogWhenNoSIM;
+}
+
+- (void) setExperienceBlockErrorDialogWhenNoSIM: (BOOL) val
+{
+    _experienceBlockErrorDialogWhenNoSIM = val;
+    self.dictionary[@"experienceBlockErrorDialogWhenNoSIM"] = @(val);
+}
+
+- (BOOL) experienceBlockTaskSwitcher
+{
+    _experienceBlockTaskSwitcher = [self.dictionary[@"experienceBlockTaskSwitcher"] boolValue];
+    return _experienceBlockTaskSwitcher;
+}
+
+- (void) setExperienceBlockTaskSwitcher: (BOOL) val
+{
+    _experienceBlockTaskSwitcher = val;
+    self.dictionary[@"experienceBlockTaskSwitcher"] = @(val);
+}
+
+- (BOOL) gameDvrBlocked
+{
+    _gameDvrBlocked = [self.dictionary[@"gameDvrBlocked"] boolValue];
+    return _gameDvrBlocked;
+}
+
+- (void) setGameDvrBlocked: (BOOL) val
+{
+    _gameDvrBlocked = val;
+    self.dictionary[@"gameDvrBlocked"] = @(val);
+}
+
+- (BOOL) internetSharingBlocked
+{
+    _internetSharingBlocked = [self.dictionary[@"internetSharingBlocked"] boolValue];
+    return _internetSharingBlocked;
+}
+
+- (void) setInternetSharingBlocked: (BOOL) val
+{
+    _internetSharingBlocked = val;
+    self.dictionary[@"internetSharingBlocked"] = @(val);
+}
+
+- (BOOL) locationServicesBlocked
+{
+    _locationServicesBlocked = [self.dictionary[@"locationServicesBlocked"] boolValue];
+    return _locationServicesBlocked;
+}
+
+- (void) setLocationServicesBlocked: (BOOL) val
+{
+    _locationServicesBlocked = val;
+    self.dictionary[@"locationServicesBlocked"] = @(val);
 }
 
 - (BOOL) lockScreenAllowTimeoutConfiguration
@@ -1133,6 +1357,118 @@
     self.dictionary[@"lockScreenTimeoutInSeconds"] = @(val);
 }
 
+- (BOOL) logonBlockFastUserSwitching
+{
+    _logonBlockFastUserSwitching = [self.dictionary[@"logonBlockFastUserSwitching"] boolValue];
+    return _logonBlockFastUserSwitching;
+}
+
+- (void) setLogonBlockFastUserSwitching: (BOOL) val
+{
+    _logonBlockFastUserSwitching = val;
+    self.dictionary[@"logonBlockFastUserSwitching"] = @(val);
+}
+
+- (BOOL) microsoftAccountBlocked
+{
+    _microsoftAccountBlocked = [self.dictionary[@"microsoftAccountBlocked"] boolValue];
+    return _microsoftAccountBlocked;
+}
+
+- (void) setMicrosoftAccountBlocked: (BOOL) val
+{
+    _microsoftAccountBlocked = val;
+    self.dictionary[@"microsoftAccountBlocked"] = @(val);
+}
+
+- (BOOL) microsoftAccountBlockSettingsSync
+{
+    _microsoftAccountBlockSettingsSync = [self.dictionary[@"microsoftAccountBlockSettingsSync"] boolValue];
+    return _microsoftAccountBlockSettingsSync;
+}
+
+- (void) setMicrosoftAccountBlockSettingsSync: (BOOL) val
+{
+    _microsoftAccountBlockSettingsSync = val;
+    self.dictionary[@"microsoftAccountBlockSettingsSync"] = @(val);
+}
+
+- (BOOL) networkProxyApplySettingsDeviceWide
+{
+    _networkProxyApplySettingsDeviceWide = [self.dictionary[@"networkProxyApplySettingsDeviceWide"] boolValue];
+    return _networkProxyApplySettingsDeviceWide;
+}
+
+- (void) setNetworkProxyApplySettingsDeviceWide: (BOOL) val
+{
+    _networkProxyApplySettingsDeviceWide = val;
+    self.dictionary[@"networkProxyApplySettingsDeviceWide"] = @(val);
+}
+
+- (NSString*) networkProxyAutomaticConfigurationUrl
+{
+    if([[NSNull null] isEqual:self.dictionary[@"networkProxyAutomaticConfigurationUrl"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"networkProxyAutomaticConfigurationUrl"];
+}
+
+- (void) setNetworkProxyAutomaticConfigurationUrl: (NSString*) val
+{
+    self.dictionary[@"networkProxyAutomaticConfigurationUrl"] = val;
+}
+
+- (BOOL) networkProxyDisableAutoDetect
+{
+    _networkProxyDisableAutoDetect = [self.dictionary[@"networkProxyDisableAutoDetect"] boolValue];
+    return _networkProxyDisableAutoDetect;
+}
+
+- (void) setNetworkProxyDisableAutoDetect: (BOOL) val
+{
+    _networkProxyDisableAutoDetect = val;
+    self.dictionary[@"networkProxyDisableAutoDetect"] = @(val);
+}
+
+- (MSGraphWindows10NetworkProxyServer*) networkProxyServer
+{
+    if(!_networkProxyServer){
+        _networkProxyServer = [[MSGraphWindows10NetworkProxyServer alloc] initWithDictionary: self.dictionary[@"networkProxyServer"]];
+    }
+    return _networkProxyServer;
+}
+
+- (void) setNetworkProxyServer: (MSGraphWindows10NetworkProxyServer*) val
+{
+    _networkProxyServer = val;
+    self.dictionary[@"networkProxyServer"] = val;
+}
+
+- (BOOL) nfcBlocked
+{
+    _nfcBlocked = [self.dictionary[@"nfcBlocked"] boolValue];
+    return _nfcBlocked;
+}
+
+- (void) setNfcBlocked: (BOOL) val
+{
+    _nfcBlocked = val;
+    self.dictionary[@"nfcBlocked"] = @(val);
+}
+
+- (BOOL) oneDriveDisableFileSync
+{
+    _oneDriveDisableFileSync = [self.dictionary[@"oneDriveDisableFileSync"] boolValue];
+    return _oneDriveDisableFileSync;
+}
+
+- (void) setOneDriveDisableFileSync: (BOOL) val
+{
+    _oneDriveDisableFileSync = val;
+    self.dictionary[@"oneDriveDisableFileSync"] = @(val);
+}
+
 - (BOOL) passwordBlockSimple
 {
     _passwordBlockSimple = [self.dictionary[@"passwordBlockSimple"] boolValue];
@@ -1155,6 +1491,18 @@
 {
     _passwordExpirationDays = val;
     self.dictionary[@"passwordExpirationDays"] = @(val);
+}
+
+- (int32_t) passwordMinimumCharacterSetCount
+{
+    _passwordMinimumCharacterSetCount = [self.dictionary[@"passwordMinimumCharacterSetCount"] intValue];
+    return _passwordMinimumCharacterSetCount;
+}
+
+- (void) setPasswordMinimumCharacterSetCount: (int32_t) val
+{
+    _passwordMinimumCharacterSetCount = val;
+    self.dictionary[@"passwordMinimumCharacterSetCount"] = @(val);
 }
 
 - (int32_t) passwordMinimumLength
@@ -1181,18 +1529,6 @@
     self.dictionary[@"passwordMinutesOfInactivityBeforeScreenTimeout"] = @(val);
 }
 
-- (int32_t) passwordMinimumCharacterSetCount
-{
-    _passwordMinimumCharacterSetCount = [self.dictionary[@"passwordMinimumCharacterSetCount"] intValue];
-    return _passwordMinimumCharacterSetCount;
-}
-
-- (void) setPasswordMinimumCharacterSetCount: (int32_t) val
-{
-    _passwordMinimumCharacterSetCount = val;
-    self.dictionary[@"passwordMinimumCharacterSetCount"] = @(val);
-}
-
 - (int32_t) passwordPreviousPasswordBlockCount
 {
     _passwordPreviousPasswordBlockCount = [self.dictionary[@"passwordPreviousPasswordBlockCount"] intValue];
@@ -1217,18 +1553,6 @@
     self.dictionary[@"passwordRequired"] = @(val);
 }
 
-- (BOOL) passwordRequireWhenResumeFromIdleState
-{
-    _passwordRequireWhenResumeFromIdleState = [self.dictionary[@"passwordRequireWhenResumeFromIdleState"] boolValue];
-    return _passwordRequireWhenResumeFromIdleState;
-}
-
-- (void) setPasswordRequireWhenResumeFromIdleState: (BOOL) val
-{
-    _passwordRequireWhenResumeFromIdleState = val;
-    self.dictionary[@"passwordRequireWhenResumeFromIdleState"] = @(val);
-}
-
 - (MSGraphRequiredPasswordType*) passwordRequiredType
 {
     if(!_passwordRequiredType){
@@ -1243,6 +1567,18 @@
     self.dictionary[@"passwordRequiredType"] = val;
 }
 
+- (BOOL) passwordRequireWhenResumeFromIdleState
+{
+    _passwordRequireWhenResumeFromIdleState = [self.dictionary[@"passwordRequireWhenResumeFromIdleState"] boolValue];
+    return _passwordRequireWhenResumeFromIdleState;
+}
+
+- (void) setPasswordRequireWhenResumeFromIdleState: (BOOL) val
+{
+    _passwordRequireWhenResumeFromIdleState = val;
+    self.dictionary[@"passwordRequireWhenResumeFromIdleState"] = @(val);
+}
+
 - (int32_t) passwordSignInFailureCountBeforeFactoryReset
 {
     _passwordSignInFailureCountBeforeFactoryReset = [self.dictionary[@"passwordSignInFailureCountBeforeFactoryReset"] intValue];
@@ -1253,6 +1589,34 @@
 {
     _passwordSignInFailureCountBeforeFactoryReset = val;
     self.dictionary[@"passwordSignInFailureCountBeforeFactoryReset"] = @(val);
+}
+
+- (NSString*) personalizationDesktopImageUrl
+{
+    if([[NSNull null] isEqual:self.dictionary[@"personalizationDesktopImageUrl"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"personalizationDesktopImageUrl"];
+}
+
+- (void) setPersonalizationDesktopImageUrl: (NSString*) val
+{
+    self.dictionary[@"personalizationDesktopImageUrl"] = val;
+}
+
+- (NSString*) personalizationLockScreenImageUrl
+{
+    if([[NSNull null] isEqual:self.dictionary[@"personalizationLockScreenImageUrl"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"personalizationLockScreenImageUrl"];
+}
+
+- (void) setPersonalizationLockScreenImageUrl: (NSString*) val
+{
+    self.dictionary[@"personalizationLockScreenImageUrl"] = val;
 }
 
 - (MSGraphStateManagementSetting*) privacyAdvertisingId
@@ -1291,6 +1655,404 @@
 {
     _privacyBlockInputPersonalization = val;
     self.dictionary[@"privacyBlockInputPersonalization"] = @(val);
+}
+
+- (BOOL) resetProtectionModeBlocked
+{
+    _resetProtectionModeBlocked = [self.dictionary[@"resetProtectionModeBlocked"] boolValue];
+    return _resetProtectionModeBlocked;
+}
+
+- (void) setResetProtectionModeBlocked: (BOOL) val
+{
+    _resetProtectionModeBlocked = val;
+    self.dictionary[@"resetProtectionModeBlocked"] = @(val);
+}
+
+- (MSGraphSafeSearchFilterType*) safeSearchFilter
+{
+    if(!_safeSearchFilter){
+        _safeSearchFilter = [self.dictionary[@"safeSearchFilter"] toMSGraphSafeSearchFilterType];
+    }
+    return _safeSearchFilter;
+}
+
+- (void) setSafeSearchFilter: (MSGraphSafeSearchFilterType*) val
+{
+    _safeSearchFilter = val;
+    self.dictionary[@"safeSearchFilter"] = val;
+}
+
+- (BOOL) screenCaptureBlocked
+{
+    _screenCaptureBlocked = [self.dictionary[@"screenCaptureBlocked"] boolValue];
+    return _screenCaptureBlocked;
+}
+
+- (void) setScreenCaptureBlocked: (BOOL) val
+{
+    _screenCaptureBlocked = val;
+    self.dictionary[@"screenCaptureBlocked"] = @(val);
+}
+
+- (BOOL) searchBlockDiacritics
+{
+    _searchBlockDiacritics = [self.dictionary[@"searchBlockDiacritics"] boolValue];
+    return _searchBlockDiacritics;
+}
+
+- (void) setSearchBlockDiacritics: (BOOL) val
+{
+    _searchBlockDiacritics = val;
+    self.dictionary[@"searchBlockDiacritics"] = @(val);
+}
+
+- (BOOL) searchDisableAutoLanguageDetection
+{
+    _searchDisableAutoLanguageDetection = [self.dictionary[@"searchDisableAutoLanguageDetection"] boolValue];
+    return _searchDisableAutoLanguageDetection;
+}
+
+- (void) setSearchDisableAutoLanguageDetection: (BOOL) val
+{
+    _searchDisableAutoLanguageDetection = val;
+    self.dictionary[@"searchDisableAutoLanguageDetection"] = @(val);
+}
+
+- (BOOL) searchDisableIndexerBackoff
+{
+    _searchDisableIndexerBackoff = [self.dictionary[@"searchDisableIndexerBackoff"] boolValue];
+    return _searchDisableIndexerBackoff;
+}
+
+- (void) setSearchDisableIndexerBackoff: (BOOL) val
+{
+    _searchDisableIndexerBackoff = val;
+    self.dictionary[@"searchDisableIndexerBackoff"] = @(val);
+}
+
+- (BOOL) searchDisableIndexingEncryptedItems
+{
+    _searchDisableIndexingEncryptedItems = [self.dictionary[@"searchDisableIndexingEncryptedItems"] boolValue];
+    return _searchDisableIndexingEncryptedItems;
+}
+
+- (void) setSearchDisableIndexingEncryptedItems: (BOOL) val
+{
+    _searchDisableIndexingEncryptedItems = val;
+    self.dictionary[@"searchDisableIndexingEncryptedItems"] = @(val);
+}
+
+- (BOOL) searchDisableIndexingRemovableDrive
+{
+    _searchDisableIndexingRemovableDrive = [self.dictionary[@"searchDisableIndexingRemovableDrive"] boolValue];
+    return _searchDisableIndexingRemovableDrive;
+}
+
+- (void) setSearchDisableIndexingRemovableDrive: (BOOL) val
+{
+    _searchDisableIndexingRemovableDrive = val;
+    self.dictionary[@"searchDisableIndexingRemovableDrive"] = @(val);
+}
+
+- (BOOL) searchEnableAutomaticIndexSizeManangement
+{
+    _searchEnableAutomaticIndexSizeManangement = [self.dictionary[@"searchEnableAutomaticIndexSizeManangement"] boolValue];
+    return _searchEnableAutomaticIndexSizeManangement;
+}
+
+- (void) setSearchEnableAutomaticIndexSizeManangement: (BOOL) val
+{
+    _searchEnableAutomaticIndexSizeManangement = val;
+    self.dictionary[@"searchEnableAutomaticIndexSizeManangement"] = @(val);
+}
+
+- (BOOL) searchEnableRemoteQueries
+{
+    _searchEnableRemoteQueries = [self.dictionary[@"searchEnableRemoteQueries"] boolValue];
+    return _searchEnableRemoteQueries;
+}
+
+- (void) setSearchEnableRemoteQueries: (BOOL) val
+{
+    _searchEnableRemoteQueries = val;
+    self.dictionary[@"searchEnableRemoteQueries"] = @(val);
+}
+
+- (BOOL) settingsBlockAccountsPage
+{
+    _settingsBlockAccountsPage = [self.dictionary[@"settingsBlockAccountsPage"] boolValue];
+    return _settingsBlockAccountsPage;
+}
+
+- (void) setSettingsBlockAccountsPage: (BOOL) val
+{
+    _settingsBlockAccountsPage = val;
+    self.dictionary[@"settingsBlockAccountsPage"] = @(val);
+}
+
+- (BOOL) settingsBlockAddProvisioningPackage
+{
+    _settingsBlockAddProvisioningPackage = [self.dictionary[@"settingsBlockAddProvisioningPackage"] boolValue];
+    return _settingsBlockAddProvisioningPackage;
+}
+
+- (void) setSettingsBlockAddProvisioningPackage: (BOOL) val
+{
+    _settingsBlockAddProvisioningPackage = val;
+    self.dictionary[@"settingsBlockAddProvisioningPackage"] = @(val);
+}
+
+- (BOOL) settingsBlockAppsPage
+{
+    _settingsBlockAppsPage = [self.dictionary[@"settingsBlockAppsPage"] boolValue];
+    return _settingsBlockAppsPage;
+}
+
+- (void) setSettingsBlockAppsPage: (BOOL) val
+{
+    _settingsBlockAppsPage = val;
+    self.dictionary[@"settingsBlockAppsPage"] = @(val);
+}
+
+- (BOOL) settingsBlockChangeLanguage
+{
+    _settingsBlockChangeLanguage = [self.dictionary[@"settingsBlockChangeLanguage"] boolValue];
+    return _settingsBlockChangeLanguage;
+}
+
+- (void) setSettingsBlockChangeLanguage: (BOOL) val
+{
+    _settingsBlockChangeLanguage = val;
+    self.dictionary[@"settingsBlockChangeLanguage"] = @(val);
+}
+
+- (BOOL) settingsBlockChangePowerSleep
+{
+    _settingsBlockChangePowerSleep = [self.dictionary[@"settingsBlockChangePowerSleep"] boolValue];
+    return _settingsBlockChangePowerSleep;
+}
+
+- (void) setSettingsBlockChangePowerSleep: (BOOL) val
+{
+    _settingsBlockChangePowerSleep = val;
+    self.dictionary[@"settingsBlockChangePowerSleep"] = @(val);
+}
+
+- (BOOL) settingsBlockChangeRegion
+{
+    _settingsBlockChangeRegion = [self.dictionary[@"settingsBlockChangeRegion"] boolValue];
+    return _settingsBlockChangeRegion;
+}
+
+- (void) setSettingsBlockChangeRegion: (BOOL) val
+{
+    _settingsBlockChangeRegion = val;
+    self.dictionary[@"settingsBlockChangeRegion"] = @(val);
+}
+
+- (BOOL) settingsBlockChangeSystemTime
+{
+    _settingsBlockChangeSystemTime = [self.dictionary[@"settingsBlockChangeSystemTime"] boolValue];
+    return _settingsBlockChangeSystemTime;
+}
+
+- (void) setSettingsBlockChangeSystemTime: (BOOL) val
+{
+    _settingsBlockChangeSystemTime = val;
+    self.dictionary[@"settingsBlockChangeSystemTime"] = @(val);
+}
+
+- (BOOL) settingsBlockDevicesPage
+{
+    _settingsBlockDevicesPage = [self.dictionary[@"settingsBlockDevicesPage"] boolValue];
+    return _settingsBlockDevicesPage;
+}
+
+- (void) setSettingsBlockDevicesPage: (BOOL) val
+{
+    _settingsBlockDevicesPage = val;
+    self.dictionary[@"settingsBlockDevicesPage"] = @(val);
+}
+
+- (BOOL) settingsBlockEaseOfAccessPage
+{
+    _settingsBlockEaseOfAccessPage = [self.dictionary[@"settingsBlockEaseOfAccessPage"] boolValue];
+    return _settingsBlockEaseOfAccessPage;
+}
+
+- (void) setSettingsBlockEaseOfAccessPage: (BOOL) val
+{
+    _settingsBlockEaseOfAccessPage = val;
+    self.dictionary[@"settingsBlockEaseOfAccessPage"] = @(val);
+}
+
+- (BOOL) settingsBlockEditDeviceName
+{
+    _settingsBlockEditDeviceName = [self.dictionary[@"settingsBlockEditDeviceName"] boolValue];
+    return _settingsBlockEditDeviceName;
+}
+
+- (void) setSettingsBlockEditDeviceName: (BOOL) val
+{
+    _settingsBlockEditDeviceName = val;
+    self.dictionary[@"settingsBlockEditDeviceName"] = @(val);
+}
+
+- (BOOL) settingsBlockGamingPage
+{
+    _settingsBlockGamingPage = [self.dictionary[@"settingsBlockGamingPage"] boolValue];
+    return _settingsBlockGamingPage;
+}
+
+- (void) setSettingsBlockGamingPage: (BOOL) val
+{
+    _settingsBlockGamingPage = val;
+    self.dictionary[@"settingsBlockGamingPage"] = @(val);
+}
+
+- (BOOL) settingsBlockNetworkInternetPage
+{
+    _settingsBlockNetworkInternetPage = [self.dictionary[@"settingsBlockNetworkInternetPage"] boolValue];
+    return _settingsBlockNetworkInternetPage;
+}
+
+- (void) setSettingsBlockNetworkInternetPage: (BOOL) val
+{
+    _settingsBlockNetworkInternetPage = val;
+    self.dictionary[@"settingsBlockNetworkInternetPage"] = @(val);
+}
+
+- (BOOL) settingsBlockPersonalizationPage
+{
+    _settingsBlockPersonalizationPage = [self.dictionary[@"settingsBlockPersonalizationPage"] boolValue];
+    return _settingsBlockPersonalizationPage;
+}
+
+- (void) setSettingsBlockPersonalizationPage: (BOOL) val
+{
+    _settingsBlockPersonalizationPage = val;
+    self.dictionary[@"settingsBlockPersonalizationPage"] = @(val);
+}
+
+- (BOOL) settingsBlockPrivacyPage
+{
+    _settingsBlockPrivacyPage = [self.dictionary[@"settingsBlockPrivacyPage"] boolValue];
+    return _settingsBlockPrivacyPage;
+}
+
+- (void) setSettingsBlockPrivacyPage: (BOOL) val
+{
+    _settingsBlockPrivacyPage = val;
+    self.dictionary[@"settingsBlockPrivacyPage"] = @(val);
+}
+
+- (BOOL) settingsBlockRemoveProvisioningPackage
+{
+    _settingsBlockRemoveProvisioningPackage = [self.dictionary[@"settingsBlockRemoveProvisioningPackage"] boolValue];
+    return _settingsBlockRemoveProvisioningPackage;
+}
+
+- (void) setSettingsBlockRemoveProvisioningPackage: (BOOL) val
+{
+    _settingsBlockRemoveProvisioningPackage = val;
+    self.dictionary[@"settingsBlockRemoveProvisioningPackage"] = @(val);
+}
+
+- (BOOL) settingsBlockSettingsApp
+{
+    _settingsBlockSettingsApp = [self.dictionary[@"settingsBlockSettingsApp"] boolValue];
+    return _settingsBlockSettingsApp;
+}
+
+- (void) setSettingsBlockSettingsApp: (BOOL) val
+{
+    _settingsBlockSettingsApp = val;
+    self.dictionary[@"settingsBlockSettingsApp"] = @(val);
+}
+
+- (BOOL) settingsBlockSystemPage
+{
+    _settingsBlockSystemPage = [self.dictionary[@"settingsBlockSystemPage"] boolValue];
+    return _settingsBlockSystemPage;
+}
+
+- (void) setSettingsBlockSystemPage: (BOOL) val
+{
+    _settingsBlockSystemPage = val;
+    self.dictionary[@"settingsBlockSystemPage"] = @(val);
+}
+
+- (BOOL) settingsBlockTimeLanguagePage
+{
+    _settingsBlockTimeLanguagePage = [self.dictionary[@"settingsBlockTimeLanguagePage"] boolValue];
+    return _settingsBlockTimeLanguagePage;
+}
+
+- (void) setSettingsBlockTimeLanguagePage: (BOOL) val
+{
+    _settingsBlockTimeLanguagePage = val;
+    self.dictionary[@"settingsBlockTimeLanguagePage"] = @(val);
+}
+
+- (BOOL) settingsBlockUpdateSecurityPage
+{
+    _settingsBlockUpdateSecurityPage = [self.dictionary[@"settingsBlockUpdateSecurityPage"] boolValue];
+    return _settingsBlockUpdateSecurityPage;
+}
+
+- (void) setSettingsBlockUpdateSecurityPage: (BOOL) val
+{
+    _settingsBlockUpdateSecurityPage = val;
+    self.dictionary[@"settingsBlockUpdateSecurityPage"] = @(val);
+}
+
+- (BOOL) sharedUserAppDataAllowed
+{
+    _sharedUserAppDataAllowed = [self.dictionary[@"sharedUserAppDataAllowed"] boolValue];
+    return _sharedUserAppDataAllowed;
+}
+
+- (void) setSharedUserAppDataAllowed: (BOOL) val
+{
+    _sharedUserAppDataAllowed = val;
+    self.dictionary[@"sharedUserAppDataAllowed"] = @(val);
+}
+
+- (BOOL) smartScreenBlockPromptOverride
+{
+    _smartScreenBlockPromptOverride = [self.dictionary[@"smartScreenBlockPromptOverride"] boolValue];
+    return _smartScreenBlockPromptOverride;
+}
+
+- (void) setSmartScreenBlockPromptOverride: (BOOL) val
+{
+    _smartScreenBlockPromptOverride = val;
+    self.dictionary[@"smartScreenBlockPromptOverride"] = @(val);
+}
+
+- (BOOL) smartScreenBlockPromptOverrideForFiles
+{
+    _smartScreenBlockPromptOverrideForFiles = [self.dictionary[@"smartScreenBlockPromptOverrideForFiles"] boolValue];
+    return _smartScreenBlockPromptOverrideForFiles;
+}
+
+- (void) setSmartScreenBlockPromptOverrideForFiles: (BOOL) val
+{
+    _smartScreenBlockPromptOverrideForFiles = val;
+    self.dictionary[@"smartScreenBlockPromptOverrideForFiles"] = @(val);
+}
+
+- (BOOL) smartScreenEnableAppInstallControl
+{
+    _smartScreenEnableAppInstallControl = [self.dictionary[@"smartScreenEnableAppInstallControl"] boolValue];
+    return _smartScreenEnableAppInstallControl;
+}
+
+- (void) setSmartScreenEnableAppInstallControl: (BOOL) val
+{
+    _smartScreenEnableAppInstallControl = val;
+    self.dictionary[@"smartScreenEnableAppInstallControl"] = @(val);
 }
 
 - (BOOL) startBlockUnpinningAppsFromTaskbar
@@ -1657,148 +2419,148 @@
     self.dictionary[@"startMenuPinnedFolderVideos"] = val;
 }
 
-- (BOOL) settingsBlockSettingsApp
+- (BOOL) storageBlockRemovableStorage
 {
-    _settingsBlockSettingsApp = [self.dictionary[@"settingsBlockSettingsApp"] boolValue];
-    return _settingsBlockSettingsApp;
+    _storageBlockRemovableStorage = [self.dictionary[@"storageBlockRemovableStorage"] boolValue];
+    return _storageBlockRemovableStorage;
 }
 
-- (void) setSettingsBlockSettingsApp: (BOOL) val
+- (void) setStorageBlockRemovableStorage: (BOOL) val
 {
-    _settingsBlockSettingsApp = val;
-    self.dictionary[@"settingsBlockSettingsApp"] = @(val);
+    _storageBlockRemovableStorage = val;
+    self.dictionary[@"storageBlockRemovableStorage"] = @(val);
 }
 
-- (BOOL) settingsBlockSystemPage
+- (BOOL) storageRequireMobileDeviceEncryption
 {
-    _settingsBlockSystemPage = [self.dictionary[@"settingsBlockSystemPage"] boolValue];
-    return _settingsBlockSystemPage;
+    _storageRequireMobileDeviceEncryption = [self.dictionary[@"storageRequireMobileDeviceEncryption"] boolValue];
+    return _storageRequireMobileDeviceEncryption;
 }
 
-- (void) setSettingsBlockSystemPage: (BOOL) val
+- (void) setStorageRequireMobileDeviceEncryption: (BOOL) val
 {
-    _settingsBlockSystemPage = val;
-    self.dictionary[@"settingsBlockSystemPage"] = @(val);
+    _storageRequireMobileDeviceEncryption = val;
+    self.dictionary[@"storageRequireMobileDeviceEncryption"] = @(val);
 }
 
-- (BOOL) settingsBlockDevicesPage
+- (BOOL) storageRestrictAppDataToSystemVolume
 {
-    _settingsBlockDevicesPage = [self.dictionary[@"settingsBlockDevicesPage"] boolValue];
-    return _settingsBlockDevicesPage;
+    _storageRestrictAppDataToSystemVolume = [self.dictionary[@"storageRestrictAppDataToSystemVolume"] boolValue];
+    return _storageRestrictAppDataToSystemVolume;
 }
 
-- (void) setSettingsBlockDevicesPage: (BOOL) val
+- (void) setStorageRestrictAppDataToSystemVolume: (BOOL) val
 {
-    _settingsBlockDevicesPage = val;
-    self.dictionary[@"settingsBlockDevicesPage"] = @(val);
+    _storageRestrictAppDataToSystemVolume = val;
+    self.dictionary[@"storageRestrictAppDataToSystemVolume"] = @(val);
 }
 
-- (BOOL) settingsBlockNetworkInternetPage
+- (BOOL) storageRestrictAppInstallToSystemVolume
 {
-    _settingsBlockNetworkInternetPage = [self.dictionary[@"settingsBlockNetworkInternetPage"] boolValue];
-    return _settingsBlockNetworkInternetPage;
+    _storageRestrictAppInstallToSystemVolume = [self.dictionary[@"storageRestrictAppInstallToSystemVolume"] boolValue];
+    return _storageRestrictAppInstallToSystemVolume;
 }
 
-- (void) setSettingsBlockNetworkInternetPage: (BOOL) val
+- (void) setStorageRestrictAppInstallToSystemVolume: (BOOL) val
 {
-    _settingsBlockNetworkInternetPage = val;
-    self.dictionary[@"settingsBlockNetworkInternetPage"] = @(val);
+    _storageRestrictAppInstallToSystemVolume = val;
+    self.dictionary[@"storageRestrictAppInstallToSystemVolume"] = @(val);
 }
 
-- (BOOL) settingsBlockPersonalizationPage
+- (BOOL) tenantLockdownRequireNetworkDuringOutOfBoxExperience
 {
-    _settingsBlockPersonalizationPage = [self.dictionary[@"settingsBlockPersonalizationPage"] boolValue];
-    return _settingsBlockPersonalizationPage;
+    _tenantLockdownRequireNetworkDuringOutOfBoxExperience = [self.dictionary[@"tenantLockdownRequireNetworkDuringOutOfBoxExperience"] boolValue];
+    return _tenantLockdownRequireNetworkDuringOutOfBoxExperience;
 }
 
-- (void) setSettingsBlockPersonalizationPage: (BOOL) val
+- (void) setTenantLockdownRequireNetworkDuringOutOfBoxExperience: (BOOL) val
 {
-    _settingsBlockPersonalizationPage = val;
-    self.dictionary[@"settingsBlockPersonalizationPage"] = @(val);
+    _tenantLockdownRequireNetworkDuringOutOfBoxExperience = val;
+    self.dictionary[@"tenantLockdownRequireNetworkDuringOutOfBoxExperience"] = @(val);
 }
 
-- (BOOL) settingsBlockAccountsPage
+- (BOOL) usbBlocked
 {
-    _settingsBlockAccountsPage = [self.dictionary[@"settingsBlockAccountsPage"] boolValue];
-    return _settingsBlockAccountsPage;
+    _usbBlocked = [self.dictionary[@"usbBlocked"] boolValue];
+    return _usbBlocked;
 }
 
-- (void) setSettingsBlockAccountsPage: (BOOL) val
+- (void) setUsbBlocked: (BOOL) val
 {
-    _settingsBlockAccountsPage = val;
-    self.dictionary[@"settingsBlockAccountsPage"] = @(val);
+    _usbBlocked = val;
+    self.dictionary[@"usbBlocked"] = @(val);
 }
 
-- (BOOL) settingsBlockTimeLanguagePage
+- (BOOL) voiceRecordingBlocked
 {
-    _settingsBlockTimeLanguagePage = [self.dictionary[@"settingsBlockTimeLanguagePage"] boolValue];
-    return _settingsBlockTimeLanguagePage;
+    _voiceRecordingBlocked = [self.dictionary[@"voiceRecordingBlocked"] boolValue];
+    return _voiceRecordingBlocked;
 }
 
-- (void) setSettingsBlockTimeLanguagePage: (BOOL) val
+- (void) setVoiceRecordingBlocked: (BOOL) val
 {
-    _settingsBlockTimeLanguagePage = val;
-    self.dictionary[@"settingsBlockTimeLanguagePage"] = @(val);
+    _voiceRecordingBlocked = val;
+    self.dictionary[@"voiceRecordingBlocked"] = @(val);
 }
 
-- (BOOL) settingsBlockEaseOfAccessPage
+- (BOOL) webRtcBlockLocalhostIpAddress
 {
-    _settingsBlockEaseOfAccessPage = [self.dictionary[@"settingsBlockEaseOfAccessPage"] boolValue];
-    return _settingsBlockEaseOfAccessPage;
+    _webRtcBlockLocalhostIpAddress = [self.dictionary[@"webRtcBlockLocalhostIpAddress"] boolValue];
+    return _webRtcBlockLocalhostIpAddress;
 }
 
-- (void) setSettingsBlockEaseOfAccessPage: (BOOL) val
+- (void) setWebRtcBlockLocalhostIpAddress: (BOOL) val
 {
-    _settingsBlockEaseOfAccessPage = val;
-    self.dictionary[@"settingsBlockEaseOfAccessPage"] = @(val);
+    _webRtcBlockLocalhostIpAddress = val;
+    self.dictionary[@"webRtcBlockLocalhostIpAddress"] = @(val);
 }
 
-- (BOOL) settingsBlockPrivacyPage
+- (BOOL) wiFiBlockAutomaticConnectHotspots
 {
-    _settingsBlockPrivacyPage = [self.dictionary[@"settingsBlockPrivacyPage"] boolValue];
-    return _settingsBlockPrivacyPage;
+    _wiFiBlockAutomaticConnectHotspots = [self.dictionary[@"wiFiBlockAutomaticConnectHotspots"] boolValue];
+    return _wiFiBlockAutomaticConnectHotspots;
 }
 
-- (void) setSettingsBlockPrivacyPage: (BOOL) val
+- (void) setWiFiBlockAutomaticConnectHotspots: (BOOL) val
 {
-    _settingsBlockPrivacyPage = val;
-    self.dictionary[@"settingsBlockPrivacyPage"] = @(val);
+    _wiFiBlockAutomaticConnectHotspots = val;
+    self.dictionary[@"wiFiBlockAutomaticConnectHotspots"] = @(val);
 }
 
-- (BOOL) settingsBlockUpdateSecurityPage
+- (BOOL) wiFiBlocked
 {
-    _settingsBlockUpdateSecurityPage = [self.dictionary[@"settingsBlockUpdateSecurityPage"] boolValue];
-    return _settingsBlockUpdateSecurityPage;
+    _wiFiBlocked = [self.dictionary[@"wiFiBlocked"] boolValue];
+    return _wiFiBlocked;
 }
 
-- (void) setSettingsBlockUpdateSecurityPage: (BOOL) val
+- (void) setWiFiBlocked: (BOOL) val
 {
-    _settingsBlockUpdateSecurityPage = val;
-    self.dictionary[@"settingsBlockUpdateSecurityPage"] = @(val);
+    _wiFiBlocked = val;
+    self.dictionary[@"wiFiBlocked"] = @(val);
 }
 
-- (BOOL) settingsBlockAppsPage
+- (BOOL) wiFiBlockManualConfiguration
 {
-    _settingsBlockAppsPage = [self.dictionary[@"settingsBlockAppsPage"] boolValue];
-    return _settingsBlockAppsPage;
+    _wiFiBlockManualConfiguration = [self.dictionary[@"wiFiBlockManualConfiguration"] boolValue];
+    return _wiFiBlockManualConfiguration;
 }
 
-- (void) setSettingsBlockAppsPage: (BOOL) val
+- (void) setWiFiBlockManualConfiguration: (BOOL) val
 {
-    _settingsBlockAppsPage = val;
-    self.dictionary[@"settingsBlockAppsPage"] = @(val);
+    _wiFiBlockManualConfiguration = val;
+    self.dictionary[@"wiFiBlockManualConfiguration"] = @(val);
 }
 
-- (BOOL) settingsBlockGamingPage
+- (int32_t) wiFiScanInterval
 {
-    _settingsBlockGamingPage = [self.dictionary[@"settingsBlockGamingPage"] boolValue];
-    return _settingsBlockGamingPage;
+    _wiFiScanInterval = [self.dictionary[@"wiFiScanInterval"] intValue];
+    return _wiFiScanInterval;
 }
 
-- (void) setSettingsBlockGamingPage: (BOOL) val
+- (void) setWiFiScanInterval: (int32_t) val
 {
-    _settingsBlockGamingPage = val;
-    self.dictionary[@"settingsBlockGamingPage"] = @(val);
+    _wiFiScanInterval = val;
+    self.dictionary[@"wiFiScanInterval"] = @(val);
 }
 
 - (BOOL) windowsSpotlightBlockConsumerSpecificFeatures
@@ -1899,618 +2661,40 @@
     self.dictionary[@"windowsSpotlightConfigureOnLockScreen"] = val;
 }
 
-- (BOOL) networkProxyApplySettingsDeviceWide
+- (BOOL) windowsStoreBlockAutoUpdate
 {
-    _networkProxyApplySettingsDeviceWide = [self.dictionary[@"networkProxyApplySettingsDeviceWide"] boolValue];
-    return _networkProxyApplySettingsDeviceWide;
+    _windowsStoreBlockAutoUpdate = [self.dictionary[@"windowsStoreBlockAutoUpdate"] boolValue];
+    return _windowsStoreBlockAutoUpdate;
 }
 
-- (void) setNetworkProxyApplySettingsDeviceWide: (BOOL) val
+- (void) setWindowsStoreBlockAutoUpdate: (BOOL) val
 {
-    _networkProxyApplySettingsDeviceWide = val;
-    self.dictionary[@"networkProxyApplySettingsDeviceWide"] = @(val);
+    _windowsStoreBlockAutoUpdate = val;
+    self.dictionary[@"windowsStoreBlockAutoUpdate"] = @(val);
 }
 
-- (BOOL) networkProxyDisableAutoDetect
+- (BOOL) windowsStoreBlocked
 {
-    _networkProxyDisableAutoDetect = [self.dictionary[@"networkProxyDisableAutoDetect"] boolValue];
-    return _networkProxyDisableAutoDetect;
+    _windowsStoreBlocked = [self.dictionary[@"windowsStoreBlocked"] boolValue];
+    return _windowsStoreBlocked;
 }
 
-- (void) setNetworkProxyDisableAutoDetect: (BOOL) val
+- (void) setWindowsStoreBlocked: (BOOL) val
 {
-    _networkProxyDisableAutoDetect = val;
-    self.dictionary[@"networkProxyDisableAutoDetect"] = @(val);
+    _windowsStoreBlocked = val;
+    self.dictionary[@"windowsStoreBlocked"] = @(val);
 }
 
-- (NSString*) networkProxyAutomaticConfigurationUrl
+- (BOOL) windowsStoreEnablePrivateStoreOnly
 {
-    if([[NSNull null] isEqual:self.dictionary[@"networkProxyAutomaticConfigurationUrl"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"networkProxyAutomaticConfigurationUrl"];
+    _windowsStoreEnablePrivateStoreOnly = [self.dictionary[@"windowsStoreEnablePrivateStoreOnly"] boolValue];
+    return _windowsStoreEnablePrivateStoreOnly;
 }
 
-- (void) setNetworkProxyAutomaticConfigurationUrl: (NSString*) val
+- (void) setWindowsStoreEnablePrivateStoreOnly: (BOOL) val
 {
-    self.dictionary[@"networkProxyAutomaticConfigurationUrl"] = val;
-}
-
-- (MSGraphWindows10NetworkProxyServer*) networkProxyServer
-{
-    if(!_networkProxyServer){
-        _networkProxyServer = [[MSGraphWindows10NetworkProxyServer alloc] initWithDictionary: self.dictionary[@"networkProxyServer"]];
-    }
-    return _networkProxyServer;
-}
-
-- (void) setNetworkProxyServer: (MSGraphWindows10NetworkProxyServer*) val
-{
-    _networkProxyServer = val;
-    self.dictionary[@"networkProxyServer"] = val;
-}
-
-- (BOOL) accountsBlockAddingNonMicrosoftAccountEmail
-{
-    _accountsBlockAddingNonMicrosoftAccountEmail = [self.dictionary[@"accountsBlockAddingNonMicrosoftAccountEmail"] boolValue];
-    return _accountsBlockAddingNonMicrosoftAccountEmail;
-}
-
-- (void) setAccountsBlockAddingNonMicrosoftAccountEmail: (BOOL) val
-{
-    _accountsBlockAddingNonMicrosoftAccountEmail = val;
-    self.dictionary[@"accountsBlockAddingNonMicrosoftAccountEmail"] = @(val);
-}
-
-- (BOOL) antiTheftModeBlocked
-{
-    _antiTheftModeBlocked = [self.dictionary[@"antiTheftModeBlocked"] boolValue];
-    return _antiTheftModeBlocked;
-}
-
-- (void) setAntiTheftModeBlocked: (BOOL) val
-{
-    _antiTheftModeBlocked = val;
-    self.dictionary[@"antiTheftModeBlocked"] = @(val);
-}
-
-- (BOOL) bluetoothBlocked
-{
-    _bluetoothBlocked = [self.dictionary[@"bluetoothBlocked"] boolValue];
-    return _bluetoothBlocked;
-}
-
-- (void) setBluetoothBlocked: (BOOL) val
-{
-    _bluetoothBlocked = val;
-    self.dictionary[@"bluetoothBlocked"] = @(val);
-}
-
-- (BOOL) cameraBlocked
-{
-    _cameraBlocked = [self.dictionary[@"cameraBlocked"] boolValue];
-    return _cameraBlocked;
-}
-
-- (void) setCameraBlocked: (BOOL) val
-{
-    _cameraBlocked = val;
-    self.dictionary[@"cameraBlocked"] = @(val);
-}
-
-- (BOOL) connectedDevicesServiceBlocked
-{
-    _connectedDevicesServiceBlocked = [self.dictionary[@"connectedDevicesServiceBlocked"] boolValue];
-    return _connectedDevicesServiceBlocked;
-}
-
-- (void) setConnectedDevicesServiceBlocked: (BOOL) val
-{
-    _connectedDevicesServiceBlocked = val;
-    self.dictionary[@"connectedDevicesServiceBlocked"] = @(val);
-}
-
-- (BOOL) certificatesBlockManualRootCertificateInstallation
-{
-    _certificatesBlockManualRootCertificateInstallation = [self.dictionary[@"certificatesBlockManualRootCertificateInstallation"] boolValue];
-    return _certificatesBlockManualRootCertificateInstallation;
-}
-
-- (void) setCertificatesBlockManualRootCertificateInstallation: (BOOL) val
-{
-    _certificatesBlockManualRootCertificateInstallation = val;
-    self.dictionary[@"certificatesBlockManualRootCertificateInstallation"] = @(val);
-}
-
-- (BOOL) getCopyPasteBlocked
-{
-    _copyPasteBlocked = [self.dictionary[@"copyPasteBlocked"] boolValue];
-    return _copyPasteBlocked;
-}
-
-- (void) setCopyPasteBlocked: (BOOL) val
-{
-    _copyPasteBlocked = val;
-    self.dictionary[@"copyPasteBlocked"] = @(val);
-}
-
-- (BOOL) cortanaBlocked
-{
-    _cortanaBlocked = [self.dictionary[@"cortanaBlocked"] boolValue];
-    return _cortanaBlocked;
-}
-
-- (void) setCortanaBlocked: (BOOL) val
-{
-    _cortanaBlocked = val;
-    self.dictionary[@"cortanaBlocked"] = @(val);
-}
-
-- (BOOL) deviceManagementBlockFactoryResetOnMobile
-{
-    _deviceManagementBlockFactoryResetOnMobile = [self.dictionary[@"deviceManagementBlockFactoryResetOnMobile"] boolValue];
-    return _deviceManagementBlockFactoryResetOnMobile;
-}
-
-- (void) setDeviceManagementBlockFactoryResetOnMobile: (BOOL) val
-{
-    _deviceManagementBlockFactoryResetOnMobile = val;
-    self.dictionary[@"deviceManagementBlockFactoryResetOnMobile"] = @(val);
-}
-
-- (BOOL) deviceManagementBlockManualUnenroll
-{
-    _deviceManagementBlockManualUnenroll = [self.dictionary[@"deviceManagementBlockManualUnenroll"] boolValue];
-    return _deviceManagementBlockManualUnenroll;
-}
-
-- (void) setDeviceManagementBlockManualUnenroll: (BOOL) val
-{
-    _deviceManagementBlockManualUnenroll = val;
-    self.dictionary[@"deviceManagementBlockManualUnenroll"] = @(val);
-}
-
-- (MSGraphSafeSearchFilterType*) safeSearchFilter
-{
-    if(!_safeSearchFilter){
-        _safeSearchFilter = [self.dictionary[@"safeSearchFilter"] toMSGraphSafeSearchFilterType];
-    }
-    return _safeSearchFilter;
-}
-
-- (void) setSafeSearchFilter: (MSGraphSafeSearchFilterType*) val
-{
-    _safeSearchFilter = val;
-    self.dictionary[@"safeSearchFilter"] = val;
-}
-
-- (BOOL) edgeBlockPopups
-{
-    _edgeBlockPopups = [self.dictionary[@"edgeBlockPopups"] boolValue];
-    return _edgeBlockPopups;
-}
-
-- (void) setEdgeBlockPopups: (BOOL) val
-{
-    _edgeBlockPopups = val;
-    self.dictionary[@"edgeBlockPopups"] = @(val);
-}
-
-- (BOOL) edgeBlockSearchSuggestions
-{
-    _edgeBlockSearchSuggestions = [self.dictionary[@"edgeBlockSearchSuggestions"] boolValue];
-    return _edgeBlockSearchSuggestions;
-}
-
-- (void) setEdgeBlockSearchSuggestions: (BOOL) val
-{
-    _edgeBlockSearchSuggestions = val;
-    self.dictionary[@"edgeBlockSearchSuggestions"] = @(val);
-}
-
-- (BOOL) edgeBlockSendingIntranetTrafficToInternetExplorer
-{
-    _edgeBlockSendingIntranetTrafficToInternetExplorer = [self.dictionary[@"edgeBlockSendingIntranetTrafficToInternetExplorer"] boolValue];
-    return _edgeBlockSendingIntranetTrafficToInternetExplorer;
-}
-
-- (void) setEdgeBlockSendingIntranetTrafficToInternetExplorer: (BOOL) val
-{
-    _edgeBlockSendingIntranetTrafficToInternetExplorer = val;
-    self.dictionary[@"edgeBlockSendingIntranetTrafficToInternetExplorer"] = @(val);
-}
-
-- (BOOL) edgeSendIntranetTrafficToInternetExplorer
-{
-    _edgeSendIntranetTrafficToInternetExplorer = [self.dictionary[@"edgeSendIntranetTrafficToInternetExplorer"] boolValue];
-    return _edgeSendIntranetTrafficToInternetExplorer;
-}
-
-- (void) setEdgeSendIntranetTrafficToInternetExplorer: (BOOL) val
-{
-    _edgeSendIntranetTrafficToInternetExplorer = val;
-    self.dictionary[@"edgeSendIntranetTrafficToInternetExplorer"] = @(val);
-}
-
-- (BOOL) edgeRequireSmartScreen
-{
-    _edgeRequireSmartScreen = [self.dictionary[@"edgeRequireSmartScreen"] boolValue];
-    return _edgeRequireSmartScreen;
-}
-
-- (void) setEdgeRequireSmartScreen: (BOOL) val
-{
-    _edgeRequireSmartScreen = val;
-    self.dictionary[@"edgeRequireSmartScreen"] = @(val);
-}
-
-- (NSString*) edgeEnterpriseModeSiteListLocation
-{
-    if([[NSNull null] isEqual:self.dictionary[@"edgeEnterpriseModeSiteListLocation"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"edgeEnterpriseModeSiteListLocation"];
-}
-
-- (void) setEdgeEnterpriseModeSiteListLocation: (NSString*) val
-{
-    self.dictionary[@"edgeEnterpriseModeSiteListLocation"] = val;
-}
-
-- (NSString*) edgeFirstRunUrl
-{
-    if([[NSNull null] isEqual:self.dictionary[@"edgeFirstRunUrl"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"edgeFirstRunUrl"];
-}
-
-- (void) setEdgeFirstRunUrl: (NSString*) val
-{
-    self.dictionary[@"edgeFirstRunUrl"] = val;
-}
-
-- (MSGraphEdgeSearchEngineBase*) edgeSearchEngine
-{
-    if(!_edgeSearchEngine){
-        _edgeSearchEngine = [[MSGraphEdgeSearchEngineBase alloc] initWithDictionary: self.dictionary[@"edgeSearchEngine"]];
-    }
-    return _edgeSearchEngine;
-}
-
-- (void) setEdgeSearchEngine: (MSGraphEdgeSearchEngineBase*) val
-{
-    _edgeSearchEngine = val;
-    self.dictionary[@"edgeSearchEngine"] = val;
-}
-
-- (NSArray*) edgeHomepageUrls
-{
-    if([[NSNull null] isEqual:self.dictionary[@"edgeHomepageUrls"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"edgeHomepageUrls"];
-}
-
-- (void) setEdgeHomepageUrls: (NSArray*) val
-{
-    self.dictionary[@"edgeHomepageUrls"] = val;
-}
-
-- (BOOL) edgeBlockAccessToAboutFlags
-{
-    _edgeBlockAccessToAboutFlags = [self.dictionary[@"edgeBlockAccessToAboutFlags"] boolValue];
-    return _edgeBlockAccessToAboutFlags;
-}
-
-- (void) setEdgeBlockAccessToAboutFlags: (BOOL) val
-{
-    _edgeBlockAccessToAboutFlags = val;
-    self.dictionary[@"edgeBlockAccessToAboutFlags"] = @(val);
-}
-
-- (BOOL) smartScreenBlockPromptOverride
-{
-    _smartScreenBlockPromptOverride = [self.dictionary[@"smartScreenBlockPromptOverride"] boolValue];
-    return _smartScreenBlockPromptOverride;
-}
-
-- (void) setSmartScreenBlockPromptOverride: (BOOL) val
-{
-    _smartScreenBlockPromptOverride = val;
-    self.dictionary[@"smartScreenBlockPromptOverride"] = @(val);
-}
-
-- (BOOL) smartScreenBlockPromptOverrideForFiles
-{
-    _smartScreenBlockPromptOverrideForFiles = [self.dictionary[@"smartScreenBlockPromptOverrideForFiles"] boolValue];
-    return _smartScreenBlockPromptOverrideForFiles;
-}
-
-- (void) setSmartScreenBlockPromptOverrideForFiles: (BOOL) val
-{
-    _smartScreenBlockPromptOverrideForFiles = val;
-    self.dictionary[@"smartScreenBlockPromptOverrideForFiles"] = @(val);
-}
-
-- (BOOL) webRtcBlockLocalhostIpAddress
-{
-    _webRtcBlockLocalhostIpAddress = [self.dictionary[@"webRtcBlockLocalhostIpAddress"] boolValue];
-    return _webRtcBlockLocalhostIpAddress;
-}
-
-- (void) setWebRtcBlockLocalhostIpAddress: (BOOL) val
-{
-    _webRtcBlockLocalhostIpAddress = val;
-    self.dictionary[@"webRtcBlockLocalhostIpAddress"] = @(val);
-}
-
-- (BOOL) internetSharingBlocked
-{
-    _internetSharingBlocked = [self.dictionary[@"internetSharingBlocked"] boolValue];
-    return _internetSharingBlocked;
-}
-
-- (void) setInternetSharingBlocked: (BOOL) val
-{
-    _internetSharingBlocked = val;
-    self.dictionary[@"internetSharingBlocked"] = @(val);
-}
-
-- (BOOL) settingsBlockAddProvisioningPackage
-{
-    _settingsBlockAddProvisioningPackage = [self.dictionary[@"settingsBlockAddProvisioningPackage"] boolValue];
-    return _settingsBlockAddProvisioningPackage;
-}
-
-- (void) setSettingsBlockAddProvisioningPackage: (BOOL) val
-{
-    _settingsBlockAddProvisioningPackage = val;
-    self.dictionary[@"settingsBlockAddProvisioningPackage"] = @(val);
-}
-
-- (BOOL) settingsBlockRemoveProvisioningPackage
-{
-    _settingsBlockRemoveProvisioningPackage = [self.dictionary[@"settingsBlockRemoveProvisioningPackage"] boolValue];
-    return _settingsBlockRemoveProvisioningPackage;
-}
-
-- (void) setSettingsBlockRemoveProvisioningPackage: (BOOL) val
-{
-    _settingsBlockRemoveProvisioningPackage = val;
-    self.dictionary[@"settingsBlockRemoveProvisioningPackage"] = @(val);
-}
-
-- (BOOL) settingsBlockChangeSystemTime
-{
-    _settingsBlockChangeSystemTime = [self.dictionary[@"settingsBlockChangeSystemTime"] boolValue];
-    return _settingsBlockChangeSystemTime;
-}
-
-- (void) setSettingsBlockChangeSystemTime: (BOOL) val
-{
-    _settingsBlockChangeSystemTime = val;
-    self.dictionary[@"settingsBlockChangeSystemTime"] = @(val);
-}
-
-- (BOOL) settingsBlockEditDeviceName
-{
-    _settingsBlockEditDeviceName = [self.dictionary[@"settingsBlockEditDeviceName"] boolValue];
-    return _settingsBlockEditDeviceName;
-}
-
-- (void) setSettingsBlockEditDeviceName: (BOOL) val
-{
-    _settingsBlockEditDeviceName = val;
-    self.dictionary[@"settingsBlockEditDeviceName"] = @(val);
-}
-
-- (BOOL) settingsBlockChangeRegion
-{
-    _settingsBlockChangeRegion = [self.dictionary[@"settingsBlockChangeRegion"] boolValue];
-    return _settingsBlockChangeRegion;
-}
-
-- (void) setSettingsBlockChangeRegion: (BOOL) val
-{
-    _settingsBlockChangeRegion = val;
-    self.dictionary[@"settingsBlockChangeRegion"] = @(val);
-}
-
-- (BOOL) settingsBlockChangeLanguage
-{
-    _settingsBlockChangeLanguage = [self.dictionary[@"settingsBlockChangeLanguage"] boolValue];
-    return _settingsBlockChangeLanguage;
-}
-
-- (void) setSettingsBlockChangeLanguage: (BOOL) val
-{
-    _settingsBlockChangeLanguage = val;
-    self.dictionary[@"settingsBlockChangeLanguage"] = @(val);
-}
-
-- (BOOL) settingsBlockChangePowerSleep
-{
-    _settingsBlockChangePowerSleep = [self.dictionary[@"settingsBlockChangePowerSleep"] boolValue];
-    return _settingsBlockChangePowerSleep;
-}
-
-- (void) setSettingsBlockChangePowerSleep: (BOOL) val
-{
-    _settingsBlockChangePowerSleep = val;
-    self.dictionary[@"settingsBlockChangePowerSleep"] = @(val);
-}
-
-- (BOOL) locationServicesBlocked
-{
-    _locationServicesBlocked = [self.dictionary[@"locationServicesBlocked"] boolValue];
-    return _locationServicesBlocked;
-}
-
-- (void) setLocationServicesBlocked: (BOOL) val
-{
-    _locationServicesBlocked = val;
-    self.dictionary[@"locationServicesBlocked"] = @(val);
-}
-
-- (BOOL) microsoftAccountBlocked
-{
-    _microsoftAccountBlocked = [self.dictionary[@"microsoftAccountBlocked"] boolValue];
-    return _microsoftAccountBlocked;
-}
-
-- (void) setMicrosoftAccountBlocked: (BOOL) val
-{
-    _microsoftAccountBlocked = val;
-    self.dictionary[@"microsoftAccountBlocked"] = @(val);
-}
-
-- (BOOL) microsoftAccountBlockSettingsSync
-{
-    _microsoftAccountBlockSettingsSync = [self.dictionary[@"microsoftAccountBlockSettingsSync"] boolValue];
-    return _microsoftAccountBlockSettingsSync;
-}
-
-- (void) setMicrosoftAccountBlockSettingsSync: (BOOL) val
-{
-    _microsoftAccountBlockSettingsSync = val;
-    self.dictionary[@"microsoftAccountBlockSettingsSync"] = @(val);
-}
-
-- (BOOL) nfcBlocked
-{
-    _nfcBlocked = [self.dictionary[@"nfcBlocked"] boolValue];
-    return _nfcBlocked;
-}
-
-- (void) setNfcBlocked: (BOOL) val
-{
-    _nfcBlocked = val;
-    self.dictionary[@"nfcBlocked"] = @(val);
-}
-
-- (BOOL) resetProtectionModeBlocked
-{
-    _resetProtectionModeBlocked = [self.dictionary[@"resetProtectionModeBlocked"] boolValue];
-    return _resetProtectionModeBlocked;
-}
-
-- (void) setResetProtectionModeBlocked: (BOOL) val
-{
-    _resetProtectionModeBlocked = val;
-    self.dictionary[@"resetProtectionModeBlocked"] = @(val);
-}
-
-- (BOOL) screenCaptureBlocked
-{
-    _screenCaptureBlocked = [self.dictionary[@"screenCaptureBlocked"] boolValue];
-    return _screenCaptureBlocked;
-}
-
-- (void) setScreenCaptureBlocked: (BOOL) val
-{
-    _screenCaptureBlocked = val;
-    self.dictionary[@"screenCaptureBlocked"] = @(val);
-}
-
-- (BOOL) storageBlockRemovableStorage
-{
-    _storageBlockRemovableStorage = [self.dictionary[@"storageBlockRemovableStorage"] boolValue];
-    return _storageBlockRemovableStorage;
-}
-
-- (void) setStorageBlockRemovableStorage: (BOOL) val
-{
-    _storageBlockRemovableStorage = val;
-    self.dictionary[@"storageBlockRemovableStorage"] = @(val);
-}
-
-- (BOOL) storageRequireMobileDeviceEncryption
-{
-    _storageRequireMobileDeviceEncryption = [self.dictionary[@"storageRequireMobileDeviceEncryption"] boolValue];
-    return _storageRequireMobileDeviceEncryption;
-}
-
-- (void) setStorageRequireMobileDeviceEncryption: (BOOL) val
-{
-    _storageRequireMobileDeviceEncryption = val;
-    self.dictionary[@"storageRequireMobileDeviceEncryption"] = @(val);
-}
-
-- (BOOL) usbBlocked
-{
-    _usbBlocked = [self.dictionary[@"usbBlocked"] boolValue];
-    return _usbBlocked;
-}
-
-- (void) setUsbBlocked: (BOOL) val
-{
-    _usbBlocked = val;
-    self.dictionary[@"usbBlocked"] = @(val);
-}
-
-- (BOOL) voiceRecordingBlocked
-{
-    _voiceRecordingBlocked = [self.dictionary[@"voiceRecordingBlocked"] boolValue];
-    return _voiceRecordingBlocked;
-}
-
-- (void) setVoiceRecordingBlocked: (BOOL) val
-{
-    _voiceRecordingBlocked = val;
-    self.dictionary[@"voiceRecordingBlocked"] = @(val);
-}
-
-- (BOOL) wiFiBlockAutomaticConnectHotspots
-{
-    _wiFiBlockAutomaticConnectHotspots = [self.dictionary[@"wiFiBlockAutomaticConnectHotspots"] boolValue];
-    return _wiFiBlockAutomaticConnectHotspots;
-}
-
-- (void) setWiFiBlockAutomaticConnectHotspots: (BOOL) val
-{
-    _wiFiBlockAutomaticConnectHotspots = val;
-    self.dictionary[@"wiFiBlockAutomaticConnectHotspots"] = @(val);
-}
-
-- (BOOL) wiFiBlocked
-{
-    _wiFiBlocked = [self.dictionary[@"wiFiBlocked"] boolValue];
-    return _wiFiBlocked;
-}
-
-- (void) setWiFiBlocked: (BOOL) val
-{
-    _wiFiBlocked = val;
-    self.dictionary[@"wiFiBlocked"] = @(val);
-}
-
-- (BOOL) wiFiBlockManualConfiguration
-{
-    _wiFiBlockManualConfiguration = [self.dictionary[@"wiFiBlockManualConfiguration"] boolValue];
-    return _wiFiBlockManualConfiguration;
-}
-
-- (void) setWiFiBlockManualConfiguration: (BOOL) val
-{
-    _wiFiBlockManualConfiguration = val;
-    self.dictionary[@"wiFiBlockManualConfiguration"] = @(val);
-}
-
-- (int32_t) wiFiScanInterval
-{
-    _wiFiScanInterval = [self.dictionary[@"wiFiScanInterval"] intValue];
-    return _wiFiScanInterval;
-}
-
-- (void) setWiFiScanInterval: (int32_t) val
-{
-    _wiFiScanInterval = val;
-    self.dictionary[@"wiFiScanInterval"] = @(val);
+    _windowsStoreEnablePrivateStoreOnly = val;
+    self.dictionary[@"windowsStoreEnablePrivateStoreOnly"] = @(val);
 }
 
 - (BOOL) wirelessDisplayBlockProjectionToThisDevice
@@ -2547,190 +2731,6 @@
 {
     _wirelessDisplayRequirePinForPairing = val;
     self.dictionary[@"wirelessDisplayRequirePinForPairing"] = @(val);
-}
-
-- (BOOL) windowsStoreBlocked
-{
-    _windowsStoreBlocked = [self.dictionary[@"windowsStoreBlocked"] boolValue];
-    return _windowsStoreBlocked;
-}
-
-- (void) setWindowsStoreBlocked: (BOOL) val
-{
-    _windowsStoreBlocked = val;
-    self.dictionary[@"windowsStoreBlocked"] = @(val);
-}
-
-- (MSGraphStateManagementSetting*) appsAllowTrustedAppsSideloading
-{
-    if(!_appsAllowTrustedAppsSideloading){
-        _appsAllowTrustedAppsSideloading = [self.dictionary[@"appsAllowTrustedAppsSideloading"] toMSGraphStateManagementSetting];
-    }
-    return _appsAllowTrustedAppsSideloading;
-}
-
-- (void) setAppsAllowTrustedAppsSideloading: (MSGraphStateManagementSetting*) val
-{
-    _appsAllowTrustedAppsSideloading = val;
-    self.dictionary[@"appsAllowTrustedAppsSideloading"] = val;
-}
-
-- (BOOL) windowsStoreBlockAutoUpdate
-{
-    _windowsStoreBlockAutoUpdate = [self.dictionary[@"windowsStoreBlockAutoUpdate"] boolValue];
-    return _windowsStoreBlockAutoUpdate;
-}
-
-- (void) setWindowsStoreBlockAutoUpdate: (BOOL) val
-{
-    _windowsStoreBlockAutoUpdate = val;
-    self.dictionary[@"windowsStoreBlockAutoUpdate"] = @(val);
-}
-
-- (MSGraphStateManagementSetting*) developerUnlockSetting
-{
-    if(!_developerUnlockSetting){
-        _developerUnlockSetting = [self.dictionary[@"developerUnlockSetting"] toMSGraphStateManagementSetting];
-    }
-    return _developerUnlockSetting;
-}
-
-- (void) setDeveloperUnlockSetting: (MSGraphStateManagementSetting*) val
-{
-    _developerUnlockSetting = val;
-    self.dictionary[@"developerUnlockSetting"] = val;
-}
-
-- (BOOL) sharedUserAppDataAllowed
-{
-    _sharedUserAppDataAllowed = [self.dictionary[@"sharedUserAppDataAllowed"] boolValue];
-    return _sharedUserAppDataAllowed;
-}
-
-- (void) setSharedUserAppDataAllowed: (BOOL) val
-{
-    _sharedUserAppDataAllowed = val;
-    self.dictionary[@"sharedUserAppDataAllowed"] = @(val);
-}
-
-- (BOOL) appsBlockWindowsStoreOriginatedApps
-{
-    _appsBlockWindowsStoreOriginatedApps = [self.dictionary[@"appsBlockWindowsStoreOriginatedApps"] boolValue];
-    return _appsBlockWindowsStoreOriginatedApps;
-}
-
-- (void) setAppsBlockWindowsStoreOriginatedApps: (BOOL) val
-{
-    _appsBlockWindowsStoreOriginatedApps = val;
-    self.dictionary[@"appsBlockWindowsStoreOriginatedApps"] = @(val);
-}
-
-- (BOOL) windowsStoreEnablePrivateStoreOnly
-{
-    _windowsStoreEnablePrivateStoreOnly = [self.dictionary[@"windowsStoreEnablePrivateStoreOnly"] boolValue];
-    return _windowsStoreEnablePrivateStoreOnly;
-}
-
-- (void) setWindowsStoreEnablePrivateStoreOnly: (BOOL) val
-{
-    _windowsStoreEnablePrivateStoreOnly = val;
-    self.dictionary[@"windowsStoreEnablePrivateStoreOnly"] = @(val);
-}
-
-- (BOOL) storageRestrictAppDataToSystemVolume
-{
-    _storageRestrictAppDataToSystemVolume = [self.dictionary[@"storageRestrictAppDataToSystemVolume"] boolValue];
-    return _storageRestrictAppDataToSystemVolume;
-}
-
-- (void) setStorageRestrictAppDataToSystemVolume: (BOOL) val
-{
-    _storageRestrictAppDataToSystemVolume = val;
-    self.dictionary[@"storageRestrictAppDataToSystemVolume"] = @(val);
-}
-
-- (BOOL) storageRestrictAppInstallToSystemVolume
-{
-    _storageRestrictAppInstallToSystemVolume = [self.dictionary[@"storageRestrictAppInstallToSystemVolume"] boolValue];
-    return _storageRestrictAppInstallToSystemVolume;
-}
-
-- (void) setStorageRestrictAppInstallToSystemVolume: (BOOL) val
-{
-    _storageRestrictAppInstallToSystemVolume = val;
-    self.dictionary[@"storageRestrictAppInstallToSystemVolume"] = @(val);
-}
-
-- (BOOL) gameDvrBlocked
-{
-    _gameDvrBlocked = [self.dictionary[@"gameDvrBlocked"] boolValue];
-    return _gameDvrBlocked;
-}
-
-- (void) setGameDvrBlocked: (BOOL) val
-{
-    _gameDvrBlocked = val;
-    self.dictionary[@"gameDvrBlocked"] = @(val);
-}
-
-- (BOOL) experienceBlockDeviceDiscovery
-{
-    _experienceBlockDeviceDiscovery = [self.dictionary[@"experienceBlockDeviceDiscovery"] boolValue];
-    return _experienceBlockDeviceDiscovery;
-}
-
-- (void) setExperienceBlockDeviceDiscovery: (BOOL) val
-{
-    _experienceBlockDeviceDiscovery = val;
-    self.dictionary[@"experienceBlockDeviceDiscovery"] = @(val);
-}
-
-- (BOOL) experienceBlockErrorDialogWhenNoSIM
-{
-    _experienceBlockErrorDialogWhenNoSIM = [self.dictionary[@"experienceBlockErrorDialogWhenNoSIM"] boolValue];
-    return _experienceBlockErrorDialogWhenNoSIM;
-}
-
-- (void) setExperienceBlockErrorDialogWhenNoSIM: (BOOL) val
-{
-    _experienceBlockErrorDialogWhenNoSIM = val;
-    self.dictionary[@"experienceBlockErrorDialogWhenNoSIM"] = @(val);
-}
-
-- (BOOL) experienceBlockTaskSwitcher
-{
-    _experienceBlockTaskSwitcher = [self.dictionary[@"experienceBlockTaskSwitcher"] boolValue];
-    return _experienceBlockTaskSwitcher;
-}
-
-- (void) setExperienceBlockTaskSwitcher: (BOOL) val
-{
-    _experienceBlockTaskSwitcher = val;
-    self.dictionary[@"experienceBlockTaskSwitcher"] = @(val);
-}
-
-- (BOOL) logonBlockFastUserSwitching
-{
-    _logonBlockFastUserSwitching = [self.dictionary[@"logonBlockFastUserSwitching"] boolValue];
-    return _logonBlockFastUserSwitching;
-}
-
-- (void) setLogonBlockFastUserSwitching: (BOOL) val
-{
-    _logonBlockFastUserSwitching = val;
-    self.dictionary[@"logonBlockFastUserSwitching"] = @(val);
-}
-
-- (BOOL) tenantLockdownRequireNetworkDuringOutOfBoxExperience
-{
-    _tenantLockdownRequireNetworkDuringOutOfBoxExperience = [self.dictionary[@"tenantLockdownRequireNetworkDuringOutOfBoxExperience"] boolValue];
-    return _tenantLockdownRequireNetworkDuringOutOfBoxExperience;
-}
-
-- (void) setTenantLockdownRequireNetworkDuringOutOfBoxExperience: (BOOL) val
-{
-    _tenantLockdownRequireNetworkDuringOutOfBoxExperience = val;
-    self.dictionary[@"tenantLockdownRequireNetworkDuringOutOfBoxExperience"] = @(val);
 }
 
 

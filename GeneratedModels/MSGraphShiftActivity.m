@@ -14,56 +14,16 @@
 
 @interface MSGraphShiftActivity()
 {
-    BOOL _isPaid;
-    NSDate* _startDateTime;
-    NSDate* _endDateTime;
     NSString* _code;
     NSString* _displayName;
+    NSDate* _endDateTime;
+    BOOL _isPaid;
+    NSDate* _startDateTime;
     MSGraphScheduleEntityTheme* _theme;
 }
 @end
 
 @implementation MSGraphShiftActivity
-
-- (BOOL) isPaid
-{
-    _isPaid = [self.dictionary[@"isPaid"] boolValue];
-    return _isPaid;
-}
-
-- (void) setIsPaid: (BOOL) val
-{
-    _isPaid = val;
-    self.dictionary[@"isPaid"] = @(val);
-}
-
-- (NSDate*) startDateTime
-{
-    if(!_startDateTime){
-        _startDateTime = [NSDate ms_dateFromString: self.dictionary[@"startDateTime"]];
-    }
-    return _startDateTime;
-}
-
-- (void) setStartDateTime: (NSDate*) val
-{
-    _startDateTime = val;
-    self.dictionary[@"startDateTime"] = [val ms_toString];
-}
-
-- (NSDate*) endDateTime
-{
-    if(!_endDateTime){
-        _endDateTime = [NSDate ms_dateFromString: self.dictionary[@"endDateTime"]];
-    }
-    return _endDateTime;
-}
-
-- (void) setEndDateTime: (NSDate*) val
-{
-    _endDateTime = val;
-    self.dictionary[@"endDateTime"] = [val ms_toString];
-}
 
 - (NSString*) code
 {
@@ -91,6 +51,46 @@
 - (void) setDisplayName: (NSString*) val
 {
     self.dictionary[@"displayName"] = val;
+}
+
+- (NSDate*) endDateTime
+{
+    if(!_endDateTime){
+        _endDateTime = [NSDate ms_dateFromString: self.dictionary[@"endDateTime"]];
+    }
+    return _endDateTime;
+}
+
+- (void) setEndDateTime: (NSDate*) val
+{
+    _endDateTime = val;
+    self.dictionary[@"endDateTime"] = [val ms_toString];
+}
+
+- (BOOL) isPaid
+{
+    _isPaid = [self.dictionary[@"isPaid"] boolValue];
+    return _isPaid;
+}
+
+- (void) setIsPaid: (BOOL) val
+{
+    _isPaid = val;
+    self.dictionary[@"isPaid"] = @(val);
+}
+
+- (NSDate*) startDateTime
+{
+    if(!_startDateTime){
+        _startDateTime = [NSDate ms_dateFromString: self.dictionary[@"startDateTime"]];
+    }
+    return _startDateTime;
+}
+
+- (void) setStartDateTime: (NSDate*) val
+{
+    _startDateTime = val;
+    self.dictionary[@"startDateTime"] = [val ms_toString];
 }
 
 - (MSGraphScheduleEntityTheme*) theme

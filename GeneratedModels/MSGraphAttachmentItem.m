@@ -15,10 +15,10 @@
 @interface MSGraphAttachmentItem()
 {
     MSGraphAttachmentType* _attachmentType;
-    NSString* _name;
-    int64_t _size;
     NSString* _contentType;
     BOOL _isInline;
+    NSString* _name;
+    int64_t _size;
 }
 @end
 
@@ -36,32 +36,6 @@
 {
     _attachmentType = val;
     self.dictionary[@"attachmentType"] = val;
-}
-
-- (NSString*) name
-{
-    if([[NSNull null] isEqual:self.dictionary[@"name"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"name"];
-}
-
-- (void) setName: (NSString*) val
-{
-    self.dictionary[@"name"] = val;
-}
-
-- (int64_t) size
-{
-    _size = [self.dictionary[@"size"] longLongValue];
-    return _size;
-}
-
-- (void) setSize: (int64_t) val
-{
-    _size = val;
-    self.dictionary[@"size"] = @(val);
 }
 
 - (NSString*) contentType
@@ -88,6 +62,32 @@
 {
     _isInline = val;
     self.dictionary[@"isInline"] = @(val);
+}
+
+- (NSString*) name
+{
+    if([[NSNull null] isEqual:self.dictionary[@"name"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"name"];
+}
+
+- (void) setName: (NSString*) val
+{
+    self.dictionary[@"name"] = val;
+}
+
+- (int64_t) size
+{
+    _size = [self.dictionary[@"size"] longLongValue];
+    return _size;
+}
+
+- (void) setSize: (int64_t) val
+{
+    _size = val;
+    self.dictionary[@"size"] = @(val);
 }
 
 @end

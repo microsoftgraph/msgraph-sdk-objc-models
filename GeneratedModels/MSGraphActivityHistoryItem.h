@@ -9,13 +9,13 @@
 
 @interface MSGraphActivityHistoryItem : MSGraphEntity
 
-  @property (nullable, nonatomic, setter=setStatus:, getter=status) MSGraphStatus* status;
-    @property (nonatomic, setter=setActiveDurationSeconds:, getter=activeDurationSeconds) int32_t activeDurationSeconds;
+  @property (nonatomic, setter=setActiveDurationSeconds:, getter=activeDurationSeconds) int32_t activeDurationSeconds;
     @property (nullable, nonatomic, setter=setCreatedDateTime:, getter=createdDateTime) NSDate* createdDateTime;
+    @property (nullable, nonatomic, setter=setExpirationDateTime:, getter=expirationDateTime) NSDate* expirationDateTime;
     @property (nullable, nonatomic, setter=setLastActiveDateTime:, getter=lastActiveDateTime) NSDate* lastActiveDateTime;
     @property (nullable, nonatomic, setter=setLastModifiedDateTime:, getter=lastModifiedDateTime) NSDate* lastModifiedDateTime;
-    @property (nullable, nonatomic, setter=setExpirationDateTime:, getter=expirationDateTime) NSDate* expirationDateTime;
     @property (nonnull, nonatomic, setter=setStartedDateTime:, getter=startedDateTime) NSDate* startedDateTime;
+    @property (nullable, nonatomic, setter=setStatus:, getter=status) MSGraphStatus* status;
     @property (nullable, nonatomic, setter=setUserTimezone:, getter=userTimezone) NSString* userTimezone;
     @property (nonnull, nonatomic, setter=setActivity:, getter=activity) MSGraphUserActivity* activity;
   

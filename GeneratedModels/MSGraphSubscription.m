@@ -14,14 +14,14 @@
 
 @interface MSGraphSubscription()
 {
-    NSString* _resource;
+    NSString* _applicationId;
     NSString* _changeType;
     NSString* _clientState;
-    NSString* _notificationUrl;
-    NSDate* _expirationDateTime;
-    NSString* _applicationId;
     NSString* _creatorId;
+    NSDate* _expirationDateTime;
     NSString* _latestSupportedTlsVersion;
+    NSString* _notificationUrl;
+    NSString* _resource;
 }
 @end
 
@@ -34,14 +34,18 @@
     }
     return self;
 }
-- (NSString*) resource
+- (NSString*) applicationId
 {
-    return self.dictionary[@"resource"];
+    if([[NSNull null] isEqual:self.dictionary[@"applicationId"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"applicationId"];
 }
 
-- (void) setResource: (NSString*) val
+- (void) setApplicationId: (NSString*) val
 {
-    self.dictionary[@"resource"] = val;
+    self.dictionary[@"applicationId"] = val;
 }
 
 - (NSString*) changeType
@@ -68,14 +72,18 @@
     self.dictionary[@"clientState"] = val;
 }
 
-- (NSString*) notificationUrl
+- (NSString*) creatorId
 {
-    return self.dictionary[@"notificationUrl"];
+    if([[NSNull null] isEqual:self.dictionary[@"creatorId"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"creatorId"];
 }
 
-- (void) setNotificationUrl: (NSString*) val
+- (void) setCreatorId: (NSString*) val
 {
-    self.dictionary[@"notificationUrl"] = val;
+    self.dictionary[@"creatorId"] = val;
 }
 
 - (NSDate*) expirationDateTime
@@ -92,34 +100,6 @@
     self.dictionary[@"expirationDateTime"] = [val ms_toString];
 }
 
-- (NSString*) applicationId
-{
-    if([[NSNull null] isEqual:self.dictionary[@"applicationId"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"applicationId"];
-}
-
-- (void) setApplicationId: (NSString*) val
-{
-    self.dictionary[@"applicationId"] = val;
-}
-
-- (NSString*) creatorId
-{
-    if([[NSNull null] isEqual:self.dictionary[@"creatorId"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"creatorId"];
-}
-
-- (void) setCreatorId: (NSString*) val
-{
-    self.dictionary[@"creatorId"] = val;
-}
-
 - (NSString*) latestSupportedTlsVersion
 {
     if([[NSNull null] isEqual:self.dictionary[@"latestSupportedTlsVersion"]])
@@ -132,6 +112,26 @@
 - (void) setLatestSupportedTlsVersion: (NSString*) val
 {
     self.dictionary[@"latestSupportedTlsVersion"] = val;
+}
+
+- (NSString*) notificationUrl
+{
+    return self.dictionary[@"notificationUrl"];
+}
+
+- (void) setNotificationUrl: (NSString*) val
+{
+    self.dictionary[@"notificationUrl"] = val;
+}
+
+- (NSString*) resource
+{
+    return self.dictionary[@"resource"];
+}
+
+- (void) setResource: (NSString*) val
+{
+    self.dictionary[@"resource"] = val;
 }
 
 

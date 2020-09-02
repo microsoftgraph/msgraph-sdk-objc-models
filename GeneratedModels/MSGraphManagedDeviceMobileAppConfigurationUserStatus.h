@@ -8,10 +8,10 @@
 
 @interface MSGraphManagedDeviceMobileAppConfigurationUserStatus : MSGraphEntity
 
-  @property (nullable, nonatomic, setter=setUserDisplayName:, getter=userDisplayName) NSString* userDisplayName;
-    @property (nonatomic, setter=setDevicesCount:, getter=devicesCount) int32_t devicesCount;
-    @property (nonnull, nonatomic, setter=setStatus:, getter=status) MSGraphComplianceStatus* status;
+  @property (nonatomic, setter=setDevicesCount:, getter=devicesCount) int32_t devicesCount;
     @property (nonnull, nonatomic, setter=setLastReportedDateTime:, getter=lastReportedDateTime) NSDate* lastReportedDateTime;
+    @property (nonnull, nonatomic, setter=setStatus:, getter=status) MSGraphComplianceStatus* status;
+    @property (nullable, nonatomic, setter=setUserDisplayName:, getter=userDisplayName) NSString* userDisplayName;
     @property (nullable, nonatomic, setter=setUserPrincipalName:, getter=userPrincipalName) NSString* userPrincipalName;
   
 @end

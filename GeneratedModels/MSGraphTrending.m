@@ -14,10 +14,10 @@
 
 @interface MSGraphTrending()
 {
-    double _weight;
-    MSGraphResourceVisualization* _resourceVisualization;
-    MSGraphResourceReference* _resourceReference;
     NSDate* _lastModifiedDateTime;
+    MSGraphResourceReference* _resourceReference;
+    MSGraphResourceVisualization* _resourceVisualization;
+    double _weight;
     MSGraphEntity* _resource;
 }
 @end
@@ -31,30 +31,18 @@
     }
     return self;
 }
-- (double) weight
+- (NSDate*) lastModifiedDateTime
 {
-    _weight = [self.dictionary[@"weight"] floatValue];
-    return _weight;
-}
-
-- (void) setWeight: (double) val
-{
-    _weight = val;
-    self.dictionary[@"weight"] = @(val);
-}
-
-- (MSGraphResourceVisualization*) resourceVisualization
-{
-    if(!_resourceVisualization){
-        _resourceVisualization = [[MSGraphResourceVisualization alloc] initWithDictionary: self.dictionary[@"resourceVisualization"]];
+    if(!_lastModifiedDateTime){
+        _lastModifiedDateTime = [NSDate ms_dateFromString: self.dictionary[@"lastModifiedDateTime"]];
     }
-    return _resourceVisualization;
+    return _lastModifiedDateTime;
 }
 
-- (void) setResourceVisualization: (MSGraphResourceVisualization*) val
+- (void) setLastModifiedDateTime: (NSDate*) val
 {
-    _resourceVisualization = val;
-    self.dictionary[@"resourceVisualization"] = val;
+    _lastModifiedDateTime = val;
+    self.dictionary[@"lastModifiedDateTime"] = [val ms_toString];
 }
 
 - (MSGraphResourceReference*) resourceReference
@@ -71,18 +59,30 @@
     self.dictionary[@"resourceReference"] = val;
 }
 
-- (NSDate*) lastModifiedDateTime
+- (MSGraphResourceVisualization*) resourceVisualization
 {
-    if(!_lastModifiedDateTime){
-        _lastModifiedDateTime = [NSDate ms_dateFromString: self.dictionary[@"lastModifiedDateTime"]];
+    if(!_resourceVisualization){
+        _resourceVisualization = [[MSGraphResourceVisualization alloc] initWithDictionary: self.dictionary[@"resourceVisualization"]];
     }
-    return _lastModifiedDateTime;
+    return _resourceVisualization;
 }
 
-- (void) setLastModifiedDateTime: (NSDate*) val
+- (void) setResourceVisualization: (MSGraphResourceVisualization*) val
 {
-    _lastModifiedDateTime = val;
-    self.dictionary[@"lastModifiedDateTime"] = [val ms_toString];
+    _resourceVisualization = val;
+    self.dictionary[@"resourceVisualization"] = val;
+}
+
+- (double) weight
+{
+    _weight = [self.dictionary[@"weight"] floatValue];
+    return _weight;
+}
+
+- (void) setWeight: (double) val
+{
+    _weight = val;
+    self.dictionary[@"weight"] = @(val);
 }
 
 - (MSGraphEntity*) resource

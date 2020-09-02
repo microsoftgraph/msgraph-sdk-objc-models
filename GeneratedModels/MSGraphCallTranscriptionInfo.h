@@ -9,7 +9,7 @@
 
 @interface MSGraphCallTranscriptionInfo : MSObject
 
-@property (nonnull, nonatomic, setter=setState:, getter=state) MSGraphCallTranscriptionState* state;
 @property (nullable, nonatomic, setter=setLastModifiedDateTime:, getter=lastModifiedDateTime) NSDate* lastModifiedDateTime;
+@property (nonnull, nonatomic, setter=setState:, getter=state) MSGraphCallTranscriptionState* state;
 
 @end

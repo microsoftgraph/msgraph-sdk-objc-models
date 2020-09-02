@@ -8,9 +8,9 @@
 
 @interface MSGraphManagedAndroidLobApp : MSGraphManagedMobileLobApp
 
-  @property (nullable, nonatomic, setter=setPackageId:, getter=packageId) NSString* packageId;
-    @property (nullable, nonatomic, setter=setMinimumSupportedOperatingSystem:, getter=minimumSupportedOperatingSystem) MSGraphAndroidMinimumOperatingSystem* minimumSupportedOperatingSystem;
-    @property (nullable, nonatomic, setter=setVersionName:, getter=versionName) NSString* versionName;
+  @property (nullable, nonatomic, setter=setMinimumSupportedOperatingSystem:, getter=minimumSupportedOperatingSystem) MSGraphAndroidMinimumOperatingSystem* minimumSupportedOperatingSystem;
+    @property (nullable, nonatomic, setter=setPackageId:, getter=packageId) NSString* packageId;
     @property (nullable, nonatomic, setter=setVersionCode:, getter=versionCode) NSString* versionCode;
+    @property (nullable, nonatomic, setter=setVersionName:, getter=versionName) NSString* versionName;
   
 @end

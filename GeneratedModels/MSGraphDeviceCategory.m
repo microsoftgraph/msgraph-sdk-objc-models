@@ -14,8 +14,8 @@
 
 @interface MSGraphDeviceCategory()
 {
-    NSString* _displayName;
     NSString* _deviceCategoryDescription;
+    NSString* _displayName;
 }
 @end
 
@@ -28,20 +28,6 @@
     }
     return self;
 }
-- (NSString*) displayName
-{
-    if([[NSNull null] isEqual:self.dictionary[@"displayName"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"displayName"];
-}
-
-- (void) setDisplayName: (NSString*) val
-{
-    self.dictionary[@"displayName"] = val;
-}
-
 - (NSString*) deviceCategoryDescription
 {
     if([[NSNull null] isEqual:self.dictionary[@"description"]])
@@ -54,6 +40,20 @@
 - (void) setDeviceCategoryDescription: (NSString*) val
 {
     self.dictionary[@"description"] = val;
+}
+
+- (NSString*) displayName
+{
+    if([[NSNull null] isEqual:self.dictionary[@"displayName"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"displayName"];
+}
+
+- (void) setDisplayName: (NSString*) val
+{
+    self.dictionary[@"displayName"] = val;
 }
 
 

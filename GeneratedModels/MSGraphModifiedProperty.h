@@ -9,7 +9,7 @@
 @interface MSGraphModifiedProperty : MSObject
 
 @property (nullable, nonatomic, setter=setDisplayName:, getter=displayName) NSString* displayName;
-@property (nullable, nonatomic, setter=setOldValue:, getter=oldValue) NSString* oldValue;
 @property (nullable, nonatomic, setter=setNewValue:, getter=getNewValue) NSString* newValue;
+@property (nullable, nonatomic, setter=setOldValue:, getter=oldValue) NSString* oldValue;
 
 @end

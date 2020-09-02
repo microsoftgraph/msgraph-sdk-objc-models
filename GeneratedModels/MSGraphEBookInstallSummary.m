@@ -14,11 +14,11 @@
 
 @interface MSGraphEBookInstallSummary()
 {
-    int32_t _installedDeviceCount;
     int32_t _failedDeviceCount;
-    int32_t _notInstalledDeviceCount;
-    int32_t _installedUserCount;
     int32_t _failedUserCount;
+    int32_t _installedDeviceCount;
+    int32_t _installedUserCount;
+    int32_t _notInstalledDeviceCount;
     int32_t _notInstalledUserCount;
 }
 @end
@@ -32,18 +32,6 @@
     }
     return self;
 }
-- (int32_t) installedDeviceCount
-{
-    _installedDeviceCount = [self.dictionary[@"installedDeviceCount"] intValue];
-    return _installedDeviceCount;
-}
-
-- (void) setInstalledDeviceCount: (int32_t) val
-{
-    _installedDeviceCount = val;
-    self.dictionary[@"installedDeviceCount"] = @(val);
-}
-
 - (int32_t) failedDeviceCount
 {
     _failedDeviceCount = [self.dictionary[@"failedDeviceCount"] intValue];
@@ -56,16 +44,28 @@
     self.dictionary[@"failedDeviceCount"] = @(val);
 }
 
-- (int32_t) notInstalledDeviceCount
+- (int32_t) failedUserCount
 {
-    _notInstalledDeviceCount = [self.dictionary[@"notInstalledDeviceCount"] intValue];
-    return _notInstalledDeviceCount;
+    _failedUserCount = [self.dictionary[@"failedUserCount"] intValue];
+    return _failedUserCount;
 }
 
-- (void) setNotInstalledDeviceCount: (int32_t) val
+- (void) setFailedUserCount: (int32_t) val
 {
-    _notInstalledDeviceCount = val;
-    self.dictionary[@"notInstalledDeviceCount"] = @(val);
+    _failedUserCount = val;
+    self.dictionary[@"failedUserCount"] = @(val);
+}
+
+- (int32_t) installedDeviceCount
+{
+    _installedDeviceCount = [self.dictionary[@"installedDeviceCount"] intValue];
+    return _installedDeviceCount;
+}
+
+- (void) setInstalledDeviceCount: (int32_t) val
+{
+    _installedDeviceCount = val;
+    self.dictionary[@"installedDeviceCount"] = @(val);
 }
 
 - (int32_t) installedUserCount
@@ -80,16 +80,16 @@
     self.dictionary[@"installedUserCount"] = @(val);
 }
 
-- (int32_t) failedUserCount
+- (int32_t) notInstalledDeviceCount
 {
-    _failedUserCount = [self.dictionary[@"failedUserCount"] intValue];
-    return _failedUserCount;
+    _notInstalledDeviceCount = [self.dictionary[@"notInstalledDeviceCount"] intValue];
+    return _notInstalledDeviceCount;
 }
 
-- (void) setFailedUserCount: (int32_t) val
+- (void) setNotInstalledDeviceCount: (int32_t) val
 {
-    _failedUserCount = val;
-    self.dictionary[@"failedUserCount"] = @(val);
+    _notInstalledDeviceCount = val;
+    self.dictionary[@"notInstalledDeviceCount"] = @(val);
 }
 
 - (int32_t) notInstalledUserCount

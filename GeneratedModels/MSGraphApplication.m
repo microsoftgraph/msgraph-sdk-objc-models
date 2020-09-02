@@ -19,33 +19,33 @@
     NSString* _appId;
     NSString* _applicationTemplateId;
     NSArray* _appRoles;
-    BOOL _isFallbackPublicClient;
-    NSArray* _identifierUris;
     NSDate* _createdDateTime;
     NSString* _applicationDescription;
-    MSGraphPublicClientApplication* _publicClient;
     NSString* _displayName;
     NSString* _groupMembershipClaims;
+    NSArray* _identifierUris;
     MSGraphInformationalUrl* _info;
     BOOL _isDeviceOnlyAuthSupported;
+    BOOL _isFallbackPublicClient;
     NSArray* _keyCredentials;
     NSString* _notes;
     BOOL _oauth2RequirePostResponse;
     MSGraphOptionalClaims* _optionalClaims;
     MSGraphParentalControlSettings* _parentalControlSettings;
     NSArray* _passwordCredentials;
+    MSGraphPublicClientApplication* _publicClient;
     NSString* _publisherDomain;
     NSArray* _requiredResourceAccess;
     NSString* _signInAudience;
     NSArray* _tags;
     NSString* _tokenEncryptionKeyId;
     MSGraphWebApplication* _web;
-    NSArray* _extensionProperties;
     MSGraphDirectoryObject* _createdOnBehalfOf;
+    NSArray* _extensionProperties;
     NSArray* _homeRealmDiscoveryPolicies;
     NSArray* _owners;
-    NSArray* _tokenLifetimePolicies;
     NSArray* _tokenIssuancePolicies;
+    NSArray* _tokenLifetimePolicies;
 }
 @end
 
@@ -150,28 +150,6 @@
     self.dictionary[@"appRoles"] = val;
 }
 
-- (BOOL) isFallbackPublicClient
-{
-    _isFallbackPublicClient = [self.dictionary[@"isFallbackPublicClient"] boolValue];
-    return _isFallbackPublicClient;
-}
-
-- (void) setIsFallbackPublicClient: (BOOL) val
-{
-    _isFallbackPublicClient = val;
-    self.dictionary[@"isFallbackPublicClient"] = @(val);
-}
-
-- (NSArray*) identifierUris
-{
-    return self.dictionary[@"identifierUris"];
-}
-
-- (void) setIdentifierUris: (NSArray*) val
-{
-    self.dictionary[@"identifierUris"] = val;
-}
-
 - (NSDate*) createdDateTime
 {
     if(!_createdDateTime){
@@ -198,20 +176,6 @@
 - (void) setApplicationDescription: (NSString*) val
 {
     self.dictionary[@"description"] = val;
-}
-
-- (MSGraphPublicClientApplication*) publicClient
-{
-    if(!_publicClient){
-        _publicClient = [[MSGraphPublicClientApplication alloc] initWithDictionary: self.dictionary[@"publicClient"]];
-    }
-    return _publicClient;
-}
-
-- (void) setPublicClient: (MSGraphPublicClientApplication*) val
-{
-    _publicClient = val;
-    self.dictionary[@"publicClient"] = val;
 }
 
 - (NSString*) displayName
@@ -242,6 +206,16 @@
     self.dictionary[@"groupMembershipClaims"] = val;
 }
 
+- (NSArray*) identifierUris
+{
+    return self.dictionary[@"identifierUris"];
+}
+
+- (void) setIdentifierUris: (NSArray*) val
+{
+    self.dictionary[@"identifierUris"] = val;
+}
+
 - (MSGraphInformationalUrl*) info
 {
     if(!_info){
@@ -266,6 +240,18 @@
 {
     _isDeviceOnlyAuthSupported = val;
     self.dictionary[@"isDeviceOnlyAuthSupported"] = @(val);
+}
+
+- (BOOL) isFallbackPublicClient
+{
+    _isFallbackPublicClient = [self.dictionary[@"isFallbackPublicClient"] boolValue];
+    return _isFallbackPublicClient;
+}
+
+- (void) setIsFallbackPublicClient: (BOOL) val
+{
+    _isFallbackPublicClient = val;
+    self.dictionary[@"isFallbackPublicClient"] = @(val);
 }
 
 - (NSArray*) keyCredentials
@@ -372,6 +358,20 @@
     self.dictionary[@"passwordCredentials"] = val;
 }
 
+- (MSGraphPublicClientApplication*) publicClient
+{
+    if(!_publicClient){
+        _publicClient = [[MSGraphPublicClientApplication alloc] initWithDictionary: self.dictionary[@"publicClient"]];
+    }
+    return _publicClient;
+}
+
+- (void) setPublicClient: (MSGraphPublicClientApplication*) val
+{
+    _publicClient = val;
+    self.dictionary[@"publicClient"] = val;
+}
+
 - (NSString*) publisherDomain
 {
     if([[NSNull null] isEqual:self.dictionary[@"publisherDomain"]])
@@ -463,6 +463,20 @@
     self.dictionary[@"web"] = val;
 }
 
+- (MSGraphDirectoryObject*) createdOnBehalfOf
+{
+    if(!_createdOnBehalfOf){
+        _createdOnBehalfOf = [[MSGraphDirectoryObject alloc] initWithDictionary: self.dictionary[@"createdOnBehalfOf"]];
+    }
+    return _createdOnBehalfOf;
+}
+
+- (void) setCreatedOnBehalfOf: (MSGraphDirectoryObject*) val
+{
+    _createdOnBehalfOf = val;
+    self.dictionary[@"createdOnBehalfOf"] = val;
+}
+
 - (NSArray*) extensionProperties
 {
     if(!_extensionProperties){
@@ -486,20 +500,6 @@
 {
     _extensionProperties = val;
     self.dictionary[@"extensionProperties"] = val;
-}
-
-- (MSGraphDirectoryObject*) createdOnBehalfOf
-{
-    if(!_createdOnBehalfOf){
-        _createdOnBehalfOf = [[MSGraphDirectoryObject alloc] initWithDictionary: self.dictionary[@"createdOnBehalfOf"]];
-    }
-    return _createdOnBehalfOf;
-}
-
-- (void) setCreatedOnBehalfOf: (MSGraphDirectoryObject*) val
-{
-    _createdOnBehalfOf = val;
-    self.dictionary[@"createdOnBehalfOf"] = val;
 }
 
 - (NSArray*) homeRealmDiscoveryPolicies
@@ -552,31 +552,6 @@
     self.dictionary[@"owners"] = val;
 }
 
-- (NSArray*) tokenLifetimePolicies
-{
-    if(!_tokenLifetimePolicies){
-        
-    NSMutableArray *tokenLifetimePoliciesResult = [NSMutableArray array];
-    NSArray *tokenLifetimePolicies = self.dictionary[@"tokenLifetimePolicies"];
-
-    if ([tokenLifetimePolicies isKindOfClass:[NSArray class]]){
-        for (id tempTokenLifetimePolicy in tokenLifetimePolicies){
-            [tokenLifetimePoliciesResult addObject:tempTokenLifetimePolicy];
-        }
-    }
-
-    _tokenLifetimePolicies = tokenLifetimePoliciesResult;
-        
-    }
-    return _tokenLifetimePolicies;
-}
-
-- (void) setTokenLifetimePolicies: (NSArray*) val
-{
-    _tokenLifetimePolicies = val;
-    self.dictionary[@"tokenLifetimePolicies"] = val;
-}
-
 - (NSArray*) tokenIssuancePolicies
 {
     if(!_tokenIssuancePolicies){
@@ -600,6 +575,31 @@
 {
     _tokenIssuancePolicies = val;
     self.dictionary[@"tokenIssuancePolicies"] = val;
+}
+
+- (NSArray*) tokenLifetimePolicies
+{
+    if(!_tokenLifetimePolicies){
+        
+    NSMutableArray *tokenLifetimePoliciesResult = [NSMutableArray array];
+    NSArray *tokenLifetimePolicies = self.dictionary[@"tokenLifetimePolicies"];
+
+    if ([tokenLifetimePolicies isKindOfClass:[NSArray class]]){
+        for (id tempTokenLifetimePolicy in tokenLifetimePolicies){
+            [tokenLifetimePoliciesResult addObject:tempTokenLifetimePolicy];
+        }
+    }
+
+    _tokenLifetimePolicies = tokenLifetimePoliciesResult;
+        
+    }
+    return _tokenLifetimePolicies;
+}
+
+- (void) setTokenLifetimePolicies: (NSArray*) val
+{
+    _tokenLifetimePolicies = val;
+    self.dictionary[@"tokenLifetimePolicies"] = val;
 }
 
 

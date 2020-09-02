@@ -14,12 +14,12 @@
 
 @interface MSGraphDeviceConfigurationState()
 {
-    NSArray* _settingStates;
     NSString* _displayName;
-    int32_t _version;
     MSGraphPolicyPlatformType* _platformType;
-    MSGraphComplianceStatus* _state;
     int32_t _settingCount;
+    NSArray* _settingStates;
+    MSGraphComplianceStatus* _state;
+    int32_t _version;
 }
 @end
 
@@ -32,6 +32,46 @@
     }
     return self;
 }
+- (NSString*) displayName
+{
+    if([[NSNull null] isEqual:self.dictionary[@"displayName"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"displayName"];
+}
+
+- (void) setDisplayName: (NSString*) val
+{
+    self.dictionary[@"displayName"] = val;
+}
+
+- (MSGraphPolicyPlatformType*) platformType
+{
+    if(!_platformType){
+        _platformType = [self.dictionary[@"platformType"] toMSGraphPolicyPlatformType];
+    }
+    return _platformType;
+}
+
+- (void) setPlatformType: (MSGraphPolicyPlatformType*) val
+{
+    _platformType = val;
+    self.dictionary[@"platformType"] = val;
+}
+
+- (int32_t) settingCount
+{
+    _settingCount = [self.dictionary[@"settingCount"] intValue];
+    return _settingCount;
+}
+
+- (void) setSettingCount: (int32_t) val
+{
+    _settingCount = val;
+    self.dictionary[@"settingCount"] = @(val);
+}
+
 - (NSArray*) settingStates
 {
     if(!_settingStates){
@@ -57,46 +97,6 @@
     self.dictionary[@"settingStates"] = val;
 }
 
-- (NSString*) displayName
-{
-    if([[NSNull null] isEqual:self.dictionary[@"displayName"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"displayName"];
-}
-
-- (void) setDisplayName: (NSString*) val
-{
-    self.dictionary[@"displayName"] = val;
-}
-
-- (int32_t) version
-{
-    _version = [self.dictionary[@"version"] intValue];
-    return _version;
-}
-
-- (void) setVersion: (int32_t) val
-{
-    _version = val;
-    self.dictionary[@"version"] = @(val);
-}
-
-- (MSGraphPolicyPlatformType*) platformType
-{
-    if(!_platformType){
-        _platformType = [self.dictionary[@"platformType"] toMSGraphPolicyPlatformType];
-    }
-    return _platformType;
-}
-
-- (void) setPlatformType: (MSGraphPolicyPlatformType*) val
-{
-    _platformType = val;
-    self.dictionary[@"platformType"] = val;
-}
-
 - (MSGraphComplianceStatus*) state
 {
     if(!_state){
@@ -111,16 +111,16 @@
     self.dictionary[@"state"] = val;
 }
 
-- (int32_t) settingCount
+- (int32_t) version
 {
-    _settingCount = [self.dictionary[@"settingCount"] intValue];
-    return _settingCount;
+    _version = [self.dictionary[@"version"] intValue];
+    return _version;
 }
 
-- (void) setSettingCount: (int32_t) val
+- (void) setVersion: (int32_t) val
 {
-    _settingCount = val;
-    self.dictionary[@"settingCount"] = @(val);
+    _version = val;
+    self.dictionary[@"version"] = @(val);
 }
 
 

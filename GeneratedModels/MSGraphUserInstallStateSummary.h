@@ -8,10 +8,10 @@
 
 @interface MSGraphUserInstallStateSummary : MSGraphEntity
 
-  @property (nullable, nonatomic, setter=setUserName:, getter=userName) NSString* userName;
+  @property (nonatomic, setter=setFailedDeviceCount:, getter=failedDeviceCount) int32_t failedDeviceCount;
     @property (nonatomic, setter=setInstalledDeviceCount:, getter=installedDeviceCount) int32_t installedDeviceCount;
-    @property (nonatomic, setter=setFailedDeviceCount:, getter=failedDeviceCount) int32_t failedDeviceCount;
     @property (nonatomic, setter=setNotInstalledDeviceCount:, getter=notInstalledDeviceCount) int32_t notInstalledDeviceCount;
+    @property (nullable, nonatomic, setter=setUserName:, getter=userName) NSString* userName;
     @property (nullable, nonatomic, setter=setDeviceStates:, getter=deviceStates) NSArray* deviceStates;
   
 @end

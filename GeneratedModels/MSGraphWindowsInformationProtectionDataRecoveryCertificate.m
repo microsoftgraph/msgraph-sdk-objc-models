@@ -14,27 +14,27 @@
 
 @interface MSGraphWindowsInformationProtectionDataRecoveryCertificate()
 {
-    NSString* _subjectName;
+    NSString* _certificate;
     NSString* _windowsInformationProtectionDataRecoveryCertificateDescription;
     NSDate* _expirationDateTime;
-    NSString* _certificate;
+    NSString* _subjectName;
 }
 @end
 
 @implementation MSGraphWindowsInformationProtectionDataRecoveryCertificate
 
-- (NSString*) subjectName
+- (NSString*) certificate
 {
-    if([[NSNull null] isEqual:self.dictionary[@"subjectName"]])
+    if([[NSNull null] isEqual:self.dictionary[@"certificate"]])
     {
         return nil;
     }   
-    return self.dictionary[@"subjectName"];
+    return self.dictionary[@"certificate"];
 }
 
-- (void) setSubjectName: (NSString*) val
+- (void) setCertificate: (NSString*) val
 {
-    self.dictionary[@"subjectName"] = val;
+    self.dictionary[@"certificate"] = val;
 }
 
 - (NSString*) windowsInformationProtectionDataRecoveryCertificateDescription
@@ -65,18 +65,18 @@
     self.dictionary[@"expirationDateTime"] = [val ms_toString];
 }
 
-- (NSString*) certificate
+- (NSString*) subjectName
 {
-    if([[NSNull null] isEqual:self.dictionary[@"certificate"]])
+    if([[NSNull null] isEqual:self.dictionary[@"subjectName"]])
     {
         return nil;
     }   
-    return self.dictionary[@"certificate"];
+    return self.dictionary[@"subjectName"];
 }
 
-- (void) setCertificate: (NSString*) val
+- (void) setSubjectName: (NSString*) val
 {
-    self.dictionary[@"certificate"] = val;
+    self.dictionary[@"subjectName"] = val;
 }
 
 @end

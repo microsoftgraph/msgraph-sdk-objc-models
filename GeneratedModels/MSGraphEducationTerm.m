@@ -14,14 +14,42 @@
 
 @interface MSGraphEducationTerm()
 {
+    NSString* _displayName;
+    MSDate* _endDate;
     NSString* _externalId;
     MSDate* _startDate;
-    MSDate* _endDate;
-    NSString* _displayName;
 }
 @end
 
 @implementation MSGraphEducationTerm
+
+- (NSString*) displayName
+{
+    if([[NSNull null] isEqual:self.dictionary[@"displayName"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"displayName"];
+}
+
+- (void) setDisplayName: (NSString*) val
+{
+    self.dictionary[@"displayName"] = val;
+}
+
+- (MSDate*) endDate
+{
+    if(!_endDate){
+        _endDate = [MSDate ms_dateFromString: self.dictionary[@"endDate"]];
+    }
+    return _endDate;
+}
+
+- (void) setEndDate: (MSDate*) val
+{
+    _endDate = val;
+    self.dictionary[@"endDate"] = [val ms_toString];
+}
 
 - (NSString*) externalId
 {
@@ -49,34 +77,6 @@
 {
     _startDate = val;
     self.dictionary[@"startDate"] = [val ms_toString];
-}
-
-- (MSDate*) endDate
-{
-    if(!_endDate){
-        _endDate = [MSDate ms_dateFromString: self.dictionary[@"endDate"]];
-    }
-    return _endDate;
-}
-
-- (void) setEndDate: (MSDate*) val
-{
-    _endDate = val;
-    self.dictionary[@"endDate"] = [val ms_toString];
-}
-
-- (NSString*) displayName
-{
-    if([[NSNull null] isEqual:self.dictionary[@"displayName"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"displayName"];
-}
-
-- (void) setDisplayName: (NSString*) val
-{
-    self.dictionary[@"displayName"] = val;
 }
 
 @end

@@ -23,8 +23,8 @@
     NSDictionary* _numberFormat;
     int32_t _rowCount;
     NSDictionary* _text;
-    NSDictionary* _valueTypes;
     NSDictionary* _values;
+    NSDictionary* _valueTypes;
     NSArray* _rows;
 }
 @end
@@ -158,20 +158,6 @@
     self.dictionary[@"text"] = val;
 }
 
-- (NSDictionary*) valueTypes
-{
-    if(!_valueTypes){
-        _valueTypes = [[NSDictionary alloc] initWithDictionary: self.dictionary[@"valueTypes"]];
-    }
-    return _valueTypes;
-}
-
-- (void) setValueTypes: (NSDictionary*) val
-{
-    _valueTypes = val;
-    self.dictionary[@"valueTypes"] = val;
-}
-
 - (NSDictionary*) values
 {
     if(!_values){
@@ -184,6 +170,20 @@
 {
     _values = val;
     self.dictionary[@"values"] = val;
+}
+
+- (NSDictionary*) valueTypes
+{
+    if(!_valueTypes){
+        _valueTypes = [[NSDictionary alloc] initWithDictionary: self.dictionary[@"valueTypes"]];
+    }
+    return _valueTypes;
+}
+
+- (void) setValueTypes: (NSDictionary*) val
+{
+    _valueTypes = val;
+    self.dictionary[@"valueTypes"] = val;
 }
 
 - (NSArray*) rows

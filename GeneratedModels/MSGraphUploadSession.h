@@ -8,8 +8,8 @@
 
 @interface MSGraphUploadSession : MSObject
 
-@property (nullable, nonatomic, setter=setUploadUrl:, getter=uploadUrl) NSString* uploadUrl;
 @property (nullable, nonatomic, setter=setExpirationDateTime:, getter=expirationDateTime) NSDate* expirationDateTime;
 @property (nullable, nonatomic, setter=setNextExpectedRanges:, getter=nextExpectedRanges) NSArray* nextExpectedRanges;
+@property (nullable, nonatomic, setter=setUploadUrl:, getter=uploadUrl) NSString* uploadUrl;
 
 @end

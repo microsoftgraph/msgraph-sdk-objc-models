@@ -14,26 +14,26 @@
 
 @interface MSGraphManagedAppDiagnosticStatus()
 {
-    NSString* _validationName;
-    NSString* _state;
     NSString* _mitigationInstruction;
+    NSString* _state;
+    NSString* _validationName;
 }
 @end
 
 @implementation MSGraphManagedAppDiagnosticStatus
 
-- (NSString*) validationName
+- (NSString*) mitigationInstruction
 {
-    if([[NSNull null] isEqual:self.dictionary[@"validationName"]])
+    if([[NSNull null] isEqual:self.dictionary[@"mitigationInstruction"]])
     {
         return nil;
     }   
-    return self.dictionary[@"validationName"];
+    return self.dictionary[@"mitigationInstruction"];
 }
 
-- (void) setValidationName: (NSString*) val
+- (void) setMitigationInstruction: (NSString*) val
 {
-    self.dictionary[@"validationName"] = val;
+    self.dictionary[@"mitigationInstruction"] = val;
 }
 
 - (NSString*) state
@@ -50,18 +50,18 @@
     self.dictionary[@"state"] = val;
 }
 
-- (NSString*) mitigationInstruction
+- (NSString*) validationName
 {
-    if([[NSNull null] isEqual:self.dictionary[@"mitigationInstruction"]])
+    if([[NSNull null] isEqual:self.dictionary[@"validationName"]])
     {
         return nil;
     }   
-    return self.dictionary[@"mitigationInstruction"];
+    return self.dictionary[@"validationName"];
 }
 
-- (void) setMitigationInstruction: (NSString*) val
+- (void) setValidationName: (NSString*) val
 {
-    self.dictionary[@"mitigationInstruction"] = val;
+    self.dictionary[@"validationName"] = val;
 }
 
 @end

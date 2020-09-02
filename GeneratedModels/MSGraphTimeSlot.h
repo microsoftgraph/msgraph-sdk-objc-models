@@ -9,7 +9,7 @@
 
 @interface MSGraphTimeSlot : MSObject
 
-@property (nonnull, nonatomic, setter=setStart:, getter=start) MSGraphDateTimeTimeZone* start;
 @property (nonnull, nonatomic, setter=setEnd:, getter=end) MSGraphDateTimeTimeZone* end;
+@property (nonnull, nonatomic, setter=setStart:, getter=start) MSGraphDateTimeTimeZone* start;
 
 @end

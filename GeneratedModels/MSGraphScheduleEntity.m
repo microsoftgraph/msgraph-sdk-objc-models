@@ -14,27 +14,13 @@
 
 @interface MSGraphScheduleEntity()
 {
-    NSDate* _startDateTime;
     NSDate* _endDateTime;
+    NSDate* _startDateTime;
     MSGraphScheduleEntityTheme* _theme;
 }
 @end
 
 @implementation MSGraphScheduleEntity
-
-- (NSDate*) startDateTime
-{
-    if(!_startDateTime){
-        _startDateTime = [NSDate ms_dateFromString: self.dictionary[@"startDateTime"]];
-    }
-    return _startDateTime;
-}
-
-- (void) setStartDateTime: (NSDate*) val
-{
-    _startDateTime = val;
-    self.dictionary[@"startDateTime"] = [val ms_toString];
-}
 
 - (NSDate*) endDateTime
 {
@@ -48,6 +34,20 @@
 {
     _endDateTime = val;
     self.dictionary[@"endDateTime"] = [val ms_toString];
+}
+
+- (NSDate*) startDateTime
+{
+    if(!_startDateTime){
+        _startDateTime = [NSDate ms_dateFromString: self.dictionary[@"startDateTime"]];
+    }
+    return _startDateTime;
+}
+
+- (void) setStartDateTime: (NSDate*) val
+{
+    _startDateTime = val;
+    self.dictionary[@"startDateTime"] = [val ms_toString];
 }
 
 - (MSGraphScheduleEntityTheme*) theme

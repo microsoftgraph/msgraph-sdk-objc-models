@@ -14,26 +14,12 @@
 
 @interface MSGraphTimeSlot()
 {
-    MSGraphDateTimeTimeZone* _start;
     MSGraphDateTimeTimeZone* _end;
+    MSGraphDateTimeTimeZone* _start;
 }
 @end
 
 @implementation MSGraphTimeSlot
-
-- (MSGraphDateTimeTimeZone*) start
-{
-    if(!_start){
-        _start = [[MSGraphDateTimeTimeZone alloc] initWithDictionary: self.dictionary[@"start"]];
-    }
-    return _start;
-}
-
-- (void) setStart: (MSGraphDateTimeTimeZone*) val
-{
-    _start = val;
-    self.dictionary[@"start"] = val;
-}
 
 - (MSGraphDateTimeTimeZone*) end
 {
@@ -47,6 +33,20 @@
 {
     _end = val;
     self.dictionary[@"end"] = val;
+}
+
+- (MSGraphDateTimeTimeZone*) start
+{
+    if(!_start){
+        _start = [[MSGraphDateTimeTimeZone alloc] initWithDictionary: self.dictionary[@"start"]];
+    }
+    return _start;
+}
+
+- (void) setStart: (MSGraphDateTimeTimeZone*) val
+{
+    _start = val;
+    self.dictionary[@"start"] = val;
 }
 
 @end

@@ -10,7 +10,7 @@
 @interface MSGraphInvitedUserMessageInfo : MSObject
 
 @property (nullable, nonatomic, setter=setCcRecipients:, getter=ccRecipients) NSArray* ccRecipients;
-@property (nullable, nonatomic, setter=setMessageLanguage:, getter=messageLanguage) NSString* messageLanguage;
 @property (nullable, nonatomic, setter=setCustomizedMessageBody:, getter=customizedMessageBody) NSString* customizedMessageBody;
+@property (nullable, nonatomic, setter=setMessageLanguage:, getter=messageLanguage) NSString* messageLanguage;
 
 @end

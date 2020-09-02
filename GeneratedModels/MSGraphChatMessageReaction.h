@@ -9,8 +9,8 @@
 
 @interface MSGraphChatMessageReaction : MSObject
 
-@property (nonnull, nonatomic, setter=setReactionType:, getter=reactionType) NSString* reactionType;
 @property (nonnull, nonatomic, setter=setCreatedDateTime:, getter=createdDateTime) NSDate* createdDateTime;
+@property (nonnull, nonatomic, setter=setReactionType:, getter=reactionType) NSString* reactionType;
 @property (nonnull, nonatomic, setter=setUser:, getter=user) MSGraphIdentitySet* user;
 
 @end

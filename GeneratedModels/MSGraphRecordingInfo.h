@@ -10,7 +10,7 @@
 
 @interface MSGraphRecordingInfo : MSObject
 
-@property (nonnull, nonatomic, setter=setRecordingStatus:, getter=recordingStatus) MSGraphRecordingStatus* recordingStatus;
 @property (nullable, nonatomic, setter=setInitiator:, getter=initiator) MSGraphIdentitySet* initiator;
+@property (nonnull, nonatomic, setter=setRecordingStatus:, getter=recordingStatus) MSGraphRecordingStatus* recordingStatus;
 
 @end

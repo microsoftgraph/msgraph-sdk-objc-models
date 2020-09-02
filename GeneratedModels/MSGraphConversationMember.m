@@ -14,26 +14,12 @@
 
 @interface MSGraphConversationMember()
 {
-    NSArray* _roles;
     NSString* _displayName;
+    NSArray* _roles;
 }
 @end
 
 @implementation MSGraphConversationMember
-
-- (NSArray*) roles
-{
-    if([[NSNull null] isEqual:self.dictionary[@"roles"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"roles"];
-}
-
-- (void) setRoles: (NSArray*) val
-{
-    self.dictionary[@"roles"] = val;
-}
 
 - (NSString*) displayName
 {
@@ -47,6 +33,20 @@
 - (void) setDisplayName: (NSString*) val
 {
     self.dictionary[@"displayName"] = val;
+}
+
+- (NSArray*) roles
+{
+    if([[NSNull null] isEqual:self.dictionary[@"roles"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"roles"];
+}
+
+- (void) setRoles: (NSArray*) val
+{
+    self.dictionary[@"roles"] = val;
 }
 
 

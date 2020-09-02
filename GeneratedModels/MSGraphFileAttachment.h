@@ -7,8 +7,8 @@
 
 @interface MSGraphFileAttachment : MSGraphAttachment
 
-  @property (nullable, nonatomic, setter=setContentId:, getter=contentId) NSString* contentId;
+  @property (nullable, nonatomic, setter=setContentBytes:, getter=contentBytes) NSString* contentBytes;
+    @property (nullable, nonatomic, setter=setContentId:, getter=contentId) NSString* contentId;
     @property (nullable, nonatomic, setter=setContentLocation:, getter=contentLocation) NSString* contentLocation;
-    @property (nullable, nonatomic, setter=setContentBytes:, getter=contentBytes) NSString* contentBytes;
   
 @end

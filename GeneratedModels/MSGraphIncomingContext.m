@@ -14,28 +14,14 @@
 
 @interface MSGraphIncomingContext()
 {
-    NSString* _sourceParticipantId;
     NSString* _observedParticipantId;
     MSGraphIdentitySet* _onBehalfOf;
+    NSString* _sourceParticipantId;
     MSGraphIdentitySet* _transferor;
 }
 @end
 
 @implementation MSGraphIncomingContext
-
-- (NSString*) sourceParticipantId
-{
-    if([[NSNull null] isEqual:self.dictionary[@"sourceParticipantId"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"sourceParticipantId"];
-}
-
-- (void) setSourceParticipantId: (NSString*) val
-{
-    self.dictionary[@"sourceParticipantId"] = val;
-}
 
 - (NSString*) observedParticipantId
 {
@@ -63,6 +49,20 @@
 {
     _onBehalfOf = val;
     self.dictionary[@"onBehalfOf"] = val;
+}
+
+- (NSString*) sourceParticipantId
+{
+    if([[NSNull null] isEqual:self.dictionary[@"sourceParticipantId"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"sourceParticipantId"];
+}
+
+- (void) setSourceParticipantId: (NSString*) val
+{
+    self.dictionary[@"sourceParticipantId"] = val;
 }
 
 - (MSGraphIdentitySet*) transferor

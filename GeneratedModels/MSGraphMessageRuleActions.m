@@ -14,34 +14,34 @@
 
 @interface MSGraphMessageRuleActions()
 {
-    NSString* _moveToFolder;
+    NSArray* _assignCategories;
     NSString* _copyToFolder;
     BOOL _delete;
-    BOOL _permanentDelete;
+    NSArray* _forwardAsAttachmentTo;
+    NSArray* _forwardTo;
     BOOL _markAsRead;
     MSGraphImportance* _markImportance;
-    NSArray* _forwardTo;
-    NSArray* _forwardAsAttachmentTo;
+    NSString* _moveToFolder;
+    BOOL _permanentDelete;
     NSArray* _redirectTo;
-    NSArray* _assignCategories;
     BOOL _stopProcessingRules;
 }
 @end
 
 @implementation MSGraphMessageRuleActions
 
-- (NSString*) moveToFolder
+- (NSArray*) assignCategories
 {
-    if([[NSNull null] isEqual:self.dictionary[@"moveToFolder"]])
+    if([[NSNull null] isEqual:self.dictionary[@"assignCategories"]])
     {
         return nil;
     }   
-    return self.dictionary[@"moveToFolder"];
+    return self.dictionary[@"assignCategories"];
 }
 
-- (void) setMoveToFolder: (NSString*) val
+- (void) setAssignCategories: (NSArray*) val
 {
-    self.dictionary[@"moveToFolder"] = val;
+    self.dictionary[@"assignCategories"] = val;
 }
 
 - (NSString*) getCopyToFolder
@@ -70,16 +70,54 @@
     self.dictionary[@"delete"] = @(val);
 }
 
-- (BOOL) permanentDelete
+- (NSArray*) forwardAsAttachmentTo
 {
-    _permanentDelete = [self.dictionary[@"permanentDelete"] boolValue];
-    return _permanentDelete;
+    if(!_forwardAsAttachmentTo){
+        
+    NSMutableArray *forwardAsAttachmentToResult = [NSMutableArray array];
+    NSArray *forwardAsAttachmentTo = self.dictionary[@"forwardAsAttachmentTo"];
+
+    if ([forwardAsAttachmentTo isKindOfClass:[NSArray class]]){
+        for (id tempRecipient in forwardAsAttachmentTo){
+            [forwardAsAttachmentToResult addObject:tempRecipient];
+        }
+    }
+
+    _forwardAsAttachmentTo = forwardAsAttachmentToResult;
+        
+    }
+    return _forwardAsAttachmentTo;
 }
 
-- (void) setPermanentDelete: (BOOL) val
+- (void) setForwardAsAttachmentTo: (NSArray*) val
 {
-    _permanentDelete = val;
-    self.dictionary[@"permanentDelete"] = @(val);
+    _forwardAsAttachmentTo = val;
+    self.dictionary[@"forwardAsAttachmentTo"] = val;
+}
+
+- (NSArray*) forwardTo
+{
+    if(!_forwardTo){
+        
+    NSMutableArray *forwardToResult = [NSMutableArray array];
+    NSArray *forwardTo = self.dictionary[@"forwardTo"];
+
+    if ([forwardTo isKindOfClass:[NSArray class]]){
+        for (id tempRecipient in forwardTo){
+            [forwardToResult addObject:tempRecipient];
+        }
+    }
+
+    _forwardTo = forwardToResult;
+        
+    }
+    return _forwardTo;
+}
+
+- (void) setForwardTo: (NSArray*) val
+{
+    _forwardTo = val;
+    self.dictionary[@"forwardTo"] = val;
 }
 
 - (BOOL) markAsRead
@@ -108,54 +146,30 @@
     self.dictionary[@"markImportance"] = val;
 }
 
-- (NSArray*) forwardTo
+- (NSString*) moveToFolder
 {
-    if(!_forwardTo){
-        
-    NSMutableArray *forwardToResult = [NSMutableArray array];
-    NSArray *forwardTo = self.dictionary[@"forwardTo"];
-
-    if ([forwardTo isKindOfClass:[NSArray class]]){
-        for (id tempRecipient in forwardTo){
-            [forwardToResult addObject:tempRecipient];
-        }
-    }
-
-    _forwardTo = forwardToResult;
-        
-    }
-    return _forwardTo;
+    if([[NSNull null] isEqual:self.dictionary[@"moveToFolder"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"moveToFolder"];
 }
 
-- (void) setForwardTo: (NSArray*) val
+- (void) setMoveToFolder: (NSString*) val
 {
-    _forwardTo = val;
-    self.dictionary[@"forwardTo"] = val;
+    self.dictionary[@"moveToFolder"] = val;
 }
 
-- (NSArray*) forwardAsAttachmentTo
+- (BOOL) permanentDelete
 {
-    if(!_forwardAsAttachmentTo){
-        
-    NSMutableArray *forwardAsAttachmentToResult = [NSMutableArray array];
-    NSArray *forwardAsAttachmentTo = self.dictionary[@"forwardAsAttachmentTo"];
-
-    if ([forwardAsAttachmentTo isKindOfClass:[NSArray class]]){
-        for (id tempRecipient in forwardAsAttachmentTo){
-            [forwardAsAttachmentToResult addObject:tempRecipient];
-        }
-    }
-
-    _forwardAsAttachmentTo = forwardAsAttachmentToResult;
-        
-    }
-    return _forwardAsAttachmentTo;
+    _permanentDelete = [self.dictionary[@"permanentDelete"] boolValue];
+    return _permanentDelete;
 }
 
-- (void) setForwardAsAttachmentTo: (NSArray*) val
+- (void) setPermanentDelete: (BOOL) val
 {
-    _forwardAsAttachmentTo = val;
-    self.dictionary[@"forwardAsAttachmentTo"] = val;
+    _permanentDelete = val;
+    self.dictionary[@"permanentDelete"] = @(val);
 }
 
 - (NSArray*) redirectTo
@@ -181,20 +195,6 @@
 {
     _redirectTo = val;
     self.dictionary[@"redirectTo"] = val;
-}
-
-- (NSArray*) assignCategories
-{
-    if([[NSNull null] isEqual:self.dictionary[@"assignCategories"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"assignCategories"];
-}
-
-- (void) setAssignCategories: (NSArray*) val
-{
-    self.dictionary[@"assignCategories"] = val;
 }
 
 - (BOOL) stopProcessingRules

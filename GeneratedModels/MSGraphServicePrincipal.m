@@ -17,8 +17,8 @@
     BOOL _accountEnabled;
     NSArray* _addIns;
     NSArray* _alternativeNames;
-    NSString* _appDisplayName;
     NSString* _appDescription;
+    NSString* _appDisplayName;
     NSString* _appId;
     NSString* _applicationTemplateId;
     NSString* _appOwnerOrganizationId;
@@ -35,27 +35,27 @@
     NSArray* _notificationEmailAddresses;
     NSArray* _oauth2PermissionScopes;
     NSArray* _passwordCredentials;
-    NSString* _preferredTokenSigningKeyThumbprint;
     NSString* _preferredSingleSignOnMode;
+    NSString* _preferredTokenSigningKeyThumbprint;
     NSArray* _replyUrls;
-    NSArray* _servicePrincipalNames;
     MSGraphSamlSingleSignOnSettings* _samlSingleSignOnSettings;
+    NSArray* _servicePrincipalNames;
     NSString* _servicePrincipalType;
     NSArray* _tags;
     NSString* _tokenEncryptionKeyId;
     NSArray* _appRoleAssignedTo;
     NSArray* _appRoleAssignments;
     NSArray* _claimsMappingPolicies;
+    NSArray* _createdObjects;
     NSArray* _endpoints;
     NSArray* _homeRealmDiscoveryPolicies;
-    NSArray* _oauth2PermissionGrants;
     NSArray* _memberOf;
-    NSArray* _transitiveMemberOf;
-    NSArray* _createdObjects;
-    NSArray* _owners;
+    NSArray* _oauth2PermissionGrants;
     NSArray* _ownedObjects;
+    NSArray* _owners;
     NSArray* _tokenIssuancePolicies;
     NSArray* _tokenLifetimePolicies;
+    NSArray* _transitiveMemberOf;
 }
 @end
 
@@ -115,20 +115,6 @@
     self.dictionary[@"alternativeNames"] = val;
 }
 
-- (NSString*) appDisplayName
-{
-    if([[NSNull null] isEqual:self.dictionary[@"appDisplayName"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"appDisplayName"];
-}
-
-- (void) setAppDisplayName: (NSString*) val
-{
-    self.dictionary[@"appDisplayName"] = val;
-}
-
 - (NSString*) appDescription
 {
     if([[NSNull null] isEqual:self.dictionary[@"appDescription"]])
@@ -141,6 +127,20 @@
 - (void) setAppDescription: (NSString*) val
 {
     self.dictionary[@"appDescription"] = val;
+}
+
+- (NSString*) appDisplayName
+{
+    if([[NSNull null] isEqual:self.dictionary[@"appDisplayName"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"appDisplayName"];
+}
+
+- (void) setAppDisplayName: (NSString*) val
+{
+    self.dictionary[@"appDisplayName"] = val;
 }
 
 - (NSString*) appId
@@ -405,20 +405,6 @@
     self.dictionary[@"passwordCredentials"] = val;
 }
 
-- (NSString*) preferredTokenSigningKeyThumbprint
-{
-    if([[NSNull null] isEqual:self.dictionary[@"preferredTokenSigningKeyThumbprint"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"preferredTokenSigningKeyThumbprint"];
-}
-
-- (void) setPreferredTokenSigningKeyThumbprint: (NSString*) val
-{
-    self.dictionary[@"preferredTokenSigningKeyThumbprint"] = val;
-}
-
 - (NSString*) preferredSingleSignOnMode
 {
     if([[NSNull null] isEqual:self.dictionary[@"preferredSingleSignOnMode"]])
@@ -433,6 +419,20 @@
     self.dictionary[@"preferredSingleSignOnMode"] = val;
 }
 
+- (NSString*) preferredTokenSigningKeyThumbprint
+{
+    if([[NSNull null] isEqual:self.dictionary[@"preferredTokenSigningKeyThumbprint"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"preferredTokenSigningKeyThumbprint"];
+}
+
+- (void) setPreferredTokenSigningKeyThumbprint: (NSString*) val
+{
+    self.dictionary[@"preferredTokenSigningKeyThumbprint"] = val;
+}
+
 - (NSArray*) replyUrls
 {
     return self.dictionary[@"replyUrls"];
@@ -441,16 +441,6 @@
 - (void) setReplyUrls: (NSArray*) val
 {
     self.dictionary[@"replyUrls"] = val;
-}
-
-- (NSArray*) servicePrincipalNames
-{
-    return self.dictionary[@"servicePrincipalNames"];
-}
-
-- (void) setServicePrincipalNames: (NSArray*) val
-{
-    self.dictionary[@"servicePrincipalNames"] = val;
 }
 
 - (MSGraphSamlSingleSignOnSettings*) samlSingleSignOnSettings
@@ -465,6 +455,16 @@
 {
     _samlSingleSignOnSettings = val;
     self.dictionary[@"samlSingleSignOnSettings"] = val;
+}
+
+- (NSArray*) servicePrincipalNames
+{
+    return self.dictionary[@"servicePrincipalNames"];
+}
+
+- (void) setServicePrincipalNames: (NSArray*) val
+{
+    self.dictionary[@"servicePrincipalNames"] = val;
 }
 
 - (NSString*) servicePrincipalType
@@ -580,6 +580,31 @@
     self.dictionary[@"claimsMappingPolicies"] = val;
 }
 
+- (NSArray*) createdObjects
+{
+    if(!_createdObjects){
+        
+    NSMutableArray *createdObjectsResult = [NSMutableArray array];
+    NSArray *createdObjects = self.dictionary[@"createdObjects"];
+
+    if ([createdObjects isKindOfClass:[NSArray class]]){
+        for (id tempDirectoryObject in createdObjects){
+            [createdObjectsResult addObject:tempDirectoryObject];
+        }
+    }
+
+    _createdObjects = createdObjectsResult;
+        
+    }
+    return _createdObjects;
+}
+
+- (void) setCreatedObjects: (NSArray*) val
+{
+    _createdObjects = val;
+    self.dictionary[@"createdObjects"] = val;
+}
+
 - (NSArray*) endpoints
 {
     if(!_endpoints){
@@ -630,31 +655,6 @@
     self.dictionary[@"homeRealmDiscoveryPolicies"] = val;
 }
 
-- (NSArray*) oauth2PermissionGrants
-{
-    if(!_oauth2PermissionGrants){
-        
-    NSMutableArray *oauth2PermissionGrantsResult = [NSMutableArray array];
-    NSArray *oauth2PermissionGrants = self.dictionary[@"oauth2PermissionGrants"];
-
-    if ([oauth2PermissionGrants isKindOfClass:[NSArray class]]){
-        for (id tempOAuth2PermissionGrant in oauth2PermissionGrants){
-            [oauth2PermissionGrantsResult addObject:tempOAuth2PermissionGrant];
-        }
-    }
-
-    _oauth2PermissionGrants = oauth2PermissionGrantsResult;
-        
-    }
-    return _oauth2PermissionGrants;
-}
-
-- (void) setOauth2PermissionGrants: (NSArray*) val
-{
-    _oauth2PermissionGrants = val;
-    self.dictionary[@"oauth2PermissionGrants"] = val;
-}
-
 - (NSArray*) memberOf
 {
     if(!_memberOf){
@@ -680,79 +680,29 @@
     self.dictionary[@"memberOf"] = val;
 }
 
-- (NSArray*) transitiveMemberOf
+- (NSArray*) oauth2PermissionGrants
 {
-    if(!_transitiveMemberOf){
+    if(!_oauth2PermissionGrants){
         
-    NSMutableArray *transitiveMemberOfResult = [NSMutableArray array];
-    NSArray *transitiveMemberOf = self.dictionary[@"transitiveMemberOf"];
+    NSMutableArray *oauth2PermissionGrantsResult = [NSMutableArray array];
+    NSArray *oauth2PermissionGrants = self.dictionary[@"oauth2PermissionGrants"];
 
-    if ([transitiveMemberOf isKindOfClass:[NSArray class]]){
-        for (id tempDirectoryObject in transitiveMemberOf){
-            [transitiveMemberOfResult addObject:tempDirectoryObject];
+    if ([oauth2PermissionGrants isKindOfClass:[NSArray class]]){
+        for (id tempOAuth2PermissionGrant in oauth2PermissionGrants){
+            [oauth2PermissionGrantsResult addObject:tempOAuth2PermissionGrant];
         }
     }
 
-    _transitiveMemberOf = transitiveMemberOfResult;
+    _oauth2PermissionGrants = oauth2PermissionGrantsResult;
         
     }
-    return _transitiveMemberOf;
+    return _oauth2PermissionGrants;
 }
 
-- (void) setTransitiveMemberOf: (NSArray*) val
+- (void) setOauth2PermissionGrants: (NSArray*) val
 {
-    _transitiveMemberOf = val;
-    self.dictionary[@"transitiveMemberOf"] = val;
-}
-
-- (NSArray*) createdObjects
-{
-    if(!_createdObjects){
-        
-    NSMutableArray *createdObjectsResult = [NSMutableArray array];
-    NSArray *createdObjects = self.dictionary[@"createdObjects"];
-
-    if ([createdObjects isKindOfClass:[NSArray class]]){
-        for (id tempDirectoryObject in createdObjects){
-            [createdObjectsResult addObject:tempDirectoryObject];
-        }
-    }
-
-    _createdObjects = createdObjectsResult;
-        
-    }
-    return _createdObjects;
-}
-
-- (void) setCreatedObjects: (NSArray*) val
-{
-    _createdObjects = val;
-    self.dictionary[@"createdObjects"] = val;
-}
-
-- (NSArray*) owners
-{
-    if(!_owners){
-        
-    NSMutableArray *ownersResult = [NSMutableArray array];
-    NSArray *owners = self.dictionary[@"owners"];
-
-    if ([owners isKindOfClass:[NSArray class]]){
-        for (id tempDirectoryObject in owners){
-            [ownersResult addObject:tempDirectoryObject];
-        }
-    }
-
-    _owners = ownersResult;
-        
-    }
-    return _owners;
-}
-
-- (void) setOwners: (NSArray*) val
-{
-    _owners = val;
-    self.dictionary[@"owners"] = val;
+    _oauth2PermissionGrants = val;
+    self.dictionary[@"oauth2PermissionGrants"] = val;
 }
 
 - (NSArray*) ownedObjects
@@ -778,6 +728,31 @@
 {
     _ownedObjects = val;
     self.dictionary[@"ownedObjects"] = val;
+}
+
+- (NSArray*) owners
+{
+    if(!_owners){
+        
+    NSMutableArray *ownersResult = [NSMutableArray array];
+    NSArray *owners = self.dictionary[@"owners"];
+
+    if ([owners isKindOfClass:[NSArray class]]){
+        for (id tempDirectoryObject in owners){
+            [ownersResult addObject:tempDirectoryObject];
+        }
+    }
+
+    _owners = ownersResult;
+        
+    }
+    return _owners;
+}
+
+- (void) setOwners: (NSArray*) val
+{
+    _owners = val;
+    self.dictionary[@"owners"] = val;
 }
 
 - (NSArray*) tokenIssuancePolicies
@@ -828,6 +803,31 @@
 {
     _tokenLifetimePolicies = val;
     self.dictionary[@"tokenLifetimePolicies"] = val;
+}
+
+- (NSArray*) transitiveMemberOf
+{
+    if(!_transitiveMemberOf){
+        
+    NSMutableArray *transitiveMemberOfResult = [NSMutableArray array];
+    NSArray *transitiveMemberOf = self.dictionary[@"transitiveMemberOf"];
+
+    if ([transitiveMemberOf isKindOfClass:[NSArray class]]){
+        for (id tempDirectoryObject in transitiveMemberOf){
+            [transitiveMemberOfResult addObject:tempDirectoryObject];
+        }
+    }
+
+    _transitiveMemberOf = transitiveMemberOfResult;
+        
+    }
+    return _transitiveMemberOf;
+}
+
+- (void) setTransitiveMemberOf: (NSArray*) val
+{
+    _transitiveMemberOf = val;
+    self.dictionary[@"transitiveMemberOf"] = val;
 }
 
 

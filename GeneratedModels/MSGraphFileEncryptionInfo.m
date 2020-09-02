@@ -15,12 +15,12 @@
 @interface MSGraphFileEncryptionInfo()
 {
     NSString* _encryptionKey;
+    NSString* _fileDigest;
+    NSString* _fileDigestAlgorithm;
     NSString* _initializationVector;
     NSString* _mac;
     NSString* _macKey;
     NSString* _profileIdentifier;
-    NSString* _fileDigest;
-    NSString* _fileDigestAlgorithm;
 }
 @end
 
@@ -38,6 +38,34 @@
 - (void) setEncryptionKey: (NSString*) val
 {
     self.dictionary[@"encryptionKey"] = val;
+}
+
+- (NSString*) fileDigest
+{
+    if([[NSNull null] isEqual:self.dictionary[@"fileDigest"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"fileDigest"];
+}
+
+- (void) setFileDigest: (NSString*) val
+{
+    self.dictionary[@"fileDigest"] = val;
+}
+
+- (NSString*) fileDigestAlgorithm
+{
+    if([[NSNull null] isEqual:self.dictionary[@"fileDigestAlgorithm"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"fileDigestAlgorithm"];
+}
+
+- (void) setFileDigestAlgorithm: (NSString*) val
+{
+    self.dictionary[@"fileDigestAlgorithm"] = val;
 }
 
 - (NSString*) initializationVector
@@ -94,34 +122,6 @@
 - (void) setProfileIdentifier: (NSString*) val
 {
     self.dictionary[@"profileIdentifier"] = val;
-}
-
-- (NSString*) fileDigest
-{
-    if([[NSNull null] isEqual:self.dictionary[@"fileDigest"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"fileDigest"];
-}
-
-- (void) setFileDigest: (NSString*) val
-{
-    self.dictionary[@"fileDigest"] = val;
-}
-
-- (NSString*) fileDigestAlgorithm
-{
-    if([[NSNull null] isEqual:self.dictionary[@"fileDigestAlgorithm"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"fileDigestAlgorithm"];
-}
-
-- (void) setFileDigestAlgorithm: (NSString*) val
-{
-    self.dictionary[@"fileDigestAlgorithm"] = val;
 }
 
 @end

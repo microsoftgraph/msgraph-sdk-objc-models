@@ -14,14 +14,28 @@
 
 @interface MSGraphPlace()
 {
+    MSGraphPhysicalAddress* _address;
     NSString* _displayName;
     MSGraphOutlookGeoCoordinates* _geoCoordinates;
     NSString* _phone;
-    MSGraphPhysicalAddress* _address;
 }
 @end
 
 @implementation MSGraphPlace
+
+- (MSGraphPhysicalAddress*) address
+{
+    if(!_address){
+        _address = [[MSGraphPhysicalAddress alloc] initWithDictionary: self.dictionary[@"address"]];
+    }
+    return _address;
+}
+
+- (void) setAddress: (MSGraphPhysicalAddress*) val
+{
+    _address = val;
+    self.dictionary[@"address"] = val;
+}
 
 - (NSString*) displayName
 {
@@ -59,20 +73,6 @@
 - (void) setPhone: (NSString*) val
 {
     self.dictionary[@"phone"] = val;
-}
-
-- (MSGraphPhysicalAddress*) address
-{
-    if(!_address){
-        _address = [[MSGraphPhysicalAddress alloc] initWithDictionary: self.dictionary[@"address"]];
-    }
-    return _address;
-}
-
-- (void) setAddress: (MSGraphPhysicalAddress*) val
-{
-    _address = val;
-    self.dictionary[@"address"] = val;
 }
 
 

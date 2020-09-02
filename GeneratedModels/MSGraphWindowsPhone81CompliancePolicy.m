@@ -14,16 +14,16 @@
 
 @interface MSGraphWindowsPhone81CompliancePolicy()
 {
+    NSString* _osMaximumVersion;
+    NSString* _osMinimumVersion;
     BOOL _passwordBlockSimple;
     int32_t _passwordExpirationDays;
+    int32_t _passwordMinimumCharacterSetCount;
     int32_t _passwordMinimumLength;
     int32_t _passwordMinutesOfInactivityBeforeLock;
-    int32_t _passwordMinimumCharacterSetCount;
-    MSGraphRequiredPasswordType* _passwordRequiredType;
     int32_t _passwordPreviousPasswordBlockCount;
     BOOL _passwordRequired;
-    NSString* _osMinimumVersion;
-    NSString* _osMaximumVersion;
+    MSGraphRequiredPasswordType* _passwordRequiredType;
     BOOL _storageRequireEncryption;
 }
 @end
@@ -37,6 +37,34 @@
     }
     return self;
 }
+- (NSString*) osMaximumVersion
+{
+    if([[NSNull null] isEqual:self.dictionary[@"osMaximumVersion"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"osMaximumVersion"];
+}
+
+- (void) setOsMaximumVersion: (NSString*) val
+{
+    self.dictionary[@"osMaximumVersion"] = val;
+}
+
+- (NSString*) osMinimumVersion
+{
+    if([[NSNull null] isEqual:self.dictionary[@"osMinimumVersion"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"osMinimumVersion"];
+}
+
+- (void) setOsMinimumVersion: (NSString*) val
+{
+    self.dictionary[@"osMinimumVersion"] = val;
+}
+
 - (BOOL) passwordBlockSimple
 {
     _passwordBlockSimple = [self.dictionary[@"passwordBlockSimple"] boolValue];
@@ -59,6 +87,18 @@
 {
     _passwordExpirationDays = val;
     self.dictionary[@"passwordExpirationDays"] = @(val);
+}
+
+- (int32_t) passwordMinimumCharacterSetCount
+{
+    _passwordMinimumCharacterSetCount = [self.dictionary[@"passwordMinimumCharacterSetCount"] intValue];
+    return _passwordMinimumCharacterSetCount;
+}
+
+- (void) setPasswordMinimumCharacterSetCount: (int32_t) val
+{
+    _passwordMinimumCharacterSetCount = val;
+    self.dictionary[@"passwordMinimumCharacterSetCount"] = @(val);
 }
 
 - (int32_t) passwordMinimumLength
@@ -85,32 +125,6 @@
     self.dictionary[@"passwordMinutesOfInactivityBeforeLock"] = @(val);
 }
 
-- (int32_t) passwordMinimumCharacterSetCount
-{
-    _passwordMinimumCharacterSetCount = [self.dictionary[@"passwordMinimumCharacterSetCount"] intValue];
-    return _passwordMinimumCharacterSetCount;
-}
-
-- (void) setPasswordMinimumCharacterSetCount: (int32_t) val
-{
-    _passwordMinimumCharacterSetCount = val;
-    self.dictionary[@"passwordMinimumCharacterSetCount"] = @(val);
-}
-
-- (MSGraphRequiredPasswordType*) passwordRequiredType
-{
-    if(!_passwordRequiredType){
-        _passwordRequiredType = [self.dictionary[@"passwordRequiredType"] toMSGraphRequiredPasswordType];
-    }
-    return _passwordRequiredType;
-}
-
-- (void) setPasswordRequiredType: (MSGraphRequiredPasswordType*) val
-{
-    _passwordRequiredType = val;
-    self.dictionary[@"passwordRequiredType"] = val;
-}
-
 - (int32_t) passwordPreviousPasswordBlockCount
 {
     _passwordPreviousPasswordBlockCount = [self.dictionary[@"passwordPreviousPasswordBlockCount"] intValue];
@@ -135,32 +149,18 @@
     self.dictionary[@"passwordRequired"] = @(val);
 }
 
-- (NSString*) osMinimumVersion
+- (MSGraphRequiredPasswordType*) passwordRequiredType
 {
-    if([[NSNull null] isEqual:self.dictionary[@"osMinimumVersion"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"osMinimumVersion"];
+    if(!_passwordRequiredType){
+        _passwordRequiredType = [self.dictionary[@"passwordRequiredType"] toMSGraphRequiredPasswordType];
+    }
+    return _passwordRequiredType;
 }
 
-- (void) setOsMinimumVersion: (NSString*) val
+- (void) setPasswordRequiredType: (MSGraphRequiredPasswordType*) val
 {
-    self.dictionary[@"osMinimumVersion"] = val;
-}
-
-- (NSString*) osMaximumVersion
-{
-    if([[NSNull null] isEqual:self.dictionary[@"osMaximumVersion"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"osMaximumVersion"];
-}
-
-- (void) setOsMaximumVersion: (NSString*) val
-{
-    self.dictionary[@"osMaximumVersion"] = val;
+    _passwordRequiredType = val;
+    self.dictionary[@"passwordRequiredType"] = val;
 }
 
 - (BOOL) storageRequireEncryption

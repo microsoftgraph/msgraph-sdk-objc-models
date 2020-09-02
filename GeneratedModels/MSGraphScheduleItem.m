@@ -14,30 +14,16 @@
 
 @interface MSGraphScheduleItem()
 {
-    MSGraphDateTimeTimeZone* _start;
     MSGraphDateTimeTimeZone* _end;
     BOOL _isPrivate;
+    NSString* _location;
+    MSGraphDateTimeTimeZone* _start;
     MSGraphFreeBusyStatus* _status;
     NSString* _subject;
-    NSString* _location;
 }
 @end
 
 @implementation MSGraphScheduleItem
-
-- (MSGraphDateTimeTimeZone*) start
-{
-    if(!_start){
-        _start = [[MSGraphDateTimeTimeZone alloc] initWithDictionary: self.dictionary[@"start"]];
-    }
-    return _start;
-}
-
-- (void) setStart: (MSGraphDateTimeTimeZone*) val
-{
-    _start = val;
-    self.dictionary[@"start"] = val;
-}
 
 - (MSGraphDateTimeTimeZone*) end
 {
@@ -63,6 +49,34 @@
 {
     _isPrivate = val;
     self.dictionary[@"isPrivate"] = @(val);
+}
+
+- (NSString*) location
+{
+    if([[NSNull null] isEqual:self.dictionary[@"location"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"location"];
+}
+
+- (void) setLocation: (NSString*) val
+{
+    self.dictionary[@"location"] = val;
+}
+
+- (MSGraphDateTimeTimeZone*) start
+{
+    if(!_start){
+        _start = [[MSGraphDateTimeTimeZone alloc] initWithDictionary: self.dictionary[@"start"]];
+    }
+    return _start;
+}
+
+- (void) setStart: (MSGraphDateTimeTimeZone*) val
+{
+    _start = val;
+    self.dictionary[@"start"] = val;
 }
 
 - (MSGraphFreeBusyStatus*) status
@@ -91,20 +105,6 @@
 - (void) setSubject: (NSString*) val
 {
     self.dictionary[@"subject"] = val;
-}
-
-- (NSString*) location
-{
-    if([[NSNull null] isEqual:self.dictionary[@"location"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"location"];
-}
-
-- (void) setLocation: (NSString*) val
-{
-    self.dictionary[@"location"] = val;
 }
 
 @end

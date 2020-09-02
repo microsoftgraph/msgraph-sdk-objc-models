@@ -15,10 +15,10 @@
 @interface MSGraphApplePushNotificationCertificate()
 {
     NSString* _appleIdentifier;
-    NSString* _topicIdentifier;
-    NSDate* _lastModifiedDateTime;
-    NSDate* _expirationDateTime;
     NSString* _certificate;
+    NSDate* _expirationDateTime;
+    NSDate* _lastModifiedDateTime;
+    NSString* _topicIdentifier;
 }
 @end
 
@@ -45,32 +45,18 @@
     self.dictionary[@"appleIdentifier"] = val;
 }
 
-- (NSString*) topicIdentifier
+- (NSString*) certificate
 {
-    if([[NSNull null] isEqual:self.dictionary[@"topicIdentifier"]])
+    if([[NSNull null] isEqual:self.dictionary[@"certificate"]])
     {
         return nil;
     }   
-    return self.dictionary[@"topicIdentifier"];
+    return self.dictionary[@"certificate"];
 }
 
-- (void) setTopicIdentifier: (NSString*) val
+- (void) setCertificate: (NSString*) val
 {
-    self.dictionary[@"topicIdentifier"] = val;
-}
-
-- (NSDate*) lastModifiedDateTime
-{
-    if(!_lastModifiedDateTime){
-        _lastModifiedDateTime = [NSDate ms_dateFromString: self.dictionary[@"lastModifiedDateTime"]];
-    }
-    return _lastModifiedDateTime;
-}
-
-- (void) setLastModifiedDateTime: (NSDate*) val
-{
-    _lastModifiedDateTime = val;
-    self.dictionary[@"lastModifiedDateTime"] = [val ms_toString];
+    self.dictionary[@"certificate"] = val;
 }
 
 - (NSDate*) expirationDateTime
@@ -87,18 +73,32 @@
     self.dictionary[@"expirationDateTime"] = [val ms_toString];
 }
 
-- (NSString*) certificate
+- (NSDate*) lastModifiedDateTime
 {
-    if([[NSNull null] isEqual:self.dictionary[@"certificate"]])
+    if(!_lastModifiedDateTime){
+        _lastModifiedDateTime = [NSDate ms_dateFromString: self.dictionary[@"lastModifiedDateTime"]];
+    }
+    return _lastModifiedDateTime;
+}
+
+- (void) setLastModifiedDateTime: (NSDate*) val
+{
+    _lastModifiedDateTime = val;
+    self.dictionary[@"lastModifiedDateTime"] = [val ms_toString];
+}
+
+- (NSString*) topicIdentifier
+{
+    if([[NSNull null] isEqual:self.dictionary[@"topicIdentifier"]])
     {
         return nil;
     }   
-    return self.dictionary[@"certificate"];
+    return self.dictionary[@"topicIdentifier"];
 }
 
-- (void) setCertificate: (NSString*) val
+- (void) setTopicIdentifier: (NSString*) val
 {
-    self.dictionary[@"certificate"] = val;
+    self.dictionary[@"topicIdentifier"] = val;
 }
 
 

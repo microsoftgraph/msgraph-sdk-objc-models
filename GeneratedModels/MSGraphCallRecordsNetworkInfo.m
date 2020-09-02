@@ -14,73 +14,59 @@
 
 @interface MSGraphCallRecordsNetworkInfo()
 {
-    NSString* _ipAddress;
-    NSString* _subnet;
-    int64_t _linkSpeed;
+    double _bandwidthLowEventRatio;
+    NSString* _basicServiceSetIdentifier;
     MSGraphCallRecordsNetworkConnectionType* _connectionType;
+    double _delayEventRatio;
+    NSString* _dnsSuffix;
+    NSString* _ipAddress;
+    int64_t _linkSpeed;
+    NSString* _macAddress;
     int32_t _port;
+    double _receivedQualityEventRatio;
     NSString* _reflexiveIPAddress;
     NSString* _relayIPAddress;
     int32_t _relayPort;
-    NSString* _macAddress;
+    double _sentQualityEventRatio;
+    NSString* _subnet;
+    MSGraphCallRecordsWifiBand* _wifiBand;
+    int32_t _wifiBatteryCharge;
+    int32_t _wifiChannel;
     NSString* _wifiMicrosoftDriver;
     NSString* _wifiMicrosoftDriverVersion;
-    NSString* _wifiVendorDriver;
-    NSString* _wifiVendorDriverVersion;
-    int32_t _wifiChannel;
-    MSGraphCallRecordsWifiBand* _wifiBand;
-    NSString* _basicServiceSetIdentifier;
     MSGraphCallRecordsWifiRadioType* _wifiRadioType;
     int32_t _wifiSignalStrength;
-    int32_t _wifiBatteryCharge;
-    NSString* _dnsSuffix;
-    double _sentQualityEventRatio;
-    double _receivedQualityEventRatio;
-    double _delayEventRatio;
-    double _bandwidthLowEventRatio;
+    NSString* _wifiVendorDriver;
+    NSString* _wifiVendorDriverVersion;
 }
 @end
 
 @implementation MSGraphCallRecordsNetworkInfo
 
-- (NSString*) ipAddress
+- (double) bandwidthLowEventRatio
 {
-    if([[NSNull null] isEqual:self.dictionary[@"ipAddress"]])
+    _bandwidthLowEventRatio = [self.dictionary[@"bandwidthLowEventRatio"] floatValue];
+    return _bandwidthLowEventRatio;
+}
+
+- (void) setBandwidthLowEventRatio: (double) val
+{
+    _bandwidthLowEventRatio = val;
+    self.dictionary[@"bandwidthLowEventRatio"] = @(val);
+}
+
+- (NSString*) basicServiceSetIdentifier
+{
+    if([[NSNull null] isEqual:self.dictionary[@"basicServiceSetIdentifier"]])
     {
         return nil;
     }   
-    return self.dictionary[@"ipAddress"];
+    return self.dictionary[@"basicServiceSetIdentifier"];
 }
 
-- (void) setIpAddress: (NSString*) val
+- (void) setBasicServiceSetIdentifier: (NSString*) val
 {
-    self.dictionary[@"ipAddress"] = val;
-}
-
-- (NSString*) subnet
-{
-    if([[NSNull null] isEqual:self.dictionary[@"subnet"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"subnet"];
-}
-
-- (void) setSubnet: (NSString*) val
-{
-    self.dictionary[@"subnet"] = val;
-}
-
-- (int64_t) linkSpeed
-{
-    _linkSpeed = [self.dictionary[@"linkSpeed"] longLongValue];
-    return _linkSpeed;
-}
-
-- (void) setLinkSpeed: (int64_t) val
-{
-    _linkSpeed = val;
-    self.dictionary[@"linkSpeed"] = @(val);
+    self.dictionary[@"basicServiceSetIdentifier"] = val;
 }
 
 - (MSGraphCallRecordsNetworkConnectionType*) connectionType
@@ -97,6 +83,72 @@
     self.dictionary[@"connectionType"] = val;
 }
 
+- (double) delayEventRatio
+{
+    _delayEventRatio = [self.dictionary[@"delayEventRatio"] floatValue];
+    return _delayEventRatio;
+}
+
+- (void) setDelayEventRatio: (double) val
+{
+    _delayEventRatio = val;
+    self.dictionary[@"delayEventRatio"] = @(val);
+}
+
+- (NSString*) dnsSuffix
+{
+    if([[NSNull null] isEqual:self.dictionary[@"dnsSuffix"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"dnsSuffix"];
+}
+
+- (void) setDnsSuffix: (NSString*) val
+{
+    self.dictionary[@"dnsSuffix"] = val;
+}
+
+- (NSString*) ipAddress
+{
+    if([[NSNull null] isEqual:self.dictionary[@"ipAddress"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"ipAddress"];
+}
+
+- (void) setIpAddress: (NSString*) val
+{
+    self.dictionary[@"ipAddress"] = val;
+}
+
+- (int64_t) linkSpeed
+{
+    _linkSpeed = [self.dictionary[@"linkSpeed"] longLongValue];
+    return _linkSpeed;
+}
+
+- (void) setLinkSpeed: (int64_t) val
+{
+    _linkSpeed = val;
+    self.dictionary[@"linkSpeed"] = @(val);
+}
+
+- (NSString*) macAddress
+{
+    if([[NSNull null] isEqual:self.dictionary[@"macAddress"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"macAddress"];
+}
+
+- (void) setMacAddress: (NSString*) val
+{
+    self.dictionary[@"macAddress"] = val;
+}
+
 - (int32_t) port
 {
     _port = [self.dictionary[@"port"] intValue];
@@ -107,6 +159,18 @@
 {
     _port = val;
     self.dictionary[@"port"] = @(val);
+}
+
+- (double) receivedQualityEventRatio
+{
+    _receivedQualityEventRatio = [self.dictionary[@"receivedQualityEventRatio"] floatValue];
+    return _receivedQualityEventRatio;
+}
+
+- (void) setReceivedQualityEventRatio: (double) val
+{
+    _receivedQualityEventRatio = val;
+    self.dictionary[@"receivedQualityEventRatio"] = @(val);
 }
 
 - (NSString*) reflexiveIPAddress
@@ -149,18 +213,68 @@
     self.dictionary[@"relayPort"] = @(val);
 }
 
-- (NSString*) macAddress
+- (double) sentQualityEventRatio
 {
-    if([[NSNull null] isEqual:self.dictionary[@"macAddress"]])
+    _sentQualityEventRatio = [self.dictionary[@"sentQualityEventRatio"] floatValue];
+    return _sentQualityEventRatio;
+}
+
+- (void) setSentQualityEventRatio: (double) val
+{
+    _sentQualityEventRatio = val;
+    self.dictionary[@"sentQualityEventRatio"] = @(val);
+}
+
+- (NSString*) subnet
+{
+    if([[NSNull null] isEqual:self.dictionary[@"subnet"]])
     {
         return nil;
     }   
-    return self.dictionary[@"macAddress"];
+    return self.dictionary[@"subnet"];
 }
 
-- (void) setMacAddress: (NSString*) val
+- (void) setSubnet: (NSString*) val
 {
-    self.dictionary[@"macAddress"] = val;
+    self.dictionary[@"subnet"] = val;
+}
+
+- (MSGraphCallRecordsWifiBand*) wifiBand
+{
+    if(!_wifiBand){
+        _wifiBand = [self.dictionary[@"wifiBand"] toMSGraphCallRecordsWifiBand];
+    }
+    return _wifiBand;
+}
+
+- (void) setWifiBand: (MSGraphCallRecordsWifiBand*) val
+{
+    _wifiBand = val;
+    self.dictionary[@"wifiBand"] = val;
+}
+
+- (int32_t) wifiBatteryCharge
+{
+    _wifiBatteryCharge = [self.dictionary[@"wifiBatteryCharge"] intValue];
+    return _wifiBatteryCharge;
+}
+
+- (void) setWifiBatteryCharge: (int32_t) val
+{
+    _wifiBatteryCharge = val;
+    self.dictionary[@"wifiBatteryCharge"] = @(val);
+}
+
+- (int32_t) wifiChannel
+{
+    _wifiChannel = [self.dictionary[@"wifiChannel"] intValue];
+    return _wifiChannel;
+}
+
+- (void) setWifiChannel: (int32_t) val
+{
+    _wifiChannel = val;
+    self.dictionary[@"wifiChannel"] = @(val);
 }
 
 - (NSString*) wifiMicrosoftDriver
@@ -191,74 +305,6 @@
     self.dictionary[@"wifiMicrosoftDriverVersion"] = val;
 }
 
-- (NSString*) wifiVendorDriver
-{
-    if([[NSNull null] isEqual:self.dictionary[@"wifiVendorDriver"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"wifiVendorDriver"];
-}
-
-- (void) setWifiVendorDriver: (NSString*) val
-{
-    self.dictionary[@"wifiVendorDriver"] = val;
-}
-
-- (NSString*) wifiVendorDriverVersion
-{
-    if([[NSNull null] isEqual:self.dictionary[@"wifiVendorDriverVersion"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"wifiVendorDriverVersion"];
-}
-
-- (void) setWifiVendorDriverVersion: (NSString*) val
-{
-    self.dictionary[@"wifiVendorDriverVersion"] = val;
-}
-
-- (int32_t) wifiChannel
-{
-    _wifiChannel = [self.dictionary[@"wifiChannel"] intValue];
-    return _wifiChannel;
-}
-
-- (void) setWifiChannel: (int32_t) val
-{
-    _wifiChannel = val;
-    self.dictionary[@"wifiChannel"] = @(val);
-}
-
-- (MSGraphCallRecordsWifiBand*) wifiBand
-{
-    if(!_wifiBand){
-        _wifiBand = [self.dictionary[@"wifiBand"] toMSGraphCallRecordsWifiBand];
-    }
-    return _wifiBand;
-}
-
-- (void) setWifiBand: (MSGraphCallRecordsWifiBand*) val
-{
-    _wifiBand = val;
-    self.dictionary[@"wifiBand"] = val;
-}
-
-- (NSString*) basicServiceSetIdentifier
-{
-    if([[NSNull null] isEqual:self.dictionary[@"basicServiceSetIdentifier"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"basicServiceSetIdentifier"];
-}
-
-- (void) setBasicServiceSetIdentifier: (NSString*) val
-{
-    self.dictionary[@"basicServiceSetIdentifier"] = val;
-}
-
 - (MSGraphCallRecordsWifiRadioType*) wifiRadioType
 {
     if(!_wifiRadioType){
@@ -285,78 +331,32 @@
     self.dictionary[@"wifiSignalStrength"] = @(val);
 }
 
-- (int32_t) wifiBatteryCharge
+- (NSString*) wifiVendorDriver
 {
-    _wifiBatteryCharge = [self.dictionary[@"wifiBatteryCharge"] intValue];
-    return _wifiBatteryCharge;
-}
-
-- (void) setWifiBatteryCharge: (int32_t) val
-{
-    _wifiBatteryCharge = val;
-    self.dictionary[@"wifiBatteryCharge"] = @(val);
-}
-
-- (NSString*) dnsSuffix
-{
-    if([[NSNull null] isEqual:self.dictionary[@"dnsSuffix"]])
+    if([[NSNull null] isEqual:self.dictionary[@"wifiVendorDriver"]])
     {
         return nil;
     }   
-    return self.dictionary[@"dnsSuffix"];
+    return self.dictionary[@"wifiVendorDriver"];
 }
 
-- (void) setDnsSuffix: (NSString*) val
+- (void) setWifiVendorDriver: (NSString*) val
 {
-    self.dictionary[@"dnsSuffix"] = val;
+    self.dictionary[@"wifiVendorDriver"] = val;
 }
 
-- (double) sentQualityEventRatio
+- (NSString*) wifiVendorDriverVersion
 {
-    _sentQualityEventRatio = [self.dictionary[@"sentQualityEventRatio"] floatValue];
-    return _sentQualityEventRatio;
+    if([[NSNull null] isEqual:self.dictionary[@"wifiVendorDriverVersion"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"wifiVendorDriverVersion"];
 }
 
-- (void) setSentQualityEventRatio: (double) val
+- (void) setWifiVendorDriverVersion: (NSString*) val
 {
-    _sentQualityEventRatio = val;
-    self.dictionary[@"sentQualityEventRatio"] = @(val);
-}
-
-- (double) receivedQualityEventRatio
-{
-    _receivedQualityEventRatio = [self.dictionary[@"receivedQualityEventRatio"] floatValue];
-    return _receivedQualityEventRatio;
-}
-
-- (void) setReceivedQualityEventRatio: (double) val
-{
-    _receivedQualityEventRatio = val;
-    self.dictionary[@"receivedQualityEventRatio"] = @(val);
-}
-
-- (double) delayEventRatio
-{
-    _delayEventRatio = [self.dictionary[@"delayEventRatio"] floatValue];
-    return _delayEventRatio;
-}
-
-- (void) setDelayEventRatio: (double) val
-{
-    _delayEventRatio = val;
-    self.dictionary[@"delayEventRatio"] = @(val);
-}
-
-- (double) bandwidthLowEventRatio
-{
-    _bandwidthLowEventRatio = [self.dictionary[@"bandwidthLowEventRatio"] floatValue];
-    return _bandwidthLowEventRatio;
-}
-
-- (void) setBandwidthLowEventRatio: (double) val
-{
-    _bandwidthLowEventRatio = val;
-    self.dictionary[@"bandwidthLowEventRatio"] = @(val);
+    self.dictionary[@"wifiVendorDriverVersion"] = val;
 }
 
 @end

@@ -17,8 +17,8 @@
     @property (nonatomic, setter=setMaintenanceWindowBlocked:, getter=maintenanceWindowBlocked) BOOL maintenanceWindowBlocked;
     @property (nonatomic, setter=setMaintenanceWindowDurationInHours:, getter=maintenanceWindowDurationInHours) int32_t maintenanceWindowDurationInHours;
     @property (nullable, nonatomic, setter=setMaintenanceWindowStartTime:, getter=maintenanceWindowStartTime) MSTimeOfDay* maintenanceWindowStartTime;
-    @property (nonnull, nonatomic, setter=setMiracastChannel:, getter=miracastChannel) MSGraphMiracastChannel* miracastChannel;
     @property (nonatomic, setter=setMiracastBlocked:, getter=miracastBlocked) BOOL miracastBlocked;
+    @property (nonnull, nonatomic, setter=setMiracastChannel:, getter=miracastChannel) MSGraphMiracastChannel* miracastChannel;
     @property (nonatomic, setter=setMiracastRequirePin:, getter=miracastRequirePin) BOOL miracastRequirePin;
     @property (nonatomic, setter=setSettingsBlockMyMeetingsAndFiles:, getter=settingsBlockMyMeetingsAndFiles) BOOL settingsBlockMyMeetingsAndFiles;
     @property (nonatomic, setter=setSettingsBlockSessionResume:, getter=settingsBlockSessionResume) BOOL settingsBlockSessionResume;
@@ -27,8 +27,8 @@
     @property (nonatomic, setter=setSettingsScreenTimeoutInMinutes:, getter=settingsScreenTimeoutInMinutes) int32_t settingsScreenTimeoutInMinutes;
     @property (nonatomic, setter=setSettingsSessionTimeoutInMinutes:, getter=settingsSessionTimeoutInMinutes) int32_t settingsSessionTimeoutInMinutes;
     @property (nonatomic, setter=setSettingsSleepTimeoutInMinutes:, getter=settingsSleepTimeoutInMinutes) int32_t settingsSleepTimeoutInMinutes;
-    @property (nonatomic, setter=setWelcomeScreenBlockAutomaticWakeUp:, getter=welcomeScreenBlockAutomaticWakeUp) BOOL welcomeScreenBlockAutomaticWakeUp;
     @property (nullable, nonatomic, setter=setWelcomeScreenBackgroundImageUrl:, getter=welcomeScreenBackgroundImageUrl) NSString* welcomeScreenBackgroundImageUrl;
+    @property (nonatomic, setter=setWelcomeScreenBlockAutomaticWakeUp:, getter=welcomeScreenBlockAutomaticWakeUp) BOOL welcomeScreenBlockAutomaticWakeUp;
     @property (nonnull, nonatomic, setter=setWelcomeScreenMeetingInformation:, getter=welcomeScreenMeetingInformation) MSGraphWelcomeScreenMeetingInformation* welcomeScreenMeetingInformation;
   
 @end

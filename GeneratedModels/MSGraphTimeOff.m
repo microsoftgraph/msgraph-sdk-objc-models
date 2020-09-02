@@ -14,8 +14,8 @@
 
 @interface MSGraphTimeOff()
 {
-    MSGraphTimeOffItem* _sharedTimeOff;
     MSGraphTimeOffItem* _draftTimeOff;
+    MSGraphTimeOffItem* _sharedTimeOff;
     NSString* _userId;
 }
 @end
@@ -29,20 +29,6 @@
     }
     return self;
 }
-- (MSGraphTimeOffItem*) sharedTimeOff
-{
-    if(!_sharedTimeOff){
-        _sharedTimeOff = [[MSGraphTimeOffItem alloc] initWithDictionary: self.dictionary[@"sharedTimeOff"]];
-    }
-    return _sharedTimeOff;
-}
-
-- (void) setSharedTimeOff: (MSGraphTimeOffItem*) val
-{
-    _sharedTimeOff = val;
-    self.dictionary[@"sharedTimeOff"] = val;
-}
-
 - (MSGraphTimeOffItem*) draftTimeOff
 {
     if(!_draftTimeOff){
@@ -55,6 +41,20 @@
 {
     _draftTimeOff = val;
     self.dictionary[@"draftTimeOff"] = val;
+}
+
+- (MSGraphTimeOffItem*) sharedTimeOff
+{
+    if(!_sharedTimeOff){
+        _sharedTimeOff = [[MSGraphTimeOffItem alloc] initWithDictionary: self.dictionary[@"sharedTimeOff"]];
+    }
+    return _sharedTimeOff;
+}
+
+- (void) setSharedTimeOff: (MSGraphTimeOffItem*) val
+{
+    _sharedTimeOff = val;
+    self.dictionary[@"sharedTimeOff"] = val;
 }
 
 - (NSString*) userId

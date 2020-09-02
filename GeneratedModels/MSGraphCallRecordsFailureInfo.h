@@ -9,7 +9,7 @@
 
 @interface MSGraphCallRecordsFailureInfo : MSObject
 
-@property (nonnull, nonatomic, setter=setStage:, getter=stage) MSGraphCallRecordsFailureStage* stage;
 @property (nullable, nonatomic, setter=setReason:, getter=reason) NSString* reason;
+@property (nonnull, nonatomic, setter=setStage:, getter=stage) MSGraphCallRecordsFailureStage* stage;
 
 @end

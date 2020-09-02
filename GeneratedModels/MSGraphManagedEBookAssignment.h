@@ -9,7 +9,7 @@
 
 @interface MSGraphManagedEBookAssignment : MSGraphEntity
 
-  @property (nullable, nonatomic, setter=setTarget:, getter=target) MSGraphDeviceAndAppManagementAssignmentTarget* target;
-    @property (nonnull, nonatomic, setter=setInstallIntent:, getter=installIntent) MSGraphInstallIntent* installIntent;
+  @property (nonnull, nonatomic, setter=setInstallIntent:, getter=installIntent) MSGraphInstallIntent* installIntent;
+    @property (nullable, nonatomic, setter=setTarget:, getter=target) MSGraphDeviceAndAppManagementAssignmentTarget* target;
   
 @end

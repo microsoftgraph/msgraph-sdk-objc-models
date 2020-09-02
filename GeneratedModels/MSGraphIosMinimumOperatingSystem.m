@@ -14,40 +14,16 @@
 
 @interface MSGraphIosMinimumOperatingSystem()
 {
-    BOOL _v8_0;
-    BOOL _v9_0;
     BOOL _v10_0;
     BOOL _v11_0;
     BOOL _v12_0;
     BOOL _v13_0;
+    BOOL _v8_0;
+    BOOL _v9_0;
 }
 @end
 
 @implementation MSGraphIosMinimumOperatingSystem
-
-- (BOOL) v8_0
-{
-    _v8_0 = [self.dictionary[@"v8_0"] boolValue];
-    return _v8_0;
-}
-
-- (void) setV8_0: (BOOL) val
-{
-    _v8_0 = val;
-    self.dictionary[@"v8_0"] = @(val);
-}
-
-- (BOOL) v9_0
-{
-    _v9_0 = [self.dictionary[@"v9_0"] boolValue];
-    return _v9_0;
-}
-
-- (void) setV9_0: (BOOL) val
-{
-    _v9_0 = val;
-    self.dictionary[@"v9_0"] = @(val);
-}
 
 - (BOOL) v10_0
 {
@@ -95,6 +71,30 @@
 {
     _v13_0 = val;
     self.dictionary[@"v13_0"] = @(val);
+}
+
+- (BOOL) v8_0
+{
+    _v8_0 = [self.dictionary[@"v8_0"] boolValue];
+    return _v8_0;
+}
+
+- (void) setV8_0: (BOOL) val
+{
+    _v8_0 = val;
+    self.dictionary[@"v8_0"] = @(val);
+}
+
+- (BOOL) v9_0
+{
+    _v9_0 = [self.dictionary[@"v9_0"] boolValue];
+    return _v9_0;
+}
+
+- (void) setV9_0: (BOOL) val
+{
+    _v9_0 = val;
+    self.dictionary[@"v9_0"] = @(val);
 }
 
 @end

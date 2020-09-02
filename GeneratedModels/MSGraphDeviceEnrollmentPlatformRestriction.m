@@ -14,37 +14,27 @@
 
 @interface MSGraphDeviceEnrollmentPlatformRestriction()
 {
-    BOOL _platformBlocked;
-    BOOL _personalDeviceEnrollmentBlocked;
-    NSString* _osMinimumVersion;
     NSString* _osMaximumVersion;
+    NSString* _osMinimumVersion;
+    BOOL _personalDeviceEnrollmentBlocked;
+    BOOL _platformBlocked;
 }
 @end
 
 @implementation MSGraphDeviceEnrollmentPlatformRestriction
 
-- (BOOL) platformBlocked
+- (NSString*) osMaximumVersion
 {
-    _platformBlocked = [self.dictionary[@"platformBlocked"] boolValue];
-    return _platformBlocked;
+    if([[NSNull null] isEqual:self.dictionary[@"osMaximumVersion"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"osMaximumVersion"];
 }
 
-- (void) setPlatformBlocked: (BOOL) val
+- (void) setOsMaximumVersion: (NSString*) val
 {
-    _platformBlocked = val;
-    self.dictionary[@"platformBlocked"] = @(val);
-}
-
-- (BOOL) personalDeviceEnrollmentBlocked
-{
-    _personalDeviceEnrollmentBlocked = [self.dictionary[@"personalDeviceEnrollmentBlocked"] boolValue];
-    return _personalDeviceEnrollmentBlocked;
-}
-
-- (void) setPersonalDeviceEnrollmentBlocked: (BOOL) val
-{
-    _personalDeviceEnrollmentBlocked = val;
-    self.dictionary[@"personalDeviceEnrollmentBlocked"] = @(val);
+    self.dictionary[@"osMaximumVersion"] = val;
 }
 
 - (NSString*) osMinimumVersion
@@ -61,18 +51,28 @@
     self.dictionary[@"osMinimumVersion"] = val;
 }
 
-- (NSString*) osMaximumVersion
+- (BOOL) personalDeviceEnrollmentBlocked
 {
-    if([[NSNull null] isEqual:self.dictionary[@"osMaximumVersion"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"osMaximumVersion"];
+    _personalDeviceEnrollmentBlocked = [self.dictionary[@"personalDeviceEnrollmentBlocked"] boolValue];
+    return _personalDeviceEnrollmentBlocked;
 }
 
-- (void) setOsMaximumVersion: (NSString*) val
+- (void) setPersonalDeviceEnrollmentBlocked: (BOOL) val
 {
-    self.dictionary[@"osMaximumVersion"] = val;
+    _personalDeviceEnrollmentBlocked = val;
+    self.dictionary[@"personalDeviceEnrollmentBlocked"] = @(val);
+}
+
+- (BOOL) platformBlocked
+{
+    _platformBlocked = [self.dictionary[@"platformBlocked"] boolValue];
+    return _platformBlocked;
+}
+
+- (void) setPlatformBlocked: (BOOL) val
+{
+    _platformBlocked = val;
+    self.dictionary[@"platformBlocked"] = @(val);
 }
 
 @end

@@ -14,10 +14,10 @@
 
 @interface MSGraphManagedAppPolicyDeploymentSummary()
 {
-    NSString* _displayName;
     int32_t _configurationDeployedUserCount;
-    NSDate* _lastRefreshTime;
     NSArray* _configurationDeploymentSummaryPerApp;
+    NSString* _displayName;
+    NSDate* _lastRefreshTime;
     NSString* _version;
 }
 @end
@@ -31,20 +31,6 @@
     }
     return self;
 }
-- (NSString*) displayName
-{
-    if([[NSNull null] isEqual:self.dictionary[@"displayName"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"displayName"];
-}
-
-- (void) setDisplayName: (NSString*) val
-{
-    self.dictionary[@"displayName"] = val;
-}
-
 - (int32_t) configurationDeployedUserCount
 {
     _configurationDeployedUserCount = [self.dictionary[@"configurationDeployedUserCount"] intValue];
@@ -55,20 +41,6 @@
 {
     _configurationDeployedUserCount = val;
     self.dictionary[@"configurationDeployedUserCount"] = @(val);
-}
-
-- (NSDate*) lastRefreshTime
-{
-    if(!_lastRefreshTime){
-        _lastRefreshTime = [NSDate ms_dateFromString: self.dictionary[@"lastRefreshTime"]];
-    }
-    return _lastRefreshTime;
-}
-
-- (void) setLastRefreshTime: (NSDate*) val
-{
-    _lastRefreshTime = val;
-    self.dictionary[@"lastRefreshTime"] = [val ms_toString];
 }
 
 - (NSArray*) configurationDeploymentSummaryPerApp
@@ -94,6 +66,34 @@
 {
     _configurationDeploymentSummaryPerApp = val;
     self.dictionary[@"configurationDeploymentSummaryPerApp"] = val;
+}
+
+- (NSString*) displayName
+{
+    if([[NSNull null] isEqual:self.dictionary[@"displayName"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"displayName"];
+}
+
+- (void) setDisplayName: (NSString*) val
+{
+    self.dictionary[@"displayName"] = val;
+}
+
+- (NSDate*) lastRefreshTime
+{
+    if(!_lastRefreshTime){
+        _lastRefreshTime = [NSDate ms_dateFromString: self.dictionary[@"lastRefreshTime"]];
+    }
+    return _lastRefreshTime;
+}
+
+- (void) setLastRefreshTime: (NSDate*) val
+{
+    _lastRefreshTime = val;
+    self.dictionary[@"lastRefreshTime"] = [val ms_toString];
 }
 
 - (NSString*) version

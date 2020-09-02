@@ -8,8 +8,8 @@
 
 @interface MSGraphManagedAndroidStoreApp : MSGraphManagedApp
 
-  @property (nullable, nonatomic, setter=setPackageId:, getter=packageId) NSString* packageId;
-    @property (nonnull, nonatomic, setter=setAppStoreUrl:, getter=appStoreUrl) NSString* appStoreUrl;
+  @property (nonnull, nonatomic, setter=setAppStoreUrl:, getter=appStoreUrl) NSString* appStoreUrl;
     @property (nonnull, nonatomic, setter=setMinimumSupportedOperatingSystem:, getter=minimumSupportedOperatingSystem) MSGraphAndroidMinimumOperatingSystem* minimumSupportedOperatingSystem;
+    @property (nullable, nonatomic, setter=setPackageId:, getter=packageId) NSString* packageId;
   
 @end

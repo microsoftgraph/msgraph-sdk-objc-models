@@ -9,11 +9,11 @@
 
 @interface MSGraphShiftActivity : MSObject
 
-@property (nonatomic, setter=setIsPaid:, getter=isPaid) BOOL isPaid;
-@property (nullable, nonatomic, setter=setStartDateTime:, getter=startDateTime) NSDate* startDateTime;
-@property (nullable, nonatomic, setter=setEndDateTime:, getter=endDateTime) NSDate* endDateTime;
 @property (nullable, nonatomic, setter=setCode:, getter=code) NSString* code;
 @property (nullable, nonatomic, setter=setDisplayName:, getter=displayName) NSString* displayName;
+@property (nullable, nonatomic, setter=setEndDateTime:, getter=endDateTime) NSDate* endDateTime;
+@property (nonatomic, setter=setIsPaid:, getter=isPaid) BOOL isPaid;
+@property (nullable, nonatomic, setter=setStartDateTime:, getter=startDateTime) NSDate* startDateTime;
 @property (nonnull, nonatomic, setter=setTheme:, getter=theme) MSGraphScheduleEntityTheme* theme;
 
 @end

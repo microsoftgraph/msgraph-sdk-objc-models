@@ -14,17 +14,31 @@
 
 @interface MSGraphDeviceDetail()
 {
+    NSString* _browser;
     NSString* _deviceId;
     NSString* _displayName;
-    NSString* _operatingSystem;
-    NSString* _browser;
     BOOL _isCompliant;
     BOOL _isManaged;
+    NSString* _operatingSystem;
     NSString* _trustType;
 }
 @end
 
 @implementation MSGraphDeviceDetail
+
+- (NSString*) browser
+{
+    if([[NSNull null] isEqual:self.dictionary[@"browser"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"browser"];
+}
+
+- (void) setBrowser: (NSString*) val
+{
+    self.dictionary[@"browser"] = val;
+}
 
 - (NSString*) deviceId
 {
@@ -54,34 +68,6 @@
     self.dictionary[@"displayName"] = val;
 }
 
-- (NSString*) operatingSystem
-{
-    if([[NSNull null] isEqual:self.dictionary[@"operatingSystem"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"operatingSystem"];
-}
-
-- (void) setOperatingSystem: (NSString*) val
-{
-    self.dictionary[@"operatingSystem"] = val;
-}
-
-- (NSString*) browser
-{
-    if([[NSNull null] isEqual:self.dictionary[@"browser"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"browser"];
-}
-
-- (void) setBrowser: (NSString*) val
-{
-    self.dictionary[@"browser"] = val;
-}
-
 - (BOOL) isCompliant
 {
     _isCompliant = [self.dictionary[@"isCompliant"] boolValue];
@@ -104,6 +90,20 @@
 {
     _isManaged = val;
     self.dictionary[@"isManaged"] = @(val);
+}
+
+- (NSString*) operatingSystem
+{
+    if([[NSNull null] isEqual:self.dictionary[@"operatingSystem"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"operatingSystem"];
+}
+
+- (void) setOperatingSystem: (NSString*) val
+{
+    self.dictionary[@"operatingSystem"] = val;
 }
 
 - (NSString*) trustType

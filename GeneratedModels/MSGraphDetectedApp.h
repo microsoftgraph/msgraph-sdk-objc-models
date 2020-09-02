@@ -8,10 +8,10 @@
 
 @interface MSGraphDetectedApp : MSGraphEntity
 
-  @property (nullable, nonatomic, setter=setDisplayName:, getter=displayName) NSString* displayName;
-    @property (nullable, nonatomic, setter=setVersion:, getter=version) NSString* version;
+  @property (nonatomic, setter=setDeviceCount:, getter=deviceCount) int32_t deviceCount;
+    @property (nullable, nonatomic, setter=setDisplayName:, getter=displayName) NSString* displayName;
     @property (nonatomic, setter=setSizeInByte:, getter=sizeInByte) int64_t sizeInByte;
-    @property (nonatomic, setter=setDeviceCount:, getter=deviceCount) int32_t deviceCount;
+    @property (nullable, nonatomic, setter=setVersion:, getter=version) NSString* version;
     @property (nullable, nonatomic, setter=setManagedDevices:, getter=managedDevices) NSArray* managedDevices;
   
 @end

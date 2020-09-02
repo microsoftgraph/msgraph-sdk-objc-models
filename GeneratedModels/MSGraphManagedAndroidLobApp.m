@@ -14,10 +14,10 @@
 
 @interface MSGraphManagedAndroidLobApp()
 {
-    NSString* _packageId;
     MSGraphAndroidMinimumOperatingSystem* _minimumSupportedOperatingSystem;
-    NSString* _versionName;
+    NSString* _packageId;
     NSString* _versionCode;
+    NSString* _versionName;
 }
 @end
 
@@ -30,20 +30,6 @@
     }
     return self;
 }
-- (NSString*) packageId
-{
-    if([[NSNull null] isEqual:self.dictionary[@"packageId"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"packageId"];
-}
-
-- (void) setPackageId: (NSString*) val
-{
-    self.dictionary[@"packageId"] = val;
-}
-
 - (MSGraphAndroidMinimumOperatingSystem*) minimumSupportedOperatingSystem
 {
     if(!_minimumSupportedOperatingSystem){
@@ -58,18 +44,18 @@
     self.dictionary[@"minimumSupportedOperatingSystem"] = val;
 }
 
-- (NSString*) versionName
+- (NSString*) packageId
 {
-    if([[NSNull null] isEqual:self.dictionary[@"versionName"]])
+    if([[NSNull null] isEqual:self.dictionary[@"packageId"]])
     {
         return nil;
     }   
-    return self.dictionary[@"versionName"];
+    return self.dictionary[@"packageId"];
 }
 
-- (void) setVersionName: (NSString*) val
+- (void) setPackageId: (NSString*) val
 {
-    self.dictionary[@"versionName"] = val;
+    self.dictionary[@"packageId"] = val;
 }
 
 - (NSString*) versionCode
@@ -84,6 +70,20 @@
 - (void) setVersionCode: (NSString*) val
 {
     self.dictionary[@"versionCode"] = val;
+}
+
+- (NSString*) versionName
+{
+    if([[NSNull null] isEqual:self.dictionary[@"versionName"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"versionName"];
+}
+
+- (void) setVersionName: (NSString*) val
+{
+    self.dictionary[@"versionName"] = val;
 }
 
 

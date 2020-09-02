@@ -14,11 +14,11 @@
 
 @interface MSGraphManagedDeviceOverview()
 {
+    MSGraphDeviceExchangeAccessStateSummary* _deviceExchangeAccessStateSummary;
+    MSGraphDeviceOperatingSystemSummary* _deviceOperatingSystemSummary;
+    int32_t _dualEnrolledDeviceCount;
     int32_t _enrolledDeviceCount;
     int32_t _mdmEnrolledCount;
-    int32_t _dualEnrolledDeviceCount;
-    MSGraphDeviceOperatingSystemSummary* _deviceOperatingSystemSummary;
-    MSGraphDeviceExchangeAccessStateSummary* _deviceExchangeAccessStateSummary;
 }
 @end
 
@@ -31,6 +31,46 @@
     }
     return self;
 }
+- (MSGraphDeviceExchangeAccessStateSummary*) deviceExchangeAccessStateSummary
+{
+    if(!_deviceExchangeAccessStateSummary){
+        _deviceExchangeAccessStateSummary = [[MSGraphDeviceExchangeAccessStateSummary alloc] initWithDictionary: self.dictionary[@"deviceExchangeAccessStateSummary"]];
+    }
+    return _deviceExchangeAccessStateSummary;
+}
+
+- (void) setDeviceExchangeAccessStateSummary: (MSGraphDeviceExchangeAccessStateSummary*) val
+{
+    _deviceExchangeAccessStateSummary = val;
+    self.dictionary[@"deviceExchangeAccessStateSummary"] = val;
+}
+
+- (MSGraphDeviceOperatingSystemSummary*) deviceOperatingSystemSummary
+{
+    if(!_deviceOperatingSystemSummary){
+        _deviceOperatingSystemSummary = [[MSGraphDeviceOperatingSystemSummary alloc] initWithDictionary: self.dictionary[@"deviceOperatingSystemSummary"]];
+    }
+    return _deviceOperatingSystemSummary;
+}
+
+- (void) setDeviceOperatingSystemSummary: (MSGraphDeviceOperatingSystemSummary*) val
+{
+    _deviceOperatingSystemSummary = val;
+    self.dictionary[@"deviceOperatingSystemSummary"] = val;
+}
+
+- (int32_t) dualEnrolledDeviceCount
+{
+    _dualEnrolledDeviceCount = [self.dictionary[@"dualEnrolledDeviceCount"] intValue];
+    return _dualEnrolledDeviceCount;
+}
+
+- (void) setDualEnrolledDeviceCount: (int32_t) val
+{
+    _dualEnrolledDeviceCount = val;
+    self.dictionary[@"dualEnrolledDeviceCount"] = @(val);
+}
+
 - (int32_t) enrolledDeviceCount
 {
     _enrolledDeviceCount = [self.dictionary[@"enrolledDeviceCount"] intValue];
@@ -53,46 +93,6 @@
 {
     _mdmEnrolledCount = val;
     self.dictionary[@"mdmEnrolledCount"] = @(val);
-}
-
-- (int32_t) dualEnrolledDeviceCount
-{
-    _dualEnrolledDeviceCount = [self.dictionary[@"dualEnrolledDeviceCount"] intValue];
-    return _dualEnrolledDeviceCount;
-}
-
-- (void) setDualEnrolledDeviceCount: (int32_t) val
-{
-    _dualEnrolledDeviceCount = val;
-    self.dictionary[@"dualEnrolledDeviceCount"] = @(val);
-}
-
-- (MSGraphDeviceOperatingSystemSummary*) deviceOperatingSystemSummary
-{
-    if(!_deviceOperatingSystemSummary){
-        _deviceOperatingSystemSummary = [[MSGraphDeviceOperatingSystemSummary alloc] initWithDictionary: self.dictionary[@"deviceOperatingSystemSummary"]];
-    }
-    return _deviceOperatingSystemSummary;
-}
-
-- (void) setDeviceOperatingSystemSummary: (MSGraphDeviceOperatingSystemSummary*) val
-{
-    _deviceOperatingSystemSummary = val;
-    self.dictionary[@"deviceOperatingSystemSummary"] = val;
-}
-
-- (MSGraphDeviceExchangeAccessStateSummary*) deviceExchangeAccessStateSummary
-{
-    if(!_deviceExchangeAccessStateSummary){
-        _deviceExchangeAccessStateSummary = [[MSGraphDeviceExchangeAccessStateSummary alloc] initWithDictionary: self.dictionary[@"deviceExchangeAccessStateSummary"]];
-    }
-    return _deviceExchangeAccessStateSummary;
-}
-
-- (void) setDeviceExchangeAccessStateSummary: (MSGraphDeviceExchangeAccessStateSummary*) val
-{
-    _deviceExchangeAccessStateSummary = val;
-    self.dictionary[@"deviceExchangeAccessStateSummary"] = val;
 }
 
 

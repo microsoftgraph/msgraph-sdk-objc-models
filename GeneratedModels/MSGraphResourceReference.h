@@ -8,8 +8,8 @@
 
 @interface MSGraphResourceReference : MSObject
 
-@property (nullable, nonatomic, setter=setWebUrl:, getter=webUrl) NSString* webUrl;
 @property (nullable, nonatomic, setter=setResourceReferenceId:, getter=resourceReferenceId) NSString* resourceReferenceId;
 @property (nullable, nonatomic, setter=setType:, getter=type) NSString* type;
+@property (nullable, nonatomic, setter=setWebUrl:, getter=webUrl) NSString* webUrl;
 
 @end

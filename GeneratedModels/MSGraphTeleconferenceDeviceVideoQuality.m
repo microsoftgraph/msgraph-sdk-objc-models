@@ -14,38 +14,14 @@
 
 @interface MSGraphTeleconferenceDeviceVideoQuality()
 {
-    double _averageInboundFrameRate;
-    double _averageOutboundFrameRate;
     double _averageInboundBitRate;
+    double _averageInboundFrameRate;
     double _averageOutboundBitRate;
+    double _averageOutboundFrameRate;
 }
 @end
 
 @implementation MSGraphTeleconferenceDeviceVideoQuality
-
-- (double) averageInboundFrameRate
-{
-    _averageInboundFrameRate = [self.dictionary[@"averageInboundFrameRate"] floatValue];
-    return _averageInboundFrameRate;
-}
-
-- (void) setAverageInboundFrameRate: (double) val
-{
-    _averageInboundFrameRate = val;
-    self.dictionary[@"averageInboundFrameRate"] = @(val);
-}
-
-- (double) averageOutboundFrameRate
-{
-    _averageOutboundFrameRate = [self.dictionary[@"averageOutboundFrameRate"] floatValue];
-    return _averageOutboundFrameRate;
-}
-
-- (void) setAverageOutboundFrameRate: (double) val
-{
-    _averageOutboundFrameRate = val;
-    self.dictionary[@"averageOutboundFrameRate"] = @(val);
-}
 
 - (double) averageInboundBitRate
 {
@@ -59,6 +35,18 @@
     self.dictionary[@"averageInboundBitRate"] = @(val);
 }
 
+- (double) averageInboundFrameRate
+{
+    _averageInboundFrameRate = [self.dictionary[@"averageInboundFrameRate"] floatValue];
+    return _averageInboundFrameRate;
+}
+
+- (void) setAverageInboundFrameRate: (double) val
+{
+    _averageInboundFrameRate = val;
+    self.dictionary[@"averageInboundFrameRate"] = @(val);
+}
+
 - (double) averageOutboundBitRate
 {
     _averageOutboundBitRate = [self.dictionary[@"averageOutboundBitRate"] floatValue];
@@ -69,6 +57,18 @@
 {
     _averageOutboundBitRate = val;
     self.dictionary[@"averageOutboundBitRate"] = @(val);
+}
+
+- (double) averageOutboundFrameRate
+{
+    _averageOutboundFrameRate = [self.dictionary[@"averageOutboundFrameRate"] floatValue];
+    return _averageOutboundFrameRate;
+}
+
+- (void) setAverageOutboundFrameRate: (double) val
+{
+    _averageOutboundFrameRate = val;
+    self.dictionary[@"averageOutboundFrameRate"] = @(val);
 }
 
 @end

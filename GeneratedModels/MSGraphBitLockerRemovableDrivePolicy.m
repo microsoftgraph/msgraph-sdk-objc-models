@@ -14,13 +14,25 @@
 
 @interface MSGraphBitLockerRemovableDrivePolicy()
 {
+    BOOL _blockCrossOrganizationWriteAccess;
     MSGraphBitLockerEncryptionMethod* _encryptionMethod;
     BOOL _requireEncryptionForWriteAccess;
-    BOOL _blockCrossOrganizationWriteAccess;
 }
 @end
 
 @implementation MSGraphBitLockerRemovableDrivePolicy
+
+- (BOOL) blockCrossOrganizationWriteAccess
+{
+    _blockCrossOrganizationWriteAccess = [self.dictionary[@"blockCrossOrganizationWriteAccess"] boolValue];
+    return _blockCrossOrganizationWriteAccess;
+}
+
+- (void) setBlockCrossOrganizationWriteAccess: (BOOL) val
+{
+    _blockCrossOrganizationWriteAccess = val;
+    self.dictionary[@"blockCrossOrganizationWriteAccess"] = @(val);
+}
 
 - (MSGraphBitLockerEncryptionMethod*) encryptionMethod
 {
@@ -46,18 +58,6 @@
 {
     _requireEncryptionForWriteAccess = val;
     self.dictionary[@"requireEncryptionForWriteAccess"] = @(val);
-}
-
-- (BOOL) blockCrossOrganizationWriteAccess
-{
-    _blockCrossOrganizationWriteAccess = [self.dictionary[@"blockCrossOrganizationWriteAccess"] boolValue];
-    return _blockCrossOrganizationWriteAccess;
-}
-
-- (void) setBlockCrossOrganizationWriteAccess: (BOOL) val
-{
-    _blockCrossOrganizationWriteAccess = val;
-    self.dictionary[@"blockCrossOrganizationWriteAccess"] = @(val);
 }
 
 @end

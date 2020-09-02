@@ -14,8 +14,8 @@
 
 @interface MSGraphConditionalAccessRoot()
 {
-    NSArray* _policies;
     NSArray* _namedLocations;
+    NSArray* _policies;
 }
 @end
 
@@ -28,31 +28,6 @@
     }
     return self;
 }
-- (NSArray*) policies
-{
-    if(!_policies){
-        
-    NSMutableArray *policiesResult = [NSMutableArray array];
-    NSArray *policies = self.dictionary[@"policies"];
-
-    if ([policies isKindOfClass:[NSArray class]]){
-        for (id tempConditionalAccessPolicy in policies){
-            [policiesResult addObject:tempConditionalAccessPolicy];
-        }
-    }
-
-    _policies = policiesResult;
-        
-    }
-    return _policies;
-}
-
-- (void) setPolicies: (NSArray*) val
-{
-    _policies = val;
-    self.dictionary[@"policies"] = val;
-}
-
 - (NSArray*) namedLocations
 {
     if(!_namedLocations){
@@ -76,6 +51,31 @@
 {
     _namedLocations = val;
     self.dictionary[@"namedLocations"] = val;
+}
+
+- (NSArray*) policies
+{
+    if(!_policies){
+        
+    NSMutableArray *policiesResult = [NSMutableArray array];
+    NSArray *policies = self.dictionary[@"policies"];
+
+    if ([policies isKindOfClass:[NSArray class]]){
+        for (id tempConditionalAccessPolicy in policies){
+            [policiesResult addObject:tempConditionalAccessPolicy];
+        }
+    }
+
+    _policies = policiesResult;
+        
+    }
+    return _policies;
+}
+
+- (void) setPolicies: (NSArray*) val
+{
+    _policies = val;
+    self.dictionary[@"policies"] = val;
 }
 
 

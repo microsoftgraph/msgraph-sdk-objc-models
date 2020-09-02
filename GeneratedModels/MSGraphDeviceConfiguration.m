@@ -14,35 +14,21 @@
 
 @interface MSGraphDeviceConfiguration()
 {
-    NSDate* _lastModifiedDateTime;
     NSDate* _createdDateTime;
     NSString* _deviceConfigurationDescription;
     NSString* _displayName;
+    NSDate* _lastModifiedDateTime;
     int32_t _version;
     NSArray* _assignments;
-    NSArray* _deviceStatuses;
-    NSArray* _userStatuses;
-    MSGraphDeviceConfigurationDeviceOverview* _deviceStatusOverview;
-    MSGraphDeviceConfigurationUserOverview* _userStatusOverview;
     NSArray* _deviceSettingStateSummaries;
+    NSArray* _deviceStatuses;
+    MSGraphDeviceConfigurationDeviceOverview* _deviceStatusOverview;
+    NSArray* _userStatuses;
+    MSGraphDeviceConfigurationUserOverview* _userStatusOverview;
 }
 @end
 
 @implementation MSGraphDeviceConfiguration
-
-- (NSDate*) lastModifiedDateTime
-{
-    if(!_lastModifiedDateTime){
-        _lastModifiedDateTime = [NSDate ms_dateFromString: self.dictionary[@"lastModifiedDateTime"]];
-    }
-    return _lastModifiedDateTime;
-}
-
-- (void) setLastModifiedDateTime: (NSDate*) val
-{
-    _lastModifiedDateTime = val;
-    self.dictionary[@"lastModifiedDateTime"] = [val ms_toString];
-}
 
 - (NSDate*) createdDateTime
 {
@@ -82,6 +68,20 @@
     self.dictionary[@"displayName"] = val;
 }
 
+- (NSDate*) lastModifiedDateTime
+{
+    if(!_lastModifiedDateTime){
+        _lastModifiedDateTime = [NSDate ms_dateFromString: self.dictionary[@"lastModifiedDateTime"]];
+    }
+    return _lastModifiedDateTime;
+}
+
+- (void) setLastModifiedDateTime: (NSDate*) val
+{
+    _lastModifiedDateTime = val;
+    self.dictionary[@"lastModifiedDateTime"] = [val ms_toString];
+}
+
 - (int32_t) version
 {
     _version = [self.dictionary[@"version"] intValue];
@@ -119,6 +119,31 @@
     self.dictionary[@"assignments"] = val;
 }
 
+- (NSArray*) deviceSettingStateSummaries
+{
+    if(!_deviceSettingStateSummaries){
+        
+    NSMutableArray *deviceSettingStateSummariesResult = [NSMutableArray array];
+    NSArray *deviceSettingStateSummaries = self.dictionary[@"deviceSettingStateSummaries"];
+
+    if ([deviceSettingStateSummaries isKindOfClass:[NSArray class]]){
+        for (id tempSettingStateDeviceSummary in deviceSettingStateSummaries){
+            [deviceSettingStateSummariesResult addObject:tempSettingStateDeviceSummary];
+        }
+    }
+
+    _deviceSettingStateSummaries = deviceSettingStateSummariesResult;
+        
+    }
+    return _deviceSettingStateSummaries;
+}
+
+- (void) setDeviceSettingStateSummaries: (NSArray*) val
+{
+    _deviceSettingStateSummaries = val;
+    self.dictionary[@"deviceSettingStateSummaries"] = val;
+}
+
 - (NSArray*) deviceStatuses
 {
     if(!_deviceStatuses){
@@ -142,6 +167,20 @@
 {
     _deviceStatuses = val;
     self.dictionary[@"deviceStatuses"] = val;
+}
+
+- (MSGraphDeviceConfigurationDeviceOverview*) deviceStatusOverview
+{
+    if(!_deviceStatusOverview){
+        _deviceStatusOverview = [[MSGraphDeviceConfigurationDeviceOverview alloc] initWithDictionary: self.dictionary[@"deviceStatusOverview"]];
+    }
+    return _deviceStatusOverview;
+}
+
+- (void) setDeviceStatusOverview: (MSGraphDeviceConfigurationDeviceOverview*) val
+{
+    _deviceStatusOverview = val;
+    self.dictionary[@"deviceStatusOverview"] = val;
 }
 
 - (NSArray*) userStatuses
@@ -169,20 +208,6 @@
     self.dictionary[@"userStatuses"] = val;
 }
 
-- (MSGraphDeviceConfigurationDeviceOverview*) deviceStatusOverview
-{
-    if(!_deviceStatusOverview){
-        _deviceStatusOverview = [[MSGraphDeviceConfigurationDeviceOverview alloc] initWithDictionary: self.dictionary[@"deviceStatusOverview"]];
-    }
-    return _deviceStatusOverview;
-}
-
-- (void) setDeviceStatusOverview: (MSGraphDeviceConfigurationDeviceOverview*) val
-{
-    _deviceStatusOverview = val;
-    self.dictionary[@"deviceStatusOverview"] = val;
-}
-
 - (MSGraphDeviceConfigurationUserOverview*) userStatusOverview
 {
     if(!_userStatusOverview){
@@ -195,31 +220,6 @@
 {
     _userStatusOverview = val;
     self.dictionary[@"userStatusOverview"] = val;
-}
-
-- (NSArray*) deviceSettingStateSummaries
-{
-    if(!_deviceSettingStateSummaries){
-        
-    NSMutableArray *deviceSettingStateSummariesResult = [NSMutableArray array];
-    NSArray *deviceSettingStateSummaries = self.dictionary[@"deviceSettingStateSummaries"];
-
-    if ([deviceSettingStateSummaries isKindOfClass:[NSArray class]]){
-        for (id tempSettingStateDeviceSummary in deviceSettingStateSummaries){
-            [deviceSettingStateSummariesResult addObject:tempSettingStateDeviceSummary];
-        }
-    }
-
-    _deviceSettingStateSummaries = deviceSettingStateSummariesResult;
-        
-    }
-    return _deviceSettingStateSummaries;
-}
-
-- (void) setDeviceSettingStateSummaries: (NSArray*) val
-{
-    _deviceSettingStateSummaries = val;
-    self.dictionary[@"deviceSettingStateSummaries"] = val;
 }
 
 

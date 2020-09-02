@@ -14,11 +14,11 @@
 
 @interface MSGraphMicrosoftStoreForBusinessApp()
 {
-    int32_t _usedLicenseCount;
-    int32_t _totalLicenseCount;
-    NSString* _productKey;
     MSGraphMicrosoftStoreForBusinessLicenseType* _licenseType;
     NSString* _packageIdentityName;
+    NSString* _productKey;
+    int32_t _totalLicenseCount;
+    int32_t _usedLicenseCount;
 }
 @end
 
@@ -31,44 +31,6 @@
     }
     return self;
 }
-- (int32_t) usedLicenseCount
-{
-    _usedLicenseCount = [self.dictionary[@"usedLicenseCount"] intValue];
-    return _usedLicenseCount;
-}
-
-- (void) setUsedLicenseCount: (int32_t) val
-{
-    _usedLicenseCount = val;
-    self.dictionary[@"usedLicenseCount"] = @(val);
-}
-
-- (int32_t) totalLicenseCount
-{
-    _totalLicenseCount = [self.dictionary[@"totalLicenseCount"] intValue];
-    return _totalLicenseCount;
-}
-
-- (void) setTotalLicenseCount: (int32_t) val
-{
-    _totalLicenseCount = val;
-    self.dictionary[@"totalLicenseCount"] = @(val);
-}
-
-- (NSString*) productKey
-{
-    if([[NSNull null] isEqual:self.dictionary[@"productKey"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"productKey"];
-}
-
-- (void) setProductKey: (NSString*) val
-{
-    self.dictionary[@"productKey"] = val;
-}
-
 - (MSGraphMicrosoftStoreForBusinessLicenseType*) licenseType
 {
     if(!_licenseType){
@@ -95,6 +57,44 @@
 - (void) setPackageIdentityName: (NSString*) val
 {
     self.dictionary[@"packageIdentityName"] = val;
+}
+
+- (NSString*) productKey
+{
+    if([[NSNull null] isEqual:self.dictionary[@"productKey"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"productKey"];
+}
+
+- (void) setProductKey: (NSString*) val
+{
+    self.dictionary[@"productKey"] = val;
+}
+
+- (int32_t) totalLicenseCount
+{
+    _totalLicenseCount = [self.dictionary[@"totalLicenseCount"] intValue];
+    return _totalLicenseCount;
+}
+
+- (void) setTotalLicenseCount: (int32_t) val
+{
+    _totalLicenseCount = val;
+    self.dictionary[@"totalLicenseCount"] = @(val);
+}
+
+- (int32_t) usedLicenseCount
+{
+    _usedLicenseCount = [self.dictionary[@"usedLicenseCount"] intValue];
+    return _usedLicenseCount;
+}
+
+- (void) setUsedLicenseCount: (int32_t) val
+{
+    _usedLicenseCount = val;
+    self.dictionary[@"usedLicenseCount"] = @(val);
 }
 
 

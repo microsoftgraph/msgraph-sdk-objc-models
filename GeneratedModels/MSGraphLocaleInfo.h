@@ -8,7 +8,7 @@
 
 @interface MSGraphLocaleInfo : MSObject
 
-@property (nullable, nonatomic, setter=setLocale:, getter=locale) NSString* locale;
 @property (nullable, nonatomic, setter=setDisplayName:, getter=displayName) NSString* displayName;
+@property (nullable, nonatomic, setter=setLocale:, getter=locale) NSString* locale;
 
 @end

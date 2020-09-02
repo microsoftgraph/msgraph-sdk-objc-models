@@ -15,10 +15,10 @@
 @interface MSGraphIosManagedAppProtection()
 {
     MSGraphManagedAppDataEncryptionType* _appDataEncryptionType;
-    NSString* _minimumRequiredSdkVersion;
+    NSString* _customBrowserProtocol;
     int32_t _deployedAppCount;
     BOOL _faceIdBlocked;
-    NSString* _customBrowserProtocol;
+    NSString* _minimumRequiredSdkVersion;
     NSArray* _apps;
     MSGraphManagedAppPolicyDeploymentSummary* _deploymentSummary;
 }
@@ -47,18 +47,18 @@
     self.dictionary[@"appDataEncryptionType"] = val;
 }
 
-- (NSString*) minimumRequiredSdkVersion
+- (NSString*) customBrowserProtocol
 {
-    if([[NSNull null] isEqual:self.dictionary[@"minimumRequiredSdkVersion"]])
+    if([[NSNull null] isEqual:self.dictionary[@"customBrowserProtocol"]])
     {
         return nil;
     }   
-    return self.dictionary[@"minimumRequiredSdkVersion"];
+    return self.dictionary[@"customBrowserProtocol"];
 }
 
-- (void) setMinimumRequiredSdkVersion: (NSString*) val
+- (void) setCustomBrowserProtocol: (NSString*) val
 {
-    self.dictionary[@"minimumRequiredSdkVersion"] = val;
+    self.dictionary[@"customBrowserProtocol"] = val;
 }
 
 - (int32_t) deployedAppCount
@@ -85,18 +85,18 @@
     self.dictionary[@"faceIdBlocked"] = @(val);
 }
 
-- (NSString*) customBrowserProtocol
+- (NSString*) minimumRequiredSdkVersion
 {
-    if([[NSNull null] isEqual:self.dictionary[@"customBrowserProtocol"]])
+    if([[NSNull null] isEqual:self.dictionary[@"minimumRequiredSdkVersion"]])
     {
         return nil;
     }   
-    return self.dictionary[@"customBrowserProtocol"];
+    return self.dictionary[@"minimumRequiredSdkVersion"];
 }
 
-- (void) setCustomBrowserProtocol: (NSString*) val
+- (void) setMinimumRequiredSdkVersion: (NSString*) val
 {
-    self.dictionary[@"customBrowserProtocol"] = val;
+    self.dictionary[@"minimumRequiredSdkVersion"] = val;
 }
 
 - (NSArray*) apps

@@ -8,8 +8,8 @@
 
 @interface MSGraphTimeOff : MSGraphChangeTrackedEntity
 
-  @property (nullable, nonatomic, setter=setSharedTimeOff:, getter=sharedTimeOff) MSGraphTimeOffItem* sharedTimeOff;
-    @property (nullable, nonatomic, setter=setDraftTimeOff:, getter=draftTimeOff) MSGraphTimeOffItem* draftTimeOff;
+  @property (nullable, nonatomic, setter=setDraftTimeOff:, getter=draftTimeOff) MSGraphTimeOffItem* draftTimeOff;
+    @property (nullable, nonatomic, setter=setSharedTimeOff:, getter=sharedTimeOff) MSGraphTimeOffItem* sharedTimeOff;
     @property (nullable, nonatomic, setter=setUserId:, getter=userId) NSString* userId;
   
 @end

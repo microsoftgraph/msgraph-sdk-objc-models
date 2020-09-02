@@ -14,28 +14,14 @@
 
 @interface MSGraphConditionalAccessGrantControls()
 {
-    NSString* _operator;
     NSArray* _builtInControls;
     NSArray* _customAuthenticationFactors;
+    NSString* _operator;
     NSArray* _termsOfUse;
 }
 @end
 
 @implementation MSGraphConditionalAccessGrantControls
-
-- (NSString*) operator
-{
-    if([[NSNull null] isEqual:self.dictionary[@"operator"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"operator"];
-}
-
-- (void) setOperator: (NSString*) val
-{
-    self.dictionary[@"operator"] = val;
-}
 
 - (NSArray*) builtInControls
 {
@@ -70,6 +56,20 @@
 - (void) setCustomAuthenticationFactors: (NSArray*) val
 {
     self.dictionary[@"customAuthenticationFactors"] = val;
+}
+
+- (NSString*) operator
+{
+    if([[NSNull null] isEqual:self.dictionary[@"operator"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"operator"];
+}
+
+- (void) setOperator: (NSString*) val
+{
+    self.dictionary[@"operator"] = val;
 }
 
 - (NSArray*) termsOfUse

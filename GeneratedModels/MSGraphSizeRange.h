@@ -8,7 +8,7 @@
 
 @interface MSGraphSizeRange : MSObject
 
-@property (nonatomic, setter=setMinimumSize:, getter=minimumSize) int32_t minimumSize;
 @property (nonatomic, setter=setMaximumSize:, getter=maximumSize) int32_t maximumSize;
+@property (nonatomic, setter=setMinimumSize:, getter=minimumSize) int32_t minimumSize;
 
 @end

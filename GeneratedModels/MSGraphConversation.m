@@ -14,11 +14,11 @@
 
 @interface MSGraphConversation()
 {
-    NSString* _topic;
     BOOL _hasAttachments;
     NSDate* _lastDeliveredDateTime;
-    NSArray* _uniqueSenders;
     NSString* _preview;
+    NSString* _topic;
+    NSArray* _uniqueSenders;
     NSArray* _threads;
 }
 @end
@@ -32,16 +32,6 @@
     }
     return self;
 }
-- (NSString*) topic
-{
-    return self.dictionary[@"topic"];
-}
-
-- (void) setTopic: (NSString*) val
-{
-    self.dictionary[@"topic"] = val;
-}
-
 - (BOOL) hasAttachments
 {
     _hasAttachments = [self.dictionary[@"hasAttachments"] boolValue];
@@ -68,16 +58,6 @@
     self.dictionary[@"lastDeliveredDateTime"] = [val ms_toString];
 }
 
-- (NSArray*) uniqueSenders
-{
-    return self.dictionary[@"uniqueSenders"];
-}
-
-- (void) setUniqueSenders: (NSArray*) val
-{
-    self.dictionary[@"uniqueSenders"] = val;
-}
-
 - (NSString*) preview
 {
     return self.dictionary[@"preview"];
@@ -86,6 +66,26 @@
 - (void) setPreview: (NSString*) val
 {
     self.dictionary[@"preview"] = val;
+}
+
+- (NSString*) topic
+{
+    return self.dictionary[@"topic"];
+}
+
+- (void) setTopic: (NSString*) val
+{
+    self.dictionary[@"topic"] = val;
+}
+
+- (NSArray*) uniqueSenders
+{
+    return self.dictionary[@"uniqueSenders"];
+}
+
+- (void) setUniqueSenders: (NSArray*) val
+{
+    self.dictionary[@"uniqueSenders"] = val;
 }
 
 - (NSArray*) threads

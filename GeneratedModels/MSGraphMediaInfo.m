@@ -14,22 +14,12 @@
 
 @interface MSGraphMediaInfo()
 {
-    NSString* _uri;
     NSString* _resourceId;
+    NSString* _uri;
 }
 @end
 
 @implementation MSGraphMediaInfo
-
-- (NSString*) uri
-{
-    return self.dictionary[@"uri"];
-}
-
-- (void) setUri: (NSString*) val
-{
-    self.dictionary[@"uri"] = val;
-}
 
 - (NSString*) resourceId
 {
@@ -43,6 +33,16 @@
 - (void) setResourceId: (NSString*) val
 {
     self.dictionary[@"resourceId"] = val;
+}
+
+- (NSString*) uri
+{
+    return self.dictionary[@"uri"];
+}
+
+- (void) setUri: (NSString*) val
+{
+    self.dictionary[@"uri"] = val;
 }
 
 @end

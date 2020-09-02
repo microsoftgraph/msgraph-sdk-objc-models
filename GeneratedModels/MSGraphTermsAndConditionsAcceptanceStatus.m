@@ -14,9 +14,9 @@
 
 @interface MSGraphTermsAndConditionsAcceptanceStatus()
 {
-    NSString* _userDisplayName;
-    int32_t _acceptedVersion;
     NSDate* _acceptedDateTime;
+    int32_t _acceptedVersion;
+    NSString* _userDisplayName;
     NSString* _userPrincipalName;
     MSGraphTermsAndConditions* _termsAndConditions;
 }
@@ -31,18 +31,18 @@
     }
     return self;
 }
-- (NSString*) userDisplayName
+- (NSDate*) acceptedDateTime
 {
-    if([[NSNull null] isEqual:self.dictionary[@"userDisplayName"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"userDisplayName"];
+    if(!_acceptedDateTime){
+        _acceptedDateTime = [NSDate ms_dateFromString: self.dictionary[@"acceptedDateTime"]];
+    }
+    return _acceptedDateTime;
 }
 
-- (void) setUserDisplayName: (NSString*) val
+- (void) setAcceptedDateTime: (NSDate*) val
 {
-    self.dictionary[@"userDisplayName"] = val;
+    _acceptedDateTime = val;
+    self.dictionary[@"acceptedDateTime"] = [val ms_toString];
 }
 
 - (int32_t) acceptedVersion
@@ -57,18 +57,18 @@
     self.dictionary[@"acceptedVersion"] = @(val);
 }
 
-- (NSDate*) acceptedDateTime
+- (NSString*) userDisplayName
 {
-    if(!_acceptedDateTime){
-        _acceptedDateTime = [NSDate ms_dateFromString: self.dictionary[@"acceptedDateTime"]];
-    }
-    return _acceptedDateTime;
+    if([[NSNull null] isEqual:self.dictionary[@"userDisplayName"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"userDisplayName"];
 }
 
-- (void) setAcceptedDateTime: (NSDate*) val
+- (void) setUserDisplayName: (NSString*) val
 {
-    _acceptedDateTime = val;
-    self.dictionary[@"acceptedDateTime"] = [val ms_toString];
+    self.dictionary[@"userDisplayName"] = val;
 }
 
 - (NSString*) userPrincipalName

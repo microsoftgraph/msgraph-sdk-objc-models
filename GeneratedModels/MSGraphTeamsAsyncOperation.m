@@ -14,14 +14,14 @@
 
 @interface MSGraphTeamsAsyncOperation()
 {
-    MSGraphTeamsAsyncOperationType* _operationType;
-    NSDate* _createdDateTime;
-    MSGraphTeamsAsyncOperationStatus* _status;
-    NSDate* _lastActionDateTime;
     int32_t _attemptsCount;
+    NSDate* _createdDateTime;
+    MSGraphOperationError* _error;
+    NSDate* _lastActionDateTime;
+    MSGraphTeamsAsyncOperationType* _operationType;
+    MSGraphTeamsAsyncOperationStatus* _status;
     NSString* _targetResourceId;
     NSString* _targetResourceLocation;
-    MSGraphOperationError* _error;
 }
 @end
 
@@ -34,18 +34,16 @@
     }
     return self;
 }
-- (MSGraphTeamsAsyncOperationType*) operationType
+- (int32_t) attemptsCount
 {
-    if(!_operationType){
-        _operationType = [self.dictionary[@"operationType"] toMSGraphTeamsAsyncOperationType];
-    }
-    return _operationType;
+    _attemptsCount = [self.dictionary[@"attemptsCount"] intValue];
+    return _attemptsCount;
 }
 
-- (void) setOperationType: (MSGraphTeamsAsyncOperationType*) val
+- (void) setAttemptsCount: (int32_t) val
 {
-    _operationType = val;
-    self.dictionary[@"operationType"] = val;
+    _attemptsCount = val;
+    self.dictionary[@"attemptsCount"] = @(val);
 }
 
 - (NSDate*) createdDateTime
@@ -62,18 +60,18 @@
     self.dictionary[@"createdDateTime"] = [val ms_toString];
 }
 
-- (MSGraphTeamsAsyncOperationStatus*) status
+- (MSGraphOperationError*) error
 {
-    if(!_status){
-        _status = [self.dictionary[@"status"] toMSGraphTeamsAsyncOperationStatus];
+    if(!_error){
+        _error = [[MSGraphOperationError alloc] initWithDictionary: self.dictionary[@"error"]];
     }
-    return _status;
+    return _error;
 }
 
-- (void) setStatus: (MSGraphTeamsAsyncOperationStatus*) val
+- (void) setError: (MSGraphOperationError*) val
 {
-    _status = val;
-    self.dictionary[@"status"] = val;
+    _error = val;
+    self.dictionary[@"error"] = val;
 }
 
 - (NSDate*) lastActionDateTime
@@ -90,16 +88,32 @@
     self.dictionary[@"lastActionDateTime"] = [val ms_toString];
 }
 
-- (int32_t) attemptsCount
+- (MSGraphTeamsAsyncOperationType*) operationType
 {
-    _attemptsCount = [self.dictionary[@"attemptsCount"] intValue];
-    return _attemptsCount;
+    if(!_operationType){
+        _operationType = [self.dictionary[@"operationType"] toMSGraphTeamsAsyncOperationType];
+    }
+    return _operationType;
 }
 
-- (void) setAttemptsCount: (int32_t) val
+- (void) setOperationType: (MSGraphTeamsAsyncOperationType*) val
 {
-    _attemptsCount = val;
-    self.dictionary[@"attemptsCount"] = @(val);
+    _operationType = val;
+    self.dictionary[@"operationType"] = val;
+}
+
+- (MSGraphTeamsAsyncOperationStatus*) status
+{
+    if(!_status){
+        _status = [self.dictionary[@"status"] toMSGraphTeamsAsyncOperationStatus];
+    }
+    return _status;
+}
+
+- (void) setStatus: (MSGraphTeamsAsyncOperationStatus*) val
+{
+    _status = val;
+    self.dictionary[@"status"] = val;
 }
 
 - (NSString*) targetResourceId
@@ -128,20 +142,6 @@
 - (void) setTargetResourceLocation: (NSString*) val
 {
     self.dictionary[@"targetResourceLocation"] = val;
-}
-
-- (MSGraphOperationError*) error
-{
-    if(!_error){
-        _error = [[MSGraphOperationError alloc] initWithDictionary: self.dictionary[@"error"]];
-    }
-    return _error;
-}
-
-- (void) setError: (MSGraphOperationError*) val
-{
-    _error = val;
-    self.dictionary[@"error"] = val;
 }
 
 

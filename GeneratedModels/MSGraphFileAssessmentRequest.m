@@ -14,8 +14,8 @@
 
 @interface MSGraphFileAssessmentRequest()
 {
-    NSString* _fileName;
     NSString* _contentData;
+    NSString* _fileName;
 }
 @end
 
@@ -28,16 +28,6 @@
     }
     return self;
 }
-- (NSString*) fileName
-{
-    return self.dictionary[@"fileName"];
-}
-
-- (void) setFileName: (NSString*) val
-{
-    self.dictionary[@"fileName"] = val;
-}
-
 - (NSString*) contentData
 {
     return self.dictionary[@"contentData"];
@@ -46,6 +36,16 @@
 - (void) setContentData: (NSString*) val
 {
     self.dictionary[@"contentData"] = val;
+}
+
+- (NSString*) fileName
+{
+    return self.dictionary[@"fileName"];
+}
+
+- (void) setFileName: (NSString*) val
+{
+    self.dictionary[@"fileName"] = val;
 }
 
 

@@ -9,8 +9,8 @@
 
 @interface MSGraphWorkbookOperation : MSGraphEntity
 
-  @property (nonnull, nonatomic, setter=setStatus:, getter=status) MSGraphWorkbookOperationStatus* status;
+  @property (nullable, nonatomic, setter=setError:, getter=error) MSGraphWorkbookOperationError* error;
     @property (nullable, nonatomic, setter=setResourceLocation:, getter=resourceLocation) NSString* resourceLocation;
-    @property (nullable, nonatomic, setter=setError:, getter=error) MSGraphWorkbookOperationError* error;
+    @property (nonnull, nonatomic, setter=setStatus:, getter=status) MSGraphWorkbookOperationStatus* status;
   
 @end

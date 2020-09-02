@@ -9,8 +9,8 @@
 
 @interface MSGraphCommsOperation : MSGraphEntity
 
-  @property (nonnull, nonatomic, setter=setStatus:, getter=status) MSGraphOperationStatus* status;
-    @property (nullable, nonatomic, setter=setClientContext:, getter=clientContext) NSString* clientContext;
+  @property (nullable, nonatomic, setter=setClientContext:, getter=clientContext) NSString* clientContext;
     @property (nullable, nonatomic, setter=setResultInfo:, getter=resultInfo) MSGraphResultInfo* resultInfo;
+    @property (nonnull, nonatomic, setter=setStatus:, getter=status) MSGraphOperationStatus* status;
   
 @end

@@ -16,8 +16,8 @@
 {
     NSString* _actionName;
     MSGraphActionState* _actionState;
-    NSDate* _startDateTime;
     NSDate* _lastUpdatedDateTime;
+    NSDate* _startDateTime;
 }
 @end
 
@@ -51,20 +51,6 @@
     self.dictionary[@"actionState"] = val;
 }
 
-- (NSDate*) startDateTime
-{
-    if(!_startDateTime){
-        _startDateTime = [NSDate ms_dateFromString: self.dictionary[@"startDateTime"]];
-    }
-    return _startDateTime;
-}
-
-- (void) setStartDateTime: (NSDate*) val
-{
-    _startDateTime = val;
-    self.dictionary[@"startDateTime"] = [val ms_toString];
-}
-
 - (NSDate*) lastUpdatedDateTime
 {
     if(!_lastUpdatedDateTime){
@@ -77,6 +63,20 @@
 {
     _lastUpdatedDateTime = val;
     self.dictionary[@"lastUpdatedDateTime"] = [val ms_toString];
+}
+
+- (NSDate*) startDateTime
+{
+    if(!_startDateTime){
+        _startDateTime = [NSDate ms_dateFromString: self.dictionary[@"startDateTime"]];
+    }
+    return _startDateTime;
+}
+
+- (void) setStartDateTime: (NSDate*) val
+{
+    _startDateTime = val;
+    self.dictionary[@"startDateTime"] = [val ms_toString];
 }
 
 @end

@@ -14,28 +14,28 @@
 
 @interface MSGraphParticipantInfo()
 {
-    MSGraphIdentitySet* _identity;
-    MSGraphEndpointType* _endpointType;
-    NSString* _region;
-    NSString* _languageId;
     NSString* _countryCode;
+    MSGraphEndpointType* _endpointType;
+    MSGraphIdentitySet* _identity;
+    NSString* _languageId;
+    NSString* _region;
 }
 @end
 
 @implementation MSGraphParticipantInfo
 
-- (MSGraphIdentitySet*) identity
+- (NSString*) countryCode
 {
-    if(!_identity){
-        _identity = [[MSGraphIdentitySet alloc] initWithDictionary: self.dictionary[@"identity"]];
-    }
-    return _identity;
+    if([[NSNull null] isEqual:self.dictionary[@"countryCode"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"countryCode"];
 }
 
-- (void) setIdentity: (MSGraphIdentitySet*) val
+- (void) setCountryCode: (NSString*) val
 {
-    _identity = val;
-    self.dictionary[@"identity"] = val;
+    self.dictionary[@"countryCode"] = val;
 }
 
 - (MSGraphEndpointType*) endpointType
@@ -52,18 +52,18 @@
     self.dictionary[@"endpointType"] = val;
 }
 
-- (NSString*) region
+- (MSGraphIdentitySet*) identity
 {
-    if([[NSNull null] isEqual:self.dictionary[@"region"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"region"];
+    if(!_identity){
+        _identity = [[MSGraphIdentitySet alloc] initWithDictionary: self.dictionary[@"identity"]];
+    }
+    return _identity;
 }
 
-- (void) setRegion: (NSString*) val
+- (void) setIdentity: (MSGraphIdentitySet*) val
 {
-    self.dictionary[@"region"] = val;
+    _identity = val;
+    self.dictionary[@"identity"] = val;
 }
 
 - (NSString*) languageId
@@ -80,18 +80,18 @@
     self.dictionary[@"languageId"] = val;
 }
 
-- (NSString*) countryCode
+- (NSString*) region
 {
-    if([[NSNull null] isEqual:self.dictionary[@"countryCode"]])
+    if([[NSNull null] isEqual:self.dictionary[@"region"]])
     {
         return nil;
     }   
-    return self.dictionary[@"countryCode"];
+    return self.dictionary[@"region"];
 }
 
-- (void) setCountryCode: (NSString*) val
+- (void) setRegion: (NSString*) val
 {
-    self.dictionary[@"countryCode"] = val;
+    self.dictionary[@"region"] = val;
 }
 
 @end

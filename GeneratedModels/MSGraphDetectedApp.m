@@ -14,10 +14,10 @@
 
 @interface MSGraphDetectedApp()
 {
-    NSString* _displayName;
-    NSString* _version;
-    int64_t _sizeInByte;
     int32_t _deviceCount;
+    NSString* _displayName;
+    int64_t _sizeInByte;
+    NSString* _version;
     NSArray* _managedDevices;
 }
 @end
@@ -31,6 +31,18 @@
     }
     return self;
 }
+- (int32_t) deviceCount
+{
+    _deviceCount = [self.dictionary[@"deviceCount"] intValue];
+    return _deviceCount;
+}
+
+- (void) setDeviceCount: (int32_t) val
+{
+    _deviceCount = val;
+    self.dictionary[@"deviceCount"] = @(val);
+}
+
 - (NSString*) displayName
 {
     if([[NSNull null] isEqual:self.dictionary[@"displayName"]])
@@ -45,20 +57,6 @@
     self.dictionary[@"displayName"] = val;
 }
 
-- (NSString*) version
-{
-    if([[NSNull null] isEqual:self.dictionary[@"version"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"version"];
-}
-
-- (void) setVersion: (NSString*) val
-{
-    self.dictionary[@"version"] = val;
-}
-
 - (int64_t) sizeInByte
 {
     _sizeInByte = [self.dictionary[@"sizeInByte"] longLongValue];
@@ -71,16 +69,18 @@
     self.dictionary[@"sizeInByte"] = @(val);
 }
 
-- (int32_t) deviceCount
+- (NSString*) version
 {
-    _deviceCount = [self.dictionary[@"deviceCount"] intValue];
-    return _deviceCount;
+    if([[NSNull null] isEqual:self.dictionary[@"version"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"version"];
 }
 
-- (void) setDeviceCount: (int32_t) val
+- (void) setVersion: (NSString*) val
 {
-    _deviceCount = val;
-    self.dictionary[@"deviceCount"] = @(val);
+    self.dictionary[@"version"] = val;
 }
 
 - (NSArray*) managedDevices

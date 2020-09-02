@@ -15,8 +15,8 @@
 @interface MSGraphThreatAssessmentResult()
 {
     NSDate* _createdDateTime;
-    MSGraphThreatAssessmentResultType* _resultType;
     NSString* _message;
+    MSGraphThreatAssessmentResultType* _resultType;
 }
 @end
 
@@ -43,20 +43,6 @@
     self.dictionary[@"createdDateTime"] = [val ms_toString];
 }
 
-- (MSGraphThreatAssessmentResultType*) resultType
-{
-    if(!_resultType){
-        _resultType = [self.dictionary[@"resultType"] toMSGraphThreatAssessmentResultType];
-    }
-    return _resultType;
-}
-
-- (void) setResultType: (MSGraphThreatAssessmentResultType*) val
-{
-    _resultType = val;
-    self.dictionary[@"resultType"] = val;
-}
-
 - (NSString*) message
 {
     if([[NSNull null] isEqual:self.dictionary[@"message"]])
@@ -69,6 +55,20 @@
 - (void) setMessage: (NSString*) val
 {
     self.dictionary[@"message"] = val;
+}
+
+- (MSGraphThreatAssessmentResultType*) resultType
+{
+    if(!_resultType){
+        _resultType = [self.dictionary[@"resultType"] toMSGraphThreatAssessmentResultType];
+    }
+    return _resultType;
+}
+
+- (void) setResultType: (MSGraphThreatAssessmentResultType*) val
+{
+    _resultType = val;
+    self.dictionary[@"resultType"] = val;
 }
 
 

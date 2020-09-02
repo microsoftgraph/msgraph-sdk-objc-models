@@ -14,11 +14,11 @@
 
 @interface MSGraphDeviceEnrollmentConfiguration()
 {
-    NSString* _displayName;
-    NSString* _deviceEnrollmentConfigurationDescription;
-    int32_t _priority;
     NSDate* _createdDateTime;
+    NSString* _deviceEnrollmentConfigurationDescription;
+    NSString* _displayName;
     NSDate* _lastModifiedDateTime;
+    int32_t _priority;
     int32_t _version;
     NSArray* _assignments;
 }
@@ -26,18 +26,18 @@
 
 @implementation MSGraphDeviceEnrollmentConfiguration
 
-- (NSString*) displayName
+- (NSDate*) createdDateTime
 {
-    if([[NSNull null] isEqual:self.dictionary[@"displayName"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"displayName"];
+    if(!_createdDateTime){
+        _createdDateTime = [NSDate ms_dateFromString: self.dictionary[@"createdDateTime"]];
+    }
+    return _createdDateTime;
 }
 
-- (void) setDisplayName: (NSString*) val
+- (void) setCreatedDateTime: (NSDate*) val
 {
-    self.dictionary[@"displayName"] = val;
+    _createdDateTime = val;
+    self.dictionary[@"createdDateTime"] = [val ms_toString];
 }
 
 - (NSString*) deviceEnrollmentConfigurationDescription
@@ -54,30 +54,18 @@
     self.dictionary[@"description"] = val;
 }
 
-- (int32_t) priority
+- (NSString*) displayName
 {
-    _priority = [self.dictionary[@"priority"] intValue];
-    return _priority;
+    if([[NSNull null] isEqual:self.dictionary[@"displayName"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"displayName"];
 }
 
-- (void) setPriority: (int32_t) val
+- (void) setDisplayName: (NSString*) val
 {
-    _priority = val;
-    self.dictionary[@"priority"] = @(val);
-}
-
-- (NSDate*) createdDateTime
-{
-    if(!_createdDateTime){
-        _createdDateTime = [NSDate ms_dateFromString: self.dictionary[@"createdDateTime"]];
-    }
-    return _createdDateTime;
-}
-
-- (void) setCreatedDateTime: (NSDate*) val
-{
-    _createdDateTime = val;
-    self.dictionary[@"createdDateTime"] = [val ms_toString];
+    self.dictionary[@"displayName"] = val;
 }
 
 - (NSDate*) lastModifiedDateTime
@@ -92,6 +80,18 @@
 {
     _lastModifiedDateTime = val;
     self.dictionary[@"lastModifiedDateTime"] = [val ms_toString];
+}
+
+- (int32_t) priority
+{
+    _priority = [self.dictionary[@"priority"] intValue];
+    return _priority;
+}
+
+- (void) setPriority: (int32_t) val
+{
+    _priority = val;
+    self.dictionary[@"priority"] = @(val);
 }
 
 - (int32_t) version

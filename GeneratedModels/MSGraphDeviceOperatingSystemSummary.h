@@ -11,8 +11,8 @@
 @property (nonatomic, setter=setAndroidCount:, getter=androidCount) int32_t androidCount;
 @property (nonatomic, setter=setIosCount:, getter=iosCount) int32_t iosCount;
 @property (nonatomic, setter=setMacOSCount:, getter=macOSCount) int32_t macOSCount;
-@property (nonatomic, setter=setWindowsMobileCount:, getter=windowsMobileCount) int32_t windowsMobileCount;
-@property (nonatomic, setter=setWindowsCount:, getter=windowsCount) int32_t windowsCount;
 @property (nonatomic, setter=setUnknownCount:, getter=unknownCount) int32_t unknownCount;
+@property (nonatomic, setter=setWindowsCount:, getter=windowsCount) int32_t windowsCount;
+@property (nonatomic, setter=setWindowsMobileCount:, getter=windowsMobileCount) int32_t windowsMobileCount;
 
 @end

@@ -8,8 +8,8 @@
 
 @interface MSGraphSite : MSGraphBaseItem
 
-  @property (nullable, nonatomic, setter=setError:, getter=error) MSGraphPublicError* error;
-    @property (nullable, nonatomic, setter=setDisplayName:, getter=displayName) NSString* displayName;
+  @property (nullable, nonatomic, setter=setDisplayName:, getter=displayName) NSString* displayName;
+    @property (nullable, nonatomic, setter=setError:, getter=error) MSGraphPublicError* error;
     @property (nullable, nonatomic, setter=setRoot:, getter=root) MSGraphRoot* root;
     @property (nullable, nonatomic, setter=setSharepointIds:, getter=sharepointIds) MSGraphSharepointIds* sharepointIds;
     @property (nullable, nonatomic, setter=setSiteCollection:, getter=siteCollection) MSGraphSiteCollection* siteCollection;

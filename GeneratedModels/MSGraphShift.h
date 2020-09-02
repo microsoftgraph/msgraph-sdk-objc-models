@@ -8,9 +8,9 @@
 
 @interface MSGraphShift : MSGraphChangeTrackedEntity
 
-  @property (nullable, nonatomic, setter=setSharedShift:, getter=sharedShift) MSGraphShiftItem* sharedShift;
-    @property (nullable, nonatomic, setter=setDraftShift:, getter=draftShift) MSGraphShiftItem* draftShift;
-    @property (nullable, nonatomic, setter=setUserId:, getter=userId) NSString* userId;
+  @property (nullable, nonatomic, setter=setDraftShift:, getter=draftShift) MSGraphShiftItem* draftShift;
     @property (nullable, nonatomic, setter=setSchedulingGroupId:, getter=schedulingGroupId) NSString* schedulingGroupId;
+    @property (nullable, nonatomic, setter=setSharedShift:, getter=sharedShift) MSGraphShiftItem* sharedShift;
+    @property (nullable, nonatomic, setter=setUserId:, getter=userId) NSString* userId;
   
 @end

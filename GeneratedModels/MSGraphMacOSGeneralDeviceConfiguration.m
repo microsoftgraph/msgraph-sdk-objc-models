@@ -14,8 +14,8 @@
 
 @interface MSGraphMacOSGeneralDeviceConfiguration()
 {
-    NSArray* _compliantAppsList;
     MSGraphAppListType* _compliantAppListType;
+    NSArray* _compliantAppsList;
     NSArray* _emailInDomainSuffixes;
     BOOL _passwordBlockSimple;
     int32_t _passwordExpirationDays;
@@ -24,8 +24,8 @@
     int32_t _passwordMinutesOfInactivityBeforeLock;
     int32_t _passwordMinutesOfInactivityBeforeScreenTimeout;
     int32_t _passwordPreviousPasswordBlockCount;
-    MSGraphRequiredPasswordType* _passwordRequiredType;
     BOOL _passwordRequired;
+    MSGraphRequiredPasswordType* _passwordRequiredType;
 }
 @end
 
@@ -38,6 +38,20 @@
     }
     return self;
 }
+- (MSGraphAppListType*) compliantAppListType
+{
+    if(!_compliantAppListType){
+        _compliantAppListType = [self.dictionary[@"compliantAppListType"] toMSGraphAppListType];
+    }
+    return _compliantAppListType;
+}
+
+- (void) setCompliantAppListType: (MSGraphAppListType*) val
+{
+    _compliantAppListType = val;
+    self.dictionary[@"compliantAppListType"] = val;
+}
+
 - (NSArray*) compliantAppsList
 {
     if(!_compliantAppsList){
@@ -61,20 +75,6 @@
 {
     _compliantAppsList = val;
     self.dictionary[@"compliantAppsList"] = val;
-}
-
-- (MSGraphAppListType*) compliantAppListType
-{
-    if(!_compliantAppListType){
-        _compliantAppListType = [self.dictionary[@"compliantAppListType"] toMSGraphAppListType];
-    }
-    return _compliantAppListType;
-}
-
-- (void) setCompliantAppListType: (MSGraphAppListType*) val
-{
-    _compliantAppListType = val;
-    self.dictionary[@"compliantAppListType"] = val;
 }
 
 - (NSArray*) emailInDomainSuffixes
@@ -175,6 +175,18 @@
     self.dictionary[@"passwordPreviousPasswordBlockCount"] = @(val);
 }
 
+- (BOOL) passwordRequired
+{
+    _passwordRequired = [self.dictionary[@"passwordRequired"] boolValue];
+    return _passwordRequired;
+}
+
+- (void) setPasswordRequired: (BOOL) val
+{
+    _passwordRequired = val;
+    self.dictionary[@"passwordRequired"] = @(val);
+}
+
 - (MSGraphRequiredPasswordType*) passwordRequiredType
 {
     if(!_passwordRequiredType){
@@ -187,18 +199,6 @@
 {
     _passwordRequiredType = val;
     self.dictionary[@"passwordRequiredType"] = val;
-}
-
-- (BOOL) passwordRequired
-{
-    _passwordRequired = [self.dictionary[@"passwordRequired"] boolValue];
-    return _passwordRequired;
-}
-
-- (void) setPasswordRequired: (BOOL) val
-{
-    _passwordRequired = val;
-    self.dictionary[@"passwordRequired"] = @(val);
 }
 
 

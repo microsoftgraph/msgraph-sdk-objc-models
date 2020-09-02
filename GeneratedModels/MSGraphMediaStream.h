@@ -2,18 +2,18 @@
 
 
 
-#import "MSGraphModality.h"
 #import "MSGraphMediaDirection.h"
+#import "MSGraphModality.h"
 
 
 #import "MSObject.h"
 
 @interface MSGraphMediaStream : MSObject
 
-@property (nonnull, nonatomic, setter=setMediaType:, getter=mediaType) MSGraphModality* mediaType;
-@property (nullable, nonatomic, setter=setLabel:, getter=label) NSString* label;
-@property (nonnull, nonatomic, setter=setSourceId:, getter=sourceId) NSString* sourceId;
 @property (nonnull, nonatomic, setter=setDirection:, getter=direction) MSGraphMediaDirection* direction;
+@property (nullable, nonatomic, setter=setLabel:, getter=label) NSString* label;
+@property (nonnull, nonatomic, setter=setMediaType:, getter=mediaType) MSGraphModality* mediaType;
 @property (nonatomic, setter=setServerMuted:, getter=serverMuted) BOOL serverMuted;
+@property (nonnull, nonatomic, setter=setSourceId:, getter=sourceId) NSString* sourceId;
 
 @end

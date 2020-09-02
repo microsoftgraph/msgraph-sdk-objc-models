@@ -14,15 +14,43 @@
 
 @interface MSGraphScheduleInformation()
 {
-    NSString* _scheduleId;
-    NSArray* _scheduleItems;
     NSString* _availabilityView;
     MSGraphFreeBusyError* _error;
+    NSString* _scheduleId;
+    NSArray* _scheduleItems;
     MSGraphWorkingHours* _workingHours;
 }
 @end
 
 @implementation MSGraphScheduleInformation
+
+- (NSString*) availabilityView
+{
+    if([[NSNull null] isEqual:self.dictionary[@"availabilityView"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"availabilityView"];
+}
+
+- (void) setAvailabilityView: (NSString*) val
+{
+    self.dictionary[@"availabilityView"] = val;
+}
+
+- (MSGraphFreeBusyError*) error
+{
+    if(!_error){
+        _error = [[MSGraphFreeBusyError alloc] initWithDictionary: self.dictionary[@"error"]];
+    }
+    return _error;
+}
+
+- (void) setError: (MSGraphFreeBusyError*) val
+{
+    _error = val;
+    self.dictionary[@"error"] = val;
+}
 
 - (NSString*) scheduleId
 {
@@ -61,34 +89,6 @@
 {
     _scheduleItems = val;
     self.dictionary[@"scheduleItems"] = val;
-}
-
-- (NSString*) availabilityView
-{
-    if([[NSNull null] isEqual:self.dictionary[@"availabilityView"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"availabilityView"];
-}
-
-- (void) setAvailabilityView: (NSString*) val
-{
-    self.dictionary[@"availabilityView"] = val;
-}
-
-- (MSGraphFreeBusyError*) error
-{
-    if(!_error){
-        _error = [[MSGraphFreeBusyError alloc] initWithDictionary: self.dictionary[@"error"]];
-    }
-    return _error;
-}
-
-- (void) setError: (MSGraphFreeBusyError*) val
-{
-    _error = val;
-    self.dictionary[@"error"] = val;
 }
 
 - (MSGraphWorkingHours*) workingHours

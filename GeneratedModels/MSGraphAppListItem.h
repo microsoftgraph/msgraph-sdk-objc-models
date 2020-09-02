@@ -8,9 +8,9 @@
 
 @interface MSGraphAppListItem : MSObject
 
+@property (nullable, nonatomic, setter=setAppId:, getter=appId) NSString* appId;
+@property (nullable, nonatomic, setter=setAppStoreUrl:, getter=appStoreUrl) NSString* appStoreUrl;
 @property (nonnull, nonatomic, setter=setName:, getter=name) NSString* name;
 @property (nullable, nonatomic, setter=setPublisher:, getter=publisher) NSString* publisher;
-@property (nullable, nonatomic, setter=setAppStoreUrl:, getter=appStoreUrl) NSString* appStoreUrl;
-@property (nullable, nonatomic, setter=setAppId:, getter=appId) NSString* appId;
 
 @end

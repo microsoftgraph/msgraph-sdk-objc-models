@@ -8,8 +8,8 @@
 
 @interface MSGraphManagedAppDiagnosticStatus : MSObject
 
-@property (nullable, nonatomic, setter=setValidationName:, getter=validationName) NSString* validationName;
-@property (nullable, nonatomic, setter=setState:, getter=state) NSString* state;
 @property (nullable, nonatomic, setter=setMitigationInstruction:, getter=mitigationInstruction) NSString* mitigationInstruction;
+@property (nullable, nonatomic, setter=setState:, getter=state) NSString* state;
+@property (nullable, nonatomic, setter=setValidationName:, getter=validationName) NSString* validationName;
 
 @end

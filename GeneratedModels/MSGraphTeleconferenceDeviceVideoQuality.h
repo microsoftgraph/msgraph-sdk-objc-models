@@ -8,9 +8,9 @@
 
 @interface MSGraphTeleconferenceDeviceVideoQuality : MSGraphTeleconferenceDeviceMediaQuality
 
-@property (nonatomic, setter=setAverageInboundFrameRate:, getter=averageInboundFrameRate) double averageInboundFrameRate;
-@property (nonatomic, setter=setAverageOutboundFrameRate:, getter=averageOutboundFrameRate) double averageOutboundFrameRate;
 @property (nonatomic, setter=setAverageInboundBitRate:, getter=averageInboundBitRate) double averageInboundBitRate;
+@property (nonatomic, setter=setAverageInboundFrameRate:, getter=averageInboundFrameRate) double averageInboundFrameRate;
 @property (nonatomic, setter=setAverageOutboundBitRate:, getter=averageOutboundBitRate) double averageOutboundBitRate;
+@property (nonatomic, setter=setAverageOutboundFrameRate:, getter=averageOutboundFrameRate) double averageOutboundFrameRate;
 
 @end

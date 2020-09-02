@@ -8,8 +8,8 @@
 
 @interface MSGraphUserIdentity : MSObject
 
-@property (nullable, nonatomic, setter=setUserIdentityId:, getter=userIdentityId) NSString* userIdentityId;
 @property (nullable, nonatomic, setter=setDisplayName:, getter=displayName) NSString* displayName;
+@property (nullable, nonatomic, setter=setUserIdentityId:, getter=userIdentityId) NSString* userIdentityId;
 @property (nullable, nonatomic, setter=setIpAddress:, getter=ipAddress) NSString* ipAddress;
 @property (nullable, nonatomic, setter=setUserPrincipalName:, getter=userPrincipalName) NSString* userPrincipalName;
 

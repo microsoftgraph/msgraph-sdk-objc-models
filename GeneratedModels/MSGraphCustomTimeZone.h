@@ -2,7 +2,7 @@
 
 
 
-@class MSGraphStandardTimeZoneOffset, MSGraphDaylightTimeZoneOffset; 
+@class MSGraphDaylightTimeZoneOffset, MSGraphStandardTimeZoneOffset; 
 
 
 #import "MSGraphTimeZoneBase.h"
@@ -10,7 +10,7 @@
 @interface MSGraphCustomTimeZone : MSGraphTimeZoneBase
 
 @property (nonatomic, setter=setBias:, getter=bias) int32_t bias;
-@property (nullable, nonatomic, setter=setStandardOffset:, getter=standardOffset) MSGraphStandardTimeZoneOffset* standardOffset;
 @property (nullable, nonatomic, setter=setDaylightOffset:, getter=daylightOffset) MSGraphDaylightTimeZoneOffset* daylightOffset;
+@property (nullable, nonatomic, setter=setStandardOffset:, getter=standardOffset) MSGraphStandardTimeZoneOffset* standardOffset;
 
 @end

@@ -8,7 +8,7 @@
 
 @interface MSGraphOutlookCategory : MSGraphEntity
 
-  @property (nullable, nonatomic, setter=setDisplayName:, getter=displayName) NSString* displayName;
-    @property (nullable, nonatomic, setter=setColor:, getter=color) MSGraphCategoryColor* color;
+  @property (nullable, nonatomic, setter=setColor:, getter=color) MSGraphCategoryColor* color;
+    @property (nullable, nonatomic, setter=setDisplayName:, getter=displayName) NSString* displayName;
   
 @end

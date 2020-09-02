@@ -14,28 +14,28 @@
 
 @interface MSGraphMediaStream()
 {
-    MSGraphModality* _mediaType;
-    NSString* _label;
-    NSString* _sourceId;
     MSGraphMediaDirection* _direction;
+    NSString* _label;
+    MSGraphModality* _mediaType;
     BOOL _serverMuted;
+    NSString* _sourceId;
 }
 @end
 
 @implementation MSGraphMediaStream
 
-- (MSGraphModality*) mediaType
+- (MSGraphMediaDirection*) direction
 {
-    if(!_mediaType){
-        _mediaType = [self.dictionary[@"mediaType"] toMSGraphModality];
+    if(!_direction){
+        _direction = [self.dictionary[@"direction"] toMSGraphMediaDirection];
     }
-    return _mediaType;
+    return _direction;
 }
 
-- (void) setMediaType: (MSGraphModality*) val
+- (void) setDirection: (MSGraphMediaDirection*) val
 {
-    _mediaType = val;
-    self.dictionary[@"mediaType"] = val;
+    _direction = val;
+    self.dictionary[@"direction"] = val;
 }
 
 - (NSString*) label
@@ -52,28 +52,18 @@
     self.dictionary[@"label"] = val;
 }
 
-- (NSString*) sourceId
+- (MSGraphModality*) mediaType
 {
-    return self.dictionary[@"sourceId"];
-}
-
-- (void) setSourceId: (NSString*) val
-{
-    self.dictionary[@"sourceId"] = val;
-}
-
-- (MSGraphMediaDirection*) direction
-{
-    if(!_direction){
-        _direction = [self.dictionary[@"direction"] toMSGraphMediaDirection];
+    if(!_mediaType){
+        _mediaType = [self.dictionary[@"mediaType"] toMSGraphModality];
     }
-    return _direction;
+    return _mediaType;
 }
 
-- (void) setDirection: (MSGraphMediaDirection*) val
+- (void) setMediaType: (MSGraphModality*) val
 {
-    _direction = val;
-    self.dictionary[@"direction"] = val;
+    _mediaType = val;
+    self.dictionary[@"mediaType"] = val;
 }
 
 - (BOOL) serverMuted
@@ -86,6 +76,16 @@
 {
     _serverMuted = val;
     self.dictionary[@"serverMuted"] = @(val);
+}
+
+- (NSString*) sourceId
+{
+    return self.dictionary[@"sourceId"];
+}
+
+- (void) setSourceId: (NSString*) val
+{
+    self.dictionary[@"sourceId"] = val;
 }
 
 @end

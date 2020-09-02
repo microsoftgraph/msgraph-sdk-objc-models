@@ -15,9 +15,9 @@
 @interface MSGraphOnenotePatchContentCommand()
 {
     MSGraphOnenotePatchActionType* _action;
-    NSString* _target;
     NSString* _content;
     MSGraphOnenotePatchInsertPosition* _position;
+    NSString* _target;
 }
 @end
 
@@ -35,16 +35,6 @@
 {
     _action = val;
     self.dictionary[@"action"] = val;
-}
-
-- (NSString*) target
-{
-    return self.dictionary[@"target"];
-}
-
-- (void) setTarget: (NSString*) val
-{
-    self.dictionary[@"target"] = val;
 }
 
 - (NSString*) content
@@ -73,6 +63,16 @@
 {
     _position = val;
     self.dictionary[@"position"] = val;
+}
+
+- (NSString*) target
+{
+    return self.dictionary[@"target"];
+}
+
+- (void) setTarget: (NSString*) val
+{
+    self.dictionary[@"target"] = val;
 }
 
 @end

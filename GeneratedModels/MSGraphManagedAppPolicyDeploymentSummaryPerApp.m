@@ -14,12 +14,24 @@
 
 @interface MSGraphManagedAppPolicyDeploymentSummaryPerApp()
 {
-    MSGraphMobileAppIdentifier* _mobileAppIdentifier;
     int32_t _configurationAppliedUserCount;
+    MSGraphMobileAppIdentifier* _mobileAppIdentifier;
 }
 @end
 
 @implementation MSGraphManagedAppPolicyDeploymentSummaryPerApp
+
+- (int32_t) configurationAppliedUserCount
+{
+    _configurationAppliedUserCount = [self.dictionary[@"configurationAppliedUserCount"] intValue];
+    return _configurationAppliedUserCount;
+}
+
+- (void) setConfigurationAppliedUserCount: (int32_t) val
+{
+    _configurationAppliedUserCount = val;
+    self.dictionary[@"configurationAppliedUserCount"] = @(val);
+}
 
 - (MSGraphMobileAppIdentifier*) mobileAppIdentifier
 {
@@ -33,18 +45,6 @@
 {
     _mobileAppIdentifier = val;
     self.dictionary[@"mobileAppIdentifier"] = val;
-}
-
-- (int32_t) configurationAppliedUserCount
-{
-    _configurationAppliedUserCount = [self.dictionary[@"configurationAppliedUserCount"] intValue];
-    return _configurationAppliedUserCount;
-}
-
-- (void) setConfigurationAppliedUserCount: (int32_t) val
-{
-    _configurationAppliedUserCount = val;
-    self.dictionary[@"configurationAppliedUserCount"] = @(val);
 }
 
 @end

@@ -15,11 +15,11 @@
 @interface MSGraphOnenote()
 {
     NSArray* _notebooks;
-    NSArray* _sections;
-    NSArray* _sectionGroups;
+    NSArray* _onenoteOperations;
     NSArray* _pages;
     NSArray* _resources;
-    NSArray* _onenoteOperations;
+    NSArray* _sectionGroups;
+    NSArray* _sections;
 }
 @end
 
@@ -57,54 +57,29 @@
     self.dictionary[@"notebooks"] = val;
 }
 
-- (NSArray*) sections
+- (NSArray*) onenoteOperations
 {
-    if(!_sections){
+    if(!_onenoteOperations){
         
-    NSMutableArray *sectionsResult = [NSMutableArray array];
-    NSArray *sections = self.dictionary[@"sections"];
+    NSMutableArray *onenoteOperationsResult = [NSMutableArray array];
+    NSArray *onenoteOperations = self.dictionary[@"operations"];
 
-    if ([sections isKindOfClass:[NSArray class]]){
-        for (id tempOnenoteSection in sections){
-            [sectionsResult addObject:tempOnenoteSection];
+    if ([onenoteOperations isKindOfClass:[NSArray class]]){
+        for (id tempOnenoteOperation in onenoteOperations){
+            [onenoteOperationsResult addObject:tempOnenoteOperation];
         }
     }
 
-    _sections = sectionsResult;
+    _onenoteOperations = onenoteOperationsResult;
         
     }
-    return _sections;
+    return _onenoteOperations;
 }
 
-- (void) setSections: (NSArray*) val
+- (void) setOnenoteOperations: (NSArray*) val
 {
-    _sections = val;
-    self.dictionary[@"sections"] = val;
-}
-
-- (NSArray*) sectionGroups
-{
-    if(!_sectionGroups){
-        
-    NSMutableArray *sectionGroupsResult = [NSMutableArray array];
-    NSArray *sectionGroups = self.dictionary[@"sectionGroups"];
-
-    if ([sectionGroups isKindOfClass:[NSArray class]]){
-        for (id tempSectionGroup in sectionGroups){
-            [sectionGroupsResult addObject:tempSectionGroup];
-        }
-    }
-
-    _sectionGroups = sectionGroupsResult;
-        
-    }
-    return _sectionGroups;
-}
-
-- (void) setSectionGroups: (NSArray*) val
-{
-    _sectionGroups = val;
-    self.dictionary[@"sectionGroups"] = val;
+    _onenoteOperations = val;
+    self.dictionary[@"operations"] = val;
 }
 
 - (NSArray*) pages
@@ -157,29 +132,54 @@
     self.dictionary[@"resources"] = val;
 }
 
-- (NSArray*) onenoteOperations
+- (NSArray*) sectionGroups
 {
-    if(!_onenoteOperations){
+    if(!_sectionGroups){
         
-    NSMutableArray *onenoteOperationsResult = [NSMutableArray array];
-    NSArray *onenoteOperations = self.dictionary[@"operations"];
+    NSMutableArray *sectionGroupsResult = [NSMutableArray array];
+    NSArray *sectionGroups = self.dictionary[@"sectionGroups"];
 
-    if ([onenoteOperations isKindOfClass:[NSArray class]]){
-        for (id tempOnenoteOperation in onenoteOperations){
-            [onenoteOperationsResult addObject:tempOnenoteOperation];
+    if ([sectionGroups isKindOfClass:[NSArray class]]){
+        for (id tempSectionGroup in sectionGroups){
+            [sectionGroupsResult addObject:tempSectionGroup];
         }
     }
 
-    _onenoteOperations = onenoteOperationsResult;
+    _sectionGroups = sectionGroupsResult;
         
     }
-    return _onenoteOperations;
+    return _sectionGroups;
 }
 
-- (void) setOnenoteOperations: (NSArray*) val
+- (void) setSectionGroups: (NSArray*) val
 {
-    _onenoteOperations = val;
-    self.dictionary[@"operations"] = val;
+    _sectionGroups = val;
+    self.dictionary[@"sectionGroups"] = val;
+}
+
+- (NSArray*) sections
+{
+    if(!_sections){
+        
+    NSMutableArray *sectionsResult = [NSMutableArray array];
+    NSArray *sections = self.dictionary[@"sections"];
+
+    if ([sections isKindOfClass:[NSArray class]]){
+        for (id tempOnenoteSection in sections){
+            [sectionsResult addObject:tempOnenoteSection];
+        }
+    }
+
+    _sections = sectionsResult;
+        
+    }
+    return _sections;
+}
+
+- (void) setSections: (NSArray*) val
+{
+    _sections = val;
+    self.dictionary[@"sections"] = val;
 }
 
 

@@ -14,24 +14,24 @@
 
 @interface MSGraphRgbColor()
 {
-    Byte _r;
-    Byte _g;
     Byte _b;
+    Byte _g;
+    Byte _r;
 }
 @end
 
 @implementation MSGraphRgbColor
 
-- (Byte) r
+- (Byte) b
 {
-    _r = self.dictionary[@"r"];
-    return _r;
+    _b = self.dictionary[@"b"];
+    return _b;
 }
 
-- (void) setR: (Byte) val
+- (void) setB: (Byte) val
 {
-    _r = val;
-    self.dictionary[@"r"] = @(val);
+    _b = val;
+    self.dictionary[@"b"] = @(val);
 }
 
 - (Byte) g
@@ -46,16 +46,16 @@
     self.dictionary[@"g"] = @(val);
 }
 
-- (Byte) b
+- (Byte) r
 {
-    _b = self.dictionary[@"b"];
-    return _b;
+    _r = self.dictionary[@"r"];
+    return _r;
 }
 
-- (void) setB: (Byte) val
+- (void) setR: (Byte) val
 {
-    _b = val;
-    self.dictionary[@"b"] = @(val);
+    _r = val;
+    self.dictionary[@"r"] = @(val);
 }
 
 @end

@@ -14,23 +14,13 @@
 
 @interface MSGraphConditionalAccessApplications()
 {
-    NSArray* _includeApplications;
     NSArray* _excludeApplications;
+    NSArray* _includeApplications;
     NSArray* _includeUserActions;
 }
 @end
 
 @implementation MSGraphConditionalAccessApplications
-
-- (NSArray*) includeApplications
-{
-    return self.dictionary[@"includeApplications"];
-}
-
-- (void) setIncludeApplications: (NSArray*) val
-{
-    self.dictionary[@"includeApplications"] = val;
-}
 
 - (NSArray*) excludeApplications
 {
@@ -40,6 +30,16 @@
 - (void) setExcludeApplications: (NSArray*) val
 {
     self.dictionary[@"excludeApplications"] = val;
+}
+
+- (NSArray*) includeApplications
+{
+    return self.dictionary[@"includeApplications"];
+}
+
+- (void) setIncludeApplications: (NSArray*) val
+{
+    self.dictionary[@"includeApplications"] = val;
 }
 
 - (NSArray*) includeUserActions

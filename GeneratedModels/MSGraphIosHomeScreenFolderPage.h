@@ -9,7 +9,7 @@
 
 @interface MSGraphIosHomeScreenFolderPage : MSObject
 
-@property (nullable, nonatomic, setter=setDisplayName:, getter=displayName) NSString* displayName;
 @property (nonnull, nonatomic, setter=setApps:, getter=apps) NSArray* apps;
+@property (nullable, nonatomic, setter=setDisplayName:, getter=displayName) NSString* displayName;
 
 @end

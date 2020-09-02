@@ -14,8 +14,8 @@
 
 @interface MSGraphDeviceManagementTroubleshootingEvent()
 {
-    NSDate* _eventDateTime;
     NSString* _correlationId;
+    NSDate* _eventDateTime;
 }
 @end
 
@@ -28,20 +28,6 @@
     }
     return self;
 }
-- (NSDate*) eventDateTime
-{
-    if(!_eventDateTime){
-        _eventDateTime = [NSDate ms_dateFromString: self.dictionary[@"eventDateTime"]];
-    }
-    return _eventDateTime;
-}
-
-- (void) setEventDateTime: (NSDate*) val
-{
-    _eventDateTime = val;
-    self.dictionary[@"eventDateTime"] = [val ms_toString];
-}
-
 - (NSString*) correlationId
 {
     if([[NSNull null] isEqual:self.dictionary[@"correlationId"]])
@@ -54,6 +40,20 @@
 - (void) setCorrelationId: (NSString*) val
 {
     self.dictionary[@"correlationId"] = val;
+}
+
+- (NSDate*) eventDateTime
+{
+    if(!_eventDateTime){
+        _eventDateTime = [NSDate ms_dateFromString: self.dictionary[@"eventDateTime"]];
+    }
+    return _eventDateTime;
+}
+
+- (void) setEventDateTime: (NSDate*) val
+{
+    _eventDateTime = val;
+    self.dictionary[@"eventDateTime"] = [val ms_toString];
 }
 
 

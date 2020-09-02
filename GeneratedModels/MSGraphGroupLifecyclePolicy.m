@@ -14,9 +14,9 @@
 
 @interface MSGraphGroupLifecyclePolicy()
 {
+    NSString* _alternateNotificationEmails;
     int32_t _groupLifetimeInDays;
     NSString* _managedGroupTypes;
-    NSString* _alternateNotificationEmails;
 }
 @end
 
@@ -29,6 +29,20 @@
     }
     return self;
 }
+- (NSString*) alternateNotificationEmails
+{
+    if([[NSNull null] isEqual:self.dictionary[@"alternateNotificationEmails"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"alternateNotificationEmails"];
+}
+
+- (void) setAlternateNotificationEmails: (NSString*) val
+{
+    self.dictionary[@"alternateNotificationEmails"] = val;
+}
+
 - (int32_t) groupLifetimeInDays
 {
     _groupLifetimeInDays = [self.dictionary[@"groupLifetimeInDays"] intValue];
@@ -53,20 +67,6 @@
 - (void) setManagedGroupTypes: (NSString*) val
 {
     self.dictionary[@"managedGroupTypes"] = val;
-}
-
-- (NSString*) alternateNotificationEmails
-{
-    if([[NSNull null] isEqual:self.dictionary[@"alternateNotificationEmails"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"alternateNotificationEmails"];
-}
-
-- (void) setAlternateNotificationEmails: (NSString*) val
-{
-    self.dictionary[@"alternateNotificationEmails"] = val;
 }
 
 

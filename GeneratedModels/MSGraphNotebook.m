@@ -15,13 +15,13 @@
 @interface MSGraphNotebook()
 {
     BOOL _isDefault;
-    MSGraphOnenoteUserRole* _userRole;
     BOOL _isShared;
-    NSString* _sectionsUrl;
-    NSString* _sectionGroupsUrl;
     MSGraphNotebookLinks* _links;
-    NSArray* _sections;
+    NSString* _sectionGroupsUrl;
+    NSString* _sectionsUrl;
+    MSGraphOnenoteUserRole* _userRole;
     NSArray* _sectionGroups;
+    NSArray* _sections;
 }
 @end
 
@@ -46,20 +46,6 @@
     self.dictionary[@"isDefault"] = @(val);
 }
 
-- (MSGraphOnenoteUserRole*) userRole
-{
-    if(!_userRole){
-        _userRole = [self.dictionary[@"userRole"] toMSGraphOnenoteUserRole];
-    }
-    return _userRole;
-}
-
-- (void) setUserRole: (MSGraphOnenoteUserRole*) val
-{
-    _userRole = val;
-    self.dictionary[@"userRole"] = val;
-}
-
 - (BOOL) isShared
 {
     _isShared = [self.dictionary[@"isShared"] boolValue];
@@ -70,34 +56,6 @@
 {
     _isShared = val;
     self.dictionary[@"isShared"] = @(val);
-}
-
-- (NSString*) sectionsUrl
-{
-    if([[NSNull null] isEqual:self.dictionary[@"sectionsUrl"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"sectionsUrl"];
-}
-
-- (void) setSectionsUrl: (NSString*) val
-{
-    self.dictionary[@"sectionsUrl"] = val;
-}
-
-- (NSString*) sectionGroupsUrl
-{
-    if([[NSNull null] isEqual:self.dictionary[@"sectionGroupsUrl"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"sectionGroupsUrl"];
-}
-
-- (void) setSectionGroupsUrl: (NSString*) val
-{
-    self.dictionary[@"sectionGroupsUrl"] = val;
 }
 
 - (MSGraphNotebookLinks*) links
@@ -114,29 +72,46 @@
     self.dictionary[@"links"] = val;
 }
 
-- (NSArray*) sections
+- (NSString*) sectionGroupsUrl
 {
-    if(!_sections){
-        
-    NSMutableArray *sectionsResult = [NSMutableArray array];
-    NSArray *sections = self.dictionary[@"sections"];
-
-    if ([sections isKindOfClass:[NSArray class]]){
-        for (id tempOnenoteSection in sections){
-            [sectionsResult addObject:tempOnenoteSection];
-        }
-    }
-
-    _sections = sectionsResult;
-        
-    }
-    return _sections;
+    if([[NSNull null] isEqual:self.dictionary[@"sectionGroupsUrl"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"sectionGroupsUrl"];
 }
 
-- (void) setSections: (NSArray*) val
+- (void) setSectionGroupsUrl: (NSString*) val
 {
-    _sections = val;
-    self.dictionary[@"sections"] = val;
+    self.dictionary[@"sectionGroupsUrl"] = val;
+}
+
+- (NSString*) sectionsUrl
+{
+    if([[NSNull null] isEqual:self.dictionary[@"sectionsUrl"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"sectionsUrl"];
+}
+
+- (void) setSectionsUrl: (NSString*) val
+{
+    self.dictionary[@"sectionsUrl"] = val;
+}
+
+- (MSGraphOnenoteUserRole*) userRole
+{
+    if(!_userRole){
+        _userRole = [self.dictionary[@"userRole"] toMSGraphOnenoteUserRole];
+    }
+    return _userRole;
+}
+
+- (void) setUserRole: (MSGraphOnenoteUserRole*) val
+{
+    _userRole = val;
+    self.dictionary[@"userRole"] = val;
 }
 
 - (NSArray*) sectionGroups
@@ -162,6 +137,31 @@
 {
     _sectionGroups = val;
     self.dictionary[@"sectionGroups"] = val;
+}
+
+- (NSArray*) sections
+{
+    if(!_sections){
+        
+    NSMutableArray *sectionsResult = [NSMutableArray array];
+    NSArray *sections = self.dictionary[@"sections"];
+
+    if ([sections isKindOfClass:[NSArray class]]){
+        for (id tempOnenoteSection in sections){
+            [sectionsResult addObject:tempOnenoteSection];
+        }
+    }
+
+    _sections = sectionsResult;
+        
+    }
+    return _sections;
+}
+
+- (void) setSections: (NSArray*) val
+{
+    _sections = val;
+    self.dictionary[@"sections"] = val;
 }
 
 

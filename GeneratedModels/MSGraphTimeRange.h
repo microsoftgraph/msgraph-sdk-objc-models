@@ -9,7 +9,7 @@
 
 @interface MSGraphTimeRange : MSObject
 
-@property (nullable, nonatomic, setter=setStartTime:, getter=startTime) MSTimeOfDay* startTime;
 @property (nullable, nonatomic, setter=setEndTime:, getter=endTime) MSTimeOfDay* endTime;
+@property (nullable, nonatomic, setter=setStartTime:, getter=startTime) MSTimeOfDay* startTime;
 
 @end

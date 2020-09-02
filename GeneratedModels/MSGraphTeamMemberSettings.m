@@ -14,15 +14,40 @@
 
 @interface MSGraphTeamMemberSettings()
 {
-    BOOL _allowCreateUpdateChannels;
-    BOOL _allowDeleteChannels;
     BOOL _allowAddRemoveApps;
-    BOOL _allowCreateUpdateRemoveTabs;
+    BOOL _allowCreatePrivateChannels;
+    BOOL _allowCreateUpdateChannels;
     BOOL _allowCreateUpdateRemoveConnectors;
+    BOOL _allowCreateUpdateRemoveTabs;
+    BOOL _allowDeleteChannels;
 }
 @end
 
 @implementation MSGraphTeamMemberSettings
+
+- (BOOL) allowAddRemoveApps
+{
+    _allowAddRemoveApps = [self.dictionary[@"allowAddRemoveApps"] boolValue];
+    return _allowAddRemoveApps;
+}
+
+- (void) setAllowAddRemoveApps: (BOOL) val
+{
+    _allowAddRemoveApps = val;
+    self.dictionary[@"allowAddRemoveApps"] = @(val);
+}
+
+- (BOOL) allowCreatePrivateChannels
+{
+    _allowCreatePrivateChannels = [self.dictionary[@"allowCreatePrivateChannels"] boolValue];
+    return _allowCreatePrivateChannels;
+}
+
+- (void) setAllowCreatePrivateChannels: (BOOL) val
+{
+    _allowCreatePrivateChannels = val;
+    self.dictionary[@"allowCreatePrivateChannels"] = @(val);
+}
 
 - (BOOL) allowCreateUpdateChannels
 {
@@ -36,28 +61,16 @@
     self.dictionary[@"allowCreateUpdateChannels"] = @(val);
 }
 
-- (BOOL) allowDeleteChannels
+- (BOOL) allowCreateUpdateRemoveConnectors
 {
-    _allowDeleteChannels = [self.dictionary[@"allowDeleteChannels"] boolValue];
-    return _allowDeleteChannels;
+    _allowCreateUpdateRemoveConnectors = [self.dictionary[@"allowCreateUpdateRemoveConnectors"] boolValue];
+    return _allowCreateUpdateRemoveConnectors;
 }
 
-- (void) setAllowDeleteChannels: (BOOL) val
+- (void) setAllowCreateUpdateRemoveConnectors: (BOOL) val
 {
-    _allowDeleteChannels = val;
-    self.dictionary[@"allowDeleteChannels"] = @(val);
-}
-
-- (BOOL) allowAddRemoveApps
-{
-    _allowAddRemoveApps = [self.dictionary[@"allowAddRemoveApps"] boolValue];
-    return _allowAddRemoveApps;
-}
-
-- (void) setAllowAddRemoveApps: (BOOL) val
-{
-    _allowAddRemoveApps = val;
-    self.dictionary[@"allowAddRemoveApps"] = @(val);
+    _allowCreateUpdateRemoveConnectors = val;
+    self.dictionary[@"allowCreateUpdateRemoveConnectors"] = @(val);
 }
 
 - (BOOL) allowCreateUpdateRemoveTabs
@@ -72,16 +85,16 @@
     self.dictionary[@"allowCreateUpdateRemoveTabs"] = @(val);
 }
 
-- (BOOL) allowCreateUpdateRemoveConnectors
+- (BOOL) allowDeleteChannels
 {
-    _allowCreateUpdateRemoveConnectors = [self.dictionary[@"allowCreateUpdateRemoveConnectors"] boolValue];
-    return _allowCreateUpdateRemoveConnectors;
+    _allowDeleteChannels = [self.dictionary[@"allowDeleteChannels"] boolValue];
+    return _allowDeleteChannels;
 }
 
-- (void) setAllowCreateUpdateRemoveConnectors: (BOOL) val
+- (void) setAllowDeleteChannels: (BOOL) val
 {
-    _allowCreateUpdateRemoveConnectors = val;
-    self.dictionary[@"allowCreateUpdateRemoveConnectors"] = @(val);
+    _allowDeleteChannels = val;
+    self.dictionary[@"allowDeleteChannels"] = @(val);
 }
 
 @end

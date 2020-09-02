@@ -9,9 +9,9 @@
 
 @interface MSGraphEditionUpgradeConfiguration : MSGraphDeviceConfiguration
 
-  @property (nonnull, nonatomic, setter=setLicenseType:, getter=licenseType) MSGraphEditionUpgradeLicenseType* licenseType;
-    @property (nonnull, nonatomic, setter=setTargetEdition:, getter=targetEdition) MSGraphWindows10EditionType* targetEdition;
-    @property (nullable, nonatomic, setter=setLicense:, getter=license) NSString* license;
+  @property (nullable, nonatomic, setter=setLicense:, getter=license) NSString* license;
+    @property (nonnull, nonatomic, setter=setLicenseType:, getter=licenseType) MSGraphEditionUpgradeLicenseType* licenseType;
     @property (nullable, nonatomic, setter=setProductKey:, getter=productKey) NSString* productKey;
+    @property (nonnull, nonatomic, setter=setTargetEdition:, getter=targetEdition) MSGraphWindows10EditionType* targetEdition;
   
 @end

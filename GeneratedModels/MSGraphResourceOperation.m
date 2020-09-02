@@ -14,9 +14,9 @@
 
 @interface MSGraphResourceOperation()
 {
-    NSString* _resourceName;
     NSString* _actionName;
     NSString* _resourceOperationDescription;
+    NSString* _resourceName;
 }
 @end
 
@@ -29,20 +29,6 @@
     }
     return self;
 }
-- (NSString*) resourceName
-{
-    if([[NSNull null] isEqual:self.dictionary[@"resourceName"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"resourceName"];
-}
-
-- (void) setResourceName: (NSString*) val
-{
-    self.dictionary[@"resourceName"] = val;
-}
-
 - (NSString*) actionName
 {
     if([[NSNull null] isEqual:self.dictionary[@"actionName"]])
@@ -69,6 +55,20 @@
 - (void) setResourceOperationDescription: (NSString*) val
 {
     self.dictionary[@"description"] = val;
+}
+
+- (NSString*) resourceName
+{
+    if([[NSNull null] isEqual:self.dictionary[@"resourceName"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"resourceName"];
+}
+
+- (void) setResourceName: (NSString*) val
+{
+    self.dictionary[@"resourceName"] = val;
 }
 
 

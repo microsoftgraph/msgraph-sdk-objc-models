@@ -68,10 +68,10 @@
             return [MSGraphOnenoteUserRole owner];
         case MSGraphOnenoteUserRoleContributor:
             return [MSGraphOnenoteUserRole contributor];
-        case MSGraphOnenoteUserRoleReader:
-            return [MSGraphOnenoteUserRole reader];
         case MSGraphOnenoteUserRoleNone:
             return [MSGraphOnenoteUserRole none];
+        case MSGraphOnenoteUserRoleReader:
+            return [MSGraphOnenoteUserRole reader];
         case MSGraphOnenoteUserRoleEndOfEnum:
         default:
             return [MSGraphOnenoteUserRole UnknownEnumValue];
@@ -88,10 +88,10 @@
             return @"Owner";
         case MSGraphOnenoteUserRoleContributor:
             return @"Contributor";
-        case MSGraphOnenoteUserRoleReader:
-            return @"Reader";
         case MSGraphOnenoteUserRoleNone:
             return @"None";
+        case MSGraphOnenoteUserRoleReader:
+            return @"Reader";
         case MSGraphOnenoteUserRoleEndOfEnum:
         default:
             return nil;
@@ -118,13 +118,13 @@
     {
           return [MSGraphOnenoteUserRole contributor];
     }
-    else if([self isEqualToString:@"Reader"])
-    {
-          return [MSGraphOnenoteUserRole reader];
-    }
     else if([self isEqualToString:@"None"])
     {
           return [MSGraphOnenoteUserRole none];
+    }
+    else if([self isEqualToString:@"Reader"])
+    {
+          return [MSGraphOnenoteUserRole reader];
     }
     else {
         return [MSGraphOnenoteUserRole UnknownEnumValue];

@@ -9,14 +9,14 @@
 
 @interface MSGraphIosNotificationSettings : MSObject
 
-@property (nonnull, nonatomic, setter=setBundleID:, getter=bundleID) NSString* bundleID;
+@property (nonnull, nonatomic, setter=setAlertType:, getter=alertType) MSGraphIosNotificationAlertType* alertType;
 @property (nullable, nonatomic, setter=setAppName:, getter=appName) NSString* appName;
-@property (nullable, nonatomic, setter=setPublisher:, getter=publisher) NSString* publisher;
+@property (nonatomic, setter=setBadgesEnabled:, getter=badgesEnabled) BOOL badgesEnabled;
+@property (nonnull, nonatomic, setter=setBundleID:, getter=bundleID) NSString* bundleID;
 @property (nonatomic, setter=setEnabled:, getter=enabled) BOOL enabled;
+@property (nullable, nonatomic, setter=setPublisher:, getter=publisher) NSString* publisher;
 @property (nonatomic, setter=setShowInNotificationCenter:, getter=showInNotificationCenter) BOOL showInNotificationCenter;
 @property (nonatomic, setter=setShowOnLockScreen:, getter=showOnLockScreen) BOOL showOnLockScreen;
-@property (nonnull, nonatomic, setter=setAlertType:, getter=alertType) MSGraphIosNotificationAlertType* alertType;
-@property (nonatomic, setter=setBadgesEnabled:, getter=badgesEnabled) BOOL badgesEnabled;
 @property (nonatomic, setter=setSoundsEnabled:, getter=soundsEnabled) BOOL soundsEnabled;
 
 @end

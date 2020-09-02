@@ -14,26 +14,12 @@
 
 @interface MSGraphEmailAddress()
 {
-    NSString* _name;
     NSString* _address;
+    NSString* _name;
 }
 @end
 
 @implementation MSGraphEmailAddress
-
-- (NSString*) name
-{
-    if([[NSNull null] isEqual:self.dictionary[@"name"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"name"];
-}
-
-- (void) setName: (NSString*) val
-{
-    self.dictionary[@"name"] = val;
-}
 
 - (NSString*) address
 {
@@ -47,6 +33,20 @@
 - (void) setAddress: (NSString*) val
 {
     self.dictionary[@"address"] = val;
+}
+
+- (NSString*) name
+{
+    if([[NSNull null] isEqual:self.dictionary[@"name"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"name"];
+}
+
+- (void) setName: (NSString*) val
+{
+    self.dictionary[@"name"] = val;
 }
 
 @end

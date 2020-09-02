@@ -8,9 +8,9 @@
 
 @interface MSGraphImageInfo : MSObject
 
-@property (nullable, nonatomic, setter=setIconUrl:, getter=iconUrl) NSString* iconUrl;
-@property (nullable, nonatomic, setter=setAlternativeText:, getter=alternativeText) NSString* alternativeText;
-@property (nullable, nonatomic, setter=setAlternateText:, getter=alternateText) NSString* alternateText;
 @property (nonatomic, setter=setAddImageQuery:, getter=addImageQuery) BOOL addImageQuery;
+@property (nullable, nonatomic, setter=setAlternateText:, getter=alternateText) NSString* alternateText;
+@property (nullable, nonatomic, setter=setAlternativeText:, getter=alternativeText) NSString* alternativeText;
+@property (nullable, nonatomic, setter=setIconUrl:, getter=iconUrl) NSString* iconUrl;
 
 @end

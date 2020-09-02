@@ -14,8 +14,8 @@
 
 @interface MSGraphNamedLocation()
 {
-    NSString* _displayName;
     NSDate* _createdDateTime;
+    NSString* _displayName;
     NSDate* _modifiedDateTime;
 }
 @end
@@ -29,16 +29,6 @@
     }
     return self;
 }
-- (NSString*) displayName
-{
-    return self.dictionary[@"displayName"];
-}
-
-- (void) setDisplayName: (NSString*) val
-{
-    self.dictionary[@"displayName"] = val;
-}
-
 - (NSDate*) createdDateTime
 {
     if(!_createdDateTime){
@@ -51,6 +41,16 @@
 {
     _createdDateTime = val;
     self.dictionary[@"createdDateTime"] = [val ms_toString];
+}
+
+- (NSString*) displayName
+{
+    return self.dictionary[@"displayName"];
+}
+
+- (void) setDisplayName: (NSString*) val
+{
+    self.dictionary[@"displayName"] = val;
 }
 
 - (NSDate*) modifiedDateTime

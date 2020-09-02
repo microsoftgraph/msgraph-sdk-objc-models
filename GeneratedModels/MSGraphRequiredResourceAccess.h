@@ -9,7 +9,7 @@
 
 @interface MSGraphRequiredResourceAccess : MSObject
 
-@property (nonnull, nonatomic, setter=setResourceAppId:, getter=resourceAppId) NSString* resourceAppId;
 @property (nonnull, nonatomic, setter=setResourceAccess:, getter=resourceAccess) NSArray* resourceAccess;
+@property (nonnull, nonatomic, setter=setResourceAppId:, getter=resourceAppId) NSString* resourceAppId;
 
 @end

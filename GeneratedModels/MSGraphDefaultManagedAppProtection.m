@@ -15,15 +15,15 @@
 @interface MSGraphDefaultManagedAppProtection()
 {
     MSGraphManagedAppDataEncryptionType* _appDataEncryptionType;
-    BOOL _screenCaptureBlocked;
-    BOOL _encryptAppData;
-    BOOL _disableAppEncryptionIfDeviceEncryptionIsEnabled;
-    NSString* _minimumRequiredSdkVersion;
     NSArray* _customSettings;
     int32_t _deployedAppCount;
-    NSString* _minimumRequiredPatchVersion;
-    NSString* _minimumWarningPatchVersion;
+    BOOL _disableAppEncryptionIfDeviceEncryptionIsEnabled;
+    BOOL _encryptAppData;
     BOOL _faceIdBlocked;
+    NSString* _minimumRequiredPatchVersion;
+    NSString* _minimumRequiredSdkVersion;
+    NSString* _minimumWarningPatchVersion;
+    BOOL _screenCaptureBlocked;
     NSArray* _apps;
     MSGraphManagedAppPolicyDeploymentSummary* _deploymentSummary;
 }
@@ -50,56 +50,6 @@
 {
     _appDataEncryptionType = val;
     self.dictionary[@"appDataEncryptionType"] = val;
-}
-
-- (BOOL) screenCaptureBlocked
-{
-    _screenCaptureBlocked = [self.dictionary[@"screenCaptureBlocked"] boolValue];
-    return _screenCaptureBlocked;
-}
-
-- (void) setScreenCaptureBlocked: (BOOL) val
-{
-    _screenCaptureBlocked = val;
-    self.dictionary[@"screenCaptureBlocked"] = @(val);
-}
-
-- (BOOL) encryptAppData
-{
-    _encryptAppData = [self.dictionary[@"encryptAppData"] boolValue];
-    return _encryptAppData;
-}
-
-- (void) setEncryptAppData: (BOOL) val
-{
-    _encryptAppData = val;
-    self.dictionary[@"encryptAppData"] = @(val);
-}
-
-- (BOOL) disableAppEncryptionIfDeviceEncryptionIsEnabled
-{
-    _disableAppEncryptionIfDeviceEncryptionIsEnabled = [self.dictionary[@"disableAppEncryptionIfDeviceEncryptionIsEnabled"] boolValue];
-    return _disableAppEncryptionIfDeviceEncryptionIsEnabled;
-}
-
-- (void) setDisableAppEncryptionIfDeviceEncryptionIsEnabled: (BOOL) val
-{
-    _disableAppEncryptionIfDeviceEncryptionIsEnabled = val;
-    self.dictionary[@"disableAppEncryptionIfDeviceEncryptionIsEnabled"] = @(val);
-}
-
-- (NSString*) minimumRequiredSdkVersion
-{
-    if([[NSNull null] isEqual:self.dictionary[@"minimumRequiredSdkVersion"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"minimumRequiredSdkVersion"];
-}
-
-- (void) setMinimumRequiredSdkVersion: (NSString*) val
-{
-    self.dictionary[@"minimumRequiredSdkVersion"] = val;
 }
 
 - (NSArray*) customSettings
@@ -139,6 +89,42 @@
     self.dictionary[@"deployedAppCount"] = @(val);
 }
 
+- (BOOL) disableAppEncryptionIfDeviceEncryptionIsEnabled
+{
+    _disableAppEncryptionIfDeviceEncryptionIsEnabled = [self.dictionary[@"disableAppEncryptionIfDeviceEncryptionIsEnabled"] boolValue];
+    return _disableAppEncryptionIfDeviceEncryptionIsEnabled;
+}
+
+- (void) setDisableAppEncryptionIfDeviceEncryptionIsEnabled: (BOOL) val
+{
+    _disableAppEncryptionIfDeviceEncryptionIsEnabled = val;
+    self.dictionary[@"disableAppEncryptionIfDeviceEncryptionIsEnabled"] = @(val);
+}
+
+- (BOOL) encryptAppData
+{
+    _encryptAppData = [self.dictionary[@"encryptAppData"] boolValue];
+    return _encryptAppData;
+}
+
+- (void) setEncryptAppData: (BOOL) val
+{
+    _encryptAppData = val;
+    self.dictionary[@"encryptAppData"] = @(val);
+}
+
+- (BOOL) faceIdBlocked
+{
+    _faceIdBlocked = [self.dictionary[@"faceIdBlocked"] boolValue];
+    return _faceIdBlocked;
+}
+
+- (void) setFaceIdBlocked: (BOOL) val
+{
+    _faceIdBlocked = val;
+    self.dictionary[@"faceIdBlocked"] = @(val);
+}
+
 - (NSString*) minimumRequiredPatchVersion
 {
     if([[NSNull null] isEqual:self.dictionary[@"minimumRequiredPatchVersion"]])
@@ -151,6 +137,20 @@
 - (void) setMinimumRequiredPatchVersion: (NSString*) val
 {
     self.dictionary[@"minimumRequiredPatchVersion"] = val;
+}
+
+- (NSString*) minimumRequiredSdkVersion
+{
+    if([[NSNull null] isEqual:self.dictionary[@"minimumRequiredSdkVersion"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"minimumRequiredSdkVersion"];
+}
+
+- (void) setMinimumRequiredSdkVersion: (NSString*) val
+{
+    self.dictionary[@"minimumRequiredSdkVersion"] = val;
 }
 
 - (NSString*) minimumWarningPatchVersion
@@ -167,16 +167,16 @@
     self.dictionary[@"minimumWarningPatchVersion"] = val;
 }
 
-- (BOOL) faceIdBlocked
+- (BOOL) screenCaptureBlocked
 {
-    _faceIdBlocked = [self.dictionary[@"faceIdBlocked"] boolValue];
-    return _faceIdBlocked;
+    _screenCaptureBlocked = [self.dictionary[@"screenCaptureBlocked"] boolValue];
+    return _screenCaptureBlocked;
 }
 
-- (void) setFaceIdBlocked: (BOOL) val
+- (void) setScreenCaptureBlocked: (BOOL) val
 {
-    _faceIdBlocked = val;
-    self.dictionary[@"faceIdBlocked"] = @(val);
+    _screenCaptureBlocked = val;
+    self.dictionary[@"screenCaptureBlocked"] = @(val);
 }
 
 - (NSArray*) apps

@@ -9,13 +9,13 @@
 
 @interface MSGraphConditionalAccessPolicy : MSGraphEntity
 
-  @property (nullable, nonatomic, setter=setCreatedDateTime:, getter=createdDateTime) NSDate* createdDateTime;
-    @property (nullable, nonatomic, setter=setModifiedDateTime:, getter=modifiedDateTime) NSDate* modifiedDateTime;
-    @property (nonnull, nonatomic, setter=setDisplayName:, getter=displayName) NSString* displayName;
+  @property (nonnull, nonatomic, setter=setConditions:, getter=conditions) MSGraphConditionalAccessConditionSet* conditions;
+    @property (nullable, nonatomic, setter=setCreatedDateTime:, getter=createdDateTime) NSDate* createdDateTime;
     @property (nullable, nonatomic, setter=setConditionalAccessPolicyDescription:, getter=conditionalAccessPolicyDescription) NSString* conditionalAccessPolicyDescription;
-    @property (nonnull, nonatomic, setter=setState:, getter=state) MSGraphConditionalAccessPolicyState* state;
-    @property (nonnull, nonatomic, setter=setConditions:, getter=conditions) MSGraphConditionalAccessConditionSet* conditions;
+    @property (nonnull, nonatomic, setter=setDisplayName:, getter=displayName) NSString* displayName;
     @property (nullable, nonatomic, setter=setGrantControls:, getter=grantControls) MSGraphConditionalAccessGrantControls* grantControls;
+    @property (nullable, nonatomic, setter=setModifiedDateTime:, getter=modifiedDateTime) NSDate* modifiedDateTime;
     @property (nullable, nonatomic, setter=setSessionControls:, getter=sessionControls) MSGraphConditionalAccessSessionControls* sessionControls;
+    @property (nonnull, nonatomic, setter=setState:, getter=state) MSGraphConditionalAccessPolicyState* state;
   
 @end

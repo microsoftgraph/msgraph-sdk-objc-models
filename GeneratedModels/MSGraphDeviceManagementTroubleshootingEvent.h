@@ -7,7 +7,7 @@
 
 @interface MSGraphDeviceManagementTroubleshootingEvent : MSGraphEntity
 
-  @property (nonnull, nonatomic, setter=setEventDateTime:, getter=eventDateTime) NSDate* eventDateTime;
-    @property (nullable, nonatomic, setter=setCorrelationId:, getter=correlationId) NSString* correlationId;
+  @property (nullable, nonatomic, setter=setCorrelationId:, getter=correlationId) NSString* correlationId;
+    @property (nonnull, nonatomic, setter=setEventDateTime:, getter=eventDateTime) NSDate* eventDateTime;
   
 @end

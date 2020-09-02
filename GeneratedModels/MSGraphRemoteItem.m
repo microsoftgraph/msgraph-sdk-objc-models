@@ -19,8 +19,8 @@
     MSGraphFile* _file;
     MSGraphFileSystemInfo* _fileSystemInfo;
     MSGraphFolder* _folder;
-    MSGraphImage* _image;
     NSString* _remoteItemId;
+    MSGraphImage* _image;
     MSGraphIdentitySet* _lastModifiedBy;
     NSDate* _lastModifiedDateTime;
     NSString* _name;
@@ -108,20 +108,6 @@
     self.dictionary[@"folder"] = val;
 }
 
-- (MSGraphImage*) image
-{
-    if(!_image){
-        _image = [[MSGraphImage alloc] initWithDictionary: self.dictionary[@"image"]];
-    }
-    return _image;
-}
-
-- (void) setImage: (MSGraphImage*) val
-{
-    _image = val;
-    self.dictionary[@"image"] = val;
-}
-
 - (NSString*) remoteItemId
 {
     if([[NSNull null] isEqual:self.dictionary[@"id"]])
@@ -134,6 +120,20 @@
 - (void) setRemoteItemId: (NSString*) val
 {
     self.dictionary[@"id"] = val;
+}
+
+- (MSGraphImage*) image
+{
+    if(!_image){
+        _image = [[MSGraphImage alloc] initWithDictionary: self.dictionary[@"image"]];
+    }
+    return _image;
+}
+
+- (void) setImage: (MSGraphImage*) val
+{
+    _image = val;
+    self.dictionary[@"image"] = val;
 }
 
 - (MSGraphIdentitySet*) lastModifiedBy

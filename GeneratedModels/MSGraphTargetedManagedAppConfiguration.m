@@ -17,8 +17,8 @@
     int32_t _deployedAppCount;
     BOOL _isAssigned;
     NSArray* _apps;
-    MSGraphManagedAppPolicyDeploymentSummary* _deploymentSummary;
     NSArray* _assignments;
+    MSGraphManagedAppPolicyDeploymentSummary* _deploymentSummary;
 }
 @end
 
@@ -80,20 +80,6 @@
     self.dictionary[@"apps"] = val;
 }
 
-- (MSGraphManagedAppPolicyDeploymentSummary*) deploymentSummary
-{
-    if(!_deploymentSummary){
-        _deploymentSummary = [[MSGraphManagedAppPolicyDeploymentSummary alloc] initWithDictionary: self.dictionary[@"deploymentSummary"]];
-    }
-    return _deploymentSummary;
-}
-
-- (void) setDeploymentSummary: (MSGraphManagedAppPolicyDeploymentSummary*) val
-{
-    _deploymentSummary = val;
-    self.dictionary[@"deploymentSummary"] = val;
-}
-
 - (NSArray*) assignments
 {
     if(!_assignments){
@@ -117,6 +103,20 @@
 {
     _assignments = val;
     self.dictionary[@"assignments"] = val;
+}
+
+- (MSGraphManagedAppPolicyDeploymentSummary*) deploymentSummary
+{
+    if(!_deploymentSummary){
+        _deploymentSummary = [[MSGraphManagedAppPolicyDeploymentSummary alloc] initWithDictionary: self.dictionary[@"deploymentSummary"]];
+    }
+    return _deploymentSummary;
+}
+
+- (void) setDeploymentSummary: (MSGraphManagedAppPolicyDeploymentSummary*) val
+{
+    _deploymentSummary = val;
+    self.dictionary[@"deploymentSummary"] = val;
 }
 
 

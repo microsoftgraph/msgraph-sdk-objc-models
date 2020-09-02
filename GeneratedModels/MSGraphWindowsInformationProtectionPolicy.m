@@ -14,18 +14,18 @@
 
 @interface MSGraphWindowsInformationProtectionPolicy()
 {
-    BOOL _revokeOnMdmHandoffDisabled;
+    int32_t _daysWithoutContactBeforeUnenroll;
     NSString* _mdmEnrollmentUrl;
-    BOOL _windowsHelloForBusinessBlocked;
-    int32_t _pinMinimumLength;
-    MSGraphWindowsInformationProtectionPinCharacterRequirements* _pinUppercaseLetters;
-    MSGraphWindowsInformationProtectionPinCharacterRequirements* _pinLowercaseLetters;
-    MSGraphWindowsInformationProtectionPinCharacterRequirements* _pinSpecialCharacters;
-    int32_t _pinExpirationDays;
+    int32_t _minutesOfInactivityBeforeDeviceLock;
     int32_t _numberOfPastPinsRemembered;
     int32_t _passwordMaximumAttemptCount;
-    int32_t _minutesOfInactivityBeforeDeviceLock;
-    int32_t _daysWithoutContactBeforeUnenroll;
+    int32_t _pinExpirationDays;
+    MSGraphWindowsInformationProtectionPinCharacterRequirements* _pinLowercaseLetters;
+    int32_t _pinMinimumLength;
+    MSGraphWindowsInformationProtectionPinCharacterRequirements* _pinSpecialCharacters;
+    MSGraphWindowsInformationProtectionPinCharacterRequirements* _pinUppercaseLetters;
+    BOOL _revokeOnMdmHandoffDisabled;
+    BOOL _windowsHelloForBusinessBlocked;
 }
 @end
 
@@ -38,16 +38,16 @@
     }
     return self;
 }
-- (BOOL) revokeOnMdmHandoffDisabled
+- (int32_t) daysWithoutContactBeforeUnenroll
 {
-    _revokeOnMdmHandoffDisabled = [self.dictionary[@"revokeOnMdmHandoffDisabled"] boolValue];
-    return _revokeOnMdmHandoffDisabled;
+    _daysWithoutContactBeforeUnenroll = [self.dictionary[@"daysWithoutContactBeforeUnenroll"] intValue];
+    return _daysWithoutContactBeforeUnenroll;
 }
 
-- (void) setRevokeOnMdmHandoffDisabled: (BOOL) val
+- (void) setDaysWithoutContactBeforeUnenroll: (int32_t) val
 {
-    _revokeOnMdmHandoffDisabled = val;
-    self.dictionary[@"revokeOnMdmHandoffDisabled"] = @(val);
+    _daysWithoutContactBeforeUnenroll = val;
+    self.dictionary[@"daysWithoutContactBeforeUnenroll"] = @(val);
 }
 
 - (NSString*) mdmEnrollmentUrl
@@ -64,82 +64,16 @@
     self.dictionary[@"mdmEnrollmentUrl"] = val;
 }
 
-- (BOOL) windowsHelloForBusinessBlocked
+- (int32_t) minutesOfInactivityBeforeDeviceLock
 {
-    _windowsHelloForBusinessBlocked = [self.dictionary[@"windowsHelloForBusinessBlocked"] boolValue];
-    return _windowsHelloForBusinessBlocked;
+    _minutesOfInactivityBeforeDeviceLock = [self.dictionary[@"minutesOfInactivityBeforeDeviceLock"] intValue];
+    return _minutesOfInactivityBeforeDeviceLock;
 }
 
-- (void) setWindowsHelloForBusinessBlocked: (BOOL) val
+- (void) setMinutesOfInactivityBeforeDeviceLock: (int32_t) val
 {
-    _windowsHelloForBusinessBlocked = val;
-    self.dictionary[@"windowsHelloForBusinessBlocked"] = @(val);
-}
-
-- (int32_t) pinMinimumLength
-{
-    _pinMinimumLength = [self.dictionary[@"pinMinimumLength"] intValue];
-    return _pinMinimumLength;
-}
-
-- (void) setPinMinimumLength: (int32_t) val
-{
-    _pinMinimumLength = val;
-    self.dictionary[@"pinMinimumLength"] = @(val);
-}
-
-- (MSGraphWindowsInformationProtectionPinCharacterRequirements*) pinUppercaseLetters
-{
-    if(!_pinUppercaseLetters){
-        _pinUppercaseLetters = [self.dictionary[@"pinUppercaseLetters"] toMSGraphWindowsInformationProtectionPinCharacterRequirements];
-    }
-    return _pinUppercaseLetters;
-}
-
-- (void) setPinUppercaseLetters: (MSGraphWindowsInformationProtectionPinCharacterRequirements*) val
-{
-    _pinUppercaseLetters = val;
-    self.dictionary[@"pinUppercaseLetters"] = val;
-}
-
-- (MSGraphWindowsInformationProtectionPinCharacterRequirements*) pinLowercaseLetters
-{
-    if(!_pinLowercaseLetters){
-        _pinLowercaseLetters = [self.dictionary[@"pinLowercaseLetters"] toMSGraphWindowsInformationProtectionPinCharacterRequirements];
-    }
-    return _pinLowercaseLetters;
-}
-
-- (void) setPinLowercaseLetters: (MSGraphWindowsInformationProtectionPinCharacterRequirements*) val
-{
-    _pinLowercaseLetters = val;
-    self.dictionary[@"pinLowercaseLetters"] = val;
-}
-
-- (MSGraphWindowsInformationProtectionPinCharacterRequirements*) pinSpecialCharacters
-{
-    if(!_pinSpecialCharacters){
-        _pinSpecialCharacters = [self.dictionary[@"pinSpecialCharacters"] toMSGraphWindowsInformationProtectionPinCharacterRequirements];
-    }
-    return _pinSpecialCharacters;
-}
-
-- (void) setPinSpecialCharacters: (MSGraphWindowsInformationProtectionPinCharacterRequirements*) val
-{
-    _pinSpecialCharacters = val;
-    self.dictionary[@"pinSpecialCharacters"] = val;
-}
-
-- (int32_t) pinExpirationDays
-{
-    _pinExpirationDays = [self.dictionary[@"pinExpirationDays"] intValue];
-    return _pinExpirationDays;
-}
-
-- (void) setPinExpirationDays: (int32_t) val
-{
-    _pinExpirationDays = val;
-    self.dictionary[@"pinExpirationDays"] = @(val);
+    _minutesOfInactivityBeforeDeviceLock = val;
+    self.dictionary[@"minutesOfInactivityBeforeDeviceLock"] = @(val);
 }
 
 - (int32_t) numberOfPastPinsRemembered
@@ -166,28 +100,94 @@
     self.dictionary[@"passwordMaximumAttemptCount"] = @(val);
 }
 
-- (int32_t) minutesOfInactivityBeforeDeviceLock
+- (int32_t) pinExpirationDays
 {
-    _minutesOfInactivityBeforeDeviceLock = [self.dictionary[@"minutesOfInactivityBeforeDeviceLock"] intValue];
-    return _minutesOfInactivityBeforeDeviceLock;
+    _pinExpirationDays = [self.dictionary[@"pinExpirationDays"] intValue];
+    return _pinExpirationDays;
 }
 
-- (void) setMinutesOfInactivityBeforeDeviceLock: (int32_t) val
+- (void) setPinExpirationDays: (int32_t) val
 {
-    _minutesOfInactivityBeforeDeviceLock = val;
-    self.dictionary[@"minutesOfInactivityBeforeDeviceLock"] = @(val);
+    _pinExpirationDays = val;
+    self.dictionary[@"pinExpirationDays"] = @(val);
 }
 
-- (int32_t) daysWithoutContactBeforeUnenroll
+- (MSGraphWindowsInformationProtectionPinCharacterRequirements*) pinLowercaseLetters
 {
-    _daysWithoutContactBeforeUnenroll = [self.dictionary[@"daysWithoutContactBeforeUnenroll"] intValue];
-    return _daysWithoutContactBeforeUnenroll;
+    if(!_pinLowercaseLetters){
+        _pinLowercaseLetters = [self.dictionary[@"pinLowercaseLetters"] toMSGraphWindowsInformationProtectionPinCharacterRequirements];
+    }
+    return _pinLowercaseLetters;
 }
 
-- (void) setDaysWithoutContactBeforeUnenroll: (int32_t) val
+- (void) setPinLowercaseLetters: (MSGraphWindowsInformationProtectionPinCharacterRequirements*) val
 {
-    _daysWithoutContactBeforeUnenroll = val;
-    self.dictionary[@"daysWithoutContactBeforeUnenroll"] = @(val);
+    _pinLowercaseLetters = val;
+    self.dictionary[@"pinLowercaseLetters"] = val;
+}
+
+- (int32_t) pinMinimumLength
+{
+    _pinMinimumLength = [self.dictionary[@"pinMinimumLength"] intValue];
+    return _pinMinimumLength;
+}
+
+- (void) setPinMinimumLength: (int32_t) val
+{
+    _pinMinimumLength = val;
+    self.dictionary[@"pinMinimumLength"] = @(val);
+}
+
+- (MSGraphWindowsInformationProtectionPinCharacterRequirements*) pinSpecialCharacters
+{
+    if(!_pinSpecialCharacters){
+        _pinSpecialCharacters = [self.dictionary[@"pinSpecialCharacters"] toMSGraphWindowsInformationProtectionPinCharacterRequirements];
+    }
+    return _pinSpecialCharacters;
+}
+
+- (void) setPinSpecialCharacters: (MSGraphWindowsInformationProtectionPinCharacterRequirements*) val
+{
+    _pinSpecialCharacters = val;
+    self.dictionary[@"pinSpecialCharacters"] = val;
+}
+
+- (MSGraphWindowsInformationProtectionPinCharacterRequirements*) pinUppercaseLetters
+{
+    if(!_pinUppercaseLetters){
+        _pinUppercaseLetters = [self.dictionary[@"pinUppercaseLetters"] toMSGraphWindowsInformationProtectionPinCharacterRequirements];
+    }
+    return _pinUppercaseLetters;
+}
+
+- (void) setPinUppercaseLetters: (MSGraphWindowsInformationProtectionPinCharacterRequirements*) val
+{
+    _pinUppercaseLetters = val;
+    self.dictionary[@"pinUppercaseLetters"] = val;
+}
+
+- (BOOL) revokeOnMdmHandoffDisabled
+{
+    _revokeOnMdmHandoffDisabled = [self.dictionary[@"revokeOnMdmHandoffDisabled"] boolValue];
+    return _revokeOnMdmHandoffDisabled;
+}
+
+- (void) setRevokeOnMdmHandoffDisabled: (BOOL) val
+{
+    _revokeOnMdmHandoffDisabled = val;
+    self.dictionary[@"revokeOnMdmHandoffDisabled"] = @(val);
+}
+
+- (BOOL) windowsHelloForBusinessBlocked
+{
+    _windowsHelloForBusinessBlocked = [self.dictionary[@"windowsHelloForBusinessBlocked"] boolValue];
+    return _windowsHelloForBusinessBlocked;
+}
+
+- (void) setWindowsHelloForBusinessBlocked: (BOOL) val
+{
+    _windowsHelloForBusinessBlocked = val;
+    self.dictionary[@"windowsHelloForBusinessBlocked"] = @(val);
 }
 
 

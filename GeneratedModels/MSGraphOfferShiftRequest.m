@@ -14,10 +14,10 @@
 
 @interface MSGraphOfferShiftRequest()
 {
-    NSString* _recipientActionMessage;
     NSDate* _recipientActionDateTime;
-    NSString* _senderShiftId;
+    NSString* _recipientActionMessage;
     NSString* _recipientUserId;
+    NSString* _senderShiftId;
 }
 @end
 
@@ -30,20 +30,6 @@
     }
     return self;
 }
-- (NSString*) recipientActionMessage
-{
-    if([[NSNull null] isEqual:self.dictionary[@"recipientActionMessage"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"recipientActionMessage"];
-}
-
-- (void) setRecipientActionMessage: (NSString*) val
-{
-    self.dictionary[@"recipientActionMessage"] = val;
-}
-
 - (NSDate*) recipientActionDateTime
 {
     if(!_recipientActionDateTime){
@@ -58,18 +44,18 @@
     self.dictionary[@"recipientActionDateTime"] = [val ms_toString];
 }
 
-- (NSString*) senderShiftId
+- (NSString*) recipientActionMessage
 {
-    if([[NSNull null] isEqual:self.dictionary[@"senderShiftId"]])
+    if([[NSNull null] isEqual:self.dictionary[@"recipientActionMessage"]])
     {
         return nil;
     }   
-    return self.dictionary[@"senderShiftId"];
+    return self.dictionary[@"recipientActionMessage"];
 }
 
-- (void) setSenderShiftId: (NSString*) val
+- (void) setRecipientActionMessage: (NSString*) val
 {
-    self.dictionary[@"senderShiftId"] = val;
+    self.dictionary[@"recipientActionMessage"] = val;
 }
 
 - (NSString*) recipientUserId
@@ -84,6 +70,20 @@
 - (void) setRecipientUserId: (NSString*) val
 {
     self.dictionary[@"recipientUserId"] = val;
+}
+
+- (NSString*) senderShiftId
+{
+    if([[NSNull null] isEqual:self.dictionary[@"senderShiftId"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"senderShiftId"];
+}
+
+- (void) setSenderShiftId: (NSString*) val
+{
+    self.dictionary[@"senderShiftId"] = val;
 }
 
 

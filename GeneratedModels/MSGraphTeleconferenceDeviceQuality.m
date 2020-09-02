@@ -15,15 +15,15 @@
 @interface MSGraphTeleconferenceDeviceQuality()
 {
     NSString* _callChainId;
-    NSString* _participantId;
-    NSString* _mediaLegId;
-    NSString* _deviceName;
-    NSString* _deviceDescription;
-    NSString* _cloudServiceName;
-    NSString* _cloudServiceInstanceName;
-    NSString* _cloudServiceDeploymentId;
     NSString* _cloudServiceDeploymentEnvironment;
+    NSString* _cloudServiceDeploymentId;
+    NSString* _cloudServiceInstanceName;
+    NSString* _cloudServiceName;
+    NSString* _deviceDescription;
+    NSString* _deviceName;
+    NSString* _mediaLegId;
     NSArray* _mediaQualityList;
+    NSString* _participantId;
 }
 @end
 
@@ -39,72 +39,18 @@
     self.dictionary[@"callChainId"] = val;
 }
 
-- (NSString*) participantId
+- (NSString*) cloudServiceDeploymentEnvironment
 {
-    return self.dictionary[@"participantId"];
-}
-
-- (void) setParticipantId: (NSString*) val
-{
-    self.dictionary[@"participantId"] = val;
-}
-
-- (NSString*) mediaLegId
-{
-    return self.dictionary[@"mediaLegId"];
-}
-
-- (void) setMediaLegId: (NSString*) val
-{
-    self.dictionary[@"mediaLegId"] = val;
-}
-
-- (NSString*) deviceName
-{
-    return self.dictionary[@"deviceName"];
-}
-
-- (void) setDeviceName: (NSString*) val
-{
-    self.dictionary[@"deviceName"] = val;
-}
-
-- (NSString*) deviceDescription
-{
-    return self.dictionary[@"deviceDescription"];
-}
-
-- (void) setDeviceDescription: (NSString*) val
-{
-    self.dictionary[@"deviceDescription"] = val;
-}
-
-- (NSString*) cloudServiceName
-{
-    if([[NSNull null] isEqual:self.dictionary[@"cloudServiceName"]])
+    if([[NSNull null] isEqual:self.dictionary[@"cloudServiceDeploymentEnvironment"]])
     {
         return nil;
     }   
-    return self.dictionary[@"cloudServiceName"];
+    return self.dictionary[@"cloudServiceDeploymentEnvironment"];
 }
 
-- (void) setCloudServiceName: (NSString*) val
+- (void) setCloudServiceDeploymentEnvironment: (NSString*) val
 {
-    self.dictionary[@"cloudServiceName"] = val;
-}
-
-- (NSString*) cloudServiceInstanceName
-{
-    if([[NSNull null] isEqual:self.dictionary[@"cloudServiceInstanceName"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"cloudServiceInstanceName"];
-}
-
-- (void) setCloudServiceInstanceName: (NSString*) val
-{
-    self.dictionary[@"cloudServiceInstanceName"] = val;
+    self.dictionary[@"cloudServiceDeploymentEnvironment"] = val;
 }
 
 - (NSString*) cloudServiceDeploymentId
@@ -121,18 +67,62 @@
     self.dictionary[@"cloudServiceDeploymentId"] = val;
 }
 
-- (NSString*) cloudServiceDeploymentEnvironment
+- (NSString*) cloudServiceInstanceName
 {
-    if([[NSNull null] isEqual:self.dictionary[@"cloudServiceDeploymentEnvironment"]])
+    if([[NSNull null] isEqual:self.dictionary[@"cloudServiceInstanceName"]])
     {
         return nil;
     }   
-    return self.dictionary[@"cloudServiceDeploymentEnvironment"];
+    return self.dictionary[@"cloudServiceInstanceName"];
 }
 
-- (void) setCloudServiceDeploymentEnvironment: (NSString*) val
+- (void) setCloudServiceInstanceName: (NSString*) val
 {
-    self.dictionary[@"cloudServiceDeploymentEnvironment"] = val;
+    self.dictionary[@"cloudServiceInstanceName"] = val;
+}
+
+- (NSString*) cloudServiceName
+{
+    if([[NSNull null] isEqual:self.dictionary[@"cloudServiceName"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"cloudServiceName"];
+}
+
+- (void) setCloudServiceName: (NSString*) val
+{
+    self.dictionary[@"cloudServiceName"] = val;
+}
+
+- (NSString*) deviceDescription
+{
+    return self.dictionary[@"deviceDescription"];
+}
+
+- (void) setDeviceDescription: (NSString*) val
+{
+    self.dictionary[@"deviceDescription"] = val;
+}
+
+- (NSString*) deviceName
+{
+    return self.dictionary[@"deviceName"];
+}
+
+- (void) setDeviceName: (NSString*) val
+{
+    self.dictionary[@"deviceName"] = val;
+}
+
+- (NSString*) mediaLegId
+{
+    return self.dictionary[@"mediaLegId"];
+}
+
+- (void) setMediaLegId: (NSString*) val
+{
+    self.dictionary[@"mediaLegId"] = val;
 }
 
 - (NSArray*) mediaQualityList
@@ -158,6 +148,16 @@
 {
     _mediaQualityList = val;
     self.dictionary[@"mediaQualityList"] = val;
+}
+
+- (NSString*) participantId
+{
+    return self.dictionary[@"participantId"];
+}
+
+- (void) setParticipantId: (NSString*) val
+{
+    self.dictionary[@"participantId"] = val;
 }
 
 @end

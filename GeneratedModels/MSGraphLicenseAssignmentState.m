@@ -14,28 +14,28 @@
 
 @interface MSGraphLicenseAssignmentState()
 {
-    NSString* _skuId;
-    NSArray* _disabledPlans;
     NSString* _assignedByGroup;
-    NSString* _state;
+    NSArray* _disabledPlans;
     NSString* _error;
+    NSString* _skuId;
+    NSString* _state;
 }
 @end
 
 @implementation MSGraphLicenseAssignmentState
 
-- (NSString*) skuId
+- (NSString*) assignedByGroup
 {
-    if([[NSNull null] isEqual:self.dictionary[@"skuId"]])
+    if([[NSNull null] isEqual:self.dictionary[@"assignedByGroup"]])
     {
         return nil;
     }   
-    return self.dictionary[@"skuId"];
+    return self.dictionary[@"assignedByGroup"];
 }
 
-- (void) setSkuId: (NSString*) val
+- (void) setAssignedByGroup: (NSString*) val
 {
-    self.dictionary[@"skuId"] = val;
+    self.dictionary[@"assignedByGroup"] = val;
 }
 
 - (NSArray*) disabledPlans
@@ -52,18 +52,32 @@
     self.dictionary[@"disabledPlans"] = val;
 }
 
-- (NSString*) assignedByGroup
+- (NSString*) error
 {
-    if([[NSNull null] isEqual:self.dictionary[@"assignedByGroup"]])
+    if([[NSNull null] isEqual:self.dictionary[@"error"]])
     {
         return nil;
     }   
-    return self.dictionary[@"assignedByGroup"];
+    return self.dictionary[@"error"];
 }
 
-- (void) setAssignedByGroup: (NSString*) val
+- (void) setError: (NSString*) val
 {
-    self.dictionary[@"assignedByGroup"] = val;
+    self.dictionary[@"error"] = val;
+}
+
+- (NSString*) skuId
+{
+    if([[NSNull null] isEqual:self.dictionary[@"skuId"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"skuId"];
+}
+
+- (void) setSkuId: (NSString*) val
+{
+    self.dictionary[@"skuId"] = val;
 }
 
 - (NSString*) state
@@ -78,20 +92,6 @@
 - (void) setState: (NSString*) val
 {
     self.dictionary[@"state"] = val;
-}
-
-- (NSString*) error
-{
-    if([[NSNull null] isEqual:self.dictionary[@"error"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"error"];
-}
-
-- (void) setError: (NSString*) val
-{
-    self.dictionary[@"error"] = val;
 }
 
 @end

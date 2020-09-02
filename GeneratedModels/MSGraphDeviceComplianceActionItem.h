@@ -8,9 +8,9 @@
 
 @interface MSGraphDeviceComplianceActionItem : MSGraphEntity
 
-  @property (nonatomic, setter=setGracePeriodHours:, getter=gracePeriodHours) int32_t gracePeriodHours;
-    @property (nonnull, nonatomic, setter=setActionType:, getter=actionType) MSGraphDeviceComplianceActionType* actionType;
-    @property (nullable, nonatomic, setter=setNotificationTemplateId:, getter=notificationTemplateId) NSString* notificationTemplateId;
+  @property (nonnull, nonatomic, setter=setActionType:, getter=actionType) MSGraphDeviceComplianceActionType* actionType;
+    @property (nonatomic, setter=setGracePeriodHours:, getter=gracePeriodHours) int32_t gracePeriodHours;
     @property (nullable, nonatomic, setter=setNotificationMessageCCList:, getter=notificationMessageCCList) NSArray* notificationMessageCCList;
+    @property (nullable, nonatomic, setter=setNotificationTemplateId:, getter=notificationTemplateId) NSString* notificationTemplateId;
   
 @end

@@ -14,32 +14,36 @@
 
 @interface MSGraphManagedEBook()
 {
-    NSString* _displayName;
-    NSString* _managedEBookDescription;
-    NSString* _publisher;
-    NSDate* _publishedDateTime;
-    MSGraphMimeContent* _largeCover;
     NSDate* _createdDateTime;
-    NSDate* _lastModifiedDateTime;
+    NSString* _managedEBookDescription;
+    NSString* _displayName;
     NSString* _informationUrl;
+    MSGraphMimeContent* _largeCover;
+    NSDate* _lastModifiedDateTime;
     NSString* _privacyInformationUrl;
+    NSDate* _publishedDateTime;
+    NSString* _publisher;
     NSArray* _assignments;
-    MSGraphEBookInstallSummary* _installSummary;
     NSArray* _deviceStates;
+    MSGraphEBookInstallSummary* _installSummary;
     NSArray* _userStateSummary;
 }
 @end
 
 @implementation MSGraphManagedEBook
 
-- (NSString*) displayName
+- (NSDate*) createdDateTime
 {
-    return self.dictionary[@"displayName"];
+    if(!_createdDateTime){
+        _createdDateTime = [NSDate ms_dateFromString: self.dictionary[@"createdDateTime"]];
+    }
+    return _createdDateTime;
 }
 
-- (void) setDisplayName: (NSString*) val
+- (void) setCreatedDateTime: (NSDate*) val
 {
-    self.dictionary[@"displayName"] = val;
+    _createdDateTime = val;
+    self.dictionary[@"createdDateTime"] = [val ms_toString];
 }
 
 - (NSString*) managedEBookDescription
@@ -56,74 +60,14 @@
     self.dictionary[@"description"] = val;
 }
 
-- (NSString*) publisher
+- (NSString*) displayName
 {
-    if([[NSNull null] isEqual:self.dictionary[@"publisher"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"publisher"];
+    return self.dictionary[@"displayName"];
 }
 
-- (void) setPublisher: (NSString*) val
+- (void) setDisplayName: (NSString*) val
 {
-    self.dictionary[@"publisher"] = val;
-}
-
-- (NSDate*) publishedDateTime
-{
-    if(!_publishedDateTime){
-        _publishedDateTime = [NSDate ms_dateFromString: self.dictionary[@"publishedDateTime"]];
-    }
-    return _publishedDateTime;
-}
-
-- (void) setPublishedDateTime: (NSDate*) val
-{
-    _publishedDateTime = val;
-    self.dictionary[@"publishedDateTime"] = [val ms_toString];
-}
-
-- (MSGraphMimeContent*) largeCover
-{
-    if(!_largeCover){
-        _largeCover = [[MSGraphMimeContent alloc] initWithDictionary: self.dictionary[@"largeCover"]];
-    }
-    return _largeCover;
-}
-
-- (void) setLargeCover: (MSGraphMimeContent*) val
-{
-    _largeCover = val;
-    self.dictionary[@"largeCover"] = val;
-}
-
-- (NSDate*) createdDateTime
-{
-    if(!_createdDateTime){
-        _createdDateTime = [NSDate ms_dateFromString: self.dictionary[@"createdDateTime"]];
-    }
-    return _createdDateTime;
-}
-
-- (void) setCreatedDateTime: (NSDate*) val
-{
-    _createdDateTime = val;
-    self.dictionary[@"createdDateTime"] = [val ms_toString];
-}
-
-- (NSDate*) lastModifiedDateTime
-{
-    if(!_lastModifiedDateTime){
-        _lastModifiedDateTime = [NSDate ms_dateFromString: self.dictionary[@"lastModifiedDateTime"]];
-    }
-    return _lastModifiedDateTime;
-}
-
-- (void) setLastModifiedDateTime: (NSDate*) val
-{
-    _lastModifiedDateTime = val;
-    self.dictionary[@"lastModifiedDateTime"] = [val ms_toString];
+    self.dictionary[@"displayName"] = val;
 }
 
 - (NSString*) informationUrl
@@ -140,6 +84,34 @@
     self.dictionary[@"informationUrl"] = val;
 }
 
+- (MSGraphMimeContent*) largeCover
+{
+    if(!_largeCover){
+        _largeCover = [[MSGraphMimeContent alloc] initWithDictionary: self.dictionary[@"largeCover"]];
+    }
+    return _largeCover;
+}
+
+- (void) setLargeCover: (MSGraphMimeContent*) val
+{
+    _largeCover = val;
+    self.dictionary[@"largeCover"] = val;
+}
+
+- (NSDate*) lastModifiedDateTime
+{
+    if(!_lastModifiedDateTime){
+        _lastModifiedDateTime = [NSDate ms_dateFromString: self.dictionary[@"lastModifiedDateTime"]];
+    }
+    return _lastModifiedDateTime;
+}
+
+- (void) setLastModifiedDateTime: (NSDate*) val
+{
+    _lastModifiedDateTime = val;
+    self.dictionary[@"lastModifiedDateTime"] = [val ms_toString];
+}
+
 - (NSString*) privacyInformationUrl
 {
     if([[NSNull null] isEqual:self.dictionary[@"privacyInformationUrl"]])
@@ -152,6 +124,34 @@
 - (void) setPrivacyInformationUrl: (NSString*) val
 {
     self.dictionary[@"privacyInformationUrl"] = val;
+}
+
+- (NSDate*) publishedDateTime
+{
+    if(!_publishedDateTime){
+        _publishedDateTime = [NSDate ms_dateFromString: self.dictionary[@"publishedDateTime"]];
+    }
+    return _publishedDateTime;
+}
+
+- (void) setPublishedDateTime: (NSDate*) val
+{
+    _publishedDateTime = val;
+    self.dictionary[@"publishedDateTime"] = [val ms_toString];
+}
+
+- (NSString*) publisher
+{
+    if([[NSNull null] isEqual:self.dictionary[@"publisher"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"publisher"];
+}
+
+- (void) setPublisher: (NSString*) val
+{
+    self.dictionary[@"publisher"] = val;
 }
 
 - (NSArray*) assignments
@@ -179,20 +179,6 @@
     self.dictionary[@"assignments"] = val;
 }
 
-- (MSGraphEBookInstallSummary*) installSummary
-{
-    if(!_installSummary){
-        _installSummary = [[MSGraphEBookInstallSummary alloc] initWithDictionary: self.dictionary[@"installSummary"]];
-    }
-    return _installSummary;
-}
-
-- (void) setInstallSummary: (MSGraphEBookInstallSummary*) val
-{
-    _installSummary = val;
-    self.dictionary[@"installSummary"] = val;
-}
-
 - (NSArray*) deviceStates
 {
     if(!_deviceStates){
@@ -216,6 +202,20 @@
 {
     _deviceStates = val;
     self.dictionary[@"deviceStates"] = val;
+}
+
+- (MSGraphEBookInstallSummary*) installSummary
+{
+    if(!_installSummary){
+        _installSummary = [[MSGraphEBookInstallSummary alloc] initWithDictionary: self.dictionary[@"installSummary"]];
+    }
+    return _installSummary;
+}
+
+- (void) setInstallSummary: (MSGraphEBookInstallSummary*) val
+{
+    _installSummary = val;
+    self.dictionary[@"installSummary"] = val;
 }
 
 - (NSArray*) userStateSummary

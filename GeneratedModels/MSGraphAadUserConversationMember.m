@@ -14,8 +14,8 @@
 
 @interface MSGraphAadUserConversationMember()
 {
-    NSString* _userId;
     NSString* _email;
+    NSString* _userId;
     MSGraphUser* _user;
 }
 @end
@@ -29,20 +29,6 @@
     }
     return self;
 }
-- (NSString*) userId
-{
-    if([[NSNull null] isEqual:self.dictionary[@"userId"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"userId"];
-}
-
-- (void) setUserId: (NSString*) val
-{
-    self.dictionary[@"userId"] = val;
-}
-
 - (NSString*) email
 {
     if([[NSNull null] isEqual:self.dictionary[@"email"]])
@@ -55,6 +41,20 @@
 - (void) setEmail: (NSString*) val
 {
     self.dictionary[@"email"] = val;
+}
+
+- (NSString*) userId
+{
+    if([[NSNull null] isEqual:self.dictionary[@"userId"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"userId"];
+}
+
+- (void) setUserId: (NSString*) val
+{
+    self.dictionary[@"userId"] = val;
 }
 
 - (MSGraphUser*) user

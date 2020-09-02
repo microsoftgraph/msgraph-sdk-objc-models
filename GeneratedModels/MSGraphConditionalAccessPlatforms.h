@@ -9,7 +9,7 @@
 
 @interface MSGraphConditionalAccessPlatforms : MSObject
 
-@property (nonnull, nonatomic, setter=setIncludePlatforms:, getter=includePlatforms) NSArray* includePlatforms;
 @property (nonnull, nonatomic, setter=setExcludePlatforms:, getter=excludePlatforms) NSArray* excludePlatforms;
+@property (nonnull, nonatomic, setter=setIncludePlatforms:, getter=includePlatforms) NSArray* includePlatforms;
 
 @end

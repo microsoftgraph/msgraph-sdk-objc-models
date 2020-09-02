@@ -14,26 +14,12 @@
 
 @interface MSGraphCallRecordsFailureInfo()
 {
-    MSGraphCallRecordsFailureStage* _stage;
     NSString* _reason;
+    MSGraphCallRecordsFailureStage* _stage;
 }
 @end
 
 @implementation MSGraphCallRecordsFailureInfo
-
-- (MSGraphCallRecordsFailureStage*) stage
-{
-    if(!_stage){
-        _stage = [self.dictionary[@"stage"] toMSGraphCallRecordsFailureStage];
-    }
-    return _stage;
-}
-
-- (void) setStage: (MSGraphCallRecordsFailureStage*) val
-{
-    _stage = val;
-    self.dictionary[@"stage"] = val;
-}
 
 - (NSString*) reason
 {
@@ -47,6 +33,20 @@
 - (void) setReason: (NSString*) val
 {
     self.dictionary[@"reason"] = val;
+}
+
+- (MSGraphCallRecordsFailureStage*) stage
+{
+    if(!_stage){
+        _stage = [self.dictionary[@"stage"] toMSGraphCallRecordsFailureStage];
+    }
+    return _stage;
+}
+
+- (void) setStage: (MSGraphCallRecordsFailureStage*) val
+{
+    _stage = val;
+    self.dictionary[@"stage"] = val;
 }
 
 @end

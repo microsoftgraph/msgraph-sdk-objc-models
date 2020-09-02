@@ -8,8 +8,8 @@
 
 @interface MSGraphInsightIdentity : MSObject
 
+@property (nullable, nonatomic, setter=setAddress:, getter=address) NSString* address;
 @property (nullable, nonatomic, setter=setDisplayName:, getter=displayName) NSString* displayName;
 @property (nullable, nonatomic, setter=setInsightIdentityId:, getter=insightIdentityId) NSString* insightIdentityId;
-@property (nullable, nonatomic, setter=setAddress:, getter=address) NSString* address;
 
 @end

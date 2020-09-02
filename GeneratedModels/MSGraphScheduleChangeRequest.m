@@ -15,13 +15,13 @@
 @interface MSGraphScheduleChangeRequest()
 {
     MSGraphScheduleChangeRequestActor* _assignedTo;
-    MSGraphScheduleChangeState* _state;
-    NSString* _senderMessage;
-    NSDate* _senderDateTime;
-    NSString* _managerActionMessage;
     NSDate* _managerActionDateTime;
-    NSString* _senderUserId;
+    NSString* _managerActionMessage;
     NSString* _managerUserId;
+    NSDate* _senderDateTime;
+    NSString* _senderMessage;
+    NSString* _senderUserId;
+    MSGraphScheduleChangeState* _state;
 }
 @end
 
@@ -41,46 +41,18 @@
     self.dictionary[@"assignedTo"] = val;
 }
 
-- (MSGraphScheduleChangeState*) state
+- (NSDate*) managerActionDateTime
 {
-    if(!_state){
-        _state = [self.dictionary[@"state"] toMSGraphScheduleChangeState];
+    if(!_managerActionDateTime){
+        _managerActionDateTime = [NSDate ms_dateFromString: self.dictionary[@"managerActionDateTime"]];
     }
-    return _state;
+    return _managerActionDateTime;
 }
 
-- (void) setState: (MSGraphScheduleChangeState*) val
+- (void) setManagerActionDateTime: (NSDate*) val
 {
-    _state = val;
-    self.dictionary[@"state"] = val;
-}
-
-- (NSString*) senderMessage
-{
-    if([[NSNull null] isEqual:self.dictionary[@"senderMessage"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"senderMessage"];
-}
-
-- (void) setSenderMessage: (NSString*) val
-{
-    self.dictionary[@"senderMessage"] = val;
-}
-
-- (NSDate*) senderDateTime
-{
-    if(!_senderDateTime){
-        _senderDateTime = [NSDate ms_dateFromString: self.dictionary[@"senderDateTime"]];
-    }
-    return _senderDateTime;
-}
-
-- (void) setSenderDateTime: (NSDate*) val
-{
-    _senderDateTime = val;
-    self.dictionary[@"senderDateTime"] = [val ms_toString];
+    _managerActionDateTime = val;
+    self.dictionary[@"managerActionDateTime"] = [val ms_toString];
 }
 
 - (NSString*) managerActionMessage
@@ -97,18 +69,46 @@
     self.dictionary[@"managerActionMessage"] = val;
 }
 
-- (NSDate*) managerActionDateTime
+- (NSString*) managerUserId
 {
-    if(!_managerActionDateTime){
-        _managerActionDateTime = [NSDate ms_dateFromString: self.dictionary[@"managerActionDateTime"]];
-    }
-    return _managerActionDateTime;
+    if([[NSNull null] isEqual:self.dictionary[@"managerUserId"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"managerUserId"];
 }
 
-- (void) setManagerActionDateTime: (NSDate*) val
+- (void) setManagerUserId: (NSString*) val
 {
-    _managerActionDateTime = val;
-    self.dictionary[@"managerActionDateTime"] = [val ms_toString];
+    self.dictionary[@"managerUserId"] = val;
+}
+
+- (NSDate*) senderDateTime
+{
+    if(!_senderDateTime){
+        _senderDateTime = [NSDate ms_dateFromString: self.dictionary[@"senderDateTime"]];
+    }
+    return _senderDateTime;
+}
+
+- (void) setSenderDateTime: (NSDate*) val
+{
+    _senderDateTime = val;
+    self.dictionary[@"senderDateTime"] = [val ms_toString];
+}
+
+- (NSString*) senderMessage
+{
+    if([[NSNull null] isEqual:self.dictionary[@"senderMessage"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"senderMessage"];
+}
+
+- (void) setSenderMessage: (NSString*) val
+{
+    self.dictionary[@"senderMessage"] = val;
 }
 
 - (NSString*) senderUserId
@@ -125,18 +125,18 @@
     self.dictionary[@"senderUserId"] = val;
 }
 
-- (NSString*) managerUserId
+- (MSGraphScheduleChangeState*) state
 {
-    if([[NSNull null] isEqual:self.dictionary[@"managerUserId"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"managerUserId"];
+    if(!_state){
+        _state = [self.dictionary[@"state"] toMSGraphScheduleChangeState];
+    }
+    return _state;
 }
 
-- (void) setManagerUserId: (NSString*) val
+- (void) setState: (MSGraphScheduleChangeState*) val
 {
-    self.dictionary[@"managerUserId"] = val;
+    _state = val;
+    self.dictionary[@"state"] = val;
 }
 
 

@@ -8,7 +8,7 @@
 
 @interface MSGraphConditionalAccessLocations : MSObject
 
-@property (nonnull, nonatomic, setter=setIncludeLocations:, getter=includeLocations) NSArray* includeLocations;
 @property (nonnull, nonatomic, setter=setExcludeLocations:, getter=excludeLocations) NSArray* excludeLocations;
+@property (nonnull, nonatomic, setter=setIncludeLocations:, getter=includeLocations) NSArray* includeLocations;
 
 @end

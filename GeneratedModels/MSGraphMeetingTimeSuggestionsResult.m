@@ -14,12 +14,26 @@
 
 @interface MSGraphMeetingTimeSuggestionsResult()
 {
-    NSArray* _meetingTimeSuggestions;
     NSString* _emptySuggestionsReason;
+    NSArray* _meetingTimeSuggestions;
 }
 @end
 
 @implementation MSGraphMeetingTimeSuggestionsResult
+
+- (NSString*) emptySuggestionsReason
+{
+    if([[NSNull null] isEqual:self.dictionary[@"emptySuggestionsReason"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"emptySuggestionsReason"];
+}
+
+- (void) setEmptySuggestionsReason: (NSString*) val
+{
+    self.dictionary[@"emptySuggestionsReason"] = val;
+}
 
 - (NSArray*) meetingTimeSuggestions
 {
@@ -44,20 +58,6 @@
 {
     _meetingTimeSuggestions = val;
     self.dictionary[@"meetingTimeSuggestions"] = val;
-}
-
-- (NSString*) emptySuggestionsReason
-{
-    if([[NSNull null] isEqual:self.dictionary[@"emptySuggestionsReason"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"emptySuggestionsReason"];
-}
-
-- (void) setEmptySuggestionsReason: (NSString*) val
-{
-    self.dictionary[@"emptySuggestionsReason"] = val;
 }
 
 @end

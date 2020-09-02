@@ -10,8 +10,8 @@
 @interface MSGraphSignInLocation : MSObject
 
 @property (nullable, nonatomic, setter=setCity:, getter=city) NSString* city;
-@property (nullable, nonatomic, setter=setState:, getter=state) NSString* state;
 @property (nullable, nonatomic, setter=setCountryOrRegion:, getter=countryOrRegion) NSString* countryOrRegion;
 @property (nullable, nonatomic, setter=setGeoCoordinates:, getter=geoCoordinates) MSGraphGeoCoordinates* geoCoordinates;
+@property (nullable, nonatomic, setter=setState:, getter=state) NSString* state;
 
 @end

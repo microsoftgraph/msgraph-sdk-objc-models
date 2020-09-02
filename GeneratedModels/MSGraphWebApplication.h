@@ -10,8 +10,8 @@
 @interface MSGraphWebApplication : MSObject
 
 @property (nullable, nonatomic, setter=setHomePageUrl:, getter=homePageUrl) NSString* homePageUrl;
-@property (nonnull, nonatomic, setter=setRedirectUris:, getter=redirectUris) NSArray* redirectUris;
-@property (nullable, nonatomic, setter=setLogoutUrl:, getter=logoutUrl) NSString* logoutUrl;
 @property (nullable, nonatomic, setter=setImplicitGrantSettings:, getter=implicitGrantSettings) MSGraphImplicitGrantSettings* implicitGrantSettings;
+@property (nullable, nonatomic, setter=setLogoutUrl:, getter=logoutUrl) NSString* logoutUrl;
+@property (nonnull, nonatomic, setter=setRedirectUris:, getter=redirectUris) NSArray* redirectUris;
 
 @end

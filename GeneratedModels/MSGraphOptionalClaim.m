@@ -14,14 +14,40 @@
 
 @interface MSGraphOptionalClaim()
 {
+    NSArray* _additionalProperties;
+    BOOL _essential;
     NSString* _name;
     NSString* _source;
-    BOOL _essential;
-    NSArray* _additionalProperties;
 }
 @end
 
 @implementation MSGraphOptionalClaim
+
+- (NSArray*) additionalProperties
+{
+    if([[NSNull null] isEqual:self.dictionary[@"additionalProperties"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"additionalProperties"];
+}
+
+- (void) setAdditionalProperties: (NSArray*) val
+{
+    self.dictionary[@"additionalProperties"] = val;
+}
+
+- (BOOL) essential
+{
+    _essential = [self.dictionary[@"essential"] boolValue];
+    return _essential;
+}
+
+- (void) setEssential: (BOOL) val
+{
+    _essential = val;
+    self.dictionary[@"essential"] = @(val);
+}
 
 - (NSString*) name
 {
@@ -45,32 +71,6 @@
 - (void) setSource: (NSString*) val
 {
     self.dictionary[@"source"] = val;
-}
-
-- (BOOL) essential
-{
-    _essential = [self.dictionary[@"essential"] boolValue];
-    return _essential;
-}
-
-- (void) setEssential: (BOOL) val
-{
-    _essential = val;
-    self.dictionary[@"essential"] = @(val);
-}
-
-- (NSArray*) additionalProperties
-{
-    if([[NSNull null] isEqual:self.dictionary[@"additionalProperties"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"additionalProperties"];
-}
-
-- (void) setAdditionalProperties: (NSArray*) val
-{
-    self.dictionary[@"additionalProperties"] = val;
 }
 
 @end

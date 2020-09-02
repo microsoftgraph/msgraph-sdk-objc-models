@@ -14,14 +14,42 @@
 
 @interface MSGraphOutlookItem()
 {
+    NSArray* _categories;
+    NSString* _changeKey;
     NSDate* _createdDateTime;
     NSDate* _lastModifiedDateTime;
-    NSString* _changeKey;
-    NSArray* _categories;
 }
 @end
 
 @implementation MSGraphOutlookItem
+
+- (NSArray*) categories
+{
+    if([[NSNull null] isEqual:self.dictionary[@"categories"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"categories"];
+}
+
+- (void) setCategories: (NSArray*) val
+{
+    self.dictionary[@"categories"] = val;
+}
+
+- (NSString*) changeKey
+{
+    if([[NSNull null] isEqual:self.dictionary[@"changeKey"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"changeKey"];
+}
+
+- (void) setChangeKey: (NSString*) val
+{
+    self.dictionary[@"changeKey"] = val;
+}
 
 - (NSDate*) createdDateTime
 {
@@ -49,34 +77,6 @@
 {
     _lastModifiedDateTime = val;
     self.dictionary[@"lastModifiedDateTime"] = [val ms_toString];
-}
-
-- (NSString*) changeKey
-{
-    if([[NSNull null] isEqual:self.dictionary[@"changeKey"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"changeKey"];
-}
-
-- (void) setChangeKey: (NSString*) val
-{
-    self.dictionary[@"changeKey"] = val;
-}
-
-- (NSArray*) categories
-{
-    if([[NSNull null] isEqual:self.dictionary[@"categories"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"categories"];
-}
-
-- (void) setCategories: (NSArray*) val
-{
-    self.dictionary[@"categories"] = val;
 }
 
 

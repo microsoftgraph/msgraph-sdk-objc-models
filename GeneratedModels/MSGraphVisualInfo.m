@@ -16,9 +16,9 @@
 {
     MSGraphImageInfo* _attribution;
     NSString* _backgroundColor;
+    NSDictionary* _content;
     NSString* _visualInfoDescription;
     NSString* _displayText;
-    NSDictionary* _content;
 }
 @end
 
@@ -52,6 +52,20 @@
     self.dictionary[@"backgroundColor"] = val;
 }
 
+- (NSDictionary*) content
+{
+    if(!_content){
+        _content = [[NSDictionary alloc] initWithDictionary: self.dictionary[@"content"]];
+    }
+    return _content;
+}
+
+- (void) setContent: (NSDictionary*) val
+{
+    _content = val;
+    self.dictionary[@"content"] = val;
+}
+
 - (NSString*) visualInfoDescription
 {
     if([[NSNull null] isEqual:self.dictionary[@"description"]])
@@ -74,20 +88,6 @@
 - (void) setDisplayText: (NSString*) val
 {
     self.dictionary[@"displayText"] = val;
-}
-
-- (NSDictionary*) content
-{
-    if(!_content){
-        _content = [[NSDictionary alloc] initWithDictionary: self.dictionary[@"content"]];
-    }
-    return _content;
-}
-
-- (void) setContent: (NSDictionary*) val
-{
-    _content = val;
-    self.dictionary[@"content"] = val;
 }
 
 @end

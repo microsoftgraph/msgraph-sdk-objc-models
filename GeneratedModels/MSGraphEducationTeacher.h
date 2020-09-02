@@ -8,7 +8,7 @@
 
 @interface MSGraphEducationTeacher : MSObject
 
-@property (nullable, nonatomic, setter=setTeacherNumber:, getter=teacherNumber) NSString* teacherNumber;
 @property (nullable, nonatomic, setter=setExternalId:, getter=externalId) NSString* externalId;
+@property (nullable, nonatomic, setter=setTeacherNumber:, getter=teacherNumber) NSString* teacherNumber;
 
 @end

@@ -14,27 +14,13 @@
 
 @interface MSGraphResourceReference()
 {
-    NSString* _webUrl;
     NSString* _resourceReferenceId;
     NSString* _type;
+    NSString* _webUrl;
 }
 @end
 
 @implementation MSGraphResourceReference
-
-- (NSString*) webUrl
-{
-    if([[NSNull null] isEqual:self.dictionary[@"webUrl"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"webUrl"];
-}
-
-- (void) setWebUrl: (NSString*) val
-{
-    self.dictionary[@"webUrl"] = val;
-}
 
 - (NSString*) resourceReferenceId
 {
@@ -62,6 +48,20 @@
 - (void) setType: (NSString*) val
 {
     self.dictionary[@"type"] = val;
+}
+
+- (NSString*) webUrl
+{
+    if([[NSNull null] isEqual:self.dictionary[@"webUrl"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"webUrl"];
+}
+
+- (void) setWebUrl: (NSString*) val
+{
+    self.dictionary[@"webUrl"] = val;
 }
 
 @end

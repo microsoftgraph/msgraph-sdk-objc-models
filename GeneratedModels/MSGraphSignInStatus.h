@@ -8,8 +8,8 @@
 
 @interface MSGraphSignInStatus : MSObject
 
+@property (nullable, nonatomic, setter=setAdditionalDetails:, getter=additionalDetails) NSString* additionalDetails;
 @property (nonatomic, setter=setErrorCode:, getter=errorCode) int32_t errorCode;
 @property (nullable, nonatomic, setter=setFailureReason:, getter=failureReason) NSString* failureReason;
-@property (nullable, nonatomic, setter=setAdditionalDetails:, getter=additionalDetails) NSString* additionalDetails;
 
 @end

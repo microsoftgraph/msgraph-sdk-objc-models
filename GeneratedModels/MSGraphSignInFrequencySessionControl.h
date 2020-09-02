@@ -9,7 +9,7 @@
 
 @interface MSGraphSignInFrequencySessionControl : MSGraphConditionalAccessSessionControl
 
-@property (nonatomic, setter=setValue:, getter=value) int32_t value;
 @property (nullable, nonatomic, setter=setType:, getter=type) MSGraphSigninFrequencyType* type;
+@property (nonatomic, setter=setValue:, getter=value) int32_t value;
 
 @end

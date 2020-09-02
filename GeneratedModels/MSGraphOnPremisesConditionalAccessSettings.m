@@ -15,8 +15,8 @@
 @interface MSGraphOnPremisesConditionalAccessSettings()
 {
     BOOL _enabled;
-    NSArray* _includedGroups;
     NSArray* _excludedGroups;
+    NSArray* _includedGroups;
     BOOL _overrideDefaultRule;
 }
 @end
@@ -42,16 +42,6 @@
     self.dictionary[@"enabled"] = @(val);
 }
 
-- (NSArray*) includedGroups
-{
-    return self.dictionary[@"includedGroups"];
-}
-
-- (void) setIncludedGroups: (NSArray*) val
-{
-    self.dictionary[@"includedGroups"] = val;
-}
-
 - (NSArray*) excludedGroups
 {
     return self.dictionary[@"excludedGroups"];
@@ -60,6 +50,16 @@
 - (void) setExcludedGroups: (NSArray*) val
 {
     self.dictionary[@"excludedGroups"] = val;
+}
+
+- (NSArray*) includedGroups
+{
+    return self.dictionary[@"includedGroups"];
+}
+
+- (void) setIncludedGroups: (NSArray*) val
+{
+    self.dictionary[@"includedGroups"] = val;
 }
 
 - (BOOL) overrideDefaultRule

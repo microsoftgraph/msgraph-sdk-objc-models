@@ -14,13 +14,13 @@
 
 @interface MSGraphManagedDeviceMobileAppConfigurationDeviceSummary()
 {
-    int32_t _pendingCount;
-    int32_t _notApplicableCount;
-    int32_t _successCount;
+    int32_t _configurationVersion;
     int32_t _errorCount;
     int32_t _failedCount;
     NSDate* _lastUpdateDateTime;
-    int32_t _configurationVersion;
+    int32_t _notApplicableCount;
+    int32_t _pendingCount;
+    int32_t _successCount;
 }
 @end
 
@@ -33,40 +33,16 @@
     }
     return self;
 }
-- (int32_t) pendingCount
+- (int32_t) configurationVersion
 {
-    _pendingCount = [self.dictionary[@"pendingCount"] intValue];
-    return _pendingCount;
+    _configurationVersion = [self.dictionary[@"configurationVersion"] intValue];
+    return _configurationVersion;
 }
 
-- (void) setPendingCount: (int32_t) val
+- (void) setConfigurationVersion: (int32_t) val
 {
-    _pendingCount = val;
-    self.dictionary[@"pendingCount"] = @(val);
-}
-
-- (int32_t) notApplicableCount
-{
-    _notApplicableCount = [self.dictionary[@"notApplicableCount"] intValue];
-    return _notApplicableCount;
-}
-
-- (void) setNotApplicableCount: (int32_t) val
-{
-    _notApplicableCount = val;
-    self.dictionary[@"notApplicableCount"] = @(val);
-}
-
-- (int32_t) successCount
-{
-    _successCount = [self.dictionary[@"successCount"] intValue];
-    return _successCount;
-}
-
-- (void) setSuccessCount: (int32_t) val
-{
-    _successCount = val;
-    self.dictionary[@"successCount"] = @(val);
+    _configurationVersion = val;
+    self.dictionary[@"configurationVersion"] = @(val);
 }
 
 - (int32_t) errorCount
@@ -107,16 +83,40 @@
     self.dictionary[@"lastUpdateDateTime"] = [val ms_toString];
 }
 
-- (int32_t) configurationVersion
+- (int32_t) notApplicableCount
 {
-    _configurationVersion = [self.dictionary[@"configurationVersion"] intValue];
-    return _configurationVersion;
+    _notApplicableCount = [self.dictionary[@"notApplicableCount"] intValue];
+    return _notApplicableCount;
 }
 
-- (void) setConfigurationVersion: (int32_t) val
+- (void) setNotApplicableCount: (int32_t) val
 {
-    _configurationVersion = val;
-    self.dictionary[@"configurationVersion"] = @(val);
+    _notApplicableCount = val;
+    self.dictionary[@"notApplicableCount"] = @(val);
+}
+
+- (int32_t) pendingCount
+{
+    _pendingCount = [self.dictionary[@"pendingCount"] intValue];
+    return _pendingCount;
+}
+
+- (void) setPendingCount: (int32_t) val
+{
+    _pendingCount = val;
+    self.dictionary[@"pendingCount"] = @(val);
+}
+
+- (int32_t) successCount
+{
+    _successCount = [self.dictionary[@"successCount"] intValue];
+    return _successCount;
+}
+
+- (void) setSuccessCount: (int32_t) val
+{
+    _successCount = val;
+    self.dictionary[@"successCount"] = @(val);
 }
 
 

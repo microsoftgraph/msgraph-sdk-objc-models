@@ -14,14 +14,14 @@
 
 @interface MSGraphConversationThread()
 {
-    NSArray* _toRecipients;
-    NSString* _topic;
-    BOOL _hasAttachments;
-    NSDate* _lastDeliveredDateTime;
-    NSArray* _uniqueSenders;
     NSArray* _ccRecipients;
-    NSString* _preview;
+    BOOL _hasAttachments;
     BOOL _isLocked;
+    NSDate* _lastDeliveredDateTime;
+    NSString* _preview;
+    NSString* _topic;
+    NSArray* _toRecipients;
+    NSArray* _uniqueSenders;
     NSArray* _posts;
 }
 @end
@@ -35,77 +35,6 @@
     }
     return self;
 }
-- (NSArray*) toRecipients
-{
-    if(!_toRecipients){
-        
-    NSMutableArray *toRecipientsResult = [NSMutableArray array];
-    NSArray *toRecipients = self.dictionary[@"toRecipients"];
-
-    if ([toRecipients isKindOfClass:[NSArray class]]){
-        for (id tempRecipient in toRecipients){
-            [toRecipientsResult addObject:tempRecipient];
-        }
-    }
-
-    _toRecipients = toRecipientsResult;
-        
-    }
-    return _toRecipients;
-}
-
-- (void) setToRecipients: (NSArray*) val
-{
-    _toRecipients = val;
-    self.dictionary[@"toRecipients"] = val;
-}
-
-- (NSString*) topic
-{
-    return self.dictionary[@"topic"];
-}
-
-- (void) setTopic: (NSString*) val
-{
-    self.dictionary[@"topic"] = val;
-}
-
-- (BOOL) hasAttachments
-{
-    _hasAttachments = [self.dictionary[@"hasAttachments"] boolValue];
-    return _hasAttachments;
-}
-
-- (void) setHasAttachments: (BOOL) val
-{
-    _hasAttachments = val;
-    self.dictionary[@"hasAttachments"] = @(val);
-}
-
-- (NSDate*) lastDeliveredDateTime
-{
-    if(!_lastDeliveredDateTime){
-        _lastDeliveredDateTime = [NSDate ms_dateFromString: self.dictionary[@"lastDeliveredDateTime"]];
-    }
-    return _lastDeliveredDateTime;
-}
-
-- (void) setLastDeliveredDateTime: (NSDate*) val
-{
-    _lastDeliveredDateTime = val;
-    self.dictionary[@"lastDeliveredDateTime"] = [val ms_toString];
-}
-
-- (NSArray*) uniqueSenders
-{
-    return self.dictionary[@"uniqueSenders"];
-}
-
-- (void) setUniqueSenders: (NSArray*) val
-{
-    self.dictionary[@"uniqueSenders"] = val;
-}
-
 - (NSArray*) ccRecipients
 {
     if(!_ccRecipients){
@@ -131,14 +60,16 @@
     self.dictionary[@"ccRecipients"] = val;
 }
 
-- (NSString*) preview
+- (BOOL) hasAttachments
 {
-    return self.dictionary[@"preview"];
+    _hasAttachments = [self.dictionary[@"hasAttachments"] boolValue];
+    return _hasAttachments;
 }
 
-- (void) setPreview: (NSString*) val
+- (void) setHasAttachments: (BOOL) val
 {
-    self.dictionary[@"preview"] = val;
+    _hasAttachments = val;
+    self.dictionary[@"hasAttachments"] = @(val);
 }
 
 - (BOOL) isLocked
@@ -151,6 +82,75 @@
 {
     _isLocked = val;
     self.dictionary[@"isLocked"] = @(val);
+}
+
+- (NSDate*) lastDeliveredDateTime
+{
+    if(!_lastDeliveredDateTime){
+        _lastDeliveredDateTime = [NSDate ms_dateFromString: self.dictionary[@"lastDeliveredDateTime"]];
+    }
+    return _lastDeliveredDateTime;
+}
+
+- (void) setLastDeliveredDateTime: (NSDate*) val
+{
+    _lastDeliveredDateTime = val;
+    self.dictionary[@"lastDeliveredDateTime"] = [val ms_toString];
+}
+
+- (NSString*) preview
+{
+    return self.dictionary[@"preview"];
+}
+
+- (void) setPreview: (NSString*) val
+{
+    self.dictionary[@"preview"] = val;
+}
+
+- (NSString*) topic
+{
+    return self.dictionary[@"topic"];
+}
+
+- (void) setTopic: (NSString*) val
+{
+    self.dictionary[@"topic"] = val;
+}
+
+- (NSArray*) toRecipients
+{
+    if(!_toRecipients){
+        
+    NSMutableArray *toRecipientsResult = [NSMutableArray array];
+    NSArray *toRecipients = self.dictionary[@"toRecipients"];
+
+    if ([toRecipients isKindOfClass:[NSArray class]]){
+        for (id tempRecipient in toRecipients){
+            [toRecipientsResult addObject:tempRecipient];
+        }
+    }
+
+    _toRecipients = toRecipientsResult;
+        
+    }
+    return _toRecipients;
+}
+
+- (void) setToRecipients: (NSArray*) val
+{
+    _toRecipients = val;
+    self.dictionary[@"toRecipients"] = val;
+}
+
+- (NSArray*) uniqueSenders
+{
+    return self.dictionary[@"uniqueSenders"];
+}
+
+- (void) setUniqueSenders: (NSArray*) val
+{
+    self.dictionary[@"uniqueSenders"] = val;
 }
 
 - (NSArray*) posts

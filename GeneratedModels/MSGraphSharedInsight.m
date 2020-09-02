@@ -15,9 +15,9 @@
 @interface MSGraphSharedInsight()
 {
     MSGraphSharingDetail* _lastShared;
-    NSArray* _sharingHistory;
-    MSGraphResourceVisualization* _resourceVisualization;
     MSGraphResourceReference* _resourceReference;
+    MSGraphResourceVisualization* _resourceVisualization;
+    NSArray* _sharingHistory;
     MSGraphEntity* _lastSharedMethod;
     MSGraphEntity* _resource;
 }
@@ -46,6 +46,34 @@
     self.dictionary[@"lastShared"] = val;
 }
 
+- (MSGraphResourceReference*) resourceReference
+{
+    if(!_resourceReference){
+        _resourceReference = [[MSGraphResourceReference alloc] initWithDictionary: self.dictionary[@"resourceReference"]];
+    }
+    return _resourceReference;
+}
+
+- (void) setResourceReference: (MSGraphResourceReference*) val
+{
+    _resourceReference = val;
+    self.dictionary[@"resourceReference"] = val;
+}
+
+- (MSGraphResourceVisualization*) resourceVisualization
+{
+    if(!_resourceVisualization){
+        _resourceVisualization = [[MSGraphResourceVisualization alloc] initWithDictionary: self.dictionary[@"resourceVisualization"]];
+    }
+    return _resourceVisualization;
+}
+
+- (void) setResourceVisualization: (MSGraphResourceVisualization*) val
+{
+    _resourceVisualization = val;
+    self.dictionary[@"resourceVisualization"] = val;
+}
+
 - (NSArray*) sharingHistory
 {
     if(!_sharingHistory){
@@ -69,34 +97,6 @@
 {
     _sharingHistory = val;
     self.dictionary[@"sharingHistory"] = val;
-}
-
-- (MSGraphResourceVisualization*) resourceVisualization
-{
-    if(!_resourceVisualization){
-        _resourceVisualization = [[MSGraphResourceVisualization alloc] initWithDictionary: self.dictionary[@"resourceVisualization"]];
-    }
-    return _resourceVisualization;
-}
-
-- (void) setResourceVisualization: (MSGraphResourceVisualization*) val
-{
-    _resourceVisualization = val;
-    self.dictionary[@"resourceVisualization"] = val;
-}
-
-- (MSGraphResourceReference*) resourceReference
-{
-    if(!_resourceReference){
-        _resourceReference = [[MSGraphResourceReference alloc] initWithDictionary: self.dictionary[@"resourceReference"]];
-    }
-    return _resourceReference;
-}
-
-- (void) setResourceReference: (MSGraphResourceReference*) val
-{
-    _resourceReference = val;
-    self.dictionary[@"resourceReference"] = val;
 }
 
 - (MSGraphEntity*) lastSharedMethod

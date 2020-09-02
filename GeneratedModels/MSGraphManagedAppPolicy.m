@@ -14,9 +14,9 @@
 
 @interface MSGraphManagedAppPolicy()
 {
-    NSString* _displayName;
-    NSString* _managedAppPolicyDescription;
     NSDate* _createdDateTime;
+    NSString* _managedAppPolicyDescription;
+    NSString* _displayName;
     NSDate* _lastModifiedDateTime;
     NSString* _version;
 }
@@ -24,14 +24,18 @@
 
 @implementation MSGraphManagedAppPolicy
 
-- (NSString*) displayName
+- (NSDate*) createdDateTime
 {
-    return self.dictionary[@"displayName"];
+    if(!_createdDateTime){
+        _createdDateTime = [NSDate ms_dateFromString: self.dictionary[@"createdDateTime"]];
+    }
+    return _createdDateTime;
 }
 
-- (void) setDisplayName: (NSString*) val
+- (void) setCreatedDateTime: (NSDate*) val
 {
-    self.dictionary[@"displayName"] = val;
+    _createdDateTime = val;
+    self.dictionary[@"createdDateTime"] = [val ms_toString];
 }
 
 - (NSString*) managedAppPolicyDescription
@@ -48,18 +52,14 @@
     self.dictionary[@"description"] = val;
 }
 
-- (NSDate*) createdDateTime
+- (NSString*) displayName
 {
-    if(!_createdDateTime){
-        _createdDateTime = [NSDate ms_dateFromString: self.dictionary[@"createdDateTime"]];
-    }
-    return _createdDateTime;
+    return self.dictionary[@"displayName"];
 }
 
-- (void) setCreatedDateTime: (NSDate*) val
+- (void) setDisplayName: (NSString*) val
 {
-    _createdDateTime = val;
-    self.dictionary[@"createdDateTime"] = [val ms_toString];
+    self.dictionary[@"displayName"] = val;
 }
 
 - (NSDate*) lastModifiedDateTime

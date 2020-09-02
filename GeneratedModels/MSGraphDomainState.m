@@ -14,26 +14,26 @@
 
 @interface MSGraphDomainState()
 {
-    NSString* _status;
-    NSString* _operation;
     NSDate* _lastActionDateTime;
+    NSString* _operation;
+    NSString* _status;
 }
 @end
 
 @implementation MSGraphDomainState
 
-- (NSString*) status
+- (NSDate*) lastActionDateTime
 {
-    if([[NSNull null] isEqual:self.dictionary[@"status"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"status"];
+    if(!_lastActionDateTime){
+        _lastActionDateTime = [NSDate ms_dateFromString: self.dictionary[@"lastActionDateTime"]];
+    }
+    return _lastActionDateTime;
 }
 
-- (void) setStatus: (NSString*) val
+- (void) setLastActionDateTime: (NSDate*) val
 {
-    self.dictionary[@"status"] = val;
+    _lastActionDateTime = val;
+    self.dictionary[@"lastActionDateTime"] = [val ms_toString];
 }
 
 - (NSString*) operation
@@ -50,18 +50,18 @@
     self.dictionary[@"operation"] = val;
 }
 
-- (NSDate*) lastActionDateTime
+- (NSString*) status
 {
-    if(!_lastActionDateTime){
-        _lastActionDateTime = [NSDate ms_dateFromString: self.dictionary[@"lastActionDateTime"]];
-    }
-    return _lastActionDateTime;
+    if([[NSNull null] isEqual:self.dictionary[@"status"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"status"];
 }
 
-- (void) setLastActionDateTime: (NSDate*) val
+- (void) setStatus: (NSString*) val
 {
-    _lastActionDateTime = val;
-    self.dictionary[@"lastActionDateTime"] = [val ms_toString];
+    self.dictionary[@"status"] = val;
 }
 
 @end

@@ -14,13 +14,37 @@
 
 @interface MSGraphIosNetworkUsageRule()
 {
-    NSArray* _managedApps;
-    BOOL _cellularDataBlockWhenRoaming;
     BOOL _cellularDataBlocked;
+    BOOL _cellularDataBlockWhenRoaming;
+    NSArray* _managedApps;
 }
 @end
 
 @implementation MSGraphIosNetworkUsageRule
+
+- (BOOL) cellularDataBlocked
+{
+    _cellularDataBlocked = [self.dictionary[@"cellularDataBlocked"] boolValue];
+    return _cellularDataBlocked;
+}
+
+- (void) setCellularDataBlocked: (BOOL) val
+{
+    _cellularDataBlocked = val;
+    self.dictionary[@"cellularDataBlocked"] = @(val);
+}
+
+- (BOOL) cellularDataBlockWhenRoaming
+{
+    _cellularDataBlockWhenRoaming = [self.dictionary[@"cellularDataBlockWhenRoaming"] boolValue];
+    return _cellularDataBlockWhenRoaming;
+}
+
+- (void) setCellularDataBlockWhenRoaming: (BOOL) val
+{
+    _cellularDataBlockWhenRoaming = val;
+    self.dictionary[@"cellularDataBlockWhenRoaming"] = @(val);
+}
 
 - (NSArray*) managedApps
 {
@@ -45,30 +69,6 @@
 {
     _managedApps = val;
     self.dictionary[@"managedApps"] = val;
-}
-
-- (BOOL) cellularDataBlockWhenRoaming
-{
-    _cellularDataBlockWhenRoaming = [self.dictionary[@"cellularDataBlockWhenRoaming"] boolValue];
-    return _cellularDataBlockWhenRoaming;
-}
-
-- (void) setCellularDataBlockWhenRoaming: (BOOL) val
-{
-    _cellularDataBlockWhenRoaming = val;
-    self.dictionary[@"cellularDataBlockWhenRoaming"] = @(val);
-}
-
-- (BOOL) cellularDataBlocked
-{
-    _cellularDataBlocked = [self.dictionary[@"cellularDataBlocked"] boolValue];
-    return _cellularDataBlocked;
-}
-
-- (void) setCellularDataBlocked: (BOOL) val
-{
-    _cellularDataBlocked = val;
-    self.dictionary[@"cellularDataBlocked"] = @(val);
 }
 
 @end

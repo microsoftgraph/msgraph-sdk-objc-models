@@ -14,23 +14,13 @@
 
 @interface MSGraphChatMessageReaction()
 {
-    NSString* _reactionType;
     NSDate* _createdDateTime;
+    NSString* _reactionType;
     MSGraphIdentitySet* _user;
 }
 @end
 
 @implementation MSGraphChatMessageReaction
-
-- (NSString*) reactionType
-{
-    return self.dictionary[@"reactionType"];
-}
-
-- (void) setReactionType: (NSString*) val
-{
-    self.dictionary[@"reactionType"] = val;
-}
 
 - (NSDate*) createdDateTime
 {
@@ -44,6 +34,16 @@
 {
     _createdDateTime = val;
     self.dictionary[@"createdDateTime"] = [val ms_toString];
+}
+
+- (NSString*) reactionType
+{
+    return self.dictionary[@"reactionType"];
+}
+
+- (void) setReactionType: (NSString*) val
+{
+    self.dictionary[@"reactionType"] = val;
 }
 
 - (MSGraphIdentitySet*) user

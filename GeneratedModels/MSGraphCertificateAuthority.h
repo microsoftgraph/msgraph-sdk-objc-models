@@ -8,10 +8,10 @@
 
 @interface MSGraphCertificateAuthority : MSObject
 
-@property (nonatomic, setter=setIsRootAuthority:, getter=isRootAuthority) BOOL isRootAuthority;
+@property (nonnull, nonatomic, setter=setCertificate:, getter=certificate) NSString* certificate;
 @property (nullable, nonatomic, setter=setCertificateRevocationListUrl:, getter=certificateRevocationListUrl) NSString* certificateRevocationListUrl;
 @property (nullable, nonatomic, setter=setDeltaCertificateRevocationListUrl:, getter=deltaCertificateRevocationListUrl) NSString* deltaCertificateRevocationListUrl;
-@property (nonnull, nonatomic, setter=setCertificate:, getter=certificate) NSString* certificate;
+@property (nonatomic, setter=setIsRootAuthority:, getter=isRootAuthority) BOOL isRootAuthority;
 @property (nonnull, nonatomic, setter=setIssuer:, getter=issuer) NSString* issuer;
 @property (nonnull, nonatomic, setter=setIssuerSki:, getter=issuerSki) NSString* issuerSki;
 

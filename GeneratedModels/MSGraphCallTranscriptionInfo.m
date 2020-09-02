@@ -14,26 +14,12 @@
 
 @interface MSGraphCallTranscriptionInfo()
 {
-    MSGraphCallTranscriptionState* _state;
     NSDate* _lastModifiedDateTime;
+    MSGraphCallTranscriptionState* _state;
 }
 @end
 
 @implementation MSGraphCallTranscriptionInfo
-
-- (MSGraphCallTranscriptionState*) state
-{
-    if(!_state){
-        _state = [self.dictionary[@"state"] toMSGraphCallTranscriptionState];
-    }
-    return _state;
-}
-
-- (void) setState: (MSGraphCallTranscriptionState*) val
-{
-    _state = val;
-    self.dictionary[@"state"] = val;
-}
 
 - (NSDate*) lastModifiedDateTime
 {
@@ -47,6 +33,20 @@
 {
     _lastModifiedDateTime = val;
     self.dictionary[@"lastModifiedDateTime"] = [val ms_toString];
+}
+
+- (MSGraphCallTranscriptionState*) state
+{
+    if(!_state){
+        _state = [self.dictionary[@"state"] toMSGraphCallTranscriptionState];
+    }
+    return _state;
+}
+
+- (void) setState: (MSGraphCallTranscriptionState*) val
+{
+    _state = val;
+    self.dictionary[@"state"] = val;
 }
 
 @end

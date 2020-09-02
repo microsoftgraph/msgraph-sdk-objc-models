@@ -14,20 +14,20 @@
 
 @interface MSGraphIosCompliancePolicy()
 {
-    BOOL _passcodeBlockSimple;
-    int32_t _passcodeExpirationDays;
-    int32_t _passcodeMinimumLength;
-    int32_t _passcodeMinutesOfInactivityBeforeLock;
-    int32_t _passcodePreviousPasscodeBlockCount;
-    int32_t _passcodeMinimumCharacterSetCount;
-    MSGraphRequiredPasswordType* _passcodeRequiredType;
-    BOOL _passcodeRequired;
-    NSString* _osMinimumVersion;
-    NSString* _osMaximumVersion;
-    BOOL _securityBlockJailbrokenDevices;
     BOOL _deviceThreatProtectionEnabled;
     MSGraphDeviceThreatProtectionLevel* _deviceThreatProtectionRequiredSecurityLevel;
     BOOL _managedEmailProfileRequired;
+    NSString* _osMaximumVersion;
+    NSString* _osMinimumVersion;
+    BOOL _passcodeBlockSimple;
+    int32_t _passcodeExpirationDays;
+    int32_t _passcodeMinimumCharacterSetCount;
+    int32_t _passcodeMinimumLength;
+    int32_t _passcodeMinutesOfInactivityBeforeLock;
+    int32_t _passcodePreviousPasscodeBlockCount;
+    BOOL _passcodeRequired;
+    MSGraphRequiredPasswordType* _passcodeRequiredType;
+    BOOL _securityBlockJailbrokenDevices;
 }
 @end
 
@@ -40,6 +40,72 @@
     }
     return self;
 }
+- (BOOL) deviceThreatProtectionEnabled
+{
+    _deviceThreatProtectionEnabled = [self.dictionary[@"deviceThreatProtectionEnabled"] boolValue];
+    return _deviceThreatProtectionEnabled;
+}
+
+- (void) setDeviceThreatProtectionEnabled: (BOOL) val
+{
+    _deviceThreatProtectionEnabled = val;
+    self.dictionary[@"deviceThreatProtectionEnabled"] = @(val);
+}
+
+- (MSGraphDeviceThreatProtectionLevel*) deviceThreatProtectionRequiredSecurityLevel
+{
+    if(!_deviceThreatProtectionRequiredSecurityLevel){
+        _deviceThreatProtectionRequiredSecurityLevel = [self.dictionary[@"deviceThreatProtectionRequiredSecurityLevel"] toMSGraphDeviceThreatProtectionLevel];
+    }
+    return _deviceThreatProtectionRequiredSecurityLevel;
+}
+
+- (void) setDeviceThreatProtectionRequiredSecurityLevel: (MSGraphDeviceThreatProtectionLevel*) val
+{
+    _deviceThreatProtectionRequiredSecurityLevel = val;
+    self.dictionary[@"deviceThreatProtectionRequiredSecurityLevel"] = val;
+}
+
+- (BOOL) managedEmailProfileRequired
+{
+    _managedEmailProfileRequired = [self.dictionary[@"managedEmailProfileRequired"] boolValue];
+    return _managedEmailProfileRequired;
+}
+
+- (void) setManagedEmailProfileRequired: (BOOL) val
+{
+    _managedEmailProfileRequired = val;
+    self.dictionary[@"managedEmailProfileRequired"] = @(val);
+}
+
+- (NSString*) osMaximumVersion
+{
+    if([[NSNull null] isEqual:self.dictionary[@"osMaximumVersion"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"osMaximumVersion"];
+}
+
+- (void) setOsMaximumVersion: (NSString*) val
+{
+    self.dictionary[@"osMaximumVersion"] = val;
+}
+
+- (NSString*) osMinimumVersion
+{
+    if([[NSNull null] isEqual:self.dictionary[@"osMinimumVersion"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"osMinimumVersion"];
+}
+
+- (void) setOsMinimumVersion: (NSString*) val
+{
+    self.dictionary[@"osMinimumVersion"] = val;
+}
+
 - (BOOL) passcodeBlockSimple
 {
     _passcodeBlockSimple = [self.dictionary[@"passcodeBlockSimple"] boolValue];
@@ -62,6 +128,18 @@
 {
     _passcodeExpirationDays = val;
     self.dictionary[@"passcodeExpirationDays"] = @(val);
+}
+
+- (int32_t) passcodeMinimumCharacterSetCount
+{
+    _passcodeMinimumCharacterSetCount = [self.dictionary[@"passcodeMinimumCharacterSetCount"] intValue];
+    return _passcodeMinimumCharacterSetCount;
+}
+
+- (void) setPasscodeMinimumCharacterSetCount: (int32_t) val
+{
+    _passcodeMinimumCharacterSetCount = val;
+    self.dictionary[@"passcodeMinimumCharacterSetCount"] = @(val);
 }
 
 - (int32_t) passcodeMinimumLength
@@ -100,16 +178,16 @@
     self.dictionary[@"passcodePreviousPasscodeBlockCount"] = @(val);
 }
 
-- (int32_t) passcodeMinimumCharacterSetCount
+- (BOOL) passcodeRequired
 {
-    _passcodeMinimumCharacterSetCount = [self.dictionary[@"passcodeMinimumCharacterSetCount"] intValue];
-    return _passcodeMinimumCharacterSetCount;
+    _passcodeRequired = [self.dictionary[@"passcodeRequired"] boolValue];
+    return _passcodeRequired;
 }
 
-- (void) setPasscodeMinimumCharacterSetCount: (int32_t) val
+- (void) setPasscodeRequired: (BOOL) val
 {
-    _passcodeMinimumCharacterSetCount = val;
-    self.dictionary[@"passcodeMinimumCharacterSetCount"] = @(val);
+    _passcodeRequired = val;
+    self.dictionary[@"passcodeRequired"] = @(val);
 }
 
 - (MSGraphRequiredPasswordType*) passcodeRequiredType
@@ -126,46 +204,6 @@
     self.dictionary[@"passcodeRequiredType"] = val;
 }
 
-- (BOOL) passcodeRequired
-{
-    _passcodeRequired = [self.dictionary[@"passcodeRequired"] boolValue];
-    return _passcodeRequired;
-}
-
-- (void) setPasscodeRequired: (BOOL) val
-{
-    _passcodeRequired = val;
-    self.dictionary[@"passcodeRequired"] = @(val);
-}
-
-- (NSString*) osMinimumVersion
-{
-    if([[NSNull null] isEqual:self.dictionary[@"osMinimumVersion"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"osMinimumVersion"];
-}
-
-- (void) setOsMinimumVersion: (NSString*) val
-{
-    self.dictionary[@"osMinimumVersion"] = val;
-}
-
-- (NSString*) osMaximumVersion
-{
-    if([[NSNull null] isEqual:self.dictionary[@"osMaximumVersion"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"osMaximumVersion"];
-}
-
-- (void) setOsMaximumVersion: (NSString*) val
-{
-    self.dictionary[@"osMaximumVersion"] = val;
-}
-
 - (BOOL) securityBlockJailbrokenDevices
 {
     _securityBlockJailbrokenDevices = [self.dictionary[@"securityBlockJailbrokenDevices"] boolValue];
@@ -176,44 +214,6 @@
 {
     _securityBlockJailbrokenDevices = val;
     self.dictionary[@"securityBlockJailbrokenDevices"] = @(val);
-}
-
-- (BOOL) deviceThreatProtectionEnabled
-{
-    _deviceThreatProtectionEnabled = [self.dictionary[@"deviceThreatProtectionEnabled"] boolValue];
-    return _deviceThreatProtectionEnabled;
-}
-
-- (void) setDeviceThreatProtectionEnabled: (BOOL) val
-{
-    _deviceThreatProtectionEnabled = val;
-    self.dictionary[@"deviceThreatProtectionEnabled"] = @(val);
-}
-
-- (MSGraphDeviceThreatProtectionLevel*) deviceThreatProtectionRequiredSecurityLevel
-{
-    if(!_deviceThreatProtectionRequiredSecurityLevel){
-        _deviceThreatProtectionRequiredSecurityLevel = [self.dictionary[@"deviceThreatProtectionRequiredSecurityLevel"] toMSGraphDeviceThreatProtectionLevel];
-    }
-    return _deviceThreatProtectionRequiredSecurityLevel;
-}
-
-- (void) setDeviceThreatProtectionRequiredSecurityLevel: (MSGraphDeviceThreatProtectionLevel*) val
-{
-    _deviceThreatProtectionRequiredSecurityLevel = val;
-    self.dictionary[@"deviceThreatProtectionRequiredSecurityLevel"] = val;
-}
-
-- (BOOL) managedEmailProfileRequired
-{
-    _managedEmailProfileRequired = [self.dictionary[@"managedEmailProfileRequired"] boolValue];
-    return _managedEmailProfileRequired;
-}
-
-- (void) setManagedEmailProfileRequired: (BOOL) val
-{
-    _managedEmailProfileRequired = val;
-    self.dictionary[@"managedEmailProfileRequired"] = @(val);
 }
 
 

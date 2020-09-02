@@ -24,22 +24,22 @@
     BOOL _browserBlockPopups;
     BOOL _browserBlockSendingDoNotTrackHeader;
     BOOL _browserBlockSingleWordEntryOnIntranetSites;
-    BOOL _browserRequireSmartScreen;
     NSString* _browserEnterpriseModeSiteListLocation;
     MSGraphInternetSiteSecurityLevel* _browserInternetSecurityLevel;
     MSGraphSiteSecurityLevel* _browserIntranetSecurityLevel;
     NSString* _browserLoggingReportLocation;
-    BOOL _browserRequireHighSecurityForRestrictedSites;
     BOOL _browserRequireFirewall;
     BOOL _browserRequireFraudWarning;
+    BOOL _browserRequireHighSecurityForRestrictedSites;
+    BOOL _browserRequireSmartScreen;
     MSGraphSiteSecurityLevel* _browserTrustedSitesSecurityLevel;
     BOOL _cellularBlockDataRoaming;
     BOOL _diagnosticsBlockDataSubmission;
     BOOL _passwordBlockPicturePasswordAndPin;
     int32_t _passwordExpirationDays;
+    int32_t _passwordMinimumCharacterSetCount;
     int32_t _passwordMinimumLength;
     int32_t _passwordMinutesOfInactivityBeforeScreenTimeout;
-    int32_t _passwordMinimumCharacterSetCount;
     int32_t _passwordPreviousPasswordBlockCount;
     MSGraphRequiredPasswordType* _passwordRequiredType;
     int32_t _passwordSignInFailureCountBeforeFactoryReset;
@@ -179,18 +179,6 @@
     self.dictionary[@"browserBlockSingleWordEntryOnIntranetSites"] = @(val);
 }
 
-- (BOOL) browserRequireSmartScreen
-{
-    _browserRequireSmartScreen = [self.dictionary[@"browserRequireSmartScreen"] boolValue];
-    return _browserRequireSmartScreen;
-}
-
-- (void) setBrowserRequireSmartScreen: (BOOL) val
-{
-    _browserRequireSmartScreen = val;
-    self.dictionary[@"browserRequireSmartScreen"] = @(val);
-}
-
 - (NSString*) browserEnterpriseModeSiteListLocation
 {
     if([[NSNull null] isEqual:self.dictionary[@"browserEnterpriseModeSiteListLocation"]])
@@ -247,18 +235,6 @@
     self.dictionary[@"browserLoggingReportLocation"] = val;
 }
 
-- (BOOL) browserRequireHighSecurityForRestrictedSites
-{
-    _browserRequireHighSecurityForRestrictedSites = [self.dictionary[@"browserRequireHighSecurityForRestrictedSites"] boolValue];
-    return _browserRequireHighSecurityForRestrictedSites;
-}
-
-- (void) setBrowserRequireHighSecurityForRestrictedSites: (BOOL) val
-{
-    _browserRequireHighSecurityForRestrictedSites = val;
-    self.dictionary[@"browserRequireHighSecurityForRestrictedSites"] = @(val);
-}
-
 - (BOOL) browserRequireFirewall
 {
     _browserRequireFirewall = [self.dictionary[@"browserRequireFirewall"] boolValue];
@@ -281,6 +257,30 @@
 {
     _browserRequireFraudWarning = val;
     self.dictionary[@"browserRequireFraudWarning"] = @(val);
+}
+
+- (BOOL) browserRequireHighSecurityForRestrictedSites
+{
+    _browserRequireHighSecurityForRestrictedSites = [self.dictionary[@"browserRequireHighSecurityForRestrictedSites"] boolValue];
+    return _browserRequireHighSecurityForRestrictedSites;
+}
+
+- (void) setBrowserRequireHighSecurityForRestrictedSites: (BOOL) val
+{
+    _browserRequireHighSecurityForRestrictedSites = val;
+    self.dictionary[@"browserRequireHighSecurityForRestrictedSites"] = @(val);
+}
+
+- (BOOL) browserRequireSmartScreen
+{
+    _browserRequireSmartScreen = [self.dictionary[@"browserRequireSmartScreen"] boolValue];
+    return _browserRequireSmartScreen;
+}
+
+- (void) setBrowserRequireSmartScreen: (BOOL) val
+{
+    _browserRequireSmartScreen = val;
+    self.dictionary[@"browserRequireSmartScreen"] = @(val);
 }
 
 - (MSGraphSiteSecurityLevel*) browserTrustedSitesSecurityLevel
@@ -345,6 +345,18 @@
     self.dictionary[@"passwordExpirationDays"] = @(val);
 }
 
+- (int32_t) passwordMinimumCharacterSetCount
+{
+    _passwordMinimumCharacterSetCount = [self.dictionary[@"passwordMinimumCharacterSetCount"] intValue];
+    return _passwordMinimumCharacterSetCount;
+}
+
+- (void) setPasswordMinimumCharacterSetCount: (int32_t) val
+{
+    _passwordMinimumCharacterSetCount = val;
+    self.dictionary[@"passwordMinimumCharacterSetCount"] = @(val);
+}
+
 - (int32_t) passwordMinimumLength
 {
     _passwordMinimumLength = [self.dictionary[@"passwordMinimumLength"] intValue];
@@ -367,18 +379,6 @@
 {
     _passwordMinutesOfInactivityBeforeScreenTimeout = val;
     self.dictionary[@"passwordMinutesOfInactivityBeforeScreenTimeout"] = @(val);
-}
-
-- (int32_t) passwordMinimumCharacterSetCount
-{
-    _passwordMinimumCharacterSetCount = [self.dictionary[@"passwordMinimumCharacterSetCount"] intValue];
-    return _passwordMinimumCharacterSetCount;
-}
-
-- (void) setPasswordMinimumCharacterSetCount: (int32_t) val
-{
-    _passwordMinimumCharacterSetCount = val;
-    self.dictionary[@"passwordMinimumCharacterSetCount"] = @(val);
 }
 
 - (int32_t) passwordPreviousPasswordBlockCount

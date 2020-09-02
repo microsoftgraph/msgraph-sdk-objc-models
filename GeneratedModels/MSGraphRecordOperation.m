@@ -14,8 +14,8 @@
 
 @interface MSGraphRecordOperation()
 {
-    NSString* _recordingLocation;
     NSString* _recordingAccessToken;
+    NSString* _recordingLocation;
 }
 @end
 
@@ -28,20 +28,6 @@
     }
     return self;
 }
-- (NSString*) recordingLocation
-{
-    if([[NSNull null] isEqual:self.dictionary[@"recordingLocation"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"recordingLocation"];
-}
-
-- (void) setRecordingLocation: (NSString*) val
-{
-    self.dictionary[@"recordingLocation"] = val;
-}
-
 - (NSString*) recordingAccessToken
 {
     if([[NSNull null] isEqual:self.dictionary[@"recordingAccessToken"]])
@@ -54,6 +40,20 @@
 - (void) setRecordingAccessToken: (NSString*) val
 {
     self.dictionary[@"recordingAccessToken"] = val;
+}
+
+- (NSString*) recordingLocation
+{
+    if([[NSNull null] isEqual:self.dictionary[@"recordingLocation"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"recordingLocation"];
+}
+
+- (void) setRecordingLocation: (NSString*) val
+{
+    self.dictionary[@"recordingLocation"] = val;
 }
 
 

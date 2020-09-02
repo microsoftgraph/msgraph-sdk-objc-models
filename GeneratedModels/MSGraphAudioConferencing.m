@@ -15,9 +15,9 @@
 @interface MSGraphAudioConferencing()
 {
     NSString* _conferenceId;
-    NSString* _tollNumber;
-    NSString* _tollFreeNumber;
     NSString* _dialinUrl;
+    NSString* _tollFreeNumber;
+    NSString* _tollNumber;
 }
 @end
 
@@ -37,18 +37,18 @@
     self.dictionary[@"conferenceId"] = val;
 }
 
-- (NSString*) tollNumber
+- (NSString*) dialinUrl
 {
-    if([[NSNull null] isEqual:self.dictionary[@"tollNumber"]])
+    if([[NSNull null] isEqual:self.dictionary[@"dialinUrl"]])
     {
         return nil;
     }   
-    return self.dictionary[@"tollNumber"];
+    return self.dictionary[@"dialinUrl"];
 }
 
-- (void) setTollNumber: (NSString*) val
+- (void) setDialinUrl: (NSString*) val
 {
-    self.dictionary[@"tollNumber"] = val;
+    self.dictionary[@"dialinUrl"] = val;
 }
 
 - (NSString*) tollFreeNumber
@@ -65,18 +65,18 @@
     self.dictionary[@"tollFreeNumber"] = val;
 }
 
-- (NSString*) dialinUrl
+- (NSString*) tollNumber
 {
-    if([[NSNull null] isEqual:self.dictionary[@"dialinUrl"]])
+    if([[NSNull null] isEqual:self.dictionary[@"tollNumber"]])
     {
         return nil;
     }   
-    return self.dictionary[@"dialinUrl"];
+    return self.dictionary[@"tollNumber"];
 }
 
-- (void) setDialinUrl: (NSString*) val
+- (void) setTollNumber: (NSString*) val
 {
-    self.dictionary[@"dialinUrl"] = val;
+    self.dictionary[@"tollNumber"] = val;
 }
 
 @end

@@ -14,16 +14,16 @@
 
 @interface MSGraphDeviceCompliancePolicySettingStateSummary()
 {
+    int32_t _compliantDeviceCount;
+    int32_t _conflictDeviceCount;
+    int32_t _errorDeviceCount;
+    int32_t _nonCompliantDeviceCount;
+    int32_t _notApplicableDeviceCount;
+    MSGraphPolicyPlatformType* _platformType;
+    int32_t _remediatedDeviceCount;
     NSString* _setting;
     NSString* _settingName;
-    MSGraphPolicyPlatformType* _platformType;
     int32_t _unknownDeviceCount;
-    int32_t _notApplicableDeviceCount;
-    int32_t _compliantDeviceCount;
-    int32_t _remediatedDeviceCount;
-    int32_t _nonCompliantDeviceCount;
-    int32_t _errorDeviceCount;
-    int32_t _conflictDeviceCount;
     NSArray* _deviceComplianceSettingStates;
 }
 @end
@@ -37,6 +37,92 @@
     }
     return self;
 }
+- (int32_t) compliantDeviceCount
+{
+    _compliantDeviceCount = [self.dictionary[@"compliantDeviceCount"] intValue];
+    return _compliantDeviceCount;
+}
+
+- (void) setCompliantDeviceCount: (int32_t) val
+{
+    _compliantDeviceCount = val;
+    self.dictionary[@"compliantDeviceCount"] = @(val);
+}
+
+- (int32_t) conflictDeviceCount
+{
+    _conflictDeviceCount = [self.dictionary[@"conflictDeviceCount"] intValue];
+    return _conflictDeviceCount;
+}
+
+- (void) setConflictDeviceCount: (int32_t) val
+{
+    _conflictDeviceCount = val;
+    self.dictionary[@"conflictDeviceCount"] = @(val);
+}
+
+- (int32_t) errorDeviceCount
+{
+    _errorDeviceCount = [self.dictionary[@"errorDeviceCount"] intValue];
+    return _errorDeviceCount;
+}
+
+- (void) setErrorDeviceCount: (int32_t) val
+{
+    _errorDeviceCount = val;
+    self.dictionary[@"errorDeviceCount"] = @(val);
+}
+
+- (int32_t) nonCompliantDeviceCount
+{
+    _nonCompliantDeviceCount = [self.dictionary[@"nonCompliantDeviceCount"] intValue];
+    return _nonCompliantDeviceCount;
+}
+
+- (void) setNonCompliantDeviceCount: (int32_t) val
+{
+    _nonCompliantDeviceCount = val;
+    self.dictionary[@"nonCompliantDeviceCount"] = @(val);
+}
+
+- (int32_t) notApplicableDeviceCount
+{
+    _notApplicableDeviceCount = [self.dictionary[@"notApplicableDeviceCount"] intValue];
+    return _notApplicableDeviceCount;
+}
+
+- (void) setNotApplicableDeviceCount: (int32_t) val
+{
+    _notApplicableDeviceCount = val;
+    self.dictionary[@"notApplicableDeviceCount"] = @(val);
+}
+
+- (MSGraphPolicyPlatformType*) platformType
+{
+    if(!_platformType){
+        _platformType = [self.dictionary[@"platformType"] toMSGraphPolicyPlatformType];
+    }
+    return _platformType;
+}
+
+- (void) setPlatformType: (MSGraphPolicyPlatformType*) val
+{
+    _platformType = val;
+    self.dictionary[@"platformType"] = val;
+}
+
+- (int32_t) remediatedDeviceCount
+{
+    _remediatedDeviceCount = [self.dictionary[@"remediatedDeviceCount"] intValue];
+    return _remediatedDeviceCount;
+}
+
+- (void) setRemediatedDeviceCount: (int32_t) val
+{
+    _remediatedDeviceCount = val;
+    self.dictionary[@"remediatedDeviceCount"] = @(val);
+}
+
 - (NSString*) setting
 {
     if([[NSNull null] isEqual:self.dictionary[@"setting"]])
@@ -65,20 +151,6 @@
     self.dictionary[@"settingName"] = val;
 }
 
-- (MSGraphPolicyPlatformType*) platformType
-{
-    if(!_platformType){
-        _platformType = [self.dictionary[@"platformType"] toMSGraphPolicyPlatformType];
-    }
-    return _platformType;
-}
-
-- (void) setPlatformType: (MSGraphPolicyPlatformType*) val
-{
-    _platformType = val;
-    self.dictionary[@"platformType"] = val;
-}
-
 - (int32_t) unknownDeviceCount
 {
     _unknownDeviceCount = [self.dictionary[@"unknownDeviceCount"] intValue];
@@ -89,78 +161,6 @@
 {
     _unknownDeviceCount = val;
     self.dictionary[@"unknownDeviceCount"] = @(val);
-}
-
-- (int32_t) notApplicableDeviceCount
-{
-    _notApplicableDeviceCount = [self.dictionary[@"notApplicableDeviceCount"] intValue];
-    return _notApplicableDeviceCount;
-}
-
-- (void) setNotApplicableDeviceCount: (int32_t) val
-{
-    _notApplicableDeviceCount = val;
-    self.dictionary[@"notApplicableDeviceCount"] = @(val);
-}
-
-- (int32_t) compliantDeviceCount
-{
-    _compliantDeviceCount = [self.dictionary[@"compliantDeviceCount"] intValue];
-    return _compliantDeviceCount;
-}
-
-- (void) setCompliantDeviceCount: (int32_t) val
-{
-    _compliantDeviceCount = val;
-    self.dictionary[@"compliantDeviceCount"] = @(val);
-}
-
-- (int32_t) remediatedDeviceCount
-{
-    _remediatedDeviceCount = [self.dictionary[@"remediatedDeviceCount"] intValue];
-    return _remediatedDeviceCount;
-}
-
-- (void) setRemediatedDeviceCount: (int32_t) val
-{
-    _remediatedDeviceCount = val;
-    self.dictionary[@"remediatedDeviceCount"] = @(val);
-}
-
-- (int32_t) nonCompliantDeviceCount
-{
-    _nonCompliantDeviceCount = [self.dictionary[@"nonCompliantDeviceCount"] intValue];
-    return _nonCompliantDeviceCount;
-}
-
-- (void) setNonCompliantDeviceCount: (int32_t) val
-{
-    _nonCompliantDeviceCount = val;
-    self.dictionary[@"nonCompliantDeviceCount"] = @(val);
-}
-
-- (int32_t) errorDeviceCount
-{
-    _errorDeviceCount = [self.dictionary[@"errorDeviceCount"] intValue];
-    return _errorDeviceCount;
-}
-
-- (void) setErrorDeviceCount: (int32_t) val
-{
-    _errorDeviceCount = val;
-    self.dictionary[@"errorDeviceCount"] = @(val);
-}
-
-- (int32_t) conflictDeviceCount
-{
-    _conflictDeviceCount = [self.dictionary[@"conflictDeviceCount"] intValue];
-    return _conflictDeviceCount;
-}
-
-- (void) setConflictDeviceCount: (int32_t) val
-{
-    _conflictDeviceCount = val;
-    self.dictionary[@"conflictDeviceCount"] = @(val);
 }
 
 - (NSArray*) deviceComplianceSettingStates

@@ -9,8 +9,8 @@
 
 @interface MSGraphOptionalClaims : MSObject
 
-@property (nullable, nonatomic, setter=setIdToken:, getter=idToken) NSArray* idToken;
 @property (nullable, nonatomic, setter=setAccessToken:, getter=accessToken) NSArray* accessToken;
+@property (nullable, nonatomic, setter=setIdToken:, getter=idToken) NSArray* idToken;
 @property (nullable, nonatomic, setter=setSaml2Token:, getter=saml2Token) NSArray* saml2Token;
 
 @end

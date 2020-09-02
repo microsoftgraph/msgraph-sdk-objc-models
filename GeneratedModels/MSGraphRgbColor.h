@@ -8,8 +8,8 @@
 
 @interface MSGraphRgbColor : MSObject
 
-@property (nonatomic, setter=setR:, getter=r) Byte r;
-@property (nonatomic, setter=setG:, getter=g) Byte g;
 @property (nonatomic, setter=setB:, getter=b) Byte b;
+@property (nonatomic, setter=setG:, getter=g) Byte g;
+@property (nonatomic, setter=setR:, getter=r) Byte r;
 
 @end

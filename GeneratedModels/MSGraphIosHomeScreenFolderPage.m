@@ -14,26 +14,12 @@
 
 @interface MSGraphIosHomeScreenFolderPage()
 {
-    NSString* _displayName;
     NSArray* _apps;
+    NSString* _displayName;
 }
 @end
 
 @implementation MSGraphIosHomeScreenFolderPage
-
-- (NSString*) displayName
-{
-    if([[NSNull null] isEqual:self.dictionary[@"displayName"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"displayName"];
-}
-
-- (void) setDisplayName: (NSString*) val
-{
-    self.dictionary[@"displayName"] = val;
-}
 
 - (NSArray*) apps
 {
@@ -58,6 +44,20 @@
 {
     _apps = val;
     self.dictionary[@"apps"] = val;
+}
+
+- (NSString*) displayName
+{
+    if([[NSNull null] isEqual:self.dictionary[@"displayName"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"displayName"];
+}
+
+- (void) setDisplayName: (NSString*) val
+{
+    self.dictionary[@"displayName"] = val;
 }
 
 @end

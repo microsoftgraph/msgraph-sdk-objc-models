@@ -14,9 +14,9 @@
 
 @interface MSGraphManagedIOSStoreApp()
 {
-    NSString* _bundleId;
-    NSString* _appStoreUrl;
     MSGraphIosDeviceType* _applicableDeviceType;
+    NSString* _appStoreUrl;
+    NSString* _bundleId;
     MSGraphIosMinimumOperatingSystem* _minimumSupportedOperatingSystem;
 }
 @end
@@ -30,30 +30,6 @@
     }
     return self;
 }
-- (NSString*) bundleId
-{
-    if([[NSNull null] isEqual:self.dictionary[@"bundleId"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"bundleId"];
-}
-
-- (void) setBundleId: (NSString*) val
-{
-    self.dictionary[@"bundleId"] = val;
-}
-
-- (NSString*) appStoreUrl
-{
-    return self.dictionary[@"appStoreUrl"];
-}
-
-- (void) setAppStoreUrl: (NSString*) val
-{
-    self.dictionary[@"appStoreUrl"] = val;
-}
-
 - (MSGraphIosDeviceType*) applicableDeviceType
 {
     if(!_applicableDeviceType){
@@ -66,6 +42,30 @@
 {
     _applicableDeviceType = val;
     self.dictionary[@"applicableDeviceType"] = val;
+}
+
+- (NSString*) appStoreUrl
+{
+    return self.dictionary[@"appStoreUrl"];
+}
+
+- (void) setAppStoreUrl: (NSString*) val
+{
+    self.dictionary[@"appStoreUrl"] = val;
+}
+
+- (NSString*) bundleId
+{
+    if([[NSNull null] isEqual:self.dictionary[@"bundleId"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"bundleId"];
+}
+
+- (void) setBundleId: (NSString*) val
+{
+    self.dictionary[@"bundleId"] = val;
 }
 
 - (MSGraphIosMinimumOperatingSystem*) minimumSupportedOperatingSystem

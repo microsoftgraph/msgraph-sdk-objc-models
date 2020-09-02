@@ -14,35 +14,21 @@
 
 @interface MSGraphManagedDeviceMobileAppConfiguration()
 {
-    NSArray* _targetedMobileApps;
     NSDate* _createdDateTime;
     NSString* _managedDeviceMobileAppConfigurationDescription;
-    NSDate* _lastModifiedDateTime;
     NSString* _displayName;
+    NSDate* _lastModifiedDateTime;
+    NSArray* _targetedMobileApps;
     int32_t _version;
     NSArray* _assignments;
     NSArray* _deviceStatuses;
-    NSArray* _userStatuses;
     MSGraphManagedDeviceMobileAppConfigurationDeviceSummary* _deviceStatusSummary;
+    NSArray* _userStatuses;
     MSGraphManagedDeviceMobileAppConfigurationUserSummary* _userStatusSummary;
 }
 @end
 
 @implementation MSGraphManagedDeviceMobileAppConfiguration
-
-- (NSArray*) targetedMobileApps
-{
-    if([[NSNull null] isEqual:self.dictionary[@"targetedMobileApps"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"targetedMobileApps"];
-}
-
-- (void) setTargetedMobileApps: (NSArray*) val
-{
-    self.dictionary[@"targetedMobileApps"] = val;
-}
 
 - (NSDate*) createdDateTime
 {
@@ -72,6 +58,16 @@
     self.dictionary[@"description"] = val;
 }
 
+- (NSString*) displayName
+{
+    return self.dictionary[@"displayName"];
+}
+
+- (void) setDisplayName: (NSString*) val
+{
+    self.dictionary[@"displayName"] = val;
+}
+
 - (NSDate*) lastModifiedDateTime
 {
     if(!_lastModifiedDateTime){
@@ -86,14 +82,18 @@
     self.dictionary[@"lastModifiedDateTime"] = [val ms_toString];
 }
 
-- (NSString*) displayName
+- (NSArray*) targetedMobileApps
 {
-    return self.dictionary[@"displayName"];
+    if([[NSNull null] isEqual:self.dictionary[@"targetedMobileApps"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"targetedMobileApps"];
 }
 
-- (void) setDisplayName: (NSString*) val
+- (void) setTargetedMobileApps: (NSArray*) val
 {
-    self.dictionary[@"displayName"] = val;
+    self.dictionary[@"targetedMobileApps"] = val;
 }
 
 - (int32_t) version
@@ -158,6 +158,20 @@
     self.dictionary[@"deviceStatuses"] = val;
 }
 
+- (MSGraphManagedDeviceMobileAppConfigurationDeviceSummary*) deviceStatusSummary
+{
+    if(!_deviceStatusSummary){
+        _deviceStatusSummary = [[MSGraphManagedDeviceMobileAppConfigurationDeviceSummary alloc] initWithDictionary: self.dictionary[@"deviceStatusSummary"]];
+    }
+    return _deviceStatusSummary;
+}
+
+- (void) setDeviceStatusSummary: (MSGraphManagedDeviceMobileAppConfigurationDeviceSummary*) val
+{
+    _deviceStatusSummary = val;
+    self.dictionary[@"deviceStatusSummary"] = val;
+}
+
 - (NSArray*) userStatuses
 {
     if(!_userStatuses){
@@ -181,20 +195,6 @@
 {
     _userStatuses = val;
     self.dictionary[@"userStatuses"] = val;
-}
-
-- (MSGraphManagedDeviceMobileAppConfigurationDeviceSummary*) deviceStatusSummary
-{
-    if(!_deviceStatusSummary){
-        _deviceStatusSummary = [[MSGraphManagedDeviceMobileAppConfigurationDeviceSummary alloc] initWithDictionary: self.dictionary[@"deviceStatusSummary"]];
-    }
-    return _deviceStatusSummary;
-}
-
-- (void) setDeviceStatusSummary: (MSGraphManagedDeviceMobileAppConfigurationDeviceSummary*) val
-{
-    _deviceStatusSummary = val;
-    self.dictionary[@"deviceStatusSummary"] = val;
 }
 
 - (MSGraphManagedDeviceMobileAppConfigurationUserSummary*) userStatusSummary

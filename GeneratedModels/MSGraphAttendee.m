@@ -14,26 +14,12 @@
 
 @interface MSGraphAttendee()
 {
-    MSGraphResponseStatus* _status;
     MSGraphTimeSlot* _proposedNewTime;
+    MSGraphResponseStatus* _status;
 }
 @end
 
 @implementation MSGraphAttendee
-
-- (MSGraphResponseStatus*) status
-{
-    if(!_status){
-        _status = [[MSGraphResponseStatus alloc] initWithDictionary: self.dictionary[@"status"]];
-    }
-    return _status;
-}
-
-- (void) setStatus: (MSGraphResponseStatus*) val
-{
-    _status = val;
-    self.dictionary[@"status"] = val;
-}
 
 - (MSGraphTimeSlot*) proposedNewTime
 {
@@ -47,6 +33,20 @@
 {
     _proposedNewTime = val;
     self.dictionary[@"proposedNewTime"] = val;
+}
+
+- (MSGraphResponseStatus*) status
+{
+    if(!_status){
+        _status = [[MSGraphResponseStatus alloc] initWithDictionary: self.dictionary[@"status"]];
+    }
+    return _status;
+}
+
+- (void) setStatus: (MSGraphResponseStatus*) val
+{
+    _status = val;
+    self.dictionary[@"status"] = val;
 }
 
 @end

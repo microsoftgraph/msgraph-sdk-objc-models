@@ -14,12 +14,12 @@
 
 @interface MSGraphIosLobApp()
 {
-    NSString* _bundleId;
     MSGraphIosDeviceType* _applicableDeviceType;
-    MSGraphIosMinimumOperatingSystem* _minimumSupportedOperatingSystem;
-    NSDate* _expirationDateTime;
-    NSString* _versionNumber;
     NSString* _buildNumber;
+    NSString* _bundleId;
+    NSDate* _expirationDateTime;
+    MSGraphIosMinimumOperatingSystem* _minimumSupportedOperatingSystem;
+    NSString* _versionNumber;
 }
 @end
 
@@ -32,20 +32,6 @@
     }
     return self;
 }
-- (NSString*) bundleId
-{
-    if([[NSNull null] isEqual:self.dictionary[@"bundleId"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"bundleId"];
-}
-
-- (void) setBundleId: (NSString*) val
-{
-    self.dictionary[@"bundleId"] = val;
-}
-
 - (MSGraphIosDeviceType*) applicableDeviceType
 {
     if(!_applicableDeviceType){
@@ -60,18 +46,32 @@
     self.dictionary[@"applicableDeviceType"] = val;
 }
 
-- (MSGraphIosMinimumOperatingSystem*) minimumSupportedOperatingSystem
+- (NSString*) buildNumber
 {
-    if(!_minimumSupportedOperatingSystem){
-        _minimumSupportedOperatingSystem = [[MSGraphIosMinimumOperatingSystem alloc] initWithDictionary: self.dictionary[@"minimumSupportedOperatingSystem"]];
-    }
-    return _minimumSupportedOperatingSystem;
+    if([[NSNull null] isEqual:self.dictionary[@"buildNumber"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"buildNumber"];
 }
 
-- (void) setMinimumSupportedOperatingSystem: (MSGraphIosMinimumOperatingSystem*) val
+- (void) setBuildNumber: (NSString*) val
 {
-    _minimumSupportedOperatingSystem = val;
-    self.dictionary[@"minimumSupportedOperatingSystem"] = val;
+    self.dictionary[@"buildNumber"] = val;
+}
+
+- (NSString*) bundleId
+{
+    if([[NSNull null] isEqual:self.dictionary[@"bundleId"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"bundleId"];
+}
+
+- (void) setBundleId: (NSString*) val
+{
+    self.dictionary[@"bundleId"] = val;
 }
 
 - (NSDate*) expirationDateTime
@@ -88,6 +88,20 @@
     self.dictionary[@"expirationDateTime"] = [val ms_toString];
 }
 
+- (MSGraphIosMinimumOperatingSystem*) minimumSupportedOperatingSystem
+{
+    if(!_minimumSupportedOperatingSystem){
+        _minimumSupportedOperatingSystem = [[MSGraphIosMinimumOperatingSystem alloc] initWithDictionary: self.dictionary[@"minimumSupportedOperatingSystem"]];
+    }
+    return _minimumSupportedOperatingSystem;
+}
+
+- (void) setMinimumSupportedOperatingSystem: (MSGraphIosMinimumOperatingSystem*) val
+{
+    _minimumSupportedOperatingSystem = val;
+    self.dictionary[@"minimumSupportedOperatingSystem"] = val;
+}
+
 - (NSString*) versionNumber
 {
     if([[NSNull null] isEqual:self.dictionary[@"versionNumber"]])
@@ -100,20 +114,6 @@
 - (void) setVersionNumber: (NSString*) val
 {
     self.dictionary[@"versionNumber"] = val;
-}
-
-- (NSString*) buildNumber
-{
-    if([[NSNull null] isEqual:self.dictionary[@"buildNumber"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"buildNumber"];
-}
-
-- (void) setBuildNumber: (NSString*) val
-{
-    self.dictionary[@"buildNumber"] = val;
 }
 
 

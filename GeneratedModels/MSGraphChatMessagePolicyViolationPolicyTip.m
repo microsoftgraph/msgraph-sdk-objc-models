@@ -14,27 +14,13 @@
 
 @interface MSGraphChatMessagePolicyViolationPolicyTip()
 {
-    NSString* _generalText;
     NSString* _complianceUrl;
+    NSString* _generalText;
     NSArray* _matchedConditionDescriptions;
 }
 @end
 
 @implementation MSGraphChatMessagePolicyViolationPolicyTip
-
-- (NSString*) generalText
-{
-    if([[NSNull null] isEqual:self.dictionary[@"generalText"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"generalText"];
-}
-
-- (void) setGeneralText: (NSString*) val
-{
-    self.dictionary[@"generalText"] = val;
-}
 
 - (NSString*) complianceUrl
 {
@@ -48,6 +34,20 @@
 - (void) setComplianceUrl: (NSString*) val
 {
     self.dictionary[@"complianceUrl"] = val;
+}
+
+- (NSString*) generalText
+{
+    if([[NSNull null] isEqual:self.dictionary[@"generalText"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"generalText"];
+}
+
+- (void) setGeneralText: (NSString*) val
+{
+    self.dictionary[@"generalText"] = val;
 }
 
 - (NSArray*) matchedConditionDescriptions

@@ -14,9 +14,9 @@
 
 @interface MSGraphOpenShift()
 {
-    MSGraphOpenShiftItem* _sharedOpenShift;
     MSGraphOpenShiftItem* _draftOpenShift;
     NSString* _schedulingGroupId;
+    MSGraphOpenShiftItem* _sharedOpenShift;
 }
 @end
 
@@ -29,20 +29,6 @@
     }
     return self;
 }
-- (MSGraphOpenShiftItem*) sharedOpenShift
-{
-    if(!_sharedOpenShift){
-        _sharedOpenShift = [[MSGraphOpenShiftItem alloc] initWithDictionary: self.dictionary[@"sharedOpenShift"]];
-    }
-    return _sharedOpenShift;
-}
-
-- (void) setSharedOpenShift: (MSGraphOpenShiftItem*) val
-{
-    _sharedOpenShift = val;
-    self.dictionary[@"sharedOpenShift"] = val;
-}
-
 - (MSGraphOpenShiftItem*) draftOpenShift
 {
     if(!_draftOpenShift){
@@ -69,6 +55,20 @@
 - (void) setSchedulingGroupId: (NSString*) val
 {
     self.dictionary[@"schedulingGroupId"] = val;
+}
+
+- (MSGraphOpenShiftItem*) sharedOpenShift
+{
+    if(!_sharedOpenShift){
+        _sharedOpenShift = [[MSGraphOpenShiftItem alloc] initWithDictionary: self.dictionary[@"sharedOpenShift"]];
+    }
+    return _sharedOpenShift;
+}
+
+- (void) setSharedOpenShift: (MSGraphOpenShiftItem*) val
+{
+    _sharedOpenShift = val;
+    self.dictionary[@"sharedOpenShift"] = val;
 }
 
 

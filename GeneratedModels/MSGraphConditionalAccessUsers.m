@@ -14,25 +14,35 @@
 
 @interface MSGraphConditionalAccessUsers()
 {
-    NSArray* _includeUsers;
+    NSArray* _excludeGroups;
+    NSArray* _excludeRoles;
     NSArray* _excludeUsers;
     NSArray* _includeGroups;
-    NSArray* _excludeGroups;
     NSArray* _includeRoles;
-    NSArray* _excludeRoles;
+    NSArray* _includeUsers;
 }
 @end
 
 @implementation MSGraphConditionalAccessUsers
 
-- (NSArray*) includeUsers
+- (NSArray*) excludeGroups
 {
-    return self.dictionary[@"includeUsers"];
+    return self.dictionary[@"excludeGroups"];
 }
 
-- (void) setIncludeUsers: (NSArray*) val
+- (void) setExcludeGroups: (NSArray*) val
 {
-    self.dictionary[@"includeUsers"] = val;
+    self.dictionary[@"excludeGroups"] = val;
+}
+
+- (NSArray*) excludeRoles
+{
+    return self.dictionary[@"excludeRoles"];
+}
+
+- (void) setExcludeRoles: (NSArray*) val
+{
+    self.dictionary[@"excludeRoles"] = val;
 }
 
 - (NSArray*) excludeUsers
@@ -55,16 +65,6 @@
     self.dictionary[@"includeGroups"] = val;
 }
 
-- (NSArray*) excludeGroups
-{
-    return self.dictionary[@"excludeGroups"];
-}
-
-- (void) setExcludeGroups: (NSArray*) val
-{
-    self.dictionary[@"excludeGroups"] = val;
-}
-
 - (NSArray*) includeRoles
 {
     return self.dictionary[@"includeRoles"];
@@ -75,14 +75,14 @@
     self.dictionary[@"includeRoles"] = val;
 }
 
-- (NSArray*) excludeRoles
+- (NSArray*) includeUsers
 {
-    return self.dictionary[@"excludeRoles"];
+    return self.dictionary[@"includeUsers"];
 }
 
-- (void) setExcludeRoles: (NSArray*) val
+- (void) setIncludeUsers: (NSArray*) val
 {
-    self.dictionary[@"excludeRoles"] = val;
+    self.dictionary[@"includeUsers"] = val;
 }
 
 @end

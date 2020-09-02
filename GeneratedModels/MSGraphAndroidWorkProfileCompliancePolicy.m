@@ -14,27 +14,27 @@
 
 @interface MSGraphAndroidWorkProfileCompliancePolicy()
 {
-    BOOL _passwordRequired;
-    int32_t _passwordMinimumLength;
-    MSGraphAndroidRequiredPasswordType* _passwordRequiredType;
-    int32_t _passwordMinutesOfInactivityBeforeLock;
-    int32_t _passwordExpirationDays;
-    int32_t _passwordPreviousPasswordBlockCount;
-    BOOL _securityPreventInstallAppsFromUnknownSources;
-    BOOL _securityDisableUsbDebugging;
-    BOOL _securityRequireVerifyApps;
     BOOL _deviceThreatProtectionEnabled;
     MSGraphDeviceThreatProtectionLevel* _deviceThreatProtectionRequiredSecurityLevel;
-    BOOL _securityBlockJailbrokenDevices;
-    NSString* _osMinimumVersion;
-    NSString* _osMaximumVersion;
     NSString* _minAndroidSecurityPatchLevel;
-    BOOL _storageRequireEncryption;
+    NSString* _osMaximumVersion;
+    NSString* _osMinimumVersion;
+    int32_t _passwordExpirationDays;
+    int32_t _passwordMinimumLength;
+    int32_t _passwordMinutesOfInactivityBeforeLock;
+    int32_t _passwordPreviousPasswordBlockCount;
+    BOOL _passwordRequired;
+    MSGraphAndroidRequiredPasswordType* _passwordRequiredType;
+    BOOL _securityBlockJailbrokenDevices;
+    BOOL _securityDisableUsbDebugging;
+    BOOL _securityPreventInstallAppsFromUnknownSources;
+    BOOL _securityRequireCompanyPortalAppIntegrity;
+    BOOL _securityRequireGooglePlayServices;
     BOOL _securityRequireSafetyNetAttestationBasicIntegrity;
     BOOL _securityRequireSafetyNetAttestationCertifiedDevice;
-    BOOL _securityRequireGooglePlayServices;
     BOOL _securityRequireUpToDateSecurityProviders;
-    BOOL _securityRequireCompanyPortalAppIntegrity;
+    BOOL _securityRequireVerifyApps;
+    BOOL _storageRequireEncryption;
 }
 @end
 
@@ -47,116 +47,6 @@
     }
     return self;
 }
-- (BOOL) passwordRequired
-{
-    _passwordRequired = [self.dictionary[@"passwordRequired"] boolValue];
-    return _passwordRequired;
-}
-
-- (void) setPasswordRequired: (BOOL) val
-{
-    _passwordRequired = val;
-    self.dictionary[@"passwordRequired"] = @(val);
-}
-
-- (int32_t) passwordMinimumLength
-{
-    _passwordMinimumLength = [self.dictionary[@"passwordMinimumLength"] intValue];
-    return _passwordMinimumLength;
-}
-
-- (void) setPasswordMinimumLength: (int32_t) val
-{
-    _passwordMinimumLength = val;
-    self.dictionary[@"passwordMinimumLength"] = @(val);
-}
-
-- (MSGraphAndroidRequiredPasswordType*) passwordRequiredType
-{
-    if(!_passwordRequiredType){
-        _passwordRequiredType = [self.dictionary[@"passwordRequiredType"] toMSGraphAndroidRequiredPasswordType];
-    }
-    return _passwordRequiredType;
-}
-
-- (void) setPasswordRequiredType: (MSGraphAndroidRequiredPasswordType*) val
-{
-    _passwordRequiredType = val;
-    self.dictionary[@"passwordRequiredType"] = val;
-}
-
-- (int32_t) passwordMinutesOfInactivityBeforeLock
-{
-    _passwordMinutesOfInactivityBeforeLock = [self.dictionary[@"passwordMinutesOfInactivityBeforeLock"] intValue];
-    return _passwordMinutesOfInactivityBeforeLock;
-}
-
-- (void) setPasswordMinutesOfInactivityBeforeLock: (int32_t) val
-{
-    _passwordMinutesOfInactivityBeforeLock = val;
-    self.dictionary[@"passwordMinutesOfInactivityBeforeLock"] = @(val);
-}
-
-- (int32_t) passwordExpirationDays
-{
-    _passwordExpirationDays = [self.dictionary[@"passwordExpirationDays"] intValue];
-    return _passwordExpirationDays;
-}
-
-- (void) setPasswordExpirationDays: (int32_t) val
-{
-    _passwordExpirationDays = val;
-    self.dictionary[@"passwordExpirationDays"] = @(val);
-}
-
-- (int32_t) passwordPreviousPasswordBlockCount
-{
-    _passwordPreviousPasswordBlockCount = [self.dictionary[@"passwordPreviousPasswordBlockCount"] intValue];
-    return _passwordPreviousPasswordBlockCount;
-}
-
-- (void) setPasswordPreviousPasswordBlockCount: (int32_t) val
-{
-    _passwordPreviousPasswordBlockCount = val;
-    self.dictionary[@"passwordPreviousPasswordBlockCount"] = @(val);
-}
-
-- (BOOL) securityPreventInstallAppsFromUnknownSources
-{
-    _securityPreventInstallAppsFromUnknownSources = [self.dictionary[@"securityPreventInstallAppsFromUnknownSources"] boolValue];
-    return _securityPreventInstallAppsFromUnknownSources;
-}
-
-- (void) setSecurityPreventInstallAppsFromUnknownSources: (BOOL) val
-{
-    _securityPreventInstallAppsFromUnknownSources = val;
-    self.dictionary[@"securityPreventInstallAppsFromUnknownSources"] = @(val);
-}
-
-- (BOOL) securityDisableUsbDebugging
-{
-    _securityDisableUsbDebugging = [self.dictionary[@"securityDisableUsbDebugging"] boolValue];
-    return _securityDisableUsbDebugging;
-}
-
-- (void) setSecurityDisableUsbDebugging: (BOOL) val
-{
-    _securityDisableUsbDebugging = val;
-    self.dictionary[@"securityDisableUsbDebugging"] = @(val);
-}
-
-- (BOOL) securityRequireVerifyApps
-{
-    _securityRequireVerifyApps = [self.dictionary[@"securityRequireVerifyApps"] boolValue];
-    return _securityRequireVerifyApps;
-}
-
-- (void) setSecurityRequireVerifyApps: (BOOL) val
-{
-    _securityRequireVerifyApps = val;
-    self.dictionary[@"securityRequireVerifyApps"] = @(val);
-}
-
 - (BOOL) deviceThreatProtectionEnabled
 {
     _deviceThreatProtectionEnabled = [self.dictionary[@"deviceThreatProtectionEnabled"] boolValue];
@@ -183,30 +73,18 @@
     self.dictionary[@"deviceThreatProtectionRequiredSecurityLevel"] = val;
 }
 
-- (BOOL) securityBlockJailbrokenDevices
+- (NSString*) minAndroidSecurityPatchLevel
 {
-    _securityBlockJailbrokenDevices = [self.dictionary[@"securityBlockJailbrokenDevices"] boolValue];
-    return _securityBlockJailbrokenDevices;
-}
-
-- (void) setSecurityBlockJailbrokenDevices: (BOOL) val
-{
-    _securityBlockJailbrokenDevices = val;
-    self.dictionary[@"securityBlockJailbrokenDevices"] = @(val);
-}
-
-- (NSString*) osMinimumVersion
-{
-    if([[NSNull null] isEqual:self.dictionary[@"osMinimumVersion"]])
+    if([[NSNull null] isEqual:self.dictionary[@"minAndroidSecurityPatchLevel"]])
     {
         return nil;
     }   
-    return self.dictionary[@"osMinimumVersion"];
+    return self.dictionary[@"minAndroidSecurityPatchLevel"];
 }
 
-- (void) setOsMinimumVersion: (NSString*) val
+- (void) setMinAndroidSecurityPatchLevel: (NSString*) val
 {
-    self.dictionary[@"osMinimumVersion"] = val;
+    self.dictionary[@"minAndroidSecurityPatchLevel"] = val;
 }
 
 - (NSString*) osMaximumVersion
@@ -223,30 +101,152 @@
     self.dictionary[@"osMaximumVersion"] = val;
 }
 
-- (NSString*) minAndroidSecurityPatchLevel
+- (NSString*) osMinimumVersion
 {
-    if([[NSNull null] isEqual:self.dictionary[@"minAndroidSecurityPatchLevel"]])
+    if([[NSNull null] isEqual:self.dictionary[@"osMinimumVersion"]])
     {
         return nil;
     }   
-    return self.dictionary[@"minAndroidSecurityPatchLevel"];
+    return self.dictionary[@"osMinimumVersion"];
 }
 
-- (void) setMinAndroidSecurityPatchLevel: (NSString*) val
+- (void) setOsMinimumVersion: (NSString*) val
 {
-    self.dictionary[@"minAndroidSecurityPatchLevel"] = val;
+    self.dictionary[@"osMinimumVersion"] = val;
 }
 
-- (BOOL) storageRequireEncryption
+- (int32_t) passwordExpirationDays
 {
-    _storageRequireEncryption = [self.dictionary[@"storageRequireEncryption"] boolValue];
-    return _storageRequireEncryption;
+    _passwordExpirationDays = [self.dictionary[@"passwordExpirationDays"] intValue];
+    return _passwordExpirationDays;
 }
 
-- (void) setStorageRequireEncryption: (BOOL) val
+- (void) setPasswordExpirationDays: (int32_t) val
 {
-    _storageRequireEncryption = val;
-    self.dictionary[@"storageRequireEncryption"] = @(val);
+    _passwordExpirationDays = val;
+    self.dictionary[@"passwordExpirationDays"] = @(val);
+}
+
+- (int32_t) passwordMinimumLength
+{
+    _passwordMinimumLength = [self.dictionary[@"passwordMinimumLength"] intValue];
+    return _passwordMinimumLength;
+}
+
+- (void) setPasswordMinimumLength: (int32_t) val
+{
+    _passwordMinimumLength = val;
+    self.dictionary[@"passwordMinimumLength"] = @(val);
+}
+
+- (int32_t) passwordMinutesOfInactivityBeforeLock
+{
+    _passwordMinutesOfInactivityBeforeLock = [self.dictionary[@"passwordMinutesOfInactivityBeforeLock"] intValue];
+    return _passwordMinutesOfInactivityBeforeLock;
+}
+
+- (void) setPasswordMinutesOfInactivityBeforeLock: (int32_t) val
+{
+    _passwordMinutesOfInactivityBeforeLock = val;
+    self.dictionary[@"passwordMinutesOfInactivityBeforeLock"] = @(val);
+}
+
+- (int32_t) passwordPreviousPasswordBlockCount
+{
+    _passwordPreviousPasswordBlockCount = [self.dictionary[@"passwordPreviousPasswordBlockCount"] intValue];
+    return _passwordPreviousPasswordBlockCount;
+}
+
+- (void) setPasswordPreviousPasswordBlockCount: (int32_t) val
+{
+    _passwordPreviousPasswordBlockCount = val;
+    self.dictionary[@"passwordPreviousPasswordBlockCount"] = @(val);
+}
+
+- (BOOL) passwordRequired
+{
+    _passwordRequired = [self.dictionary[@"passwordRequired"] boolValue];
+    return _passwordRequired;
+}
+
+- (void) setPasswordRequired: (BOOL) val
+{
+    _passwordRequired = val;
+    self.dictionary[@"passwordRequired"] = @(val);
+}
+
+- (MSGraphAndroidRequiredPasswordType*) passwordRequiredType
+{
+    if(!_passwordRequiredType){
+        _passwordRequiredType = [self.dictionary[@"passwordRequiredType"] toMSGraphAndroidRequiredPasswordType];
+    }
+    return _passwordRequiredType;
+}
+
+- (void) setPasswordRequiredType: (MSGraphAndroidRequiredPasswordType*) val
+{
+    _passwordRequiredType = val;
+    self.dictionary[@"passwordRequiredType"] = val;
+}
+
+- (BOOL) securityBlockJailbrokenDevices
+{
+    _securityBlockJailbrokenDevices = [self.dictionary[@"securityBlockJailbrokenDevices"] boolValue];
+    return _securityBlockJailbrokenDevices;
+}
+
+- (void) setSecurityBlockJailbrokenDevices: (BOOL) val
+{
+    _securityBlockJailbrokenDevices = val;
+    self.dictionary[@"securityBlockJailbrokenDevices"] = @(val);
+}
+
+- (BOOL) securityDisableUsbDebugging
+{
+    _securityDisableUsbDebugging = [self.dictionary[@"securityDisableUsbDebugging"] boolValue];
+    return _securityDisableUsbDebugging;
+}
+
+- (void) setSecurityDisableUsbDebugging: (BOOL) val
+{
+    _securityDisableUsbDebugging = val;
+    self.dictionary[@"securityDisableUsbDebugging"] = @(val);
+}
+
+- (BOOL) securityPreventInstallAppsFromUnknownSources
+{
+    _securityPreventInstallAppsFromUnknownSources = [self.dictionary[@"securityPreventInstallAppsFromUnknownSources"] boolValue];
+    return _securityPreventInstallAppsFromUnknownSources;
+}
+
+- (void) setSecurityPreventInstallAppsFromUnknownSources: (BOOL) val
+{
+    _securityPreventInstallAppsFromUnknownSources = val;
+    self.dictionary[@"securityPreventInstallAppsFromUnknownSources"] = @(val);
+}
+
+- (BOOL) securityRequireCompanyPortalAppIntegrity
+{
+    _securityRequireCompanyPortalAppIntegrity = [self.dictionary[@"securityRequireCompanyPortalAppIntegrity"] boolValue];
+    return _securityRequireCompanyPortalAppIntegrity;
+}
+
+- (void) setSecurityRequireCompanyPortalAppIntegrity: (BOOL) val
+{
+    _securityRequireCompanyPortalAppIntegrity = val;
+    self.dictionary[@"securityRequireCompanyPortalAppIntegrity"] = @(val);
+}
+
+- (BOOL) securityRequireGooglePlayServices
+{
+    _securityRequireGooglePlayServices = [self.dictionary[@"securityRequireGooglePlayServices"] boolValue];
+    return _securityRequireGooglePlayServices;
+}
+
+- (void) setSecurityRequireGooglePlayServices: (BOOL) val
+{
+    _securityRequireGooglePlayServices = val;
+    self.dictionary[@"securityRequireGooglePlayServices"] = @(val);
 }
 
 - (BOOL) securityRequireSafetyNetAttestationBasicIntegrity
@@ -273,18 +273,6 @@
     self.dictionary[@"securityRequireSafetyNetAttestationCertifiedDevice"] = @(val);
 }
 
-- (BOOL) securityRequireGooglePlayServices
-{
-    _securityRequireGooglePlayServices = [self.dictionary[@"securityRequireGooglePlayServices"] boolValue];
-    return _securityRequireGooglePlayServices;
-}
-
-- (void) setSecurityRequireGooglePlayServices: (BOOL) val
-{
-    _securityRequireGooglePlayServices = val;
-    self.dictionary[@"securityRequireGooglePlayServices"] = @(val);
-}
-
 - (BOOL) securityRequireUpToDateSecurityProviders
 {
     _securityRequireUpToDateSecurityProviders = [self.dictionary[@"securityRequireUpToDateSecurityProviders"] boolValue];
@@ -297,16 +285,28 @@
     self.dictionary[@"securityRequireUpToDateSecurityProviders"] = @(val);
 }
 
-- (BOOL) securityRequireCompanyPortalAppIntegrity
+- (BOOL) securityRequireVerifyApps
 {
-    _securityRequireCompanyPortalAppIntegrity = [self.dictionary[@"securityRequireCompanyPortalAppIntegrity"] boolValue];
-    return _securityRequireCompanyPortalAppIntegrity;
+    _securityRequireVerifyApps = [self.dictionary[@"securityRequireVerifyApps"] boolValue];
+    return _securityRequireVerifyApps;
 }
 
-- (void) setSecurityRequireCompanyPortalAppIntegrity: (BOOL) val
+- (void) setSecurityRequireVerifyApps: (BOOL) val
 {
-    _securityRequireCompanyPortalAppIntegrity = val;
-    self.dictionary[@"securityRequireCompanyPortalAppIntegrity"] = @(val);
+    _securityRequireVerifyApps = val;
+    self.dictionary[@"securityRequireVerifyApps"] = @(val);
+}
+
+- (BOOL) storageRequireEncryption
+{
+    _storageRequireEncryption = [self.dictionary[@"storageRequireEncryption"] boolValue];
+    return _storageRequireEncryption;
+}
+
+- (void) setStorageRequireEncryption: (BOOL) val
+{
+    _storageRequireEncryption = val;
+    self.dictionary[@"storageRequireEncryption"] = @(val);
 }
 
 

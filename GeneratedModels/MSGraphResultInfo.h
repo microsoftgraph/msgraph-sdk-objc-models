@@ -9,7 +9,7 @@
 @interface MSGraphResultInfo : MSObject
 
 @property (nonatomic, setter=setCode:, getter=code) int32_t code;
-@property (nonatomic, setter=setSubcode:, getter=subcode) int32_t subcode;
 @property (nullable, nonatomic, setter=setMessage:, getter=message) NSString* message;
+@property (nonatomic, setter=setSubcode:, getter=subcode) int32_t subcode;
 
 @end

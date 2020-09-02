@@ -14,26 +14,12 @@
 
 @interface MSGraphOnenotePagePreview()
 {
-    NSString* _previewText;
     MSGraphOnenotePagePreviewLinks* _links;
+    NSString* _previewText;
 }
 @end
 
 @implementation MSGraphOnenotePagePreview
-
-- (NSString*) previewText
-{
-    if([[NSNull null] isEqual:self.dictionary[@"previewText"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"previewText"];
-}
-
-- (void) setPreviewText: (NSString*) val
-{
-    self.dictionary[@"previewText"] = val;
-}
 
 - (MSGraphOnenotePagePreviewLinks*) links
 {
@@ -47,6 +33,20 @@
 {
     _links = val;
     self.dictionary[@"links"] = val;
+}
+
+- (NSString*) previewText
+{
+    if([[NSNull null] isEqual:self.dictionary[@"previewText"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"previewText"];
+}
+
+- (void) setPreviewText: (NSString*) val
+{
+    self.dictionary[@"previewText"] = val;
 }
 
 @end

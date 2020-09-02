@@ -198,34 +198,34 @@
             return [MSGraphIosUpdatesInstallStatus idle];
         case MSGraphIosUpdatesInstallStatusUnknown:
             return [MSGraphIosUpdatesInstallStatus unknown];
-        case MSGraphIosUpdatesInstallStatusDownloading:
-            return [MSGraphIosUpdatesInstallStatus downloading];
-        case MSGraphIosUpdatesInstallStatusDownloadFailed:
-            return [MSGraphIosUpdatesInstallStatus downloadFailed];
-        case MSGraphIosUpdatesInstallStatusDownloadRequiresComputer:
-            return [MSGraphIosUpdatesInstallStatus downloadRequiresComputer];
-        case MSGraphIosUpdatesInstallStatusDownloadInsufficientSpace:
-            return [MSGraphIosUpdatesInstallStatus downloadInsufficientSpace];
-        case MSGraphIosUpdatesInstallStatusDownloadInsufficientPower:
-            return [MSGraphIosUpdatesInstallStatus downloadInsufficientPower];
-        case MSGraphIosUpdatesInstallStatusDownloadInsufficientNetwork:
-            return [MSGraphIosUpdatesInstallStatus downloadInsufficientNetwork];
-        case MSGraphIosUpdatesInstallStatusInstalling:
-            return [MSGraphIosUpdatesInstallStatus installing];
-        case MSGraphIosUpdatesInstallStatusInstallInsufficientSpace:
-            return [MSGraphIosUpdatesInstallStatus installInsufficientSpace];
-        case MSGraphIosUpdatesInstallStatusInstallInsufficientPower:
-            return [MSGraphIosUpdatesInstallStatus installInsufficientPower];
-        case MSGraphIosUpdatesInstallStatusInstallPhoneCallInProgress:
-            return [MSGraphIosUpdatesInstallStatus installPhoneCallInProgress];
-        case MSGraphIosUpdatesInstallStatusInstallFailed:
-            return [MSGraphIosUpdatesInstallStatus installFailed];
-        case MSGraphIosUpdatesInstallStatusNotSupportedOperation:
-            return [MSGraphIosUpdatesInstallStatus notSupportedOperation];
-        case MSGraphIosUpdatesInstallStatusSharedDeviceUserLoggedInError:
-            return [MSGraphIosUpdatesInstallStatus sharedDeviceUserLoggedInError];
         case MSGraphIosUpdatesInstallStatusDeviceOsHigherThanDesiredOsVersion:
             return [MSGraphIosUpdatesInstallStatus deviceOsHigherThanDesiredOsVersion];
+        case MSGraphIosUpdatesInstallStatusSharedDeviceUserLoggedInError:
+            return [MSGraphIosUpdatesInstallStatus sharedDeviceUserLoggedInError];
+        case MSGraphIosUpdatesInstallStatusNotSupportedOperation:
+            return [MSGraphIosUpdatesInstallStatus notSupportedOperation];
+        case MSGraphIosUpdatesInstallStatusInstallFailed:
+            return [MSGraphIosUpdatesInstallStatus installFailed];
+        case MSGraphIosUpdatesInstallStatusInstallPhoneCallInProgress:
+            return [MSGraphIosUpdatesInstallStatus installPhoneCallInProgress];
+        case MSGraphIosUpdatesInstallStatusInstallInsufficientPower:
+            return [MSGraphIosUpdatesInstallStatus installInsufficientPower];
+        case MSGraphIosUpdatesInstallStatusInstallInsufficientSpace:
+            return [MSGraphIosUpdatesInstallStatus installInsufficientSpace];
+        case MSGraphIosUpdatesInstallStatusInstalling:
+            return [MSGraphIosUpdatesInstallStatus installing];
+        case MSGraphIosUpdatesInstallStatusDownloadInsufficientNetwork:
+            return [MSGraphIosUpdatesInstallStatus downloadInsufficientNetwork];
+        case MSGraphIosUpdatesInstallStatusDownloadInsufficientPower:
+            return [MSGraphIosUpdatesInstallStatus downloadInsufficientPower];
+        case MSGraphIosUpdatesInstallStatusDownloadInsufficientSpace:
+            return [MSGraphIosUpdatesInstallStatus downloadInsufficientSpace];
+        case MSGraphIosUpdatesInstallStatusDownloadRequiresComputer:
+            return [MSGraphIosUpdatesInstallStatus downloadRequiresComputer];
+        case MSGraphIosUpdatesInstallStatusDownloadFailed:
+            return [MSGraphIosUpdatesInstallStatus downloadFailed];
+        case MSGraphIosUpdatesInstallStatusDownloading:
+            return [MSGraphIosUpdatesInstallStatus downloading];
         case MSGraphIosUpdatesInstallStatusEndOfEnum:
         default:
             return [MSGraphIosUpdatesInstallStatus UnknownEnumValue];
@@ -246,34 +246,34 @@
             return @"idle";
         case MSGraphIosUpdatesInstallStatusUnknown:
             return @"unknown";
-        case MSGraphIosUpdatesInstallStatusDownloading:
-            return @"downloading";
-        case MSGraphIosUpdatesInstallStatusDownloadFailed:
-            return @"downloadFailed";
-        case MSGraphIosUpdatesInstallStatusDownloadRequiresComputer:
-            return @"downloadRequiresComputer";
-        case MSGraphIosUpdatesInstallStatusDownloadInsufficientSpace:
-            return @"downloadInsufficientSpace";
-        case MSGraphIosUpdatesInstallStatusDownloadInsufficientPower:
-            return @"downloadInsufficientPower";
-        case MSGraphIosUpdatesInstallStatusDownloadInsufficientNetwork:
-            return @"downloadInsufficientNetwork";
-        case MSGraphIosUpdatesInstallStatusInstalling:
-            return @"installing";
-        case MSGraphIosUpdatesInstallStatusInstallInsufficientSpace:
-            return @"installInsufficientSpace";
-        case MSGraphIosUpdatesInstallStatusInstallInsufficientPower:
-            return @"installInsufficientPower";
-        case MSGraphIosUpdatesInstallStatusInstallPhoneCallInProgress:
-            return @"installPhoneCallInProgress";
-        case MSGraphIosUpdatesInstallStatusInstallFailed:
-            return @"installFailed";
-        case MSGraphIosUpdatesInstallStatusNotSupportedOperation:
-            return @"notSupportedOperation";
-        case MSGraphIosUpdatesInstallStatusSharedDeviceUserLoggedInError:
-            return @"sharedDeviceUserLoggedInError";
         case MSGraphIosUpdatesInstallStatusDeviceOsHigherThanDesiredOsVersion:
             return @"deviceOsHigherThanDesiredOsVersion";
+        case MSGraphIosUpdatesInstallStatusSharedDeviceUserLoggedInError:
+            return @"sharedDeviceUserLoggedInError";
+        case MSGraphIosUpdatesInstallStatusNotSupportedOperation:
+            return @"notSupportedOperation";
+        case MSGraphIosUpdatesInstallStatusInstallFailed:
+            return @"installFailed";
+        case MSGraphIosUpdatesInstallStatusInstallPhoneCallInProgress:
+            return @"installPhoneCallInProgress";
+        case MSGraphIosUpdatesInstallStatusInstallInsufficientPower:
+            return @"installInsufficientPower";
+        case MSGraphIosUpdatesInstallStatusInstallInsufficientSpace:
+            return @"installInsufficientSpace";
+        case MSGraphIosUpdatesInstallStatusInstalling:
+            return @"installing";
+        case MSGraphIosUpdatesInstallStatusDownloadInsufficientNetwork:
+            return @"downloadInsufficientNetwork";
+        case MSGraphIosUpdatesInstallStatusDownloadInsufficientPower:
+            return @"downloadInsufficientPower";
+        case MSGraphIosUpdatesInstallStatusDownloadInsufficientSpace:
+            return @"downloadInsufficientSpace";
+        case MSGraphIosUpdatesInstallStatusDownloadRequiresComputer:
+            return @"downloadRequiresComputer";
+        case MSGraphIosUpdatesInstallStatusDownloadFailed:
+            return @"downloadFailed";
+        case MSGraphIosUpdatesInstallStatusDownloading:
+            return @"downloading";
         case MSGraphIosUpdatesInstallStatusEndOfEnum:
         default:
             return nil;
@@ -308,61 +308,61 @@
     {
           return [MSGraphIosUpdatesInstallStatus unknown];
     }
-    else if([self isEqualToString:@"downloading"])
+    else if([self isEqualToString:@"deviceOsHigherThanDesiredOsVersion"])
     {
-          return [MSGraphIosUpdatesInstallStatus downloading];
-    }
-    else if([self isEqualToString:@"downloadFailed"])
-    {
-          return [MSGraphIosUpdatesInstallStatus downloadFailed];
-    }
-    else if([self isEqualToString:@"downloadRequiresComputer"])
-    {
-          return [MSGraphIosUpdatesInstallStatus downloadRequiresComputer];
-    }
-    else if([self isEqualToString:@"downloadInsufficientSpace"])
-    {
-          return [MSGraphIosUpdatesInstallStatus downloadInsufficientSpace];
-    }
-    else if([self isEqualToString:@"downloadInsufficientPower"])
-    {
-          return [MSGraphIosUpdatesInstallStatus downloadInsufficientPower];
-    }
-    else if([self isEqualToString:@"downloadInsufficientNetwork"])
-    {
-          return [MSGraphIosUpdatesInstallStatus downloadInsufficientNetwork];
-    }
-    else if([self isEqualToString:@"installing"])
-    {
-          return [MSGraphIosUpdatesInstallStatus installing];
-    }
-    else if([self isEqualToString:@"installInsufficientSpace"])
-    {
-          return [MSGraphIosUpdatesInstallStatus installInsufficientSpace];
-    }
-    else if([self isEqualToString:@"installInsufficientPower"])
-    {
-          return [MSGraphIosUpdatesInstallStatus installInsufficientPower];
-    }
-    else if([self isEqualToString:@"installPhoneCallInProgress"])
-    {
-          return [MSGraphIosUpdatesInstallStatus installPhoneCallInProgress];
-    }
-    else if([self isEqualToString:@"installFailed"])
-    {
-          return [MSGraphIosUpdatesInstallStatus installFailed];
-    }
-    else if([self isEqualToString:@"notSupportedOperation"])
-    {
-          return [MSGraphIosUpdatesInstallStatus notSupportedOperation];
+          return [MSGraphIosUpdatesInstallStatus deviceOsHigherThanDesiredOsVersion];
     }
     else if([self isEqualToString:@"sharedDeviceUserLoggedInError"])
     {
           return [MSGraphIosUpdatesInstallStatus sharedDeviceUserLoggedInError];
     }
-    else if([self isEqualToString:@"deviceOsHigherThanDesiredOsVersion"])
+    else if([self isEqualToString:@"notSupportedOperation"])
     {
-          return [MSGraphIosUpdatesInstallStatus deviceOsHigherThanDesiredOsVersion];
+          return [MSGraphIosUpdatesInstallStatus notSupportedOperation];
+    }
+    else if([self isEqualToString:@"installFailed"])
+    {
+          return [MSGraphIosUpdatesInstallStatus installFailed];
+    }
+    else if([self isEqualToString:@"installPhoneCallInProgress"])
+    {
+          return [MSGraphIosUpdatesInstallStatus installPhoneCallInProgress];
+    }
+    else if([self isEqualToString:@"installInsufficientPower"])
+    {
+          return [MSGraphIosUpdatesInstallStatus installInsufficientPower];
+    }
+    else if([self isEqualToString:@"installInsufficientSpace"])
+    {
+          return [MSGraphIosUpdatesInstallStatus installInsufficientSpace];
+    }
+    else if([self isEqualToString:@"installing"])
+    {
+          return [MSGraphIosUpdatesInstallStatus installing];
+    }
+    else if([self isEqualToString:@"downloadInsufficientNetwork"])
+    {
+          return [MSGraphIosUpdatesInstallStatus downloadInsufficientNetwork];
+    }
+    else if([self isEqualToString:@"downloadInsufficientPower"])
+    {
+          return [MSGraphIosUpdatesInstallStatus downloadInsufficientPower];
+    }
+    else if([self isEqualToString:@"downloadInsufficientSpace"])
+    {
+          return [MSGraphIosUpdatesInstallStatus downloadInsufficientSpace];
+    }
+    else if([self isEqualToString:@"downloadRequiresComputer"])
+    {
+          return [MSGraphIosUpdatesInstallStatus downloadRequiresComputer];
+    }
+    else if([self isEqualToString:@"downloadFailed"])
+    {
+          return [MSGraphIosUpdatesInstallStatus downloadFailed];
+    }
+    else if([self isEqualToString:@"downloading"])
+    {
+          return [MSGraphIosUpdatesInstallStatus downloading];
     }
     else {
         return [MSGraphIosUpdatesInstallStatus UnknownEnumValue];

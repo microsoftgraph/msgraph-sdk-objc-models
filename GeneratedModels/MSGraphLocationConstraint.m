@@ -14,13 +14,25 @@
 
 @interface MSGraphLocationConstraint()
 {
-    NSArray* _locations;
     BOOL _isRequired;
+    NSArray* _locations;
     BOOL _suggestLocation;
 }
 @end
 
 @implementation MSGraphLocationConstraint
+
+- (BOOL) isRequired
+{
+    _isRequired = [self.dictionary[@"isRequired"] boolValue];
+    return _isRequired;
+}
+
+- (void) setIsRequired: (BOOL) val
+{
+    _isRequired = val;
+    self.dictionary[@"isRequired"] = @(val);
+}
 
 - (NSArray*) locations
 {
@@ -45,18 +57,6 @@
 {
     _locations = val;
     self.dictionary[@"locations"] = val;
-}
-
-- (BOOL) isRequired
-{
-    _isRequired = [self.dictionary[@"isRequired"] boolValue];
-    return _isRequired;
-}
-
-- (void) setIsRequired: (BOOL) val
-{
-    _isRequired = val;
-    self.dictionary[@"isRequired"] = @(val);
 }
 
 - (BOOL) suggestLocation

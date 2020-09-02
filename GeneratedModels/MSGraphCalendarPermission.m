@@ -14,11 +14,11 @@
 
 @interface MSGraphCalendarPermission()
 {
-    MSGraphEmailAddress* _emailAddress;
-    BOOL _isRemovable;
-    BOOL _isInsideOrganization;
-    MSGraphCalendarRoleType* _role;
     NSArray* _allowedRoles;
+    MSGraphEmailAddress* _emailAddress;
+    BOOL _isInsideOrganization;
+    BOOL _isRemovable;
+    MSGraphCalendarRoleType* _role;
 }
 @end
 
@@ -31,58 +31,6 @@
     }
     return self;
 }
-- (MSGraphEmailAddress*) emailAddress
-{
-    if(!_emailAddress){
-        _emailAddress = [[MSGraphEmailAddress alloc] initWithDictionary: self.dictionary[@"emailAddress"]];
-    }
-    return _emailAddress;
-}
-
-- (void) setEmailAddress: (MSGraphEmailAddress*) val
-{
-    _emailAddress = val;
-    self.dictionary[@"emailAddress"] = val;
-}
-
-- (BOOL) isRemovable
-{
-    _isRemovable = [self.dictionary[@"isRemovable"] boolValue];
-    return _isRemovable;
-}
-
-- (void) setIsRemovable: (BOOL) val
-{
-    _isRemovable = val;
-    self.dictionary[@"isRemovable"] = @(val);
-}
-
-- (BOOL) isInsideOrganization
-{
-    _isInsideOrganization = [self.dictionary[@"isInsideOrganization"] boolValue];
-    return _isInsideOrganization;
-}
-
-- (void) setIsInsideOrganization: (BOOL) val
-{
-    _isInsideOrganization = val;
-    self.dictionary[@"isInsideOrganization"] = @(val);
-}
-
-- (MSGraphCalendarRoleType*) role
-{
-    if(!_role){
-        _role = [self.dictionary[@"role"] toMSGraphCalendarRoleType];
-    }
-    return _role;
-}
-
-- (void) setRole: (MSGraphCalendarRoleType*) val
-{
-    _role = val;
-    self.dictionary[@"role"] = val;
-}
-
 - (NSArray*) allowedRoles
 {
     if(!_allowedRoles){
@@ -106,6 +54,58 @@
 {
     _allowedRoles = val;
     self.dictionary[@"allowedRoles"] = val;
+}
+
+- (MSGraphEmailAddress*) emailAddress
+{
+    if(!_emailAddress){
+        _emailAddress = [[MSGraphEmailAddress alloc] initWithDictionary: self.dictionary[@"emailAddress"]];
+    }
+    return _emailAddress;
+}
+
+- (void) setEmailAddress: (MSGraphEmailAddress*) val
+{
+    _emailAddress = val;
+    self.dictionary[@"emailAddress"] = val;
+}
+
+- (BOOL) isInsideOrganization
+{
+    _isInsideOrganization = [self.dictionary[@"isInsideOrganization"] boolValue];
+    return _isInsideOrganization;
+}
+
+- (void) setIsInsideOrganization: (BOOL) val
+{
+    _isInsideOrganization = val;
+    self.dictionary[@"isInsideOrganization"] = @(val);
+}
+
+- (BOOL) isRemovable
+{
+    _isRemovable = [self.dictionary[@"isRemovable"] boolValue];
+    return _isRemovable;
+}
+
+- (void) setIsRemovable: (BOOL) val
+{
+    _isRemovable = val;
+    self.dictionary[@"isRemovable"] = @(val);
+}
+
+- (MSGraphCalendarRoleType*) role
+{
+    if(!_role){
+        _role = [self.dictionary[@"role"] toMSGraphCalendarRoleType];
+    }
+    return _role;
+}
+
+- (void) setRole: (MSGraphCalendarRoleType*) val
+{
+    _role = val;
+    self.dictionary[@"role"] = val;
 }
 
 

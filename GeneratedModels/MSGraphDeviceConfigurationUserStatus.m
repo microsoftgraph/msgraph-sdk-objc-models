@@ -14,10 +14,10 @@
 
 @interface MSGraphDeviceConfigurationUserStatus()
 {
-    NSString* _userDisplayName;
     int32_t _devicesCount;
-    MSGraphComplianceStatus* _status;
     NSDate* _lastReportedDateTime;
+    MSGraphComplianceStatus* _status;
+    NSString* _userDisplayName;
     NSString* _userPrincipalName;
 }
 @end
@@ -31,20 +31,6 @@
     }
     return self;
 }
-- (NSString*) userDisplayName
-{
-    if([[NSNull null] isEqual:self.dictionary[@"userDisplayName"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"userDisplayName"];
-}
-
-- (void) setUserDisplayName: (NSString*) val
-{
-    self.dictionary[@"userDisplayName"] = val;
-}
-
 - (int32_t) devicesCount
 {
     _devicesCount = [self.dictionary[@"devicesCount"] intValue];
@@ -55,6 +41,20 @@
 {
     _devicesCount = val;
     self.dictionary[@"devicesCount"] = @(val);
+}
+
+- (NSDate*) lastReportedDateTime
+{
+    if(!_lastReportedDateTime){
+        _lastReportedDateTime = [NSDate ms_dateFromString: self.dictionary[@"lastReportedDateTime"]];
+    }
+    return _lastReportedDateTime;
+}
+
+- (void) setLastReportedDateTime: (NSDate*) val
+{
+    _lastReportedDateTime = val;
+    self.dictionary[@"lastReportedDateTime"] = [val ms_toString];
 }
 
 - (MSGraphComplianceStatus*) status
@@ -71,18 +71,18 @@
     self.dictionary[@"status"] = val;
 }
 
-- (NSDate*) lastReportedDateTime
+- (NSString*) userDisplayName
 {
-    if(!_lastReportedDateTime){
-        _lastReportedDateTime = [NSDate ms_dateFromString: self.dictionary[@"lastReportedDateTime"]];
-    }
-    return _lastReportedDateTime;
+    if([[NSNull null] isEqual:self.dictionary[@"userDisplayName"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"userDisplayName"];
 }
 
-- (void) setLastReportedDateTime: (NSDate*) val
+- (void) setUserDisplayName: (NSString*) val
 {
-    _lastReportedDateTime = val;
-    self.dictionary[@"lastReportedDateTime"] = [val ms_toString];
+    self.dictionary[@"userDisplayName"] = val;
 }
 
 - (NSString*) userPrincipalName

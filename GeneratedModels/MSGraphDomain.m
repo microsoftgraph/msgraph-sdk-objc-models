@@ -25,11 +25,11 @@
     NSString* _model;
     int32_t _passwordNotificationWindowInDays;
     int32_t _passwordValidityPeriodInDays;
-    NSArray* _supportedServices;
     MSGraphDomainState* _state;
+    NSArray* _supportedServices;
+    NSArray* _domainNameReferences;
     NSArray* _serviceConfigurationRecords;
     NSArray* _verificationDnsRecords;
-    NSArray* _domainNameReferences;
 }
 @end
 
@@ -178,16 +178,6 @@
     self.dictionary[@"passwordValidityPeriodInDays"] = @(val);
 }
 
-- (NSArray*) supportedServices
-{
-    return self.dictionary[@"supportedServices"];
-}
-
-- (void) setSupportedServices: (NSArray*) val
-{
-    self.dictionary[@"supportedServices"] = val;
-}
-
 - (MSGraphDomainState*) state
 {
     if(!_state){
@@ -200,6 +190,41 @@
 {
     _state = val;
     self.dictionary[@"state"] = val;
+}
+
+- (NSArray*) supportedServices
+{
+    return self.dictionary[@"supportedServices"];
+}
+
+- (void) setSupportedServices: (NSArray*) val
+{
+    self.dictionary[@"supportedServices"] = val;
+}
+
+- (NSArray*) domainNameReferences
+{
+    if(!_domainNameReferences){
+        
+    NSMutableArray *domainNameReferencesResult = [NSMutableArray array];
+    NSArray *domainNameReferences = self.dictionary[@"domainNameReferences"];
+
+    if ([domainNameReferences isKindOfClass:[NSArray class]]){
+        for (id tempDirectoryObject in domainNameReferences){
+            [domainNameReferencesResult addObject:tempDirectoryObject];
+        }
+    }
+
+    _domainNameReferences = domainNameReferencesResult;
+        
+    }
+    return _domainNameReferences;
+}
+
+- (void) setDomainNameReferences: (NSArray*) val
+{
+    _domainNameReferences = val;
+    self.dictionary[@"domainNameReferences"] = val;
 }
 
 - (NSArray*) serviceConfigurationRecords
@@ -250,31 +275,6 @@
 {
     _verificationDnsRecords = val;
     self.dictionary[@"verificationDnsRecords"] = val;
-}
-
-- (NSArray*) domainNameReferences
-{
-    if(!_domainNameReferences){
-        
-    NSMutableArray *domainNameReferencesResult = [NSMutableArray array];
-    NSArray *domainNameReferences = self.dictionary[@"domainNameReferences"];
-
-    if ([domainNameReferences isKindOfClass:[NSArray class]]){
-        for (id tempDirectoryObject in domainNameReferences){
-            [domainNameReferencesResult addObject:tempDirectoryObject];
-        }
-    }
-
-    _domainNameReferences = domainNameReferencesResult;
-        
-    }
-    return _domainNameReferences;
-}
-
-- (void) setDomainNameReferences: (NSArray*) val
-{
-    _domainNameReferences = val;
-    self.dictionary[@"domainNameReferences"] = val;
 }
 
 

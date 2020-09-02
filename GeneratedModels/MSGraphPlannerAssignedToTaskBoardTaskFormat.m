@@ -14,8 +14,8 @@
 
 @interface MSGraphPlannerAssignedToTaskBoardTaskFormat()
 {
-    NSString* _unassignedOrderHint;
     MSGraphPlannerOrderHintsByAssignee* _orderHintsByAssignee;
+    NSString* _unassignedOrderHint;
 }
 @end
 
@@ -28,20 +28,6 @@
     }
     return self;
 }
-- (NSString*) unassignedOrderHint
-{
-    if([[NSNull null] isEqual:self.dictionary[@"unassignedOrderHint"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"unassignedOrderHint"];
-}
-
-- (void) setUnassignedOrderHint: (NSString*) val
-{
-    self.dictionary[@"unassignedOrderHint"] = val;
-}
-
 - (MSGraphPlannerOrderHintsByAssignee*) orderHintsByAssignee
 {
     if(!_orderHintsByAssignee){
@@ -54,6 +40,20 @@
 {
     _orderHintsByAssignee = val;
     self.dictionary[@"orderHintsByAssignee"] = val;
+}
+
+- (NSString*) unassignedOrderHint
+{
+    if([[NSNull null] isEqual:self.dictionary[@"unassignedOrderHint"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"unassignedOrderHint"];
+}
+
+- (void) setUnassignedOrderHint: (NSString*) val
+{
+    self.dictionary[@"unassignedOrderHint"] = val;
 }
 
 

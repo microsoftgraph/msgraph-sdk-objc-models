@@ -7,9 +7,9 @@
 
 @interface MSGraphOutlookItem : MSGraphEntity
 
-  @property (nullable, nonatomic, setter=setCreatedDateTime:, getter=createdDateTime) NSDate* createdDateTime;
-    @property (nullable, nonatomic, setter=setLastModifiedDateTime:, getter=lastModifiedDateTime) NSDate* lastModifiedDateTime;
+  @property (nullable, nonatomic, setter=setCategories:, getter=categories) NSArray* categories;
     @property (nullable, nonatomic, setter=setChangeKey:, getter=changeKey) NSString* changeKey;
-    @property (nullable, nonatomic, setter=setCategories:, getter=categories) NSArray* categories;
+    @property (nullable, nonatomic, setter=setCreatedDateTime:, getter=createdDateTime) NSDate* createdDateTime;
+    @property (nullable, nonatomic, setter=setLastModifiedDateTime:, getter=lastModifiedDateTime) NSDate* lastModifiedDateTime;
   
 @end

@@ -14,10 +14,10 @@
 
 @interface MSGraphUserInstallStateSummary()
 {
-    NSString* _userName;
-    int32_t _installedDeviceCount;
     int32_t _failedDeviceCount;
+    int32_t _installedDeviceCount;
     int32_t _notInstalledDeviceCount;
+    NSString* _userName;
     NSArray* _deviceStates;
 }
 @end
@@ -31,18 +31,16 @@
     }
     return self;
 }
-- (NSString*) userName
+- (int32_t) failedDeviceCount
 {
-    if([[NSNull null] isEqual:self.dictionary[@"userName"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"userName"];
+    _failedDeviceCount = [self.dictionary[@"failedDeviceCount"] intValue];
+    return _failedDeviceCount;
 }
 
-- (void) setUserName: (NSString*) val
+- (void) setFailedDeviceCount: (int32_t) val
 {
-    self.dictionary[@"userName"] = val;
+    _failedDeviceCount = val;
+    self.dictionary[@"failedDeviceCount"] = @(val);
 }
 
 - (int32_t) installedDeviceCount
@@ -57,18 +55,6 @@
     self.dictionary[@"installedDeviceCount"] = @(val);
 }
 
-- (int32_t) failedDeviceCount
-{
-    _failedDeviceCount = [self.dictionary[@"failedDeviceCount"] intValue];
-    return _failedDeviceCount;
-}
-
-- (void) setFailedDeviceCount: (int32_t) val
-{
-    _failedDeviceCount = val;
-    self.dictionary[@"failedDeviceCount"] = @(val);
-}
-
 - (int32_t) notInstalledDeviceCount
 {
     _notInstalledDeviceCount = [self.dictionary[@"notInstalledDeviceCount"] intValue];
@@ -79,6 +65,20 @@
 {
     _notInstalledDeviceCount = val;
     self.dictionary[@"notInstalledDeviceCount"] = @(val);
+}
+
+- (NSString*) userName
+{
+    if([[NSNull null] isEqual:self.dictionary[@"userName"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"userName"];
+}
+
+- (void) setUserName: (NSString*) val
+{
+    self.dictionary[@"userName"] = val;
 }
 
 - (NSArray*) deviceStates

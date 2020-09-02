@@ -14,22 +14,12 @@
 
 @interface MSGraphRequiredResourceAccess()
 {
-    NSString* _resourceAppId;
     NSArray* _resourceAccess;
+    NSString* _resourceAppId;
 }
 @end
 
 @implementation MSGraphRequiredResourceAccess
-
-- (NSString*) resourceAppId
-{
-    return self.dictionary[@"resourceAppId"];
-}
-
-- (void) setResourceAppId: (NSString*) val
-{
-    self.dictionary[@"resourceAppId"] = val;
-}
 
 - (NSArray*) resourceAccess
 {
@@ -54,6 +44,16 @@
 {
     _resourceAccess = val;
     self.dictionary[@"resourceAccess"] = val;
+}
+
+- (NSString*) resourceAppId
+{
+    return self.dictionary[@"resourceAppId"];
+}
+
+- (void) setResourceAppId: (NSString*) val
+{
+    self.dictionary[@"resourceAppId"] = val;
 }
 
 @end

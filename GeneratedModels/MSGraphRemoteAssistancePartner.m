@@ -15,9 +15,9 @@
 @interface MSGraphRemoteAssistancePartner()
 {
     NSString* _displayName;
-    NSString* _onboardingUrl;
-    MSGraphRemoteAssistanceOnboardingStatus* _onboardingStatus;
     NSDate* _lastConnectionDateTime;
+    MSGraphRemoteAssistanceOnboardingStatus* _onboardingStatus;
+    NSString* _onboardingUrl;
 }
 @end
 
@@ -44,18 +44,18 @@
     self.dictionary[@"displayName"] = val;
 }
 
-- (NSString*) onboardingUrl
+- (NSDate*) lastConnectionDateTime
 {
-    if([[NSNull null] isEqual:self.dictionary[@"onboardingUrl"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"onboardingUrl"];
+    if(!_lastConnectionDateTime){
+        _lastConnectionDateTime = [NSDate ms_dateFromString: self.dictionary[@"lastConnectionDateTime"]];
+    }
+    return _lastConnectionDateTime;
 }
 
-- (void) setOnboardingUrl: (NSString*) val
+- (void) setLastConnectionDateTime: (NSDate*) val
 {
-    self.dictionary[@"onboardingUrl"] = val;
+    _lastConnectionDateTime = val;
+    self.dictionary[@"lastConnectionDateTime"] = [val ms_toString];
 }
 
 - (MSGraphRemoteAssistanceOnboardingStatus*) onboardingStatus
@@ -72,18 +72,18 @@
     self.dictionary[@"onboardingStatus"] = val;
 }
 
-- (NSDate*) lastConnectionDateTime
+- (NSString*) onboardingUrl
 {
-    if(!_lastConnectionDateTime){
-        _lastConnectionDateTime = [NSDate ms_dateFromString: self.dictionary[@"lastConnectionDateTime"]];
-    }
-    return _lastConnectionDateTime;
+    if([[NSNull null] isEqual:self.dictionary[@"onboardingUrl"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"onboardingUrl"];
 }
 
-- (void) setLastConnectionDateTime: (NSDate*) val
+- (void) setOnboardingUrl: (NSString*) val
 {
-    _lastConnectionDateTime = val;
-    self.dictionary[@"lastConnectionDateTime"] = [val ms_toString];
+    self.dictionary[@"onboardingUrl"] = val;
 }
 
 

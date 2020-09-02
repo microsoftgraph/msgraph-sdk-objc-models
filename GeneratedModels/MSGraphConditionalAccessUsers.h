@@ -8,11 +8,11 @@
 
 @interface MSGraphConditionalAccessUsers : MSObject
 
-@property (nonnull, nonatomic, setter=setIncludeUsers:, getter=includeUsers) NSArray* includeUsers;
+@property (nonnull, nonatomic, setter=setExcludeGroups:, getter=excludeGroups) NSArray* excludeGroups;
+@property (nonnull, nonatomic, setter=setExcludeRoles:, getter=excludeRoles) NSArray* excludeRoles;
 @property (nonnull, nonatomic, setter=setExcludeUsers:, getter=excludeUsers) NSArray* excludeUsers;
 @property (nonnull, nonatomic, setter=setIncludeGroups:, getter=includeGroups) NSArray* includeGroups;
-@property (nonnull, nonatomic, setter=setExcludeGroups:, getter=excludeGroups) NSArray* excludeGroups;
 @property (nonnull, nonatomic, setter=setIncludeRoles:, getter=includeRoles) NSArray* includeRoles;
-@property (nonnull, nonatomic, setter=setExcludeRoles:, getter=excludeRoles) NSArray* excludeRoles;
+@property (nonnull, nonatomic, setter=setIncludeUsers:, getter=includeUsers) NSArray* includeUsers;
 
 @end

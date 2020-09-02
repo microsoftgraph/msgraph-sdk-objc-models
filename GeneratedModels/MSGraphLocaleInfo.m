@@ -14,26 +14,12 @@
 
 @interface MSGraphLocaleInfo()
 {
-    NSString* _locale;
     NSString* _displayName;
+    NSString* _locale;
 }
 @end
 
 @implementation MSGraphLocaleInfo
-
-- (NSString*) locale
-{
-    if([[NSNull null] isEqual:self.dictionary[@"locale"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"locale"];
-}
-
-- (void) setLocale: (NSString*) val
-{
-    self.dictionary[@"locale"] = val;
-}
 
 - (NSString*) displayName
 {
@@ -47,6 +33,20 @@
 - (void) setDisplayName: (NSString*) val
 {
     self.dictionary[@"displayName"] = val;
+}
+
+- (NSString*) locale
+{
+    if([[NSNull null] isEqual:self.dictionary[@"locale"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"locale"];
+}
+
+- (void) setLocale: (NSString*) val
+{
+    self.dictionary[@"locale"] = val;
 }
 
 @end

@@ -11,8 +11,8 @@
 
 @property (nullable, nonatomic, setter=setAttribution:, getter=attribution) MSGraphImageInfo* attribution;
 @property (nullable, nonatomic, setter=setBackgroundColor:, getter=backgroundColor) NSString* backgroundColor;
+@property (nullable, nonatomic, setter=setContent:, getter=content) NSDictionary* content;
 @property (nullable, nonatomic, setter=setVisualInfoDescription:, getter=visualInfoDescription) NSString* visualInfoDescription;
 @property (nonnull, nonatomic, setter=setDisplayText:, getter=displayText) NSString* displayText;
-@property (nullable, nonatomic, setter=setContent:, getter=content) NSDictionary* content;
 
 @end

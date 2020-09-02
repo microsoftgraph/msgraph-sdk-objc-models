@@ -14,27 +14,13 @@
 
 @interface MSGraphWebsite()
 {
-    MSGraphWebsiteType* _type;
     NSString* _address;
     NSString* _displayName;
+    MSGraphWebsiteType* _type;
 }
 @end
 
 @implementation MSGraphWebsite
-
-- (MSGraphWebsiteType*) type
-{
-    if(!_type){
-        _type = [self.dictionary[@"type"] toMSGraphWebsiteType];
-    }
-    return _type;
-}
-
-- (void) setType: (MSGraphWebsiteType*) val
-{
-    _type = val;
-    self.dictionary[@"type"] = val;
-}
 
 - (NSString*) address
 {
@@ -62,6 +48,20 @@
 - (void) setDisplayName: (NSString*) val
 {
     self.dictionary[@"displayName"] = val;
+}
+
+- (MSGraphWebsiteType*) type
+{
+    if(!_type){
+        _type = [self.dictionary[@"type"] toMSGraphWebsiteType];
+    }
+    return _type;
+}
+
+- (void) setType: (MSGraphWebsiteType*) val
+{
+    _type = val;
+    self.dictionary[@"type"] = val;
 }
 
 @end

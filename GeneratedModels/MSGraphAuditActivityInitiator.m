@@ -14,26 +14,12 @@
 
 @interface MSGraphAuditActivityInitiator()
 {
-    MSGraphUserIdentity* _user;
     MSGraphAppIdentity* _app;
+    MSGraphUserIdentity* _user;
 }
 @end
 
 @implementation MSGraphAuditActivityInitiator
-
-- (MSGraphUserIdentity*) user
-{
-    if(!_user){
-        _user = [[MSGraphUserIdentity alloc] initWithDictionary: self.dictionary[@"user"]];
-    }
-    return _user;
-}
-
-- (void) setUser: (MSGraphUserIdentity*) val
-{
-    _user = val;
-    self.dictionary[@"user"] = val;
-}
 
 - (MSGraphAppIdentity*) app
 {
@@ -47,6 +33,20 @@
 {
     _app = val;
     self.dictionary[@"app"] = val;
+}
+
+- (MSGraphUserIdentity*) user
+{
+    if(!_user){
+        _user = [[MSGraphUserIdentity alloc] initWithDictionary: self.dictionary[@"user"]];
+    }
+    return _user;
+}
+
+- (void) setUser: (MSGraphUserIdentity*) val
+{
+    _user = val;
+    self.dictionary[@"user"] = val;
 }
 
 @end

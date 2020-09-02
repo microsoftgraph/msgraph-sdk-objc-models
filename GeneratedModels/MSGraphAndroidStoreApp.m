@@ -14,9 +14,9 @@
 
 @interface MSGraphAndroidStoreApp()
 {
-    NSString* _packageId;
     NSString* _appStoreUrl;
     MSGraphAndroidMinimumOperatingSystem* _minimumSupportedOperatingSystem;
+    NSString* _packageId;
 }
 @end
 
@@ -29,20 +29,6 @@
     }
     return self;
 }
-- (NSString*) packageId
-{
-    if([[NSNull null] isEqual:self.dictionary[@"packageId"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"packageId"];
-}
-
-- (void) setPackageId: (NSString*) val
-{
-    self.dictionary[@"packageId"] = val;
-}
-
 - (NSString*) appStoreUrl
 {
     if([[NSNull null] isEqual:self.dictionary[@"appStoreUrl"]])
@@ -69,6 +55,20 @@
 {
     _minimumSupportedOperatingSystem = val;
     self.dictionary[@"minimumSupportedOperatingSystem"] = val;
+}
+
+- (NSString*) packageId
+{
+    if([[NSNull null] isEqual:self.dictionary[@"packageId"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"packageId"];
+}
+
+- (void) setPackageId: (NSString*) val
+{
+    self.dictionary[@"packageId"] = val;
 }
 
 

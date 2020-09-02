@@ -8,9 +8,9 @@
 
 @interface MSGraphOnPremisesProvisioningError : MSObject
 
-@property (nullable, nonatomic, setter=setValue:, getter=value) NSString* value;
 @property (nullable, nonatomic, setter=setCategory:, getter=category) NSString* category;
-@property (nullable, nonatomic, setter=setPropertyCausingError:, getter=propertyCausingError) NSString* propertyCausingError;
 @property (nullable, nonatomic, setter=setOccurredDateTime:, getter=occurredDateTime) NSDate* occurredDateTime;
+@property (nullable, nonatomic, setter=setPropertyCausingError:, getter=propertyCausingError) NSString* propertyCausingError;
+@property (nullable, nonatomic, setter=setValue:, getter=value) NSString* value;
 
 @end

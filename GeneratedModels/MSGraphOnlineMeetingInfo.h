@@ -9,11 +9,11 @@
 
 @interface MSGraphOnlineMeetingInfo : MSObject
 
-@property (nullable, nonatomic, setter=setJoinUrl:, getter=joinUrl) NSString* joinUrl;
 @property (nullable, nonatomic, setter=setConferenceId:, getter=conferenceId) NSString* conferenceId;
-@property (nullable, nonatomic, setter=setTollNumber:, getter=tollNumber) NSString* tollNumber;
-@property (nullable, nonatomic, setter=setTollFreeNumbers:, getter=tollFreeNumbers) NSArray* tollFreeNumbers;
-@property (nullable, nonatomic, setter=setQuickDial:, getter=quickDial) NSString* quickDial;
+@property (nullable, nonatomic, setter=setJoinUrl:, getter=joinUrl) NSString* joinUrl;
 @property (nullable, nonatomic, setter=setPhones:, getter=phones) NSArray* phones;
+@property (nullable, nonatomic, setter=setQuickDial:, getter=quickDial) NSString* quickDial;
+@property (nullable, nonatomic, setter=setTollFreeNumbers:, getter=tollFreeNumbers) NSArray* tollFreeNumbers;
+@property (nullable, nonatomic, setter=setTollNumber:, getter=tollNumber) NSString* tollNumber;
 
 @end

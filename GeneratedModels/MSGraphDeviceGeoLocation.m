@@ -14,18 +14,54 @@
 
 @interface MSGraphDeviceGeoLocation()
 {
-    NSDate* _lastCollectedDateTime;
-    double _longitude;
-    double _latitude;
     double _altitude;
-    double _horizontalAccuracy;
-    double _verticalAccuracy;
     double _heading;
+    double _horizontalAccuracy;
+    NSDate* _lastCollectedDateTime;
+    double _latitude;
+    double _longitude;
     double _speed;
+    double _verticalAccuracy;
 }
 @end
 
 @implementation MSGraphDeviceGeoLocation
+
+- (double) altitude
+{
+    _altitude = [self.dictionary[@"altitude"] floatValue];
+    return _altitude;
+}
+
+- (void) setAltitude: (double) val
+{
+    _altitude = val;
+    self.dictionary[@"altitude"] = @(val);
+}
+
+- (double) heading
+{
+    _heading = [self.dictionary[@"heading"] floatValue];
+    return _heading;
+}
+
+- (void) setHeading: (double) val
+{
+    _heading = val;
+    self.dictionary[@"heading"] = @(val);
+}
+
+- (double) horizontalAccuracy
+{
+    _horizontalAccuracy = [self.dictionary[@"horizontalAccuracy"] floatValue];
+    return _horizontalAccuracy;
+}
+
+- (void) setHorizontalAccuracy: (double) val
+{
+    _horizontalAccuracy = val;
+    self.dictionary[@"horizontalAccuracy"] = @(val);
+}
 
 - (NSDate*) lastCollectedDateTime
 {
@@ -41,18 +77,6 @@
     self.dictionary[@"lastCollectedDateTime"] = [val ms_toString];
 }
 
-- (double) longitude
-{
-    _longitude = [self.dictionary[@"longitude"] floatValue];
-    return _longitude;
-}
-
-- (void) setLongitude: (double) val
-{
-    _longitude = val;
-    self.dictionary[@"longitude"] = @(val);
-}
-
 - (double) latitude
 {
     _latitude = [self.dictionary[@"latitude"] floatValue];
@@ -65,52 +89,16 @@
     self.dictionary[@"latitude"] = @(val);
 }
 
-- (double) altitude
+- (double) longitude
 {
-    _altitude = [self.dictionary[@"altitude"] floatValue];
-    return _altitude;
+    _longitude = [self.dictionary[@"longitude"] floatValue];
+    return _longitude;
 }
 
-- (void) setAltitude: (double) val
+- (void) setLongitude: (double) val
 {
-    _altitude = val;
-    self.dictionary[@"altitude"] = @(val);
-}
-
-- (double) horizontalAccuracy
-{
-    _horizontalAccuracy = [self.dictionary[@"horizontalAccuracy"] floatValue];
-    return _horizontalAccuracy;
-}
-
-- (void) setHorizontalAccuracy: (double) val
-{
-    _horizontalAccuracy = val;
-    self.dictionary[@"horizontalAccuracy"] = @(val);
-}
-
-- (double) verticalAccuracy
-{
-    _verticalAccuracy = [self.dictionary[@"verticalAccuracy"] floatValue];
-    return _verticalAccuracy;
-}
-
-- (void) setVerticalAccuracy: (double) val
-{
-    _verticalAccuracy = val;
-    self.dictionary[@"verticalAccuracy"] = @(val);
-}
-
-- (double) heading
-{
-    _heading = [self.dictionary[@"heading"] floatValue];
-    return _heading;
-}
-
-- (void) setHeading: (double) val
-{
-    _heading = val;
-    self.dictionary[@"heading"] = @(val);
+    _longitude = val;
+    self.dictionary[@"longitude"] = @(val);
 }
 
 - (double) speed
@@ -123,6 +111,18 @@
 {
     _speed = val;
     self.dictionary[@"speed"] = @(val);
+}
+
+- (double) verticalAccuracy
+{
+    _verticalAccuracy = [self.dictionary[@"verticalAccuracy"] floatValue];
+    return _verticalAccuracy;
+}
+
+- (void) setVerticalAccuracy: (double) val
+{
+    _verticalAccuracy = val;
+    self.dictionary[@"verticalAccuracy"] = @(val);
 }
 
 @end

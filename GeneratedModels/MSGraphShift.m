@@ -14,10 +14,10 @@
 
 @interface MSGraphShift()
 {
-    MSGraphShiftItem* _sharedShift;
     MSGraphShiftItem* _draftShift;
-    NSString* _userId;
     NSString* _schedulingGroupId;
+    MSGraphShiftItem* _sharedShift;
+    NSString* _userId;
 }
 @end
 
@@ -30,20 +30,6 @@
     }
     return self;
 }
-- (MSGraphShiftItem*) sharedShift
-{
-    if(!_sharedShift){
-        _sharedShift = [[MSGraphShiftItem alloc] initWithDictionary: self.dictionary[@"sharedShift"]];
-    }
-    return _sharedShift;
-}
-
-- (void) setSharedShift: (MSGraphShiftItem*) val
-{
-    _sharedShift = val;
-    self.dictionary[@"sharedShift"] = val;
-}
-
 - (MSGraphShiftItem*) draftShift
 {
     if(!_draftShift){
@@ -58,20 +44,6 @@
     self.dictionary[@"draftShift"] = val;
 }
 
-- (NSString*) userId
-{
-    if([[NSNull null] isEqual:self.dictionary[@"userId"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"userId"];
-}
-
-- (void) setUserId: (NSString*) val
-{
-    self.dictionary[@"userId"] = val;
-}
-
 - (NSString*) schedulingGroupId
 {
     if([[NSNull null] isEqual:self.dictionary[@"schedulingGroupId"]])
@@ -84,6 +56,34 @@
 - (void) setSchedulingGroupId: (NSString*) val
 {
     self.dictionary[@"schedulingGroupId"] = val;
+}
+
+- (MSGraphShiftItem*) sharedShift
+{
+    if(!_sharedShift){
+        _sharedShift = [[MSGraphShiftItem alloc] initWithDictionary: self.dictionary[@"sharedShift"]];
+    }
+    return _sharedShift;
+}
+
+- (void) setSharedShift: (MSGraphShiftItem*) val
+{
+    _sharedShift = val;
+    self.dictionary[@"sharedShift"] = val;
+}
+
+- (NSString*) userId
+{
+    if([[NSNull null] isEqual:self.dictionary[@"userId"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"userId"];
+}
+
+- (void) setUserId: (NSString*) val
+{
+    self.dictionary[@"userId"] = val;
 }
 
 

@@ -14,9 +14,9 @@
 
 @interface MSGraphMacOSCustomConfiguration()
 {
-    NSString* _payloadName;
-    NSString* _payloadFileName;
     NSString* _payload;
+    NSString* _payloadFileName;
+    NSString* _payloadName;
 }
 @end
 
@@ -29,14 +29,14 @@
     }
     return self;
 }
-- (NSString*) payloadName
+- (NSString*) payload
 {
-    return self.dictionary[@"payloadName"];
+    return self.dictionary[@"payload"];
 }
 
-- (void) setPayloadName: (NSString*) val
+- (void) setPayload: (NSString*) val
 {
-    self.dictionary[@"payloadName"] = val;
+    self.dictionary[@"payload"] = val;
 }
 
 - (NSString*) payloadFileName
@@ -53,14 +53,14 @@
     self.dictionary[@"payloadFileName"] = val;
 }
 
-- (NSString*) payload
+- (NSString*) payloadName
 {
-    return self.dictionary[@"payload"];
+    return self.dictionary[@"payloadName"];
 }
 
-- (void) setPayload: (NSString*) val
+- (void) setPayloadName: (NSString*) val
 {
-    self.dictionary[@"payload"] = val;
+    self.dictionary[@"payloadName"] = val;
 }
 
 

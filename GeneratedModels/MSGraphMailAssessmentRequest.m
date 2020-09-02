@@ -14,9 +14,9 @@
 
 @interface MSGraphMailAssessmentRequest()
 {
-    NSString* _recipientEmail;
     MSGraphMailDestinationRoutingReason* _destinationRoutingReason;
     NSString* _messageUri;
+    NSString* _recipientEmail;
 }
 @end
 
@@ -29,16 +29,6 @@
     }
     return self;
 }
-- (NSString*) recipientEmail
-{
-    return self.dictionary[@"recipientEmail"];
-}
-
-- (void) setRecipientEmail: (NSString*) val
-{
-    self.dictionary[@"recipientEmail"] = val;
-}
-
 - (MSGraphMailDestinationRoutingReason*) destinationRoutingReason
 {
     if(!_destinationRoutingReason){
@@ -61,6 +51,16 @@
 - (void) setMessageUri: (NSString*) val
 {
     self.dictionary[@"messageUri"] = val;
+}
+
+- (NSString*) recipientEmail
+{
+    return self.dictionary[@"recipientEmail"];
+}
+
+- (void) setRecipientEmail: (NSString*) val
+{
+    self.dictionary[@"recipientEmail"] = val;
 }
 
 

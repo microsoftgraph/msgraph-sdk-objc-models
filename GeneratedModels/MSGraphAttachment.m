@@ -14,15 +14,41 @@
 
 @interface MSGraphAttachment()
 {
+    NSString* _contentType;
+    BOOL _isInline;
     NSDate* _lastModifiedDateTime;
     NSString* _name;
-    NSString* _contentType;
     int32_t _size;
-    BOOL _isInline;
 }
 @end
 
 @implementation MSGraphAttachment
+
+- (NSString*) contentType
+{
+    if([[NSNull null] isEqual:self.dictionary[@"contentType"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"contentType"];
+}
+
+- (void) setContentType: (NSString*) val
+{
+    self.dictionary[@"contentType"] = val;
+}
+
+- (BOOL) isInline
+{
+    _isInline = [self.dictionary[@"isInline"] boolValue];
+    return _isInline;
+}
+
+- (void) setIsInline: (BOOL) val
+{
+    _isInline = val;
+    self.dictionary[@"isInline"] = @(val);
+}
 
 - (NSDate*) lastModifiedDateTime
 {
@@ -52,20 +78,6 @@
     self.dictionary[@"name"] = val;
 }
 
-- (NSString*) contentType
-{
-    if([[NSNull null] isEqual:self.dictionary[@"contentType"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"contentType"];
-}
-
-- (void) setContentType: (NSString*) val
-{
-    self.dictionary[@"contentType"] = val;
-}
-
 - (int32_t) size
 {
     _size = [self.dictionary[@"size"] intValue];
@@ -76,18 +88,6 @@
 {
     _size = val;
     self.dictionary[@"size"] = @(val);
-}
-
-- (BOOL) isInline
-{
-    _isInline = [self.dictionary[@"isInline"] boolValue];
-    return _isInline;
-}
-
-- (void) setIsInline: (BOOL) val
-{
-    _isInline = val;
-    self.dictionary[@"isInline"] = @(val);
 }
 
 
