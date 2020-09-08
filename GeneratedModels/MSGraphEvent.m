@@ -45,6 +45,7 @@
     MSGraphFreeBusyStatus* _showAs;
     MSGraphDateTimeTimeZone* _start;
     NSString* _subject;
+    NSString* _transactionId;
     MSGraphEventType* _type;
     NSString* _webLink;
     NSArray* _attachments;
@@ -501,6 +502,20 @@
 - (void) setSubject: (NSString*) val
 {
     self.dictionary[@"subject"] = val;
+}
+
+- (NSString*) transactionId
+{
+    if([[NSNull null] isEqual:self.dictionary[@"transactionId"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"transactionId"];
+}
+
+- (void) setTransactionId: (NSString*) val
+{
+    self.dictionary[@"transactionId"] = val;
 }
 
 - (MSGraphEventType*) type

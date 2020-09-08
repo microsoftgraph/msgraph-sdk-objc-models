@@ -17,6 +17,7 @@
     @property (nullable, nonatomic, setter=setCompanyName:, getter=companyName) NSString* companyName;
     @property (nullable, nonatomic, setter=setConsentProvidedForMinor:, getter=consentProvidedForMinor) NSString* consentProvidedForMinor;
     @property (nullable, nonatomic, setter=setCountry:, getter=country) NSString* country;
+    @property (nullable, nonatomic, setter=setCreatedDateTime:, getter=createdDateTime) NSDate* createdDateTime;
     @property (nullable, nonatomic, setter=setCreationType:, getter=creationType) NSString* creationType;
     @property (nullable, nonatomic, setter=setDepartment:, getter=department) NSString* department;
     @property (nullable, nonatomic, setter=setDisplayName:, getter=displayName) NSString* displayName;

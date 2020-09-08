@@ -23,6 +23,7 @@
     NSString* _companyName;
     NSString* _consentProvidedForMinor;
     NSString* _country;
+    NSDate* _createdDateTime;
     NSString* _creationType;
     NSString* _department;
     NSString* _displayName;
@@ -270,6 +271,20 @@
 - (void) setCountry: (NSString*) val
 {
     self.dictionary[@"country"] = val;
+}
+
+- (NSDate*) createdDateTime
+{
+    if(!_createdDateTime){
+        _createdDateTime = [NSDate ms_dateFromString: self.dictionary[@"createdDateTime"]];
+    }
+    return _createdDateTime;
+}
+
+- (void) setCreatedDateTime: (NSDate*) val
+{
+    _createdDateTime = val;
+    self.dictionary[@"createdDateTime"] = [val ms_toString];
 }
 
 - (NSString*) creationType
