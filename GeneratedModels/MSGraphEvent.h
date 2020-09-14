@@ -44,6 +44,7 @@
     @property (nullable, nonatomic, setter=setShowAs:, getter=showAs) MSGraphFreeBusyStatus* showAs;
     @property (nullable, nonatomic, setter=setStart:, getter=start) MSGraphDateTimeTimeZone* start;
     @property (nullable, nonatomic, setter=setSubject:, getter=subject) NSString* subject;
+    @property (nullable, nonatomic, setter=setTransactionId:, getter=transactionId) NSString* transactionId;
     @property (nullable, nonatomic, setter=setType:, getter=type) MSGraphEventType* type;
     @property (nullable, nonatomic, setter=setWebLink:, getter=webLink) NSString* webLink;
     @property (nullable, nonatomic, setter=setAttachments:, getter=attachments) NSArray* attachments;
