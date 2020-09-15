@@ -90,6 +90,7 @@
     NSArray* _ownedDevices;
     NSArray* _ownedObjects;
     NSArray* _registeredDevices;
+    NSArray* _scopedRoleMemberOf;
     NSArray* _transitiveMemberOf;
     MSGraphCalendar* _calendar;
     NSArray* _calendarGroups;
@@ -1336,6 +1337,31 @@
 {
     _registeredDevices = val;
     self.dictionary[@"registeredDevices"] = val;
+}
+
+- (NSArray*) scopedRoleMemberOf
+{
+    if(!_scopedRoleMemberOf){
+        
+    NSMutableArray *scopedRoleMemberOfResult = [NSMutableArray array];
+    NSArray *scopedRoleMemberOf = self.dictionary[@"scopedRoleMemberOf"];
+
+    if ([scopedRoleMemberOf isKindOfClass:[NSArray class]]){
+        for (id tempScopedRoleMembership in scopedRoleMemberOf){
+            [scopedRoleMemberOfResult addObject:tempScopedRoleMembership];
+        }
+    }
+
+    _scopedRoleMemberOf = scopedRoleMemberOfResult;
+        
+    }
+    return _scopedRoleMemberOf;
+}
+
+- (void) setScopedRoleMemberOf: (NSArray*) val
+{
+    _scopedRoleMemberOf = val;
+    self.dictionary[@"scopedRoleMemberOf"] = val;
 }
 
 - (NSArray*) transitiveMemberOf
