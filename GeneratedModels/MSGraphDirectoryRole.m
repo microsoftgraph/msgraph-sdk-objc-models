@@ -18,6 +18,7 @@
     NSString* _displayName;
     NSString* _roleTemplateId;
     NSArray* _members;
+    NSArray* _scopedMembers;
 }
 @end
 
@@ -95,6 +96,31 @@
 {
     _members = val;
     self.dictionary[@"members"] = val;
+}
+
+- (NSArray*) scopedMembers
+{
+    if(!_scopedMembers){
+        
+    NSMutableArray *scopedMembersResult = [NSMutableArray array];
+    NSArray *scopedMembers = self.dictionary[@"scopedMembers"];
+
+    if ([scopedMembers isKindOfClass:[NSArray class]]){
+        for (id tempScopedRoleMembership in scopedMembers){
+            [scopedMembersResult addObject:tempScopedRoleMembership];
+        }
+    }
+
+    _scopedMembers = scopedMembersResult;
+        
+    }
+    return _scopedMembers;
+}
+
+- (void) setScopedMembers: (NSArray*) val
+{
+    _scopedMembers = val;
+    self.dictionary[@"scopedMembers"] = val;
 }
 
 

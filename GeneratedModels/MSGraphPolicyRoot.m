@@ -17,6 +17,7 @@
     NSArray* _activityBasedTimeoutPolicies;
     NSArray* _claimsMappingPolicies;
     NSArray* _homeRealmDiscoveryPolicies;
+    NSArray* _permissionGrantPolicies;
     NSArray* _tokenIssuancePolicies;
     NSArray* _tokenLifetimePolicies;
     NSArray* _conditionalAccessPolicies;
@@ -106,6 +107,31 @@
 {
     _homeRealmDiscoveryPolicies = val;
     self.dictionary[@"homeRealmDiscoveryPolicies"] = val;
+}
+
+- (NSArray*) permissionGrantPolicies
+{
+    if(!_permissionGrantPolicies){
+        
+    NSMutableArray *permissionGrantPoliciesResult = [NSMutableArray array];
+    NSArray *permissionGrantPolicies = self.dictionary[@"permissionGrantPolicies"];
+
+    if ([permissionGrantPolicies isKindOfClass:[NSArray class]]){
+        for (id tempPermissionGrantPolicy in permissionGrantPolicies){
+            [permissionGrantPoliciesResult addObject:tempPermissionGrantPolicy];
+        }
+    }
+
+    _permissionGrantPolicies = permissionGrantPoliciesResult;
+        
+    }
+    return _permissionGrantPolicies;
+}
+
+- (void) setPermissionGrantPolicies: (NSArray*) val
+{
+    _permissionGrantPolicies = val;
+    self.dictionary[@"permissionGrantPolicies"] = val;
 }
 
 - (NSArray*) tokenIssuancePolicies

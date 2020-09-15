@@ -14,6 +14,7 @@
 
 @interface MSGraphDirectory()
 {
+    NSArray* _administrativeUnits;
     NSArray* _deletedItems;
 }
 @end
@@ -27,6 +28,31 @@
     }
     return self;
 }
+- (NSArray*) administrativeUnits
+{
+    if(!_administrativeUnits){
+        
+    NSMutableArray *administrativeUnitsResult = [NSMutableArray array];
+    NSArray *administrativeUnits = self.dictionary[@"administrativeUnits"];
+
+    if ([administrativeUnits isKindOfClass:[NSArray class]]){
+        for (id tempAdministrativeUnit in administrativeUnits){
+            [administrativeUnitsResult addObject:tempAdministrativeUnit];
+        }
+    }
+
+    _administrativeUnits = administrativeUnitsResult;
+        
+    }
+    return _administrativeUnits;
+}
+
+- (void) setAdministrativeUnits: (NSArray*) val
+{
+    _administrativeUnits = val;
+    self.dictionary[@"administrativeUnits"] = val;
+}
+
 - (NSArray*) deletedItems
 {
     if(!_deletedItems){
