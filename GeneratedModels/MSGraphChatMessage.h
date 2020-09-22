@@ -17,6 +17,7 @@
     @property (nullable, nonatomic, setter=setEtag:, getter=etag) NSString* etag;
     @property (nullable, nonatomic, setter=setFrom:, getter=from) MSGraphIdentitySet* from;
     @property (nonnull, nonatomic, setter=setImportance:, getter=importance) MSGraphChatMessageImportance* importance;
+    @property (nullable, nonatomic, setter=setLastEditedDateTime:, getter=lastEditedDateTime) NSDate* lastEditedDateTime;
     @property (nullable, nonatomic, setter=setLastModifiedDateTime:, getter=lastModifiedDateTime) NSDate* lastModifiedDateTime;
     @property (nonnull, nonatomic, setter=setLocale:, getter=locale) NSString* locale;
     @property (nullable, nonatomic, setter=setMentions:, getter=mentions) NSArray* mentions;

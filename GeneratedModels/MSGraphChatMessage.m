@@ -21,6 +21,7 @@
     NSString* _etag;
     MSGraphIdentitySet* _from;
     MSGraphChatMessageImportance* _importance;
+    NSDate* _lastEditedDateTime;
     NSDate* _lastModifiedDateTime;
     NSString* _locale;
     NSArray* _mentions;
@@ -152,6 +153,20 @@
 {
     _importance = val;
     self.dictionary[@"importance"] = val;
+}
+
+- (NSDate*) lastEditedDateTime
+{
+    if(!_lastEditedDateTime){
+        _lastEditedDateTime = [NSDate ms_dateFromString: self.dictionary[@"lastEditedDateTime"]];
+    }
+    return _lastEditedDateTime;
+}
+
+- (void) setLastEditedDateTime: (NSDate*) val
+{
+    _lastEditedDateTime = val;
+    self.dictionary[@"lastEditedDateTime"] = [val ms_toString];
 }
 
 - (NSDate*) lastModifiedDateTime

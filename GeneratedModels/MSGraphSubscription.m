@@ -18,8 +18,12 @@
     NSString* _changeType;
     NSString* _clientState;
     NSString* _creatorId;
+    NSString* _encryptionCertificate;
+    NSString* _encryptionCertificateId;
     NSDate* _expirationDateTime;
+    BOOL _includeResourceData;
     NSString* _latestSupportedTlsVersion;
+    NSString* _lifecycleNotificationUrl;
     NSString* _notificationUrl;
     NSString* _resource;
 }
@@ -86,6 +90,34 @@
     self.dictionary[@"creatorId"] = val;
 }
 
+- (NSString*) encryptionCertificate
+{
+    if([[NSNull null] isEqual:self.dictionary[@"encryptionCertificate"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"encryptionCertificate"];
+}
+
+- (void) setEncryptionCertificate: (NSString*) val
+{
+    self.dictionary[@"encryptionCertificate"] = val;
+}
+
+- (NSString*) encryptionCertificateId
+{
+    if([[NSNull null] isEqual:self.dictionary[@"encryptionCertificateId"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"encryptionCertificateId"];
+}
+
+- (void) setEncryptionCertificateId: (NSString*) val
+{
+    self.dictionary[@"encryptionCertificateId"] = val;
+}
+
 - (NSDate*) expirationDateTime
 {
     if(!_expirationDateTime){
@@ -100,6 +132,18 @@
     self.dictionary[@"expirationDateTime"] = [val ms_toString];
 }
 
+- (BOOL) includeResourceData
+{
+    _includeResourceData = [self.dictionary[@"includeResourceData"] boolValue];
+    return _includeResourceData;
+}
+
+- (void) setIncludeResourceData: (BOOL) val
+{
+    _includeResourceData = val;
+    self.dictionary[@"includeResourceData"] = @(val);
+}
+
 - (NSString*) latestSupportedTlsVersion
 {
     if([[NSNull null] isEqual:self.dictionary[@"latestSupportedTlsVersion"]])
@@ -112,6 +156,20 @@
 - (void) setLatestSupportedTlsVersion: (NSString*) val
 {
     self.dictionary[@"latestSupportedTlsVersion"] = val;
+}
+
+- (NSString*) lifecycleNotificationUrl
+{
+    if([[NSNull null] isEqual:self.dictionary[@"lifecycleNotificationUrl"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"lifecycleNotificationUrl"];
+}
+
+- (void) setLifecycleNotificationUrl: (NSString*) val
+{
+    self.dictionary[@"lifecycleNotificationUrl"] = val;
 }
 
 - (NSString*) notificationUrl
