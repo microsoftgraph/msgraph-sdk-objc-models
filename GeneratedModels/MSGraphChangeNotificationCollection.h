@@ -9,6 +9,7 @@
 
 @interface MSGraphChangeNotificationCollection : MSObject
 
+@property (nullable, nonatomic, setter=setValidationTokens:, getter=validationTokens) NSArray* validationTokens;
 @property (nonnull, nonatomic, setter=setValue:, getter=value) NSArray* value;
 
 @end

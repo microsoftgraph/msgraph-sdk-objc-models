@@ -16,7 +16,9 @@
 {
     MSGraphChangeType* _changeType;
     NSString* _clientState;
+    MSGraphChangeNotificationEncryptedContent* _encryptedContent;
     NSString* _changeNotificationId;
+    MSGraphLifecycleEventType* _lifecycleEvent;
     NSString* _resource;
     MSGraphResourceData* _resourceData;
     NSDate* _subscriptionExpirationDateTime;
@@ -55,6 +57,20 @@
     self.dictionary[@"clientState"] = val;
 }
 
+- (MSGraphChangeNotificationEncryptedContent*) encryptedContent
+{
+    if(!_encryptedContent){
+        _encryptedContent = [[MSGraphChangeNotificationEncryptedContent alloc] initWithDictionary: self.dictionary[@"encryptedContent"]];
+    }
+    return _encryptedContent;
+}
+
+- (void) setEncryptedContent: (MSGraphChangeNotificationEncryptedContent*) val
+{
+    _encryptedContent = val;
+    self.dictionary[@"encryptedContent"] = val;
+}
+
 - (NSString*) changeNotificationId
 {
     if([[NSNull null] isEqual:self.dictionary[@"id"]])
@@ -67,6 +83,20 @@
 - (void) setChangeNotificationId: (NSString*) val
 {
     self.dictionary[@"id"] = val;
+}
+
+- (MSGraphLifecycleEventType*) lifecycleEvent
+{
+    if(!_lifecycleEvent){
+        _lifecycleEvent = [self.dictionary[@"lifecycleEvent"] toMSGraphLifecycleEventType];
+    }
+    return _lifecycleEvent;
+}
+
+- (void) setLifecycleEvent: (MSGraphLifecycleEventType*) val
+{
+    _lifecycleEvent = val;
+    self.dictionary[@"lifecycleEvent"] = val;
 }
 
 - (NSString*) resource

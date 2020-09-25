@@ -14,11 +14,26 @@
 
 @interface MSGraphChangeNotificationCollection()
 {
+    NSArray* _validationTokens;
     NSArray* _value;
 }
 @end
 
 @implementation MSGraphChangeNotificationCollection
+
+- (NSArray*) validationTokens
+{
+    if([[NSNull null] isEqual:self.dictionary[@"validationTokens"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"validationTokens"];
+}
+
+- (void) setValidationTokens: (NSArray*) val
+{
+    self.dictionary[@"validationTokens"] = val;
+}
 
 - (NSArray*) value
 {
