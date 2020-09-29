@@ -27,6 +27,22 @@
     }
     return self;
 }
+- (NSString*) oDataType
+{
+    return self.dictionary[@"@odata.type"];
+}
+- (void) setODataType: (NSString*) val
+{
+    self.dictionary[@"@odata.type"] = val;
+}
+- (NSString*) oDataEtag
+{
+    return self.dictionary[@"@odata.etag"];
+}
+- (void) setODataEtag: (NSString*) val
+{
+    self.dictionary[@"@odata.etag"] = val;
+}
 - (MSGraphConditionalAccessRoot*) conditionalAccess
 {
     if(!_conditionalAccess){

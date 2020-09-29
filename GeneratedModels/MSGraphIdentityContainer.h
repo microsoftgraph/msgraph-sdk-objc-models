@@ -4,10 +4,12 @@
 @class MSGraphConditionalAccessRoot; 
 
 
-#import "MSGraphEntity.h"
+#import "MSObject.h"
 
-@interface MSGraphIdentityContainer : MSGraphEntity
+@interface MSGraphIdentityContainer : MSObject
 
+  @property (nullable, nonatomic, setter=setODataType:, getter=oDataType) NSString *oDataType;
+  @property (nullable, nonatomic, setter=setODataEtag:, getter=oDataEtag) NSString *oDataEtag;
   @property (nullable, nonatomic, setter=setConditionalAccess:, getter=conditionalAccess) MSGraphConditionalAccessRoot* conditionalAccess;
   
 @end

@@ -4,10 +4,12 @@
 @class MSGraphCall, MSGraphCallRecordsCallRecord, MSGraphOnlineMeeting; 
 
 
-#import "MSGraphEntity.h"
+#import "MSObject.h"
 
-@interface MSGraphCloudCommunications : MSGraphEntity
+@interface MSGraphCloudCommunications : MSObject
 
+  @property (nullable, nonatomic, setter=setODataType:, getter=oDataType) NSString *oDataType;
+  @property (nullable, nonatomic, setter=setODataEtag:, getter=oDataEtag) NSString *oDataEtag;
   @property (nullable, nonatomic, setter=setCalls:, getter=calls) NSArray* calls;
     @property (nullable, nonatomic, setter=setCallRecords:, getter=callRecords) NSArray* callRecords;
     @property (nullable, nonatomic, setter=setOnlineMeetings:, getter=onlineMeetings) NSArray* onlineMeetings;

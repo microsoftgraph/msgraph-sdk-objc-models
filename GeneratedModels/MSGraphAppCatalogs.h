@@ -4,10 +4,12 @@
 @class MSGraphTeamsApp; 
 
 
-#import "MSGraphEntity.h"
+#import "MSObject.h"
 
-@interface MSGraphAppCatalogs : MSGraphEntity
+@interface MSGraphAppCatalogs : MSObject
 
+  @property (nullable, nonatomic, setter=setODataType:, getter=oDataType) NSString *oDataType;
+  @property (nullable, nonatomic, setter=setODataEtag:, getter=oDataEtag) NSString *oDataEtag;
   @property (nullable, nonatomic, setter=setTeamsApps:, getter=teamsApps) NSArray* teamsApps;
   
 @end
