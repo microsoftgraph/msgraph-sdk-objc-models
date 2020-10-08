@@ -21,6 +21,7 @@
     NSString* _changeKey;
     MSGraphCalendarColor* _color;
     MSGraphOnlineMeetingProviderType* _defaultOnlineMeetingProvider;
+    NSString* _hexColor;
     BOOL _isRemovable;
     BOOL _isTallyingResponses;
     NSString* _name;
@@ -143,6 +144,20 @@
 {
     _defaultOnlineMeetingProvider = val;
     self.dictionary[@"defaultOnlineMeetingProvider"] = val;
+}
+
+- (NSString*) hexColor
+{
+    if([[NSNull null] isEqual:self.dictionary[@"hexColor"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"hexColor"];
+}
+
+- (void) setHexColor: (NSString*) val
+{
+    self.dictionary[@"hexColor"] = val;
 }
 
 - (BOOL) isRemovable

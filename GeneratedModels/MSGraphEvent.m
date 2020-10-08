@@ -24,6 +24,7 @@
     MSGraphImportance* _importance;
     BOOL _isAllDay;
     BOOL _isCancelled;
+    BOOL _isDraft;
     BOOL _isOnlineMeeting;
     BOOL _isOrganizer;
     BOOL _isReminderOn;
@@ -207,6 +208,18 @@
 {
     _isCancelled = val;
     self.dictionary[@"isCancelled"] = @(val);
+}
+
+- (BOOL) isDraft
+{
+    _isDraft = [self.dictionary[@"isDraft"] boolValue];
+    return _isDraft;
+}
+
+- (void) setIsDraft: (BOOL) val
+{
+    _isDraft = val;
+    self.dictionary[@"isDraft"] = @(val);
 }
 
 - (BOOL) isOnlineMeeting

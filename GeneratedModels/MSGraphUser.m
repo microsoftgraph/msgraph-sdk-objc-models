@@ -120,6 +120,7 @@
     NSArray* _activities;
     NSArray* _onlineMeetings;
     NSArray* _joinedTeams;
+    MSGraphUserTeamwork* _teamwork;
 }
 @end
 
@@ -1988,6 +1989,20 @@
 {
     _joinedTeams = val;
     self.dictionary[@"joinedTeams"] = val;
+}
+
+- (MSGraphUserTeamwork*) teamwork
+{
+    if(!_teamwork){
+        _teamwork = [[MSGraphUserTeamwork alloc] initWithDictionary: self.dictionary[@"teamwork"]];
+    }
+    return _teamwork;
+}
+
+- (void) setTeamwork: (MSGraphUserTeamwork*) val
+{
+    _teamwork = val;
+    self.dictionary[@"teamwork"] = val;
 }
 
 
