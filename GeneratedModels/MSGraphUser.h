@@ -1,7 +1,7 @@
 // Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 
 
-@class MSGraphAssignedLicense, MSGraphAssignedPlan, MSGraphObjectIdentity, MSGraphLicenseAssignmentState, MSGraphOnPremisesExtensionAttributes, MSGraphOnPremisesProvisioningError, MSGraphPasswordProfile, MSGraphProvisionedPlan, MSGraphMailboxSettings, MSGraphAppRoleAssignment, MSGraphDirectoryObject, MSGraphLicenseDetails, MSGraphOAuth2PermissionGrant, MSGraphScopedRoleMembership, MSGraphCalendar, MSGraphCalendarGroup, MSGraphEvent, MSGraphContactFolder, MSGraphContact, MSGraphInferenceClassification, MSGraphMailFolder, MSGraphMessage, MSGraphOutlookUser, MSGraphPerson, MSGraphProfilePhoto, MSGraphDrive, MSGraphSite, MSGraphExtension, MSGraphManagedDevice, MSGraphManagedAppRegistration, MSGraphDeviceManagementTroubleshootingEvent, MSGraphPlannerUser, MSGraphOfficeGraphInsights, MSGraphUserSettings, MSGraphOnenote, MSGraphUserActivity, MSGraphOnlineMeeting, MSGraphTeam; 
+@class MSGraphAssignedLicense, MSGraphAssignedPlan, MSGraphObjectIdentity, MSGraphLicenseAssignmentState, MSGraphOnPremisesExtensionAttributes, MSGraphOnPremisesProvisioningError, MSGraphPasswordProfile, MSGraphProvisionedPlan, MSGraphMailboxSettings, MSGraphAppRoleAssignment, MSGraphDirectoryObject, MSGraphLicenseDetails, MSGraphOAuth2PermissionGrant, MSGraphScopedRoleMembership, MSGraphCalendar, MSGraphCalendarGroup, MSGraphEvent, MSGraphContactFolder, MSGraphContact, MSGraphInferenceClassification, MSGraphMailFolder, MSGraphMessage, MSGraphOutlookUser, MSGraphPerson, MSGraphProfilePhoto, MSGraphDrive, MSGraphSite, MSGraphExtension, MSGraphManagedDevice, MSGraphManagedAppRegistration, MSGraphDeviceManagementTroubleshootingEvent, MSGraphPlannerUser, MSGraphOfficeGraphInsights, MSGraphUserSettings, MSGraphOnenote, MSGraphUserActivity, MSGraphOnlineMeeting, MSGraphTeam, MSGraphUserTeamwork; 
 
 
 #import "MSGraphDirectoryObject.h"
@@ -114,5 +114,6 @@
     @property (nullable, nonatomic, setter=setActivities:, getter=activities) NSArray* activities;
     @property (nullable, nonatomic, setter=setOnlineMeetings:, getter=onlineMeetings) NSArray* onlineMeetings;
     @property (nullable, nonatomic, setter=setJoinedTeams:, getter=joinedTeams) NSArray* joinedTeams;
+    @property (nullable, nonatomic, setter=setTeamwork:, getter=teamwork) MSGraphUserTeamwork* teamwork;
   
 @end
