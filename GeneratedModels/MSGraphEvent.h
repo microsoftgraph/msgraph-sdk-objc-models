@@ -23,6 +23,7 @@
     @property (nullable, nonatomic, setter=setImportance:, getter=importance) MSGraphImportance* importance;
     @property (nonatomic, setter=setIsAllDay:, getter=isAllDay) BOOL isAllDay;
     @property (nonatomic, setter=setIsCancelled:, getter=isCancelled) BOOL isCancelled;
+    @property (nonatomic, setter=setIsDraft:, getter=isDraft) BOOL isDraft;
     @property (nonatomic, setter=setIsOnlineMeeting:, getter=isOnlineMeeting) BOOL isOnlineMeeting;
     @property (nonatomic, setter=setIsOrganizer:, getter=isOrganizer) BOOL isOrganizer;
     @property (nonatomic, setter=setIsReminderOn:, getter=isReminderOn) BOOL isReminderOn;
