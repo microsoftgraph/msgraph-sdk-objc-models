@@ -18,6 +18,7 @@
     @property (nullable, nonatomic, setter=setColor:, getter=color) MSGraphCalendarColor* color;
     @property (nullable, nonatomic, setter=setDefaultOnlineMeetingProvider:, getter=defaultOnlineMeetingProvider) MSGraphOnlineMeetingProviderType* defaultOnlineMeetingProvider;
     @property (nullable, nonatomic, setter=setHexColor:, getter=hexColor) NSString* hexColor;
+    @property (nonatomic, setter=setIsDefaultCalendar:, getter=isDefaultCalendar) BOOL isDefaultCalendar;
     @property (nonatomic, setter=setIsRemovable:, getter=isRemovable) BOOL isRemovable;
     @property (nonatomic, setter=setIsTallyingResponses:, getter=isTallyingResponses) BOOL isTallyingResponses;
     @property (nullable, nonatomic, setter=setName:, getter=name) NSString* name;

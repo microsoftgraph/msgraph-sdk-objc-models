@@ -1,7 +1,7 @@
 // Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 
 
-@class MSGraphAddIn, MSGraphAppRole, MSGraphInformationalUrl, MSGraphKeyCredential, MSGraphPermissionScope, MSGraphPasswordCredential, MSGraphSamlSingleSignOnSettings, MSGraphAppRoleAssignment, MSGraphClaimsMappingPolicy, MSGraphDirectoryObject, MSGraphEndpoint, MSGraphHomeRealmDiscoveryPolicy, MSGraphOAuth2PermissionGrant, MSGraphTokenIssuancePolicy, MSGraphTokenLifetimePolicy; 
+@class MSGraphAddIn, MSGraphAppRole, MSGraphInformationalUrl, MSGraphKeyCredential, MSGraphPermissionScope, MSGraphPasswordCredential, MSGraphSamlSingleSignOnSettings, MSGraphAppRoleAssignment, MSGraphClaimsMappingPolicy, MSGraphDirectoryObject, MSGraphDelegatedPermissionClassification, MSGraphEndpoint, MSGraphHomeRealmDiscoveryPolicy, MSGraphOAuth2PermissionGrant, MSGraphTokenIssuancePolicy, MSGraphTokenLifetimePolicy; 
 
 
 #import "MSGraphDirectoryObject.h"
@@ -41,6 +41,7 @@
     @property (nullable, nonatomic, setter=setAppRoleAssignments:, getter=appRoleAssignments) NSArray* appRoleAssignments;
     @property (nullable, nonatomic, setter=setClaimsMappingPolicies:, getter=claimsMappingPolicies) NSArray* claimsMappingPolicies;
     @property (nullable, nonatomic, setter=setCreatedObjects:, getter=createdObjects) NSArray* createdObjects;
+    @property (nullable, nonatomic, setter=setDelegatedPermissionClassifications:, getter=delegatedPermissionClassifications) NSArray* delegatedPermissionClassifications;
     @property (nullable, nonatomic, setter=setEndpoints:, getter=endpoints) NSArray* endpoints;
     @property (nullable, nonatomic, setter=setHomeRealmDiscoveryPolicies:, getter=homeRealmDiscoveryPolicies) NSArray* homeRealmDiscoveryPolicies;
     @property (nullable, nonatomic, setter=setMemberOf:, getter=memberOf) NSArray* memberOf;
