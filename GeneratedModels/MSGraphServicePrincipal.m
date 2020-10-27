@@ -47,6 +47,7 @@
     NSArray* _appRoleAssignments;
     NSArray* _claimsMappingPolicies;
     NSArray* _createdObjects;
+    NSArray* _delegatedPermissionClassifications;
     NSArray* _endpoints;
     NSArray* _homeRealmDiscoveryPolicies;
     NSArray* _memberOf;
@@ -603,6 +604,31 @@
 {
     _createdObjects = val;
     self.dictionary[@"createdObjects"] = val;
+}
+
+- (NSArray*) delegatedPermissionClassifications
+{
+    if(!_delegatedPermissionClassifications){
+        
+    NSMutableArray *delegatedPermissionClassificationsResult = [NSMutableArray array];
+    NSArray *delegatedPermissionClassifications = self.dictionary[@"delegatedPermissionClassifications"];
+
+    if ([delegatedPermissionClassifications isKindOfClass:[NSArray class]]){
+        for (id tempDelegatedPermissionClassification in delegatedPermissionClassifications){
+            [delegatedPermissionClassificationsResult addObject:tempDelegatedPermissionClassification];
+        }
+    }
+
+    _delegatedPermissionClassifications = delegatedPermissionClassificationsResult;
+        
+    }
+    return _delegatedPermissionClassifications;
+}
+
+- (void) setDelegatedPermissionClassifications: (NSArray*) val
+{
+    _delegatedPermissionClassifications = val;
+    self.dictionary[@"delegatedPermissionClassifications"] = val;
 }
 
 - (NSArray*) endpoints

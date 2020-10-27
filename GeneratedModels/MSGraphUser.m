@@ -121,6 +121,7 @@
     NSArray* _onlineMeetings;
     NSArray* _joinedTeams;
     MSGraphUserTeamwork* _teamwork;
+    MSGraphTodo* _todo;
 }
 @end
 
@@ -2003,6 +2004,20 @@
 {
     _teamwork = val;
     self.dictionary[@"teamwork"] = val;
+}
+
+- (MSGraphTodo*) todo
+{
+    if(!_todo){
+        _todo = [[MSGraphTodo alloc] initWithDictionary: self.dictionary[@"todo"]];
+    }
+    return _todo;
+}
+
+- (void) setTodo: (MSGraphTodo*) val
+{
+    _todo = val;
+    self.dictionary[@"todo"] = val;
 }
 
 
