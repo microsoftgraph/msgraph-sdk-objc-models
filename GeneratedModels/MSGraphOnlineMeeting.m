@@ -14,13 +14,16 @@
 
 @interface MSGraphOnlineMeeting()
 {
+    MSGraphOnlineMeetingPresenters* _allowedPresenters;
     MSGraphAudioConferencing* _audioConferencing;
     MSGraphChatInfo* _chatInfo;
     NSDate* _creationDateTime;
     NSDate* _endDateTime;
     NSString* _externalId;
+    BOOL _isEntryExitAnnounced;
     MSGraphItemBody* _joinInformation;
     NSString* _joinWebUrl;
+    MSGraphLobbyBypassSettings* _lobbyBypassSettings;
     MSGraphMeetingParticipants* _participants;
     NSDate* _startDateTime;
     NSString* _subject;
@@ -37,6 +40,20 @@
     }
     return self;
 }
+- (MSGraphOnlineMeetingPresenters*) allowedPresenters
+{
+    if(!_allowedPresenters){
+        _allowedPresenters = [self.dictionary[@"allowedPresenters"] toMSGraphOnlineMeetingPresenters];
+    }
+    return _allowedPresenters;
+}
+
+- (void) setAllowedPresenters: (MSGraphOnlineMeetingPresenters*) val
+{
+    _allowedPresenters = val;
+    self.dictionary[@"allowedPresenters"] = val;
+}
+
 - (MSGraphAudioConferencing*) audioConferencing
 {
     if(!_audioConferencing){
@@ -107,6 +124,18 @@
     self.dictionary[@"externalId"] = val;
 }
 
+- (BOOL) isEntryExitAnnounced
+{
+    _isEntryExitAnnounced = [self.dictionary[@"isEntryExitAnnounced"] boolValue];
+    return _isEntryExitAnnounced;
+}
+
+- (void) setIsEntryExitAnnounced: (BOOL) val
+{
+    _isEntryExitAnnounced = val;
+    self.dictionary[@"isEntryExitAnnounced"] = @(val);
+}
+
 - (MSGraphItemBody*) joinInformation
 {
     if(!_joinInformation){
@@ -133,6 +162,20 @@
 - (void) setJoinWebUrl: (NSString*) val
 {
     self.dictionary[@"joinWebUrl"] = val;
+}
+
+- (MSGraphLobbyBypassSettings*) lobbyBypassSettings
+{
+    if(!_lobbyBypassSettings){
+        _lobbyBypassSettings = [[MSGraphLobbyBypassSettings alloc] initWithDictionary: self.dictionary[@"lobbyBypassSettings"]];
+    }
+    return _lobbyBypassSettings;
+}
+
+- (void) setLobbyBypassSettings: (MSGraphLobbyBypassSettings*) val
+{
+    _lobbyBypassSettings = val;
+    self.dictionary[@"lobbyBypassSettings"] = val;
 }
 
 - (MSGraphMeetingParticipants*) participants

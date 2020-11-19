@@ -15,6 +15,7 @@
 @interface MSGraphMeetingParticipantInfo()
 {
     MSGraphIdentitySet* _identity;
+    MSGraphOnlineMeetingRole* _role;
     NSString* _upn;
 }
 @end
@@ -33,6 +34,20 @@
 {
     _identity = val;
     self.dictionary[@"identity"] = val;
+}
+
+- (MSGraphOnlineMeetingRole*) role
+{
+    if(!_role){
+        _role = [self.dictionary[@"role"] toMSGraphOnlineMeetingRole];
+    }
+    return _role;
+}
+
+- (void) setRole: (MSGraphOnlineMeetingRole*) val
+{
+    _role = val;
+    self.dictionary[@"role"] = val;
 }
 
 - (NSString*) upn
