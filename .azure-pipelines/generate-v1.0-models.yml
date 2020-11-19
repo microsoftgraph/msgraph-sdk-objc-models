@@ -68,6 +68,7 @@ steps:
     targetType: inline
     workingDirectory: '$(Build.SourcesDirectory)/msgraph-sdk-objc-models'
     script: |
+      git fetch origin dev | Write-Host
       git checkout dev | Write-Host
 
 - task: PowerShell@2
