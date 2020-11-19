@@ -41,6 +41,7 @@
     MSGraphSamlSingleSignOnSettings* _samlSingleSignOnSettings;
     NSArray* _servicePrincipalNames;
     NSString* _servicePrincipalType;
+    NSString* _signInAudience;
     NSArray* _tags;
     NSString* _tokenEncryptionKeyId;
     NSArray* _appRoleAssignedTo;
@@ -480,6 +481,20 @@
 - (void) setServicePrincipalType: (NSString*) val
 {
     self.dictionary[@"servicePrincipalType"] = val;
+}
+
+- (NSString*) signInAudience
+{
+    if([[NSNull null] isEqual:self.dictionary[@"signInAudience"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"signInAudience"];
+}
+
+- (void) setSignInAudience: (NSString*) val
+{
+    self.dictionary[@"signInAudience"] = val;
 }
 
 - (NSArray*) tags

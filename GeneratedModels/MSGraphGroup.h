@@ -1,7 +1,7 @@
 // Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 
 
-@class MSGraphAssignedLabel, MSGraphAssignedLicense, MSGraphLicenseProcessingState, MSGraphOnPremisesProvisioningError, MSGraphAppRoleAssignment, MSGraphDirectoryObject, MSGraphGroupSetting, MSGraphCalendar, MSGraphEvent, MSGraphConversation, MSGraphProfilePhoto, MSGraphConversationThread, MSGraphDrive, MSGraphSite, MSGraphExtension, MSGraphGroupLifecyclePolicy, MSGraphPlannerGroup, MSGraphOnenote, MSGraphTeam; 
+@class MSGraphAssignedLabel, MSGraphAssignedLicense, MSGraphLicenseProcessingState, MSGraphOnPremisesProvisioningError, MSGraphAppRoleAssignment, MSGraphDirectoryObject, MSGraphResourceSpecificPermissionGrant, MSGraphGroupSetting, MSGraphCalendar, MSGraphEvent, MSGraphConversation, MSGraphProfilePhoto, MSGraphConversationThread, MSGraphDrive, MSGraphSite, MSGraphExtension, MSGraphGroupLifecyclePolicy, MSGraphPlannerGroup, MSGraphOnenote, MSGraphTeam; 
 
 
 #import "MSGraphDirectoryObject.h"
@@ -51,6 +51,7 @@
     @property (nullable, nonatomic, setter=setMembers:, getter=members) NSArray* members;
     @property (nullable, nonatomic, setter=setMembersWithLicenseErrors:, getter=membersWithLicenseErrors) NSArray* membersWithLicenseErrors;
     @property (nullable, nonatomic, setter=setOwners:, getter=owners) NSArray* owners;
+    @property (nullable, nonatomic, setter=setPermissionGrants:, getter=permissionGrants) NSArray* permissionGrants;
     @property (nullable, nonatomic, setter=setSettings:, getter=settings) NSArray* settings;
     @property (nullable, nonatomic, setter=setTransitiveMemberOf:, getter=transitiveMemberOf) NSArray* transitiveMemberOf;
     @property (nullable, nonatomic, setter=setTransitiveMembers:, getter=transitiveMembers) NSArray* transitiveMembers;

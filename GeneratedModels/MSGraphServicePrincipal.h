@@ -35,6 +35,7 @@
     @property (nullable, nonatomic, setter=setSamlSingleSignOnSettings:, getter=samlSingleSignOnSettings) MSGraphSamlSingleSignOnSettings* samlSingleSignOnSettings;
     @property (nonnull, nonatomic, setter=setServicePrincipalNames:, getter=servicePrincipalNames) NSArray* servicePrincipalNames;
     @property (nullable, nonatomic, setter=setServicePrincipalType:, getter=servicePrincipalType) NSString* servicePrincipalType;
+    @property (nullable, nonatomic, setter=setSignInAudience:, getter=signInAudience) NSString* signInAudience;
     @property (nonnull, nonatomic, setter=setTags:, getter=tags) NSArray* tags;
     @property (nullable, nonatomic, setter=setTokenEncryptionKeyId:, getter=tokenEncryptionKeyId) NSString* tokenEncryptionKeyId;
     @property (nullable, nonatomic, setter=setAppRoleAssignedTo:, getter=appRoleAssignedTo) NSArray* appRoleAssignedTo;

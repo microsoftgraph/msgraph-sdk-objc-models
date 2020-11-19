@@ -17,6 +17,7 @@
     NSString* _channelDescription;
     NSString* _displayName;
     NSString* _email;
+    BOOL _isFavoriteByDefault;
     MSGraphChannelMembershipType* _membershipType;
     NSString* _webUrl;
     MSGraphDriveItem* _filesFolder;
@@ -71,6 +72,18 @@
 - (void) setEmail: (NSString*) val
 {
     self.dictionary[@"email"] = val;
+}
+
+- (BOOL) isFavoriteByDefault
+{
+    _isFavoriteByDefault = [self.dictionary[@"isFavoriteByDefault"] boolValue];
+    return _isFavoriteByDefault;
+}
+
+- (void) setIsFavoriteByDefault: (BOOL) val
+{
+    _isFavoriteByDefault = val;
+    self.dictionary[@"isFavoriteByDefault"] = @(val);
 }
 
 - (MSGraphChannelMembershipType*) membershipType

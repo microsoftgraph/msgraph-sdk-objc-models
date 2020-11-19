@@ -57,6 +57,7 @@
     NSArray* _members;
     NSArray* _membersWithLicenseErrors;
     NSArray* _owners;
+    NSArray* _permissionGrants;
     NSArray* _settings;
     NSArray* _transitiveMemberOf;
     NSArray* _transitiveMembers;
@@ -747,6 +748,31 @@
 {
     _owners = val;
     self.dictionary[@"owners"] = val;
+}
+
+- (NSArray*) permissionGrants
+{
+    if(!_permissionGrants){
+        
+    NSMutableArray *permissionGrantsResult = [NSMutableArray array];
+    NSArray *permissionGrants = self.dictionary[@"permissionGrants"];
+
+    if ([permissionGrants isKindOfClass:[NSArray class]]){
+        for (id tempResourceSpecificPermissionGrant in permissionGrants){
+            [permissionGrantsResult addObject:tempResourceSpecificPermissionGrant];
+        }
+    }
+
+    _permissionGrants = permissionGrantsResult;
+        
+    }
+    return _permissionGrants;
+}
+
+- (void) setPermissionGrants: (NSArray*) val
+{
+    _permissionGrants = val;
+    self.dictionary[@"permissionGrants"] = val;
 }
 
 - (NSArray*) settings
