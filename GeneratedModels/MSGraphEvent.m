@@ -20,6 +20,7 @@
     NSString* _bodyPreview;
     MSGraphDateTimeTimeZone* _end;
     BOOL _hasAttachments;
+    BOOL _hideAttendees;
     NSString* _iCalUId;
     MSGraphImportance* _importance;
     BOOL _isAllDay;
@@ -156,6 +157,18 @@
 {
     _hasAttachments = val;
     self.dictionary[@"hasAttachments"] = @(val);
+}
+
+- (BOOL) hideAttendees
+{
+    _hideAttendees = [self.dictionary[@"hideAttendees"] boolValue];
+    return _hideAttendees;
+}
+
+- (void) setHideAttendees: (BOOL) val
+{
+    _hideAttendees = val;
+    self.dictionary[@"hideAttendees"] = @(val);
 }
 
 - (NSString*) iCalUId

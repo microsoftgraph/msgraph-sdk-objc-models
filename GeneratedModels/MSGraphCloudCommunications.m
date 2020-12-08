@@ -17,6 +17,7 @@
     NSArray* _calls;
     NSArray* _callRecords;
     NSArray* _onlineMeetings;
+    NSArray* _presences;
 }
 @end
 
@@ -102,6 +103,31 @@
 {
     _onlineMeetings = val;
     self.dictionary[@"onlineMeetings"] = val;
+}
+
+- (NSArray*) presences
+{
+    if(!_presences){
+        
+    NSMutableArray *presencesResult = [NSMutableArray array];
+    NSArray *presences = self.dictionary[@"presences"];
+
+    if ([presences isKindOfClass:[NSArray class]]){
+        for (id tempPresence in presences){
+            [presencesResult addObject:tempPresence];
+        }
+    }
+
+    _presences = presencesResult;
+        
+    }
+    return _presences;
+}
+
+- (void) setPresences: (NSArray*) val
+{
+    _presences = val;
+    self.dictionary[@"presences"] = val;
 }
 
 

@@ -15,6 +15,7 @@
 @interface MSGraphPolicyRoot()
 {
     NSArray* _activityBasedTimeoutPolicies;
+    MSGraphAuthorizationPolicy* _authorizationPolicy;
     NSArray* _claimsMappingPolicies;
     NSArray* _homeRealmDiscoveryPolicies;
     NSArray* _permissionGrantPolicies;
@@ -57,6 +58,20 @@
 {
     _activityBasedTimeoutPolicies = val;
     self.dictionary[@"activityBasedTimeoutPolicies"] = val;
+}
+
+- (MSGraphAuthorizationPolicy*) authorizationPolicy
+{
+    if(!_authorizationPolicy){
+        _authorizationPolicy = [[MSGraphAuthorizationPolicy alloc] initWithDictionary: self.dictionary[@"authorizationPolicy"]];
+    }
+    return _authorizationPolicy;
+}
+
+- (void) setAuthorizationPolicy: (MSGraphAuthorizationPolicy*) val
+{
+    _authorizationPolicy = val;
+    self.dictionary[@"authorizationPolicy"] = val;
 }
 
 - (NSArray*) claimsMappingPolicies

@@ -82,12 +82,12 @@
 
     switch(val)
     {
+        case MSGraphFreeBusyStatusUnknown:
+            return [MSGraphFreeBusyStatus unknown];
         case MSGraphFreeBusyStatusFree:
             return [MSGraphFreeBusyStatus free];
         case MSGraphFreeBusyStatusTentative:
             return [MSGraphFreeBusyStatus tentative];
-        case MSGraphFreeBusyStatusUnknown:
-            return [MSGraphFreeBusyStatus unknown];
         case MSGraphFreeBusyStatusBusy:
             return [MSGraphFreeBusyStatus busy];
         case MSGraphFreeBusyStatusOof:
@@ -106,12 +106,12 @@
 
     switch(self.enumValue)
     {
+        case MSGraphFreeBusyStatusUnknown:
+            return @"unknown";
         case MSGraphFreeBusyStatusFree:
             return @"free";
         case MSGraphFreeBusyStatusTentative:
             return @"tentative";
-        case MSGraphFreeBusyStatusUnknown:
-            return @"unknown";
         case MSGraphFreeBusyStatusBusy:
             return @"busy";
         case MSGraphFreeBusyStatusOof:
@@ -136,17 +136,17 @@
 
 - (MSGraphFreeBusyStatus*) toMSGraphFreeBusyStatus{
 
-    if([self isEqualToString:@"free"])
+    if([self isEqualToString:@"unknown"])
+    {
+          return [MSGraphFreeBusyStatus unknown];
+    }
+    else if([self isEqualToString:@"free"])
     {
           return [MSGraphFreeBusyStatus free];
     }
     else if([self isEqualToString:@"tentative"])
     {
           return [MSGraphFreeBusyStatus tentative];
-    }
-    else if([self isEqualToString:@"unknown"])
-    {
-          return [MSGraphFreeBusyStatus unknown];
     }
     else if([self isEqualToString:@"busy"])
     {

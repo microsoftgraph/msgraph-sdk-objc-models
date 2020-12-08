@@ -127,12 +127,12 @@
 
     switch(val)
     {
+        case MSGraphCalendarColorAuto:
+            return [MSGraphCalendarColor auto];
         case MSGraphCalendarColorLightBlue:
             return [MSGraphCalendarColor lightBlue];
         case MSGraphCalendarColorLightGreen:
             return [MSGraphCalendarColor lightGreen];
-        case MSGraphCalendarColorAuto:
-            return [MSGraphCalendarColor auto];
         case MSGraphCalendarColorLightOrange:
             return [MSGraphCalendarColor lightOrange];
         case MSGraphCalendarColorLightGray:
@@ -161,12 +161,12 @@
 
     switch(self.enumValue)
     {
+        case MSGraphCalendarColorAuto:
+            return @"auto";
         case MSGraphCalendarColorLightBlue:
             return @"lightBlue";
         case MSGraphCalendarColorLightGreen:
             return @"lightGreen";
-        case MSGraphCalendarColorAuto:
-            return @"auto";
         case MSGraphCalendarColorLightOrange:
             return @"lightOrange";
         case MSGraphCalendarColorLightGray:
@@ -201,17 +201,17 @@
 
 - (MSGraphCalendarColor*) toMSGraphCalendarColor{
 
-    if([self isEqualToString:@"lightBlue"])
+    if([self isEqualToString:@"auto"])
+    {
+          return [MSGraphCalendarColor auto];
+    }
+    else if([self isEqualToString:@"lightBlue"])
     {
           return [MSGraphCalendarColor lightBlue];
     }
     else if([self isEqualToString:@"lightGreen"])
     {
           return [MSGraphCalendarColor lightGreen];
-    }
-    else if([self isEqualToString:@"auto"])
-    {
-          return [MSGraphCalendarColor auto];
     }
     else if([self isEqualToString:@"lightOrange"])
     {
