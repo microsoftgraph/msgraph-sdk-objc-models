@@ -27,7 +27,10 @@
     NSString* _creationType;
     NSString* _department;
     NSString* _displayName;
+    NSDate* _employeeHireDate;
     NSString* _employeeId;
+    MSGraphEmployeeOrgData* _employeeOrgData;
+    NSString* _employeeType;
     NSString* _externalUserState;
     NSDate* _externalUserStateChangeDateTime;
     NSString* _faxNumber;
@@ -119,6 +122,7 @@
     MSGraphOnenote* _onenote;
     NSArray* _activities;
     NSArray* _onlineMeetings;
+    MSGraphPresence* _presence;
     NSArray* _joinedTeams;
     MSGraphUserTeamwork* _teamwork;
     MSGraphTodo* _todo;
@@ -332,6 +336,20 @@
     self.dictionary[@"displayName"] = val;
 }
 
+- (NSDate*) employeeHireDate
+{
+    if(!_employeeHireDate){
+        _employeeHireDate = [NSDate ms_dateFromString: self.dictionary[@"employeeHireDate"]];
+    }
+    return _employeeHireDate;
+}
+
+- (void) setEmployeeHireDate: (NSDate*) val
+{
+    _employeeHireDate = val;
+    self.dictionary[@"employeeHireDate"] = [val ms_toString];
+}
+
 - (NSString*) employeeId
 {
     if([[NSNull null] isEqual:self.dictionary[@"employeeId"]])
@@ -344,6 +362,34 @@
 - (void) setEmployeeId: (NSString*) val
 {
     self.dictionary[@"employeeId"] = val;
+}
+
+- (MSGraphEmployeeOrgData*) employeeOrgData
+{
+    if(!_employeeOrgData){
+        _employeeOrgData = [[MSGraphEmployeeOrgData alloc] initWithDictionary: self.dictionary[@"employeeOrgData"]];
+    }
+    return _employeeOrgData;
+}
+
+- (void) setEmployeeOrgData: (MSGraphEmployeeOrgData*) val
+{
+    _employeeOrgData = val;
+    self.dictionary[@"employeeOrgData"] = val;
+}
+
+- (NSString*) employeeType
+{
+    if([[NSNull null] isEqual:self.dictionary[@"employeeType"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"employeeType"];
+}
+
+- (void) setEmployeeType: (NSString*) val
+{
+    self.dictionary[@"employeeType"] = val;
 }
 
 - (NSString*) externalUserState
@@ -1965,6 +2011,20 @@
 {
     _onlineMeetings = val;
     self.dictionary[@"onlineMeetings"] = val;
+}
+
+- (MSGraphPresence*) presence
+{
+    if(!_presence){
+        _presence = [[MSGraphPresence alloc] initWithDictionary: self.dictionary[@"presence"]];
+    }
+    return _presence;
+}
+
+- (void) setPresence: (MSGraphPresence*) val
+{
+    _presence = val;
+    self.dictionary[@"presence"] = val;
 }
 
 - (NSArray*) joinedTeams

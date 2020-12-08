@@ -64,12 +64,12 @@
 
     switch(val)
     {
+        case MSGraphOnenoteUserRoleNone:
+            return [MSGraphOnenoteUserRole none];
         case MSGraphOnenoteUserRoleOwner:
             return [MSGraphOnenoteUserRole owner];
         case MSGraphOnenoteUserRoleContributor:
             return [MSGraphOnenoteUserRole contributor];
-        case MSGraphOnenoteUserRoleNone:
-            return [MSGraphOnenoteUserRole none];
         case MSGraphOnenoteUserRoleReader:
             return [MSGraphOnenoteUserRole reader];
         case MSGraphOnenoteUserRoleEndOfEnum:
@@ -84,12 +84,12 @@
 
     switch(self.enumValue)
     {
+        case MSGraphOnenoteUserRoleNone:
+            return @"None";
         case MSGraphOnenoteUserRoleOwner:
             return @"Owner";
         case MSGraphOnenoteUserRoleContributor:
             return @"Contributor";
-        case MSGraphOnenoteUserRoleNone:
-            return @"None";
         case MSGraphOnenoteUserRoleReader:
             return @"Reader";
         case MSGraphOnenoteUserRoleEndOfEnum:
@@ -110,17 +110,17 @@
 
 - (MSGraphOnenoteUserRole*) toMSGraphOnenoteUserRole{
 
-    if([self isEqualToString:@"Owner"])
+    if([self isEqualToString:@"None"])
+    {
+          return [MSGraphOnenoteUserRole none];
+    }
+    else if([self isEqualToString:@"Owner"])
     {
           return [MSGraphOnenoteUserRole owner];
     }
     else if([self isEqualToString:@"Contributor"])
     {
           return [MSGraphOnenoteUserRole contributor];
-    }
-    else if([self isEqualToString:@"None"])
-    {
-          return [MSGraphOnenoteUserRole none];
     }
     else if([self isEqualToString:@"Reader"])
     {

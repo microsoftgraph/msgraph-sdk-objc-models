@@ -1,7 +1,7 @@
 // Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 
 
-@class MSGraphCloudAppSecurityState, MSGraphFileSecurityState, MSGraphAlertHistoryState, MSGraphHostSecurityState, MSGraphMalwareState, MSGraphNetworkConnection, MSGraphProcess, MSGraphRegistryKeyState, MSGraphSecurityResource, MSGraphAlertTrigger, MSGraphUserSecurityState, MSGraphSecurityVendorInformation, MSGraphVulnerabilityState; 
+@class MSGraphAlertDetection, MSGraphCloudAppSecurityState, MSGraphFileSecurityState, MSGraphAlertHistoryState, MSGraphHostSecurityState, MSGraphInvestigationSecurityState, MSGraphMalwareState, MSGraphMessageSecurityState, MSGraphNetworkConnection, MSGraphProcess, MSGraphRegistryKeyState, MSGraphSecurityResource, MSGraphAlertTrigger, MSGraphUriClickSecurityState, MSGraphUserSecurityState, MSGraphSecurityVendorInformation, MSGraphVulnerabilityState; 
 #import "MSGraphAlertFeedback.h"
 #import "MSGraphAlertSeverity.h"
 #import "MSGraphAlertStatus.h"
@@ -12,6 +12,7 @@
 @interface MSGraphAlert : MSGraphEntity
 
   @property (nullable, nonatomic, setter=setActivityGroupName:, getter=activityGroupName) NSString* activityGroupName;
+    @property (nullable, nonatomic, setter=setAlertDetections:, getter=alertDetections) NSArray* alertDetections;
     @property (nullable, nonatomic, setter=setAssignedTo:, getter=assignedTo) NSString* assignedTo;
     @property (nullable, nonatomic, setter=setAzureSubscriptionId:, getter=azureSubscriptionId) NSString* azureSubscriptionId;
     @property (nonnull, nonatomic, setter=setAzureTenantId:, getter=azureTenantId) NSString* azureTenantId;
@@ -29,8 +30,11 @@
     @property (nullable, nonatomic, setter=setHistoryStates:, getter=historyStates) NSArray* historyStates;
     @property (nullable, nonatomic, setter=setHostStates:, getter=hostStates) NSArray* hostStates;
     @property (nullable, nonatomic, setter=setIncidentIds:, getter=incidentIds) NSArray* incidentIds;
+    @property (nullable, nonatomic, setter=setInvestigationSecurityStates:, getter=investigationSecurityStates) NSArray* investigationSecurityStates;
+    @property (nullable, nonatomic, setter=setLastEventDateTime:, getter=lastEventDateTime) NSDate* lastEventDateTime;
     @property (nullable, nonatomic, setter=setLastModifiedDateTime:, getter=lastModifiedDateTime) NSDate* lastModifiedDateTime;
     @property (nullable, nonatomic, setter=setMalwareStates:, getter=malwareStates) NSArray* malwareStates;
+    @property (nullable, nonatomic, setter=setMessageSecurityStates:, getter=messageSecurityStates) NSArray* messageSecurityStates;
     @property (nullable, nonatomic, setter=setNetworkConnections:, getter=networkConnections) NSArray* networkConnections;
     @property (nullable, nonatomic, setter=setProcesses:, getter=processes) NSArray* processes;
     @property (nullable, nonatomic, setter=setRecommendedActions:, getter=recommendedActions) NSArray* recommendedActions;
@@ -42,6 +46,7 @@
     @property (nullable, nonatomic, setter=setTags:, getter=tags) NSArray* tags;
     @property (nullable, nonatomic, setter=setTitle:, getter=title) NSString* title;
     @property (nullable, nonatomic, setter=setTriggers:, getter=triggers) NSArray* triggers;
+    @property (nullable, nonatomic, setter=setUriClickSecurityStates:, getter=uriClickSecurityStates) NSArray* uriClickSecurityStates;
     @property (nullable, nonatomic, setter=setUserStates:, getter=userStates) NSArray* userStates;
     @property (nullable, nonatomic, setter=setVendorInformation:, getter=vendorInformation) MSGraphSecurityVendorInformation* vendorInformation;
     @property (nullable, nonatomic, setter=setVulnerabilityStates:, getter=vulnerabilityStates) NSArray* vulnerabilityStates;

@@ -244,12 +244,12 @@
 
     switch(val)
     {
+        case MSGraphSecurityNetworkProtocolUnknown:
+            return [MSGraphSecurityNetworkProtocol unknown];
         case MSGraphSecurityNetworkProtocolIp:
             return [MSGraphSecurityNetworkProtocol ip];
         case MSGraphSecurityNetworkProtocolIcmp:
             return [MSGraphSecurityNetworkProtocol icmp];
-        case MSGraphSecurityNetworkProtocolUnknown:
-            return [MSGraphSecurityNetworkProtocol unknown];
         case MSGraphSecurityNetworkProtocolIgmp:
             return [MSGraphSecurityNetworkProtocol igmp];
         case MSGraphSecurityNetworkProtocolGgp:
@@ -304,12 +304,12 @@
 
     switch(self.enumValue)
     {
+        case MSGraphSecurityNetworkProtocolUnknown:
+            return @"unknown";
         case MSGraphSecurityNetworkProtocolIp:
             return @"ip";
         case MSGraphSecurityNetworkProtocolIcmp:
             return @"icmp";
-        case MSGraphSecurityNetworkProtocolUnknown:
-            return @"unknown";
         case MSGraphSecurityNetworkProtocolIgmp:
             return @"igmp";
         case MSGraphSecurityNetworkProtocolGgp:
@@ -370,17 +370,17 @@
 
 - (MSGraphSecurityNetworkProtocol*) toMSGraphSecurityNetworkProtocol{
 
-    if([self isEqualToString:@"ip"])
+    if([self isEqualToString:@"unknown"])
+    {
+          return [MSGraphSecurityNetworkProtocol unknown];
+    }
+    else if([self isEqualToString:@"ip"])
     {
           return [MSGraphSecurityNetworkProtocol ip];
     }
     else if([self isEqualToString:@"icmp"])
     {
           return [MSGraphSecurityNetworkProtocol icmp];
-    }
-    else if([self isEqualToString:@"unknown"])
-    {
-          return [MSGraphSecurityNetworkProtocol unknown];
     }
     else if([self isEqualToString:@"igmp"])
     {

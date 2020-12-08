@@ -15,6 +15,7 @@
 @interface MSGraphAlert()
 {
     NSString* _activityGroupName;
+    NSArray* _alertDetections;
     NSString* _assignedTo;
     NSString* _azureSubscriptionId;
     NSString* _azureTenantId;
@@ -32,8 +33,11 @@
     NSArray* _historyStates;
     NSArray* _hostStates;
     NSArray* _incidentIds;
+    NSArray* _investigationSecurityStates;
+    NSDate* _lastEventDateTime;
     NSDate* _lastModifiedDateTime;
     NSArray* _malwareStates;
+    NSArray* _messageSecurityStates;
     NSArray* _networkConnections;
     NSArray* _processes;
     NSArray* _recommendedActions;
@@ -45,6 +49,7 @@
     NSArray* _tags;
     NSString* _title;
     NSArray* _triggers;
+    NSArray* _uriClickSecurityStates;
     NSArray* _userStates;
     MSGraphSecurityVendorInformation* _vendorInformation;
     NSArray* _vulnerabilityStates;
@@ -72,6 +77,31 @@
 - (void) setActivityGroupName: (NSString*) val
 {
     self.dictionary[@"activityGroupName"] = val;
+}
+
+- (NSArray*) alertDetections
+{
+    if(!_alertDetections){
+        
+    NSMutableArray *alertDetectionsResult = [NSMutableArray array];
+    NSArray *alertDetections = self.dictionary[@"alertDetections"];
+
+    if ([alertDetections isKindOfClass:[NSArray class]]){
+        for (id tempAlertDetection in alertDetections){
+            [alertDetectionsResult addObject:tempAlertDetection];
+        }
+    }
+
+    _alertDetections = alertDetectionsResult;
+        
+    }
+    return _alertDetections;
+}
+
+- (void) setAlertDetections: (NSArray*) val
+{
+    _alertDetections = val;
+    self.dictionary[@"alertDetections"] = val;
 }
 
 - (NSString*) assignedTo
@@ -350,6 +380,45 @@
     self.dictionary[@"incidentIds"] = val;
 }
 
+- (NSArray*) investigationSecurityStates
+{
+    if(!_investigationSecurityStates){
+        
+    NSMutableArray *investigationSecurityStatesResult = [NSMutableArray array];
+    NSArray *investigationSecurityStates = self.dictionary[@"investigationSecurityStates"];
+
+    if ([investigationSecurityStates isKindOfClass:[NSArray class]]){
+        for (id tempInvestigationSecurityState in investigationSecurityStates){
+            [investigationSecurityStatesResult addObject:tempInvestigationSecurityState];
+        }
+    }
+
+    _investigationSecurityStates = investigationSecurityStatesResult;
+        
+    }
+    return _investigationSecurityStates;
+}
+
+- (void) setInvestigationSecurityStates: (NSArray*) val
+{
+    _investigationSecurityStates = val;
+    self.dictionary[@"investigationSecurityStates"] = val;
+}
+
+- (NSDate*) lastEventDateTime
+{
+    if(!_lastEventDateTime){
+        _lastEventDateTime = [NSDate ms_dateFromString: self.dictionary[@"lastEventDateTime"]];
+    }
+    return _lastEventDateTime;
+}
+
+- (void) setLastEventDateTime: (NSDate*) val
+{
+    _lastEventDateTime = val;
+    self.dictionary[@"lastEventDateTime"] = [val ms_toString];
+}
+
 - (NSDate*) lastModifiedDateTime
 {
     if(!_lastModifiedDateTime){
@@ -387,6 +456,31 @@
 {
     _malwareStates = val;
     self.dictionary[@"malwareStates"] = val;
+}
+
+- (NSArray*) messageSecurityStates
+{
+    if(!_messageSecurityStates){
+        
+    NSMutableArray *messageSecurityStatesResult = [NSMutableArray array];
+    NSArray *messageSecurityStates = self.dictionary[@"messageSecurityStates"];
+
+    if ([messageSecurityStates isKindOfClass:[NSArray class]]){
+        for (id tempMessageSecurityState in messageSecurityStates){
+            [messageSecurityStatesResult addObject:tempMessageSecurityState];
+        }
+    }
+
+    _messageSecurityStates = messageSecurityStatesResult;
+        
+    }
+    return _messageSecurityStates;
+}
+
+- (void) setMessageSecurityStates: (NSArray*) val
+{
+    _messageSecurityStates = val;
+    self.dictionary[@"messageSecurityStates"] = val;
 }
 
 - (NSArray*) networkConnections
@@ -596,6 +690,31 @@
 {
     _triggers = val;
     self.dictionary[@"triggers"] = val;
+}
+
+- (NSArray*) uriClickSecurityStates
+{
+    if(!_uriClickSecurityStates){
+        
+    NSMutableArray *uriClickSecurityStatesResult = [NSMutableArray array];
+    NSArray *uriClickSecurityStates = self.dictionary[@"uriClickSecurityStates"];
+
+    if ([uriClickSecurityStates isKindOfClass:[NSArray class]]){
+        for (id tempUriClickSecurityState in uriClickSecurityStates){
+            [uriClickSecurityStatesResult addObject:tempUriClickSecurityState];
+        }
+    }
+
+    _uriClickSecurityStates = uriClickSecurityStatesResult;
+        
+    }
+    return _uriClickSecurityStates;
+}
+
+- (void) setUriClickSecurityStates: (NSArray*) val
+{
+    _uriClickSecurityStates = val;
+    self.dictionary[@"uriClickSecurityStates"] = val;
 }
 
 - (NSArray*) userStates

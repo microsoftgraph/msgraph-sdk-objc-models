@@ -19,6 +19,7 @@
     @property (nullable, nonatomic, setter=setBodyPreview:, getter=bodyPreview) NSString* bodyPreview;
     @property (nullable, nonatomic, setter=setEnd:, getter=end) MSGraphDateTimeTimeZone* end;
     @property (nonatomic, setter=setHasAttachments:, getter=hasAttachments) BOOL hasAttachments;
+    @property (nonatomic, setter=setHideAttendees:, getter=hideAttendees) BOOL hideAttendees;
     @property (nullable, nonatomic, setter=setICalUId:, getter=iCalUId) NSString* iCalUId;
     @property (nullable, nonatomic, setter=setImportance:, getter=importance) MSGraphImportance* importance;
     @property (nonatomic, setter=setIsAllDay:, getter=isAllDay) BOOL isAllDay;

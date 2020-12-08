@@ -1,7 +1,7 @@
 // Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 
 
-@class MSGraphAssignedLicense, MSGraphAssignedPlan, MSGraphObjectIdentity, MSGraphLicenseAssignmentState, MSGraphOnPremisesExtensionAttributes, MSGraphOnPremisesProvisioningError, MSGraphPasswordProfile, MSGraphProvisionedPlan, MSGraphMailboxSettings, MSGraphAppRoleAssignment, MSGraphDirectoryObject, MSGraphLicenseDetails, MSGraphOAuth2PermissionGrant, MSGraphScopedRoleMembership, MSGraphCalendar, MSGraphCalendarGroup, MSGraphEvent, MSGraphContactFolder, MSGraphContact, MSGraphInferenceClassification, MSGraphMailFolder, MSGraphMessage, MSGraphOutlookUser, MSGraphPerson, MSGraphProfilePhoto, MSGraphDrive, MSGraphSite, MSGraphExtension, MSGraphManagedDevice, MSGraphManagedAppRegistration, MSGraphDeviceManagementTroubleshootingEvent, MSGraphPlannerUser, MSGraphOfficeGraphInsights, MSGraphUserSettings, MSGraphOnenote, MSGraphUserActivity, MSGraphOnlineMeeting, MSGraphTeam, MSGraphUserTeamwork, MSGraphTodo; 
+@class MSGraphAssignedLicense, MSGraphAssignedPlan, MSGraphEmployeeOrgData, MSGraphObjectIdentity, MSGraphLicenseAssignmentState, MSGraphOnPremisesExtensionAttributes, MSGraphOnPremisesProvisioningError, MSGraphPasswordProfile, MSGraphProvisionedPlan, MSGraphMailboxSettings, MSGraphAppRoleAssignment, MSGraphDirectoryObject, MSGraphLicenseDetails, MSGraphOAuth2PermissionGrant, MSGraphScopedRoleMembership, MSGraphCalendar, MSGraphCalendarGroup, MSGraphEvent, MSGraphContactFolder, MSGraphContact, MSGraphInferenceClassification, MSGraphMailFolder, MSGraphMessage, MSGraphOutlookUser, MSGraphPerson, MSGraphProfilePhoto, MSGraphDrive, MSGraphSite, MSGraphExtension, MSGraphManagedDevice, MSGraphManagedAppRegistration, MSGraphDeviceManagementTroubleshootingEvent, MSGraphPlannerUser, MSGraphOfficeGraphInsights, MSGraphUserSettings, MSGraphOnenote, MSGraphUserActivity, MSGraphOnlineMeeting, MSGraphPresence, MSGraphTeam, MSGraphUserTeamwork, MSGraphTodo; 
 
 
 #import "MSGraphDirectoryObject.h"
@@ -21,7 +21,10 @@
     @property (nullable, nonatomic, setter=setCreationType:, getter=creationType) NSString* creationType;
     @property (nullable, nonatomic, setter=setDepartment:, getter=department) NSString* department;
     @property (nullable, nonatomic, setter=setDisplayName:, getter=displayName) NSString* displayName;
+    @property (nullable, nonatomic, setter=setEmployeeHireDate:, getter=employeeHireDate) NSDate* employeeHireDate;
     @property (nullable, nonatomic, setter=setEmployeeId:, getter=employeeId) NSString* employeeId;
+    @property (nullable, nonatomic, setter=setEmployeeOrgData:, getter=employeeOrgData) MSGraphEmployeeOrgData* employeeOrgData;
+    @property (nullable, nonatomic, setter=setEmployeeType:, getter=employeeType) NSString* employeeType;
     @property (nullable, nonatomic, setter=setExternalUserState:, getter=externalUserState) NSString* externalUserState;
     @property (nullable, nonatomic, setter=setExternalUserStateChangeDateTime:, getter=externalUserStateChangeDateTime) NSDate* externalUserStateChangeDateTime;
     @property (nullable, nonatomic, setter=setFaxNumber:, getter=faxNumber) NSString* faxNumber;
@@ -113,6 +116,7 @@
     @property (nullable, nonatomic, setter=setOnenote:, getter=onenote) MSGraphOnenote* onenote;
     @property (nullable, nonatomic, setter=setActivities:, getter=activities) NSArray* activities;
     @property (nullable, nonatomic, setter=setOnlineMeetings:, getter=onlineMeetings) NSArray* onlineMeetings;
+    @property (nullable, nonatomic, setter=setPresence:, getter=presence) MSGraphPresence* presence;
     @property (nullable, nonatomic, setter=setJoinedTeams:, getter=joinedTeams) NSArray* joinedTeams;
     @property (nullable, nonatomic, setter=setTeamwork:, getter=teamwork) MSGraphUserTeamwork* teamwork;
     @property (nullable, nonatomic, setter=setTodo:, getter=todo) MSGraphTodo* todo;

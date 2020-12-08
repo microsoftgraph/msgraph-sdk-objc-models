@@ -190,14 +190,6 @@
 
     switch(val)
     {
-        case MSGraphIosUpdatesInstallStatusSuccess:
-            return [MSGraphIosUpdatesInstallStatus success];
-        case MSGraphIosUpdatesInstallStatusAvailable:
-            return [MSGraphIosUpdatesInstallStatus available];
-        case MSGraphIosUpdatesInstallStatusIdle:
-            return [MSGraphIosUpdatesInstallStatus idle];
-        case MSGraphIosUpdatesInstallStatusUnknown:
-            return [MSGraphIosUpdatesInstallStatus unknown];
         case MSGraphIosUpdatesInstallStatusDeviceOsHigherThanDesiredOsVersion:
             return [MSGraphIosUpdatesInstallStatus deviceOsHigherThanDesiredOsVersion];
         case MSGraphIosUpdatesInstallStatusSharedDeviceUserLoggedInError:
@@ -226,6 +218,14 @@
             return [MSGraphIosUpdatesInstallStatus downloadFailed];
         case MSGraphIosUpdatesInstallStatusDownloading:
             return [MSGraphIosUpdatesInstallStatus downloading];
+        case MSGraphIosUpdatesInstallStatusSuccess:
+            return [MSGraphIosUpdatesInstallStatus success];
+        case MSGraphIosUpdatesInstallStatusAvailable:
+            return [MSGraphIosUpdatesInstallStatus available];
+        case MSGraphIosUpdatesInstallStatusIdle:
+            return [MSGraphIosUpdatesInstallStatus idle];
+        case MSGraphIosUpdatesInstallStatusUnknown:
+            return [MSGraphIosUpdatesInstallStatus unknown];
         case MSGraphIosUpdatesInstallStatusEndOfEnum:
         default:
             return [MSGraphIosUpdatesInstallStatus UnknownEnumValue];
@@ -238,14 +238,6 @@
 
     switch(self.enumValue)
     {
-        case MSGraphIosUpdatesInstallStatusSuccess:
-            return @"success";
-        case MSGraphIosUpdatesInstallStatusAvailable:
-            return @"available";
-        case MSGraphIosUpdatesInstallStatusIdle:
-            return @"idle";
-        case MSGraphIosUpdatesInstallStatusUnknown:
-            return @"unknown";
         case MSGraphIosUpdatesInstallStatusDeviceOsHigherThanDesiredOsVersion:
             return @"deviceOsHigherThanDesiredOsVersion";
         case MSGraphIosUpdatesInstallStatusSharedDeviceUserLoggedInError:
@@ -274,6 +266,14 @@
             return @"downloadFailed";
         case MSGraphIosUpdatesInstallStatusDownloading:
             return @"downloading";
+        case MSGraphIosUpdatesInstallStatusSuccess:
+            return @"success";
+        case MSGraphIosUpdatesInstallStatusAvailable:
+            return @"available";
+        case MSGraphIosUpdatesInstallStatusIdle:
+            return @"idle";
+        case MSGraphIosUpdatesInstallStatusUnknown:
+            return @"unknown";
         case MSGraphIosUpdatesInstallStatusEndOfEnum:
         default:
             return nil;
@@ -292,23 +292,7 @@
 
 - (MSGraphIosUpdatesInstallStatus*) toMSGraphIosUpdatesInstallStatus{
 
-    if([self isEqualToString:@"success"])
-    {
-          return [MSGraphIosUpdatesInstallStatus success];
-    }
-    else if([self isEqualToString:@"available"])
-    {
-          return [MSGraphIosUpdatesInstallStatus available];
-    }
-    else if([self isEqualToString:@"idle"])
-    {
-          return [MSGraphIosUpdatesInstallStatus idle];
-    }
-    else if([self isEqualToString:@"unknown"])
-    {
-          return [MSGraphIosUpdatesInstallStatus unknown];
-    }
-    else if([self isEqualToString:@"deviceOsHigherThanDesiredOsVersion"])
+    if([self isEqualToString:@"deviceOsHigherThanDesiredOsVersion"])
     {
           return [MSGraphIosUpdatesInstallStatus deviceOsHigherThanDesiredOsVersion];
     }
@@ -363,6 +347,22 @@
     else if([self isEqualToString:@"downloading"])
     {
           return [MSGraphIosUpdatesInstallStatus downloading];
+    }
+    else if([self isEqualToString:@"success"])
+    {
+          return [MSGraphIosUpdatesInstallStatus success];
+    }
+    else if([self isEqualToString:@"available"])
+    {
+          return [MSGraphIosUpdatesInstallStatus available];
+    }
+    else if([self isEqualToString:@"idle"])
+    {
+          return [MSGraphIosUpdatesInstallStatus idle];
+    }
+    else if([self isEqualToString:@"unknown"])
+    {
+          return [MSGraphIosUpdatesInstallStatus unknown];
     }
     else {
         return [MSGraphIosUpdatesInstallStatus UnknownEnumValue];

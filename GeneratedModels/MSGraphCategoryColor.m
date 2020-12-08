@@ -262,12 +262,12 @@
 
     switch(val)
     {
+        case MSGraphCategoryColorNone:
+            return [MSGraphCategoryColor none];
         case MSGraphCategoryColorPreset0:
             return [MSGraphCategoryColor preset0];
         case MSGraphCategoryColorPreset1:
             return [MSGraphCategoryColor preset1];
-        case MSGraphCategoryColorNone:
-            return [MSGraphCategoryColor none];
         case MSGraphCategoryColorPreset2:
             return [MSGraphCategoryColor preset2];
         case MSGraphCategoryColorPreset3:
@@ -326,12 +326,12 @@
 
     switch(self.enumValue)
     {
+        case MSGraphCategoryColorNone:
+            return @"none";
         case MSGraphCategoryColorPreset0:
             return @"preset0";
         case MSGraphCategoryColorPreset1:
             return @"preset1";
-        case MSGraphCategoryColorNone:
-            return @"none";
         case MSGraphCategoryColorPreset2:
             return @"preset2";
         case MSGraphCategoryColorPreset3:
@@ -396,17 +396,17 @@
 
 - (MSGraphCategoryColor*) toMSGraphCategoryColor{
 
-    if([self isEqualToString:@"preset0"])
+    if([self isEqualToString:@"none"])
+    {
+          return [MSGraphCategoryColor none];
+    }
+    else if([self isEqualToString:@"preset0"])
     {
           return [MSGraphCategoryColor preset0];
     }
     else if([self isEqualToString:@"preset1"])
     {
           return [MSGraphCategoryColor preset1];
-    }
-    else if([self isEqualToString:@"none"])
-    {
-          return [MSGraphCategoryColor none];
     }
     else if([self isEqualToString:@"preset2"])
     {
