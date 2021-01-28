@@ -12,7 +12,8 @@ typedef NS_ENUM(NSInteger, MSGraphConditionalAccessGrantControlValue){
 	MSGraphConditionalAccessGrantControlDomainJoinedDevice = 3,
 	MSGraphConditionalAccessGrantControlApprovedApplication = 4,
 	MSGraphConditionalAccessGrantControlCompliantApplication = 5,
-	MSGraphConditionalAccessGrantControlUnknownFutureValue = 6,
+	MSGraphConditionalAccessGrantControlPasswordChange = 6,
+	MSGraphConditionalAccessGrantControlUnknownFutureValue = 7,
     MSGraphConditionalAccessGrantControlEndOfEnum
 };
 
@@ -24,6 +25,7 @@ typedef NS_ENUM(NSInteger, MSGraphConditionalAccessGrantControlValue){
 +(MSGraphConditionalAccessGrantControl*) domainJoinedDevice;
 +(MSGraphConditionalAccessGrantControl*) approvedApplication;
 +(MSGraphConditionalAccessGrantControl*) compliantApplication;
++(MSGraphConditionalAccessGrantControl*) passwordChange;
 +(MSGraphConditionalAccessGrantControl*) unknownFutureValue;
 
 +(MSGraphConditionalAccessGrantControl*) UnknownEnumValue;
