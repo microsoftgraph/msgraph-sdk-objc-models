@@ -310,6 +310,7 @@
 #import "MSGraphPublicClientApplication.h"
 #import "MSGraphRequiredResourceAccess.h"
 #import "MSGraphResourceAccess.h"
+#import "MSGraphSpaApplication.h"
 #import "MSGraphWebApplication.h"
 #import "MSGraphImplicitGrantSettings.h"
 #import "MSGraphSamlSingleSignOnSettings.h"

@@ -66,6 +66,15 @@
     });
     return _compliantApplication;
 }
++ (MSGraphConditionalAccessGrantControl*) passwordChange {
+    static MSGraphConditionalAccessGrantControl *_passwordChange;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        _passwordChange = [[MSGraphConditionalAccessGrantControl alloc] init];
+        _passwordChange.enumValue = MSGraphConditionalAccessGrantControlPasswordChange;
+    });
+    return _passwordChange;
+}
 + (MSGraphConditionalAccessGrantControl*) unknownFutureValue {
     static MSGraphConditionalAccessGrantControl *_unknownFutureValue;
     static dispatch_once_t onceToken;
@@ -103,6 +112,8 @@
             return [MSGraphConditionalAccessGrantControl approvedApplication];
         case MSGraphConditionalAccessGrantControlCompliantApplication:
             return [MSGraphConditionalAccessGrantControl compliantApplication];
+        case MSGraphConditionalAccessGrantControlPasswordChange:
+            return [MSGraphConditionalAccessGrantControl passwordChange];
         case MSGraphConditionalAccessGrantControlUnknownFutureValue:
             return [MSGraphConditionalAccessGrantControl unknownFutureValue];
         case MSGraphConditionalAccessGrantControlEndOfEnum:
@@ -129,6 +140,8 @@
             return @"approvedApplication";
         case MSGraphConditionalAccessGrantControlCompliantApplication:
             return @"compliantApplication";
+        case MSGraphConditionalAccessGrantControlPasswordChange:
+            return @"passwordChange";
         case MSGraphConditionalAccessGrantControlUnknownFutureValue:
             return @"unknownFutureValue";
         case MSGraphConditionalAccessGrantControlEndOfEnum:
@@ -172,6 +185,10 @@
     else if([self isEqualToString:@"compliantApplication"])
     {
           return [MSGraphConditionalAccessGrantControl compliantApplication];
+    }
+    else if([self isEqualToString:@"passwordChange"])
+    {
+          return [MSGraphConditionalAccessGrantControl passwordChange];
     }
     else if([self isEqualToString:@"unknownFutureValue"])
     {
