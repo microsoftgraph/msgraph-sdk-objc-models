@@ -19,6 +19,7 @@
     MSGraphConditionalAccessLocations* _locations;
     MSGraphConditionalAccessPlatforms* _platforms;
     NSArray* _signInRiskLevels;
+    NSArray* _userRiskLevels;
     MSGraphConditionalAccessUsers* _users;
 }
 @end
@@ -115,6 +116,31 @@
 {
     _signInRiskLevels = val;
     self.dictionary[@"signInRiskLevels"] = val;
+}
+
+- (NSArray*) userRiskLevels
+{
+    if(!_userRiskLevels){
+        
+    NSMutableArray *userRiskLevelsResult = [NSMutableArray array];
+    NSArray *userRiskLevels = self.dictionary[@"userRiskLevels"];
+
+    if ([userRiskLevels isKindOfClass:[NSArray class]]){
+        for (id tempRiskLevel in userRiskLevels){
+            [userRiskLevelsResult addObject:tempRiskLevel];
+        }
+    }
+
+    _userRiskLevels = userRiskLevelsResult;
+        
+    }
+    return _userRiskLevels;
+}
+
+- (void) setUserRiskLevels: (NSArray*) val
+{
+    _userRiskLevels = val;
+    self.dictionary[@"userRiskLevels"] = val;
 }
 
 - (MSGraphConditionalAccessUsers*) users

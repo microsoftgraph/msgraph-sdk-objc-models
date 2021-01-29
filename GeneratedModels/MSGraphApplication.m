@@ -37,6 +37,7 @@
     NSString* _publisherDomain;
     NSArray* _requiredResourceAccess;
     NSString* _signInAudience;
+    MSGraphSpaApplication* _spa;
     NSArray* _tags;
     NSString* _tokenEncryptionKeyId;
     MSGraphWebApplication* _web;
@@ -423,6 +424,20 @@
 - (void) setSignInAudience: (NSString*) val
 {
     self.dictionary[@"signInAudience"] = val;
+}
+
+- (MSGraphSpaApplication*) spa
+{
+    if(!_spa){
+        _spa = [[MSGraphSpaApplication alloc] initWithDictionary: self.dictionary[@"spa"]];
+    }
+    return _spa;
+}
+
+- (void) setSpa: (MSGraphSpaApplication*) val
+{
+    _spa = val;
+    self.dictionary[@"spa"] = val;
 }
 
 - (NSArray*) tags

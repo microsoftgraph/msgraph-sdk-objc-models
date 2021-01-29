@@ -16,6 +16,7 @@
 @property (nullable, nonatomic, setter=setLocations:, getter=locations) MSGraphConditionalAccessLocations* locations;
 @property (nullable, nonatomic, setter=setPlatforms:, getter=platforms) MSGraphConditionalAccessPlatforms* platforms;
 @property (nonnull, nonatomic, setter=setSignInRiskLevels:, getter=signInRiskLevels) NSArray* signInRiskLevels;
+@property (nonnull, nonatomic, setter=setUserRiskLevels:, getter=userRiskLevels) NSArray* userRiskLevels;
 @property (nonnull, nonatomic, setter=setUsers:, getter=users) MSGraphConditionalAccessUsers* users;
 
 @end
