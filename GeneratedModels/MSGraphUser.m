@@ -123,6 +123,7 @@
     NSArray* _activities;
     NSArray* _onlineMeetings;
     MSGraphPresence* _presence;
+    MSGraphAuthentication* _authentication;
     NSArray* _joinedTeams;
     MSGraphUserTeamwork* _teamwork;
     MSGraphTodo* _todo;
@@ -2025,6 +2026,20 @@
 {
     _presence = val;
     self.dictionary[@"presence"] = val;
+}
+
+- (MSGraphAuthentication*) authentication
+{
+    if(!_authentication){
+        _authentication = [[MSGraphAuthentication alloc] initWithDictionary: self.dictionary[@"authentication"]];
+    }
+    return _authentication;
+}
+
+- (void) setAuthentication: (MSGraphAuthentication*) val
+{
+    _authentication = val;
+    self.dictionary[@"authentication"] = val;
 }
 
 - (NSArray*) joinedTeams

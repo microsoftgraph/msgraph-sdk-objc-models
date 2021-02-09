@@ -26,6 +26,7 @@
     NSArray* _drives;
     NSArray* _items;
     NSArray* _lists;
+    NSArray* _permissions;
     NSArray* _sites;
     MSGraphOnenote* _onenote;
 }
@@ -261,6 +262,31 @@
 {
     _lists = val;
     self.dictionary[@"lists"] = val;
+}
+
+- (NSArray*) permissions
+{
+    if(!_permissions){
+        
+    NSMutableArray *permissionsResult = [NSMutableArray array];
+    NSArray *permissions = self.dictionary[@"permissions"];
+
+    if ([permissions isKindOfClass:[NSArray class]]){
+        for (id tempPermission in permissions){
+            [permissionsResult addObject:tempPermission];
+        }
+    }
+
+    _permissions = permissionsResult;
+        
+    }
+    return _permissions;
+}
+
+- (void) setPermissions: (NSArray*) val
+{
+    _permissions = val;
+    self.dictionary[@"permissions"] = val;
 }
 
 - (NSArray*) sites

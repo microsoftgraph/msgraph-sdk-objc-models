@@ -1,14 +1,15 @@
 // Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 
 
-@class MSGraphActivityBasedTimeoutPolicy, MSGraphAuthorizationPolicy, MSGraphClaimsMappingPolicy, MSGraphHomeRealmDiscoveryPolicy, MSGraphPermissionGrantPolicy, MSGraphTokenIssuancePolicy, MSGraphTokenLifetimePolicy, MSGraphConditionalAccessPolicy, MSGraphIdentitySecurityDefaultsEnforcementPolicy; 
+@class MSGraphAuthenticationMethodsPolicy, MSGraphActivityBasedTimeoutPolicy, MSGraphAuthorizationPolicy, MSGraphClaimsMappingPolicy, MSGraphHomeRealmDiscoveryPolicy, MSGraphPermissionGrantPolicy, MSGraphTokenIssuancePolicy, MSGraphTokenLifetimePolicy, MSGraphConditionalAccessPolicy, MSGraphIdentitySecurityDefaultsEnforcementPolicy; 
 
 
 #import "MSGraphEntity.h"
 
 @interface MSGraphPolicyRoot : MSGraphEntity
 
-  @property (nullable, nonatomic, setter=setActivityBasedTimeoutPolicies:, getter=activityBasedTimeoutPolicies) NSArray* activityBasedTimeoutPolicies;
+  @property (nullable, nonatomic, setter=setAuthenticationMethodsPolicy:, getter=authenticationMethodsPolicy) MSGraphAuthenticationMethodsPolicy* authenticationMethodsPolicy;
+    @property (nullable, nonatomic, setter=setActivityBasedTimeoutPolicies:, getter=activityBasedTimeoutPolicies) NSArray* activityBasedTimeoutPolicies;
     @property (nullable, nonatomic, setter=setAuthorizationPolicy:, getter=authorizationPolicy) MSGraphAuthorizationPolicy* authorizationPolicy;
     @property (nullable, nonatomic, setter=setClaimsMappingPolicies:, getter=claimsMappingPolicies) NSArray* claimsMappingPolicies;
     @property (nullable, nonatomic, setter=setHomeRealmDiscoveryPolicies:, getter=homeRealmDiscoveryPolicies) NSArray* homeRealmDiscoveryPolicies;

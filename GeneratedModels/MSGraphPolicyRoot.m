@@ -14,6 +14,7 @@
 
 @interface MSGraphPolicyRoot()
 {
+    MSGraphAuthenticationMethodsPolicy* _authenticationMethodsPolicy;
     NSArray* _activityBasedTimeoutPolicies;
     MSGraphAuthorizationPolicy* _authorizationPolicy;
     NSArray* _claimsMappingPolicies;
@@ -35,6 +36,20 @@
     }
     return self;
 }
+- (MSGraphAuthenticationMethodsPolicy*) authenticationMethodsPolicy
+{
+    if(!_authenticationMethodsPolicy){
+        _authenticationMethodsPolicy = [[MSGraphAuthenticationMethodsPolicy alloc] initWithDictionary: self.dictionary[@"authenticationMethodsPolicy"]];
+    }
+    return _authenticationMethodsPolicy;
+}
+
+- (void) setAuthenticationMethodsPolicy: (MSGraphAuthenticationMethodsPolicy*) val
+{
+    _authenticationMethodsPolicy = val;
+    self.dictionary[@"authenticationMethodsPolicy"] = val;
+}
+
 - (NSArray*) activityBasedTimeoutPolicies
 {
     if(!_activityBasedTimeoutPolicies){
