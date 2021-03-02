@@ -11,5 +11,6 @@
   @property (nullable, nonatomic, setter=setEducationOrganizationDescription:, getter=educationOrganizationDescription) NSString* educationOrganizationDescription;
     @property (nonnull, nonatomic, setter=setDisplayName:, getter=displayName) NSString* displayName;
     @property (nullable, nonatomic, setter=setExternalSource:, getter=externalSource) MSGraphEducationExternalSource* externalSource;
+    @property (nullable, nonatomic, setter=setExternalSourceDetail:, getter=externalSourceDetail) NSString* externalSourceDetail;
   
 @end

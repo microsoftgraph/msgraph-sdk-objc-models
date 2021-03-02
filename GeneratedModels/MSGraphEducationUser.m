@@ -22,6 +22,7 @@
     NSString* _department;
     NSString* _displayName;
     MSGraphEducationExternalSource* _externalSource;
+    NSString* _externalSourceDetail;
     NSString* _givenName;
     NSString* _mail;
     MSGraphPhysicalAddress* _mailingAddress;
@@ -29,6 +30,7 @@
     NSString* _middleName;
     NSString* _mobilePhone;
     NSString* _officeLocation;
+    MSGraphEducationOnPremisesInfo* _onPremisesInfo;
     NSString* _passwordPolicies;
     MSGraphPasswordProfile* _passwordProfile;
     NSString* _preferredLanguage;
@@ -45,6 +47,7 @@
     NSString* _userType;
     NSArray* _classes;
     NSArray* _schools;
+    NSArray* _taughtClasses;
     MSGraphUser* _user;
 }
 @end
@@ -186,6 +189,20 @@
     self.dictionary[@"externalSource"] = val;
 }
 
+- (NSString*) externalSourceDetail
+{
+    if([[NSNull null] isEqual:self.dictionary[@"externalSourceDetail"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"externalSourceDetail"];
+}
+
+- (void) setExternalSourceDetail: (NSString*) val
+{
+    self.dictionary[@"externalSourceDetail"] = val;
+}
+
 - (NSString*) givenName
 {
     if([[NSNull null] isEqual:self.dictionary[@"givenName"]])
@@ -282,6 +299,20 @@
 - (void) setOfficeLocation: (NSString*) val
 {
     self.dictionary[@"officeLocation"] = val;
+}
+
+- (MSGraphEducationOnPremisesInfo*) onPremisesInfo
+{
+    if(!_onPremisesInfo){
+        _onPremisesInfo = [[MSGraphEducationOnPremisesInfo alloc] initWithDictionary: self.dictionary[@"onPremisesInfo"]];
+    }
+    return _onPremisesInfo;
+}
+
+- (void) setOnPremisesInfo: (MSGraphEducationOnPremisesInfo*) val
+{
+    _onPremisesInfo = val;
+    self.dictionary[@"onPremisesInfo"] = val;
 }
 
 - (NSString*) passwordPolicies
@@ -537,6 +568,31 @@
 {
     _schools = val;
     self.dictionary[@"schools"] = val;
+}
+
+- (NSArray*) taughtClasses
+{
+    if(!_taughtClasses){
+        
+    NSMutableArray *taughtClassesResult = [NSMutableArray array];
+    NSArray *taughtClasses = self.dictionary[@"taughtClasses"];
+
+    if ([taughtClasses isKindOfClass:[NSArray class]]){
+        for (id tempEducationClass in taughtClasses){
+            [taughtClassesResult addObject:tempEducationClass];
+        }
+    }
+
+    _taughtClasses = taughtClassesResult;
+        
+    }
+    return _taughtClasses;
+}
+
+- (void) setTaughtClasses: (NSArray*) val
+{
+    _taughtClasses = val;
+    self.dictionary[@"taughtClasses"] = val;
 }
 
 - (MSGraphUser*) user

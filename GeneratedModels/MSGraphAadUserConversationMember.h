@@ -9,6 +9,7 @@
 @interface MSGraphAadUserConversationMember : MSGraphConversationMember
 
   @property (nullable, nonatomic, setter=setEmail:, getter=email) NSString* email;
+    @property (nullable, nonatomic, setter=setTenantId:, getter=tenantId) NSString* tenantId;
     @property (nullable, nonatomic, setter=setUserId:, getter=userId) NSString* userId;
     @property (nullable, nonatomic, setter=setUser:, getter=user) MSGraphUser* user;
   

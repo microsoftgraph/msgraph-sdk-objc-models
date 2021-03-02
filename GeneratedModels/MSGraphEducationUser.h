@@ -1,7 +1,7 @@
 // Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 
 
-@class MSGraphAssignedLicense, MSGraphAssignedPlan, MSGraphIdentitySet, MSGraphPhysicalAddress, MSGraphPasswordProfile, MSGraphProvisionedPlan, MSGraphEducationStudent, MSGraphEducationTeacher, MSGraphEducationClass, MSGraphEducationSchool, MSGraphUser; 
+@class MSGraphAssignedLicense, MSGraphAssignedPlan, MSGraphIdentitySet, MSGraphPhysicalAddress, MSGraphEducationOnPremisesInfo, MSGraphPasswordProfile, MSGraphProvisionedPlan, MSGraphEducationStudent, MSGraphEducationTeacher, MSGraphEducationClass, MSGraphEducationSchool, MSGraphUser; 
 #import "MSGraphEducationExternalSource.h"
 #import "MSGraphEducationUserRole.h"
 
@@ -18,6 +18,7 @@
     @property (nullable, nonatomic, setter=setDepartment:, getter=department) NSString* department;
     @property (nullable, nonatomic, setter=setDisplayName:, getter=displayName) NSString* displayName;
     @property (nullable, nonatomic, setter=setExternalSource:, getter=externalSource) MSGraphEducationExternalSource* externalSource;
+    @property (nullable, nonatomic, setter=setExternalSourceDetail:, getter=externalSourceDetail) NSString* externalSourceDetail;
     @property (nullable, nonatomic, setter=setGivenName:, getter=givenName) NSString* givenName;
     @property (nullable, nonatomic, setter=setMail:, getter=mail) NSString* mail;
     @property (nullable, nonatomic, setter=setMailingAddress:, getter=mailingAddress) MSGraphPhysicalAddress* mailingAddress;
@@ -25,6 +26,7 @@
     @property (nullable, nonatomic, setter=setMiddleName:, getter=middleName) NSString* middleName;
     @property (nullable, nonatomic, setter=setMobilePhone:, getter=mobilePhone) NSString* mobilePhone;
     @property (nullable, nonatomic, setter=setOfficeLocation:, getter=officeLocation) NSString* officeLocation;
+    @property (nullable, nonatomic, setter=setOnPremisesInfo:, getter=onPremisesInfo) MSGraphEducationOnPremisesInfo* onPremisesInfo;
     @property (nullable, nonatomic, setter=setPasswordPolicies:, getter=passwordPolicies) NSString* passwordPolicies;
     @property (nullable, nonatomic, setter=setPasswordProfile:, getter=passwordProfile) MSGraphPasswordProfile* passwordProfile;
     @property (nullable, nonatomic, setter=setPreferredLanguage:, getter=preferredLanguage) NSString* preferredLanguage;
@@ -41,6 +43,7 @@
     @property (nullable, nonatomic, setter=setUserType:, getter=userType) NSString* userType;
     @property (nullable, nonatomic, setter=setClasses:, getter=classes) NSArray* classes;
     @property (nullable, nonatomic, setter=setSchools:, getter=schools) NSArray* schools;
+    @property (nullable, nonatomic, setter=setTaughtClasses:, getter=taughtClasses) NSArray* taughtClasses;
     @property (nullable, nonatomic, setter=setUser:, getter=user) MSGraphUser* user;
   
 @end

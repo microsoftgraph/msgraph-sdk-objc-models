@@ -17,6 +17,7 @@
     NSString* _educationOrganizationDescription;
     NSString* _displayName;
     MSGraphEducationExternalSource* _externalSource;
+    NSString* _externalSourceDetail;
 }
 @end
 
@@ -58,6 +59,20 @@
 {
     _externalSource = val;
     self.dictionary[@"externalSource"] = val;
+}
+
+- (NSString*) externalSourceDetail
+{
+    if([[NSNull null] isEqual:self.dictionary[@"externalSourceDetail"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"externalSourceDetail"];
+}
+
+- (void) setExternalSourceDetail: (NSString*) val
+{
+    self.dictionary[@"externalSourceDetail"] = val;
 }
 
 

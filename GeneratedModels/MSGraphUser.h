@@ -1,7 +1,7 @@
 // Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 
 
-@class MSGraphAssignedLicense, MSGraphAssignedPlan, MSGraphEmployeeOrgData, MSGraphObjectIdentity, MSGraphLicenseAssignmentState, MSGraphOnPremisesExtensionAttributes, MSGraphOnPremisesProvisioningError, MSGraphPasswordProfile, MSGraphProvisionedPlan, MSGraphMailboxSettings, MSGraphAppRoleAssignment, MSGraphDirectoryObject, MSGraphLicenseDetails, MSGraphOAuth2PermissionGrant, MSGraphScopedRoleMembership, MSGraphCalendar, MSGraphCalendarGroup, MSGraphEvent, MSGraphContactFolder, MSGraphContact, MSGraphInferenceClassification, MSGraphMailFolder, MSGraphMessage, MSGraphOutlookUser, MSGraphPerson, MSGraphProfilePhoto, MSGraphDrive, MSGraphSite, MSGraphExtension, MSGraphManagedDevice, MSGraphManagedAppRegistration, MSGraphDeviceManagementTroubleshootingEvent, MSGraphPlannerUser, MSGraphOfficeGraphInsights, MSGraphUserSettings, MSGraphOnenote, MSGraphUserActivity, MSGraphOnlineMeeting, MSGraphPresence, MSGraphAuthentication, MSGraphTeam, MSGraphUserTeamwork, MSGraphTodo; 
+@class MSGraphAssignedLicense, MSGraphAssignedPlan, MSGraphEmployeeOrgData, MSGraphObjectIdentity, MSGraphLicenseAssignmentState, MSGraphOnPremisesExtensionAttributes, MSGraphOnPremisesProvisioningError, MSGraphPasswordProfile, MSGraphProvisionedPlan, MSGraphMailboxSettings, MSGraphAppRoleAssignment, MSGraphDirectoryObject, MSGraphLicenseDetails, MSGraphOAuth2PermissionGrant, MSGraphScopedRoleMembership, MSGraphCalendar, MSGraphCalendarGroup, MSGraphEvent, MSGraphContactFolder, MSGraphContact, MSGraphInferenceClassification, MSGraphMailFolder, MSGraphMessage, MSGraphOutlookUser, MSGraphPerson, MSGraphProfilePhoto, MSGraphDrive, MSGraphSite, MSGraphExtension, MSGraphAgreementAcceptance, MSGraphManagedDevice, MSGraphManagedAppRegistration, MSGraphDeviceManagementTroubleshootingEvent, MSGraphPlannerUser, MSGraphOfficeGraphInsights, MSGraphUserSettings, MSGraphOnenote, MSGraphUserActivity, MSGraphOnlineMeeting, MSGraphPresence, MSGraphAuthentication, MSGraphTeam, MSGraphUserTeamwork, MSGraphTodo; 
 
 
 #import "MSGraphDirectoryObject.h"
@@ -107,6 +107,7 @@
     @property (nullable, nonatomic, setter=setDrives:, getter=drives) NSArray* drives;
     @property (nullable, nonatomic, setter=setFollowedSites:, getter=followedSites) NSArray* followedSites;
     @property (nullable, nonatomic, setter=setExtensions:, getter=extensions) NSArray* extensions;
+    @property (nullable, nonatomic, setter=setAgreementAcceptances:, getter=agreementAcceptances) NSArray* agreementAcceptances;
     @property (nullable, nonatomic, setter=setManagedDevices:, getter=managedDevices) NSArray* managedDevices;
     @property (nullable, nonatomic, setter=setManagedAppRegistrations:, getter=managedAppRegistrations) NSArray* managedAppRegistrations;
     @property (nullable, nonatomic, setter=setDeviceManagementTroubleshootingEvents:, getter=deviceManagementTroubleshootingEvents) NSArray* deviceManagementTroubleshootingEvents;

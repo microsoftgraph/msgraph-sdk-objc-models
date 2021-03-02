@@ -16,6 +16,7 @@
 {
     NSString* _displayName;
     NSArray* _roles;
+    NSDate* _visibleHistoryStartDateTime;
 }
 @end
 
@@ -47,6 +48,20 @@
 - (void) setRoles: (NSArray*) val
 {
     self.dictionary[@"roles"] = val;
+}
+
+- (NSDate*) visibleHistoryStartDateTime
+{
+    if(!_visibleHistoryStartDateTime){
+        _visibleHistoryStartDateTime = [NSDate ms_dateFromString: self.dictionary[@"visibleHistoryStartDateTime"]];
+    }
+    return _visibleHistoryStartDateTime;
+}
+
+- (void) setVisibleHistoryStartDateTime: (NSDate*) val
+{
+    _visibleHistoryStartDateTime = val;
+    self.dictionary[@"visibleHistoryStartDateTime"] = [val ms_toString];
 }
 
 

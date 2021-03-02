@@ -1,7 +1,7 @@
 // Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 
 
-@class MSGraphPhysicalAddress, MSGraphIdentitySet, MSGraphEducationClass, MSGraphEducationUser; 
+@class MSGraphPhysicalAddress, MSGraphIdentitySet, MSGraphAdministrativeUnit, MSGraphEducationClass, MSGraphEducationUser; 
 
 
 #import "MSGraphEducationOrganization.h"
@@ -19,6 +19,7 @@
     @property (nullable, nonatomic, setter=setPrincipalEmail:, getter=principalEmail) NSString* principalEmail;
     @property (nullable, nonatomic, setter=setPrincipalName:, getter=principalName) NSString* principalName;
     @property (nullable, nonatomic, setter=setSchoolNumber:, getter=schoolNumber) NSString* schoolNumber;
+    @property (nullable, nonatomic, setter=setAdministrativeUnit:, getter=administrativeUnit) MSGraphAdministrativeUnit* administrativeUnit;
     @property (nullable, nonatomic, setter=setClasses:, getter=classes) NSArray* classes;
     @property (nullable, nonatomic, setter=setUsers:, getter=users) NSArray* users;
   
