@@ -36,6 +36,7 @@
     NSString* _tenantType;
     NSArray* _verifiedDomains;
     MSGraphMdmAuthority* _mobileDeviceManagementAuthority;
+    MSGraphOrganizationalBranding* _branding;
     NSArray* _certificateBasedAuthConfiguration;
     NSArray* _extensions;
 }
@@ -367,6 +368,20 @@
 {
     _mobileDeviceManagementAuthority = val;
     self.dictionary[@"mobileDeviceManagementAuthority"] = val;
+}
+
+- (MSGraphOrganizationalBranding*) branding
+{
+    if(!_branding){
+        _branding = [[MSGraphOrganizationalBranding alloc] initWithDictionary: self.dictionary[@"branding"]];
+    }
+    return _branding;
+}
+
+- (void) setBranding: (MSGraphOrganizationalBranding*) val
+{
+    _branding = val;
+    self.dictionary[@"branding"] = val;
 }
 
 - (NSArray*) certificateBasedAuthConfiguration

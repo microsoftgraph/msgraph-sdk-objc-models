@@ -15,12 +15,15 @@
 @interface MSGraphEducationClass()
 {
     NSString* _classCode;
+    MSGraphEducationCourse* _course;
     MSGraphIdentitySet* _createdBy;
     NSString* _educationClassDescription;
     NSString* _displayName;
     NSString* _externalId;
     NSString* _externalName;
     MSGraphEducationExternalSource* _externalSource;
+    NSString* _externalSourceDetail;
+    NSString* _grade;
     NSString* _mailNickname;
     MSGraphEducationTerm* _term;
     MSGraphGroup* _group;
@@ -51,6 +54,20 @@
 - (void) setClassCode: (NSString*) val
 {
     self.dictionary[@"classCode"] = val;
+}
+
+- (MSGraphEducationCourse*) course
+{
+    if(!_course){
+        _course = [[MSGraphEducationCourse alloc] initWithDictionary: self.dictionary[@"course"]];
+    }
+    return _course;
+}
+
+- (void) setCourse: (MSGraphEducationCourse*) val
+{
+    _course = val;
+    self.dictionary[@"course"] = val;
 }
 
 - (MSGraphIdentitySet*) createdBy
@@ -131,6 +148,34 @@
 {
     _externalSource = val;
     self.dictionary[@"externalSource"] = val;
+}
+
+- (NSString*) externalSourceDetail
+{
+    if([[NSNull null] isEqual:self.dictionary[@"externalSourceDetail"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"externalSourceDetail"];
+}
+
+- (void) setExternalSourceDetail: (NSString*) val
+{
+    self.dictionary[@"externalSourceDetail"] = val;
+}
+
+- (NSString*) grade
+{
+    if([[NSNull null] isEqual:self.dictionary[@"grade"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"grade"];
+}
+
+- (void) setGrade: (NSString*) val
+{
+    self.dictionary[@"grade"] = val;
 }
 
 - (NSString*) mailNickname

@@ -25,6 +25,7 @@
     NSString* _principalEmail;
     NSString* _principalName;
     NSString* _schoolNumber;
+    MSGraphAdministrativeUnit* _administrativeUnit;
     NSArray* _classes;
     NSArray* _users;
 }
@@ -191,6 +192,20 @@
 - (void) setSchoolNumber: (NSString*) val
 {
     self.dictionary[@"schoolNumber"] = val;
+}
+
+- (MSGraphAdministrativeUnit*) administrativeUnit
+{
+    if(!_administrativeUnit){
+        _administrativeUnit = [[MSGraphAdministrativeUnit alloc] initWithDictionary: self.dictionary[@"administrativeUnit"]];
+    }
+    return _administrativeUnit;
+}
+
+- (void) setAdministrativeUnit: (MSGraphAdministrativeUnit*) val
+{
+    _administrativeUnit = val;
+    self.dictionary[@"administrativeUnit"] = val;
 }
 
 - (NSArray*) classes

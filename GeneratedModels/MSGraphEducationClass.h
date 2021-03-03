@@ -1,7 +1,7 @@
 // Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 
 
-@class MSGraphIdentitySet, MSGraphEducationTerm, MSGraphGroup, MSGraphEducationUser, MSGraphEducationSchool; 
+@class MSGraphEducationCourse, MSGraphIdentitySet, MSGraphEducationTerm, MSGraphGroup, MSGraphEducationUser, MSGraphEducationSchool; 
 #import "MSGraphEducationExternalSource.h"
 
 
@@ -10,12 +10,15 @@
 @interface MSGraphEducationClass : MSGraphEntity
 
   @property (nullable, nonatomic, setter=setClassCode:, getter=classCode) NSString* classCode;
+    @property (nullable, nonatomic, setter=setCourse:, getter=course) MSGraphEducationCourse* course;
     @property (nullable, nonatomic, setter=setCreatedBy:, getter=createdBy) MSGraphIdentitySet* createdBy;
     @property (nullable, nonatomic, setter=setEducationClassDescription:, getter=educationClassDescription) NSString* educationClassDescription;
     @property (nonnull, nonatomic, setter=setDisplayName:, getter=displayName) NSString* displayName;
     @property (nullable, nonatomic, setter=setExternalId:, getter=externalId) NSString* externalId;
     @property (nullable, nonatomic, setter=setExternalName:, getter=externalName) NSString* externalName;
     @property (nullable, nonatomic, setter=setExternalSource:, getter=externalSource) MSGraphEducationExternalSource* externalSource;
+    @property (nullable, nonatomic, setter=setExternalSourceDetail:, getter=externalSourceDetail) NSString* externalSourceDetail;
+    @property (nullable, nonatomic, setter=setGrade:, getter=grade) NSString* grade;
     @property (nonnull, nonatomic, setter=setMailNickname:, getter=mailNickname) NSString* mailNickname;
     @property (nullable, nonatomic, setter=setTerm:, getter=term) MSGraphEducationTerm* term;
     @property (nullable, nonatomic, setter=setGroup:, getter=group) MSGraphGroup* group;

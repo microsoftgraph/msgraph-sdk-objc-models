@@ -9,5 +9,6 @@
 
   @property (nullable, nonatomic, setter=setDisplayName:, getter=displayName) NSString* displayName;
     @property (nullable, nonatomic, setter=setRoles:, getter=roles) NSArray* roles;
+    @property (nullable, nonatomic, setter=setVisibleHistoryStartDateTime:, getter=visibleHistoryStartDateTime) NSDate* visibleHistoryStartDateTime;
   
 @end

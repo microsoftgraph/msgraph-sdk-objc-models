@@ -113,6 +113,7 @@
     NSArray* _drives;
     NSArray* _followedSites;
     NSArray* _extensions;
+    NSArray* _agreementAcceptances;
     NSArray* _managedDevices;
     NSArray* _managedAppRegistrations;
     NSArray* _deviceManagementTroubleshootingEvents;
@@ -1831,6 +1832,31 @@
 {
     _extensions = val;
     self.dictionary[@"extensions"] = val;
+}
+
+- (NSArray*) agreementAcceptances
+{
+    if(!_agreementAcceptances){
+        
+    NSMutableArray *agreementAcceptancesResult = [NSMutableArray array];
+    NSArray *agreementAcceptances = self.dictionary[@"agreementAcceptances"];
+
+    if ([agreementAcceptances isKindOfClass:[NSArray class]]){
+        for (id tempAgreementAcceptance in agreementAcceptances){
+            [agreementAcceptancesResult addObject:tempAgreementAcceptance];
+        }
+    }
+
+    _agreementAcceptances = agreementAcceptancesResult;
+        
+    }
+    return _agreementAcceptances;
+}
+
+- (void) setAgreementAcceptances: (NSArray*) val
+{
+    _agreementAcceptances = val;
+    self.dictionary[@"agreementAcceptances"] = val;
 }
 
 - (NSArray*) managedDevices
