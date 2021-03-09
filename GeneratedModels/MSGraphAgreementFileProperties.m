@@ -15,6 +15,7 @@
 @interface MSGraphAgreementFileProperties()
 {
     NSDate* _createdDateTime;
+    NSString* _displayName;
     MSGraphAgreementFileData* _fileData;
     NSString* _fileName;
     BOOL _isDefault;
@@ -44,6 +45,20 @@
 {
     _createdDateTime = val;
     self.dictionary[@"createdDateTime"] = [val ms_toString];
+}
+
+- (NSString*) displayName
+{
+    if([[NSNull null] isEqual:self.dictionary[@"displayName"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"displayName"];
+}
+
+- (void) setDisplayName: (NSString*) val
+{
+    self.dictionary[@"displayName"] = val;
 }
 
 - (MSGraphAgreementFileData*) fileData

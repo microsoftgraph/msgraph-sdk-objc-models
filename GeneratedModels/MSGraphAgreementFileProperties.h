@@ -9,6 +9,7 @@
 @interface MSGraphAgreementFileProperties : MSGraphEntity
 
   @property (nullable, nonatomic, setter=setCreatedDateTime:, getter=createdDateTime) NSDate* createdDateTime;
+    @property (nullable, nonatomic, setter=setDisplayName:, getter=displayName) NSString* displayName;
     @property (nullable, nonatomic, setter=setFileData:, getter=fileData) MSGraphAgreementFileData* fileData;
     @property (nullable, nonatomic, setter=setFileName:, getter=fileName) NSString* fileName;
     @property (nonatomic, setter=setIsDefault:, getter=isDefault) BOOL isDefault;
