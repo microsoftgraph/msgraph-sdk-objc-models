@@ -22,6 +22,7 @@
     NSArray* _permissionGrantPolicies;
     NSArray* _tokenIssuancePolicies;
     NSArray* _tokenLifetimePolicies;
+    NSArray* _featureRolloutPolicies;
     NSArray* _conditionalAccessPolicies;
     MSGraphIdentitySecurityDefaultsEnforcementPolicy* _identitySecurityDefaultsEnforcementPolicy;
 }
@@ -212,6 +213,31 @@
 {
     _tokenLifetimePolicies = val;
     self.dictionary[@"tokenLifetimePolicies"] = val;
+}
+
+- (NSArray*) featureRolloutPolicies
+{
+    if(!_featureRolloutPolicies){
+        
+    NSMutableArray *featureRolloutPoliciesResult = [NSMutableArray array];
+    NSArray *featureRolloutPolicies = self.dictionary[@"featureRolloutPolicies"];
+
+    if ([featureRolloutPolicies isKindOfClass:[NSArray class]]){
+        for (id tempFeatureRolloutPolicy in featureRolloutPolicies){
+            [featureRolloutPoliciesResult addObject:tempFeatureRolloutPolicy];
+        }
+    }
+
+    _featureRolloutPolicies = featureRolloutPoliciesResult;
+        
+    }
+    return _featureRolloutPolicies;
+}
+
+- (void) setFeatureRolloutPolicies: (NSArray*) val
+{
+    _featureRolloutPolicies = val;
+    self.dictionary[@"featureRolloutPolicies"] = val;
 }
 
 - (NSArray*) conditionalAccessPolicies
