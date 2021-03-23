@@ -3,9 +3,9 @@
 
 
 
-#import "MSGraphEntity.h"
+#import "MSGraphTeamworkHostedContent.h"
 
-@interface MSGraphChatMessageHostedContent : MSGraphEntity
+@interface MSGraphChatMessageHostedContent : MSGraphTeamworkHostedContent
 
 
 @end

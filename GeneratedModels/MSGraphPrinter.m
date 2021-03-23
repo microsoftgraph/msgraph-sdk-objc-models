@@ -16,6 +16,7 @@
 {
     BOOL _hasPhysicalDevice;
     BOOL _isShared;
+    NSDate* _lastSeenDateTime;
     NSDate* _registeredDateTime;
     NSArray* _connectors;
     NSArray* _shares;
@@ -54,6 +55,20 @@
 {
     _isShared = val;
     self.dictionary[@"isShared"] = @(val);
+}
+
+- (NSDate*) lastSeenDateTime
+{
+    if(!_lastSeenDateTime){
+        _lastSeenDateTime = [NSDate ms_dateFromString: self.dictionary[@"lastSeenDateTime"]];
+    }
+    return _lastSeenDateTime;
+}
+
+- (void) setLastSeenDateTime: (NSDate*) val
+{
+    _lastSeenDateTime = val;
+    self.dictionary[@"lastSeenDateTime"] = [val ms_toString];
 }
 
 - (NSDate*) registeredDateTime

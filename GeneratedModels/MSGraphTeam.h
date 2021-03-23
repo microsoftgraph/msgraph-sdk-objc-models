@@ -11,6 +11,7 @@
 @interface MSGraphTeam : MSGraphEntity
 
   @property (nullable, nonatomic, setter=setClassification:, getter=classification) NSString* classification;
+    @property (nullable, nonatomic, setter=setCreatedDateTime:, getter=createdDateTime) NSDate* createdDateTime;
     @property (nullable, nonatomic, setter=setTeamDescription:, getter=teamDescription) NSString* teamDescription;
     @property (nullable, nonatomic, setter=setDisplayName:, getter=displayName) NSString* displayName;
     @property (nullable, nonatomic, setter=setFunSettings:, getter=funSettings) MSGraphTeamFunSettings* funSettings;

@@ -10,6 +10,7 @@
 
   @property (nonatomic, setter=setHasPhysicalDevice:, getter=hasPhysicalDevice) BOOL hasPhysicalDevice;
     @property (nonatomic, setter=setIsShared:, getter=isShared) BOOL isShared;
+    @property (nullable, nonatomic, setter=setLastSeenDateTime:, getter=lastSeenDateTime) NSDate* lastSeenDateTime;
     @property (nonnull, nonatomic, setter=setRegisteredDateTime:, getter=registeredDateTime) NSDate* registeredDateTime;
     @property (nullable, nonatomic, setter=setConnectors:, getter=connectors) NSArray* connectors;
     @property (nullable, nonatomic, setter=setShares:, getter=shares) NSArray* shares;
