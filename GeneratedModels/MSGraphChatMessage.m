@@ -16,6 +16,8 @@
 {
     NSArray* _attachments;
     MSGraphItemBody* _body;
+    MSGraphChannelIdentity* _channelIdentity;
+    NSString* _chatId;
     NSDate* _createdDateTime;
     NSDate* _deletedDateTime;
     NSString* _etag;
@@ -83,6 +85,34 @@
 {
     _body = val;
     self.dictionary[@"body"] = val;
+}
+
+- (MSGraphChannelIdentity*) channelIdentity
+{
+    if(!_channelIdentity){
+        _channelIdentity = [[MSGraphChannelIdentity alloc] initWithDictionary: self.dictionary[@"channelIdentity"]];
+    }
+    return _channelIdentity;
+}
+
+- (void) setChannelIdentity: (MSGraphChannelIdentity*) val
+{
+    _channelIdentity = val;
+    self.dictionary[@"channelIdentity"] = val;
+}
+
+- (NSString*) chatId
+{
+    if([[NSNull null] isEqual:self.dictionary[@"chatId"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"chatId"];
+}
+
+- (void) setChatId: (NSString*) val
+{
+    self.dictionary[@"chatId"] = val;
 }
 
 - (NSDate*) createdDateTime

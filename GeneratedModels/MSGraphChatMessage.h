@@ -1,7 +1,7 @@
 // Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 
 
-@class MSGraphChatMessageAttachment, MSGraphItemBody, MSGraphIdentitySet, MSGraphChatMessageMention, MSGraphChatMessagePolicyViolation, MSGraphChatMessageReaction, MSGraphChatMessageHostedContent; 
+@class MSGraphChatMessageAttachment, MSGraphItemBody, MSGraphChannelIdentity, MSGraphIdentitySet, MSGraphChatMessageMention, MSGraphChatMessagePolicyViolation, MSGraphChatMessageReaction, MSGraphChatMessageHostedContent; 
 #import "MSGraphChatMessageImportance.h"
 #import "MSGraphChatMessageType.h"
 
@@ -12,6 +12,8 @@
 
   @property (nullable, nonatomic, setter=setAttachments:, getter=attachments) NSArray* attachments;
     @property (nonnull, nonatomic, setter=setBody:, getter=body) MSGraphItemBody* body;
+    @property (nullable, nonatomic, setter=setChannelIdentity:, getter=channelIdentity) MSGraphChannelIdentity* channelIdentity;
+    @property (nullable, nonatomic, setter=setChatId:, getter=chatId) NSString* chatId;
     @property (nullable, nonatomic, setter=setCreatedDateTime:, getter=createdDateTime) NSDate* createdDateTime;
     @property (nullable, nonatomic, setter=setDeletedDateTime:, getter=deletedDateTime) NSDate* deletedDateTime;
     @property (nullable, nonatomic, setter=setEtag:, getter=etag) NSString* etag;

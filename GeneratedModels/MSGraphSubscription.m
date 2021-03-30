@@ -24,6 +24,7 @@
     BOOL _includeResourceData;
     NSString* _latestSupportedTlsVersion;
     NSString* _lifecycleNotificationUrl;
+    NSString* _notificationQueryOptions;
     NSString* _notificationUrl;
     NSString* _resource;
 }
@@ -170,6 +171,20 @@
 - (void) setLifecycleNotificationUrl: (NSString*) val
 {
     self.dictionary[@"lifecycleNotificationUrl"] = val;
+}
+
+- (NSString*) notificationQueryOptions
+{
+    if([[NSNull null] isEqual:self.dictionary[@"notificationQueryOptions"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"notificationQueryOptions"];
+}
+
+- (void) setNotificationQueryOptions: (NSString*) val
+{
+    self.dictionary[@"notificationQueryOptions"] = val;
 }
 
 - (NSString*) notificationUrl

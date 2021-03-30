@@ -14,6 +14,7 @@
 
 @interface MSGraphIdentityGovernance()
 {
+    MSGraphAppConsentApprovalRoute* _appConsent;
     MSGraphTermsOfUseContainer* _termsOfUse;
 }
 @end
@@ -43,6 +44,20 @@
 {
     self.dictionary[@"@odata.etag"] = val;
 }
+- (MSGraphAppConsentApprovalRoute*) appConsent
+{
+    if(!_appConsent){
+        _appConsent = [[MSGraphAppConsentApprovalRoute alloc] initWithDictionary: self.dictionary[@"appConsent"]];
+    }
+    return _appConsent;
+}
+
+- (void) setAppConsent: (MSGraphAppConsentApprovalRoute*) val
+{
+    _appConsent = val;
+    self.dictionary[@"appConsent"] = val;
+}
+
 - (MSGraphTermsOfUseContainer*) termsOfUse
 {
     if(!_termsOfUse){

@@ -14,6 +14,7 @@
 
 @interface MSGraphChannel()
 {
+    NSDate* _createdDateTime;
     NSString* _channelDescription;
     NSString* _displayName;
     NSString* _email;
@@ -36,6 +37,20 @@
     }
     return self;
 }
+- (NSDate*) createdDateTime
+{
+    if(!_createdDateTime){
+        _createdDateTime = [NSDate ms_dateFromString: self.dictionary[@"createdDateTime"]];
+    }
+    return _createdDateTime;
+}
+
+- (void) setCreatedDateTime: (NSDate*) val
+{
+    _createdDateTime = val;
+    self.dictionary[@"createdDateTime"] = [val ms_toString];
+}
+
 - (NSString*) channelDescription
 {
     if([[NSNull null] isEqual:self.dictionary[@"description"]])
