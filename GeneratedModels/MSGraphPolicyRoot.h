@@ -1,7 +1,7 @@
 // Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 
 
-@class MSGraphAuthenticationMethodsPolicy, MSGraphActivityBasedTimeoutPolicy, MSGraphAuthorizationPolicy, MSGraphClaimsMappingPolicy, MSGraphHomeRealmDiscoveryPolicy, MSGraphPermissionGrantPolicy, MSGraphTokenIssuancePolicy, MSGraphTokenLifetimePolicy, MSGraphConditionalAccessPolicy, MSGraphIdentitySecurityDefaultsEnforcementPolicy; 
+@class MSGraphAuthenticationMethodsPolicy, MSGraphActivityBasedTimeoutPolicy, MSGraphAuthorizationPolicy, MSGraphClaimsMappingPolicy, MSGraphHomeRealmDiscoveryPolicy, MSGraphPermissionGrantPolicy, MSGraphTokenIssuancePolicy, MSGraphTokenLifetimePolicy, MSGraphFeatureRolloutPolicy, MSGraphAdminConsentRequestPolicy, MSGraphConditionalAccessPolicy, MSGraphIdentitySecurityDefaultsEnforcementPolicy; 
 
 
 #import "MSGraphEntity.h"
@@ -16,6 +16,8 @@
     @property (nullable, nonatomic, setter=setPermissionGrantPolicies:, getter=permissionGrantPolicies) NSArray* permissionGrantPolicies;
     @property (nullable, nonatomic, setter=setTokenIssuancePolicies:, getter=tokenIssuancePolicies) NSArray* tokenIssuancePolicies;
     @property (nullable, nonatomic, setter=setTokenLifetimePolicies:, getter=tokenLifetimePolicies) NSArray* tokenLifetimePolicies;
+    @property (nullable, nonatomic, setter=setFeatureRolloutPolicies:, getter=featureRolloutPolicies) NSArray* featureRolloutPolicies;
+    @property (nullable, nonatomic, setter=setAdminConsentRequestPolicy:, getter=adminConsentRequestPolicy) MSGraphAdminConsentRequestPolicy* adminConsentRequestPolicy;
     @property (nullable, nonatomic, setter=setConditionalAccessPolicies:, getter=conditionalAccessPolicies) NSArray* conditionalAccessPolicies;
     @property (nullable, nonatomic, setter=setIdentitySecurityDefaultsEnforcementPolicy:, getter=identitySecurityDefaultsEnforcementPolicy) MSGraphIdentitySecurityDefaultsEnforcementPolicy* identitySecurityDefaultsEnforcementPolicy;
   

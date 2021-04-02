@@ -1,7 +1,7 @@
 // Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 
 
-@class MSGraphTeamsAppInstallation, MSGraphConversationMember, MSGraphTeamsTab; 
+@class MSGraphTeamsAppInstallation, MSGraphConversationMember, MSGraphChatMessage, MSGraphTeamsTab; 
 #import "MSGraphChatType.h"
 
 
@@ -15,6 +15,7 @@
     @property (nullable, nonatomic, setter=setTopic:, getter=topic) NSString* topic;
     @property (nullable, nonatomic, setter=setInstalledApps:, getter=installedApps) NSArray* installedApps;
     @property (nullable, nonatomic, setter=setMembers:, getter=members) NSArray* members;
+    @property (nullable, nonatomic, setter=setMessages:, getter=messages) NSArray* messages;
     @property (nullable, nonatomic, setter=setTabs:, getter=tabs) NSArray* tabs;
   
 @end

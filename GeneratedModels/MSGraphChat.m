@@ -20,6 +20,7 @@
     NSString* _topic;
     NSArray* _installedApps;
     NSArray* _members;
+    NSArray* _messages;
     NSArray* _tabs;
 }
 @end
@@ -137,6 +138,31 @@
 {
     _members = val;
     self.dictionary[@"members"] = val;
+}
+
+- (NSArray*) messages
+{
+    if(!_messages){
+        
+    NSMutableArray *messagesResult = [NSMutableArray array];
+    NSArray *messages = self.dictionary[@"messages"];
+
+    if ([messages isKindOfClass:[NSArray class]]){
+        for (id tempChatMessage in messages){
+            [messagesResult addObject:tempChatMessage];
+        }
+    }
+
+    _messages = messagesResult;
+        
+    }
+    return _messages;
+}
+
+- (void) setMessages: (NSArray*) val
+{
+    _messages = val;
+    self.dictionary[@"messages"] = val;
 }
 
 - (NSArray*) tabs

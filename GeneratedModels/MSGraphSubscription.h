@@ -17,6 +17,7 @@
     @property (nonatomic, setter=setIncludeResourceData:, getter=includeResourceData) BOOL includeResourceData;
     @property (nullable, nonatomic, setter=setLatestSupportedTlsVersion:, getter=latestSupportedTlsVersion) NSString* latestSupportedTlsVersion;
     @property (nullable, nonatomic, setter=setLifecycleNotificationUrl:, getter=lifecycleNotificationUrl) NSString* lifecycleNotificationUrl;
+    @property (nullable, nonatomic, setter=setNotificationQueryOptions:, getter=notificationQueryOptions) NSString* notificationQueryOptions;
     @property (nonnull, nonatomic, setter=setNotificationUrl:, getter=notificationUrl) NSString* notificationUrl;
     @property (nonnull, nonatomic, setter=setResource:, getter=resource) NSString* resource;
   

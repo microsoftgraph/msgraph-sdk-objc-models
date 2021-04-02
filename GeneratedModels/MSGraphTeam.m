@@ -15,6 +15,7 @@
 @interface MSGraphTeam()
 {
     NSString* _classification;
+    NSDate* _createdDateTime;
     NSString* _teamDescription;
     NSString* _displayName;
     MSGraphTeamFunSettings* _funSettings;
@@ -58,6 +59,20 @@
 - (void) setClassification: (NSString*) val
 {
     self.dictionary[@"classification"] = val;
+}
+
+- (NSDate*) createdDateTime
+{
+    if(!_createdDateTime){
+        _createdDateTime = [NSDate ms_dateFromString: self.dictionary[@"createdDateTime"]];
+    }
+    return _createdDateTime;
+}
+
+- (void) setCreatedDateTime: (NSDate*) val
+{
+    _createdDateTime = val;
+    self.dictionary[@"createdDateTime"] = [val ms_toString];
 }
 
 - (NSString*) teamDescription

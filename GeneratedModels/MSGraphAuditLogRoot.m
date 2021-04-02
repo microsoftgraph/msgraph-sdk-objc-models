@@ -15,6 +15,7 @@
 @interface MSGraphAuditLogRoot()
 {
     NSArray* _directoryAudits;
+    NSArray* _provisioning;
     NSArray* _restrictedSignIns;
     NSArray* _signIns;
 }
@@ -52,6 +53,31 @@
 {
     _directoryAudits = val;
     self.dictionary[@"directoryAudits"] = val;
+}
+
+- (NSArray*) provisioning
+{
+    if(!_provisioning){
+        
+    NSMutableArray *provisioningResult = [NSMutableArray array];
+    NSArray *provisioning = self.dictionary[@"provisioning"];
+
+    if ([provisioning isKindOfClass:[NSArray class]]){
+        for (id tempProvisioningObjectSummary in provisioning){
+            [provisioningResult addObject:tempProvisioningObjectSummary];
+        }
+    }
+
+    _provisioning = provisioningResult;
+        
+    }
+    return _provisioning;
+}
+
+- (void) setProvisioning: (NSArray*) val
+{
+    _provisioning = val;
+    self.dictionary[@"provisioning"] = val;
 }
 
 - (NSArray*) restrictedSignIns
