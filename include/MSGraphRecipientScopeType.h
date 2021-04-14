@@ -1,0 +1,1 @@
+../GeneratedModels/MSGraphRecipientScopeType.h

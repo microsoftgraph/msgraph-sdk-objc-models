@@ -15,6 +15,17 @@ You can use [CocoaPods](https://cocoapods.org/) to remain up to date with our la
    pod 'MSGraphClientModels'
   ```
 
+### Using Swift Package Manager
+
+You can also chose to use [Swift Package Manager](https://swift.org/package-manager) for package management.
+Add the following `dependency` to your `Package.swift`:
+
+```swift
+dependencies: [
+	.package(url: "https://github.com/microsoftgraph/msgraph-sdk-objc-models.git", .upToNextMajor(from: "1.3.0"))
+]
+```
+
 
 ### Using Carthage
 

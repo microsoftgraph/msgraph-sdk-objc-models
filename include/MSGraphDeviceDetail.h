@@ -1,0 +1,1 @@
+../GeneratedModels/MSGraphDeviceDetail.h

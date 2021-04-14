@@ -3,9 +3,12 @@
 //
 
 #import <XCTest/XCTest.h>
+#if SWIFT_PACKAGE
+@import MSGraphClientModels;
+#else
 #import "MSObject.h"
 #import "NSDate+MSSerialization.h"
-
+#endif
 
 @interface MSObjectTests : XCTestCase
 
