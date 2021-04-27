@@ -14,42 +14,12 @@
 
 @interface MSGraphUserIdentity()
 {
-    NSString* _displayName;
-    NSString* _userIdentityId;
     NSString* _ipAddress;
     NSString* _userPrincipalName;
 }
 @end
 
 @implementation MSGraphUserIdentity
-
-- (NSString*) displayName
-{
-    if([[NSNull null] isEqual:self.dictionary[@"displayName"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"displayName"];
-}
-
-- (void) setDisplayName: (NSString*) val
-{
-    self.dictionary[@"displayName"] = val;
-}
-
-- (NSString*) userIdentityId
-{
-    if([[NSNull null] isEqual:self.dictionary[@"id"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"id"];
-}
-
-- (void) setUserIdentityId: (NSString*) val
-{
-    self.dictionary[@"id"] = val;
-}
 
 - (NSString*) ipAddress
 {
