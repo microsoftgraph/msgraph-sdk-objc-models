@@ -13,6 +13,9 @@ done
 
 #equivalent to:  s.public_header_files = "GeneratedModels/*.h"
 find ../GeneratedModels -name "*.h" | sort | uniq | while read header; do
-	ln -s ${header}
+	#prevents the linking of the umbrella header
+	if [ "${header}" != "../GeneratedModels/MSGraphClientModels.h" ]; then
+		ln -s ${header}
+	fi
 done
 
