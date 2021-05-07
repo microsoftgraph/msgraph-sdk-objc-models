@@ -15,7 +15,7 @@ let package = Package(
 		.target(
 			name: "MSGraphClientModels",
 			path: "",
-			exclude: ["MSGraphClienModelsTests"],
+			exclude: ["MSGraphClientModelsTests"],
 			sources: ["BaseModels",
 			          "GeneratedModels"],
 			publicHeadersPath: "include",
