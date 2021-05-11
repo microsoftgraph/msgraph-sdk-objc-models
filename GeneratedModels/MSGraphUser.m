@@ -125,6 +125,7 @@
     NSArray* _onlineMeetings;
     MSGraphPresence* _presence;
     MSGraphAuthentication* _authentication;
+    NSArray* _chats;
     NSArray* _joinedTeams;
     MSGraphUserTeamwork* _teamwork;
     MSGraphTodo* _todo;
@@ -2066,6 +2067,31 @@
 {
     _authentication = val;
     self.dictionary[@"authentication"] = val;
+}
+
+- (NSArray*) chats
+{
+    if(!_chats){
+        
+    NSMutableArray *chatsResult = [NSMutableArray array];
+    NSArray *chats = self.dictionary[@"chats"];
+
+    if ([chats isKindOfClass:[NSArray class]]){
+        for (id tempChat in chats){
+            [chatsResult addObject:tempChat];
+        }
+    }
+
+    _chats = chatsResult;
+        
+    }
+    return _chats;
+}
+
+- (void) setChats: (NSArray*) val
+{
+    _chats = val;
+    self.dictionary[@"chats"] = val;
 }
 
 - (NSArray*) joinedTeams

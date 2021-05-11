@@ -20,6 +20,7 @@
     MSGraphAllowInvitesFrom* _allowInvitesFrom;
     BOOL _blockMsolPowerShell;
     MSGraphDefaultUserRolePermissions* _defaultUserRolePermissions;
+    NSString* _guestUserRoleId;
 }
 @end
 
@@ -106,6 +107,20 @@
 {
     _defaultUserRolePermissions = val;
     self.dictionary[@"defaultUserRolePermissions"] = val;
+}
+
+- (NSString*) guestUserRoleId
+{
+    if([[NSNull null] isEqual:self.dictionary[@"guestUserRoleId"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"guestUserRoleId"];
+}
+
+- (void) setGuestUserRoleId: (NSString*) val
+{
+    self.dictionary[@"guestUserRoleId"] = val;
 }
 
 
