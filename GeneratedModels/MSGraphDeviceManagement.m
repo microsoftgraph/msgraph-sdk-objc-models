@@ -37,6 +37,8 @@
     NSArray* _detectedApps;
     MSGraphManagedDeviceOverview* _managedDeviceOverview;
     NSArray* _managedDevices;
+    NSArray* _importedWindowsAutopilotDeviceIdentities;
+    NSArray* _windowsAutopilotDeviceIdentities;
     NSArray* _notificationMessageTemplates;
     NSArray* _resourceOperations;
     NSArray* _roleAssignments;
@@ -517,6 +519,56 @@
 {
     _managedDevices = val;
     self.dictionary[@"managedDevices"] = val;
+}
+
+- (NSArray*) importedWindowsAutopilotDeviceIdentities
+{
+    if(!_importedWindowsAutopilotDeviceIdentities){
+        
+    NSMutableArray *importedWindowsAutopilotDeviceIdentitiesResult = [NSMutableArray array];
+    NSArray *importedWindowsAutopilotDeviceIdentities = self.dictionary[@"importedWindowsAutopilotDeviceIdentities"];
+
+    if ([importedWindowsAutopilotDeviceIdentities isKindOfClass:[NSArray class]]){
+        for (id tempImportedWindowsAutopilotDeviceIdentity in importedWindowsAutopilotDeviceIdentities){
+            [importedWindowsAutopilotDeviceIdentitiesResult addObject:tempImportedWindowsAutopilotDeviceIdentity];
+        }
+    }
+
+    _importedWindowsAutopilotDeviceIdentities = importedWindowsAutopilotDeviceIdentitiesResult;
+        
+    }
+    return _importedWindowsAutopilotDeviceIdentities;
+}
+
+- (void) setImportedWindowsAutopilotDeviceIdentities: (NSArray*) val
+{
+    _importedWindowsAutopilotDeviceIdentities = val;
+    self.dictionary[@"importedWindowsAutopilotDeviceIdentities"] = val;
+}
+
+- (NSArray*) windowsAutopilotDeviceIdentities
+{
+    if(!_windowsAutopilotDeviceIdentities){
+        
+    NSMutableArray *windowsAutopilotDeviceIdentitiesResult = [NSMutableArray array];
+    NSArray *windowsAutopilotDeviceIdentities = self.dictionary[@"windowsAutopilotDeviceIdentities"];
+
+    if ([windowsAutopilotDeviceIdentities isKindOfClass:[NSArray class]]){
+        for (id tempWindowsAutopilotDeviceIdentity in windowsAutopilotDeviceIdentities){
+            [windowsAutopilotDeviceIdentitiesResult addObject:tempWindowsAutopilotDeviceIdentity];
+        }
+    }
+
+    _windowsAutopilotDeviceIdentities = windowsAutopilotDeviceIdentitiesResult;
+        
+    }
+    return _windowsAutopilotDeviceIdentities;
+}
+
+- (void) setWindowsAutopilotDeviceIdentities: (NSArray*) val
+{
+    _windowsAutopilotDeviceIdentities = val;
+    self.dictionary[@"windowsAutopilotDeviceIdentities"] = val;
 }
 
 - (NSArray*) notificationMessageTemplates

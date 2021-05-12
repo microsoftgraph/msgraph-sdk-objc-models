@@ -4,10 +4,12 @@
 @class MSGraphEducationClass, MSGraphEducationUser, MSGraphEducationSchool; 
 
 
-#import "MSGraphEntity.h"
+#import "MSObject.h"
 
-@interface MSGraphEducationRoot : MSGraphEntity
+@interface MSGraphEducationRoot : MSObject
 
+  @property (nullable, nonatomic, setter=setODataType:, getter=oDataType) NSString *oDataType;
+  @property (nullable, nonatomic, setter=setODataEtag:, getter=oDataEtag) NSString *oDataEtag;
   @property (nullable, nonatomic, setter=setClasses:, getter=classes) NSArray* classes;
     @property (nullable, nonatomic, setter=setMe:, getter=me) MSGraphEducationUser* me;
     @property (nullable, nonatomic, setter=setSchools:, getter=schools) NSArray* schools;

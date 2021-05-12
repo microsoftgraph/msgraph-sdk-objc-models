@@ -15,5 +15,6 @@
     @property (nullable, nonatomic, setter=setAllowInvitesFrom:, getter=allowInvitesFrom) MSGraphAllowInvitesFrom* allowInvitesFrom;
     @property (nonatomic, setter=setBlockMsolPowerShell:, getter=blockMsolPowerShell) BOOL blockMsolPowerShell;
     @property (nonnull, nonatomic, setter=setDefaultUserRolePermissions:, getter=defaultUserRolePermissions) MSGraphDefaultUserRolePermissions* defaultUserRolePermissions;
+    @property (nullable, nonatomic, setter=setGuestUserRoleId:, getter=guestUserRoleId) NSString* guestUserRoleId;
   
 @end

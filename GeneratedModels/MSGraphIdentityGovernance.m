@@ -14,6 +14,7 @@
 
 @interface MSGraphIdentityGovernance()
 {
+    MSGraphAccessReviewSet* _accessReviews;
     MSGraphAppConsentApprovalRoute* _appConsent;
     MSGraphTermsOfUseContainer* _termsOfUse;
 }
@@ -44,6 +45,20 @@
 {
     self.dictionary[@"@odata.etag"] = val;
 }
+- (MSGraphAccessReviewSet*) accessReviews
+{
+    if(!_accessReviews){
+        _accessReviews = [[MSGraphAccessReviewSet alloc] initWithDictionary: self.dictionary[@"accessReviews"]];
+    }
+    return _accessReviews;
+}
+
+- (void) setAccessReviews: (MSGraphAccessReviewSet*) val
+{
+    _accessReviews = val;
+    self.dictionary[@"accessReviews"] = val;
+}
+
 - (MSGraphAppConsentApprovalRoute*) appConsent
 {
     if(!_appConsent){
