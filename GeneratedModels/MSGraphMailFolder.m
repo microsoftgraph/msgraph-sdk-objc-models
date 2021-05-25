@@ -16,6 +16,7 @@
 {
     int32_t _childFolderCount;
     NSString* _displayName;
+    BOOL _isHidden;
     NSString* _parentFolderId;
     int32_t _totalItemCount;
     int32_t _unreadItemCount;
@@ -60,6 +61,18 @@
 - (void) setDisplayName: (NSString*) val
 {
     self.dictionary[@"displayName"] = val;
+}
+
+- (BOOL) isHidden
+{
+    _isHidden = [self.dictionary[@"isHidden"] boolValue];
+    return _isHidden;
+}
+
+- (void) setIsHidden: (BOOL) val
+{
+    _isHidden = val;
+    self.dictionary[@"isHidden"] = @(val);
 }
 
 - (NSString*) parentFolderId
