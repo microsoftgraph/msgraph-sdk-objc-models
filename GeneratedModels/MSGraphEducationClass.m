@@ -26,6 +26,10 @@
     NSString* _grade;
     NSString* _mailNickname;
     MSGraphEducationTerm* _term;
+    NSArray* _assignmentCategories;
+    MSGraphEducationAssignmentDefaults* _assignmentDefaults;
+    NSArray* _assignments;
+    MSGraphEducationAssignmentSettings* _assignmentSettings;
     MSGraphGroup* _group;
     NSArray* _members;
     NSArray* _schools;
@@ -200,6 +204,84 @@
 {
     _term = val;
     self.dictionary[@"term"] = val;
+}
+
+- (NSArray*) assignmentCategories
+{
+    if(!_assignmentCategories){
+        
+    NSMutableArray *assignmentCategoriesResult = [NSMutableArray array];
+    NSArray *assignmentCategories = self.dictionary[@"assignmentCategories"];
+
+    if ([assignmentCategories isKindOfClass:[NSArray class]]){
+        for (id tempEducationCategory in assignmentCategories){
+            [assignmentCategoriesResult addObject:tempEducationCategory];
+        }
+    }
+
+    _assignmentCategories = assignmentCategoriesResult;
+        
+    }
+    return _assignmentCategories;
+}
+
+- (void) setAssignmentCategories: (NSArray*) val
+{
+    _assignmentCategories = val;
+    self.dictionary[@"assignmentCategories"] = val;
+}
+
+- (MSGraphEducationAssignmentDefaults*) assignmentDefaults
+{
+    if(!_assignmentDefaults){
+        _assignmentDefaults = [[MSGraphEducationAssignmentDefaults alloc] initWithDictionary: self.dictionary[@"assignmentDefaults"]];
+    }
+    return _assignmentDefaults;
+}
+
+- (void) setAssignmentDefaults: (MSGraphEducationAssignmentDefaults*) val
+{
+    _assignmentDefaults = val;
+    self.dictionary[@"assignmentDefaults"] = val;
+}
+
+- (NSArray*) assignments
+{
+    if(!_assignments){
+        
+    NSMutableArray *assignmentsResult = [NSMutableArray array];
+    NSArray *assignments = self.dictionary[@"assignments"];
+
+    if ([assignments isKindOfClass:[NSArray class]]){
+        for (id tempEducationAssignment in assignments){
+            [assignmentsResult addObject:tempEducationAssignment];
+        }
+    }
+
+    _assignments = assignmentsResult;
+        
+    }
+    return _assignments;
+}
+
+- (void) setAssignments: (NSArray*) val
+{
+    _assignments = val;
+    self.dictionary[@"assignments"] = val;
+}
+
+- (MSGraphEducationAssignmentSettings*) assignmentSettings
+{
+    if(!_assignmentSettings){
+        _assignmentSettings = [[MSGraphEducationAssignmentSettings alloc] initWithDictionary: self.dictionary[@"assignmentSettings"]];
+    }
+    return _assignmentSettings;
+}
+
+- (void) setAssignmentSettings: (MSGraphEducationAssignmentSettings*) val
+{
+    _assignmentSettings = val;
+    self.dictionary[@"assignmentSettings"] = val;
 }
 
 - (MSGraphGroup*) group

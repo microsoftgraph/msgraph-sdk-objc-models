@@ -102,6 +102,33 @@
     });
     return _windowsCoManagement;
 }
++ (MSGraphDeviceEnrollmentType*) windowsAzureADJoinUsingDeviceAuth {
+    static MSGraphDeviceEnrollmentType *_windowsAzureADJoinUsingDeviceAuth;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        _windowsAzureADJoinUsingDeviceAuth = [[MSGraphDeviceEnrollmentType alloc] init];
+        _windowsAzureADJoinUsingDeviceAuth.enumValue = MSGraphDeviceEnrollmentTypeWindowsAzureADJoinUsingDeviceAuth;
+    });
+    return _windowsAzureADJoinUsingDeviceAuth;
+}
++ (MSGraphDeviceEnrollmentType*) appleUserEnrollment {
+    static MSGraphDeviceEnrollmentType *_appleUserEnrollment;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        _appleUserEnrollment = [[MSGraphDeviceEnrollmentType alloc] init];
+        _appleUserEnrollment.enumValue = MSGraphDeviceEnrollmentTypeAppleUserEnrollment;
+    });
+    return _appleUserEnrollment;
+}
++ (MSGraphDeviceEnrollmentType*) appleUserEnrollmentWithServiceAccount {
+    static MSGraphDeviceEnrollmentType *_appleUserEnrollmentWithServiceAccount;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        _appleUserEnrollmentWithServiceAccount = [[MSGraphDeviceEnrollmentType alloc] init];
+        _appleUserEnrollmentWithServiceAccount.enumValue = MSGraphDeviceEnrollmentTypeAppleUserEnrollmentWithServiceAccount;
+    });
+    return _appleUserEnrollmentWithServiceAccount;
+}
 
 + (MSGraphDeviceEnrollmentType*) UnknownEnumValue {
     static MSGraphDeviceEnrollmentType *_unknownValue;
@@ -138,6 +165,12 @@
             return [MSGraphDeviceEnrollmentType windowsBulkAzureDomainJoin];
         case MSGraphDeviceEnrollmentTypeWindowsCoManagement:
             return [MSGraphDeviceEnrollmentType windowsCoManagement];
+        case MSGraphDeviceEnrollmentTypeWindowsAzureADJoinUsingDeviceAuth:
+            return [MSGraphDeviceEnrollmentType windowsAzureADJoinUsingDeviceAuth];
+        case MSGraphDeviceEnrollmentTypeAppleUserEnrollment:
+            return [MSGraphDeviceEnrollmentType appleUserEnrollment];
+        case MSGraphDeviceEnrollmentTypeAppleUserEnrollmentWithServiceAccount:
+            return [MSGraphDeviceEnrollmentType appleUserEnrollmentWithServiceAccount];
         case MSGraphDeviceEnrollmentTypeEndOfEnum:
         default:
             return [MSGraphDeviceEnrollmentType UnknownEnumValue];
@@ -170,6 +203,12 @@
             return @"windowsBulkAzureDomainJoin";
         case MSGraphDeviceEnrollmentTypeWindowsCoManagement:
             return @"windowsCoManagement";
+        case MSGraphDeviceEnrollmentTypeWindowsAzureADJoinUsingDeviceAuth:
+            return @"windowsAzureADJoinUsingDeviceAuth";
+        case MSGraphDeviceEnrollmentTypeAppleUserEnrollment:
+            return @"appleUserEnrollment";
+        case MSGraphDeviceEnrollmentTypeAppleUserEnrollmentWithServiceAccount:
+            return @"appleUserEnrollmentWithServiceAccount";
         case MSGraphDeviceEnrollmentTypeEndOfEnum:
         default:
             return nil;
@@ -227,6 +266,18 @@
     else if([self isEqualToString:@"windowsCoManagement"])
     {
           return [MSGraphDeviceEnrollmentType windowsCoManagement];
+    }
+    else if([self isEqualToString:@"windowsAzureADJoinUsingDeviceAuth"])
+    {
+          return [MSGraphDeviceEnrollmentType windowsAzureADJoinUsingDeviceAuth];
+    }
+    else if([self isEqualToString:@"appleUserEnrollment"])
+    {
+          return [MSGraphDeviceEnrollmentType appleUserEnrollment];
+    }
+    else if([self isEqualToString:@"appleUserEnrollmentWithServiceAccount"])
+    {
+          return [MSGraphDeviceEnrollmentType appleUserEnrollmentWithServiceAccount];
     }
     else {
         return [MSGraphDeviceEnrollmentType UnknownEnumValue];

@@ -16,6 +16,9 @@ typedef NS_ENUM(NSInteger, MSGraphDeviceEnrollmentTypeValue){
 	MSGraphDeviceEnrollmentTypeWindowsAutoEnrollment = 7,
 	MSGraphDeviceEnrollmentTypeWindowsBulkAzureDomainJoin = 8,
 	MSGraphDeviceEnrollmentTypeWindowsCoManagement = 9,
+	MSGraphDeviceEnrollmentTypeWindowsAzureADJoinUsingDeviceAuth = 10,
+	MSGraphDeviceEnrollmentTypeAppleUserEnrollment = 11,
+	MSGraphDeviceEnrollmentTypeAppleUserEnrollmentWithServiceAccount = 12,
     MSGraphDeviceEnrollmentTypeEndOfEnum
 };
 
@@ -31,6 +34,9 @@ typedef NS_ENUM(NSInteger, MSGraphDeviceEnrollmentTypeValue){
 +(MSGraphDeviceEnrollmentType*) windowsAutoEnrollment;
 +(MSGraphDeviceEnrollmentType*) windowsBulkAzureDomainJoin;
 +(MSGraphDeviceEnrollmentType*) windowsCoManagement;
++(MSGraphDeviceEnrollmentType*) windowsAzureADJoinUsingDeviceAuth;
++(MSGraphDeviceEnrollmentType*) appleUserEnrollment;
++(MSGraphDeviceEnrollmentType*) appleUserEnrollmentWithServiceAccount;
 
 +(MSGraphDeviceEnrollmentType*) UnknownEnumValue;
 

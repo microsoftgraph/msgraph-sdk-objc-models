@@ -25,6 +25,7 @@
     BOOL _appRoleAssignmentRequired;
     NSArray* _appRoles;
     NSString* _servicePrincipalDescription;
+    NSString* _disabledByMicrosoftStatus;
     NSString* _displayName;
     NSString* _homepage;
     MSGraphInformationalUrl* _info;
@@ -236,6 +237,20 @@
 - (void) setServicePrincipalDescription: (NSString*) val
 {
     self.dictionary[@"description"] = val;
+}
+
+- (NSString*) disabledByMicrosoftStatus
+{
+    if([[NSNull null] isEqual:self.dictionary[@"disabledByMicrosoftStatus"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"disabledByMicrosoftStatus"];
+}
+
+- (void) setDisabledByMicrosoftStatus: (NSString*) val
+{
+    self.dictionary[@"disabledByMicrosoftStatus"] = val;
 }
 
 - (NSString*) displayName

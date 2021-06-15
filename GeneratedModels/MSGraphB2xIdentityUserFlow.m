@@ -18,6 +18,7 @@
     NSArray* _identityProviders;
     NSArray* _languages;
     NSArray* _userAttributeAssignments;
+    NSArray* _userFlowIdentityProviders;
 }
 @end
 
@@ -117,6 +118,31 @@
 {
     _userAttributeAssignments = val;
     self.dictionary[@"userAttributeAssignments"] = val;
+}
+
+- (NSArray*) userFlowIdentityProviders
+{
+    if(!_userFlowIdentityProviders){
+        
+    NSMutableArray *userFlowIdentityProvidersResult = [NSMutableArray array];
+    NSArray *userFlowIdentityProviders = self.dictionary[@"userFlowIdentityProviders"];
+
+    if ([userFlowIdentityProviders isKindOfClass:[NSArray class]]){
+        for (id tempIdentityProviderBase in userFlowIdentityProviders){
+            [userFlowIdentityProvidersResult addObject:tempIdentityProviderBase];
+        }
+    }
+
+    _userFlowIdentityProviders = userFlowIdentityProvidersResult;
+        
+    }
+    return _userFlowIdentityProviders;
+}
+
+- (void) setUserFlowIdentityProviders: (NSArray*) val
+{
+    _userFlowIdentityProviders = val;
+    self.dictionary[@"userFlowIdentityProviders"] = val;
 }
 
 

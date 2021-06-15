@@ -10,6 +10,7 @@
 
   @property (nonatomic, setter=setChildFolderCount:, getter=childFolderCount) int32_t childFolderCount;
     @property (nullable, nonatomic, setter=setDisplayName:, getter=displayName) NSString* displayName;
+    @property (nonatomic, setter=setIsHidden:, getter=isHidden) BOOL isHidden;
     @property (nullable, nonatomic, setter=setParentFolderId:, getter=parentFolderId) NSString* parentFolderId;
     @property (nonatomic, setter=setTotalItemCount:, getter=totalItemCount) int32_t totalItemCount;
     @property (nonatomic, setter=setUnreadItemCount:, getter=unreadItemCount) int32_t unreadItemCount;
