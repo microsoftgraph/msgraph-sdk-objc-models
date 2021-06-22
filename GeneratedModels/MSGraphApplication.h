@@ -15,6 +15,7 @@
     @property (nonnull, nonatomic, setter=setAppRoles:, getter=appRoles) NSArray* appRoles;
     @property (nullable, nonatomic, setter=setCreatedDateTime:, getter=createdDateTime) NSDate* createdDateTime;
     @property (nullable, nonatomic, setter=setApplicationDescription:, getter=applicationDescription) NSString* applicationDescription;
+    @property (nullable, nonatomic, setter=setDisabledByMicrosoftStatus:, getter=disabledByMicrosoftStatus) NSString* disabledByMicrosoftStatus;
     @property (nullable, nonatomic, setter=setDisplayName:, getter=displayName) NSString* displayName;
     @property (nullable, nonatomic, setter=setGroupMembershipClaims:, getter=groupMembershipClaims) NSString* groupMembershipClaims;
     @property (nonnull, nonatomic, setter=setIdentifierUris:, getter=identifierUris) NSArray* identifierUris;

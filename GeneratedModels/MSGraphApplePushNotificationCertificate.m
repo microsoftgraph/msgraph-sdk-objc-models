@@ -16,6 +16,7 @@
 {
     NSString* _appleIdentifier;
     NSString* _certificate;
+    NSString* _certificateSerialNumber;
     NSDate* _expirationDateTime;
     NSDate* _lastModifiedDateTime;
     NSString* _topicIdentifier;
@@ -57,6 +58,20 @@
 - (void) setCertificate: (NSString*) val
 {
     self.dictionary[@"certificate"] = val;
+}
+
+- (NSString*) certificateSerialNumber
+{
+    if([[NSNull null] isEqual:self.dictionary[@"certificateSerialNumber"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"certificateSerialNumber"];
+}
+
+- (void) setCertificateSerialNumber: (NSString*) val
+{
+    self.dictionary[@"certificateSerialNumber"] = val;
 }
 
 - (NSDate*) expirationDateTime

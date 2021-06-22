@@ -17,6 +17,7 @@
     @property (nullable, nonatomic, setter=setExpirationDateTime:, getter=expirationDateTime) NSDate* expirationDateTime;
     @property (nonnull, nonatomic, setter=setGroupTypes:, getter=groupTypes) NSArray* groupTypes;
     @property (nonatomic, setter=setHasMembersWithLicenseErrors:, getter=hasMembersWithLicenseErrors) BOOL hasMembersWithLicenseErrors;
+    @property (nonatomic, setter=setIsAssignableToRole:, getter=isAssignableToRole) BOOL isAssignableToRole;
     @property (nullable, nonatomic, setter=setLicenseProcessingState:, getter=licenseProcessingState) MSGraphLicenseProcessingState* licenseProcessingState;
     @property (nullable, nonatomic, setter=setMail:, getter=mail) NSString* mail;
     @property (nonatomic, setter=setMailEnabled:, getter=mailEnabled) BOOL mailEnabled;
