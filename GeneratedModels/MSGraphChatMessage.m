@@ -21,7 +21,7 @@
     NSDate* _createdDateTime;
     NSDate* _deletedDateTime;
     NSString* _etag;
-    MSGraphIdentitySet* _from;
+    MSGraphChatMessageFromIdentitySet* _from;
     MSGraphChatMessageImportance* _importance;
     NSDate* _lastEditedDateTime;
     NSDate* _lastModifiedDateTime;
@@ -157,15 +157,15 @@
     self.dictionary[@"etag"] = val;
 }
 
-- (MSGraphIdentitySet*) from
+- (MSGraphChatMessageFromIdentitySet*) from
 {
     if(!_from){
-        _from = [[MSGraphIdentitySet alloc] initWithDictionary: self.dictionary[@"from"]];
+        _from = [[MSGraphChatMessageFromIdentitySet alloc] initWithDictionary: self.dictionary[@"from"]];
     }
     return _from;
 }
 
-- (void) setFrom: (MSGraphIdentitySet*) val
+- (void) setFrom: (MSGraphChatMessageFromIdentitySet*) val
 {
     _from = val;
     self.dictionary[@"from"] = val;

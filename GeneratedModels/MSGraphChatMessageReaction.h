@@ -2,7 +2,7 @@
 
 
 
-@class MSGraphIdentitySet; 
+@class MSGraphChatMessageReactionIdentitySet; 
 
 
 #import "MSObject.h"
@@ -11,6 +11,6 @@
 
 @property (nonnull, nonatomic, setter=setCreatedDateTime:, getter=createdDateTime) NSDate* createdDateTime;
 @property (nonnull, nonatomic, setter=setReactionType:, getter=reactionType) NSString* reactionType;
-@property (nonnull, nonatomic, setter=setUser:, getter=user) MSGraphIdentitySet* user;
+@property (nonnull, nonatomic, setter=setUser:, getter=user) MSGraphChatMessageReactionIdentitySet* user;
 
 @end
