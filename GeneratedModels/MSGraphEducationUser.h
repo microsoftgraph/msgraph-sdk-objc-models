@@ -1,7 +1,7 @@
 // Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 
 
-@class MSGraphAssignedLicense, MSGraphAssignedPlan, MSGraphIdentitySet, MSGraphPhysicalAddress, MSGraphEducationOnPremisesInfo, MSGraphPasswordProfile, MSGraphProvisionedPlan, MSGraphEducationStudent, MSGraphEducationTeacher, MSGraphEducationClass, MSGraphEducationSchool, MSGraphUser; 
+@class MSGraphAssignedLicense, MSGraphAssignedPlan, MSGraphIdentitySet, MSGraphPhysicalAddress, MSGraphEducationOnPremisesInfo, MSGraphPasswordProfile, MSGraphProvisionedPlan, MSGraphEducationStudent, MSGraphEducationTeacher, MSGraphEducationRubric, MSGraphEducationClass, MSGraphEducationSchool, MSGraphUser; 
 #import "MSGraphEducationExternalSource.h"
 #import "MSGraphEducationUserRole.h"
 
@@ -41,6 +41,7 @@
     @property (nullable, nonatomic, setter=setUsageLocation:, getter=usageLocation) NSString* usageLocation;
     @property (nullable, nonatomic, setter=setUserPrincipalName:, getter=userPrincipalName) NSString* userPrincipalName;
     @property (nullable, nonatomic, setter=setUserType:, getter=userType) NSString* userType;
+    @property (nullable, nonatomic, setter=setRubrics:, getter=rubrics) NSArray* rubrics;
     @property (nullable, nonatomic, setter=setClasses:, getter=classes) NSArray* classes;
     @property (nullable, nonatomic, setter=setSchools:, getter=schools) NSArray* schools;
     @property (nullable, nonatomic, setter=setTaughtClasses:, getter=taughtClasses) NSArray* taughtClasses;

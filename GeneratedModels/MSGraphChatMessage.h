@@ -1,7 +1,7 @@
 // Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 
 
-@class MSGraphChatMessageAttachment, MSGraphItemBody, MSGraphChannelIdentity, MSGraphIdentitySet, MSGraphChatMessageMention, MSGraphChatMessagePolicyViolation, MSGraphChatMessageReaction, MSGraphChatMessageHostedContent; 
+@class MSGraphChatMessageAttachment, MSGraphItemBody, MSGraphChannelIdentity, MSGraphChatMessageFromIdentitySet, MSGraphChatMessageMention, MSGraphChatMessagePolicyViolation, MSGraphChatMessageReaction, MSGraphChatMessageHostedContent; 
 #import "MSGraphChatMessageImportance.h"
 #import "MSGraphChatMessageType.h"
 
@@ -17,7 +17,7 @@
     @property (nullable, nonatomic, setter=setCreatedDateTime:, getter=createdDateTime) NSDate* createdDateTime;
     @property (nullable, nonatomic, setter=setDeletedDateTime:, getter=deletedDateTime) NSDate* deletedDateTime;
     @property (nullable, nonatomic, setter=setEtag:, getter=etag) NSString* etag;
-    @property (nullable, nonatomic, setter=setFrom:, getter=from) MSGraphIdentitySet* from;
+    @property (nullable, nonatomic, setter=setFrom:, getter=from) MSGraphChatMessageFromIdentitySet* from;
     @property (nonnull, nonatomic, setter=setImportance:, getter=importance) MSGraphChatMessageImportance* importance;
     @property (nullable, nonatomic, setter=setLastEditedDateTime:, getter=lastEditedDateTime) NSDate* lastEditedDateTime;
     @property (nullable, nonatomic, setter=setLastModifiedDateTime:, getter=lastModifiedDateTime) NSDate* lastModifiedDateTime;

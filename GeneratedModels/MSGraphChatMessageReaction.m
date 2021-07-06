@@ -16,7 +16,7 @@
 {
     NSDate* _createdDateTime;
     NSString* _reactionType;
-    MSGraphIdentitySet* _user;
+    MSGraphChatMessageReactionIdentitySet* _user;
 }
 @end
 
@@ -46,15 +46,15 @@
     self.dictionary[@"reactionType"] = val;
 }
 
-- (MSGraphIdentitySet*) user
+- (MSGraphChatMessageReactionIdentitySet*) user
 {
     if(!_user){
-        _user = [[MSGraphIdentitySet alloc] initWithDictionary: self.dictionary[@"user"]];
+        _user = [[MSGraphChatMessageReactionIdentitySet alloc] initWithDictionary: self.dictionary[@"user"]];
     }
     return _user;
 }
 
-- (void) setUser: (MSGraphIdentitySet*) val
+- (void) setUser: (MSGraphChatMessageReactionIdentitySet*) val
 {
     _user = val;
     self.dictionary[@"user"] = val;

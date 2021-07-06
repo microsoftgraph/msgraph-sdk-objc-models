@@ -19,6 +19,7 @@
     @property (nonatomic, setter=setAppRoleAssignmentRequired:, getter=appRoleAssignmentRequired) BOOL appRoleAssignmentRequired;
     @property (nonnull, nonatomic, setter=setAppRoles:, getter=appRoles) NSArray* appRoles;
     @property (nullable, nonatomic, setter=setServicePrincipalDescription:, getter=servicePrincipalDescription) NSString* servicePrincipalDescription;
+    @property (nullable, nonatomic, setter=setDisabledByMicrosoftStatus:, getter=disabledByMicrosoftStatus) NSString* disabledByMicrosoftStatus;
     @property (nullable, nonatomic, setter=setDisplayName:, getter=displayName) NSString* displayName;
     @property (nullable, nonatomic, setter=setHomepage:, getter=homepage) NSString* homepage;
     @property (nullable, nonatomic, setter=setInfo:, getter=info) MSGraphInformationalUrl* info;

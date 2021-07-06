@@ -45,6 +45,7 @@
     NSString* _usageLocation;
     NSString* _userPrincipalName;
     NSString* _userType;
+    NSArray* _rubrics;
     NSArray* _classes;
     NSArray* _schools;
     NSArray* _taughtClasses;
@@ -518,6 +519,31 @@
 - (void) setUserType: (NSString*) val
 {
     self.dictionary[@"userType"] = val;
+}
+
+- (NSArray*) rubrics
+{
+    if(!_rubrics){
+        
+    NSMutableArray *rubricsResult = [NSMutableArray array];
+    NSArray *rubrics = self.dictionary[@"rubrics"];
+
+    if ([rubrics isKindOfClass:[NSArray class]]){
+        for (id tempEducationRubric in rubrics){
+            [rubricsResult addObject:tempEducationRubric];
+        }
+    }
+
+    _rubrics = rubricsResult;
+        
+    }
+    return _rubrics;
+}
+
+- (void) setRubrics: (NSArray*) val
+{
+    _rubrics = val;
+    self.dictionary[@"rubrics"] = val;
 }
 
 - (NSArray*) classes

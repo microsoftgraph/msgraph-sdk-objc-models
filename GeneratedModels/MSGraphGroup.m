@@ -23,6 +23,7 @@
     NSDate* _expirationDateTime;
     NSArray* _groupTypes;
     BOOL _hasMembersWithLicenseErrors;
+    BOOL _isAssignableToRole;
     MSGraphLicenseProcessingState* _licenseProcessingState;
     NSString* _mail;
     BOOL _mailEnabled;
@@ -230,6 +231,18 @@
 {
     _hasMembersWithLicenseErrors = val;
     self.dictionary[@"hasMembersWithLicenseErrors"] = @(val);
+}
+
+- (BOOL) isAssignableToRole
+{
+    _isAssignableToRole = [self.dictionary[@"isAssignableToRole"] boolValue];
+    return _isAssignableToRole;
+}
+
+- (void) setIsAssignableToRole: (BOOL) val
+{
+    _isAssignableToRole = val;
+    self.dictionary[@"isAssignableToRole"] = @(val);
 }
 
 - (MSGraphLicenseProcessingState*) licenseProcessingState

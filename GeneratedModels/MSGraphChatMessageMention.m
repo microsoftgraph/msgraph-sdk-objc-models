@@ -15,7 +15,7 @@
 @interface MSGraphChatMessageMention()
 {
     int32_t _chatMessageMentionId;
-    MSGraphIdentitySet* _mentioned;
+    MSGraphChatMessageMentionedIdentitySet* _mentioned;
     NSString* _mentionText;
 }
 @end
@@ -34,15 +34,15 @@
     self.dictionary[@"id"] = @(val);
 }
 
-- (MSGraphIdentitySet*) mentioned
+- (MSGraphChatMessageMentionedIdentitySet*) mentioned
 {
     if(!_mentioned){
-        _mentioned = [[MSGraphIdentitySet alloc] initWithDictionary: self.dictionary[@"mentioned"]];
+        _mentioned = [[MSGraphChatMessageMentionedIdentitySet alloc] initWithDictionary: self.dictionary[@"mentioned"]];
     }
     return _mentioned;
 }
 
-- (void) setMentioned: (MSGraphIdentitySet*) val
+- (void) setMentioned: (MSGraphChatMessageMentionedIdentitySet*) val
 {
     _mentioned = val;
     self.dictionary[@"mentioned"] = val;
