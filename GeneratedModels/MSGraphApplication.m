@@ -21,6 +21,7 @@
     NSArray* _appRoles;
     NSDate* _createdDateTime;
     NSString* _applicationDescription;
+    NSString* _disabledByMicrosoftStatus;
     NSString* _displayName;
     NSString* _groupMembershipClaims;
     NSArray* _identifierUris;
@@ -177,6 +178,20 @@
 - (void) setApplicationDescription: (NSString*) val
 {
     self.dictionary[@"description"] = val;
+}
+
+- (NSString*) disabledByMicrosoftStatus
+{
+    if([[NSNull null] isEqual:self.dictionary[@"disabledByMicrosoftStatus"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"disabledByMicrosoftStatus"];
+}
+
+- (void) setDisabledByMicrosoftStatus: (NSString*) val
+{
+    self.dictionary[@"disabledByMicrosoftStatus"] = val;
 }
 
 - (NSString*) displayName

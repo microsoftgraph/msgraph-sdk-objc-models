@@ -17,6 +17,7 @@
     MSGraphConditionalAccessRoot* _conditionalAccess;
     NSArray* _apiConnectors;
     NSArray* _b2xUserFlows;
+    NSArray* _identityProviders;
     NSArray* _userFlowAttributes;
 }
 @end
@@ -92,6 +93,31 @@
 {
     _b2xUserFlows = val;
     self.dictionary[@"b2xUserFlows"] = val;
+}
+
+- (NSArray*) identityProviders
+{
+    if(!_identityProviders){
+        
+    NSMutableArray *identityProvidersResult = [NSMutableArray array];
+    NSArray *identityProviders = self.dictionary[@"identityProviders"];
+
+    if ([identityProviders isKindOfClass:[NSArray class]]){
+        for (id tempIdentityProviderBase in identityProviders){
+            [identityProvidersResult addObject:tempIdentityProviderBase];
+        }
+    }
+
+    _identityProviders = identityProvidersResult;
+        
+    }
+    return _identityProviders;
+}
+
+- (void) setIdentityProviders: (NSArray*) val
+{
+    _identityProviders = val;
+    self.dictionary[@"identityProviders"] = val;
 }
 
 - (NSArray*) userFlowAttributes

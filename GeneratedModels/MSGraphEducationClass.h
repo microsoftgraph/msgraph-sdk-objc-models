@@ -1,7 +1,7 @@
 // Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 
 
-@class MSGraphEducationCourse, MSGraphIdentitySet, MSGraphEducationTerm, MSGraphGroup, MSGraphEducationUser, MSGraphEducationSchool; 
+@class MSGraphEducationCourse, MSGraphIdentitySet, MSGraphEducationTerm, MSGraphEducationCategory, MSGraphEducationAssignmentDefaults, MSGraphEducationAssignment, MSGraphEducationAssignmentSettings, MSGraphGroup, MSGraphEducationUser, MSGraphEducationSchool; 
 #import "MSGraphEducationExternalSource.h"
 
 
@@ -21,6 +21,10 @@
     @property (nullable, nonatomic, setter=setGrade:, getter=grade) NSString* grade;
     @property (nonnull, nonatomic, setter=setMailNickname:, getter=mailNickname) NSString* mailNickname;
     @property (nullable, nonatomic, setter=setTerm:, getter=term) MSGraphEducationTerm* term;
+    @property (nullable, nonatomic, setter=setAssignmentCategories:, getter=assignmentCategories) NSArray* assignmentCategories;
+    @property (nullable, nonatomic, setter=setAssignmentDefaults:, getter=assignmentDefaults) MSGraphEducationAssignmentDefaults* assignmentDefaults;
+    @property (nullable, nonatomic, setter=setAssignments:, getter=assignments) NSArray* assignments;
+    @property (nullable, nonatomic, setter=setAssignmentSettings:, getter=assignmentSettings) MSGraphEducationAssignmentSettings* assignmentSettings;
     @property (nullable, nonatomic, setter=setGroup:, getter=group) MSGraphGroup* group;
     @property (nullable, nonatomic, setter=setMembers:, getter=members) NSArray* members;
     @property (nullable, nonatomic, setter=setSchools:, getter=schools) NSArray* schools;

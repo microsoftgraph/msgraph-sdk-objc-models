@@ -2,7 +2,7 @@
 
 
 
-@class MSGraphIdentitySet; 
+@class MSGraphChatMessageMentionedIdentitySet; 
 
 
 #import "MSObject.h"
@@ -10,7 +10,7 @@
 @interface MSGraphChatMessageMention : MSObject
 
 @property (nonatomic, setter=setChatMessageMentionId:, getter=chatMessageMentionId) int32_t chatMessageMentionId;
-@property (nullable, nonatomic, setter=setMentioned:, getter=mentioned) MSGraphIdentitySet* mentioned;
+@property (nullable, nonatomic, setter=setMentioned:, getter=mentioned) MSGraphChatMessageMentionedIdentitySet* mentioned;
 @property (nullable, nonatomic, setter=setMentionText:, getter=mentionText) NSString* mentionText;
 
 @end

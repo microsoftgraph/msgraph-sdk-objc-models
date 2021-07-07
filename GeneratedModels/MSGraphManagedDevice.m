@@ -32,10 +32,12 @@
     NSString* _easDeviceId;
     NSString* _emailAddress;
     NSDate* _enrolledDateTime;
+    NSString* _ethernetMacAddress;
     MSGraphDeviceManagementExchangeAccessState* _exchangeAccessState;
     MSGraphDeviceManagementExchangeAccessStateReason* _exchangeAccessStateReason;
     NSDate* _exchangeLastSuccessfulSyncDateTime;
     int64_t _freeStorageSpaceInBytes;
+    NSString* _iccid;
     NSString* _imei;
     BOOL _isEncrypted;
     BOOL _isSupervised;
@@ -47,15 +49,18 @@
     NSString* _manufacturer;
     NSString* _meid;
     NSString* _model;
+    NSString* _notes;
     NSString* _operatingSystem;
     NSString* _osVersion;
     MSGraphManagedDevicePartnerReportedHealthState* _partnerReportedThreatState;
     NSString* _phoneNumber;
+    int64_t _physicalMemoryInBytes;
     NSString* _remoteAssistanceSessionErrorDetails;
     NSString* _remoteAssistanceSessionUrl;
     NSString* _serialNumber;
     NSString* _subscriberCarrier;
     int64_t _totalStorageSpaceInBytes;
+    NSString* _udid;
     NSString* _userDisplayName;
     NSString* _userId;
     NSString* _userPrincipalName;
@@ -334,6 +339,20 @@
     self.dictionary[@"enrolledDateTime"] = [val ms_toString];
 }
 
+- (NSString*) ethernetMacAddress
+{
+    if([[NSNull null] isEqual:self.dictionary[@"ethernetMacAddress"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"ethernetMacAddress"];
+}
+
+- (void) setEthernetMacAddress: (NSString*) val
+{
+    self.dictionary[@"ethernetMacAddress"] = val;
+}
+
 - (MSGraphDeviceManagementExchangeAccessState*) exchangeAccessState
 {
     if(!_exchangeAccessState){
@@ -386,6 +405,20 @@
 {
     _freeStorageSpaceInBytes = val;
     self.dictionary[@"freeStorageSpaceInBytes"] = @(val);
+}
+
+- (NSString*) iccid
+{
+    if([[NSNull null] isEqual:self.dictionary[@"iccid"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"iccid"];
+}
+
+- (void) setIccid: (NSString*) val
+{
+    self.dictionary[@"iccid"] = val;
 }
 
 - (NSString*) imei
@@ -538,6 +571,20 @@
     self.dictionary[@"model"] = val;
 }
 
+- (NSString*) notes
+{
+    if([[NSNull null] isEqual:self.dictionary[@"notes"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"notes"];
+}
+
+- (void) setNotes: (NSString*) val
+{
+    self.dictionary[@"notes"] = val;
+}
+
 - (NSString*) operatingSystem
 {
     if([[NSNull null] isEqual:self.dictionary[@"operatingSystem"]])
@@ -592,6 +639,18 @@
 - (void) setPhoneNumber: (NSString*) val
 {
     self.dictionary[@"phoneNumber"] = val;
+}
+
+- (int64_t) physicalMemoryInBytes
+{
+    _physicalMemoryInBytes = [self.dictionary[@"physicalMemoryInBytes"] longLongValue];
+    return _physicalMemoryInBytes;
+}
+
+- (void) setPhysicalMemoryInBytes: (int64_t) val
+{
+    _physicalMemoryInBytes = val;
+    self.dictionary[@"physicalMemoryInBytes"] = @(val);
 }
 
 - (NSString*) remoteAssistanceSessionErrorDetails
@@ -660,6 +719,20 @@
 {
     _totalStorageSpaceInBytes = val;
     self.dictionary[@"totalStorageSpaceInBytes"] = @(val);
+}
+
+- (NSString*) udid
+{
+    if([[NSNull null] isEqual:self.dictionary[@"udid"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"udid"];
+}
+
+- (void) setUdid: (NSString*) val
+{
+    self.dictionary[@"udid"] = val;
 }
 
 - (NSString*) userDisplayName
