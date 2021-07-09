@@ -2,7 +2,11 @@
 
 
 #import <XCTest/XCTest.h>
+#if SWIFT_PACKAGE
+@import MSGraphClientModels;
+#else
 #import "MSDuration.h"
+#endif
 
 @interface MSDurationTests : XCTestCase
 

@@ -1,0 +1,1 @@
+../GeneratedModels/MSGraphWin32LobAppRegistryRule.h

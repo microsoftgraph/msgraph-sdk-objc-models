@@ -3,7 +3,11 @@
 //
 
 #import <XCTest/XCTest.h>
+#if SWIFT_PACKAGE
+@import MSGraphClientModels;
+#else
 #import "NSDate+MSSerialization.h"
+#endif
 
 static NSString *dateFormatWithMillis = @"yyyy-MM-dd'T'HH:mm:ss.SSSSSSZ";
 

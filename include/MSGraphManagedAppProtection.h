@@ -1,0 +1,1 @@
+../GeneratedModels/MSGraphManagedAppProtection.h

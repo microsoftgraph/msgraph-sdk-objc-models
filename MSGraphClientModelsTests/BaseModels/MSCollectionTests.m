@@ -3,7 +3,11 @@
 //
 
 #import <XCTest/XCTest.h>
+#if SWIFT_PACKAGE
+@import MSGraphClientModels;
+#else
 #import "MSCollection.h"
+#endif
 
 #define MSGraphBaseURL @"https://graph.microsoft.com/v1.0/"
 

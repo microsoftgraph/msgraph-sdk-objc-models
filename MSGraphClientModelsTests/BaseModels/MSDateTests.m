@@ -4,7 +4,11 @@
 
 #import <XCTest/XCTest.h>
 #import <Foundation/Foundation.h>
+#if SWIFT_PACKAGE
+@import MSGraphClientModels;
+#else
 #import "MSDate.h"
+#endif
 
 @interface MSDate (Test)
 
