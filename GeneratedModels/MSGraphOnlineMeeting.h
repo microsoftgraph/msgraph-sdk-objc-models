@@ -3,13 +3,18 @@
 
 @class MSGraphAudioConferencing, MSGraphChatInfo, MSGraphItemBody, MSGraphLobbyBypassSettings, MSGraphMeetingParticipants; 
 #import "MSGraphOnlineMeetingPresenters.h"
+#import "MSGraphMeetingChatMode.h"
 
 
 #import "MSGraphEntity.h"
 
 @interface MSGraphOnlineMeeting : MSGraphEntity
 
-  @property (nullable, nonatomic, setter=setAllowedPresenters:, getter=allowedPresenters) MSGraphOnlineMeetingPresenters* allowedPresenters;
+  @property (nonatomic, setter=setAllowAttendeeToEnableCamera:, getter=allowAttendeeToEnableCamera) BOOL allowAttendeeToEnableCamera;
+    @property (nonatomic, setter=setAllowAttendeeToEnableMic:, getter=allowAttendeeToEnableMic) BOOL allowAttendeeToEnableMic;
+    @property (nullable, nonatomic, setter=setAllowedPresenters:, getter=allowedPresenters) MSGraphOnlineMeetingPresenters* allowedPresenters;
+    @property (nullable, nonatomic, setter=setAllowMeetingChat:, getter=allowMeetingChat) MSGraphMeetingChatMode* allowMeetingChat;
+    @property (nonatomic, setter=setAllowTeamworkReactions:, getter=allowTeamworkReactions) BOOL allowTeamworkReactions;
     @property (nullable, nonatomic, setter=setAudioConferencing:, getter=audioConferencing) MSGraphAudioConferencing* audioConferencing;
     @property (nullable, nonatomic, setter=setChatInfo:, getter=chatInfo) MSGraphChatInfo* chatInfo;
     @property (nullable, nonatomic, setter=setCreationDateTime:, getter=creationDateTime) NSDate* creationDateTime;
