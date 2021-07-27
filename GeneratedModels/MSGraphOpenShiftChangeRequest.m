@@ -20,6 +20,13 @@
 
 @implementation MSGraphOpenShiftChangeRequest
 
+- (id) init
+{
+    if (self = [super init]) {
+        self.oDataType = @"#microsoft.graph.openShiftChangeRequest";
+    }
+    return self;
+}
 - (NSString*) openShiftId
 {
     if([[NSNull null] isEqual:self.dictionary[@"openShiftId"]])
