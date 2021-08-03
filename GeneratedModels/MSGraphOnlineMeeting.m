@@ -14,7 +14,11 @@
 
 @interface MSGraphOnlineMeeting()
 {
+    BOOL _allowAttendeeToEnableCamera;
+    BOOL _allowAttendeeToEnableMic;
     MSGraphOnlineMeetingPresenters* _allowedPresenters;
+    MSGraphMeetingChatMode* _allowMeetingChat;
+    BOOL _allowTeamworkReactions;
     MSGraphAudioConferencing* _audioConferencing;
     MSGraphChatInfo* _chatInfo;
     NSDate* _creationDateTime;
@@ -40,6 +44,30 @@
     }
     return self;
 }
+- (BOOL) allowAttendeeToEnableCamera
+{
+    _allowAttendeeToEnableCamera = [self.dictionary[@"allowAttendeeToEnableCamera"] boolValue];
+    return _allowAttendeeToEnableCamera;
+}
+
+- (void) setAllowAttendeeToEnableCamera: (BOOL) val
+{
+    _allowAttendeeToEnableCamera = val;
+    self.dictionary[@"allowAttendeeToEnableCamera"] = @(val);
+}
+
+- (BOOL) allowAttendeeToEnableMic
+{
+    _allowAttendeeToEnableMic = [self.dictionary[@"allowAttendeeToEnableMic"] boolValue];
+    return _allowAttendeeToEnableMic;
+}
+
+- (void) setAllowAttendeeToEnableMic: (BOOL) val
+{
+    _allowAttendeeToEnableMic = val;
+    self.dictionary[@"allowAttendeeToEnableMic"] = @(val);
+}
+
 - (MSGraphOnlineMeetingPresenters*) allowedPresenters
 {
     if(!_allowedPresenters){
@@ -52,6 +80,32 @@
 {
     _allowedPresenters = val;
     self.dictionary[@"allowedPresenters"] = val;
+}
+
+- (MSGraphMeetingChatMode*) allowMeetingChat
+{
+    if(!_allowMeetingChat){
+        _allowMeetingChat = [self.dictionary[@"allowMeetingChat"] toMSGraphMeetingChatMode];
+    }
+    return _allowMeetingChat;
+}
+
+- (void) setAllowMeetingChat: (MSGraphMeetingChatMode*) val
+{
+    _allowMeetingChat = val;
+    self.dictionary[@"allowMeetingChat"] = val;
+}
+
+- (BOOL) allowTeamworkReactions
+{
+    _allowTeamworkReactions = [self.dictionary[@"allowTeamworkReactions"] boolValue];
+    return _allowTeamworkReactions;
+}
+
+- (void) setAllowTeamworkReactions: (BOOL) val
+{
+    _allowTeamworkReactions = val;
+    self.dictionary[@"allowTeamworkReactions"] = @(val);
 }
 
 - (MSGraphAudioConferencing*) audioConferencing
