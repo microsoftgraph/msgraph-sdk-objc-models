@@ -28,6 +28,8 @@
     NSArray* _lists;
     NSArray* _permissions;
     NSArray* _sites;
+    MSGraphTermStoreStore* _termStore;
+    NSArray* _termStores;
     MSGraphOnenote* _onenote;
 }
 @end
@@ -312,6 +314,45 @@
 {
     _sites = val;
     self.dictionary[@"sites"] = val;
+}
+
+- (MSGraphTermStoreStore*) termStore
+{
+    if(!_termStore){
+        _termStore = [[MSGraphTermStoreStore alloc] initWithDictionary: self.dictionary[@"termStore"]];
+    }
+    return _termStore;
+}
+
+- (void) setTermStore: (MSGraphTermStoreStore*) val
+{
+    _termStore = val;
+    self.dictionary[@"termStore"] = val;
+}
+
+- (NSArray*) termStores
+{
+    if(!_termStores){
+        
+    NSMutableArray *termStoresResult = [NSMutableArray array];
+    NSArray *termStores = self.dictionary[@"termStores"];
+
+    if ([termStores isKindOfClass:[NSArray class]]){
+        for (id tempStore in termStores){
+            [termStoresResult addObject:tempStore];
+        }
+    }
+
+    _termStores = termStoresResult;
+        
+    }
+    return _termStores;
+}
+
+- (void) setTermStores: (NSArray*) val
+{
+    _termStores = val;
+    self.dictionary[@"termStores"] = val;
 }
 
 - (MSGraphOnenote*) onenote

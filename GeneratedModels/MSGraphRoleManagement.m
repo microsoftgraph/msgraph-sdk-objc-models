@@ -14,6 +14,7 @@
 
 @interface MSGraphRoleManagement()
 {
+    MSGraphRbacApplication* _directory;
 }
 @end
 
@@ -42,5 +43,19 @@
 {
     self.dictionary[@"@odata.etag"] = val;
 }
+- (MSGraphRbacApplication*) directory
+{
+    if(!_directory){
+        _directory = [[MSGraphRbacApplication alloc] initWithDictionary: self.dictionary[@"directory"]];
+    }
+    return _directory;
+}
+
+- (void) setDirectory: (MSGraphRbacApplication*) val
+{
+    _directory = val;
+    self.dictionary[@"directory"] = val;
+}
+
 
 @end
