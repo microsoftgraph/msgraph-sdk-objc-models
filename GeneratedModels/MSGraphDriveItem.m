@@ -15,6 +15,7 @@
 @interface MSGraphDriveItem()
 {
     MSGraphAudio* _audio;
+    MSGraphBundle* _bundle;
     NSString* _cTag;
     MSGraphDeleted* _deleted;
     MSGraphFile* _file;
@@ -67,6 +68,20 @@
 {
     _audio = val;
     self.dictionary[@"audio"] = val;
+}
+
+- (MSGraphBundle*) bundle
+{
+    if(!_bundle){
+        _bundle = [[MSGraphBundle alloc] initWithDictionary: self.dictionary[@"bundle"]];
+    }
+    return _bundle;
+}
+
+- (void) setBundle: (MSGraphBundle*) val
+{
+    _bundle = val;
+    self.dictionary[@"bundle"] = val;
 }
 
 - (NSString*) cTag

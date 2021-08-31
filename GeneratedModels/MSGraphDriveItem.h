@@ -1,7 +1,7 @@
 // Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 
 
-@class MSGraphAudio, MSGraphDeleted, MSGraphFile, MSGraphFileSystemInfo, MSGraphFolder, MSGraphImage, MSGraphGeoCoordinates, MSGraphPackage, MSGraphPendingOperations, MSGraphPhoto, MSGraphPublicationFacet, MSGraphRemoteItem, MSGraphRoot, MSGraphSearchResult, MSGraphShared, MSGraphSharepointIds, MSGraphSpecialFolder, MSGraphVideo, MSGraphWorkbook, MSGraphItemAnalytics, MSGraphListItem, MSGraphPermission, MSGraphSubscription, MSGraphThumbnailSet, MSGraphDriveItemVersion; 
+@class MSGraphAudio, MSGraphBundle, MSGraphDeleted, MSGraphFile, MSGraphFileSystemInfo, MSGraphFolder, MSGraphImage, MSGraphGeoCoordinates, MSGraphPackage, MSGraphPendingOperations, MSGraphPhoto, MSGraphPublicationFacet, MSGraphRemoteItem, MSGraphRoot, MSGraphSearchResult, MSGraphShared, MSGraphSharepointIds, MSGraphSpecialFolder, MSGraphVideo, MSGraphWorkbook, MSGraphItemAnalytics, MSGraphListItem, MSGraphPermission, MSGraphSubscription, MSGraphThumbnailSet, MSGraphDriveItemVersion; 
 
 
 #import "MSGraphBaseItem.h"
@@ -9,6 +9,7 @@
 @interface MSGraphDriveItem : MSGraphBaseItem
 
   @property (nullable, nonatomic, setter=setAudio:, getter=audio) MSGraphAudio* audio;
+    @property (nullable, nonatomic, setter=setBundle:, getter=bundle) MSGraphBundle* bundle;
     @property (nullable, nonatomic, setter=setCTag:, getter=cTag) NSString* cTag;
     @property (nullable, nonatomic, setter=setDeleted:, getter=deleted) MSGraphDeleted* deleted;
     @property (nullable, nonatomic, setter=setFile:, getter=file) MSGraphFile* file;
