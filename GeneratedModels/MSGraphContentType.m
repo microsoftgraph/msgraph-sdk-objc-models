@@ -14,16 +14,25 @@
 
 @interface MSGraphContentType()
 {
+    NSArray* _associatedHubsUrls;
     NSString* _contentTypeDescription;
+    MSGraphDocumentSet* _documentSet;
+    MSGraphDocumentSetContent* _documentTemplate;
     NSString* _group;
     BOOL _hidden;
     MSGraphItemReference* _inheritedFrom;
+    BOOL _isBuiltIn;
     NSString* _name;
     MSGraphContentTypeOrder* _order;
     NSString* _parentId;
+    BOOL _propagateChanges;
     BOOL _contentTypeReadOnly;
     BOOL _sealed;
+    MSGraphContentType* _base;
+    NSArray* _baseTypes;
     NSArray* _columnLinks;
+    NSArray* _columnPositions;
+    NSArray* _columns;
 }
 @end
 
@@ -36,6 +45,20 @@
     }
     return self;
 }
+- (NSArray*) associatedHubsUrls
+{
+    if([[NSNull null] isEqual:self.dictionary[@"associatedHubsUrls"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"associatedHubsUrls"];
+}
+
+- (void) setAssociatedHubsUrls: (NSArray*) val
+{
+    self.dictionary[@"associatedHubsUrls"] = val;
+}
+
 - (NSString*) contentTypeDescription
 {
     if([[NSNull null] isEqual:self.dictionary[@"description"]])
@@ -48,6 +71,34 @@
 - (void) setContentTypeDescription: (NSString*) val
 {
     self.dictionary[@"description"] = val;
+}
+
+- (MSGraphDocumentSet*) documentSet
+{
+    if(!_documentSet){
+        _documentSet = [[MSGraphDocumentSet alloc] initWithDictionary: self.dictionary[@"documentSet"]];
+    }
+    return _documentSet;
+}
+
+- (void) setDocumentSet: (MSGraphDocumentSet*) val
+{
+    _documentSet = val;
+    self.dictionary[@"documentSet"] = val;
+}
+
+- (MSGraphDocumentSetContent*) documentTemplate
+{
+    if(!_documentTemplate){
+        _documentTemplate = [[MSGraphDocumentSetContent alloc] initWithDictionary: self.dictionary[@"documentTemplate"]];
+    }
+    return _documentTemplate;
+}
+
+- (void) setDocumentTemplate: (MSGraphDocumentSetContent*) val
+{
+    _documentTemplate = val;
+    self.dictionary[@"documentTemplate"] = val;
 }
 
 - (NSString*) group
@@ -88,6 +139,18 @@
 {
     _inheritedFrom = val;
     self.dictionary[@"inheritedFrom"] = val;
+}
+
+- (BOOL) isBuiltIn
+{
+    _isBuiltIn = [self.dictionary[@"isBuiltIn"] boolValue];
+    return _isBuiltIn;
+}
+
+- (void) setIsBuiltIn: (BOOL) val
+{
+    _isBuiltIn = val;
+    self.dictionary[@"isBuiltIn"] = @(val);
 }
 
 - (NSString*) name
@@ -132,6 +195,18 @@
     self.dictionary[@"parentId"] = val;
 }
 
+- (BOOL) propagateChanges
+{
+    _propagateChanges = [self.dictionary[@"propagateChanges"] boolValue];
+    return _propagateChanges;
+}
+
+- (void) setPropagateChanges: (BOOL) val
+{
+    _propagateChanges = val;
+    self.dictionary[@"propagateChanges"] = @(val);
+}
+
 - (BOOL) contentTypeReadOnly
 {
     _contentTypeReadOnly = [self.dictionary[@"readOnly"] boolValue];
@@ -154,6 +229,45 @@
 {
     _sealed = val;
     self.dictionary[@"sealed"] = @(val);
+}
+
+- (MSGraphContentType*) base
+{
+    if(!_base){
+        _base = [[MSGraphContentType alloc] initWithDictionary: self.dictionary[@"base"]];
+    }
+    return _base;
+}
+
+- (void) setBase: (MSGraphContentType*) val
+{
+    _base = val;
+    self.dictionary[@"base"] = val;
+}
+
+- (NSArray*) baseTypes
+{
+    if(!_baseTypes){
+        
+    NSMutableArray *baseTypesResult = [NSMutableArray array];
+    NSArray *baseTypes = self.dictionary[@"baseTypes"];
+
+    if ([baseTypes isKindOfClass:[NSArray class]]){
+        for (id tempContentType in baseTypes){
+            [baseTypesResult addObject:tempContentType];
+        }
+    }
+
+    _baseTypes = baseTypesResult;
+        
+    }
+    return _baseTypes;
+}
+
+- (void) setBaseTypes: (NSArray*) val
+{
+    _baseTypes = val;
+    self.dictionary[@"baseTypes"] = val;
 }
 
 - (NSArray*) columnLinks
@@ -179,6 +293,56 @@
 {
     _columnLinks = val;
     self.dictionary[@"columnLinks"] = val;
+}
+
+- (NSArray*) columnPositions
+{
+    if(!_columnPositions){
+        
+    NSMutableArray *columnPositionsResult = [NSMutableArray array];
+    NSArray *columnPositions = self.dictionary[@"columnPositions"];
+
+    if ([columnPositions isKindOfClass:[NSArray class]]){
+        for (id tempColumnDefinition in columnPositions){
+            [columnPositionsResult addObject:tempColumnDefinition];
+        }
+    }
+
+    _columnPositions = columnPositionsResult;
+        
+    }
+    return _columnPositions;
+}
+
+- (void) setColumnPositions: (NSArray*) val
+{
+    _columnPositions = val;
+    self.dictionary[@"columnPositions"] = val;
+}
+
+- (NSArray*) columns
+{
+    if(!_columns){
+        
+    NSMutableArray *columnsResult = [NSMutableArray array];
+    NSArray *columns = self.dictionary[@"columns"];
+
+    if ([columns isKindOfClass:[NSArray class]]){
+        for (id tempColumnDefinition in columns){
+            [columnsResult addObject:tempColumnDefinition];
+        }
+    }
+
+    _columns = columnsResult;
+        
+    }
+    return _columns;
+}
+
+- (void) setColumns: (NSArray*) val
+{
+    _columns = val;
+    self.dictionary[@"columns"] = val;
 }
 
 
