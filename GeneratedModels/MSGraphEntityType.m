@@ -84,14 +84,14 @@
     });
     return _drive;
 }
-+ (MSGraphEntityType*) unknownfuturevalue {
-    static MSGraphEntityType *_unknownfuturevalue;
++ (MSGraphEntityType*) unknownFutureValue {
+    static MSGraphEntityType *_unknownFutureValue;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        _unknownfuturevalue = [[MSGraphEntityType alloc] init];
-        _unknownfuturevalue.enumValue = MSGraphEntityTypeUnknownfuturevalue;
+        _unknownFutureValue = [[MSGraphEntityType alloc] init];
+        _unknownFutureValue.enumValue = MSGraphEntityTypeUnknownFutureValue;
     });
-    return _unknownfuturevalue;
+    return _unknownFutureValue;
 }
 
 + (MSGraphEntityType*) UnknownEnumValue {
@@ -125,8 +125,8 @@
             return [MSGraphEntityType listItem];
         case MSGraphEntityTypeDrive:
             return [MSGraphEntityType drive];
-        case MSGraphEntityTypeUnknownfuturevalue:
-            return [MSGraphEntityType unknownfuturevalue];
+        case MSGraphEntityTypeUnknownFutureValue:
+            return [MSGraphEntityType unknownFutureValue];
         case MSGraphEntityTypeEndOfEnum:
         default:
             return [MSGraphEntityType UnknownEnumValue];
@@ -155,8 +155,8 @@
             return @"listItem";
         case MSGraphEntityTypeDrive:
             return @"drive";
-        case MSGraphEntityTypeUnknownfuturevalue:
-            return @"unknownfuturevalue";
+        case MSGraphEntityTypeUnknownFutureValue:
+            return @"unknownFutureValue";
         case MSGraphEntityTypeEndOfEnum:
         default:
             return nil;
@@ -207,9 +207,9 @@
     {
           return [MSGraphEntityType drive];
     }
-    else if([self isEqualToString:@"unknownfuturevalue"])
+    else if([self isEqualToString:@"unknownFutureValue"])
     {
-          return [MSGraphEntityType unknownfuturevalue];
+          return [MSGraphEntityType unknownFutureValue];
     }
     else {
         return [MSGraphEntityType UnknownEnumValue];

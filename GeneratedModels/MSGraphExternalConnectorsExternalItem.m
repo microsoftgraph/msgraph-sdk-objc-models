@@ -14,6 +14,7 @@
 
 @interface MSGraphExternalConnectorsExternalItem()
 {
+    NSArray* _acl;
     MSGraphExternalConnectorsExternalItemContent* _content;
     MSGraphExternalConnectorsProperties* _properties;
 }
@@ -28,6 +29,31 @@
     }
     return self;
 }
+- (NSArray*) acl
+{
+    if(!_acl){
+        
+    NSMutableArray *aclResult = [NSMutableArray array];
+    NSArray *acl = self.dictionary[@"acl"];
+
+    if ([acl isKindOfClass:[NSArray class]]){
+        for (id tempAcl in acl){
+            [aclResult addObject:tempAcl];
+        }
+    }
+
+    _acl = aclResult;
+        
+    }
+    return _acl;
+}
+
+- (void) setAcl: (NSArray*) val
+{
+    _acl = val;
+    self.dictionary[@"acl"] = val;
+}
+
 - (MSGraphExternalConnectorsExternalItemContent*) content
 {
     if(!_content){
