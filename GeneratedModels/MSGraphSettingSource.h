@@ -2,6 +2,7 @@
 
 
 
+#import "MSGraphSettingSourceType.h"
 
 
 #import "MSObject.h"
@@ -10,5 +11,6 @@
 
 @property (nullable, nonatomic, setter=setDisplayName:, getter=displayName) NSString* displayName;
 @property (nullable, nonatomic, setter=setSettingSourceId:, getter=settingSourceId) NSString* settingSourceId;
+@property (nonnull, nonatomic, setter=setSourceType:, getter=sourceType) MSGraphSettingSourceType* sourceType;
 
 @end
