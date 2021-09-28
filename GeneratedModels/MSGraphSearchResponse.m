@@ -14,50 +14,50 @@
 
 @interface MSGraphSearchResponse()
 {
-    NSArray* _hitsContainers;
-    NSArray* _searchTerms;
+    MSGraphAlterationResponse* _queryAlterationResponse;
+    NSArray* _value;
 }
 @end
 
 @implementation MSGraphSearchResponse
 
-- (NSArray*) hitsContainers
+- (MSGraphAlterationResponse*) queryAlterationResponse
 {
-    if(!_hitsContainers){
-        
-    NSMutableArray *hitsContainersResult = [NSMutableArray array];
-    NSArray *hitsContainers = self.dictionary[@"hitsContainers"];
+    if(!_queryAlterationResponse){
+        _queryAlterationResponse = [[MSGraphAlterationResponse alloc] initWithDictionary: self.dictionary[@"queryAlterationResponse"]];
+    }
+    return _queryAlterationResponse;
+}
 
-    if ([hitsContainers isKindOfClass:[NSArray class]]){
-        for (id tempSearchHitsContainer in hitsContainers){
-            [hitsContainersResult addObject:tempSearchHitsContainer];
+- (void) setQueryAlterationResponse: (MSGraphAlterationResponse*) val
+{
+    _queryAlterationResponse = val;
+    self.dictionary[@"queryAlterationResponse"] = val;
+}
+
+- (NSArray*) value
+{
+    if(!_value){
+        
+    NSMutableArray *valueResult = [NSMutableArray array];
+    NSArray *value = self.dictionary[@"value"];
+
+    if ([value isKindOfClass:[NSArray class]]){
+        for (id tempSearchResultSet in value){
+            [valueResult addObject:tempSearchResultSet];
         }
     }
 
-    _hitsContainers = hitsContainersResult;
+    _value = valueResult;
         
     }
-    return _hitsContainers;
+    return _value;
 }
 
-- (void) setHitsContainers: (NSArray*) val
+- (void) setValue: (NSArray*) val
 {
-    _hitsContainers = val;
-    self.dictionary[@"hitsContainers"] = val;
-}
-
-- (NSArray*) searchTerms
-{
-    if([[NSNull null] isEqual:self.dictionary[@"searchTerms"]])
-    {
-        return nil;
-    }   
-    return self.dictionary[@"searchTerms"];
-}
-
-- (void) setSearchTerms: (NSArray*) val
-{
-    self.dictionary[@"searchTerms"] = val;
+    _value = val;
+    self.dictionary[@"value"] = val;
 }
 
 @end

@@ -2,14 +2,14 @@
 
 
 
-@class MSGraphSearchHitsContainer; 
+@class MSGraphAlterationResponse, MSGraphSearchResultSet; 
 
 
 #import "MSObject.h"
 
 @interface MSGraphSearchResponse : MSObject
 
-@property (nullable, nonatomic, setter=setHitsContainers:, getter=hitsContainers) NSArray* hitsContainers;
-@property (nullable, nonatomic, setter=setSearchTerms:, getter=searchTerms) NSArray* searchTerms;
+@property (nullable, nonatomic, setter=setQueryAlterationResponse:, getter=queryAlterationResponse) MSGraphAlterationResponse* queryAlterationResponse;
+@property (nonnull, nonatomic, setter=setValue:, getter=value) NSArray* value;
 
 @end

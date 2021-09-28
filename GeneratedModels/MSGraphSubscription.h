@@ -19,6 +19,7 @@
     @property (nullable, nonatomic, setter=setLifecycleNotificationUrl:, getter=lifecycleNotificationUrl) NSString* lifecycleNotificationUrl;
     @property (nullable, nonatomic, setter=setNotificationQueryOptions:, getter=notificationQueryOptions) NSString* notificationQueryOptions;
     @property (nonnull, nonatomic, setter=setNotificationUrl:, getter=notificationUrl) NSString* notificationUrl;
+    @property (nullable, nonatomic, setter=setNotificationUrlAppId:, getter=notificationUrlAppId) NSString* notificationUrlAppId;
     @property (nonnull, nonatomic, setter=setResource:, getter=resource) NSString* resource;
   
 @end
