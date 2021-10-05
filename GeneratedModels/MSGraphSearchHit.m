@@ -17,6 +17,7 @@
     NSString* _contentSource;
     NSString* _hitId;
     int32_t _rank;
+    NSString* _resultTemplateId;
     NSString* _summary;
     MSGraphEntity* _resource;
 }
@@ -62,6 +63,20 @@
 {
     _rank = val;
     self.dictionary[@"rank"] = @(val);
+}
+
+- (NSString*) resultTemplateId
+{
+    if([[NSNull null] isEqual:self.dictionary[@"resultTemplateId"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"resultTemplateId"];
+}
+
+- (void) setResultTemplateId: (NSString*) val
+{
+    self.dictionary[@"resultTemplateId"] = val;
 }
 
 - (NSString*) summary

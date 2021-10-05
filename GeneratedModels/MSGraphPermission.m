@@ -17,6 +17,8 @@
     NSDate* _expirationDateTime;
     MSGraphIdentitySet* _grantedTo;
     NSArray* _grantedToIdentities;
+    NSArray* _grantedToIdentitiesV2;
+    MSGraphSharePointIdentitySet* _grantedToV2;
     BOOL _hasPassword;
     MSGraphItemReference* _inheritedFrom;
     MSGraphSharingInvitation* _invitation;
@@ -86,6 +88,45 @@
 {
     _grantedToIdentities = val;
     self.dictionary[@"grantedToIdentities"] = val;
+}
+
+- (NSArray*) grantedToIdentitiesV2
+{
+    if(!_grantedToIdentitiesV2){
+        
+    NSMutableArray *grantedToIdentitiesV2Result = [NSMutableArray array];
+    NSArray *grantedToIdentitiesV2 = self.dictionary[@"grantedToIdentitiesV2"];
+
+    if ([grantedToIdentitiesV2 isKindOfClass:[NSArray class]]){
+        for (id tempSharePointIdentitySet in grantedToIdentitiesV2){
+            [grantedToIdentitiesV2Result addObject:tempSharePointIdentitySet];
+        }
+    }
+
+    _grantedToIdentitiesV2 = grantedToIdentitiesV2Result;
+        
+    }
+    return _grantedToIdentitiesV2;
+}
+
+- (void) setGrantedToIdentitiesV2: (NSArray*) val
+{
+    _grantedToIdentitiesV2 = val;
+    self.dictionary[@"grantedToIdentitiesV2"] = val;
+}
+
+- (MSGraphSharePointIdentitySet*) grantedToV2
+{
+    if(!_grantedToV2){
+        _grantedToV2 = [[MSGraphSharePointIdentitySet alloc] initWithDictionary: self.dictionary[@"grantedToV2"]];
+    }
+    return _grantedToV2;
+}
+
+- (void) setGrantedToV2: (MSGraphSharePointIdentitySet*) val
+{
+    _grantedToV2 = val;
+    self.dictionary[@"grantedToV2"] = val;
 }
 
 - (BOOL) hasPassword

@@ -14,6 +14,7 @@
 
 @interface MSGraphSearchHitsContainer()
 {
+    NSArray* _aggregations;
     NSArray* _hits;
     BOOL _moreResultsAvailable;
     int32_t _total;
@@ -21,6 +22,31 @@
 @end
 
 @implementation MSGraphSearchHitsContainer
+
+- (NSArray*) aggregations
+{
+    if(!_aggregations){
+        
+    NSMutableArray *aggregationsResult = [NSMutableArray array];
+    NSArray *aggregations = self.dictionary[@"aggregations"];
+
+    if ([aggregations isKindOfClass:[NSArray class]]){
+        for (id tempSearchAggregation in aggregations){
+            [aggregationsResult addObject:tempSearchAggregation];
+        }
+    }
+
+    _aggregations = aggregationsResult;
+        
+    }
+    return _aggregations;
+}
+
+- (void) setAggregations: (NSArray*) val
+{
+    _aggregations = val;
+    self.dictionary[@"aggregations"] = val;
+}
 
 - (NSArray*) hits
 {
