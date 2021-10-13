@@ -26,6 +26,7 @@
     NSString* _lifecycleNotificationUrl;
     NSString* _notificationQueryOptions;
     NSString* _notificationUrl;
+    NSString* _notificationUrlAppId;
     NSString* _resource;
 }
 @end
@@ -195,6 +196,20 @@
 - (void) setNotificationUrl: (NSString*) val
 {
     self.dictionary[@"notificationUrl"] = val;
+}
+
+- (NSString*) notificationUrlAppId
+{
+    if([[NSNull null] isEqual:self.dictionary[@"notificationUrlAppId"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"notificationUrlAppId"];
+}
+
+- (void) setNotificationUrlAppId: (NSString*) val
+{
+    self.dictionary[@"notificationUrlAppId"] = val;
 }
 
 - (NSString*) resource
