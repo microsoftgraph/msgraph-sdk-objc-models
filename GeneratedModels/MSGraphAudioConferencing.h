@@ -11,6 +11,8 @@
 @property (nullable, nonatomic, setter=setConferenceId:, getter=conferenceId) NSString* conferenceId;
 @property (nullable, nonatomic, setter=setDialinUrl:, getter=dialinUrl) NSString* dialinUrl;
 @property (nullable, nonatomic, setter=setTollFreeNumber:, getter=tollFreeNumber) NSString* tollFreeNumber;
+@property (nullable, nonatomic, setter=setTollFreeNumbers:, getter=tollFreeNumbers) NSArray* tollFreeNumbers;
 @property (nullable, nonatomic, setter=setTollNumber:, getter=tollNumber) NSString* tollNumber;
+@property (nullable, nonatomic, setter=setTollNumbers:, getter=tollNumbers) NSArray* tollNumbers;
 
 @end

@@ -17,6 +17,9 @@ typedef NS_ENUM(NSInteger, MSGraphManagementAgentTypeValue){
 	MSGraphManagementAgentTypeUnknown = 16,
 	MSGraphManagementAgentTypeJamf = 32,
 	MSGraphManagementAgentTypeGoogleCloudDevicePolicyController = 64,
+	MSGraphManagementAgentTypeMicrosoft365ManagedMdm = 258,
+	MSGraphManagementAgentTypeMsSense = 1024,
+	MSGraphManagementAgentTypeIntuneAosp = 2048,
     MSGraphManagementAgentTypeEndOfEnum
 };
 
@@ -33,6 +36,9 @@ typedef NS_ENUM(NSInteger, MSGraphManagementAgentTypeValue){
 +(MSGraphManagementAgentType*) unknown;
 +(MSGraphManagementAgentType*) jamf;
 +(MSGraphManagementAgentType*) googleCloudDevicePolicyController;
++(MSGraphManagementAgentType*) microsoft365ManagedMdm;
++(MSGraphManagementAgentType*) msSense;
++(MSGraphManagementAgentType*) intuneAosp;
 
 +(MSGraphManagementAgentType*) UnknownEnumValue;
 

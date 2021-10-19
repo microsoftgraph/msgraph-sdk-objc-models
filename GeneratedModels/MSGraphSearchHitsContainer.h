@@ -2,13 +2,14 @@
 
 
 
-@class MSGraphSearchHit; 
+@class MSGraphSearchAggregation, MSGraphSearchHit; 
 
 
 #import "MSObject.h"
 
 @interface MSGraphSearchHitsContainer : MSObject
 
+@property (nullable, nonatomic, setter=setAggregations:, getter=aggregations) NSArray* aggregations;
 @property (nullable, nonatomic, setter=setHits:, getter=hits) NSArray* hits;
 @property (nonatomic, setter=setMoreResultsAvailable:, getter=moreResultsAvailable) BOOL moreResultsAvailable;
 @property (nonatomic, setter=setTotal:, getter=total) int32_t total;
