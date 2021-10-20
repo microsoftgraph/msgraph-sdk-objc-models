@@ -111,6 +111,33 @@
     });
     return _googleCloudDevicePolicyController;
 }
++ (MSGraphManagementAgentType*) microsoft365ManagedMdm {
+    static MSGraphManagementAgentType *_microsoft365ManagedMdm;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        _microsoft365ManagedMdm = [[MSGraphManagementAgentType alloc] init];
+        _microsoft365ManagedMdm.enumValue = MSGraphManagementAgentTypeMicrosoft365ManagedMdm;
+    });
+    return _microsoft365ManagedMdm;
+}
++ (MSGraphManagementAgentType*) msSense {
+    static MSGraphManagementAgentType *_msSense;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        _msSense = [[MSGraphManagementAgentType alloc] init];
+        _msSense.enumValue = MSGraphManagementAgentTypeMsSense;
+    });
+    return _msSense;
+}
++ (MSGraphManagementAgentType*) intuneAosp {
+    static MSGraphManagementAgentType *_intuneAosp;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        _intuneAosp = [[MSGraphManagementAgentType alloc] init];
+        _intuneAosp.enumValue = MSGraphManagementAgentTypeIntuneAosp;
+    });
+    return _intuneAosp;
+}
 
 + (MSGraphManagementAgentType*) UnknownEnumValue {
     static MSGraphManagementAgentType *_unknownValue;
@@ -149,6 +176,12 @@
             return [MSGraphManagementAgentType jamf];
         case MSGraphManagementAgentTypeGoogleCloudDevicePolicyController:
             return [MSGraphManagementAgentType googleCloudDevicePolicyController];
+        case MSGraphManagementAgentTypeMicrosoft365ManagedMdm:
+            return [MSGraphManagementAgentType microsoft365ManagedMdm];
+        case MSGraphManagementAgentTypeMsSense:
+            return [MSGraphManagementAgentType msSense];
+        case MSGraphManagementAgentTypeIntuneAosp:
+            return [MSGraphManagementAgentType intuneAosp];
         case MSGraphManagementAgentTypeEndOfEnum:
         default:
             return [MSGraphManagementAgentType UnknownEnumValue];
@@ -183,6 +216,12 @@
             return @"jamf";
         case MSGraphManagementAgentTypeGoogleCloudDevicePolicyController:
             return @"googleCloudDevicePolicyController";
+        case MSGraphManagementAgentTypeMicrosoft365ManagedMdm:
+            return @"microsoft365ManagedMdm";
+        case MSGraphManagementAgentTypeMsSense:
+            return @"msSense";
+        case MSGraphManagementAgentTypeIntuneAosp:
+            return @"intuneAosp";
         case MSGraphManagementAgentTypeEndOfEnum:
         default:
             return nil;
@@ -244,6 +283,18 @@
     else if([self isEqualToString:@"googleCloudDevicePolicyController"])
     {
           return [MSGraphManagementAgentType googleCloudDevicePolicyController];
+    }
+    else if([self isEqualToString:@"microsoft365ManagedMdm"])
+    {
+          return [MSGraphManagementAgentType microsoft365ManagedMdm];
+    }
+    else if([self isEqualToString:@"msSense"])
+    {
+          return [MSGraphManagementAgentType msSense];
+    }
+    else if([self isEqualToString:@"intuneAosp"])
+    {
+          return [MSGraphManagementAgentType intuneAosp];
     }
     else {
         return [MSGraphManagementAgentType UnknownEnumValue];
