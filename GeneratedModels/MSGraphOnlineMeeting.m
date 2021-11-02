@@ -14,17 +14,24 @@
 
 @interface MSGraphOnlineMeeting()
 {
+    BOOL _allowAttendeeToEnableCamera;
+    BOOL _allowAttendeeToEnableMic;
     MSGraphOnlineMeetingPresenters* _allowedPresenters;
+    MSGraphMeetingChatMode* _allowMeetingChat;
+    BOOL _allowTeamworkReactions;
     MSGraphAudioConferencing* _audioConferencing;
+    MSGraphBroadcastMeetingSettings* _broadcastSettings;
     MSGraphChatInfo* _chatInfo;
     NSDate* _creationDateTime;
     NSDate* _endDateTime;
     NSString* _externalId;
+    BOOL _isBroadcast;
     BOOL _isEntryExitAnnounced;
     MSGraphItemBody* _joinInformation;
     NSString* _joinWebUrl;
     MSGraphLobbyBypassSettings* _lobbyBypassSettings;
     MSGraphMeetingParticipants* _participants;
+    BOOL _recordAutomatically;
     NSDate* _startDateTime;
     NSString* _subject;
     NSString* _videoTeleconferenceId;
@@ -40,6 +47,30 @@
     }
     return self;
 }
+- (BOOL) allowAttendeeToEnableCamera
+{
+    _allowAttendeeToEnableCamera = [self.dictionary[@"allowAttendeeToEnableCamera"] boolValue];
+    return _allowAttendeeToEnableCamera;
+}
+
+- (void) setAllowAttendeeToEnableCamera: (BOOL) val
+{
+    _allowAttendeeToEnableCamera = val;
+    self.dictionary[@"allowAttendeeToEnableCamera"] = @(val);
+}
+
+- (BOOL) allowAttendeeToEnableMic
+{
+    _allowAttendeeToEnableMic = [self.dictionary[@"allowAttendeeToEnableMic"] boolValue];
+    return _allowAttendeeToEnableMic;
+}
+
+- (void) setAllowAttendeeToEnableMic: (BOOL) val
+{
+    _allowAttendeeToEnableMic = val;
+    self.dictionary[@"allowAttendeeToEnableMic"] = @(val);
+}
+
 - (MSGraphOnlineMeetingPresenters*) allowedPresenters
 {
     if(!_allowedPresenters){
@@ -54,6 +85,32 @@
     self.dictionary[@"allowedPresenters"] = val;
 }
 
+- (MSGraphMeetingChatMode*) allowMeetingChat
+{
+    if(!_allowMeetingChat){
+        _allowMeetingChat = [self.dictionary[@"allowMeetingChat"] toMSGraphMeetingChatMode];
+    }
+    return _allowMeetingChat;
+}
+
+- (void) setAllowMeetingChat: (MSGraphMeetingChatMode*) val
+{
+    _allowMeetingChat = val;
+    self.dictionary[@"allowMeetingChat"] = val;
+}
+
+- (BOOL) allowTeamworkReactions
+{
+    _allowTeamworkReactions = [self.dictionary[@"allowTeamworkReactions"] boolValue];
+    return _allowTeamworkReactions;
+}
+
+- (void) setAllowTeamworkReactions: (BOOL) val
+{
+    _allowTeamworkReactions = val;
+    self.dictionary[@"allowTeamworkReactions"] = @(val);
+}
+
 - (MSGraphAudioConferencing*) audioConferencing
 {
     if(!_audioConferencing){
@@ -66,6 +123,20 @@
 {
     _audioConferencing = val;
     self.dictionary[@"audioConferencing"] = val;
+}
+
+- (MSGraphBroadcastMeetingSettings*) broadcastSettings
+{
+    if(!_broadcastSettings){
+        _broadcastSettings = [[MSGraphBroadcastMeetingSettings alloc] initWithDictionary: self.dictionary[@"broadcastSettings"]];
+    }
+    return _broadcastSettings;
+}
+
+- (void) setBroadcastSettings: (MSGraphBroadcastMeetingSettings*) val
+{
+    _broadcastSettings = val;
+    self.dictionary[@"broadcastSettings"] = val;
 }
 
 - (MSGraphChatInfo*) chatInfo
@@ -122,6 +193,18 @@
 - (void) setExternalId: (NSString*) val
 {
     self.dictionary[@"externalId"] = val;
+}
+
+- (BOOL) isBroadcast
+{
+    _isBroadcast = [self.dictionary[@"isBroadcast"] boolValue];
+    return _isBroadcast;
+}
+
+- (void) setIsBroadcast: (BOOL) val
+{
+    _isBroadcast = val;
+    self.dictionary[@"isBroadcast"] = @(val);
 }
 
 - (BOOL) isEntryExitAnnounced
@@ -190,6 +273,18 @@
 {
     _participants = val;
     self.dictionary[@"participants"] = val;
+}
+
+- (BOOL) recordAutomatically
+{
+    _recordAutomatically = [self.dictionary[@"recordAutomatically"] boolValue];
+    return _recordAutomatically;
+}
+
+- (void) setRecordAutomatically: (BOOL) val
+{
+    _recordAutomatically = val;
+    self.dictionary[@"recordAutomatically"] = @(val);
 }
 
 - (NSDate*) startDateTime
