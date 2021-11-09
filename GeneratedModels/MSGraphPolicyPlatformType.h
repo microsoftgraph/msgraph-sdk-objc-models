@@ -7,12 +7,12 @@
 typedef NS_ENUM(NSInteger, MSGraphPolicyPlatformTypeValue){
 
 	MSGraphPolicyPlatformTypeAndroid = 0,
+	MSGraphPolicyPlatformTypeAndroidForWork = 1,
 	MSGraphPolicyPlatformTypeIOS = 2,
 	MSGraphPolicyPlatformTypeMacOS = 3,
 	MSGraphPolicyPlatformTypeWindowsPhone81 = 4,
 	MSGraphPolicyPlatformTypeWindows81AndLater = 5,
 	MSGraphPolicyPlatformTypeWindows10AndLater = 6,
-	MSGraphPolicyPlatformTypeAndroidWorkProfile = 7,
 	MSGraphPolicyPlatformTypeAll = 100,
     MSGraphPolicyPlatformTypeEndOfEnum
 };
@@ -20,12 +20,12 @@ typedef NS_ENUM(NSInteger, MSGraphPolicyPlatformTypeValue){
 @interface MSGraphPolicyPlatformType : NSObject
 
 +(MSGraphPolicyPlatformType*) android;
++(MSGraphPolicyPlatformType*) androidForWork;
 +(MSGraphPolicyPlatformType*) iOS;
 +(MSGraphPolicyPlatformType*) macOS;
 +(MSGraphPolicyPlatformType*) windowsPhone81;
 +(MSGraphPolicyPlatformType*) windows81AndLater;
 +(MSGraphPolicyPlatformType*) windows10AndLater;
-+(MSGraphPolicyPlatformType*) androidWorkProfile;
 +(MSGraphPolicyPlatformType*) all;
 
 +(MSGraphPolicyPlatformType*) UnknownEnumValue;

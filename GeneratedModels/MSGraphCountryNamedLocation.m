@@ -15,6 +15,7 @@
 @interface MSGraphCountryNamedLocation()
 {
     NSArray* _countriesAndRegions;
+    MSGraphCountryLookupMethodType* _countryLookupMethod;
     BOOL _includeUnknownCountriesAndRegions;
 }
 @end
@@ -36,6 +37,20 @@
 - (void) setCountriesAndRegions: (NSArray*) val
 {
     self.dictionary[@"countriesAndRegions"] = val;
+}
+
+- (MSGraphCountryLookupMethodType*) countryLookupMethod
+{
+    if(!_countryLookupMethod){
+        _countryLookupMethod = [self.dictionary[@"countryLookupMethod"] toMSGraphCountryLookupMethodType];
+    }
+    return _countryLookupMethod;
+}
+
+- (void) setCountryLookupMethod: (MSGraphCountryLookupMethodType*) val
+{
+    _countryLookupMethod = val;
+    self.dictionary[@"countryLookupMethod"] = val;
 }
 
 - (BOOL) includeUnknownCountriesAndRegions
