@@ -17,7 +17,9 @@
     NSString* _conferenceId;
     NSString* _dialinUrl;
     NSString* _tollFreeNumber;
+    NSArray* _tollFreeNumbers;
     NSString* _tollNumber;
+    NSArray* _tollNumbers;
 }
 @end
 
@@ -65,6 +67,20 @@
     self.dictionary[@"tollFreeNumber"] = val;
 }
 
+- (NSArray*) tollFreeNumbers
+{
+    if([[NSNull null] isEqual:self.dictionary[@"tollFreeNumbers"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"tollFreeNumbers"];
+}
+
+- (void) setTollFreeNumbers: (NSArray*) val
+{
+    self.dictionary[@"tollFreeNumbers"] = val;
+}
+
 - (NSString*) tollNumber
 {
     if([[NSNull null] isEqual:self.dictionary[@"tollNumber"]])
@@ -77,6 +93,20 @@
 - (void) setTollNumber: (NSString*) val
 {
     self.dictionary[@"tollNumber"] = val;
+}
+
+- (NSArray*) tollNumbers
+{
+    if([[NSNull null] isEqual:self.dictionary[@"tollNumbers"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"tollNumbers"];
+}
+
+- (void) setTollNumbers: (NSArray*) val
+{
+    self.dictionary[@"tollNumbers"] = val;
 }
 
 @end

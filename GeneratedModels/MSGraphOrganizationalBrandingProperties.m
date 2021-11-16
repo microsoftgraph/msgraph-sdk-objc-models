@@ -15,7 +15,11 @@
 @interface MSGraphOrganizationalBrandingProperties()
 {
     NSString* _backgroundColor;
+    NSString* _backgroundImageRelativeUrl;
+    NSString* _bannerLogoRelativeUrl;
+    NSArray* _cdnList;
     NSString* _signInPageText;
+    NSString* _squareLogoRelativeUrl;
     NSString* _usernameHintText;
 }
 @end
@@ -36,6 +40,48 @@
     self.dictionary[@"backgroundColor"] = val;
 }
 
+- (NSString*) backgroundImageRelativeUrl
+{
+    if([[NSNull null] isEqual:self.dictionary[@"backgroundImageRelativeUrl"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"backgroundImageRelativeUrl"];
+}
+
+- (void) setBackgroundImageRelativeUrl: (NSString*) val
+{
+    self.dictionary[@"backgroundImageRelativeUrl"] = val;
+}
+
+- (NSString*) bannerLogoRelativeUrl
+{
+    if([[NSNull null] isEqual:self.dictionary[@"bannerLogoRelativeUrl"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"bannerLogoRelativeUrl"];
+}
+
+- (void) setBannerLogoRelativeUrl: (NSString*) val
+{
+    self.dictionary[@"bannerLogoRelativeUrl"] = val;
+}
+
+- (NSArray*) cdnList
+{
+    if([[NSNull null] isEqual:self.dictionary[@"cdnList"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"cdnList"];
+}
+
+- (void) setCdnList: (NSArray*) val
+{
+    self.dictionary[@"cdnList"] = val;
+}
+
 - (NSString*) signInPageText
 {
     if([[NSNull null] isEqual:self.dictionary[@"signInPageText"]])
@@ -48,6 +94,20 @@
 - (void) setSignInPageText: (NSString*) val
 {
     self.dictionary[@"signInPageText"] = val;
+}
+
+- (NSString*) squareLogoRelativeUrl
+{
+    if([[NSNull null] isEqual:self.dictionary[@"squareLogoRelativeUrl"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"squareLogoRelativeUrl"];
+}
+
+- (void) setSquareLogoRelativeUrl: (NSString*) val
+{
+    self.dictionary[@"squareLogoRelativeUrl"] = val;
 }
 
 - (NSString*) usernameHintText
