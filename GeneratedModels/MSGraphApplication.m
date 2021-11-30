@@ -41,6 +41,7 @@
     MSGraphSpaApplication* _spa;
     NSArray* _tags;
     NSString* _tokenEncryptionKeyId;
+    MSGraphVerifiedPublisher* _verifiedPublisher;
     MSGraphWebApplication* _web;
     MSGraphDirectoryObject* _createdOnBehalfOf;
     NSArray* _extensionProperties;
@@ -477,6 +478,20 @@
 - (void) setTokenEncryptionKeyId: (NSString*) val
 {
     self.dictionary[@"tokenEncryptionKeyId"] = val;
+}
+
+- (MSGraphVerifiedPublisher*) verifiedPublisher
+{
+    if(!_verifiedPublisher){
+        _verifiedPublisher = [[MSGraphVerifiedPublisher alloc] initWithDictionary: self.dictionary[@"verifiedPublisher"]];
+    }
+    return _verifiedPublisher;
+}
+
+- (void) setVerifiedPublisher: (MSGraphVerifiedPublisher*) val
+{
+    _verifiedPublisher = val;
+    self.dictionary[@"verifiedPublisher"] = val;
 }
 
 - (MSGraphWebApplication*) web

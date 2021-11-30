@@ -48,6 +48,15 @@
     });
     return _unknownFutureValue;
 }
++ (MSGraphChatMessageType*) systemEventMessage {
+    static MSGraphChatMessageType *_systemEventMessage;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        _systemEventMessage = [[MSGraphChatMessageType alloc] init];
+        _systemEventMessage.enumValue = MSGraphChatMessageTypeSystemEventMessage;
+    });
+    return _systemEventMessage;
+}
 
 + (MSGraphChatMessageType*) UnknownEnumValue {
     static MSGraphChatMessageType *_unknownValue;
@@ -72,6 +81,8 @@
             return [MSGraphChatMessageType typing];
         case MSGraphChatMessageTypeUnknownFutureValue:
             return [MSGraphChatMessageType unknownFutureValue];
+        case MSGraphChatMessageTypeSystemEventMessage:
+            return [MSGraphChatMessageType systemEventMessage];
         case MSGraphChatMessageTypeEndOfEnum:
         default:
             return [MSGraphChatMessageType UnknownEnumValue];
@@ -92,6 +103,8 @@
             return @"typing";
         case MSGraphChatMessageTypeUnknownFutureValue:
             return @"unknownFutureValue";
+        case MSGraphChatMessageTypeSystemEventMessage:
+            return @"systemEventMessage";
         case MSGraphChatMessageTypeEndOfEnum:
         default:
             return nil;
@@ -125,6 +138,10 @@
     else if([self isEqualToString:@"unknownFutureValue"])
     {
           return [MSGraphChatMessageType unknownFutureValue];
+    }
+    else if([self isEqualToString:@"systemEventMessage"])
+    {
+          return [MSGraphChatMessageType systemEventMessage];
     }
     else {
         return [MSGraphChatMessageType UnknownEnumValue];

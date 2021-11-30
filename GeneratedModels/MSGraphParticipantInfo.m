@@ -18,6 +18,7 @@
     MSGraphEndpointType* _endpointType;
     MSGraphIdentitySet* _identity;
     NSString* _languageId;
+    NSString* _participantId;
     NSString* _region;
 }
 @end
@@ -78,6 +79,20 @@
 - (void) setLanguageId: (NSString*) val
 {
     self.dictionary[@"languageId"] = val;
+}
+
+- (NSString*) participantId
+{
+    if([[NSNull null] isEqual:self.dictionary[@"participantId"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"participantId"];
+}
+
+- (void) setParticipantId: (NSString*) val
+{
+    self.dictionary[@"participantId"] = val;
 }
 
 - (NSString*) region

@@ -12,6 +12,7 @@
     @property (nonatomic, setter=setIsInLobby:, getter=isInLobby) BOOL isInLobby;
     @property (nonatomic, setter=setIsMuted:, getter=isMuted) BOOL isMuted;
     @property (nullable, nonatomic, setter=setMediaStreams:, getter=mediaStreams) NSArray* mediaStreams;
+    @property (nullable, nonatomic, setter=setMetadata:, getter=metadata) NSString* metadata;
     @property (nullable, nonatomic, setter=setRecordingInfo:, getter=recordingInfo) MSGraphRecordingInfo* recordingInfo;
   
 @end

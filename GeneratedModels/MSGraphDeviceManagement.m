@@ -44,6 +44,7 @@
     NSArray* _roleAssignments;
     NSArray* _roleDefinitions;
     NSArray* _remoteAssistancePartners;
+    MSGraphDeviceManagementReports* _reports;
     NSArray* _telecomExpenseManagementPartners;
     NSArray* _troubleshootingEvents;
     NSArray* _windowsInformationProtectionAppLearningSummaries;
@@ -694,6 +695,20 @@
 {
     _remoteAssistancePartners = val;
     self.dictionary[@"remoteAssistancePartners"] = val;
+}
+
+- (MSGraphDeviceManagementReports*) reports
+{
+    if(!_reports){
+        _reports = [[MSGraphDeviceManagementReports alloc] initWithDictionary: self.dictionary[@"reports"]];
+    }
+    return _reports;
+}
+
+- (void) setReports: (MSGraphDeviceManagementReports*) val
+{
+    _reports = val;
+    self.dictionary[@"reports"] = val;
 }
 
 - (NSArray*) telecomExpenseManagementPartners
