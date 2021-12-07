@@ -34,6 +34,7 @@
     NSString* _tenantId;
     MSGraphToneInfo* _toneInfo;
     MSGraphCallTranscriptionInfo* _transcription;
+    NSArray* _audioRoutingGroups;
     NSArray* _callOperations;
     NSArray* _participants;
 }
@@ -355,6 +356,31 @@
 {
     _transcription = val;
     self.dictionary[@"transcription"] = val;
+}
+
+- (NSArray*) audioRoutingGroups
+{
+    if(!_audioRoutingGroups){
+        
+    NSMutableArray *audioRoutingGroupsResult = [NSMutableArray array];
+    NSArray *audioRoutingGroups = self.dictionary[@"audioRoutingGroups"];
+
+    if ([audioRoutingGroups isKindOfClass:[NSArray class]]){
+        for (id tempAudioRoutingGroup in audioRoutingGroups){
+            [audioRoutingGroupsResult addObject:tempAudioRoutingGroup];
+        }
+    }
+
+    _audioRoutingGroups = audioRoutingGroupsResult;
+        
+    }
+    return _audioRoutingGroups;
+}
+
+- (void) setAudioRoutingGroups: (NSArray*) val
+{
+    _audioRoutingGroups = val;
+    self.dictionary[@"audioRoutingGroups"] = val;
 }
 
 - (NSArray*) callOperations

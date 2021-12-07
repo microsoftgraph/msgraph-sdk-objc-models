@@ -8,6 +8,7 @@ typedef NS_ENUM(NSInteger, MSGraphManagedAppDataStorageLocationValue){
 
 	MSGraphManagedAppDataStorageLocationOneDriveForBusiness = 1,
 	MSGraphManagedAppDataStorageLocationSharePoint = 2,
+	MSGraphManagedAppDataStorageLocationBox = 3,
 	MSGraphManagedAppDataStorageLocationLocalStorage = 6,
     MSGraphManagedAppDataStorageLocationEndOfEnum
 };
@@ -16,6 +17,7 @@ typedef NS_ENUM(NSInteger, MSGraphManagedAppDataStorageLocationValue){
 
 +(MSGraphManagedAppDataStorageLocation*) oneDriveForBusiness;
 +(MSGraphManagedAppDataStorageLocation*) sharePoint;
++(MSGraphManagedAppDataStorageLocation*) box;
 +(MSGraphManagedAppDataStorageLocation*) localStorage;
 
 +(MSGraphManagedAppDataStorageLocation*) UnknownEnumValue;

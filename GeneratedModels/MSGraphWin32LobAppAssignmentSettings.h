@@ -3,6 +3,7 @@
 
 
 @class MSGraphMobileAppInstallTimeSettings, MSGraphWin32LobAppRestartSettings; 
+#import "MSGraphWin32LobAppDeliveryOptimizationPriority.h"
 #import "MSGraphWin32LobAppNotification.h"
 
 
@@ -10,6 +11,7 @@
 
 @interface MSGraphWin32LobAppAssignmentSettings : MSGraphMobileAppAssignmentSettings
 
+@property (nonnull, nonatomic, setter=setDeliveryOptimizationPriority:, getter=deliveryOptimizationPriority) MSGraphWin32LobAppDeliveryOptimizationPriority* deliveryOptimizationPriority;
 @property (nullable, nonatomic, setter=setInstallTimeSettings:, getter=installTimeSettings) MSGraphMobileAppInstallTimeSettings* installTimeSettings;
 @property (nonnull, nonatomic, setter=setNotifications:, getter=notifications) MSGraphWin32LobAppNotification* notifications;
 @property (nullable, nonatomic, setter=setRestartSettings:, getter=restartSettings) MSGraphWin32LobAppRestartSettings* restartSettings;

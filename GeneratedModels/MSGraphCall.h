@@ -1,7 +1,7 @@
 // Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 
 
-@class MSGraphCallOptions, MSGraphCallRoute, MSGraphChatInfo, MSGraphIncomingContext, MSGraphMediaConfig, MSGraphCallMediaState, MSGraphMeetingInfo, MSGraphResultInfo, MSGraphParticipantInfo, MSGraphInvitationParticipantInfo, MSGraphToneInfo, MSGraphCallTranscriptionInfo, MSGraphCommsOperation, MSGraphParticipant; 
+@class MSGraphCallOptions, MSGraphCallRoute, MSGraphChatInfo, MSGraphIncomingContext, MSGraphMediaConfig, MSGraphCallMediaState, MSGraphMeetingInfo, MSGraphResultInfo, MSGraphParticipantInfo, MSGraphInvitationParticipantInfo, MSGraphToneInfo, MSGraphCallTranscriptionInfo, MSGraphAudioRoutingGroup, MSGraphCommsOperation, MSGraphParticipant; 
 #import "MSGraphCallDirection.h"
 #import "MSGraphModality.h"
 #import "MSGraphCallState.h"
@@ -31,6 +31,7 @@
     @property (nullable, nonatomic, setter=setTenantId:, getter=tenantId) NSString* tenantId;
     @property (nullable, nonatomic, setter=setToneInfo:, getter=toneInfo) MSGraphToneInfo* toneInfo;
     @property (nullable, nonatomic, setter=setTranscription:, getter=transcription) MSGraphCallTranscriptionInfo* transcription;
+    @property (nullable, nonatomic, setter=setAudioRoutingGroups:, getter=audioRoutingGroups) NSArray* audioRoutingGroups;
     @property (nullable, nonatomic, setter=setCallOperations:, getter=callOperations) NSArray* callOperations;
     @property (nullable, nonatomic, setter=setParticipants:, getter=participants) NSArray* participants;
   
