@@ -14,6 +14,7 @@
 
 @interface MSGraphEducationUser()
 {
+    NSArray* _relatedContacts;
     BOOL _accountEnabled;
     NSArray* _assignedLicenses;
     NSArray* _assignedPlans;
@@ -62,6 +63,31 @@
     }
     return self;
 }
+- (NSArray*) relatedContacts
+{
+    if(!_relatedContacts){
+        
+    NSMutableArray *relatedContactsResult = [NSMutableArray array];
+    NSArray *relatedContacts = self.dictionary[@"relatedContacts"];
+
+    if ([relatedContacts isKindOfClass:[NSArray class]]){
+        for (id tempRelatedContact in relatedContacts){
+            [relatedContactsResult addObject:tempRelatedContact];
+        }
+    }
+
+    _relatedContacts = relatedContactsResult;
+        
+    }
+    return _relatedContacts;
+}
+
+- (void) setRelatedContacts: (NSArray*) val
+{
+    _relatedContacts = val;
+    self.dictionary[@"relatedContacts"] = val;
+}
+
 - (BOOL) accountEnabled
 {
     _accountEnabled = [self.dictionary[@"accountEnabled"] boolValue];

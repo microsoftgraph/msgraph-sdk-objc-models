@@ -30,6 +30,15 @@
     });
     return _sharePoint;
 }
++ (MSGraphManagedAppDataStorageLocation*) box {
+    static MSGraphManagedAppDataStorageLocation *_box;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        _box = [[MSGraphManagedAppDataStorageLocation alloc] init];
+        _box.enumValue = MSGraphManagedAppDataStorageLocationBox;
+    });
+    return _box;
+}
 + (MSGraphManagedAppDataStorageLocation*) localStorage {
     static MSGraphManagedAppDataStorageLocation *_localStorage;
     static dispatch_once_t onceToken;
@@ -59,6 +68,8 @@
             return [MSGraphManagedAppDataStorageLocation oneDriveForBusiness];
         case MSGraphManagedAppDataStorageLocationSharePoint:
             return [MSGraphManagedAppDataStorageLocation sharePoint];
+        case MSGraphManagedAppDataStorageLocationBox:
+            return [MSGraphManagedAppDataStorageLocation box];
         case MSGraphManagedAppDataStorageLocationLocalStorage:
             return [MSGraphManagedAppDataStorageLocation localStorage];
         case MSGraphManagedAppDataStorageLocationEndOfEnum:
@@ -77,6 +88,8 @@
             return @"oneDriveForBusiness";
         case MSGraphManagedAppDataStorageLocationSharePoint:
             return @"sharePoint";
+        case MSGraphManagedAppDataStorageLocationBox:
+            return @"box";
         case MSGraphManagedAppDataStorageLocationLocalStorage:
             return @"localStorage";
         case MSGraphManagedAppDataStorageLocationEndOfEnum:
@@ -104,6 +117,10 @@
     else if([self isEqualToString:@"sharePoint"])
     {
           return [MSGraphManagedAppDataStorageLocation sharePoint];
+    }
+    else if([self isEqualToString:@"box"])
+    {
+          return [MSGraphManagedAppDataStorageLocation box];
     }
     else if([self isEqualToString:@"localStorage"])
     {
