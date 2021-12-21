@@ -21,6 +21,15 @@
     });
     return _android;
 }
++ (MSGraphPolicyPlatformType*) androidForWork {
+    static MSGraphPolicyPlatformType *_androidForWork;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        _androidForWork = [[MSGraphPolicyPlatformType alloc] init];
+        _androidForWork.enumValue = MSGraphPolicyPlatformTypeAndroidForWork;
+    });
+    return _androidForWork;
+}
 + (MSGraphPolicyPlatformType*) iOS {
     static MSGraphPolicyPlatformType *_iOS;
     static dispatch_once_t onceToken;
@@ -66,15 +75,6 @@
     });
     return _windows10AndLater;
 }
-+ (MSGraphPolicyPlatformType*) androidWorkProfile {
-    static MSGraphPolicyPlatformType *_androidWorkProfile;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        _androidWorkProfile = [[MSGraphPolicyPlatformType alloc] init];
-        _androidWorkProfile.enumValue = MSGraphPolicyPlatformTypeAndroidWorkProfile;
-    });
-    return _androidWorkProfile;
-}
 + (MSGraphPolicyPlatformType*) all {
     static MSGraphPolicyPlatformType *_all;
     static dispatch_once_t onceToken;
@@ -102,6 +102,8 @@
     {
         case MSGraphPolicyPlatformTypeAndroid:
             return [MSGraphPolicyPlatformType android];
+        case MSGraphPolicyPlatformTypeAndroidForWork:
+            return [MSGraphPolicyPlatformType androidForWork];
         case MSGraphPolicyPlatformTypeIOS:
             return [MSGraphPolicyPlatformType iOS];
         case MSGraphPolicyPlatformTypeMacOS:
@@ -112,8 +114,6 @@
             return [MSGraphPolicyPlatformType windows81AndLater];
         case MSGraphPolicyPlatformTypeWindows10AndLater:
             return [MSGraphPolicyPlatformType windows10AndLater];
-        case MSGraphPolicyPlatformTypeAndroidWorkProfile:
-            return [MSGraphPolicyPlatformType androidWorkProfile];
         case MSGraphPolicyPlatformTypeAll:
             return [MSGraphPolicyPlatformType all];
         case MSGraphPolicyPlatformTypeEndOfEnum:
@@ -130,6 +130,8 @@
     {
         case MSGraphPolicyPlatformTypeAndroid:
             return @"android";
+        case MSGraphPolicyPlatformTypeAndroidForWork:
+            return @"androidForWork";
         case MSGraphPolicyPlatformTypeIOS:
             return @"iOS";
         case MSGraphPolicyPlatformTypeMacOS:
@@ -140,8 +142,6 @@
             return @"windows81AndLater";
         case MSGraphPolicyPlatformTypeWindows10AndLater:
             return @"windows10AndLater";
-        case MSGraphPolicyPlatformTypeAndroidWorkProfile:
-            return @"androidWorkProfile";
         case MSGraphPolicyPlatformTypeAll:
             return @"all";
         case MSGraphPolicyPlatformTypeEndOfEnum:
@@ -166,6 +166,10 @@
     {
           return [MSGraphPolicyPlatformType android];
     }
+    else if([self isEqualToString:@"androidForWork"])
+    {
+          return [MSGraphPolicyPlatformType androidForWork];
+    }
     else if([self isEqualToString:@"iOS"])
     {
           return [MSGraphPolicyPlatformType iOS];
@@ -185,10 +189,6 @@
     else if([self isEqualToString:@"windows10AndLater"])
     {
           return [MSGraphPolicyPlatformType windows10AndLater];
-    }
-    else if([self isEqualToString:@"androidWorkProfile"])
-    {
-          return [MSGraphPolicyPlatformType androidWorkProfile];
     }
     else if([self isEqualToString:@"all"])
     {

@@ -1,14 +1,15 @@
 // Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 
 
-@class MSGraphUserIdentity, MSGraphAccessReviewReviewerScope, MSGraphAccessReviewScope, MSGraphAccessReviewScheduleSettings, MSGraphAccessReviewInstance; 
+@class MSGraphAccessReviewNotificationRecipientItem, MSGraphUserIdentity, MSGraphAccessReviewReviewerScope, MSGraphAccessReviewScope, MSGraphAccessReviewScheduleSettings, MSGraphAccessReviewInstance; 
 
 
 #import "MSGraphEntity.h"
 
 @interface MSGraphAccessReviewScheduleDefinition : MSGraphEntity
 
-  @property (nullable, nonatomic, setter=setCreatedBy:, getter=createdBy) MSGraphUserIdentity* createdBy;
+  @property (nullable, nonatomic, setter=setAdditionalNotificationRecipients:, getter=additionalNotificationRecipients) NSArray* additionalNotificationRecipients;
+    @property (nullable, nonatomic, setter=setCreatedBy:, getter=createdBy) MSGraphUserIdentity* createdBy;
     @property (nullable, nonatomic, setter=setCreatedDateTime:, getter=createdDateTime) NSDate* createdDateTime;
     @property (nullable, nonatomic, setter=setDescriptionForAdmins:, getter=descriptionForAdmins) NSString* descriptionForAdmins;
     @property (nullable, nonatomic, setter=setDescriptionForReviewers:, getter=descriptionForReviewers) NSString* descriptionForReviewers;

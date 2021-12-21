@@ -14,6 +14,8 @@
 
 @interface MSGraphSearchRequest()
 {
+    NSArray* _aggregationFilters;
+    NSArray* _aggregations;
     NSArray* _contentSources;
     BOOL _enableTopResults;
     NSArray* _entityTypes;
@@ -21,10 +23,50 @@
     int32_t _from;
     MSGraphSearchQuery* _query;
     int32_t _size;
+    NSArray* _sortProperties;
 }
 @end
 
 @implementation MSGraphSearchRequest
+
+- (NSArray*) aggregationFilters
+{
+    if([[NSNull null] isEqual:self.dictionary[@"aggregationFilters"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"aggregationFilters"];
+}
+
+- (void) setAggregationFilters: (NSArray*) val
+{
+    self.dictionary[@"aggregationFilters"] = val;
+}
+
+- (NSArray*) aggregations
+{
+    if(!_aggregations){
+        
+    NSMutableArray *aggregationsResult = [NSMutableArray array];
+    NSArray *aggregations = self.dictionary[@"aggregations"];
+
+    if ([aggregations isKindOfClass:[NSArray class]]){
+        for (id tempAggregationOption in aggregations){
+            [aggregationsResult addObject:tempAggregationOption];
+        }
+    }
+
+    _aggregations = aggregationsResult;
+        
+    }
+    return _aggregations;
+}
+
+- (void) setAggregations: (NSArray*) val
+{
+    _aggregations = val;
+    self.dictionary[@"aggregations"] = val;
+}
 
 - (NSArray*) contentSources
 {
@@ -127,6 +169,31 @@
 {
     _size = val;
     self.dictionary[@"size"] = @(val);
+}
+
+- (NSArray*) sortProperties
+{
+    if(!_sortProperties){
+        
+    NSMutableArray *sortPropertiesResult = [NSMutableArray array];
+    NSArray *sortProperties = self.dictionary[@"sortProperties"];
+
+    if ([sortProperties isKindOfClass:[NSArray class]]){
+        for (id tempSortProperty in sortProperties){
+            [sortPropertiesResult addObject:tempSortProperty];
+        }
+    }
+
+    _sortProperties = sortPropertiesResult;
+        
+    }
+    return _sortProperties;
+}
+
+- (void) setSortProperties: (NSArray*) val
+{
+    _sortProperties = val;
+    self.dictionary[@"sortProperties"] = val;
 }
 
 @end

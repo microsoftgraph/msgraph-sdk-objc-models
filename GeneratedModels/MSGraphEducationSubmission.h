@@ -1,7 +1,7 @@
 // Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 
 
-@class MSGraphEducationSubmissionRecipient, MSGraphIdentitySet, MSGraphEducationOutcome, MSGraphEducationSubmissionResource; 
+@class MSGraphIdentitySet, MSGraphEducationSubmissionRecipient, MSGraphEducationOutcome, MSGraphEducationSubmissionResource; 
 #import "MSGraphEducationSubmissionStatus.h"
 
 
@@ -9,7 +9,9 @@
 
 @interface MSGraphEducationSubmission : MSGraphEntity
 
-  @property (nullable, nonatomic, setter=setRecipient:, getter=recipient) MSGraphEducationSubmissionRecipient* recipient;
+  @property (nullable, nonatomic, setter=setReassignedBy:, getter=reassignedBy) MSGraphIdentitySet* reassignedBy;
+    @property (nullable, nonatomic, setter=setReassignedDateTime:, getter=reassignedDateTime) NSDate* reassignedDateTime;
+    @property (nullable, nonatomic, setter=setRecipient:, getter=recipient) MSGraphEducationSubmissionRecipient* recipient;
     @property (nullable, nonatomic, setter=setResourcesFolderUrl:, getter=resourcesFolderUrl) NSString* resourcesFolderUrl;
     @property (nullable, nonatomic, setter=setReturnedBy:, getter=returnedBy) MSGraphIdentitySet* returnedBy;
     @property (nullable, nonatomic, setter=setReturnedDateTime:, getter=returnedDateTime) NSDate* returnedDateTime;
