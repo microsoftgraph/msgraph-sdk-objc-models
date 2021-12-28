@@ -2,7 +2,7 @@
 
 
 
-@class MSGraphConditionalAccessApplications, MSGraphConditionalAccessLocations, MSGraphConditionalAccessPlatforms, MSGraphConditionalAccessUsers; 
+@class MSGraphConditionalAccessApplications, MSGraphConditionalAccessDevices, MSGraphConditionalAccessLocations, MSGraphConditionalAccessPlatforms, MSGraphConditionalAccessUsers; 
 #import "MSGraphConditionalAccessClientApp.h"
 #import "MSGraphRiskLevel.h"
 
@@ -13,6 +13,7 @@
 
 @property (nullable, nonatomic, setter=setApplications:, getter=applications) MSGraphConditionalAccessApplications* applications;
 @property (nonnull, nonatomic, setter=setClientAppTypes:, getter=clientAppTypes) NSArray* clientAppTypes;
+@property (nullable, nonatomic, setter=setDevices:, getter=devices) MSGraphConditionalAccessDevices* devices;
 @property (nullable, nonatomic, setter=setLocations:, getter=locations) MSGraphConditionalAccessLocations* locations;
 @property (nullable, nonatomic, setter=setPlatforms:, getter=platforms) MSGraphConditionalAccessPlatforms* platforms;
 @property (nonnull, nonatomic, setter=setSignInRiskLevels:, getter=signInRiskLevels) NSArray* signInRiskLevels;

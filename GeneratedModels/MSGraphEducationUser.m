@@ -14,6 +14,7 @@
 
 @interface MSGraphEducationUser()
 {
+    NSArray* _relatedContacts;
     BOOL _accountEnabled;
     NSArray* _assignedLicenses;
     NSArray* _assignedPlans;
@@ -45,6 +46,7 @@
     NSString* _usageLocation;
     NSString* _userPrincipalName;
     NSString* _userType;
+    NSArray* _assignments;
     NSArray* _rubrics;
     NSArray* _classes;
     NSArray* _schools;
@@ -62,6 +64,31 @@
     }
     return self;
 }
+- (NSArray*) relatedContacts
+{
+    if(!_relatedContacts){
+        
+    NSMutableArray *relatedContactsResult = [NSMutableArray array];
+    NSArray *relatedContacts = self.dictionary[@"relatedContacts"];
+
+    if ([relatedContacts isKindOfClass:[NSArray class]]){
+        for (id tempRelatedContact in relatedContacts){
+            [relatedContactsResult addObject:tempRelatedContact];
+        }
+    }
+
+    _relatedContacts = relatedContactsResult;
+        
+    }
+    return _relatedContacts;
+}
+
+- (void) setRelatedContacts: (NSArray*) val
+{
+    _relatedContacts = val;
+    self.dictionary[@"relatedContacts"] = val;
+}
+
 - (BOOL) accountEnabled
 {
     _accountEnabled = [self.dictionary[@"accountEnabled"] boolValue];
@@ -519,6 +546,31 @@
 - (void) setUserType: (NSString*) val
 {
     self.dictionary[@"userType"] = val;
+}
+
+- (NSArray*) assignments
+{
+    if(!_assignments){
+        
+    NSMutableArray *assignmentsResult = [NSMutableArray array];
+    NSArray *assignments = self.dictionary[@"assignments"];
+
+    if ([assignments isKindOfClass:[NSArray class]]){
+        for (id tempEducationAssignment in assignments){
+            [assignmentsResult addObject:tempEducationAssignment];
+        }
+    }
+
+    _assignments = assignmentsResult;
+        
+    }
+    return _assignments;
+}
+
+- (void) setAssignments: (NSArray*) val
+{
+    _assignments = val;
+    self.dictionary[@"assignments"] = val;
 }
 
 - (NSArray*) rubrics

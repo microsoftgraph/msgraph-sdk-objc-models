@@ -14,7 +14,7 @@ typedef NS_ENUM(NSInteger, MSGraphEntityTypeValue){
 	MSGraphEntityTypeList = 6,
 	MSGraphEntityTypeListItem = 7,
 	MSGraphEntityTypeDrive = 8,
-	MSGraphEntityTypeUnknownfuturevalue = 9,
+	MSGraphEntityTypeUnknownFutureValue = 9,
     MSGraphEntityTypeEndOfEnum
 };
 
@@ -28,7 +28,7 @@ typedef NS_ENUM(NSInteger, MSGraphEntityTypeValue){
 +(MSGraphEntityType*) list;
 +(MSGraphEntityType*) listItem;
 +(MSGraphEntityType*) drive;
-+(MSGraphEntityType*) unknownfuturevalue;
++(MSGraphEntityType*) unknownFutureValue;
 
 +(MSGraphEntityType*) UnknownEnumValue;
 
