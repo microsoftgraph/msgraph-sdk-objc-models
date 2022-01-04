@@ -19,6 +19,7 @@
     NSDate* _lastModifiedDateTime;
     NSString* _policyVersion;
     int32_t _reconfirmationInDays;
+    MSGraphRegistrationEnforcement* _registrationEnforcement;
     NSArray* _authenticationMethodConfigurations;
 }
 @end
@@ -98,6 +99,20 @@
 {
     _reconfirmationInDays = val;
     self.dictionary[@"reconfirmationInDays"] = @(val);
+}
+
+- (MSGraphRegistrationEnforcement*) registrationEnforcement
+{
+    if(!_registrationEnforcement){
+        _registrationEnforcement = [[MSGraphRegistrationEnforcement alloc] initWithDictionary: self.dictionary[@"registrationEnforcement"]];
+    }
+    return _registrationEnforcement;
+}
+
+- (void) setRegistrationEnforcement: (MSGraphRegistrationEnforcement*) val
+{
+    _registrationEnforcement = val;
+    self.dictionary[@"registrationEnforcement"] = val;
 }
 
 - (NSArray*) authenticationMethodConfigurations

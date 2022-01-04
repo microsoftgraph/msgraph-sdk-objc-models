@@ -57,6 +57,15 @@
     });
     return _unknownFutureValue;
 }
++ (MSGraphStagedFeatureName*) certificateBasedAuthentication {
+    static MSGraphStagedFeatureName *_certificateBasedAuthentication;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        _certificateBasedAuthentication = [[MSGraphStagedFeatureName alloc] init];
+        _certificateBasedAuthentication.enumValue = MSGraphStagedFeatureNameCertificateBasedAuthentication;
+    });
+    return _certificateBasedAuthentication;
+}
 
 + (MSGraphStagedFeatureName*) UnknownEnumValue {
     static MSGraphStagedFeatureName *_unknownValue;
@@ -83,6 +92,8 @@
             return [MSGraphStagedFeatureName emailAsAlternateId];
         case MSGraphStagedFeatureNameUnknownFutureValue:
             return [MSGraphStagedFeatureName unknownFutureValue];
+        case MSGraphStagedFeatureNameCertificateBasedAuthentication:
+            return [MSGraphStagedFeatureName certificateBasedAuthentication];
         case MSGraphStagedFeatureNameEndOfEnum:
         default:
             return [MSGraphStagedFeatureName UnknownEnumValue];
@@ -105,6 +116,8 @@
             return @"emailAsAlternateId";
         case MSGraphStagedFeatureNameUnknownFutureValue:
             return @"unknownFutureValue";
+        case MSGraphStagedFeatureNameCertificateBasedAuthentication:
+            return @"certificateBasedAuthentication";
         case MSGraphStagedFeatureNameEndOfEnum:
         default:
             return nil;
@@ -142,6 +155,10 @@
     else if([self isEqualToString:@"unknownFutureValue"])
     {
           return [MSGraphStagedFeatureName unknownFutureValue];
+    }
+    else if([self isEqualToString:@"certificateBasedAuthentication"])
+    {
+          return [MSGraphStagedFeatureName certificateBasedAuthentication];
     }
     else {
         return [MSGraphStagedFeatureName UnknownEnumValue];

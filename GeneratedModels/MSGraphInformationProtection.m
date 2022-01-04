@@ -14,6 +14,7 @@
 
 @interface MSGraphInformationProtection()
 {
+    MSGraphBitlocker* _bitlocker;
     NSArray* _threatAssessmentRequests;
 }
 @end
@@ -27,6 +28,20 @@
     }
     return self;
 }
+- (MSGraphBitlocker*) bitlocker
+{
+    if(!_bitlocker){
+        _bitlocker = [[MSGraphBitlocker alloc] initWithDictionary: self.dictionary[@"bitlocker"]];
+    }
+    return _bitlocker;
+}
+
+- (void) setBitlocker: (MSGraphBitlocker*) val
+{
+    _bitlocker = val;
+    self.dictionary[@"bitlocker"] = val;
+}
+
 - (NSArray*) threatAssessmentRequests
 {
     if(!_threatAssessmentRequests){
