@@ -8,6 +8,8 @@
 
 @interface MSGraphAndroidMinimumOperatingSystem : MSObject
 
+@property (nonatomic, setter=setV10_0:, getter=v10_0) BOOL v10_0;
+@property (nonatomic, setter=setV11_0:, getter=v11_0) BOOL v11_0;
 @property (nonatomic, setter=setV4_0:, getter=v4_0) BOOL v4_0;
 @property (nonatomic, setter=setV4_0_3:, getter=v4_0_3) BOOL v4_0_3;
 @property (nonatomic, setter=setV4_1:, getter=v4_1) BOOL v4_1;

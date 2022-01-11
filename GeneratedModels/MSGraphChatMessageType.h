@@ -10,6 +10,7 @@ typedef NS_ENUM(NSInteger, MSGraphChatMessageTypeValue){
 	MSGraphChatMessageTypeChatEvent = 1,
 	MSGraphChatMessageTypeTyping = 2,
 	MSGraphChatMessageTypeUnknownFutureValue = 3,
+	MSGraphChatMessageTypeSystemEventMessage = 4,
     MSGraphChatMessageTypeEndOfEnum
 };
 
@@ -19,6 +20,7 @@ typedef NS_ENUM(NSInteger, MSGraphChatMessageTypeValue){
 +(MSGraphChatMessageType*) chatEvent;
 +(MSGraphChatMessageType*) typing;
 +(MSGraphChatMessageType*) unknownFutureValue;
++(MSGraphChatMessageType*) systemEventMessage;
 
 +(MSGraphChatMessageType*) UnknownEnumValue;
 

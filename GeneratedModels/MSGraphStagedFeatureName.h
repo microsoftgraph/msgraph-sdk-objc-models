@@ -11,6 +11,7 @@ typedef NS_ENUM(NSInteger, MSGraphStagedFeatureNameValue){
 	MSGraphStagedFeatureNamePasswordHashSync = 2,
 	MSGraphStagedFeatureNameEmailAsAlternateId = 3,
 	MSGraphStagedFeatureNameUnknownFutureValue = 4,
+	MSGraphStagedFeatureNameCertificateBasedAuthentication = 5,
     MSGraphStagedFeatureNameEndOfEnum
 };
 
@@ -21,6 +22,7 @@ typedef NS_ENUM(NSInteger, MSGraphStagedFeatureNameValue){
 +(MSGraphStagedFeatureName*) passwordHashSync;
 +(MSGraphStagedFeatureName*) emailAsAlternateId;
 +(MSGraphStagedFeatureName*) unknownFutureValue;
++(MSGraphStagedFeatureName*) certificateBasedAuthentication;
 
 +(MSGraphStagedFeatureName*) UnknownEnumValue;
 

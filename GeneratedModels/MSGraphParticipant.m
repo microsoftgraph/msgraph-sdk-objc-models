@@ -18,6 +18,7 @@
     BOOL _isInLobby;
     BOOL _isMuted;
     NSArray* _mediaStreams;
+    NSString* _metadata;
     MSGraphRecordingInfo* _recordingInfo;
 }
 @end
@@ -92,6 +93,20 @@
 {
     _mediaStreams = val;
     self.dictionary[@"mediaStreams"] = val;
+}
+
+- (NSString*) metadata
+{
+    if([[NSNull null] isEqual:self.dictionary[@"metadata"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"metadata"];
+}
+
+- (void) setMetadata: (NSString*) val
+{
+    self.dictionary[@"metadata"] = val;
 }
 
 - (MSGraphRecordingInfo*) recordingInfo
