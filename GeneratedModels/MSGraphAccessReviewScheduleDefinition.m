@@ -14,6 +14,7 @@
 
 @interface MSGraphAccessReviewScheduleDefinition()
 {
+    NSArray* _additionalNotificationRecipients;
     MSGraphUserIdentity* _createdBy;
     NSDate* _createdDateTime;
     NSString* _descriptionForAdmins;
@@ -39,6 +40,31 @@
     }
     return self;
 }
+- (NSArray*) additionalNotificationRecipients
+{
+    if(!_additionalNotificationRecipients){
+        
+    NSMutableArray *additionalNotificationRecipientsResult = [NSMutableArray array];
+    NSArray *additionalNotificationRecipients = self.dictionary[@"additionalNotificationRecipients"];
+
+    if ([additionalNotificationRecipients isKindOfClass:[NSArray class]]){
+        for (id tempAccessReviewNotificationRecipientItem in additionalNotificationRecipients){
+            [additionalNotificationRecipientsResult addObject:tempAccessReviewNotificationRecipientItem];
+        }
+    }
+
+    _additionalNotificationRecipients = additionalNotificationRecipientsResult;
+        
+    }
+    return _additionalNotificationRecipients;
+}
+
+- (void) setAdditionalNotificationRecipients: (NSArray*) val
+{
+    _additionalNotificationRecipients = val;
+    self.dictionary[@"additionalNotificationRecipients"] = val;
+}
+
 - (MSGraphUserIdentity*) createdBy
 {
     if(!_createdBy){

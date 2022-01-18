@@ -16,6 +16,7 @@
 {
     NSString* _displayName;
     NSString* _settingSourceId;
+    MSGraphSettingSourceType* _sourceType;
 }
 @end
 
@@ -47,6 +48,20 @@
 - (void) setSettingSourceId: (NSString*) val
 {
     self.dictionary[@"id"] = val;
+}
+
+- (MSGraphSettingSourceType*) sourceType
+{
+    if(!_sourceType){
+        _sourceType = [self.dictionary[@"sourceType"] toMSGraphSettingSourceType];
+    }
+    return _sourceType;
+}
+
+- (void) setSourceType: (MSGraphSettingSourceType*) val
+{
+    _sourceType = val;
+    self.dictionary[@"sourceType"] = val;
 }
 
 @end

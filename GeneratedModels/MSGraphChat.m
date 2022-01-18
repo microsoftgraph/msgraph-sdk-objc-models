@@ -18,6 +18,7 @@
     NSDate* _createdDateTime;
     NSDate* _lastUpdatedDateTime;
     NSString* _topic;
+    NSString* _webUrl;
     NSArray* _installedApps;
     NSArray* _members;
     NSArray* _messages;
@@ -88,6 +89,20 @@
 - (void) setTopic: (NSString*) val
 {
     self.dictionary[@"topic"] = val;
+}
+
+- (NSString*) webUrl
+{
+    if([[NSNull null] isEqual:self.dictionary[@"webUrl"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"webUrl"];
+}
+
+- (void) setWebUrl: (NSString*) val
+{
+    self.dictionary[@"webUrl"] = val;
 }
 
 - (NSArray*) installedApps
