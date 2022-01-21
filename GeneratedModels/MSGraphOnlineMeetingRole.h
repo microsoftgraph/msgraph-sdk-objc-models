@@ -9,6 +9,7 @@ typedef NS_ENUM(NSInteger, MSGraphOnlineMeetingRoleValue){
 	MSGraphOnlineMeetingRoleAttendee = 0,
 	MSGraphOnlineMeetingRolePresenter = 1,
 	MSGraphOnlineMeetingRoleUnknownFutureValue = 2,
+	MSGraphOnlineMeetingRoleProducer = 3,
     MSGraphOnlineMeetingRoleEndOfEnum
 };
 
@@ -17,6 +18,7 @@ typedef NS_ENUM(NSInteger, MSGraphOnlineMeetingRoleValue){
 +(MSGraphOnlineMeetingRole*) attendee;
 +(MSGraphOnlineMeetingRole*) presenter;
 +(MSGraphOnlineMeetingRole*) unknownFutureValue;
++(MSGraphOnlineMeetingRole*) producer;
 
 +(MSGraphOnlineMeetingRole*) UnknownEnumValue;
 

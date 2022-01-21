@@ -10,6 +10,7 @@
 @interface MSGraphAttachmentItem : MSObject
 
 @property (nullable, nonatomic, setter=setAttachmentType:, getter=attachmentType) MSGraphAttachmentType* attachmentType;
+@property (nullable, nonatomic, setter=setContentId:, getter=contentId) NSString* contentId;
 @property (nullable, nonatomic, setter=setContentType:, getter=contentType) NSString* contentType;
 @property (nonatomic, setter=setIsInline:, getter=isInline) BOOL isInline;
 @property (nullable, nonatomic, setter=setName:, getter=name) NSString* name;
