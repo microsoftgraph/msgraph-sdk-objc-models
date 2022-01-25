@@ -14,12 +14,27 @@
 
 @interface MSGraphInvitationParticipantInfo()
 {
+    BOOL _hidden;
     MSGraphIdentitySet* _identity;
+    NSString* _participantId;
+    BOOL _removeFromDefaultAudioRoutingGroup;
     NSString* _replacesCallId;
 }
 @end
 
 @implementation MSGraphInvitationParticipantInfo
+
+- (BOOL) hidden
+{
+    _hidden = [self.dictionary[@"hidden"] boolValue];
+    return _hidden;
+}
+
+- (void) setHidden: (BOOL) val
+{
+    _hidden = val;
+    self.dictionary[@"hidden"] = @(val);
+}
 
 - (MSGraphIdentitySet*) identity
 {
@@ -33,6 +48,32 @@
 {
     _identity = val;
     self.dictionary[@"identity"] = val;
+}
+
+- (NSString*) participantId
+{
+    if([[NSNull null] isEqual:self.dictionary[@"participantId"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"participantId"];
+}
+
+- (void) setParticipantId: (NSString*) val
+{
+    self.dictionary[@"participantId"] = val;
+}
+
+- (BOOL) removeFromDefaultAudioRoutingGroup
+{
+    _removeFromDefaultAudioRoutingGroup = [self.dictionary[@"removeFromDefaultAudioRoutingGroup"] boolValue];
+    return _removeFromDefaultAudioRoutingGroup;
+}
+
+- (void) setRemoveFromDefaultAudioRoutingGroup: (BOOL) val
+{
+    _removeFromDefaultAudioRoutingGroup = val;
+    self.dictionary[@"removeFromDefaultAudioRoutingGroup"] = @(val);
 }
 
 - (NSString*) replacesCallId

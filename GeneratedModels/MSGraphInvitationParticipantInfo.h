@@ -9,7 +9,10 @@
 
 @interface MSGraphInvitationParticipantInfo : MSObject
 
+@property (nonatomic, setter=setHidden:, getter=hidden) BOOL hidden;
 @property (nonnull, nonatomic, setter=setIdentity:, getter=identity) MSGraphIdentitySet* identity;
+@property (nullable, nonatomic, setter=setParticipantId:, getter=participantId) NSString* participantId;
+@property (nonatomic, setter=setRemoveFromDefaultAudioRoutingGroup:, getter=removeFromDefaultAudioRoutingGroup) BOOL removeFromDefaultAudioRoutingGroup;
 @property (nullable, nonatomic, setter=setReplacesCallId:, getter=replacesCallId) NSString* replacesCallId;
 
 @end

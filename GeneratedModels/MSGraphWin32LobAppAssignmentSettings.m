@@ -14,6 +14,7 @@
 
 @interface MSGraphWin32LobAppAssignmentSettings()
 {
+    MSGraphWin32LobAppDeliveryOptimizationPriority* _deliveryOptimizationPriority;
     MSGraphMobileAppInstallTimeSettings* _installTimeSettings;
     MSGraphWin32LobAppNotification* _notifications;
     MSGraphWin32LobAppRestartSettings* _restartSettings;
@@ -21,6 +22,20 @@
 @end
 
 @implementation MSGraphWin32LobAppAssignmentSettings
+
+- (MSGraphWin32LobAppDeliveryOptimizationPriority*) deliveryOptimizationPriority
+{
+    if(!_deliveryOptimizationPriority){
+        _deliveryOptimizationPriority = [self.dictionary[@"deliveryOptimizationPriority"] toMSGraphWin32LobAppDeliveryOptimizationPriority];
+    }
+    return _deliveryOptimizationPriority;
+}
+
+- (void) setDeliveryOptimizationPriority: (MSGraphWin32LobAppDeliveryOptimizationPriority*) val
+{
+    _deliveryOptimizationPriority = val;
+    self.dictionary[@"deliveryOptimizationPriority"] = val;
+}
 
 - (MSGraphMobileAppInstallTimeSettings*) installTimeSettings
 {

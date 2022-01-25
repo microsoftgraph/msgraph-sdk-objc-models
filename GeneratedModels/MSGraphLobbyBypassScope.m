@@ -57,6 +57,24 @@
     });
     return _unknownFutureValue;
 }
++ (MSGraphLobbyBypassScope*) invited {
+    static MSGraphLobbyBypassScope *_invited;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        _invited = [[MSGraphLobbyBypassScope alloc] init];
+        _invited.enumValue = MSGraphLobbyBypassScopeInvited;
+    });
+    return _invited;
+}
++ (MSGraphLobbyBypassScope*) organizationExcludingGuests {
+    static MSGraphLobbyBypassScope *_organizationExcludingGuests;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        _organizationExcludingGuests = [[MSGraphLobbyBypassScope alloc] init];
+        _organizationExcludingGuests.enumValue = MSGraphLobbyBypassScopeOrganizationExcludingGuests;
+    });
+    return _organizationExcludingGuests;
+}
 
 + (MSGraphLobbyBypassScope*) UnknownEnumValue {
     static MSGraphLobbyBypassScope *_unknownValue;
@@ -83,6 +101,10 @@
             return [MSGraphLobbyBypassScope everyone];
         case MSGraphLobbyBypassScopeUnknownFutureValue:
             return [MSGraphLobbyBypassScope unknownFutureValue];
+        case MSGraphLobbyBypassScopeInvited:
+            return [MSGraphLobbyBypassScope invited];
+        case MSGraphLobbyBypassScopeOrganizationExcludingGuests:
+            return [MSGraphLobbyBypassScope organizationExcludingGuests];
         case MSGraphLobbyBypassScopeEndOfEnum:
         default:
             return [MSGraphLobbyBypassScope UnknownEnumValue];
@@ -105,6 +127,10 @@
             return @"everyone";
         case MSGraphLobbyBypassScopeUnknownFutureValue:
             return @"unknownFutureValue";
+        case MSGraphLobbyBypassScopeInvited:
+            return @"invited";
+        case MSGraphLobbyBypassScopeOrganizationExcludingGuests:
+            return @"organizationExcludingGuests";
         case MSGraphLobbyBypassScopeEndOfEnum:
         default:
             return nil;
@@ -142,6 +168,14 @@
     else if([self isEqualToString:@"unknownFutureValue"])
     {
           return [MSGraphLobbyBypassScope unknownFutureValue];
+    }
+    else if([self isEqualToString:@"invited"])
+    {
+          return [MSGraphLobbyBypassScope invited];
+    }
+    else if([self isEqualToString:@"organizationExcludingGuests"])
+    {
+          return [MSGraphLobbyBypassScope organizationExcludingGuests];
     }
     else {
         return [MSGraphLobbyBypassScope UnknownEnumValue];

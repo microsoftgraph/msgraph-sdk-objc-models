@@ -13,6 +13,7 @@
     @property (nullable, nonatomic, setter=setCreatedDateTime:, getter=createdDateTime) NSDate* createdDateTime;
     @property (nullable, nonatomic, setter=setLastUpdatedDateTime:, getter=lastUpdatedDateTime) NSDate* lastUpdatedDateTime;
     @property (nullable, nonatomic, setter=setTopic:, getter=topic) NSString* topic;
+    @property (nullable, nonatomic, setter=setWebUrl:, getter=webUrl) NSString* webUrl;
     @property (nullable, nonatomic, setter=setInstalledApps:, getter=installedApps) NSArray* installedApps;
     @property (nullable, nonatomic, setter=setMembers:, getter=members) NSArray* members;
     @property (nullable, nonatomic, setter=setMessages:, getter=messages) NSArray* messages;

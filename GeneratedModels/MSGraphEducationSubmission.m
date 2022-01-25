@@ -14,6 +14,8 @@
 
 @interface MSGraphEducationSubmission()
 {
+    MSGraphIdentitySet* _reassignedBy;
+    NSDate* _reassignedDateTime;
     MSGraphEducationSubmissionRecipient* _recipient;
     NSString* _resourcesFolderUrl;
     MSGraphIdentitySet* _returnedBy;
@@ -38,6 +40,34 @@
     }
     return self;
 }
+- (MSGraphIdentitySet*) reassignedBy
+{
+    if(!_reassignedBy){
+        _reassignedBy = [[MSGraphIdentitySet alloc] initWithDictionary: self.dictionary[@"reassignedBy"]];
+    }
+    return _reassignedBy;
+}
+
+- (void) setReassignedBy: (MSGraphIdentitySet*) val
+{
+    _reassignedBy = val;
+    self.dictionary[@"reassignedBy"] = val;
+}
+
+- (NSDate*) reassignedDateTime
+{
+    if(!_reassignedDateTime){
+        _reassignedDateTime = [NSDate ms_dateFromString: self.dictionary[@"reassignedDateTime"]];
+    }
+    return _reassignedDateTime;
+}
+
+- (void) setReassignedDateTime: (NSDate*) val
+{
+    _reassignedDateTime = val;
+    self.dictionary[@"reassignedDateTime"] = [val ms_toString];
+}
+
 - (MSGraphEducationSubmissionRecipient*) recipient
 {
     if(!_recipient){
