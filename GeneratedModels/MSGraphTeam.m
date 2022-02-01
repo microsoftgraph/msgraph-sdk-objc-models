@@ -27,7 +27,6 @@
     MSGraphTeamSpecialization* _specialization;
     MSGraphTeamVisibilityType* _visibility;
     NSString* _webUrl;
-    MSGraphSchedule* _schedule;
     NSArray* _channels;
     MSGraphGroup* _group;
     NSArray* _installedApps;
@@ -35,6 +34,7 @@
     NSArray* _teamOperations;
     MSGraphChannel* _primaryChannel;
     MSGraphTeamsTemplate* _template;
+    MSGraphSchedule* _schedule;
 }
 @end
 
@@ -227,20 +227,6 @@
     self.dictionary[@"webUrl"] = val;
 }
 
-- (MSGraphSchedule*) schedule
-{
-    if(!_schedule){
-        _schedule = [[MSGraphSchedule alloc] initWithDictionary: self.dictionary[@"schedule"]];
-    }
-    return _schedule;
-}
-
-- (void) setSchedule: (MSGraphSchedule*) val
-{
-    _schedule = val;
-    self.dictionary[@"schedule"] = val;
-}
-
 - (NSArray*) channels
 {
     if(!_channels){
@@ -381,6 +367,20 @@
 {
     _template = val;
     self.dictionary[@"template"] = val;
+}
+
+- (MSGraphSchedule*) schedule
+{
+    if(!_schedule){
+        _schedule = [[MSGraphSchedule alloc] initWithDictionary: self.dictionary[@"schedule"]];
+    }
+    return _schedule;
+}
+
+- (void) setSchedule: (MSGraphSchedule*) val
+{
+    _schedule = val;
+    self.dictionary[@"schedule"] = val;
 }
 
 

@@ -1,7 +1,7 @@
 // Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 
 
-@class MSGraphAuthenticationMethodConfiguration; 
+@class MSGraphRegistrationEnforcement, MSGraphAuthenticationMethodConfiguration; 
 
 
 #import "MSGraphEntity.h"
@@ -13,6 +13,7 @@
     @property (nullable, nonatomic, setter=setLastModifiedDateTime:, getter=lastModifiedDateTime) NSDate* lastModifiedDateTime;
     @property (nullable, nonatomic, setter=setPolicyVersion:, getter=policyVersion) NSString* policyVersion;
     @property (nonatomic, setter=setReconfirmationInDays:, getter=reconfirmationInDays) int32_t reconfirmationInDays;
+    @property (nullable, nonatomic, setter=setRegistrationEnforcement:, getter=registrationEnforcement) MSGraphRegistrationEnforcement* registrationEnforcement;
     @property (nullable, nonatomic, setter=setAuthenticationMethodConfigurations:, getter=authenticationMethodConfigurations) NSArray* authenticationMethodConfigurations;
   
 @end

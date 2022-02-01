@@ -16,6 +16,7 @@
 {
     MSGraphApplicationEnforcedRestrictionsSessionControl* _applicationEnforcedRestrictions;
     MSGraphCloudAppSecuritySessionControl* _cloudAppSecurity;
+    BOOL _disableResilienceDefaults;
     MSGraphPersistentBrowserSessionControl* _persistentBrowser;
     MSGraphSignInFrequencySessionControl* _signInFrequency;
 }
@@ -49,6 +50,18 @@
 {
     _cloudAppSecurity = val;
     self.dictionary[@"cloudAppSecurity"] = val;
+}
+
+- (BOOL) disableResilienceDefaults
+{
+    _disableResilienceDefaults = [self.dictionary[@"disableResilienceDefaults"] boolValue];
+    return _disableResilienceDefaults;
+}
+
+- (void) setDisableResilienceDefaults: (BOOL) val
+{
+    _disableResilienceDefaults = val;
+    self.dictionary[@"disableResilienceDefaults"] = @(val);
 }
 
 - (MSGraphPersistentBrowserSessionControl*) persistentBrowser
