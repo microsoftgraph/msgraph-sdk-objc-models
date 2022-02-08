@@ -11,6 +11,7 @@ typedef NS_ENUM(NSInteger, MSGraphEducationSubmissionStatusValue){
 	MSGraphEducationSubmissionStatusReleased = 2,
 	MSGraphEducationSubmissionStatusReturned = 3,
 	MSGraphEducationSubmissionStatusUnknownFutureValue = 4,
+	MSGraphEducationSubmissionStatusReassigned = 5,
     MSGraphEducationSubmissionStatusEndOfEnum
 };
 
@@ -21,6 +22,7 @@ typedef NS_ENUM(NSInteger, MSGraphEducationSubmissionStatusValue){
 +(MSGraphEducationSubmissionStatus*) released;
 +(MSGraphEducationSubmissionStatus*) returned;
 +(MSGraphEducationSubmissionStatus*) unknownFutureValue;
++(MSGraphEducationSubmissionStatus*) reassigned;
 
 +(MSGraphEducationSubmissionStatus*) UnknownEnumValue;
 

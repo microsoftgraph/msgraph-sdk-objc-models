@@ -14,9 +14,22 @@
 
 @interface MSGraphCallOptions()
 {
+    BOOL _hideBotAfterEscalation;
 }
 @end
 
 @implementation MSGraphCallOptions
+
+- (BOOL) hideBotAfterEscalation
+{
+    _hideBotAfterEscalation = [self.dictionary[@"hideBotAfterEscalation"] boolValue];
+    return _hideBotAfterEscalation;
+}
+
+- (void) setHideBotAfterEscalation: (BOOL) val
+{
+    _hideBotAfterEscalation = val;
+    self.dictionary[@"hideBotAfterEscalation"] = @(val);
+}
 
 @end

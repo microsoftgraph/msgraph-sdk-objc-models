@@ -11,6 +11,7 @@
 
 @property (nullable, nonatomic, setter=setApplicationEnforcedRestrictions:, getter=applicationEnforcedRestrictions) MSGraphApplicationEnforcedRestrictionsSessionControl* applicationEnforcedRestrictions;
 @property (nullable, nonatomic, setter=setCloudAppSecurity:, getter=cloudAppSecurity) MSGraphCloudAppSecuritySessionControl* cloudAppSecurity;
+@property (nonatomic, setter=setDisableResilienceDefaults:, getter=disableResilienceDefaults) BOOL disableResilienceDefaults;
 @property (nullable, nonatomic, setter=setPersistentBrowser:, getter=persistentBrowser) MSGraphPersistentBrowserSessionControl* persistentBrowser;
 @property (nullable, nonatomic, setter=setSignInFrequency:, getter=signInFrequency) MSGraphSignInFrequencySessionControl* signInFrequency;
 
