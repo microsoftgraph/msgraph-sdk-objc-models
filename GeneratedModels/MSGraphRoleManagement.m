@@ -14,6 +14,8 @@
 
 @interface MSGraphRoleManagement()
 {
+    MSGraphRbacApplication* _directory;
+    MSGraphRbacApplication* _entitlementManagement;
 }
 @end
 
@@ -42,5 +44,33 @@
 {
     self.dictionary[@"@odata.etag"] = val;
 }
+- (MSGraphRbacApplication*) directory
+{
+    if(!_directory){
+        _directory = [[MSGraphRbacApplication alloc] initWithDictionary: self.dictionary[@"directory"]];
+    }
+    return _directory;
+}
+
+- (void) setDirectory: (MSGraphRbacApplication*) val
+{
+    _directory = val;
+    self.dictionary[@"directory"] = val;
+}
+
+- (MSGraphRbacApplication*) entitlementManagement
+{
+    if(!_entitlementManagement){
+        _entitlementManagement = [[MSGraphRbacApplication alloc] initWithDictionary: self.dictionary[@"entitlementManagement"]];
+    }
+    return _entitlementManagement;
+}
+
+- (void) setEntitlementManagement: (MSGraphRbacApplication*) val
+{
+    _entitlementManagement = val;
+    self.dictionary[@"entitlementManagement"] = val;
+}
+
 
 @end

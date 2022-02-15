@@ -17,6 +17,7 @@
     NSString* _assignedByGroup;
     NSArray* _disabledPlans;
     NSString* _error;
+    NSDate* _lastUpdatedDateTime;
     NSString* _skuId;
     NSString* _state;
 }
@@ -64,6 +65,20 @@
 - (void) setError: (NSString*) val
 {
     self.dictionary[@"error"] = val;
+}
+
+- (NSDate*) lastUpdatedDateTime
+{
+    if(!_lastUpdatedDateTime){
+        _lastUpdatedDateTime = [NSDate ms_dateFromString: self.dictionary[@"lastUpdatedDateTime"]];
+    }
+    return _lastUpdatedDateTime;
+}
+
+- (void) setLastUpdatedDateTime: (NSDate*) val
+{
+    _lastUpdatedDateTime = val;
+    self.dictionary[@"lastUpdatedDateTime"] = [val ms_toString];
 }
 
 - (NSString*) skuId
