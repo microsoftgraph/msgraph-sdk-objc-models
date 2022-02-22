@@ -18,6 +18,7 @@
     BOOL _v11_0;
     BOOL _v12_0;
     BOOL _v13_0;
+    BOOL _v14_0;
     BOOL _v8_0;
     BOOL _v9_0;
 }
@@ -71,6 +72,18 @@
 {
     _v13_0 = val;
     self.dictionary[@"v13_0"] = @(val);
+}
+
+- (BOOL) v14_0
+{
+    _v14_0 = [self.dictionary[@"v14_0"] boolValue];
+    return _v14_0;
+}
+
+- (void) setV14_0: (BOOL) val
+{
+    _v14_0 = val;
+    self.dictionary[@"v14_0"] = @(val);
 }
 
 - (BOOL) v8_0

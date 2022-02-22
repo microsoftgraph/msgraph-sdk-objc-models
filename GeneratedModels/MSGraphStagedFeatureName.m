@@ -57,6 +57,24 @@
     });
     return _unknownFutureValue;
 }
++ (MSGraphStagedFeatureName*) certificateBasedAuthentication {
+    static MSGraphStagedFeatureName *_certificateBasedAuthentication;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        _certificateBasedAuthentication = [[MSGraphStagedFeatureName alloc] init];
+        _certificateBasedAuthentication.enumValue = MSGraphStagedFeatureNameCertificateBasedAuthentication;
+    });
+    return _certificateBasedAuthentication;
+}
++ (MSGraphStagedFeatureName*) multiFactorAuthentication {
+    static MSGraphStagedFeatureName *_multiFactorAuthentication;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        _multiFactorAuthentication = [[MSGraphStagedFeatureName alloc] init];
+        _multiFactorAuthentication.enumValue = MSGraphStagedFeatureNameMultiFactorAuthentication;
+    });
+    return _multiFactorAuthentication;
+}
 
 + (MSGraphStagedFeatureName*) UnknownEnumValue {
     static MSGraphStagedFeatureName *_unknownValue;
@@ -83,6 +101,10 @@
             return [MSGraphStagedFeatureName emailAsAlternateId];
         case MSGraphStagedFeatureNameUnknownFutureValue:
             return [MSGraphStagedFeatureName unknownFutureValue];
+        case MSGraphStagedFeatureNameCertificateBasedAuthentication:
+            return [MSGraphStagedFeatureName certificateBasedAuthentication];
+        case MSGraphStagedFeatureNameMultiFactorAuthentication:
+            return [MSGraphStagedFeatureName multiFactorAuthentication];
         case MSGraphStagedFeatureNameEndOfEnum:
         default:
             return [MSGraphStagedFeatureName UnknownEnumValue];
@@ -105,6 +127,10 @@
             return @"emailAsAlternateId";
         case MSGraphStagedFeatureNameUnknownFutureValue:
             return @"unknownFutureValue";
+        case MSGraphStagedFeatureNameCertificateBasedAuthentication:
+            return @"certificateBasedAuthentication";
+        case MSGraphStagedFeatureNameMultiFactorAuthentication:
+            return @"multiFactorAuthentication";
         case MSGraphStagedFeatureNameEndOfEnum:
         default:
             return nil;
@@ -142,6 +168,14 @@
     else if([self isEqualToString:@"unknownFutureValue"])
     {
           return [MSGraphStagedFeatureName unknownFutureValue];
+    }
+    else if([self isEqualToString:@"certificateBasedAuthentication"])
+    {
+          return [MSGraphStagedFeatureName certificateBasedAuthentication];
+    }
+    else if([self isEqualToString:@"multiFactorAuthentication"])
+    {
+          return [MSGraphStagedFeatureName multiFactorAuthentication];
     }
     else {
         return [MSGraphStagedFeatureName UnknownEnumValue];
