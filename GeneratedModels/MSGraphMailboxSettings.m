@@ -21,6 +21,7 @@
     MSGraphLocaleInfo* _language;
     NSString* _timeFormat;
     NSString* _timeZone;
+    MSGraphUserPurpose* _userPurpose;
     MSGraphWorkingHours* _workingHours;
 }
 @end
@@ -123,6 +124,20 @@
 - (void) setTimeZone: (NSString*) val
 {
     self.dictionary[@"timeZone"] = val;
+}
+
+- (MSGraphUserPurpose*) userPurpose
+{
+    if(!_userPurpose){
+        _userPurpose = [self.dictionary[@"userPurpose"] toMSGraphUserPurpose];
+    }
+    return _userPurpose;
+}
+
+- (void) setUserPurpose: (MSGraphUserPurpose*) val
+{
+    _userPurpose = val;
+    self.dictionary[@"userPurpose"] = val;
 }
 
 - (MSGraphWorkingHours*) workingHours

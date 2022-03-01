@@ -11,6 +11,8 @@ typedef NS_ENUM(NSInteger, MSGraphLobbyBypassScopeValue){
 	MSGraphLobbyBypassScopeOrganizationAndFederated = 2,
 	MSGraphLobbyBypassScopeEveryone = 3,
 	MSGraphLobbyBypassScopeUnknownFutureValue = 4,
+	MSGraphLobbyBypassScopeInvited = 5,
+	MSGraphLobbyBypassScopeOrganizationExcludingGuests = 6,
     MSGraphLobbyBypassScopeEndOfEnum
 };
 
@@ -21,6 +23,8 @@ typedef NS_ENUM(NSInteger, MSGraphLobbyBypassScopeValue){
 +(MSGraphLobbyBypassScope*) organizationAndFederated;
 +(MSGraphLobbyBypassScope*) everyone;
 +(MSGraphLobbyBypassScope*) unknownFutureValue;
++(MSGraphLobbyBypassScope*) invited;
++(MSGraphLobbyBypassScope*) organizationExcludingGuests;
 
 +(MSGraphLobbyBypassScope*) UnknownEnumValue;
 

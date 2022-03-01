@@ -16,6 +16,7 @@
 {
     NSArray* _excludeApplications;
     NSArray* _includeApplications;
+    NSArray* _includeAuthenticationContextClassReferences;
     NSArray* _includeUserActions;
 }
 @end
@@ -40,6 +41,16 @@
 - (void) setIncludeApplications: (NSArray*) val
 {
     self.dictionary[@"includeApplications"] = val;
+}
+
+- (NSArray*) includeAuthenticationContextClassReferences
+{
+    return self.dictionary[@"includeAuthenticationContextClassReferences"];
+}
+
+- (void) setIncludeAuthenticationContextClassReferences: (NSArray*) val
+{
+    self.dictionary[@"includeAuthenticationContextClassReferences"] = val;
 }
 
 - (NSArray*) includeUserActions
