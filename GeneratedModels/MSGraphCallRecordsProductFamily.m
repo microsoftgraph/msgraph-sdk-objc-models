@@ -57,6 +57,15 @@
     });
     return _unknownFutureValue;
 }
++ (MSGraphCallRecordsProductFamily*) azureCommunicationServices {
+    static MSGraphCallRecordsProductFamily *_azureCommunicationServices;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        _azureCommunicationServices = [[MSGraphCallRecordsProductFamily alloc] init];
+        _azureCommunicationServices.enumValue = MSGraphCallRecordsProductFamilyAzureCommunicationServices;
+    });
+    return _azureCommunicationServices;
+}
 
 + (MSGraphCallRecordsProductFamily*) UnknownEnumValue {
     static MSGraphCallRecordsProductFamily *_unknownValue;
@@ -83,6 +92,8 @@
             return [MSGraphCallRecordsProductFamily lync];
         case MSGraphCallRecordsProductFamilyUnknownFutureValue:
             return [MSGraphCallRecordsProductFamily unknownFutureValue];
+        case MSGraphCallRecordsProductFamilyAzureCommunicationServices:
+            return [MSGraphCallRecordsProductFamily azureCommunicationServices];
         case MSGraphCallRecordsProductFamilyEndOfEnum:
         default:
             return [MSGraphCallRecordsProductFamily UnknownEnumValue];
@@ -105,6 +116,8 @@
             return @"lync";
         case MSGraphCallRecordsProductFamilyUnknownFutureValue:
             return @"unknownFutureValue";
+        case MSGraphCallRecordsProductFamilyAzureCommunicationServices:
+            return @"azureCommunicationServices";
         case MSGraphCallRecordsProductFamilyEndOfEnum:
         default:
             return nil;
@@ -142,6 +155,10 @@
     else if([self isEqualToString:@"unknownFutureValue"])
     {
           return [MSGraphCallRecordsProductFamily unknownFutureValue];
+    }
+    else if([self isEqualToString:@"azureCommunicationServices"])
+    {
+          return [MSGraphCallRecordsProductFamily azureCommunicationServices];
     }
     else {
         return [MSGraphCallRecordsProductFamily UnknownEnumValue];

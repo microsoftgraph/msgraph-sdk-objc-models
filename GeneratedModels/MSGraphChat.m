@@ -17,7 +17,10 @@
     MSGraphChatType* _chatType;
     NSDate* _createdDateTime;
     NSDate* _lastUpdatedDateTime;
+    MSGraphTeamworkOnlineMeetingInfo* _onlineMeetingInfo;
+    NSString* _tenantId;
     NSString* _topic;
+    NSString* _webUrl;
     NSArray* _installedApps;
     NSArray* _members;
     NSArray* _messages;
@@ -76,6 +79,34 @@
     self.dictionary[@"lastUpdatedDateTime"] = [val ms_toString];
 }
 
+- (MSGraphTeamworkOnlineMeetingInfo*) onlineMeetingInfo
+{
+    if(!_onlineMeetingInfo){
+        _onlineMeetingInfo = [[MSGraphTeamworkOnlineMeetingInfo alloc] initWithDictionary: self.dictionary[@"onlineMeetingInfo"]];
+    }
+    return _onlineMeetingInfo;
+}
+
+- (void) setOnlineMeetingInfo: (MSGraphTeamworkOnlineMeetingInfo*) val
+{
+    _onlineMeetingInfo = val;
+    self.dictionary[@"onlineMeetingInfo"] = val;
+}
+
+- (NSString*) tenantId
+{
+    if([[NSNull null] isEqual:self.dictionary[@"tenantId"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"tenantId"];
+}
+
+- (void) setTenantId: (NSString*) val
+{
+    self.dictionary[@"tenantId"] = val;
+}
+
 - (NSString*) topic
 {
     if([[NSNull null] isEqual:self.dictionary[@"topic"]])
@@ -88,6 +119,20 @@
 - (void) setTopic: (NSString*) val
 {
     self.dictionary[@"topic"] = val;
+}
+
+- (NSString*) webUrl
+{
+    if([[NSNull null] isEqual:self.dictionary[@"webUrl"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"webUrl"];
+}
+
+- (void) setWebUrl: (NSString*) val
+{
+    self.dictionary[@"webUrl"] = val;
 }
 
 - (NSArray*) installedApps

@@ -15,6 +15,7 @@
 @interface MSGraphEducationAssignment()
 {
     MSGraphEducationAddedStudentAction* _addedStudentAction;
+    MSGraphEducationAddToCalendarOptions* _addToCalendarAction;
     BOOL _allowLateSubmissions;
     BOOL _allowStudentsToAddResourcesToSubmission;
     NSDate* _assignDateTime;
@@ -62,6 +63,20 @@
 {
     _addedStudentAction = val;
     self.dictionary[@"addedStudentAction"] = val;
+}
+
+- (MSGraphEducationAddToCalendarOptions*) addToCalendarAction
+{
+    if(!_addToCalendarAction){
+        _addToCalendarAction = [self.dictionary[@"addToCalendarAction"] toMSGraphEducationAddToCalendarOptions];
+    }
+    return _addToCalendarAction;
+}
+
+- (void) setAddToCalendarAction: (MSGraphEducationAddToCalendarOptions*) val
+{
+    _addToCalendarAction = val;
+    self.dictionary[@"addToCalendarAction"] = val;
 }
 
 - (BOOL) allowLateSubmissions

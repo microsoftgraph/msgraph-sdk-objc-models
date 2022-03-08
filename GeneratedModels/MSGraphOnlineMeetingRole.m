@@ -39,6 +39,15 @@
     });
     return _unknownFutureValue;
 }
++ (MSGraphOnlineMeetingRole*) producer {
+    static MSGraphOnlineMeetingRole *_producer;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        _producer = [[MSGraphOnlineMeetingRole alloc] init];
+        _producer.enumValue = MSGraphOnlineMeetingRoleProducer;
+    });
+    return _producer;
+}
 
 + (MSGraphOnlineMeetingRole*) UnknownEnumValue {
     static MSGraphOnlineMeetingRole *_unknownValue;
@@ -61,6 +70,8 @@
             return [MSGraphOnlineMeetingRole presenter];
         case MSGraphOnlineMeetingRoleUnknownFutureValue:
             return [MSGraphOnlineMeetingRole unknownFutureValue];
+        case MSGraphOnlineMeetingRoleProducer:
+            return [MSGraphOnlineMeetingRole producer];
         case MSGraphOnlineMeetingRoleEndOfEnum:
         default:
             return [MSGraphOnlineMeetingRole UnknownEnumValue];
@@ -79,6 +90,8 @@
             return @"presenter";
         case MSGraphOnlineMeetingRoleUnknownFutureValue:
             return @"unknownFutureValue";
+        case MSGraphOnlineMeetingRoleProducer:
+            return @"producer";
         case MSGraphOnlineMeetingRoleEndOfEnum:
         default:
             return nil;
@@ -108,6 +121,10 @@
     else if([self isEqualToString:@"unknownFutureValue"])
     {
           return [MSGraphOnlineMeetingRole unknownFutureValue];
+    }
+    else if([self isEqualToString:@"producer"])
+    {
+          return [MSGraphOnlineMeetingRole producer];
     }
     else {
         return [MSGraphOnlineMeetingRole UnknownEnumValue];
