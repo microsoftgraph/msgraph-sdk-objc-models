@@ -11,6 +11,7 @@
 @property (nullable, nonatomic, setter=setAssignedByGroup:, getter=assignedByGroup) NSString* assignedByGroup;
 @property (nullable, nonatomic, setter=setDisabledPlans:, getter=disabledPlans) NSArray* disabledPlans;
 @property (nullable, nonatomic, setter=setError:, getter=error) NSString* error;
+@property (nullable, nonatomic, setter=setLastUpdatedDateTime:, getter=lastUpdatedDateTime) NSDate* lastUpdatedDateTime;
 @property (nullable, nonatomic, setter=setSkuId:, getter=skuId) NSString* skuId;
 @property (nullable, nonatomic, setter=setState:, getter=state) NSString* state;
 

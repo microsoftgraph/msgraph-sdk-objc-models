@@ -15,6 +15,7 @@
 @interface MSGraphAccessReviewSet()
 {
     NSArray* _definitions;
+    NSArray* _historyDefinitions;
 }
 @end
 
@@ -50,6 +51,31 @@
 {
     _definitions = val;
     self.dictionary[@"definitions"] = val;
+}
+
+- (NSArray*) historyDefinitions
+{
+    if(!_historyDefinitions){
+        
+    NSMutableArray *historyDefinitionsResult = [NSMutableArray array];
+    NSArray *historyDefinitions = self.dictionary[@"historyDefinitions"];
+
+    if ([historyDefinitions isKindOfClass:[NSArray class]]){
+        for (id tempAccessReviewHistoryDefinition in historyDefinitions){
+            [historyDefinitionsResult addObject:tempAccessReviewHistoryDefinition];
+        }
+    }
+
+    _historyDefinitions = historyDefinitionsResult;
+        
+    }
+    return _historyDefinitions;
+}
+
+- (void) setHistoryDefinitions: (NSArray*) val
+{
+    _historyDefinitions = val;
+    self.dictionary[@"historyDefinitions"] = val;
 }
 
 

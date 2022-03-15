@@ -15,9 +15,12 @@
 @interface MSGraphAccessReviewInstance()
 {
     NSDate* _endDateTime;
+    NSArray* _fallbackReviewers;
+    NSArray* _reviewers;
     MSGraphAccessReviewScope* _scope;
     NSDate* _startDateTime;
     NSString* _status;
+    NSArray* _contactedReviewers;
     NSArray* _decisions;
 }
 @end
@@ -43,6 +46,56 @@
 {
     _endDateTime = val;
     self.dictionary[@"endDateTime"] = [val ms_toString];
+}
+
+- (NSArray*) fallbackReviewers
+{
+    if(!_fallbackReviewers){
+        
+    NSMutableArray *fallbackReviewersResult = [NSMutableArray array];
+    NSArray *fallbackReviewers = self.dictionary[@"fallbackReviewers"];
+
+    if ([fallbackReviewers isKindOfClass:[NSArray class]]){
+        for (id tempAccessReviewReviewerScope in fallbackReviewers){
+            [fallbackReviewersResult addObject:tempAccessReviewReviewerScope];
+        }
+    }
+
+    _fallbackReviewers = fallbackReviewersResult;
+        
+    }
+    return _fallbackReviewers;
+}
+
+- (void) setFallbackReviewers: (NSArray*) val
+{
+    _fallbackReviewers = val;
+    self.dictionary[@"fallbackReviewers"] = val;
+}
+
+- (NSArray*) reviewers
+{
+    if(!_reviewers){
+        
+    NSMutableArray *reviewersResult = [NSMutableArray array];
+    NSArray *reviewers = self.dictionary[@"reviewers"];
+
+    if ([reviewers isKindOfClass:[NSArray class]]){
+        for (id tempAccessReviewReviewerScope in reviewers){
+            [reviewersResult addObject:tempAccessReviewReviewerScope];
+        }
+    }
+
+    _reviewers = reviewersResult;
+        
+    }
+    return _reviewers;
+}
+
+- (void) setReviewers: (NSArray*) val
+{
+    _reviewers = val;
+    self.dictionary[@"reviewers"] = val;
 }
 
 - (MSGraphAccessReviewScope*) scope
@@ -85,6 +138,31 @@
 - (void) setStatus: (NSString*) val
 {
     self.dictionary[@"status"] = val;
+}
+
+- (NSArray*) contactedReviewers
+{
+    if(!_contactedReviewers){
+        
+    NSMutableArray *contactedReviewersResult = [NSMutableArray array];
+    NSArray *contactedReviewers = self.dictionary[@"contactedReviewers"];
+
+    if ([contactedReviewers isKindOfClass:[NSArray class]]){
+        for (id tempAccessReviewReviewer in contactedReviewers){
+            [contactedReviewersResult addObject:tempAccessReviewReviewer];
+        }
+    }
+
+    _contactedReviewers = contactedReviewersResult;
+        
+    }
+    return _contactedReviewers;
+}
+
+- (void) setContactedReviewers: (NSArray*) val
+{
+    _contactedReviewers = val;
+    self.dictionary[@"contactedReviewers"] = val;
 }
 
 - (NSArray*) decisions
