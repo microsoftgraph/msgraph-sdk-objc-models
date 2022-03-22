@@ -3,6 +3,7 @@
 
 @class MSGraphEducationAssignmentRecipient, MSGraphIdentitySet, MSGraphEducationAssignmentGradeType, MSGraphEducationItemBody, MSGraphEducationCategory, MSGraphEducationAssignmentResource, MSGraphEducationRubric, MSGraphEducationSubmission; 
 #import "MSGraphEducationAddedStudentAction.h"
+#import "MSGraphEducationAddToCalendarOptions.h"
 #import "MSGraphEducationAssignmentStatus.h"
 
 
@@ -11,6 +12,7 @@
 @interface MSGraphEducationAssignment : MSGraphEntity
 
   @property (nullable, nonatomic, setter=setAddedStudentAction:, getter=addedStudentAction) MSGraphEducationAddedStudentAction* addedStudentAction;
+    @property (nullable, nonatomic, setter=setAddToCalendarAction:, getter=addToCalendarAction) MSGraphEducationAddToCalendarOptions* addToCalendarAction;
     @property (nonatomic, setter=setAllowLateSubmissions:, getter=allowLateSubmissions) BOOL allowLateSubmissions;
     @property (nonatomic, setter=setAllowStudentsToAddResourcesToSubmission:, getter=allowStudentsToAddResourcesToSubmission) BOOL allowStudentsToAddResourcesToSubmission;
     @property (nullable, nonatomic, setter=setAssignDateTime:, getter=assignDateTime) NSDate* assignDateTime;

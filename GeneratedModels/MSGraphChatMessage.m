@@ -21,6 +21,7 @@
     NSDate* _createdDateTime;
     NSDate* _deletedDateTime;
     NSString* _etag;
+    MSGraphEventMessageDetail* _eventDetail;
     MSGraphChatMessageFromIdentitySet* _from;
     MSGraphChatMessageImportance* _importance;
     NSDate* _lastEditedDateTime;
@@ -155,6 +156,20 @@
 - (void) setEtag: (NSString*) val
 {
     self.dictionary[@"etag"] = val;
+}
+
+- (MSGraphEventMessageDetail*) eventDetail
+{
+    if(!_eventDetail){
+        _eventDetail = [[MSGraphEventMessageDetail alloc] initWithDictionary: self.dictionary[@"eventDetail"]];
+    }
+    return _eventDetail;
+}
+
+- (void) setEventDetail: (MSGraphEventMessageDetail*) val
+{
+    _eventDetail = val;
+    self.dictionary[@"eventDetail"] = val;
 }
 
 - (MSGraphChatMessageFromIdentitySet*) from

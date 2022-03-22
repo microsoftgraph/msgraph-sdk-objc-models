@@ -14,6 +14,8 @@
 
 @interface MSGraphAndroidMinimumOperatingSystem()
 {
+    BOOL _v10_0;
+    BOOL _v11_0;
     BOOL _v4_0;
     BOOL _v4_0_3;
     BOOL _v4_1;
@@ -26,6 +28,30 @@
 @end
 
 @implementation MSGraphAndroidMinimumOperatingSystem
+
+- (BOOL) v10_0
+{
+    _v10_0 = [self.dictionary[@"v10_0"] boolValue];
+    return _v10_0;
+}
+
+- (void) setV10_0: (BOOL) val
+{
+    _v10_0 = val;
+    self.dictionary[@"v10_0"] = @(val);
+}
+
+- (BOOL) v11_0
+{
+    _v11_0 = [self.dictionary[@"v11_0"] boolValue];
+    return _v11_0;
+}
+
+- (void) setV11_0: (BOOL) val
+{
+    _v11_0 = val;
+    self.dictionary[@"v11_0"] = @(val);
+}
 
 - (BOOL) v4_0
 {

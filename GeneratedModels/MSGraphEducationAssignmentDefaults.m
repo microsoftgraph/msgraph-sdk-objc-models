@@ -15,6 +15,7 @@
 @interface MSGraphEducationAssignmentDefaults()
 {
     MSGraphEducationAddedStudentAction* _addedStudentAction;
+    MSGraphEducationAddToCalendarOptions* _addToCalendarAction;
     MSTimeOfDay* _dueTime;
     NSString* _notificationChannelUrl;
 }
@@ -41,6 +42,20 @@
 {
     _addedStudentAction = val;
     self.dictionary[@"addedStudentAction"] = val;
+}
+
+- (MSGraphEducationAddToCalendarOptions*) addToCalendarAction
+{
+    if(!_addToCalendarAction){
+        _addToCalendarAction = [self.dictionary[@"addToCalendarAction"] toMSGraphEducationAddToCalendarOptions];
+    }
+    return _addToCalendarAction;
+}
+
+- (void) setAddToCalendarAction: (MSGraphEducationAddToCalendarOptions*) val
+{
+    _addToCalendarAction = val;
+    self.dictionary[@"addToCalendarAction"] = val;
 }
 
 - (MSTimeOfDay*) dueTime

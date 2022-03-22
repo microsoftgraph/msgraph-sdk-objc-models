@@ -15,7 +15,9 @@
 @interface MSGraphConditionalAccessConditionSet()
 {
     MSGraphConditionalAccessApplications* _applications;
+    MSGraphConditionalAccessClientApplications* _clientApplications;
     NSArray* _clientAppTypes;
+    MSGraphConditionalAccessDevices* _devices;
     MSGraphConditionalAccessLocations* _locations;
     MSGraphConditionalAccessPlatforms* _platforms;
     NSArray* _signInRiskLevels;
@@ -38,6 +40,20 @@
 {
     _applications = val;
     self.dictionary[@"applications"] = val;
+}
+
+- (MSGraphConditionalAccessClientApplications*) clientApplications
+{
+    if(!_clientApplications){
+        _clientApplications = [[MSGraphConditionalAccessClientApplications alloc] initWithDictionary: self.dictionary[@"clientApplications"]];
+    }
+    return _clientApplications;
+}
+
+- (void) setClientApplications: (MSGraphConditionalAccessClientApplications*) val
+{
+    _clientApplications = val;
+    self.dictionary[@"clientApplications"] = val;
 }
 
 - (NSArray*) clientAppTypes
@@ -63,6 +79,20 @@
 {
     _clientAppTypes = val;
     self.dictionary[@"clientAppTypes"] = val;
+}
+
+- (MSGraphConditionalAccessDevices*) devices
+{
+    if(!_devices){
+        _devices = [[MSGraphConditionalAccessDevices alloc] initWithDictionary: self.dictionary[@"devices"]];
+    }
+    return _devices;
+}
+
+- (void) setDevices: (MSGraphConditionalAccessDevices*) val
+{
+    _devices = val;
+    self.dictionary[@"devices"] = val;
 }
 
 - (MSGraphConditionalAccessLocations*) locations

@@ -15,7 +15,6 @@
 @interface MSGraphMicrosoftAuthenticatorAuthenticationMethodTarget()
 {
     MSGraphMicrosoftAuthenticatorAuthenticationMode* _authenticationMode;
-    MSGraphAuthenticatorAppFeatureSettings* _featureSettings;
 }
 @end
 
@@ -40,20 +39,6 @@
 {
     _authenticationMode = val;
     self.dictionary[@"authenticationMode"] = val;
-}
-
-- (MSGraphAuthenticatorAppFeatureSettings*) featureSettings
-{
-    if(!_featureSettings){
-        _featureSettings = [self.dictionary[@"featureSettings"] toMSGraphAuthenticatorAppFeatureSettings];
-    }
-    return _featureSettings;
-}
-
-- (void) setFeatureSettings: (MSGraphAuthenticatorAppFeatureSettings*) val
-{
-    _featureSettings = val;
-    self.dictionary[@"featureSettings"] = val;
 }
 
 

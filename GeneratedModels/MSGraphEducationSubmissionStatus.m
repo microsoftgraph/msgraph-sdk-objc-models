@@ -57,6 +57,15 @@
     });
     return _unknownFutureValue;
 }
++ (MSGraphEducationSubmissionStatus*) reassigned {
+    static MSGraphEducationSubmissionStatus *_reassigned;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        _reassigned = [[MSGraphEducationSubmissionStatus alloc] init];
+        _reassigned.enumValue = MSGraphEducationSubmissionStatusReassigned;
+    });
+    return _reassigned;
+}
 
 + (MSGraphEducationSubmissionStatus*) UnknownEnumValue {
     static MSGraphEducationSubmissionStatus *_unknownValue;
@@ -83,6 +92,8 @@
             return [MSGraphEducationSubmissionStatus returned];
         case MSGraphEducationSubmissionStatusUnknownFutureValue:
             return [MSGraphEducationSubmissionStatus unknownFutureValue];
+        case MSGraphEducationSubmissionStatusReassigned:
+            return [MSGraphEducationSubmissionStatus reassigned];
         case MSGraphEducationSubmissionStatusEndOfEnum:
         default:
             return [MSGraphEducationSubmissionStatus UnknownEnumValue];
@@ -105,6 +116,8 @@
             return @"returned";
         case MSGraphEducationSubmissionStatusUnknownFutureValue:
             return @"unknownFutureValue";
+        case MSGraphEducationSubmissionStatusReassigned:
+            return @"reassigned";
         case MSGraphEducationSubmissionStatusEndOfEnum:
         default:
             return nil;
@@ -142,6 +155,10 @@
     else if([self isEqualToString:@"unknownFutureValue"])
     {
           return [MSGraphEducationSubmissionStatus unknownFutureValue];
+    }
+    else if([self isEqualToString:@"reassigned"])
+    {
+          return [MSGraphEducationSubmissionStatus reassigned];
     }
     else {
         return [MSGraphEducationSubmissionStatus UnknownEnumValue];
