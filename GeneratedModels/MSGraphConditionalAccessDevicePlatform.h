@@ -13,6 +13,7 @@ typedef NS_ENUM(NSInteger, MSGraphConditionalAccessDevicePlatformValue){
 	MSGraphConditionalAccessDevicePlatformMacOS = 4,
 	MSGraphConditionalAccessDevicePlatformAll = 5,
 	MSGraphConditionalAccessDevicePlatformUnknownFutureValue = 6,
+	MSGraphConditionalAccessDevicePlatformLinux = 7,
     MSGraphConditionalAccessDevicePlatformEndOfEnum
 };
 
@@ -25,6 +26,7 @@ typedef NS_ENUM(NSInteger, MSGraphConditionalAccessDevicePlatformValue){
 +(MSGraphConditionalAccessDevicePlatform*) macOS;
 +(MSGraphConditionalAccessDevicePlatform*) all;
 +(MSGraphConditionalAccessDevicePlatform*) unknownFutureValue;
++(MSGraphConditionalAccessDevicePlatform*) linux;
 
 +(MSGraphConditionalAccessDevicePlatform*) UnknownEnumValue;
 

@@ -11,6 +11,7 @@ typedef NS_ENUM(NSInteger, MSGraphCallRecordsProductFamilyValue){
 	MSGraphCallRecordsProductFamilySkypeForBusiness = 2,
 	MSGraphCallRecordsProductFamilyLync = 3,
 	MSGraphCallRecordsProductFamilyUnknownFutureValue = 4,
+	MSGraphCallRecordsProductFamilyAzureCommunicationServices = 5,
     MSGraphCallRecordsProductFamilyEndOfEnum
 };
 
@@ -21,6 +22,7 @@ typedef NS_ENUM(NSInteger, MSGraphCallRecordsProductFamilyValue){
 +(MSGraphCallRecordsProductFamily*) skypeForBusiness;
 +(MSGraphCallRecordsProductFamily*) lync;
 +(MSGraphCallRecordsProductFamily*) unknownFutureValue;
++(MSGraphCallRecordsProductFamily*) azureCommunicationServices;
 
 +(MSGraphCallRecordsProductFamily*) UnknownEnumValue;
 

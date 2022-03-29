@@ -15,6 +15,7 @@
 @interface MSGraphDriveItem()
 {
     MSGraphAudio* _audio;
+    MSGraphBundle* _bundle;
     NSString* _cTag;
     MSGraphDeleted* _deleted;
     MSGraphFile* _file;
@@ -22,6 +23,7 @@
     MSGraphFolder* _folder;
     MSGraphImage* _image;
     MSGraphGeoCoordinates* _location;
+    MSGraphMalware* _malware;
     MSGraphPackage* _package;
     MSGraphPendingOperations* _pendingOperations;
     MSGraphPhoto* _photo;
@@ -67,6 +69,20 @@
 {
     _audio = val;
     self.dictionary[@"audio"] = val;
+}
+
+- (MSGraphBundle*) bundle
+{
+    if(!_bundle){
+        _bundle = [[MSGraphBundle alloc] initWithDictionary: self.dictionary[@"bundle"]];
+    }
+    return _bundle;
+}
+
+- (void) setBundle: (MSGraphBundle*) val
+{
+    _bundle = val;
+    self.dictionary[@"bundle"] = val;
 }
 
 - (NSString*) cTag
@@ -165,6 +181,20 @@
 {
     _location = val;
     self.dictionary[@"location"] = val;
+}
+
+- (MSGraphMalware*) malware
+{
+    if(!_malware){
+        _malware = [[MSGraphMalware alloc] initWithDictionary: self.dictionary[@"malware"]];
+    }
+    return _malware;
+}
+
+- (void) setMalware: (MSGraphMalware*) val
+{
+    _malware = val;
+    self.dictionary[@"malware"] = val;
 }
 
 - (MSGraphPackage*) package
