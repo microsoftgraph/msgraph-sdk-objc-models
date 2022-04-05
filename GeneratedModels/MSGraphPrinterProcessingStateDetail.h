@@ -41,6 +41,797 @@ typedef NS_ENUM(NSInteger, MSGraphPrinterProcessingStateDetailValue){
 	MSGraphPrinterProcessingStateDetailDeveloperEmpty = 34,
 	MSGraphPrinterProcessingStateDetailInterpreterResourceUnavailable = 35,
 	MSGraphPrinterProcessingStateDetailUnknownFutureValue = 36,
+	MSGraphPrinterProcessingStateDetailAlertRemovalOfBinaryChangeEntry = 37,
+	MSGraphPrinterProcessingStateDetailBanderAdded = 38,
+	MSGraphPrinterProcessingStateDetailBanderAlmostEmpty = 39,
+	MSGraphPrinterProcessingStateDetailBanderAlmostFull = 40,
+	MSGraphPrinterProcessingStateDetailBanderAtLimit = 41,
+	MSGraphPrinterProcessingStateDetailBanderClosed = 42,
+	MSGraphPrinterProcessingStateDetailBanderConfigurationChange = 43,
+	MSGraphPrinterProcessingStateDetailBanderCoverClosed = 44,
+	MSGraphPrinterProcessingStateDetailBanderCoverOpen = 45,
+	MSGraphPrinterProcessingStateDetailBanderEmpty = 46,
+	MSGraphPrinterProcessingStateDetailBanderFull = 47,
+	MSGraphPrinterProcessingStateDetailBanderInterlockClosed = 48,
+	MSGraphPrinterProcessingStateDetailBanderInterlockOpen = 49,
+	MSGraphPrinterProcessingStateDetailBanderJam = 50,
+	MSGraphPrinterProcessingStateDetailBanderLifeAlmostOver = 51,
+	MSGraphPrinterProcessingStateDetailBanderLifeOver = 52,
+	MSGraphPrinterProcessingStateDetailBanderMemoryExhausted = 53,
+	MSGraphPrinterProcessingStateDetailBanderMissing = 54,
+	MSGraphPrinterProcessingStateDetailBanderMotorFailure = 55,
+	MSGraphPrinterProcessingStateDetailBanderNearLimit = 56,
+	MSGraphPrinterProcessingStateDetailBanderOffline = 57,
+	MSGraphPrinterProcessingStateDetailBanderOpened = 58,
+	MSGraphPrinterProcessingStateDetailBanderOverTemperature = 59,
+	MSGraphPrinterProcessingStateDetailBanderPowerSaver = 60,
+	MSGraphPrinterProcessingStateDetailBanderRecoverableFailure = 61,
+	MSGraphPrinterProcessingStateDetailBanderRecoverableStorage = 62,
+	MSGraphPrinterProcessingStateDetailBanderRemoved = 63,
+	MSGraphPrinterProcessingStateDetailBanderResourceAdded = 64,
+	MSGraphPrinterProcessingStateDetailBanderResourceRemoved = 65,
+	MSGraphPrinterProcessingStateDetailBanderThermistorFailure = 66,
+	MSGraphPrinterProcessingStateDetailBanderTimingFailure = 67,
+	MSGraphPrinterProcessingStateDetailBanderTurnedOff = 68,
+	MSGraphPrinterProcessingStateDetailBanderTurnedOn = 69,
+	MSGraphPrinterProcessingStateDetailBanderUnderTemperature = 70,
+	MSGraphPrinterProcessingStateDetailBanderUnrecoverableFailure = 71,
+	MSGraphPrinterProcessingStateDetailBanderUnrecoverableStorageError = 72,
+	MSGraphPrinterProcessingStateDetailBanderWarmingUp = 73,
+	MSGraphPrinterProcessingStateDetailBinderAdded = 74,
+	MSGraphPrinterProcessingStateDetailBinderAlmostEmpty = 75,
+	MSGraphPrinterProcessingStateDetailBinderAlmostFull = 76,
+	MSGraphPrinterProcessingStateDetailBinderAtLimit = 77,
+	MSGraphPrinterProcessingStateDetailBinderClosed = 78,
+	MSGraphPrinterProcessingStateDetailBinderConfigurationChange = 79,
+	MSGraphPrinterProcessingStateDetailBinderCoverClosed = 80,
+	MSGraphPrinterProcessingStateDetailBinderCoverOpen = 81,
+	MSGraphPrinterProcessingStateDetailBinderEmpty = 82,
+	MSGraphPrinterProcessingStateDetailBinderFull = 83,
+	MSGraphPrinterProcessingStateDetailBinderInterlockClosed = 84,
+	MSGraphPrinterProcessingStateDetailBinderInterlockOpen = 85,
+	MSGraphPrinterProcessingStateDetailBinderJam = 86,
+	MSGraphPrinterProcessingStateDetailBinderLifeAlmostOver = 87,
+	MSGraphPrinterProcessingStateDetailBinderLifeOver = 88,
+	MSGraphPrinterProcessingStateDetailBinderMemoryExhausted = 89,
+	MSGraphPrinterProcessingStateDetailBinderMissing = 90,
+	MSGraphPrinterProcessingStateDetailBinderMotorFailure = 91,
+	MSGraphPrinterProcessingStateDetailBinderNearLimit = 92,
+	MSGraphPrinterProcessingStateDetailBinderOffline = 93,
+	MSGraphPrinterProcessingStateDetailBinderOpened = 94,
+	MSGraphPrinterProcessingStateDetailBinderOverTemperature = 95,
+	MSGraphPrinterProcessingStateDetailBinderPowerSaver = 96,
+	MSGraphPrinterProcessingStateDetailBinderRecoverableFailure = 97,
+	MSGraphPrinterProcessingStateDetailBinderRecoverableStorage = 98,
+	MSGraphPrinterProcessingStateDetailBinderRemoved = 99,
+	MSGraphPrinterProcessingStateDetailBinderResourceAdded = 100,
+	MSGraphPrinterProcessingStateDetailBinderResourceRemoved = 101,
+	MSGraphPrinterProcessingStateDetailBinderThermistorFailure = 102,
+	MSGraphPrinterProcessingStateDetailBinderTimingFailure = 103,
+	MSGraphPrinterProcessingStateDetailBinderTurnedOff = 104,
+	MSGraphPrinterProcessingStateDetailBinderTurnedOn = 105,
+	MSGraphPrinterProcessingStateDetailBinderUnderTemperature = 106,
+	MSGraphPrinterProcessingStateDetailBinderUnrecoverableFailure = 107,
+	MSGraphPrinterProcessingStateDetailBinderUnrecoverableStorageError = 108,
+	MSGraphPrinterProcessingStateDetailBinderWarmingUp = 109,
+	MSGraphPrinterProcessingStateDetailCameraFailure = 110,
+	MSGraphPrinterProcessingStateDetailChamberCooling = 111,
+	MSGraphPrinterProcessingStateDetailChamberFailure = 112,
+	MSGraphPrinterProcessingStateDetailChamberHeating = 113,
+	MSGraphPrinterProcessingStateDetailChamberTemperatureHigh = 114,
+	MSGraphPrinterProcessingStateDetailChamberTemperatureLow = 115,
+	MSGraphPrinterProcessingStateDetailCleanerLifeAlmostOver = 116,
+	MSGraphPrinterProcessingStateDetailCleanerLifeOver = 117,
+	MSGraphPrinterProcessingStateDetailConfigurationChange = 118,
+	MSGraphPrinterProcessingStateDetailDeactivated = 119,
+	MSGraphPrinterProcessingStateDetailDeleted = 120,
+	MSGraphPrinterProcessingStateDetailDieCutterAdded = 121,
+	MSGraphPrinterProcessingStateDetailDieCutterAlmostEmpty = 122,
+	MSGraphPrinterProcessingStateDetailDieCutterAlmostFull = 123,
+	MSGraphPrinterProcessingStateDetailDieCutterAtLimit = 124,
+	MSGraphPrinterProcessingStateDetailDieCutterClosed = 125,
+	MSGraphPrinterProcessingStateDetailDieCutterConfigurationChange = 126,
+	MSGraphPrinterProcessingStateDetailDieCutterCoverClosed = 127,
+	MSGraphPrinterProcessingStateDetailDieCutterCoverOpen = 128,
+	MSGraphPrinterProcessingStateDetailDieCutterEmpty = 129,
+	MSGraphPrinterProcessingStateDetailDieCutterFull = 130,
+	MSGraphPrinterProcessingStateDetailDieCutterInterlockClosed = 131,
+	MSGraphPrinterProcessingStateDetailDieCutterInterlockOpen = 132,
+	MSGraphPrinterProcessingStateDetailDieCutterJam = 133,
+	MSGraphPrinterProcessingStateDetailDieCutterLifeAlmostOver = 134,
+	MSGraphPrinterProcessingStateDetailDieCutterLifeOver = 135,
+	MSGraphPrinterProcessingStateDetailDieCutterMemoryExhausted = 136,
+	MSGraphPrinterProcessingStateDetailDieCutterMissing = 137,
+	MSGraphPrinterProcessingStateDetailDieCutterMotorFailure = 138,
+	MSGraphPrinterProcessingStateDetailDieCutterNearLimit = 139,
+	MSGraphPrinterProcessingStateDetailDieCutterOffline = 140,
+	MSGraphPrinterProcessingStateDetailDieCutterOpened = 141,
+	MSGraphPrinterProcessingStateDetailDieCutterOverTemperature = 142,
+	MSGraphPrinterProcessingStateDetailDieCutterPowerSaver = 143,
+	MSGraphPrinterProcessingStateDetailDieCutterRecoverableFailure = 144,
+	MSGraphPrinterProcessingStateDetailDieCutterRecoverableStorage = 145,
+	MSGraphPrinterProcessingStateDetailDieCutterRemoved = 146,
+	MSGraphPrinterProcessingStateDetailDieCutterResourceAdded = 147,
+	MSGraphPrinterProcessingStateDetailDieCutterResourceRemoved = 148,
+	MSGraphPrinterProcessingStateDetailDieCutterThermistorFailure = 149,
+	MSGraphPrinterProcessingStateDetailDieCutterTimingFailure = 150,
+	MSGraphPrinterProcessingStateDetailDieCutterTurnedOff = 151,
+	MSGraphPrinterProcessingStateDetailDieCutterTurnedOn = 152,
+	MSGraphPrinterProcessingStateDetailDieCutterUnderTemperature = 153,
+	MSGraphPrinterProcessingStateDetailDieCutterUnrecoverableFailure = 154,
+	MSGraphPrinterProcessingStateDetailDieCutterUnrecoverableStorageError = 155,
+	MSGraphPrinterProcessingStateDetailDieCutterWarmingUp = 156,
+	MSGraphPrinterProcessingStateDetailExtruderCooling = 157,
+	MSGraphPrinterProcessingStateDetailExtruderFailure = 158,
+	MSGraphPrinterProcessingStateDetailExtruderHeating = 159,
+	MSGraphPrinterProcessingStateDetailExtruderJam = 160,
+	MSGraphPrinterProcessingStateDetailExtruderTemperatureHigh = 161,
+	MSGraphPrinterProcessingStateDetailExtruderTemperatureLow = 162,
+	MSGraphPrinterProcessingStateDetailFanFailure = 163,
+	MSGraphPrinterProcessingStateDetailFaxModemLifeAlmostOver = 164,
+	MSGraphPrinterProcessingStateDetailFaxModemLifeOver = 165,
+	MSGraphPrinterProcessingStateDetailFaxModemMissing = 166,
+	MSGraphPrinterProcessingStateDetailFaxModemTurnedOff = 167,
+	MSGraphPrinterProcessingStateDetailFaxModemTurnedOn = 168,
+	MSGraphPrinterProcessingStateDetailFolderAdded = 169,
+	MSGraphPrinterProcessingStateDetailFolderAlmostEmpty = 170,
+	MSGraphPrinterProcessingStateDetailFolderAlmostFull = 171,
+	MSGraphPrinterProcessingStateDetailFolderAtLimit = 172,
+	MSGraphPrinterProcessingStateDetailFolderClosed = 173,
+	MSGraphPrinterProcessingStateDetailFolderConfigurationChange = 174,
+	MSGraphPrinterProcessingStateDetailFolderCoverClosed = 175,
+	MSGraphPrinterProcessingStateDetailFolderCoverOpen = 176,
+	MSGraphPrinterProcessingStateDetailFolderEmpty = 177,
+	MSGraphPrinterProcessingStateDetailFolderFull = 178,
+	MSGraphPrinterProcessingStateDetailFolderInterlockClosed = 179,
+	MSGraphPrinterProcessingStateDetailFolderInterlockOpen = 180,
+	MSGraphPrinterProcessingStateDetailFolderJam = 181,
+	MSGraphPrinterProcessingStateDetailFolderLifeAlmostOver = 182,
+	MSGraphPrinterProcessingStateDetailFolderLifeOver = 183,
+	MSGraphPrinterProcessingStateDetailFolderMemoryExhausted = 184,
+	MSGraphPrinterProcessingStateDetailFolderMissing = 185,
+	MSGraphPrinterProcessingStateDetailFolderMotorFailure = 186,
+	MSGraphPrinterProcessingStateDetailFolderNearLimit = 187,
+	MSGraphPrinterProcessingStateDetailFolderOffline = 188,
+	MSGraphPrinterProcessingStateDetailFolderOpened = 189,
+	MSGraphPrinterProcessingStateDetailFolderOverTemperature = 190,
+	MSGraphPrinterProcessingStateDetailFolderPowerSaver = 191,
+	MSGraphPrinterProcessingStateDetailFolderRecoverableFailure = 192,
+	MSGraphPrinterProcessingStateDetailFolderRecoverableStorage = 193,
+	MSGraphPrinterProcessingStateDetailFolderRemoved = 194,
+	MSGraphPrinterProcessingStateDetailFolderResourceAdded = 195,
+	MSGraphPrinterProcessingStateDetailFolderResourceRemoved = 196,
+	MSGraphPrinterProcessingStateDetailFolderThermistorFailure = 197,
+	MSGraphPrinterProcessingStateDetailFolderTimingFailure = 198,
+	MSGraphPrinterProcessingStateDetailFolderTurnedOff = 199,
+	MSGraphPrinterProcessingStateDetailFolderTurnedOn = 200,
+	MSGraphPrinterProcessingStateDetailFolderUnderTemperature = 201,
+	MSGraphPrinterProcessingStateDetailFolderUnrecoverableFailure = 202,
+	MSGraphPrinterProcessingStateDetailFolderUnrecoverableStorageError = 203,
+	MSGraphPrinterProcessingStateDetailFolderWarmingUp = 204,
+	MSGraphPrinterProcessingStateDetailHibernate = 205,
+	MSGraphPrinterProcessingStateDetailHoldNewJobs = 206,
+	MSGraphPrinterProcessingStateDetailIdentifyPrinterRequested = 207,
+	MSGraphPrinterProcessingStateDetailImprinterAdded = 208,
+	MSGraphPrinterProcessingStateDetailImprinterAlmostEmpty = 209,
+	MSGraphPrinterProcessingStateDetailImprinterAlmostFull = 210,
+	MSGraphPrinterProcessingStateDetailImprinterAtLimit = 211,
+	MSGraphPrinterProcessingStateDetailImprinterClosed = 212,
+	MSGraphPrinterProcessingStateDetailImprinterConfigurationChange = 213,
+	MSGraphPrinterProcessingStateDetailImprinterCoverClosed = 214,
+	MSGraphPrinterProcessingStateDetailImprinterCoverOpen = 215,
+	MSGraphPrinterProcessingStateDetailImprinterEmpty = 216,
+	MSGraphPrinterProcessingStateDetailImprinterFull = 217,
+	MSGraphPrinterProcessingStateDetailImprinterInterlockClosed = 218,
+	MSGraphPrinterProcessingStateDetailImprinterInterlockOpen = 219,
+	MSGraphPrinterProcessingStateDetailImprinterJam = 220,
+	MSGraphPrinterProcessingStateDetailImprinterLifeAlmostOver = 221,
+	MSGraphPrinterProcessingStateDetailImprinterLifeOver = 222,
+	MSGraphPrinterProcessingStateDetailImprinterMemoryExhausted = 223,
+	MSGraphPrinterProcessingStateDetailImprinterMissing = 224,
+	MSGraphPrinterProcessingStateDetailImprinterMotorFailure = 225,
+	MSGraphPrinterProcessingStateDetailImprinterNearLimit = 226,
+	MSGraphPrinterProcessingStateDetailImprinterOffline = 227,
+	MSGraphPrinterProcessingStateDetailImprinterOpened = 228,
+	MSGraphPrinterProcessingStateDetailImprinterOverTemperature = 229,
+	MSGraphPrinterProcessingStateDetailImprinterPowerSaver = 230,
+	MSGraphPrinterProcessingStateDetailImprinterRecoverableFailure = 231,
+	MSGraphPrinterProcessingStateDetailImprinterRecoverableStorage = 232,
+	MSGraphPrinterProcessingStateDetailImprinterRemoved = 233,
+	MSGraphPrinterProcessingStateDetailImprinterResourceAdded = 234,
+	MSGraphPrinterProcessingStateDetailImprinterResourceRemoved = 235,
+	MSGraphPrinterProcessingStateDetailImprinterThermistorFailure = 236,
+	MSGraphPrinterProcessingStateDetailImprinterTimingFailure = 237,
+	MSGraphPrinterProcessingStateDetailImprinterTurnedOff = 238,
+	MSGraphPrinterProcessingStateDetailImprinterTurnedOn = 239,
+	MSGraphPrinterProcessingStateDetailImprinterUnderTemperature = 240,
+	MSGraphPrinterProcessingStateDetailImprinterUnrecoverableFailure = 241,
+	MSGraphPrinterProcessingStateDetailImprinterUnrecoverableStorageError = 242,
+	MSGraphPrinterProcessingStateDetailImprinterWarmingUp = 243,
+	MSGraphPrinterProcessingStateDetailInputCannotFeedSizeSelected = 244,
+	MSGraphPrinterProcessingStateDetailInputManualInputRequest = 245,
+	MSGraphPrinterProcessingStateDetailInputMediaColorChange = 246,
+	MSGraphPrinterProcessingStateDetailInputMediaFormPartsChange = 247,
+	MSGraphPrinterProcessingStateDetailInputMediaSizeChange = 248,
+	MSGraphPrinterProcessingStateDetailInputMediaTrayFailure = 249,
+	MSGraphPrinterProcessingStateDetailInputMediaTrayFeedError = 250,
+	MSGraphPrinterProcessingStateDetailInputMediaTrayJam = 251,
+	MSGraphPrinterProcessingStateDetailInputMediaTypeChange = 252,
+	MSGraphPrinterProcessingStateDetailInputMediaWeightChange = 253,
+	MSGraphPrinterProcessingStateDetailInputPickRollerFailure = 254,
+	MSGraphPrinterProcessingStateDetailInputPickRollerLifeOver = 255,
+	MSGraphPrinterProcessingStateDetailInputPickRollerLifeWarn = 256,
+	MSGraphPrinterProcessingStateDetailInputPickRollerMissing = 257,
+	MSGraphPrinterProcessingStateDetailInputTrayElevationFailure = 258,
+	MSGraphPrinterProcessingStateDetailInputTrayPositionFailure = 259,
+	MSGraphPrinterProcessingStateDetailInserterAdded = 260,
+	MSGraphPrinterProcessingStateDetailInserterAlmostEmpty = 261,
+	MSGraphPrinterProcessingStateDetailInserterAlmostFull = 262,
+	MSGraphPrinterProcessingStateDetailInserterAtLimit = 263,
+	MSGraphPrinterProcessingStateDetailInserterClosed = 264,
+	MSGraphPrinterProcessingStateDetailInserterConfigurationChange = 265,
+	MSGraphPrinterProcessingStateDetailInserterCoverClosed = 266,
+	MSGraphPrinterProcessingStateDetailInserterCoverOpen = 267,
+	MSGraphPrinterProcessingStateDetailInserterEmpty = 268,
+	MSGraphPrinterProcessingStateDetailInserterFull = 269,
+	MSGraphPrinterProcessingStateDetailInserterInterlockClosed = 270,
+	MSGraphPrinterProcessingStateDetailInserterInterlockOpen = 271,
+	MSGraphPrinterProcessingStateDetailInserterJam = 272,
+	MSGraphPrinterProcessingStateDetailInserterLifeAlmostOver = 273,
+	MSGraphPrinterProcessingStateDetailInserterLifeOver = 274,
+	MSGraphPrinterProcessingStateDetailInserterMemoryExhausted = 275,
+	MSGraphPrinterProcessingStateDetailInserterMissing = 276,
+	MSGraphPrinterProcessingStateDetailInserterMotorFailure = 277,
+	MSGraphPrinterProcessingStateDetailInserterNearLimit = 278,
+	MSGraphPrinterProcessingStateDetailInserterOffline = 279,
+	MSGraphPrinterProcessingStateDetailInserterOpened = 280,
+	MSGraphPrinterProcessingStateDetailInserterOverTemperature = 281,
+	MSGraphPrinterProcessingStateDetailInserterPowerSaver = 282,
+	MSGraphPrinterProcessingStateDetailInserterRecoverableFailure = 283,
+	MSGraphPrinterProcessingStateDetailInserterRecoverableStorage = 284,
+	MSGraphPrinterProcessingStateDetailInserterRemoved = 285,
+	MSGraphPrinterProcessingStateDetailInserterResourceAdded = 286,
+	MSGraphPrinterProcessingStateDetailInserterResourceRemoved = 287,
+	MSGraphPrinterProcessingStateDetailInserterThermistorFailure = 288,
+	MSGraphPrinterProcessingStateDetailInserterTimingFailure = 289,
+	MSGraphPrinterProcessingStateDetailInserterTurnedOff = 290,
+	MSGraphPrinterProcessingStateDetailInserterTurnedOn = 291,
+	MSGraphPrinterProcessingStateDetailInserterUnderTemperature = 292,
+	MSGraphPrinterProcessingStateDetailInserterUnrecoverableFailure = 293,
+	MSGraphPrinterProcessingStateDetailInserterUnrecoverableStorageError = 294,
+	MSGraphPrinterProcessingStateDetailInserterWarmingUp = 295,
+	MSGraphPrinterProcessingStateDetailInterlockClosed = 296,
+	MSGraphPrinterProcessingStateDetailInterpreterCartridgeAdded = 297,
+	MSGraphPrinterProcessingStateDetailInterpreterCartridgeDeleted = 298,
+	MSGraphPrinterProcessingStateDetailInterpreterComplexPageEncountered = 299,
+	MSGraphPrinterProcessingStateDetailInterpreterMemoryDecrease = 300,
+	MSGraphPrinterProcessingStateDetailInterpreterMemoryIncrease = 301,
+	MSGraphPrinterProcessingStateDetailInterpreterResourceAdded = 302,
+	MSGraphPrinterProcessingStateDetailInterpreterResourceDeleted = 303,
+	MSGraphPrinterProcessingStateDetailLampAtEol = 304,
+	MSGraphPrinterProcessingStateDetailLampFailure = 305,
+	MSGraphPrinterProcessingStateDetailLampNearEol = 306,
+	MSGraphPrinterProcessingStateDetailLaserAtEol = 307,
+	MSGraphPrinterProcessingStateDetailLaserFailure = 308,
+	MSGraphPrinterProcessingStateDetailLaserNearEol = 309,
+	MSGraphPrinterProcessingStateDetailMakeEnvelopeAdded = 310,
+	MSGraphPrinterProcessingStateDetailMakeEnvelopeAlmostEmpty = 311,
+	MSGraphPrinterProcessingStateDetailMakeEnvelopeAlmostFull = 312,
+	MSGraphPrinterProcessingStateDetailMakeEnvelopeAtLimit = 313,
+	MSGraphPrinterProcessingStateDetailMakeEnvelopeClosed = 314,
+	MSGraphPrinterProcessingStateDetailMakeEnvelopeConfigurationChange = 315,
+	MSGraphPrinterProcessingStateDetailMakeEnvelopeCoverClosed = 316,
+	MSGraphPrinterProcessingStateDetailMakeEnvelopeCoverOpen = 317,
+	MSGraphPrinterProcessingStateDetailMakeEnvelopeEmpty = 318,
+	MSGraphPrinterProcessingStateDetailMakeEnvelopeFull = 319,
+	MSGraphPrinterProcessingStateDetailMakeEnvelopeInterlockClosed = 320,
+	MSGraphPrinterProcessingStateDetailMakeEnvelopeInterlockOpen = 321,
+	MSGraphPrinterProcessingStateDetailMakeEnvelopeJam = 322,
+	MSGraphPrinterProcessingStateDetailMakeEnvelopeLifeAlmostOver = 323,
+	MSGraphPrinterProcessingStateDetailMakeEnvelopeLifeOver = 324,
+	MSGraphPrinterProcessingStateDetailMakeEnvelopeMemoryExhausted = 325,
+	MSGraphPrinterProcessingStateDetailMakeEnvelopeMissing = 326,
+	MSGraphPrinterProcessingStateDetailMakeEnvelopeMotorFailure = 327,
+	MSGraphPrinterProcessingStateDetailMakeEnvelopeNearLimit = 328,
+	MSGraphPrinterProcessingStateDetailMakeEnvelopeOffline = 329,
+	MSGraphPrinterProcessingStateDetailMakeEnvelopeOpened = 330,
+	MSGraphPrinterProcessingStateDetailMakeEnvelopeOverTemperature = 331,
+	MSGraphPrinterProcessingStateDetailMakeEnvelopePowerSaver = 332,
+	MSGraphPrinterProcessingStateDetailMakeEnvelopeRecoverableFailure = 333,
+	MSGraphPrinterProcessingStateDetailMakeEnvelopeRecoverableStorage = 334,
+	MSGraphPrinterProcessingStateDetailMakeEnvelopeRemoved = 335,
+	MSGraphPrinterProcessingStateDetailMakeEnvelopeResourceAdded = 336,
+	MSGraphPrinterProcessingStateDetailMakeEnvelopeResourceRemoved = 337,
+	MSGraphPrinterProcessingStateDetailMakeEnvelopeThermistorFailure = 338,
+	MSGraphPrinterProcessingStateDetailMakeEnvelopeTimingFailure = 339,
+	MSGraphPrinterProcessingStateDetailMakeEnvelopeTurnedOff = 340,
+	MSGraphPrinterProcessingStateDetailMakeEnvelopeTurnedOn = 341,
+	MSGraphPrinterProcessingStateDetailMakeEnvelopeUnderTemperature = 342,
+	MSGraphPrinterProcessingStateDetailMakeEnvelopeUnrecoverableFailure = 343,
+	MSGraphPrinterProcessingStateDetailMakeEnvelopeUnrecoverableStorageError = 344,
+	MSGraphPrinterProcessingStateDetailMakeEnvelopeWarmingUp = 345,
+	MSGraphPrinterProcessingStateDetailMarkerAdjustingPrintQuality = 346,
+	MSGraphPrinterProcessingStateDetailMarkerCleanerMissing = 347,
+	MSGraphPrinterProcessingStateDetailMarkerDeveloperAlmostEmpty = 348,
+	MSGraphPrinterProcessingStateDetailMarkerDeveloperEmpty = 349,
+	MSGraphPrinterProcessingStateDetailMarkerDeveloperMissing = 350,
+	MSGraphPrinterProcessingStateDetailMarkerFuserMissing = 351,
+	MSGraphPrinterProcessingStateDetailMarkerFuserThermistorFailure = 352,
+	MSGraphPrinterProcessingStateDetailMarkerFuserTimingFailure = 353,
+	MSGraphPrinterProcessingStateDetailMarkerInkAlmostEmpty = 354,
+	MSGraphPrinterProcessingStateDetailMarkerInkEmpty = 355,
+	MSGraphPrinterProcessingStateDetailMarkerInkMissing = 356,
+	MSGraphPrinterProcessingStateDetailMarkerOpcMissing = 357,
+	MSGraphPrinterProcessingStateDetailMarkerPrintRibbonAlmostEmpty = 358,
+	MSGraphPrinterProcessingStateDetailMarkerPrintRibbonEmpty = 359,
+	MSGraphPrinterProcessingStateDetailMarkerPrintRibbonMissing = 360,
+	MSGraphPrinterProcessingStateDetailMarkerSupplyAlmostEmpty = 361,
+	MSGraphPrinterProcessingStateDetailMarkerSupplyMissing = 362,
+	MSGraphPrinterProcessingStateDetailMarkerTonerCartridgeMissing = 363,
+	MSGraphPrinterProcessingStateDetailMarkerTonerMissing = 364,
+	MSGraphPrinterProcessingStateDetailMarkerWasteInkReceptacleAlmostFull = 365,
+	MSGraphPrinterProcessingStateDetailMarkerWasteInkReceptacleFull = 366,
+	MSGraphPrinterProcessingStateDetailMarkerWasteInkReceptacleMissing = 367,
+	MSGraphPrinterProcessingStateDetailMarkerWasteMissing = 368,
+	MSGraphPrinterProcessingStateDetailMarkerWasteTonerReceptacleAlmostFull = 369,
+	MSGraphPrinterProcessingStateDetailMarkerWasteTonerReceptacleFull = 370,
+	MSGraphPrinterProcessingStateDetailMarkerWasteTonerReceptacleMissing = 371,
+	MSGraphPrinterProcessingStateDetailMaterialEmpty = 372,
+	MSGraphPrinterProcessingStateDetailMaterialLow = 373,
+	MSGraphPrinterProcessingStateDetailMaterialNeeded = 374,
+	MSGraphPrinterProcessingStateDetailMediaDrying = 375,
+	MSGraphPrinterProcessingStateDetailMediaPathCannotDuplexMediaSelected = 376,
+	MSGraphPrinterProcessingStateDetailMediaPathFailure = 377,
+	MSGraphPrinterProcessingStateDetailMediaPathInputEmpty = 378,
+	MSGraphPrinterProcessingStateDetailMediaPathInputFeedError = 379,
+	MSGraphPrinterProcessingStateDetailMediaPathInputJam = 380,
+	MSGraphPrinterProcessingStateDetailMediaPathInputRequest = 381,
+	MSGraphPrinterProcessingStateDetailMediaPathJam = 382,
+	MSGraphPrinterProcessingStateDetailMediaPathMediaTrayAlmostFull = 383,
+	MSGraphPrinterProcessingStateDetailMediaPathMediaTrayFull = 384,
+	MSGraphPrinterProcessingStateDetailMediaPathMediaTrayMissing = 385,
+	MSGraphPrinterProcessingStateDetailMediaPathOutputFeedError = 386,
+	MSGraphPrinterProcessingStateDetailMediaPathOutputFull = 387,
+	MSGraphPrinterProcessingStateDetailMediaPathOutputJam = 388,
+	MSGraphPrinterProcessingStateDetailMediaPathPickRollerFailure = 389,
+	MSGraphPrinterProcessingStateDetailMediaPathPickRollerLifeOver = 390,
+	MSGraphPrinterProcessingStateDetailMediaPathPickRollerLifeWarn = 391,
+	MSGraphPrinterProcessingStateDetailMediaPathPickRollerMissing = 392,
+	MSGraphPrinterProcessingStateDetailMotorFailure = 393,
+	MSGraphPrinterProcessingStateDetailOutputMailboxSelectFailure = 394,
+	MSGraphPrinterProcessingStateDetailOutputMediaTrayFailure = 395,
+	MSGraphPrinterProcessingStateDetailOutputMediaTrayFeedError = 396,
+	MSGraphPrinterProcessingStateDetailOutputMediaTrayJam = 397,
+	MSGraphPrinterProcessingStateDetailPerforaterAdded = 398,
+	MSGraphPrinterProcessingStateDetailPerforaterAlmostEmpty = 399,
+	MSGraphPrinterProcessingStateDetailPerforaterAlmostFull = 400,
+	MSGraphPrinterProcessingStateDetailPerforaterAtLimit = 401,
+	MSGraphPrinterProcessingStateDetailPerforaterClosed = 402,
+	MSGraphPrinterProcessingStateDetailPerforaterConfigurationChange = 403,
+	MSGraphPrinterProcessingStateDetailPerforaterCoverClosed = 404,
+	MSGraphPrinterProcessingStateDetailPerforaterCoverOpen = 405,
+	MSGraphPrinterProcessingStateDetailPerforaterEmpty = 406,
+	MSGraphPrinterProcessingStateDetailPerforaterFull = 407,
+	MSGraphPrinterProcessingStateDetailPerforaterInterlockClosed = 408,
+	MSGraphPrinterProcessingStateDetailPerforaterInterlockOpen = 409,
+	MSGraphPrinterProcessingStateDetailPerforaterJam = 410,
+	MSGraphPrinterProcessingStateDetailPerforaterLifeAlmostOver = 411,
+	MSGraphPrinterProcessingStateDetailPerforaterLifeOver = 412,
+	MSGraphPrinterProcessingStateDetailPerforaterMemoryExhausted = 413,
+	MSGraphPrinterProcessingStateDetailPerforaterMissing = 414,
+	MSGraphPrinterProcessingStateDetailPerforaterMotorFailure = 415,
+	MSGraphPrinterProcessingStateDetailPerforaterNearLimit = 416,
+	MSGraphPrinterProcessingStateDetailPerforaterOffline = 417,
+	MSGraphPrinterProcessingStateDetailPerforaterOpened = 418,
+	MSGraphPrinterProcessingStateDetailPerforaterOverTemperature = 419,
+	MSGraphPrinterProcessingStateDetailPerforaterPowerSaver = 420,
+	MSGraphPrinterProcessingStateDetailPerforaterRecoverableFailure = 421,
+	MSGraphPrinterProcessingStateDetailPerforaterRecoverableStorage = 422,
+	MSGraphPrinterProcessingStateDetailPerforaterRemoved = 423,
+	MSGraphPrinterProcessingStateDetailPerforaterResourceAdded = 424,
+	MSGraphPrinterProcessingStateDetailPerforaterResourceRemoved = 425,
+	MSGraphPrinterProcessingStateDetailPerforaterThermistorFailure = 426,
+	MSGraphPrinterProcessingStateDetailPerforaterTimingFailure = 427,
+	MSGraphPrinterProcessingStateDetailPerforaterTurnedOff = 428,
+	MSGraphPrinterProcessingStateDetailPerforaterTurnedOn = 429,
+	MSGraphPrinterProcessingStateDetailPerforaterUnderTemperature = 430,
+	MSGraphPrinterProcessingStateDetailPerforaterUnrecoverableFailure = 431,
+	MSGraphPrinterProcessingStateDetailPerforaterUnrecoverableStorageError = 432,
+	MSGraphPrinterProcessingStateDetailPerforaterWarmingUp = 433,
+	MSGraphPrinterProcessingStateDetailPlatformCooling = 434,
+	MSGraphPrinterProcessingStateDetailPlatformFailure = 435,
+	MSGraphPrinterProcessingStateDetailPlatformHeating = 436,
+	MSGraphPrinterProcessingStateDetailPlatformTemperatureHigh = 437,
+	MSGraphPrinterProcessingStateDetailPlatformTemperatureLow = 438,
+	MSGraphPrinterProcessingStateDetailPowerDown = 439,
+	MSGraphPrinterProcessingStateDetailPowerUp = 440,
+	MSGraphPrinterProcessingStateDetailPrinterManualReset = 441,
+	MSGraphPrinterProcessingStateDetailPrinterNmsReset = 442,
+	MSGraphPrinterProcessingStateDetailPrinterReadyToPrint = 443,
+	MSGraphPrinterProcessingStateDetailPuncherAdded = 444,
+	MSGraphPrinterProcessingStateDetailPuncherAlmostEmpty = 445,
+	MSGraphPrinterProcessingStateDetailPuncherAlmostFull = 446,
+	MSGraphPrinterProcessingStateDetailPuncherAtLimit = 447,
+	MSGraphPrinterProcessingStateDetailPuncherClosed = 448,
+	MSGraphPrinterProcessingStateDetailPuncherConfigurationChange = 449,
+	MSGraphPrinterProcessingStateDetailPuncherCoverClosed = 450,
+	MSGraphPrinterProcessingStateDetailPuncherCoverOpen = 451,
+	MSGraphPrinterProcessingStateDetailPuncherEmpty = 452,
+	MSGraphPrinterProcessingStateDetailPuncherFull = 453,
+	MSGraphPrinterProcessingStateDetailPuncherInterlockClosed = 454,
+	MSGraphPrinterProcessingStateDetailPuncherInterlockOpen = 455,
+	MSGraphPrinterProcessingStateDetailPuncherJam = 456,
+	MSGraphPrinterProcessingStateDetailPuncherLifeAlmostOver = 457,
+	MSGraphPrinterProcessingStateDetailPuncherLifeOver = 458,
+	MSGraphPrinterProcessingStateDetailPuncherMemoryExhausted = 459,
+	MSGraphPrinterProcessingStateDetailPuncherMissing = 460,
+	MSGraphPrinterProcessingStateDetailPuncherMotorFailure = 461,
+	MSGraphPrinterProcessingStateDetailPuncherNearLimit = 462,
+	MSGraphPrinterProcessingStateDetailPuncherOffline = 463,
+	MSGraphPrinterProcessingStateDetailPuncherOpened = 464,
+	MSGraphPrinterProcessingStateDetailPuncherOverTemperature = 465,
+	MSGraphPrinterProcessingStateDetailPuncherPowerSaver = 466,
+	MSGraphPrinterProcessingStateDetailPuncherRecoverableFailure = 467,
+	MSGraphPrinterProcessingStateDetailPuncherRecoverableStorage = 468,
+	MSGraphPrinterProcessingStateDetailPuncherRemoved = 469,
+	MSGraphPrinterProcessingStateDetailPuncherResourceAdded = 470,
+	MSGraphPrinterProcessingStateDetailPuncherResourceRemoved = 471,
+	MSGraphPrinterProcessingStateDetailPuncherThermistorFailure = 472,
+	MSGraphPrinterProcessingStateDetailPuncherTimingFailure = 473,
+	MSGraphPrinterProcessingStateDetailPuncherTurnedOff = 474,
+	MSGraphPrinterProcessingStateDetailPuncherTurnedOn = 475,
+	MSGraphPrinterProcessingStateDetailPuncherUnderTemperature = 476,
+	MSGraphPrinterProcessingStateDetailPuncherUnrecoverableFailure = 477,
+	MSGraphPrinterProcessingStateDetailPuncherUnrecoverableStorageError = 478,
+	MSGraphPrinterProcessingStateDetailPuncherWarmingUp = 479,
+	MSGraphPrinterProcessingStateDetailResuming = 480,
+	MSGraphPrinterProcessingStateDetailScanMediaPathFailure = 481,
+	MSGraphPrinterProcessingStateDetailScanMediaPathInputEmpty = 482,
+	MSGraphPrinterProcessingStateDetailScanMediaPathInputFeedError = 483,
+	MSGraphPrinterProcessingStateDetailScanMediaPathInputJam = 484,
+	MSGraphPrinterProcessingStateDetailScanMediaPathInputRequest = 485,
+	MSGraphPrinterProcessingStateDetailScanMediaPathJam = 486,
+	MSGraphPrinterProcessingStateDetailScanMediaPathOutputFeedError = 487,
+	MSGraphPrinterProcessingStateDetailScanMediaPathOutputFull = 488,
+	MSGraphPrinterProcessingStateDetailScanMediaPathOutputJam = 489,
+	MSGraphPrinterProcessingStateDetailScanMediaPathPickRollerFailure = 490,
+	MSGraphPrinterProcessingStateDetailScanMediaPathPickRollerLifeOver = 491,
+	MSGraphPrinterProcessingStateDetailScanMediaPathPickRollerLifeWarn = 492,
+	MSGraphPrinterProcessingStateDetailScanMediaPathPickRollerMissing = 493,
+	MSGraphPrinterProcessingStateDetailScanMediaPathTrayAlmostFull = 494,
+	MSGraphPrinterProcessingStateDetailScanMediaPathTrayFull = 495,
+	MSGraphPrinterProcessingStateDetailScanMediaPathTrayMissing = 496,
+	MSGraphPrinterProcessingStateDetailScannerLightFailure = 497,
+	MSGraphPrinterProcessingStateDetailScannerLightLifeAlmostOver = 498,
+	MSGraphPrinterProcessingStateDetailScannerLightLifeOver = 499,
+	MSGraphPrinterProcessingStateDetailScannerLightMissing = 500,
+	MSGraphPrinterProcessingStateDetailScannerSensorFailure = 501,
+	MSGraphPrinterProcessingStateDetailScannerSensorLifeAlmostOver = 502,
+	MSGraphPrinterProcessingStateDetailScannerSensorLifeOver = 503,
+	MSGraphPrinterProcessingStateDetailScannerSensorMissing = 504,
+	MSGraphPrinterProcessingStateDetailSeparationCutterAdded = 505,
+	MSGraphPrinterProcessingStateDetailSeparationCutterAlmostEmpty = 506,
+	MSGraphPrinterProcessingStateDetailSeparationCutterAlmostFull = 507,
+	MSGraphPrinterProcessingStateDetailSeparationCutterAtLimit = 508,
+	MSGraphPrinterProcessingStateDetailSeparationCutterClosed = 509,
+	MSGraphPrinterProcessingStateDetailSeparationCutterConfigurationChange = 510,
+	MSGraphPrinterProcessingStateDetailSeparationCutterCoverClosed = 511,
+	MSGraphPrinterProcessingStateDetailSeparationCutterCoverOpen = 512,
+	MSGraphPrinterProcessingStateDetailSeparationCutterEmpty = 513,
+	MSGraphPrinterProcessingStateDetailSeparationCutterFull = 514,
+	MSGraphPrinterProcessingStateDetailSeparationCutterInterlockClosed = 515,
+	MSGraphPrinterProcessingStateDetailSeparationCutterInterlockOpen = 516,
+	MSGraphPrinterProcessingStateDetailSeparationCutterJam = 517,
+	MSGraphPrinterProcessingStateDetailSeparationCutterLifeAlmostOver = 518,
+	MSGraphPrinterProcessingStateDetailSeparationCutterLifeOver = 519,
+	MSGraphPrinterProcessingStateDetailSeparationCutterMemoryExhausted = 520,
+	MSGraphPrinterProcessingStateDetailSeparationCutterMissing = 521,
+	MSGraphPrinterProcessingStateDetailSeparationCutterMotorFailure = 522,
+	MSGraphPrinterProcessingStateDetailSeparationCutterNearLimit = 523,
+	MSGraphPrinterProcessingStateDetailSeparationCutterOffline = 524,
+	MSGraphPrinterProcessingStateDetailSeparationCutterOpened = 525,
+	MSGraphPrinterProcessingStateDetailSeparationCutterOverTemperature = 526,
+	MSGraphPrinterProcessingStateDetailSeparationCutterPowerSaver = 527,
+	MSGraphPrinterProcessingStateDetailSeparationCutterRecoverableFailure = 528,
+	MSGraphPrinterProcessingStateDetailSeparationCutterRecoverableStorage = 529,
+	MSGraphPrinterProcessingStateDetailSeparationCutterRemoved = 530,
+	MSGraphPrinterProcessingStateDetailSeparationCutterResourceAdded = 531,
+	MSGraphPrinterProcessingStateDetailSeparationCutterResourceRemoved = 532,
+	MSGraphPrinterProcessingStateDetailSeparationCutterThermistorFailure = 533,
+	MSGraphPrinterProcessingStateDetailSeparationCutterTimingFailure = 534,
+	MSGraphPrinterProcessingStateDetailSeparationCutterTurnedOff = 535,
+	MSGraphPrinterProcessingStateDetailSeparationCutterTurnedOn = 536,
+	MSGraphPrinterProcessingStateDetailSeparationCutterUnderTemperature = 537,
+	MSGraphPrinterProcessingStateDetailSeparationCutterUnrecoverableFailure = 538,
+	MSGraphPrinterProcessingStateDetailSeparationCutterUnrecoverableStorageError = 539,
+	MSGraphPrinterProcessingStateDetailSeparationCutterWarmingUp = 540,
+	MSGraphPrinterProcessingStateDetailSheetRotatorAdded = 541,
+	MSGraphPrinterProcessingStateDetailSheetRotatorAlmostEmpty = 542,
+	MSGraphPrinterProcessingStateDetailSheetRotatorAlmostFull = 543,
+	MSGraphPrinterProcessingStateDetailSheetRotatorAtLimit = 544,
+	MSGraphPrinterProcessingStateDetailSheetRotatorClosed = 545,
+	MSGraphPrinterProcessingStateDetailSheetRotatorConfigurationChange = 546,
+	MSGraphPrinterProcessingStateDetailSheetRotatorCoverClosed = 547,
+	MSGraphPrinterProcessingStateDetailSheetRotatorCoverOpen = 548,
+	MSGraphPrinterProcessingStateDetailSheetRotatorEmpty = 549,
+	MSGraphPrinterProcessingStateDetailSheetRotatorFull = 550,
+	MSGraphPrinterProcessingStateDetailSheetRotatorInterlockClosed = 551,
+	MSGraphPrinterProcessingStateDetailSheetRotatorInterlockOpen = 552,
+	MSGraphPrinterProcessingStateDetailSheetRotatorJam = 553,
+	MSGraphPrinterProcessingStateDetailSheetRotatorLifeAlmostOver = 554,
+	MSGraphPrinterProcessingStateDetailSheetRotatorLifeOver = 555,
+	MSGraphPrinterProcessingStateDetailSheetRotatorMemoryExhausted = 556,
+	MSGraphPrinterProcessingStateDetailSheetRotatorMissing = 557,
+	MSGraphPrinterProcessingStateDetailSheetRotatorMotorFailure = 558,
+	MSGraphPrinterProcessingStateDetailSheetRotatorNearLimit = 559,
+	MSGraphPrinterProcessingStateDetailSheetRotatorOffline = 560,
+	MSGraphPrinterProcessingStateDetailSheetRotatorOpened = 561,
+	MSGraphPrinterProcessingStateDetailSheetRotatorOverTemperature = 562,
+	MSGraphPrinterProcessingStateDetailSheetRotatorPowerSaver = 563,
+	MSGraphPrinterProcessingStateDetailSheetRotatorRecoverableFailure = 564,
+	MSGraphPrinterProcessingStateDetailSheetRotatorRecoverableStorage = 565,
+	MSGraphPrinterProcessingStateDetailSheetRotatorRemoved = 566,
+	MSGraphPrinterProcessingStateDetailSheetRotatorResourceAdded = 567,
+	MSGraphPrinterProcessingStateDetailSheetRotatorResourceRemoved = 568,
+	MSGraphPrinterProcessingStateDetailSheetRotatorThermistorFailure = 569,
+	MSGraphPrinterProcessingStateDetailSheetRotatorTimingFailure = 570,
+	MSGraphPrinterProcessingStateDetailSheetRotatorTurnedOff = 571,
+	MSGraphPrinterProcessingStateDetailSheetRotatorTurnedOn = 572,
+	MSGraphPrinterProcessingStateDetailSheetRotatorUnderTemperature = 573,
+	MSGraphPrinterProcessingStateDetailSheetRotatorUnrecoverableFailure = 574,
+	MSGraphPrinterProcessingStateDetailSheetRotatorUnrecoverableStorageError = 575,
+	MSGraphPrinterProcessingStateDetailSheetRotatorWarmingUp = 576,
+	MSGraphPrinterProcessingStateDetailSlitterAdded = 577,
+	MSGraphPrinterProcessingStateDetailSlitterAlmostEmpty = 578,
+	MSGraphPrinterProcessingStateDetailSlitterAlmostFull = 579,
+	MSGraphPrinterProcessingStateDetailSlitterAtLimit = 580,
+	MSGraphPrinterProcessingStateDetailSlitterClosed = 581,
+	MSGraphPrinterProcessingStateDetailSlitterConfigurationChange = 582,
+	MSGraphPrinterProcessingStateDetailSlitterCoverClosed = 583,
+	MSGraphPrinterProcessingStateDetailSlitterCoverOpen = 584,
+	MSGraphPrinterProcessingStateDetailSlitterEmpty = 585,
+	MSGraphPrinterProcessingStateDetailSlitterFull = 586,
+	MSGraphPrinterProcessingStateDetailSlitterInterlockClosed = 587,
+	MSGraphPrinterProcessingStateDetailSlitterInterlockOpen = 588,
+	MSGraphPrinterProcessingStateDetailSlitterJam = 589,
+	MSGraphPrinterProcessingStateDetailSlitterLifeAlmostOver = 590,
+	MSGraphPrinterProcessingStateDetailSlitterLifeOver = 591,
+	MSGraphPrinterProcessingStateDetailSlitterMemoryExhausted = 592,
+	MSGraphPrinterProcessingStateDetailSlitterMissing = 593,
+	MSGraphPrinterProcessingStateDetailSlitterMotorFailure = 594,
+	MSGraphPrinterProcessingStateDetailSlitterNearLimit = 595,
+	MSGraphPrinterProcessingStateDetailSlitterOffline = 596,
+	MSGraphPrinterProcessingStateDetailSlitterOpened = 597,
+	MSGraphPrinterProcessingStateDetailSlitterOverTemperature = 598,
+	MSGraphPrinterProcessingStateDetailSlitterPowerSaver = 599,
+	MSGraphPrinterProcessingStateDetailSlitterRecoverableFailure = 600,
+	MSGraphPrinterProcessingStateDetailSlitterRecoverableStorage = 601,
+	MSGraphPrinterProcessingStateDetailSlitterRemoved = 602,
+	MSGraphPrinterProcessingStateDetailSlitterResourceAdded = 603,
+	MSGraphPrinterProcessingStateDetailSlitterResourceRemoved = 604,
+	MSGraphPrinterProcessingStateDetailSlitterThermistorFailure = 605,
+	MSGraphPrinterProcessingStateDetailSlitterTimingFailure = 606,
+	MSGraphPrinterProcessingStateDetailSlitterTurnedOff = 607,
+	MSGraphPrinterProcessingStateDetailSlitterTurnedOn = 608,
+	MSGraphPrinterProcessingStateDetailSlitterUnderTemperature = 609,
+	MSGraphPrinterProcessingStateDetailSlitterUnrecoverableFailure = 610,
+	MSGraphPrinterProcessingStateDetailSlitterUnrecoverableStorageError = 611,
+	MSGraphPrinterProcessingStateDetailSlitterWarmingUp = 612,
+	MSGraphPrinterProcessingStateDetailStackerAdded = 613,
+	MSGraphPrinterProcessingStateDetailStackerAlmostEmpty = 614,
+	MSGraphPrinterProcessingStateDetailStackerAlmostFull = 615,
+	MSGraphPrinterProcessingStateDetailStackerAtLimit = 616,
+	MSGraphPrinterProcessingStateDetailStackerClosed = 617,
+	MSGraphPrinterProcessingStateDetailStackerConfigurationChange = 618,
+	MSGraphPrinterProcessingStateDetailStackerCoverClosed = 619,
+	MSGraphPrinterProcessingStateDetailStackerCoverOpen = 620,
+	MSGraphPrinterProcessingStateDetailStackerEmpty = 621,
+	MSGraphPrinterProcessingStateDetailStackerFull = 622,
+	MSGraphPrinterProcessingStateDetailStackerInterlockClosed = 623,
+	MSGraphPrinterProcessingStateDetailStackerInterlockOpen = 624,
+	MSGraphPrinterProcessingStateDetailStackerJam = 625,
+	MSGraphPrinterProcessingStateDetailStackerLifeAlmostOver = 626,
+	MSGraphPrinterProcessingStateDetailStackerLifeOver = 627,
+	MSGraphPrinterProcessingStateDetailStackerMemoryExhausted = 628,
+	MSGraphPrinterProcessingStateDetailStackerMissing = 629,
+	MSGraphPrinterProcessingStateDetailStackerMotorFailure = 630,
+	MSGraphPrinterProcessingStateDetailStackerNearLimit = 631,
+	MSGraphPrinterProcessingStateDetailStackerOffline = 632,
+	MSGraphPrinterProcessingStateDetailStackerOpened = 633,
+	MSGraphPrinterProcessingStateDetailStackerOverTemperature = 634,
+	MSGraphPrinterProcessingStateDetailStackerPowerSaver = 635,
+	MSGraphPrinterProcessingStateDetailStackerRecoverableFailure = 636,
+	MSGraphPrinterProcessingStateDetailStackerRecoverableStorage = 637,
+	MSGraphPrinterProcessingStateDetailStackerRemoved = 638,
+	MSGraphPrinterProcessingStateDetailStackerResourceAdded = 639,
+	MSGraphPrinterProcessingStateDetailStackerResourceRemoved = 640,
+	MSGraphPrinterProcessingStateDetailStackerThermistorFailure = 641,
+	MSGraphPrinterProcessingStateDetailStackerTimingFailure = 642,
+	MSGraphPrinterProcessingStateDetailStackerTurnedOff = 643,
+	MSGraphPrinterProcessingStateDetailStackerTurnedOn = 644,
+	MSGraphPrinterProcessingStateDetailStackerUnderTemperature = 645,
+	MSGraphPrinterProcessingStateDetailStackerUnrecoverableFailure = 646,
+	MSGraphPrinterProcessingStateDetailStackerUnrecoverableStorageError = 647,
+	MSGraphPrinterProcessingStateDetailStackerWarmingUp = 648,
+	MSGraphPrinterProcessingStateDetailStandby = 649,
+	MSGraphPrinterProcessingStateDetailStaplerAdded = 650,
+	MSGraphPrinterProcessingStateDetailStaplerAlmostEmpty = 651,
+	MSGraphPrinterProcessingStateDetailStaplerAlmostFull = 652,
+	MSGraphPrinterProcessingStateDetailStaplerAtLimit = 653,
+	MSGraphPrinterProcessingStateDetailStaplerClosed = 654,
+	MSGraphPrinterProcessingStateDetailStaplerConfigurationChange = 655,
+	MSGraphPrinterProcessingStateDetailStaplerCoverClosed = 656,
+	MSGraphPrinterProcessingStateDetailStaplerCoverOpen = 657,
+	MSGraphPrinterProcessingStateDetailStaplerEmpty = 658,
+	MSGraphPrinterProcessingStateDetailStaplerFull = 659,
+	MSGraphPrinterProcessingStateDetailStaplerInterlockClosed = 660,
+	MSGraphPrinterProcessingStateDetailStaplerInterlockOpen = 661,
+	MSGraphPrinterProcessingStateDetailStaplerJam = 662,
+	MSGraphPrinterProcessingStateDetailStaplerLifeAlmostOver = 663,
+	MSGraphPrinterProcessingStateDetailStaplerLifeOver = 664,
+	MSGraphPrinterProcessingStateDetailStaplerMemoryExhausted = 665,
+	MSGraphPrinterProcessingStateDetailStaplerMissing = 666,
+	MSGraphPrinterProcessingStateDetailStaplerMotorFailure = 667,
+	MSGraphPrinterProcessingStateDetailStaplerNearLimit = 668,
+	MSGraphPrinterProcessingStateDetailStaplerOffline = 669,
+	MSGraphPrinterProcessingStateDetailStaplerOpened = 670,
+	MSGraphPrinterProcessingStateDetailStaplerOverTemperature = 671,
+	MSGraphPrinterProcessingStateDetailStaplerPowerSaver = 672,
+	MSGraphPrinterProcessingStateDetailStaplerRecoverableFailure = 673,
+	MSGraphPrinterProcessingStateDetailStaplerRecoverableStorage = 674,
+	MSGraphPrinterProcessingStateDetailStaplerRemoved = 675,
+	MSGraphPrinterProcessingStateDetailStaplerResourceAdded = 676,
+	MSGraphPrinterProcessingStateDetailStaplerResourceRemoved = 677,
+	MSGraphPrinterProcessingStateDetailStaplerThermistorFailure = 678,
+	MSGraphPrinterProcessingStateDetailStaplerTimingFailure = 679,
+	MSGraphPrinterProcessingStateDetailStaplerTurnedOff = 680,
+	MSGraphPrinterProcessingStateDetailStaplerTurnedOn = 681,
+	MSGraphPrinterProcessingStateDetailStaplerUnderTemperature = 682,
+	MSGraphPrinterProcessingStateDetailStaplerUnrecoverableFailure = 683,
+	MSGraphPrinterProcessingStateDetailStaplerUnrecoverableStorageError = 684,
+	MSGraphPrinterProcessingStateDetailStaplerWarmingUp = 685,
+	MSGraphPrinterProcessingStateDetailStitcherAdded = 686,
+	MSGraphPrinterProcessingStateDetailStitcherAlmostEmpty = 687,
+	MSGraphPrinterProcessingStateDetailStitcherAlmostFull = 688,
+	MSGraphPrinterProcessingStateDetailStitcherAtLimit = 689,
+	MSGraphPrinterProcessingStateDetailStitcherClosed = 690,
+	MSGraphPrinterProcessingStateDetailStitcherConfigurationChange = 691,
+	MSGraphPrinterProcessingStateDetailStitcherCoverClosed = 692,
+	MSGraphPrinterProcessingStateDetailStitcherCoverOpen = 693,
+	MSGraphPrinterProcessingStateDetailStitcherEmpty = 694,
+	MSGraphPrinterProcessingStateDetailStitcherFull = 695,
+	MSGraphPrinterProcessingStateDetailStitcherInterlockClosed = 696,
+	MSGraphPrinterProcessingStateDetailStitcherInterlockOpen = 697,
+	MSGraphPrinterProcessingStateDetailStitcherJam = 698,
+	MSGraphPrinterProcessingStateDetailStitcherLifeAlmostOver = 699,
+	MSGraphPrinterProcessingStateDetailStitcherLifeOver = 700,
+	MSGraphPrinterProcessingStateDetailStitcherMemoryExhausted = 701,
+	MSGraphPrinterProcessingStateDetailStitcherMissing = 702,
+	MSGraphPrinterProcessingStateDetailStitcherMotorFailure = 703,
+	MSGraphPrinterProcessingStateDetailStitcherNearLimit = 704,
+	MSGraphPrinterProcessingStateDetailStitcherOffline = 705,
+	MSGraphPrinterProcessingStateDetailStitcherOpened = 706,
+	MSGraphPrinterProcessingStateDetailStitcherOverTemperature = 707,
+	MSGraphPrinterProcessingStateDetailStitcherPowerSaver = 708,
+	MSGraphPrinterProcessingStateDetailStitcherRecoverableFailure = 709,
+	MSGraphPrinterProcessingStateDetailStitcherRecoverableStorage = 710,
+	MSGraphPrinterProcessingStateDetailStitcherRemoved = 711,
+	MSGraphPrinterProcessingStateDetailStitcherResourceAdded = 712,
+	MSGraphPrinterProcessingStateDetailStitcherResourceRemoved = 713,
+	MSGraphPrinterProcessingStateDetailStitcherThermistorFailure = 714,
+	MSGraphPrinterProcessingStateDetailStitcherTimingFailure = 715,
+	MSGraphPrinterProcessingStateDetailStitcherTurnedOff = 716,
+	MSGraphPrinterProcessingStateDetailStitcherTurnedOn = 717,
+	MSGraphPrinterProcessingStateDetailStitcherUnderTemperature = 718,
+	MSGraphPrinterProcessingStateDetailStitcherUnrecoverableFailure = 719,
+	MSGraphPrinterProcessingStateDetailStitcherUnrecoverableStorageError = 720,
+	MSGraphPrinterProcessingStateDetailStitcherWarmingUp = 721,
+	MSGraphPrinterProcessingStateDetailSubunitAdded = 722,
+	MSGraphPrinterProcessingStateDetailSubunitAlmostEmpty = 723,
+	MSGraphPrinterProcessingStateDetailSubunitAlmostFull = 724,
+	MSGraphPrinterProcessingStateDetailSubunitAtLimit = 725,
+	MSGraphPrinterProcessingStateDetailSubunitClosed = 726,
+	MSGraphPrinterProcessingStateDetailSubunitCoolingDown = 727,
+	MSGraphPrinterProcessingStateDetailSubunitEmpty = 728,
+	MSGraphPrinterProcessingStateDetailSubunitFull = 729,
+	MSGraphPrinterProcessingStateDetailSubunitLifeAlmostOver = 730,
+	MSGraphPrinterProcessingStateDetailSubunitLifeOver = 731,
+	MSGraphPrinterProcessingStateDetailSubunitMemoryExhausted = 732,
+	MSGraphPrinterProcessingStateDetailSubunitMissing = 733,
+	MSGraphPrinterProcessingStateDetailSubunitMotorFailure = 734,
+	MSGraphPrinterProcessingStateDetailSubunitNearLimit = 735,
+	MSGraphPrinterProcessingStateDetailSubunitOffline = 736,
+	MSGraphPrinterProcessingStateDetailSubunitOpened = 737,
+	MSGraphPrinterProcessingStateDetailSubunitOverTemperature = 738,
+	MSGraphPrinterProcessingStateDetailSubunitPowerSaver = 739,
+	MSGraphPrinterProcessingStateDetailSubunitRecoverableFailure = 740,
+	MSGraphPrinterProcessingStateDetailSubunitRecoverableStorage = 741,
+	MSGraphPrinterProcessingStateDetailSubunitRemoved = 742,
+	MSGraphPrinterProcessingStateDetailSubunitResourceAdded = 743,
+	MSGraphPrinterProcessingStateDetailSubunitResourceRemoved = 744,
+	MSGraphPrinterProcessingStateDetailSubunitThermistorFailure = 745,
+	MSGraphPrinterProcessingStateDetailSubunitTimingFailure = 746,
+	MSGraphPrinterProcessingStateDetailSubunitTurnedOff = 747,
+	MSGraphPrinterProcessingStateDetailSubunitTurnedOn = 748,
+	MSGraphPrinterProcessingStateDetailSubunitUnderTemperature = 749,
+	MSGraphPrinterProcessingStateDetailSubunitUnrecoverableFailure = 750,
+	MSGraphPrinterProcessingStateDetailSubunitUnrecoverableStorage = 751,
+	MSGraphPrinterProcessingStateDetailSubunitWarmingUp = 752,
+	MSGraphPrinterProcessingStateDetailSuspend = 753,
+	MSGraphPrinterProcessingStateDetailTesting = 754,
+	MSGraphPrinterProcessingStateDetailTrimmerAdded = 755,
+	MSGraphPrinterProcessingStateDetailTrimmerAlmostEmpty = 756,
+	MSGraphPrinterProcessingStateDetailTrimmerAlmostFull = 757,
+	MSGraphPrinterProcessingStateDetailTrimmerAtLimit = 758,
+	MSGraphPrinterProcessingStateDetailTrimmerClosed = 759,
+	MSGraphPrinterProcessingStateDetailTrimmerConfigurationChange = 760,
+	MSGraphPrinterProcessingStateDetailTrimmerCoverClosed = 761,
+	MSGraphPrinterProcessingStateDetailTrimmerCoverOpen = 762,
+	MSGraphPrinterProcessingStateDetailTrimmerEmpty = 763,
+	MSGraphPrinterProcessingStateDetailTrimmerFull = 764,
+	MSGraphPrinterProcessingStateDetailTrimmerInterlockClosed = 765,
+	MSGraphPrinterProcessingStateDetailTrimmerInterlockOpen = 766,
+	MSGraphPrinterProcessingStateDetailTrimmerJam = 767,
+	MSGraphPrinterProcessingStateDetailTrimmerLifeAlmostOver = 768,
+	MSGraphPrinterProcessingStateDetailTrimmerLifeOver = 769,
+	MSGraphPrinterProcessingStateDetailTrimmerMemoryExhausted = 770,
+	MSGraphPrinterProcessingStateDetailTrimmerMissing = 771,
+	MSGraphPrinterProcessingStateDetailTrimmerMotorFailure = 772,
+	MSGraphPrinterProcessingStateDetailTrimmerNearLimit = 773,
+	MSGraphPrinterProcessingStateDetailTrimmerOffline = 774,
+	MSGraphPrinterProcessingStateDetailTrimmerOpened = 775,
+	MSGraphPrinterProcessingStateDetailTrimmerOverTemperature = 776,
+	MSGraphPrinterProcessingStateDetailTrimmerPowerSaver = 777,
+	MSGraphPrinterProcessingStateDetailTrimmerRecoverableFailure = 778,
+	MSGraphPrinterProcessingStateDetailTrimmerRecoverableStorage = 779,
+	MSGraphPrinterProcessingStateDetailTrimmerRemoved = 780,
+	MSGraphPrinterProcessingStateDetailTrimmerResourceAdded = 781,
+	MSGraphPrinterProcessingStateDetailTrimmerResourceRemoved = 782,
+	MSGraphPrinterProcessingStateDetailTrimmerThermistorFailure = 783,
+	MSGraphPrinterProcessingStateDetailTrimmerTimingFailure = 784,
+	MSGraphPrinterProcessingStateDetailTrimmerTurnedOff = 785,
+	MSGraphPrinterProcessingStateDetailTrimmerTurnedOn = 786,
+	MSGraphPrinterProcessingStateDetailTrimmerUnderTemperature = 787,
+	MSGraphPrinterProcessingStateDetailTrimmerUnrecoverableFailure = 788,
+	MSGraphPrinterProcessingStateDetailTrimmerUnrecoverableStorageError = 789,
+	MSGraphPrinterProcessingStateDetailTrimmerWarmingUp = 790,
+	MSGraphPrinterProcessingStateDetailUnknown = 791,
+	MSGraphPrinterProcessingStateDetailWrapperAdded = 792,
+	MSGraphPrinterProcessingStateDetailWrapperAlmostEmpty = 793,
+	MSGraphPrinterProcessingStateDetailWrapperAlmostFull = 794,
+	MSGraphPrinterProcessingStateDetailWrapperAtLimit = 795,
+	MSGraphPrinterProcessingStateDetailWrapperClosed = 796,
+	MSGraphPrinterProcessingStateDetailWrapperConfigurationChange = 797,
+	MSGraphPrinterProcessingStateDetailWrapperCoverClosed = 798,
+	MSGraphPrinterProcessingStateDetailWrapperCoverOpen = 799,
+	MSGraphPrinterProcessingStateDetailWrapperEmpty = 800,
+	MSGraphPrinterProcessingStateDetailWrapperFull = 801,
+	MSGraphPrinterProcessingStateDetailWrapperInterlockClosed = 802,
+	MSGraphPrinterProcessingStateDetailWrapperInterlockOpen = 803,
+	MSGraphPrinterProcessingStateDetailWrapperJam = 804,
+	MSGraphPrinterProcessingStateDetailWrapperLifeAlmostOver = 805,
+	MSGraphPrinterProcessingStateDetailWrapperLifeOver = 806,
+	MSGraphPrinterProcessingStateDetailWrapperMemoryExhausted = 807,
+	MSGraphPrinterProcessingStateDetailWrapperMissing = 808,
+	MSGraphPrinterProcessingStateDetailWrapperMotorFailure = 809,
+	MSGraphPrinterProcessingStateDetailWrapperNearLimit = 810,
+	MSGraphPrinterProcessingStateDetailWrapperOffline = 811,
+	MSGraphPrinterProcessingStateDetailWrapperOpened = 812,
+	MSGraphPrinterProcessingStateDetailWrapperOverTemperature = 813,
+	MSGraphPrinterProcessingStateDetailWrapperPowerSaver = 814,
+	MSGraphPrinterProcessingStateDetailWrapperRecoverableFailure = 815,
+	MSGraphPrinterProcessingStateDetailWrapperRecoverableStorage = 816,
+	MSGraphPrinterProcessingStateDetailWrapperRemoved = 817,
+	MSGraphPrinterProcessingStateDetailWrapperResourceAdded = 818,
+	MSGraphPrinterProcessingStateDetailWrapperResourceRemoved = 819,
+	MSGraphPrinterProcessingStateDetailWrapperThermistorFailure = 820,
+	MSGraphPrinterProcessingStateDetailWrapperTimingFailure = 821,
+	MSGraphPrinterProcessingStateDetailWrapperTurnedOff = 822,
+	MSGraphPrinterProcessingStateDetailWrapperTurnedOn = 823,
+	MSGraphPrinterProcessingStateDetailWrapperUnderTemperature = 824,
+	MSGraphPrinterProcessingStateDetailWrapperUnrecoverableFailure = 825,
+	MSGraphPrinterProcessingStateDetailWrapperUnrecoverableStorageError = 826,
+	MSGraphPrinterProcessingStateDetailWrapperWarmingUp = 827,
     MSGraphPrinterProcessingStateDetailEndOfEnum
 };
 
@@ -81,6 +872,797 @@ typedef NS_ENUM(NSInteger, MSGraphPrinterProcessingStateDetailValue){
 +(MSGraphPrinterProcessingStateDetail*) developerEmpty;
 +(MSGraphPrinterProcessingStateDetail*) interpreterResourceUnavailable;
 +(MSGraphPrinterProcessingStateDetail*) unknownFutureValue;
++(MSGraphPrinterProcessingStateDetail*) alertRemovalOfBinaryChangeEntry;
++(MSGraphPrinterProcessingStateDetail*) banderAdded;
++(MSGraphPrinterProcessingStateDetail*) banderAlmostEmpty;
++(MSGraphPrinterProcessingStateDetail*) banderAlmostFull;
++(MSGraphPrinterProcessingStateDetail*) banderAtLimit;
++(MSGraphPrinterProcessingStateDetail*) banderClosed;
++(MSGraphPrinterProcessingStateDetail*) banderConfigurationChange;
++(MSGraphPrinterProcessingStateDetail*) banderCoverClosed;
++(MSGraphPrinterProcessingStateDetail*) banderCoverOpen;
++(MSGraphPrinterProcessingStateDetail*) banderEmpty;
++(MSGraphPrinterProcessingStateDetail*) banderFull;
++(MSGraphPrinterProcessingStateDetail*) banderInterlockClosed;
++(MSGraphPrinterProcessingStateDetail*) banderInterlockOpen;
++(MSGraphPrinterProcessingStateDetail*) banderJam;
++(MSGraphPrinterProcessingStateDetail*) banderLifeAlmostOver;
++(MSGraphPrinterProcessingStateDetail*) banderLifeOver;
++(MSGraphPrinterProcessingStateDetail*) banderMemoryExhausted;
++(MSGraphPrinterProcessingStateDetail*) banderMissing;
++(MSGraphPrinterProcessingStateDetail*) banderMotorFailure;
++(MSGraphPrinterProcessingStateDetail*) banderNearLimit;
++(MSGraphPrinterProcessingStateDetail*) banderOffline;
++(MSGraphPrinterProcessingStateDetail*) banderOpened;
++(MSGraphPrinterProcessingStateDetail*) banderOverTemperature;
++(MSGraphPrinterProcessingStateDetail*) banderPowerSaver;
++(MSGraphPrinterProcessingStateDetail*) banderRecoverableFailure;
++(MSGraphPrinterProcessingStateDetail*) banderRecoverableStorage;
++(MSGraphPrinterProcessingStateDetail*) banderRemoved;
++(MSGraphPrinterProcessingStateDetail*) banderResourceAdded;
++(MSGraphPrinterProcessingStateDetail*) banderResourceRemoved;
++(MSGraphPrinterProcessingStateDetail*) banderThermistorFailure;
++(MSGraphPrinterProcessingStateDetail*) banderTimingFailure;
++(MSGraphPrinterProcessingStateDetail*) banderTurnedOff;
++(MSGraphPrinterProcessingStateDetail*) banderTurnedOn;
++(MSGraphPrinterProcessingStateDetail*) banderUnderTemperature;
++(MSGraphPrinterProcessingStateDetail*) banderUnrecoverableFailure;
++(MSGraphPrinterProcessingStateDetail*) banderUnrecoverableStorageError;
++(MSGraphPrinterProcessingStateDetail*) banderWarmingUp;
++(MSGraphPrinterProcessingStateDetail*) binderAdded;
++(MSGraphPrinterProcessingStateDetail*) binderAlmostEmpty;
++(MSGraphPrinterProcessingStateDetail*) binderAlmostFull;
++(MSGraphPrinterProcessingStateDetail*) binderAtLimit;
++(MSGraphPrinterProcessingStateDetail*) binderClosed;
++(MSGraphPrinterProcessingStateDetail*) binderConfigurationChange;
++(MSGraphPrinterProcessingStateDetail*) binderCoverClosed;
++(MSGraphPrinterProcessingStateDetail*) binderCoverOpen;
++(MSGraphPrinterProcessingStateDetail*) binderEmpty;
++(MSGraphPrinterProcessingStateDetail*) binderFull;
++(MSGraphPrinterProcessingStateDetail*) binderInterlockClosed;
++(MSGraphPrinterProcessingStateDetail*) binderInterlockOpen;
++(MSGraphPrinterProcessingStateDetail*) binderJam;
++(MSGraphPrinterProcessingStateDetail*) binderLifeAlmostOver;
++(MSGraphPrinterProcessingStateDetail*) binderLifeOver;
++(MSGraphPrinterProcessingStateDetail*) binderMemoryExhausted;
++(MSGraphPrinterProcessingStateDetail*) binderMissing;
++(MSGraphPrinterProcessingStateDetail*) binderMotorFailure;
++(MSGraphPrinterProcessingStateDetail*) binderNearLimit;
++(MSGraphPrinterProcessingStateDetail*) binderOffline;
++(MSGraphPrinterProcessingStateDetail*) binderOpened;
++(MSGraphPrinterProcessingStateDetail*) binderOverTemperature;
++(MSGraphPrinterProcessingStateDetail*) binderPowerSaver;
++(MSGraphPrinterProcessingStateDetail*) binderRecoverableFailure;
++(MSGraphPrinterProcessingStateDetail*) binderRecoverableStorage;
++(MSGraphPrinterProcessingStateDetail*) binderRemoved;
++(MSGraphPrinterProcessingStateDetail*) binderResourceAdded;
++(MSGraphPrinterProcessingStateDetail*) binderResourceRemoved;
++(MSGraphPrinterProcessingStateDetail*) binderThermistorFailure;
++(MSGraphPrinterProcessingStateDetail*) binderTimingFailure;
++(MSGraphPrinterProcessingStateDetail*) binderTurnedOff;
++(MSGraphPrinterProcessingStateDetail*) binderTurnedOn;
++(MSGraphPrinterProcessingStateDetail*) binderUnderTemperature;
++(MSGraphPrinterProcessingStateDetail*) binderUnrecoverableFailure;
++(MSGraphPrinterProcessingStateDetail*) binderUnrecoverableStorageError;
++(MSGraphPrinterProcessingStateDetail*) binderWarmingUp;
++(MSGraphPrinterProcessingStateDetail*) cameraFailure;
++(MSGraphPrinterProcessingStateDetail*) chamberCooling;
++(MSGraphPrinterProcessingStateDetail*) chamberFailure;
++(MSGraphPrinterProcessingStateDetail*) chamberHeating;
++(MSGraphPrinterProcessingStateDetail*) chamberTemperatureHigh;
++(MSGraphPrinterProcessingStateDetail*) chamberTemperatureLow;
++(MSGraphPrinterProcessingStateDetail*) cleanerLifeAlmostOver;
++(MSGraphPrinterProcessingStateDetail*) cleanerLifeOver;
++(MSGraphPrinterProcessingStateDetail*) configurationChange;
++(MSGraphPrinterProcessingStateDetail*) deactivated;
++(MSGraphPrinterProcessingStateDetail*) deleted;
++(MSGraphPrinterProcessingStateDetail*) dieCutterAdded;
++(MSGraphPrinterProcessingStateDetail*) dieCutterAlmostEmpty;
++(MSGraphPrinterProcessingStateDetail*) dieCutterAlmostFull;
++(MSGraphPrinterProcessingStateDetail*) dieCutterAtLimit;
++(MSGraphPrinterProcessingStateDetail*) dieCutterClosed;
++(MSGraphPrinterProcessingStateDetail*) dieCutterConfigurationChange;
++(MSGraphPrinterProcessingStateDetail*) dieCutterCoverClosed;
++(MSGraphPrinterProcessingStateDetail*) dieCutterCoverOpen;
++(MSGraphPrinterProcessingStateDetail*) dieCutterEmpty;
++(MSGraphPrinterProcessingStateDetail*) dieCutterFull;
++(MSGraphPrinterProcessingStateDetail*) dieCutterInterlockClosed;
++(MSGraphPrinterProcessingStateDetail*) dieCutterInterlockOpen;
++(MSGraphPrinterProcessingStateDetail*) dieCutterJam;
++(MSGraphPrinterProcessingStateDetail*) dieCutterLifeAlmostOver;
++(MSGraphPrinterProcessingStateDetail*) dieCutterLifeOver;
++(MSGraphPrinterProcessingStateDetail*) dieCutterMemoryExhausted;
++(MSGraphPrinterProcessingStateDetail*) dieCutterMissing;
++(MSGraphPrinterProcessingStateDetail*) dieCutterMotorFailure;
++(MSGraphPrinterProcessingStateDetail*) dieCutterNearLimit;
++(MSGraphPrinterProcessingStateDetail*) dieCutterOffline;
++(MSGraphPrinterProcessingStateDetail*) dieCutterOpened;
++(MSGraphPrinterProcessingStateDetail*) dieCutterOverTemperature;
++(MSGraphPrinterProcessingStateDetail*) dieCutterPowerSaver;
++(MSGraphPrinterProcessingStateDetail*) dieCutterRecoverableFailure;
++(MSGraphPrinterProcessingStateDetail*) dieCutterRecoverableStorage;
++(MSGraphPrinterProcessingStateDetail*) dieCutterRemoved;
++(MSGraphPrinterProcessingStateDetail*) dieCutterResourceAdded;
++(MSGraphPrinterProcessingStateDetail*) dieCutterResourceRemoved;
++(MSGraphPrinterProcessingStateDetail*) dieCutterThermistorFailure;
++(MSGraphPrinterProcessingStateDetail*) dieCutterTimingFailure;
++(MSGraphPrinterProcessingStateDetail*) dieCutterTurnedOff;
++(MSGraphPrinterProcessingStateDetail*) dieCutterTurnedOn;
++(MSGraphPrinterProcessingStateDetail*) dieCutterUnderTemperature;
++(MSGraphPrinterProcessingStateDetail*) dieCutterUnrecoverableFailure;
++(MSGraphPrinterProcessingStateDetail*) dieCutterUnrecoverableStorageError;
++(MSGraphPrinterProcessingStateDetail*) dieCutterWarmingUp;
++(MSGraphPrinterProcessingStateDetail*) extruderCooling;
++(MSGraphPrinterProcessingStateDetail*) extruderFailure;
++(MSGraphPrinterProcessingStateDetail*) extruderHeating;
++(MSGraphPrinterProcessingStateDetail*) extruderJam;
++(MSGraphPrinterProcessingStateDetail*) extruderTemperatureHigh;
++(MSGraphPrinterProcessingStateDetail*) extruderTemperatureLow;
++(MSGraphPrinterProcessingStateDetail*) fanFailure;
++(MSGraphPrinterProcessingStateDetail*) faxModemLifeAlmostOver;
++(MSGraphPrinterProcessingStateDetail*) faxModemLifeOver;
++(MSGraphPrinterProcessingStateDetail*) faxModemMissing;
++(MSGraphPrinterProcessingStateDetail*) faxModemTurnedOff;
++(MSGraphPrinterProcessingStateDetail*) faxModemTurnedOn;
++(MSGraphPrinterProcessingStateDetail*) folderAdded;
++(MSGraphPrinterProcessingStateDetail*) folderAlmostEmpty;
++(MSGraphPrinterProcessingStateDetail*) folderAlmostFull;
++(MSGraphPrinterProcessingStateDetail*) folderAtLimit;
++(MSGraphPrinterProcessingStateDetail*) folderClosed;
++(MSGraphPrinterProcessingStateDetail*) folderConfigurationChange;
++(MSGraphPrinterProcessingStateDetail*) folderCoverClosed;
++(MSGraphPrinterProcessingStateDetail*) folderCoverOpen;
++(MSGraphPrinterProcessingStateDetail*) folderEmpty;
++(MSGraphPrinterProcessingStateDetail*) folderFull;
++(MSGraphPrinterProcessingStateDetail*) folderInterlockClosed;
++(MSGraphPrinterProcessingStateDetail*) folderInterlockOpen;
++(MSGraphPrinterProcessingStateDetail*) folderJam;
++(MSGraphPrinterProcessingStateDetail*) folderLifeAlmostOver;
++(MSGraphPrinterProcessingStateDetail*) folderLifeOver;
++(MSGraphPrinterProcessingStateDetail*) folderMemoryExhausted;
++(MSGraphPrinterProcessingStateDetail*) folderMissing;
++(MSGraphPrinterProcessingStateDetail*) folderMotorFailure;
++(MSGraphPrinterProcessingStateDetail*) folderNearLimit;
++(MSGraphPrinterProcessingStateDetail*) folderOffline;
++(MSGraphPrinterProcessingStateDetail*) folderOpened;
++(MSGraphPrinterProcessingStateDetail*) folderOverTemperature;
++(MSGraphPrinterProcessingStateDetail*) folderPowerSaver;
++(MSGraphPrinterProcessingStateDetail*) folderRecoverableFailure;
++(MSGraphPrinterProcessingStateDetail*) folderRecoverableStorage;
++(MSGraphPrinterProcessingStateDetail*) folderRemoved;
++(MSGraphPrinterProcessingStateDetail*) folderResourceAdded;
++(MSGraphPrinterProcessingStateDetail*) folderResourceRemoved;
++(MSGraphPrinterProcessingStateDetail*) folderThermistorFailure;
++(MSGraphPrinterProcessingStateDetail*) folderTimingFailure;
++(MSGraphPrinterProcessingStateDetail*) folderTurnedOff;
++(MSGraphPrinterProcessingStateDetail*) folderTurnedOn;
++(MSGraphPrinterProcessingStateDetail*) folderUnderTemperature;
++(MSGraphPrinterProcessingStateDetail*) folderUnrecoverableFailure;
++(MSGraphPrinterProcessingStateDetail*) folderUnrecoverableStorageError;
++(MSGraphPrinterProcessingStateDetail*) folderWarmingUp;
++(MSGraphPrinterProcessingStateDetail*) hibernate;
++(MSGraphPrinterProcessingStateDetail*) holdNewJobs;
++(MSGraphPrinterProcessingStateDetail*) identifyPrinterRequested;
++(MSGraphPrinterProcessingStateDetail*) imprinterAdded;
++(MSGraphPrinterProcessingStateDetail*) imprinterAlmostEmpty;
++(MSGraphPrinterProcessingStateDetail*) imprinterAlmostFull;
++(MSGraphPrinterProcessingStateDetail*) imprinterAtLimit;
++(MSGraphPrinterProcessingStateDetail*) imprinterClosed;
++(MSGraphPrinterProcessingStateDetail*) imprinterConfigurationChange;
++(MSGraphPrinterProcessingStateDetail*) imprinterCoverClosed;
++(MSGraphPrinterProcessingStateDetail*) imprinterCoverOpen;
++(MSGraphPrinterProcessingStateDetail*) imprinterEmpty;
++(MSGraphPrinterProcessingStateDetail*) imprinterFull;
++(MSGraphPrinterProcessingStateDetail*) imprinterInterlockClosed;
++(MSGraphPrinterProcessingStateDetail*) imprinterInterlockOpen;
++(MSGraphPrinterProcessingStateDetail*) imprinterJam;
++(MSGraphPrinterProcessingStateDetail*) imprinterLifeAlmostOver;
++(MSGraphPrinterProcessingStateDetail*) imprinterLifeOver;
++(MSGraphPrinterProcessingStateDetail*) imprinterMemoryExhausted;
++(MSGraphPrinterProcessingStateDetail*) imprinterMissing;
++(MSGraphPrinterProcessingStateDetail*) imprinterMotorFailure;
++(MSGraphPrinterProcessingStateDetail*) imprinterNearLimit;
++(MSGraphPrinterProcessingStateDetail*) imprinterOffline;
++(MSGraphPrinterProcessingStateDetail*) imprinterOpened;
++(MSGraphPrinterProcessingStateDetail*) imprinterOverTemperature;
++(MSGraphPrinterProcessingStateDetail*) imprinterPowerSaver;
++(MSGraphPrinterProcessingStateDetail*) imprinterRecoverableFailure;
++(MSGraphPrinterProcessingStateDetail*) imprinterRecoverableStorage;
++(MSGraphPrinterProcessingStateDetail*) imprinterRemoved;
++(MSGraphPrinterProcessingStateDetail*) imprinterResourceAdded;
++(MSGraphPrinterProcessingStateDetail*) imprinterResourceRemoved;
++(MSGraphPrinterProcessingStateDetail*) imprinterThermistorFailure;
++(MSGraphPrinterProcessingStateDetail*) imprinterTimingFailure;
++(MSGraphPrinterProcessingStateDetail*) imprinterTurnedOff;
++(MSGraphPrinterProcessingStateDetail*) imprinterTurnedOn;
++(MSGraphPrinterProcessingStateDetail*) imprinterUnderTemperature;
++(MSGraphPrinterProcessingStateDetail*) imprinterUnrecoverableFailure;
++(MSGraphPrinterProcessingStateDetail*) imprinterUnrecoverableStorageError;
++(MSGraphPrinterProcessingStateDetail*) imprinterWarmingUp;
++(MSGraphPrinterProcessingStateDetail*) inputCannotFeedSizeSelected;
++(MSGraphPrinterProcessingStateDetail*) inputManualInputRequest;
++(MSGraphPrinterProcessingStateDetail*) inputMediaColorChange;
++(MSGraphPrinterProcessingStateDetail*) inputMediaFormPartsChange;
++(MSGraphPrinterProcessingStateDetail*) inputMediaSizeChange;
++(MSGraphPrinterProcessingStateDetail*) inputMediaTrayFailure;
++(MSGraphPrinterProcessingStateDetail*) inputMediaTrayFeedError;
++(MSGraphPrinterProcessingStateDetail*) inputMediaTrayJam;
++(MSGraphPrinterProcessingStateDetail*) inputMediaTypeChange;
++(MSGraphPrinterProcessingStateDetail*) inputMediaWeightChange;
++(MSGraphPrinterProcessingStateDetail*) inputPickRollerFailure;
++(MSGraphPrinterProcessingStateDetail*) inputPickRollerLifeOver;
++(MSGraphPrinterProcessingStateDetail*) inputPickRollerLifeWarn;
++(MSGraphPrinterProcessingStateDetail*) inputPickRollerMissing;
++(MSGraphPrinterProcessingStateDetail*) inputTrayElevationFailure;
++(MSGraphPrinterProcessingStateDetail*) inputTrayPositionFailure;
++(MSGraphPrinterProcessingStateDetail*) inserterAdded;
++(MSGraphPrinterProcessingStateDetail*) inserterAlmostEmpty;
++(MSGraphPrinterProcessingStateDetail*) inserterAlmostFull;
++(MSGraphPrinterProcessingStateDetail*) inserterAtLimit;
++(MSGraphPrinterProcessingStateDetail*) inserterClosed;
++(MSGraphPrinterProcessingStateDetail*) inserterConfigurationChange;
++(MSGraphPrinterProcessingStateDetail*) inserterCoverClosed;
++(MSGraphPrinterProcessingStateDetail*) inserterCoverOpen;
++(MSGraphPrinterProcessingStateDetail*) inserterEmpty;
++(MSGraphPrinterProcessingStateDetail*) inserterFull;
++(MSGraphPrinterProcessingStateDetail*) inserterInterlockClosed;
++(MSGraphPrinterProcessingStateDetail*) inserterInterlockOpen;
++(MSGraphPrinterProcessingStateDetail*) inserterJam;
++(MSGraphPrinterProcessingStateDetail*) inserterLifeAlmostOver;
++(MSGraphPrinterProcessingStateDetail*) inserterLifeOver;
++(MSGraphPrinterProcessingStateDetail*) inserterMemoryExhausted;
++(MSGraphPrinterProcessingStateDetail*) inserterMissing;
++(MSGraphPrinterProcessingStateDetail*) inserterMotorFailure;
++(MSGraphPrinterProcessingStateDetail*) inserterNearLimit;
++(MSGraphPrinterProcessingStateDetail*) inserterOffline;
++(MSGraphPrinterProcessingStateDetail*) inserterOpened;
++(MSGraphPrinterProcessingStateDetail*) inserterOverTemperature;
++(MSGraphPrinterProcessingStateDetail*) inserterPowerSaver;
++(MSGraphPrinterProcessingStateDetail*) inserterRecoverableFailure;
++(MSGraphPrinterProcessingStateDetail*) inserterRecoverableStorage;
++(MSGraphPrinterProcessingStateDetail*) inserterRemoved;
++(MSGraphPrinterProcessingStateDetail*) inserterResourceAdded;
++(MSGraphPrinterProcessingStateDetail*) inserterResourceRemoved;
++(MSGraphPrinterProcessingStateDetail*) inserterThermistorFailure;
++(MSGraphPrinterProcessingStateDetail*) inserterTimingFailure;
++(MSGraphPrinterProcessingStateDetail*) inserterTurnedOff;
++(MSGraphPrinterProcessingStateDetail*) inserterTurnedOn;
++(MSGraphPrinterProcessingStateDetail*) inserterUnderTemperature;
++(MSGraphPrinterProcessingStateDetail*) inserterUnrecoverableFailure;
++(MSGraphPrinterProcessingStateDetail*) inserterUnrecoverableStorageError;
++(MSGraphPrinterProcessingStateDetail*) inserterWarmingUp;
++(MSGraphPrinterProcessingStateDetail*) interlockClosed;
++(MSGraphPrinterProcessingStateDetail*) interpreterCartridgeAdded;
++(MSGraphPrinterProcessingStateDetail*) interpreterCartridgeDeleted;
++(MSGraphPrinterProcessingStateDetail*) interpreterComplexPageEncountered;
++(MSGraphPrinterProcessingStateDetail*) interpreterMemoryDecrease;
++(MSGraphPrinterProcessingStateDetail*) interpreterMemoryIncrease;
++(MSGraphPrinterProcessingStateDetail*) interpreterResourceAdded;
++(MSGraphPrinterProcessingStateDetail*) interpreterResourceDeleted;
++(MSGraphPrinterProcessingStateDetail*) lampAtEol;
++(MSGraphPrinterProcessingStateDetail*) lampFailure;
++(MSGraphPrinterProcessingStateDetail*) lampNearEol;
++(MSGraphPrinterProcessingStateDetail*) laserAtEol;
++(MSGraphPrinterProcessingStateDetail*) laserFailure;
++(MSGraphPrinterProcessingStateDetail*) laserNearEol;
++(MSGraphPrinterProcessingStateDetail*) makeEnvelopeAdded;
++(MSGraphPrinterProcessingStateDetail*) makeEnvelopeAlmostEmpty;
++(MSGraphPrinterProcessingStateDetail*) makeEnvelopeAlmostFull;
++(MSGraphPrinterProcessingStateDetail*) makeEnvelopeAtLimit;
++(MSGraphPrinterProcessingStateDetail*) makeEnvelopeClosed;
++(MSGraphPrinterProcessingStateDetail*) makeEnvelopeConfigurationChange;
++(MSGraphPrinterProcessingStateDetail*) makeEnvelopeCoverClosed;
++(MSGraphPrinterProcessingStateDetail*) makeEnvelopeCoverOpen;
++(MSGraphPrinterProcessingStateDetail*) makeEnvelopeEmpty;
++(MSGraphPrinterProcessingStateDetail*) makeEnvelopeFull;
++(MSGraphPrinterProcessingStateDetail*) makeEnvelopeInterlockClosed;
++(MSGraphPrinterProcessingStateDetail*) makeEnvelopeInterlockOpen;
++(MSGraphPrinterProcessingStateDetail*) makeEnvelopeJam;
++(MSGraphPrinterProcessingStateDetail*) makeEnvelopeLifeAlmostOver;
++(MSGraphPrinterProcessingStateDetail*) makeEnvelopeLifeOver;
++(MSGraphPrinterProcessingStateDetail*) makeEnvelopeMemoryExhausted;
++(MSGraphPrinterProcessingStateDetail*) makeEnvelopeMissing;
++(MSGraphPrinterProcessingStateDetail*) makeEnvelopeMotorFailure;
++(MSGraphPrinterProcessingStateDetail*) makeEnvelopeNearLimit;
++(MSGraphPrinterProcessingStateDetail*) makeEnvelopeOffline;
++(MSGraphPrinterProcessingStateDetail*) makeEnvelopeOpened;
++(MSGraphPrinterProcessingStateDetail*) makeEnvelopeOverTemperature;
++(MSGraphPrinterProcessingStateDetail*) makeEnvelopePowerSaver;
++(MSGraphPrinterProcessingStateDetail*) makeEnvelopeRecoverableFailure;
++(MSGraphPrinterProcessingStateDetail*) makeEnvelopeRecoverableStorage;
++(MSGraphPrinterProcessingStateDetail*) makeEnvelopeRemoved;
++(MSGraphPrinterProcessingStateDetail*) makeEnvelopeResourceAdded;
++(MSGraphPrinterProcessingStateDetail*) makeEnvelopeResourceRemoved;
++(MSGraphPrinterProcessingStateDetail*) makeEnvelopeThermistorFailure;
++(MSGraphPrinterProcessingStateDetail*) makeEnvelopeTimingFailure;
++(MSGraphPrinterProcessingStateDetail*) makeEnvelopeTurnedOff;
++(MSGraphPrinterProcessingStateDetail*) makeEnvelopeTurnedOn;
++(MSGraphPrinterProcessingStateDetail*) makeEnvelopeUnderTemperature;
++(MSGraphPrinterProcessingStateDetail*) makeEnvelopeUnrecoverableFailure;
++(MSGraphPrinterProcessingStateDetail*) makeEnvelopeUnrecoverableStorageError;
++(MSGraphPrinterProcessingStateDetail*) makeEnvelopeWarmingUp;
++(MSGraphPrinterProcessingStateDetail*) markerAdjustingPrintQuality;
++(MSGraphPrinterProcessingStateDetail*) markerCleanerMissing;
++(MSGraphPrinterProcessingStateDetail*) markerDeveloperAlmostEmpty;
++(MSGraphPrinterProcessingStateDetail*) markerDeveloperEmpty;
++(MSGraphPrinterProcessingStateDetail*) markerDeveloperMissing;
++(MSGraphPrinterProcessingStateDetail*) markerFuserMissing;
++(MSGraphPrinterProcessingStateDetail*) markerFuserThermistorFailure;
++(MSGraphPrinterProcessingStateDetail*) markerFuserTimingFailure;
++(MSGraphPrinterProcessingStateDetail*) markerInkAlmostEmpty;
++(MSGraphPrinterProcessingStateDetail*) markerInkEmpty;
++(MSGraphPrinterProcessingStateDetail*) markerInkMissing;
++(MSGraphPrinterProcessingStateDetail*) markerOpcMissing;
++(MSGraphPrinterProcessingStateDetail*) markerPrintRibbonAlmostEmpty;
++(MSGraphPrinterProcessingStateDetail*) markerPrintRibbonEmpty;
++(MSGraphPrinterProcessingStateDetail*) markerPrintRibbonMissing;
++(MSGraphPrinterProcessingStateDetail*) markerSupplyAlmostEmpty;
++(MSGraphPrinterProcessingStateDetail*) markerSupplyMissing;
++(MSGraphPrinterProcessingStateDetail*) markerTonerCartridgeMissing;
++(MSGraphPrinterProcessingStateDetail*) markerTonerMissing;
++(MSGraphPrinterProcessingStateDetail*) markerWasteInkReceptacleAlmostFull;
++(MSGraphPrinterProcessingStateDetail*) markerWasteInkReceptacleFull;
++(MSGraphPrinterProcessingStateDetail*) markerWasteInkReceptacleMissing;
++(MSGraphPrinterProcessingStateDetail*) markerWasteMissing;
++(MSGraphPrinterProcessingStateDetail*) markerWasteTonerReceptacleAlmostFull;
++(MSGraphPrinterProcessingStateDetail*) markerWasteTonerReceptacleFull;
++(MSGraphPrinterProcessingStateDetail*) markerWasteTonerReceptacleMissing;
++(MSGraphPrinterProcessingStateDetail*) materialEmpty;
++(MSGraphPrinterProcessingStateDetail*) materialLow;
++(MSGraphPrinterProcessingStateDetail*) materialNeeded;
++(MSGraphPrinterProcessingStateDetail*) mediaDrying;
++(MSGraphPrinterProcessingStateDetail*) mediaPathCannotDuplexMediaSelected;
++(MSGraphPrinterProcessingStateDetail*) mediaPathFailure;
++(MSGraphPrinterProcessingStateDetail*) mediaPathInputEmpty;
++(MSGraphPrinterProcessingStateDetail*) mediaPathInputFeedError;
++(MSGraphPrinterProcessingStateDetail*) mediaPathInputJam;
++(MSGraphPrinterProcessingStateDetail*) mediaPathInputRequest;
++(MSGraphPrinterProcessingStateDetail*) mediaPathJam;
++(MSGraphPrinterProcessingStateDetail*) mediaPathMediaTrayAlmostFull;
++(MSGraphPrinterProcessingStateDetail*) mediaPathMediaTrayFull;
++(MSGraphPrinterProcessingStateDetail*) mediaPathMediaTrayMissing;
++(MSGraphPrinterProcessingStateDetail*) mediaPathOutputFeedError;
++(MSGraphPrinterProcessingStateDetail*) mediaPathOutputFull;
++(MSGraphPrinterProcessingStateDetail*) mediaPathOutputJam;
++(MSGraphPrinterProcessingStateDetail*) mediaPathPickRollerFailure;
++(MSGraphPrinterProcessingStateDetail*) mediaPathPickRollerLifeOver;
++(MSGraphPrinterProcessingStateDetail*) mediaPathPickRollerLifeWarn;
++(MSGraphPrinterProcessingStateDetail*) mediaPathPickRollerMissing;
++(MSGraphPrinterProcessingStateDetail*) motorFailure;
++(MSGraphPrinterProcessingStateDetail*) outputMailboxSelectFailure;
++(MSGraphPrinterProcessingStateDetail*) outputMediaTrayFailure;
++(MSGraphPrinterProcessingStateDetail*) outputMediaTrayFeedError;
++(MSGraphPrinterProcessingStateDetail*) outputMediaTrayJam;
++(MSGraphPrinterProcessingStateDetail*) perforaterAdded;
++(MSGraphPrinterProcessingStateDetail*) perforaterAlmostEmpty;
++(MSGraphPrinterProcessingStateDetail*) perforaterAlmostFull;
++(MSGraphPrinterProcessingStateDetail*) perforaterAtLimit;
++(MSGraphPrinterProcessingStateDetail*) perforaterClosed;
++(MSGraphPrinterProcessingStateDetail*) perforaterConfigurationChange;
++(MSGraphPrinterProcessingStateDetail*) perforaterCoverClosed;
++(MSGraphPrinterProcessingStateDetail*) perforaterCoverOpen;
++(MSGraphPrinterProcessingStateDetail*) perforaterEmpty;
++(MSGraphPrinterProcessingStateDetail*) perforaterFull;
++(MSGraphPrinterProcessingStateDetail*) perforaterInterlockClosed;
++(MSGraphPrinterProcessingStateDetail*) perforaterInterlockOpen;
++(MSGraphPrinterProcessingStateDetail*) perforaterJam;
++(MSGraphPrinterProcessingStateDetail*) perforaterLifeAlmostOver;
++(MSGraphPrinterProcessingStateDetail*) perforaterLifeOver;
++(MSGraphPrinterProcessingStateDetail*) perforaterMemoryExhausted;
++(MSGraphPrinterProcessingStateDetail*) perforaterMissing;
++(MSGraphPrinterProcessingStateDetail*) perforaterMotorFailure;
++(MSGraphPrinterProcessingStateDetail*) perforaterNearLimit;
++(MSGraphPrinterProcessingStateDetail*) perforaterOffline;
++(MSGraphPrinterProcessingStateDetail*) perforaterOpened;
++(MSGraphPrinterProcessingStateDetail*) perforaterOverTemperature;
++(MSGraphPrinterProcessingStateDetail*) perforaterPowerSaver;
++(MSGraphPrinterProcessingStateDetail*) perforaterRecoverableFailure;
++(MSGraphPrinterProcessingStateDetail*) perforaterRecoverableStorage;
++(MSGraphPrinterProcessingStateDetail*) perforaterRemoved;
++(MSGraphPrinterProcessingStateDetail*) perforaterResourceAdded;
++(MSGraphPrinterProcessingStateDetail*) perforaterResourceRemoved;
++(MSGraphPrinterProcessingStateDetail*) perforaterThermistorFailure;
++(MSGraphPrinterProcessingStateDetail*) perforaterTimingFailure;
++(MSGraphPrinterProcessingStateDetail*) perforaterTurnedOff;
++(MSGraphPrinterProcessingStateDetail*) perforaterTurnedOn;
++(MSGraphPrinterProcessingStateDetail*) perforaterUnderTemperature;
++(MSGraphPrinterProcessingStateDetail*) perforaterUnrecoverableFailure;
++(MSGraphPrinterProcessingStateDetail*) perforaterUnrecoverableStorageError;
++(MSGraphPrinterProcessingStateDetail*) perforaterWarmingUp;
++(MSGraphPrinterProcessingStateDetail*) platformCooling;
++(MSGraphPrinterProcessingStateDetail*) platformFailure;
++(MSGraphPrinterProcessingStateDetail*) platformHeating;
++(MSGraphPrinterProcessingStateDetail*) platformTemperatureHigh;
++(MSGraphPrinterProcessingStateDetail*) platformTemperatureLow;
++(MSGraphPrinterProcessingStateDetail*) powerDown;
++(MSGraphPrinterProcessingStateDetail*) powerUp;
++(MSGraphPrinterProcessingStateDetail*) printerManualReset;
++(MSGraphPrinterProcessingStateDetail*) printerNmsReset;
++(MSGraphPrinterProcessingStateDetail*) printerReadyToPrint;
++(MSGraphPrinterProcessingStateDetail*) puncherAdded;
++(MSGraphPrinterProcessingStateDetail*) puncherAlmostEmpty;
++(MSGraphPrinterProcessingStateDetail*) puncherAlmostFull;
++(MSGraphPrinterProcessingStateDetail*) puncherAtLimit;
++(MSGraphPrinterProcessingStateDetail*) puncherClosed;
++(MSGraphPrinterProcessingStateDetail*) puncherConfigurationChange;
++(MSGraphPrinterProcessingStateDetail*) puncherCoverClosed;
++(MSGraphPrinterProcessingStateDetail*) puncherCoverOpen;
++(MSGraphPrinterProcessingStateDetail*) puncherEmpty;
++(MSGraphPrinterProcessingStateDetail*) puncherFull;
++(MSGraphPrinterProcessingStateDetail*) puncherInterlockClosed;
++(MSGraphPrinterProcessingStateDetail*) puncherInterlockOpen;
++(MSGraphPrinterProcessingStateDetail*) puncherJam;
++(MSGraphPrinterProcessingStateDetail*) puncherLifeAlmostOver;
++(MSGraphPrinterProcessingStateDetail*) puncherLifeOver;
++(MSGraphPrinterProcessingStateDetail*) puncherMemoryExhausted;
++(MSGraphPrinterProcessingStateDetail*) puncherMissing;
++(MSGraphPrinterProcessingStateDetail*) puncherMotorFailure;
++(MSGraphPrinterProcessingStateDetail*) puncherNearLimit;
++(MSGraphPrinterProcessingStateDetail*) puncherOffline;
++(MSGraphPrinterProcessingStateDetail*) puncherOpened;
++(MSGraphPrinterProcessingStateDetail*) puncherOverTemperature;
++(MSGraphPrinterProcessingStateDetail*) puncherPowerSaver;
++(MSGraphPrinterProcessingStateDetail*) puncherRecoverableFailure;
++(MSGraphPrinterProcessingStateDetail*) puncherRecoverableStorage;
++(MSGraphPrinterProcessingStateDetail*) puncherRemoved;
++(MSGraphPrinterProcessingStateDetail*) puncherResourceAdded;
++(MSGraphPrinterProcessingStateDetail*) puncherResourceRemoved;
++(MSGraphPrinterProcessingStateDetail*) puncherThermistorFailure;
++(MSGraphPrinterProcessingStateDetail*) puncherTimingFailure;
++(MSGraphPrinterProcessingStateDetail*) puncherTurnedOff;
++(MSGraphPrinterProcessingStateDetail*) puncherTurnedOn;
++(MSGraphPrinterProcessingStateDetail*) puncherUnderTemperature;
++(MSGraphPrinterProcessingStateDetail*) puncherUnrecoverableFailure;
++(MSGraphPrinterProcessingStateDetail*) puncherUnrecoverableStorageError;
++(MSGraphPrinterProcessingStateDetail*) puncherWarmingUp;
++(MSGraphPrinterProcessingStateDetail*) resuming;
++(MSGraphPrinterProcessingStateDetail*) scanMediaPathFailure;
++(MSGraphPrinterProcessingStateDetail*) scanMediaPathInputEmpty;
++(MSGraphPrinterProcessingStateDetail*) scanMediaPathInputFeedError;
++(MSGraphPrinterProcessingStateDetail*) scanMediaPathInputJam;
++(MSGraphPrinterProcessingStateDetail*) scanMediaPathInputRequest;
++(MSGraphPrinterProcessingStateDetail*) scanMediaPathJam;
++(MSGraphPrinterProcessingStateDetail*) scanMediaPathOutputFeedError;
++(MSGraphPrinterProcessingStateDetail*) scanMediaPathOutputFull;
++(MSGraphPrinterProcessingStateDetail*) scanMediaPathOutputJam;
++(MSGraphPrinterProcessingStateDetail*) scanMediaPathPickRollerFailure;
++(MSGraphPrinterProcessingStateDetail*) scanMediaPathPickRollerLifeOver;
++(MSGraphPrinterProcessingStateDetail*) scanMediaPathPickRollerLifeWarn;
++(MSGraphPrinterProcessingStateDetail*) scanMediaPathPickRollerMissing;
++(MSGraphPrinterProcessingStateDetail*) scanMediaPathTrayAlmostFull;
++(MSGraphPrinterProcessingStateDetail*) scanMediaPathTrayFull;
++(MSGraphPrinterProcessingStateDetail*) scanMediaPathTrayMissing;
++(MSGraphPrinterProcessingStateDetail*) scannerLightFailure;
++(MSGraphPrinterProcessingStateDetail*) scannerLightLifeAlmostOver;
++(MSGraphPrinterProcessingStateDetail*) scannerLightLifeOver;
++(MSGraphPrinterProcessingStateDetail*) scannerLightMissing;
++(MSGraphPrinterProcessingStateDetail*) scannerSensorFailure;
++(MSGraphPrinterProcessingStateDetail*) scannerSensorLifeAlmostOver;
++(MSGraphPrinterProcessingStateDetail*) scannerSensorLifeOver;
++(MSGraphPrinterProcessingStateDetail*) scannerSensorMissing;
++(MSGraphPrinterProcessingStateDetail*) separationCutterAdded;
++(MSGraphPrinterProcessingStateDetail*) separationCutterAlmostEmpty;
++(MSGraphPrinterProcessingStateDetail*) separationCutterAlmostFull;
++(MSGraphPrinterProcessingStateDetail*) separationCutterAtLimit;
++(MSGraphPrinterProcessingStateDetail*) separationCutterClosed;
++(MSGraphPrinterProcessingStateDetail*) separationCutterConfigurationChange;
++(MSGraphPrinterProcessingStateDetail*) separationCutterCoverClosed;
++(MSGraphPrinterProcessingStateDetail*) separationCutterCoverOpen;
++(MSGraphPrinterProcessingStateDetail*) separationCutterEmpty;
++(MSGraphPrinterProcessingStateDetail*) separationCutterFull;
++(MSGraphPrinterProcessingStateDetail*) separationCutterInterlockClosed;
++(MSGraphPrinterProcessingStateDetail*) separationCutterInterlockOpen;
++(MSGraphPrinterProcessingStateDetail*) separationCutterJam;
++(MSGraphPrinterProcessingStateDetail*) separationCutterLifeAlmostOver;
++(MSGraphPrinterProcessingStateDetail*) separationCutterLifeOver;
++(MSGraphPrinterProcessingStateDetail*) separationCutterMemoryExhausted;
++(MSGraphPrinterProcessingStateDetail*) separationCutterMissing;
++(MSGraphPrinterProcessingStateDetail*) separationCutterMotorFailure;
++(MSGraphPrinterProcessingStateDetail*) separationCutterNearLimit;
++(MSGraphPrinterProcessingStateDetail*) separationCutterOffline;
++(MSGraphPrinterProcessingStateDetail*) separationCutterOpened;
++(MSGraphPrinterProcessingStateDetail*) separationCutterOverTemperature;
++(MSGraphPrinterProcessingStateDetail*) separationCutterPowerSaver;
++(MSGraphPrinterProcessingStateDetail*) separationCutterRecoverableFailure;
++(MSGraphPrinterProcessingStateDetail*) separationCutterRecoverableStorage;
++(MSGraphPrinterProcessingStateDetail*) separationCutterRemoved;
++(MSGraphPrinterProcessingStateDetail*) separationCutterResourceAdded;
++(MSGraphPrinterProcessingStateDetail*) separationCutterResourceRemoved;
++(MSGraphPrinterProcessingStateDetail*) separationCutterThermistorFailure;
++(MSGraphPrinterProcessingStateDetail*) separationCutterTimingFailure;
++(MSGraphPrinterProcessingStateDetail*) separationCutterTurnedOff;
++(MSGraphPrinterProcessingStateDetail*) separationCutterTurnedOn;
++(MSGraphPrinterProcessingStateDetail*) separationCutterUnderTemperature;
++(MSGraphPrinterProcessingStateDetail*) separationCutterUnrecoverableFailure;
++(MSGraphPrinterProcessingStateDetail*) separationCutterUnrecoverableStorageError;
++(MSGraphPrinterProcessingStateDetail*) separationCutterWarmingUp;
++(MSGraphPrinterProcessingStateDetail*) sheetRotatorAdded;
++(MSGraphPrinterProcessingStateDetail*) sheetRotatorAlmostEmpty;
++(MSGraphPrinterProcessingStateDetail*) sheetRotatorAlmostFull;
++(MSGraphPrinterProcessingStateDetail*) sheetRotatorAtLimit;
++(MSGraphPrinterProcessingStateDetail*) sheetRotatorClosed;
++(MSGraphPrinterProcessingStateDetail*) sheetRotatorConfigurationChange;
++(MSGraphPrinterProcessingStateDetail*) sheetRotatorCoverClosed;
++(MSGraphPrinterProcessingStateDetail*) sheetRotatorCoverOpen;
++(MSGraphPrinterProcessingStateDetail*) sheetRotatorEmpty;
++(MSGraphPrinterProcessingStateDetail*) sheetRotatorFull;
++(MSGraphPrinterProcessingStateDetail*) sheetRotatorInterlockClosed;
++(MSGraphPrinterProcessingStateDetail*) sheetRotatorInterlockOpen;
++(MSGraphPrinterProcessingStateDetail*) sheetRotatorJam;
++(MSGraphPrinterProcessingStateDetail*) sheetRotatorLifeAlmostOver;
++(MSGraphPrinterProcessingStateDetail*) sheetRotatorLifeOver;
++(MSGraphPrinterProcessingStateDetail*) sheetRotatorMemoryExhausted;
++(MSGraphPrinterProcessingStateDetail*) sheetRotatorMissing;
++(MSGraphPrinterProcessingStateDetail*) sheetRotatorMotorFailure;
++(MSGraphPrinterProcessingStateDetail*) sheetRotatorNearLimit;
++(MSGraphPrinterProcessingStateDetail*) sheetRotatorOffline;
++(MSGraphPrinterProcessingStateDetail*) sheetRotatorOpened;
++(MSGraphPrinterProcessingStateDetail*) sheetRotatorOverTemperature;
++(MSGraphPrinterProcessingStateDetail*) sheetRotatorPowerSaver;
++(MSGraphPrinterProcessingStateDetail*) sheetRotatorRecoverableFailure;
++(MSGraphPrinterProcessingStateDetail*) sheetRotatorRecoverableStorage;
++(MSGraphPrinterProcessingStateDetail*) sheetRotatorRemoved;
++(MSGraphPrinterProcessingStateDetail*) sheetRotatorResourceAdded;
++(MSGraphPrinterProcessingStateDetail*) sheetRotatorResourceRemoved;
++(MSGraphPrinterProcessingStateDetail*) sheetRotatorThermistorFailure;
++(MSGraphPrinterProcessingStateDetail*) sheetRotatorTimingFailure;
++(MSGraphPrinterProcessingStateDetail*) sheetRotatorTurnedOff;
++(MSGraphPrinterProcessingStateDetail*) sheetRotatorTurnedOn;
++(MSGraphPrinterProcessingStateDetail*) sheetRotatorUnderTemperature;
++(MSGraphPrinterProcessingStateDetail*) sheetRotatorUnrecoverableFailure;
++(MSGraphPrinterProcessingStateDetail*) sheetRotatorUnrecoverableStorageError;
++(MSGraphPrinterProcessingStateDetail*) sheetRotatorWarmingUp;
++(MSGraphPrinterProcessingStateDetail*) slitterAdded;
++(MSGraphPrinterProcessingStateDetail*) slitterAlmostEmpty;
++(MSGraphPrinterProcessingStateDetail*) slitterAlmostFull;
++(MSGraphPrinterProcessingStateDetail*) slitterAtLimit;
++(MSGraphPrinterProcessingStateDetail*) slitterClosed;
++(MSGraphPrinterProcessingStateDetail*) slitterConfigurationChange;
++(MSGraphPrinterProcessingStateDetail*) slitterCoverClosed;
++(MSGraphPrinterProcessingStateDetail*) slitterCoverOpen;
++(MSGraphPrinterProcessingStateDetail*) slitterEmpty;
++(MSGraphPrinterProcessingStateDetail*) slitterFull;
++(MSGraphPrinterProcessingStateDetail*) slitterInterlockClosed;
++(MSGraphPrinterProcessingStateDetail*) slitterInterlockOpen;
++(MSGraphPrinterProcessingStateDetail*) slitterJam;
++(MSGraphPrinterProcessingStateDetail*) slitterLifeAlmostOver;
++(MSGraphPrinterProcessingStateDetail*) slitterLifeOver;
++(MSGraphPrinterProcessingStateDetail*) slitterMemoryExhausted;
++(MSGraphPrinterProcessingStateDetail*) slitterMissing;
++(MSGraphPrinterProcessingStateDetail*) slitterMotorFailure;
++(MSGraphPrinterProcessingStateDetail*) slitterNearLimit;
++(MSGraphPrinterProcessingStateDetail*) slitterOffline;
++(MSGraphPrinterProcessingStateDetail*) slitterOpened;
++(MSGraphPrinterProcessingStateDetail*) slitterOverTemperature;
++(MSGraphPrinterProcessingStateDetail*) slitterPowerSaver;
++(MSGraphPrinterProcessingStateDetail*) slitterRecoverableFailure;
++(MSGraphPrinterProcessingStateDetail*) slitterRecoverableStorage;
++(MSGraphPrinterProcessingStateDetail*) slitterRemoved;
++(MSGraphPrinterProcessingStateDetail*) slitterResourceAdded;
++(MSGraphPrinterProcessingStateDetail*) slitterResourceRemoved;
++(MSGraphPrinterProcessingStateDetail*) slitterThermistorFailure;
++(MSGraphPrinterProcessingStateDetail*) slitterTimingFailure;
++(MSGraphPrinterProcessingStateDetail*) slitterTurnedOff;
++(MSGraphPrinterProcessingStateDetail*) slitterTurnedOn;
++(MSGraphPrinterProcessingStateDetail*) slitterUnderTemperature;
++(MSGraphPrinterProcessingStateDetail*) slitterUnrecoverableFailure;
++(MSGraphPrinterProcessingStateDetail*) slitterUnrecoverableStorageError;
++(MSGraphPrinterProcessingStateDetail*) slitterWarmingUp;
++(MSGraphPrinterProcessingStateDetail*) stackerAdded;
++(MSGraphPrinterProcessingStateDetail*) stackerAlmostEmpty;
++(MSGraphPrinterProcessingStateDetail*) stackerAlmostFull;
++(MSGraphPrinterProcessingStateDetail*) stackerAtLimit;
++(MSGraphPrinterProcessingStateDetail*) stackerClosed;
++(MSGraphPrinterProcessingStateDetail*) stackerConfigurationChange;
++(MSGraphPrinterProcessingStateDetail*) stackerCoverClosed;
++(MSGraphPrinterProcessingStateDetail*) stackerCoverOpen;
++(MSGraphPrinterProcessingStateDetail*) stackerEmpty;
++(MSGraphPrinterProcessingStateDetail*) stackerFull;
++(MSGraphPrinterProcessingStateDetail*) stackerInterlockClosed;
++(MSGraphPrinterProcessingStateDetail*) stackerInterlockOpen;
++(MSGraphPrinterProcessingStateDetail*) stackerJam;
++(MSGraphPrinterProcessingStateDetail*) stackerLifeAlmostOver;
++(MSGraphPrinterProcessingStateDetail*) stackerLifeOver;
++(MSGraphPrinterProcessingStateDetail*) stackerMemoryExhausted;
++(MSGraphPrinterProcessingStateDetail*) stackerMissing;
++(MSGraphPrinterProcessingStateDetail*) stackerMotorFailure;
++(MSGraphPrinterProcessingStateDetail*) stackerNearLimit;
++(MSGraphPrinterProcessingStateDetail*) stackerOffline;
++(MSGraphPrinterProcessingStateDetail*) stackerOpened;
++(MSGraphPrinterProcessingStateDetail*) stackerOverTemperature;
++(MSGraphPrinterProcessingStateDetail*) stackerPowerSaver;
++(MSGraphPrinterProcessingStateDetail*) stackerRecoverableFailure;
++(MSGraphPrinterProcessingStateDetail*) stackerRecoverableStorage;
++(MSGraphPrinterProcessingStateDetail*) stackerRemoved;
++(MSGraphPrinterProcessingStateDetail*) stackerResourceAdded;
++(MSGraphPrinterProcessingStateDetail*) stackerResourceRemoved;
++(MSGraphPrinterProcessingStateDetail*) stackerThermistorFailure;
++(MSGraphPrinterProcessingStateDetail*) stackerTimingFailure;
++(MSGraphPrinterProcessingStateDetail*) stackerTurnedOff;
++(MSGraphPrinterProcessingStateDetail*) stackerTurnedOn;
++(MSGraphPrinterProcessingStateDetail*) stackerUnderTemperature;
++(MSGraphPrinterProcessingStateDetail*) stackerUnrecoverableFailure;
++(MSGraphPrinterProcessingStateDetail*) stackerUnrecoverableStorageError;
++(MSGraphPrinterProcessingStateDetail*) stackerWarmingUp;
++(MSGraphPrinterProcessingStateDetail*) standby;
++(MSGraphPrinterProcessingStateDetail*) staplerAdded;
++(MSGraphPrinterProcessingStateDetail*) staplerAlmostEmpty;
++(MSGraphPrinterProcessingStateDetail*) staplerAlmostFull;
++(MSGraphPrinterProcessingStateDetail*) staplerAtLimit;
++(MSGraphPrinterProcessingStateDetail*) staplerClosed;
++(MSGraphPrinterProcessingStateDetail*) staplerConfigurationChange;
++(MSGraphPrinterProcessingStateDetail*) staplerCoverClosed;
++(MSGraphPrinterProcessingStateDetail*) staplerCoverOpen;
++(MSGraphPrinterProcessingStateDetail*) staplerEmpty;
++(MSGraphPrinterProcessingStateDetail*) staplerFull;
++(MSGraphPrinterProcessingStateDetail*) staplerInterlockClosed;
++(MSGraphPrinterProcessingStateDetail*) staplerInterlockOpen;
++(MSGraphPrinterProcessingStateDetail*) staplerJam;
++(MSGraphPrinterProcessingStateDetail*) staplerLifeAlmostOver;
++(MSGraphPrinterProcessingStateDetail*) staplerLifeOver;
++(MSGraphPrinterProcessingStateDetail*) staplerMemoryExhausted;
++(MSGraphPrinterProcessingStateDetail*) staplerMissing;
++(MSGraphPrinterProcessingStateDetail*) staplerMotorFailure;
++(MSGraphPrinterProcessingStateDetail*) staplerNearLimit;
++(MSGraphPrinterProcessingStateDetail*) staplerOffline;
++(MSGraphPrinterProcessingStateDetail*) staplerOpened;
++(MSGraphPrinterProcessingStateDetail*) staplerOverTemperature;
++(MSGraphPrinterProcessingStateDetail*) staplerPowerSaver;
++(MSGraphPrinterProcessingStateDetail*) staplerRecoverableFailure;
++(MSGraphPrinterProcessingStateDetail*) staplerRecoverableStorage;
++(MSGraphPrinterProcessingStateDetail*) staplerRemoved;
++(MSGraphPrinterProcessingStateDetail*) staplerResourceAdded;
++(MSGraphPrinterProcessingStateDetail*) staplerResourceRemoved;
++(MSGraphPrinterProcessingStateDetail*) staplerThermistorFailure;
++(MSGraphPrinterProcessingStateDetail*) staplerTimingFailure;
++(MSGraphPrinterProcessingStateDetail*) staplerTurnedOff;
++(MSGraphPrinterProcessingStateDetail*) staplerTurnedOn;
++(MSGraphPrinterProcessingStateDetail*) staplerUnderTemperature;
++(MSGraphPrinterProcessingStateDetail*) staplerUnrecoverableFailure;
++(MSGraphPrinterProcessingStateDetail*) staplerUnrecoverableStorageError;
++(MSGraphPrinterProcessingStateDetail*) staplerWarmingUp;
++(MSGraphPrinterProcessingStateDetail*) stitcherAdded;
++(MSGraphPrinterProcessingStateDetail*) stitcherAlmostEmpty;
++(MSGraphPrinterProcessingStateDetail*) stitcherAlmostFull;
++(MSGraphPrinterProcessingStateDetail*) stitcherAtLimit;
++(MSGraphPrinterProcessingStateDetail*) stitcherClosed;
++(MSGraphPrinterProcessingStateDetail*) stitcherConfigurationChange;
++(MSGraphPrinterProcessingStateDetail*) stitcherCoverClosed;
++(MSGraphPrinterProcessingStateDetail*) stitcherCoverOpen;
++(MSGraphPrinterProcessingStateDetail*) stitcherEmpty;
++(MSGraphPrinterProcessingStateDetail*) stitcherFull;
++(MSGraphPrinterProcessingStateDetail*) stitcherInterlockClosed;
++(MSGraphPrinterProcessingStateDetail*) stitcherInterlockOpen;
++(MSGraphPrinterProcessingStateDetail*) stitcherJam;
++(MSGraphPrinterProcessingStateDetail*) stitcherLifeAlmostOver;
++(MSGraphPrinterProcessingStateDetail*) stitcherLifeOver;
++(MSGraphPrinterProcessingStateDetail*) stitcherMemoryExhausted;
++(MSGraphPrinterProcessingStateDetail*) stitcherMissing;
++(MSGraphPrinterProcessingStateDetail*) stitcherMotorFailure;
++(MSGraphPrinterProcessingStateDetail*) stitcherNearLimit;
++(MSGraphPrinterProcessingStateDetail*) stitcherOffline;
++(MSGraphPrinterProcessingStateDetail*) stitcherOpened;
++(MSGraphPrinterProcessingStateDetail*) stitcherOverTemperature;
++(MSGraphPrinterProcessingStateDetail*) stitcherPowerSaver;
++(MSGraphPrinterProcessingStateDetail*) stitcherRecoverableFailure;
++(MSGraphPrinterProcessingStateDetail*) stitcherRecoverableStorage;
++(MSGraphPrinterProcessingStateDetail*) stitcherRemoved;
++(MSGraphPrinterProcessingStateDetail*) stitcherResourceAdded;
++(MSGraphPrinterProcessingStateDetail*) stitcherResourceRemoved;
++(MSGraphPrinterProcessingStateDetail*) stitcherThermistorFailure;
++(MSGraphPrinterProcessingStateDetail*) stitcherTimingFailure;
++(MSGraphPrinterProcessingStateDetail*) stitcherTurnedOff;
++(MSGraphPrinterProcessingStateDetail*) stitcherTurnedOn;
++(MSGraphPrinterProcessingStateDetail*) stitcherUnderTemperature;
++(MSGraphPrinterProcessingStateDetail*) stitcherUnrecoverableFailure;
++(MSGraphPrinterProcessingStateDetail*) stitcherUnrecoverableStorageError;
++(MSGraphPrinterProcessingStateDetail*) stitcherWarmingUp;
++(MSGraphPrinterProcessingStateDetail*) subunitAdded;
++(MSGraphPrinterProcessingStateDetail*) subunitAlmostEmpty;
++(MSGraphPrinterProcessingStateDetail*) subunitAlmostFull;
++(MSGraphPrinterProcessingStateDetail*) subunitAtLimit;
++(MSGraphPrinterProcessingStateDetail*) subunitClosed;
++(MSGraphPrinterProcessingStateDetail*) subunitCoolingDown;
++(MSGraphPrinterProcessingStateDetail*) subunitEmpty;
++(MSGraphPrinterProcessingStateDetail*) subunitFull;
++(MSGraphPrinterProcessingStateDetail*) subunitLifeAlmostOver;
++(MSGraphPrinterProcessingStateDetail*) subunitLifeOver;
++(MSGraphPrinterProcessingStateDetail*) subunitMemoryExhausted;
++(MSGraphPrinterProcessingStateDetail*) subunitMissing;
++(MSGraphPrinterProcessingStateDetail*) subunitMotorFailure;
++(MSGraphPrinterProcessingStateDetail*) subunitNearLimit;
++(MSGraphPrinterProcessingStateDetail*) subunitOffline;
++(MSGraphPrinterProcessingStateDetail*) subunitOpened;
++(MSGraphPrinterProcessingStateDetail*) subunitOverTemperature;
++(MSGraphPrinterProcessingStateDetail*) subunitPowerSaver;
++(MSGraphPrinterProcessingStateDetail*) subunitRecoverableFailure;
++(MSGraphPrinterProcessingStateDetail*) subunitRecoverableStorage;
++(MSGraphPrinterProcessingStateDetail*) subunitRemoved;
++(MSGraphPrinterProcessingStateDetail*) subunitResourceAdded;
++(MSGraphPrinterProcessingStateDetail*) subunitResourceRemoved;
++(MSGraphPrinterProcessingStateDetail*) subunitThermistorFailure;
++(MSGraphPrinterProcessingStateDetail*) subunitTimingFailure;
++(MSGraphPrinterProcessingStateDetail*) subunitTurnedOff;
++(MSGraphPrinterProcessingStateDetail*) subunitTurnedOn;
++(MSGraphPrinterProcessingStateDetail*) subunitUnderTemperature;
++(MSGraphPrinterProcessingStateDetail*) subunitUnrecoverableFailure;
++(MSGraphPrinterProcessingStateDetail*) subunitUnrecoverableStorage;
++(MSGraphPrinterProcessingStateDetail*) subunitWarmingUp;
++(MSGraphPrinterProcessingStateDetail*) suspend;
++(MSGraphPrinterProcessingStateDetail*) testing;
++(MSGraphPrinterProcessingStateDetail*) trimmerAdded;
++(MSGraphPrinterProcessingStateDetail*) trimmerAlmostEmpty;
++(MSGraphPrinterProcessingStateDetail*) trimmerAlmostFull;
++(MSGraphPrinterProcessingStateDetail*) trimmerAtLimit;
++(MSGraphPrinterProcessingStateDetail*) trimmerClosed;
++(MSGraphPrinterProcessingStateDetail*) trimmerConfigurationChange;
++(MSGraphPrinterProcessingStateDetail*) trimmerCoverClosed;
++(MSGraphPrinterProcessingStateDetail*) trimmerCoverOpen;
++(MSGraphPrinterProcessingStateDetail*) trimmerEmpty;
++(MSGraphPrinterProcessingStateDetail*) trimmerFull;
++(MSGraphPrinterProcessingStateDetail*) trimmerInterlockClosed;
++(MSGraphPrinterProcessingStateDetail*) trimmerInterlockOpen;
++(MSGraphPrinterProcessingStateDetail*) trimmerJam;
++(MSGraphPrinterProcessingStateDetail*) trimmerLifeAlmostOver;
++(MSGraphPrinterProcessingStateDetail*) trimmerLifeOver;
++(MSGraphPrinterProcessingStateDetail*) trimmerMemoryExhausted;
++(MSGraphPrinterProcessingStateDetail*) trimmerMissing;
++(MSGraphPrinterProcessingStateDetail*) trimmerMotorFailure;
++(MSGraphPrinterProcessingStateDetail*) trimmerNearLimit;
++(MSGraphPrinterProcessingStateDetail*) trimmerOffline;
++(MSGraphPrinterProcessingStateDetail*) trimmerOpened;
++(MSGraphPrinterProcessingStateDetail*) trimmerOverTemperature;
++(MSGraphPrinterProcessingStateDetail*) trimmerPowerSaver;
++(MSGraphPrinterProcessingStateDetail*) trimmerRecoverableFailure;
++(MSGraphPrinterProcessingStateDetail*) trimmerRecoverableStorage;
++(MSGraphPrinterProcessingStateDetail*) trimmerRemoved;
++(MSGraphPrinterProcessingStateDetail*) trimmerResourceAdded;
++(MSGraphPrinterProcessingStateDetail*) trimmerResourceRemoved;
++(MSGraphPrinterProcessingStateDetail*) trimmerThermistorFailure;
++(MSGraphPrinterProcessingStateDetail*) trimmerTimingFailure;
++(MSGraphPrinterProcessingStateDetail*) trimmerTurnedOff;
++(MSGraphPrinterProcessingStateDetail*) trimmerTurnedOn;
++(MSGraphPrinterProcessingStateDetail*) trimmerUnderTemperature;
++(MSGraphPrinterProcessingStateDetail*) trimmerUnrecoverableFailure;
++(MSGraphPrinterProcessingStateDetail*) trimmerUnrecoverableStorageError;
++(MSGraphPrinterProcessingStateDetail*) trimmerWarmingUp;
++(MSGraphPrinterProcessingStateDetail*) unknown;
++(MSGraphPrinterProcessingStateDetail*) wrapperAdded;
++(MSGraphPrinterProcessingStateDetail*) wrapperAlmostEmpty;
++(MSGraphPrinterProcessingStateDetail*) wrapperAlmostFull;
++(MSGraphPrinterProcessingStateDetail*) wrapperAtLimit;
++(MSGraphPrinterProcessingStateDetail*) wrapperClosed;
++(MSGraphPrinterProcessingStateDetail*) wrapperConfigurationChange;
++(MSGraphPrinterProcessingStateDetail*) wrapperCoverClosed;
++(MSGraphPrinterProcessingStateDetail*) wrapperCoverOpen;
++(MSGraphPrinterProcessingStateDetail*) wrapperEmpty;
++(MSGraphPrinterProcessingStateDetail*) wrapperFull;
++(MSGraphPrinterProcessingStateDetail*) wrapperInterlockClosed;
++(MSGraphPrinterProcessingStateDetail*) wrapperInterlockOpen;
++(MSGraphPrinterProcessingStateDetail*) wrapperJam;
++(MSGraphPrinterProcessingStateDetail*) wrapperLifeAlmostOver;
++(MSGraphPrinterProcessingStateDetail*) wrapperLifeOver;
++(MSGraphPrinterProcessingStateDetail*) wrapperMemoryExhausted;
++(MSGraphPrinterProcessingStateDetail*) wrapperMissing;
++(MSGraphPrinterProcessingStateDetail*) wrapperMotorFailure;
++(MSGraphPrinterProcessingStateDetail*) wrapperNearLimit;
++(MSGraphPrinterProcessingStateDetail*) wrapperOffline;
++(MSGraphPrinterProcessingStateDetail*) wrapperOpened;
++(MSGraphPrinterProcessingStateDetail*) wrapperOverTemperature;
++(MSGraphPrinterProcessingStateDetail*) wrapperPowerSaver;
++(MSGraphPrinterProcessingStateDetail*) wrapperRecoverableFailure;
++(MSGraphPrinterProcessingStateDetail*) wrapperRecoverableStorage;
++(MSGraphPrinterProcessingStateDetail*) wrapperRemoved;
++(MSGraphPrinterProcessingStateDetail*) wrapperResourceAdded;
++(MSGraphPrinterProcessingStateDetail*) wrapperResourceRemoved;
++(MSGraphPrinterProcessingStateDetail*) wrapperThermistorFailure;
++(MSGraphPrinterProcessingStateDetail*) wrapperTimingFailure;
++(MSGraphPrinterProcessingStateDetail*) wrapperTurnedOff;
++(MSGraphPrinterProcessingStateDetail*) wrapperTurnedOn;
++(MSGraphPrinterProcessingStateDetail*) wrapperUnderTemperature;
++(MSGraphPrinterProcessingStateDetail*) wrapperUnrecoverableFailure;
++(MSGraphPrinterProcessingStateDetail*) wrapperUnrecoverableStorageError;
++(MSGraphPrinterProcessingStateDetail*) wrapperWarmingUp;
 
 +(MSGraphPrinterProcessingStateDetail*) UnknownEnumValue;
 

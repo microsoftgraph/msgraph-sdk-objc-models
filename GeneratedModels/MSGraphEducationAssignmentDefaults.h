@@ -3,6 +3,7 @@
 
 @class MSTimeOfDay; 
 #import "MSGraphEducationAddedStudentAction.h"
+#import "MSGraphEducationAddToCalendarOptions.h"
 
 
 #import "MSGraphEntity.h"
@@ -10,6 +11,7 @@
 @interface MSGraphEducationAssignmentDefaults : MSGraphEntity
 
   @property (nullable, nonatomic, setter=setAddedStudentAction:, getter=addedStudentAction) MSGraphEducationAddedStudentAction* addedStudentAction;
+    @property (nullable, nonatomic, setter=setAddToCalendarAction:, getter=addToCalendarAction) MSGraphEducationAddToCalendarOptions* addToCalendarAction;
     @property (nullable, nonatomic, setter=setDueTime:, getter=dueTime) MSTimeOfDay* dueTime;
     @property (nullable, nonatomic, setter=setNotificationChannelUrl:, getter=notificationChannelUrl) NSString* notificationChannelUrl;
   

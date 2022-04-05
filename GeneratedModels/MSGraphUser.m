@@ -60,6 +60,7 @@
     NSString* _passwordPolicies;
     MSGraphPasswordProfile* _passwordProfile;
     NSString* _postalCode;
+    NSString* _preferredDataLocation;
     NSString* _preferredLanguage;
     NSArray* _provisionedPlans;
     NSArray* _proxyAddresses;
@@ -107,8 +108,6 @@
     NSArray* _messages;
     MSGraphOutlookUser* _outlook;
     NSArray* _people;
-    MSGraphProfilePhoto* _photo;
-    NSArray* _photos;
     MSGraphDrive* _drive;
     NSArray* _drives;
     NSArray* _followedSites;
@@ -121,6 +120,8 @@
     MSGraphOfficeGraphInsights* _insights;
     MSGraphUserSettings* _settings;
     MSGraphOnenote* _onenote;
+    MSGraphProfilePhoto* _photo;
+    NSArray* _photos;
     NSArray* _activities;
     NSArray* _onlineMeetings;
     MSGraphPresence* _presence;
@@ -824,6 +825,20 @@
 - (void) setPostalCode: (NSString*) val
 {
     self.dictionary[@"postalCode"] = val;
+}
+
+- (NSString*) preferredDataLocation
+{
+    if([[NSNull null] isEqual:self.dictionary[@"preferredDataLocation"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"preferredDataLocation"];
+}
+
+- (void) setPreferredDataLocation: (NSString*) val
+{
+    self.dictionary[@"preferredDataLocation"] = val;
 }
 
 - (NSString*) preferredLanguage
@@ -1707,45 +1722,6 @@
     self.dictionary[@"people"] = val;
 }
 
-- (MSGraphProfilePhoto*) photo
-{
-    if(!_photo){
-        _photo = [[MSGraphProfilePhoto alloc] initWithDictionary: self.dictionary[@"photo"]];
-    }
-    return _photo;
-}
-
-- (void) setPhoto: (MSGraphProfilePhoto*) val
-{
-    _photo = val;
-    self.dictionary[@"photo"] = val;
-}
-
-- (NSArray*) photos
-{
-    if(!_photos){
-        
-    NSMutableArray *photosResult = [NSMutableArray array];
-    NSArray *photos = self.dictionary[@"photos"];
-
-    if ([photos isKindOfClass:[NSArray class]]){
-        for (id tempProfilePhoto in photos){
-            [photosResult addObject:tempProfilePhoto];
-        }
-    }
-
-    _photos = photosResult;
-        
-    }
-    return _photos;
-}
-
-- (void) setPhotos: (NSArray*) val
-{
-    _photos = val;
-    self.dictionary[@"photos"] = val;
-}
-
 - (MSGraphDrive*) drive
 {
     if(!_drive){
@@ -1989,6 +1965,45 @@
 {
     _onenote = val;
     self.dictionary[@"onenote"] = val;
+}
+
+- (MSGraphProfilePhoto*) photo
+{
+    if(!_photo){
+        _photo = [[MSGraphProfilePhoto alloc] initWithDictionary: self.dictionary[@"photo"]];
+    }
+    return _photo;
+}
+
+- (void) setPhoto: (MSGraphProfilePhoto*) val
+{
+    _photo = val;
+    self.dictionary[@"photo"] = val;
+}
+
+- (NSArray*) photos
+{
+    if(!_photos){
+        
+    NSMutableArray *photosResult = [NSMutableArray array];
+    NSArray *photos = self.dictionary[@"photos"];
+
+    if ([photos isKindOfClass:[NSArray class]]){
+        for (id tempProfilePhoto in photos){
+            [photosResult addObject:tempProfilePhoto];
+        }
+    }
+
+    _photos = photosResult;
+        
+    }
+    return _photos;
+}
+
+- (void) setPhotos: (NSArray*) val
+{
+    _photos = val;
+    self.dictionary[@"photos"] = val;
 }
 
 - (NSArray*) activities

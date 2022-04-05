@@ -15,6 +15,8 @@
 @interface MSGraphSearchResponse()
 {
     NSArray* _hitsContainers;
+    MSGraphAlterationResponse* _queryAlterationResponse;
+    MSGraphResultTemplateDictionary* _resultTemplates;
     NSArray* _searchTerms;
 }
 @end
@@ -44,6 +46,34 @@
 {
     _hitsContainers = val;
     self.dictionary[@"hitsContainers"] = val;
+}
+
+- (MSGraphAlterationResponse*) queryAlterationResponse
+{
+    if(!_queryAlterationResponse){
+        _queryAlterationResponse = [[MSGraphAlterationResponse alloc] initWithDictionary: self.dictionary[@"queryAlterationResponse"]];
+    }
+    return _queryAlterationResponse;
+}
+
+- (void) setQueryAlterationResponse: (MSGraphAlterationResponse*) val
+{
+    _queryAlterationResponse = val;
+    self.dictionary[@"queryAlterationResponse"] = val;
+}
+
+- (MSGraphResultTemplateDictionary*) resultTemplates
+{
+    if(!_resultTemplates){
+        _resultTemplates = [[MSGraphResultTemplateDictionary alloc] initWithDictionary: self.dictionary[@"resultTemplates"]];
+    }
+    return _resultTemplates;
+}
+
+- (void) setResultTemplates: (MSGraphResultTemplateDictionary*) val
+{
+    _resultTemplates = val;
+    self.dictionary[@"resultTemplates"] = val;
 }
 
 - (NSArray*) searchTerms
