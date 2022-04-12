@@ -27,6 +27,8 @@
     MSGraphAdminConsentRequestPolicy* _adminConsentRequestPolicy;
     NSArray* _conditionalAccessPolicies;
     MSGraphIdentitySecurityDefaultsEnforcementPolicy* _identitySecurityDefaultsEnforcementPolicy;
+    NSArray* _roleManagementPolicies;
+    NSArray* _roleManagementPolicyAssignments;
 }
 @end
 
@@ -307,6 +309,56 @@
 {
     _identitySecurityDefaultsEnforcementPolicy = val;
     self.dictionary[@"identitySecurityDefaultsEnforcementPolicy"] = val;
+}
+
+- (NSArray*) roleManagementPolicies
+{
+    if(!_roleManagementPolicies){
+        
+    NSMutableArray *roleManagementPoliciesResult = [NSMutableArray array];
+    NSArray *roleManagementPolicies = self.dictionary[@"roleManagementPolicies"];
+
+    if ([roleManagementPolicies isKindOfClass:[NSArray class]]){
+        for (id tempUnifiedRoleManagementPolicy in roleManagementPolicies){
+            [roleManagementPoliciesResult addObject:tempUnifiedRoleManagementPolicy];
+        }
+    }
+
+    _roleManagementPolicies = roleManagementPoliciesResult;
+        
+    }
+    return _roleManagementPolicies;
+}
+
+- (void) setRoleManagementPolicies: (NSArray*) val
+{
+    _roleManagementPolicies = val;
+    self.dictionary[@"roleManagementPolicies"] = val;
+}
+
+- (NSArray*) roleManagementPolicyAssignments
+{
+    if(!_roleManagementPolicyAssignments){
+        
+    NSMutableArray *roleManagementPolicyAssignmentsResult = [NSMutableArray array];
+    NSArray *roleManagementPolicyAssignments = self.dictionary[@"roleManagementPolicyAssignments"];
+
+    if ([roleManagementPolicyAssignments isKindOfClass:[NSArray class]]){
+        for (id tempUnifiedRoleManagementPolicyAssignment in roleManagementPolicyAssignments){
+            [roleManagementPolicyAssignmentsResult addObject:tempUnifiedRoleManagementPolicyAssignment];
+        }
+    }
+
+    _roleManagementPolicyAssignments = roleManagementPolicyAssignmentsResult;
+        
+    }
+    return _roleManagementPolicyAssignments;
+}
+
+- (void) setRoleManagementPolicyAssignments: (NSArray*) val
+{
+    _roleManagementPolicyAssignments = val;
+    self.dictionary[@"roleManagementPolicyAssignments"] = val;
 }
 
 

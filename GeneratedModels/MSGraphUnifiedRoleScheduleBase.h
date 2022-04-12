@@ -1,0 +1,24 @@
+// Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
+
+
+@class MSGraphAppScope, MSGraphDirectoryObject, MSGraphUnifiedRoleDefinition; 
+
+
+#import "MSGraphEntity.h"
+
+@interface MSGraphUnifiedRoleScheduleBase : MSGraphEntity
+
+  @property (nullable, nonatomic, setter=setAppScopeId:, getter=appScopeId) NSString* appScopeId;
+    @property (nullable, nonatomic, setter=setCreatedDateTime:, getter=createdDateTime) NSDate* createdDateTime;
+    @property (nullable, nonatomic, setter=setCreatedUsing:, getter=createdUsing) NSString* createdUsing;
+    @property (nullable, nonatomic, setter=setDirectoryScopeId:, getter=directoryScopeId) NSString* directoryScopeId;
+    @property (nullable, nonatomic, setter=setModifiedDateTime:, getter=modifiedDateTime) NSDate* modifiedDateTime;
+    @property (nullable, nonatomic, setter=setPrincipalId:, getter=principalId) NSString* principalId;
+    @property (nullable, nonatomic, setter=setRoleDefinitionId:, getter=roleDefinitionId) NSString* roleDefinitionId;
+    @property (nullable, nonatomic, setter=setStatus:, getter=status) NSString* status;
+    @property (nullable, nonatomic, setter=setAppScope:, getter=appScope) MSGraphAppScope* appScope;
+    @property (nullable, nonatomic, setter=setDirectoryScope:, getter=directoryScope) MSGraphDirectoryObject* directoryScope;
+    @property (nullable, nonatomic, setter=setPrincipal:, getter=principal) MSGraphDirectoryObject* principal;
+    @property (nullable, nonatomic, setter=setRoleDefinition:, getter=roleDefinition) MSGraphUnifiedRoleDefinition* roleDefinition;
+  
+@end

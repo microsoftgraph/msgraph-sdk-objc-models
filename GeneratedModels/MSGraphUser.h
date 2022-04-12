@@ -1,7 +1,7 @@
 // Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 
 
-@class MSGraphAssignedLicense, MSGraphAssignedPlan, MSGraphEmployeeOrgData, MSGraphObjectIdentity, MSGraphLicenseAssignmentState, MSGraphOnPremisesExtensionAttributes, MSGraphOnPremisesProvisioningError, MSGraphPasswordProfile, MSGraphProvisionedPlan, MSGraphMailboxSettings, MSGraphAppRoleAssignment, MSGraphDirectoryObject, MSGraphLicenseDetails, MSGraphOAuth2PermissionGrant, MSGraphScopedRoleMembership, MSGraphCalendar, MSGraphCalendarGroup, MSGraphEvent, MSGraphContactFolder, MSGraphContact, MSGraphInferenceClassification, MSGraphMailFolder, MSGraphMessage, MSGraphOutlookUser, MSGraphPerson, MSGraphProfilePhoto, MSGraphDrive, MSGraphSite, MSGraphExtension, MSGraphAgreementAcceptance, MSGraphManagedDevice, MSGraphManagedAppRegistration, MSGraphDeviceManagementTroubleshootingEvent, MSGraphPlannerUser, MSGraphOfficeGraphInsights, MSGraphUserSettings, MSGraphOnenote, MSGraphUserActivity, MSGraphOnlineMeeting, MSGraphPresence, MSGraphAuthentication, MSGraphChat, MSGraphTeam, MSGraphUserTeamwork, MSGraphTodo; 
+@class MSGraphAssignedLicense, MSGraphAssignedPlan, MSGraphEmployeeOrgData, MSGraphObjectIdentity, MSGraphLicenseAssignmentState, MSGraphOnPremisesExtensionAttributes, MSGraphOnPremisesProvisioningError, MSGraphPasswordProfile, MSGraphProvisionedPlan, MSGraphMailboxSettings, MSGraphAppRoleAssignment, MSGraphDirectoryObject, MSGraphLicenseDetails, MSGraphOAuth2PermissionGrant, MSGraphScopedRoleMembership, MSGraphCalendar, MSGraphCalendarGroup, MSGraphEvent, MSGraphContactFolder, MSGraphContact, MSGraphInferenceClassification, MSGraphMailFolder, MSGraphMessage, MSGraphOutlookUser, MSGraphPerson, MSGraphDrive, MSGraphSite, MSGraphExtension, MSGraphAgreementAcceptance, MSGraphManagedDevice, MSGraphManagedAppRegistration, MSGraphDeviceManagementTroubleshootingEvent, MSGraphPlannerUser, MSGraphOfficeGraphInsights, MSGraphUserSettings, MSGraphOnenote, MSGraphProfilePhoto, MSGraphUserActivity, MSGraphOnlineMeeting, MSGraphPresence, MSGraphAuthentication, MSGraphChat, MSGraphTeam, MSGraphUserTeamwork, MSGraphTodo; 
 
 
 #import "MSGraphDirectoryObject.h"
@@ -54,6 +54,7 @@
     @property (nullable, nonatomic, setter=setPasswordPolicies:, getter=passwordPolicies) NSString* passwordPolicies;
     @property (nullable, nonatomic, setter=setPasswordProfile:, getter=passwordProfile) MSGraphPasswordProfile* passwordProfile;
     @property (nullable, nonatomic, setter=setPostalCode:, getter=postalCode) NSString* postalCode;
+    @property (nullable, nonatomic, setter=setPreferredDataLocation:, getter=preferredDataLocation) NSString* preferredDataLocation;
     @property (nullable, nonatomic, setter=setPreferredLanguage:, getter=preferredLanguage) NSString* preferredLanguage;
     @property (nonnull, nonatomic, setter=setProvisionedPlans:, getter=provisionedPlans) NSArray* provisionedPlans;
     @property (nonnull, nonatomic, setter=setProxyAddresses:, getter=proxyAddresses) NSArray* proxyAddresses;
@@ -101,8 +102,6 @@
     @property (nullable, nonatomic, setter=setMessages:, getter=messages) NSArray* messages;
     @property (nullable, nonatomic, setter=setOutlook:, getter=outlook) MSGraphOutlookUser* outlook;
     @property (nullable, nonatomic, setter=setPeople:, getter=people) NSArray* people;
-    @property (nullable, nonatomic, setter=setPhoto:, getter=photo) MSGraphProfilePhoto* photo;
-    @property (nullable, nonatomic, setter=setPhotos:, getter=photos) NSArray* photos;
     @property (nullable, nonatomic, setter=setDrive:, getter=drive) MSGraphDrive* drive;
     @property (nullable, nonatomic, setter=setDrives:, getter=drives) NSArray* drives;
     @property (nullable, nonatomic, setter=setFollowedSites:, getter=followedSites) NSArray* followedSites;
@@ -115,6 +114,8 @@
     @property (nullable, nonatomic, setter=setInsights:, getter=insights) MSGraphOfficeGraphInsights* insights;
     @property (nullable, nonatomic, setter=setSettings:, getter=settings) MSGraphUserSettings* settings;
     @property (nullable, nonatomic, setter=setOnenote:, getter=onenote) MSGraphOnenote* onenote;
+    @property (nullable, nonatomic, setter=setPhoto:, getter=photo) MSGraphProfilePhoto* photo;
+    @property (nullable, nonatomic, setter=setPhotos:, getter=photos) NSArray* photos;
     @property (nullable, nonatomic, setter=setActivities:, getter=activities) NSArray* activities;
     @property (nullable, nonatomic, setter=setOnlineMeetings:, getter=onlineMeetings) NSArray* onlineMeetings;
     @property (nullable, nonatomic, setter=setPresence:, getter=presence) MSGraphPresence* presence;
