@@ -1,7 +1,7 @@
 // Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 
 
-@class MSGraphAddIn, MSGraphAppRole, MSGraphInformationalUrl, MSGraphKeyCredential, MSGraphPermissionScope, MSGraphPasswordCredential, MSGraphSamlSingleSignOnSettings, MSGraphAppRoleAssignment, MSGraphClaimsMappingPolicy, MSGraphDirectoryObject, MSGraphDelegatedPermissionClassification, MSGraphEndpoint, MSGraphHomeRealmDiscoveryPolicy, MSGraphOAuth2PermissionGrant, MSGraphTokenIssuancePolicy, MSGraphTokenLifetimePolicy; 
+@class MSGraphAddIn, MSGraphAppRole, MSGraphInformationalUrl, MSGraphKeyCredential, MSGraphPermissionScope, MSGraphPasswordCredential, MSGraphResourceSpecificPermission, MSGraphSamlSingleSignOnSettings, MSGraphAppRoleAssignment, MSGraphClaimsMappingPolicy, MSGraphDirectoryObject, MSGraphDelegatedPermissionClassification, MSGraphEndpoint, MSGraphHomeRealmDiscoveryPolicy, MSGraphOAuth2PermissionGrant, MSGraphTokenIssuancePolicy, MSGraphTokenLifetimePolicy; 
 
 
 #import "MSGraphDirectoryObject.h"
@@ -33,6 +33,7 @@
     @property (nullable, nonatomic, setter=setPreferredSingleSignOnMode:, getter=preferredSingleSignOnMode) NSString* preferredSingleSignOnMode;
     @property (nullable, nonatomic, setter=setPreferredTokenSigningKeyThumbprint:, getter=preferredTokenSigningKeyThumbprint) NSString* preferredTokenSigningKeyThumbprint;
     @property (nonnull, nonatomic, setter=setReplyUrls:, getter=replyUrls) NSArray* replyUrls;
+    @property (nonnull, nonatomic, setter=setResourceSpecificApplicationPermissions:, getter=resourceSpecificApplicationPermissions) NSArray* resourceSpecificApplicationPermissions;
     @property (nullable, nonatomic, setter=setSamlSingleSignOnSettings:, getter=samlSingleSignOnSettings) MSGraphSamlSingleSignOnSettings* samlSingleSignOnSettings;
     @property (nonnull, nonatomic, setter=setServicePrincipalNames:, getter=servicePrincipalNames) NSArray* servicePrincipalNames;
     @property (nullable, nonatomic, setter=setServicePrincipalType:, getter=servicePrincipalType) NSString* servicePrincipalType;

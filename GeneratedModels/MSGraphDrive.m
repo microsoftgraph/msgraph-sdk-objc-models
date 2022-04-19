@@ -19,6 +19,7 @@
     MSGraphQuota* _quota;
     MSGraphSharepointIds* _sharePointIds;
     MSGraphSystemFacet* _system;
+    NSArray* _bundles;
     NSArray* _following;
     NSArray* _items;
     MSGraphList* _list;
@@ -104,6 +105,31 @@
 {
     _system = val;
     self.dictionary[@"system"] = val;
+}
+
+- (NSArray*) bundles
+{
+    if(!_bundles){
+        
+    NSMutableArray *bundlesResult = [NSMutableArray array];
+    NSArray *bundles = self.dictionary[@"bundles"];
+
+    if ([bundles isKindOfClass:[NSArray class]]){
+        for (id tempDriveItem in bundles){
+            [bundlesResult addObject:tempDriveItem];
+        }
+    }
+
+    _bundles = bundlesResult;
+        
+    }
+    return _bundles;
+}
+
+- (void) setBundles: (NSArray*) val
+{
+    _bundles = val;
+    self.dictionary[@"bundles"] = val;
 }
 
 - (NSArray*) following

@@ -39,6 +39,7 @@
     NSString* _preferredSingleSignOnMode;
     NSString* _preferredTokenSigningKeyThumbprint;
     NSArray* _replyUrls;
+    NSArray* _resourceSpecificApplicationPermissions;
     MSGraphSamlSingleSignOnSettings* _samlSingleSignOnSettings;
     NSArray* _servicePrincipalNames;
     NSString* _servicePrincipalType;
@@ -458,6 +459,31 @@
 - (void) setReplyUrls: (NSArray*) val
 {
     self.dictionary[@"replyUrls"] = val;
+}
+
+- (NSArray*) resourceSpecificApplicationPermissions
+{
+    if(!_resourceSpecificApplicationPermissions){
+        
+    NSMutableArray *resourceSpecificApplicationPermissionsResult = [NSMutableArray array];
+    NSArray *resourceSpecificApplicationPermissions = self.dictionary[@"resourceSpecificApplicationPermissions"];
+
+    if ([resourceSpecificApplicationPermissions isKindOfClass:[NSArray class]]){
+        for (id tempResourceSpecificPermission in resourceSpecificApplicationPermissions){
+            [resourceSpecificApplicationPermissionsResult addObject:tempResourceSpecificPermission];
+        }
+    }
+
+    _resourceSpecificApplicationPermissions = resourceSpecificApplicationPermissionsResult;
+        
+    }
+    return _resourceSpecificApplicationPermissions;
+}
+
+- (void) setResourceSpecificApplicationPermissions: (NSArray*) val
+{
+    _resourceSpecificApplicationPermissions = val;
+    self.dictionary[@"resourceSpecificApplicationPermissions"] = val;
 }
 
 - (MSGraphSamlSingleSignOnSettings*) samlSingleSignOnSettings

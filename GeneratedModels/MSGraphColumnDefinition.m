@@ -18,6 +18,7 @@
     MSGraphCalculatedColumn* _calculated;
     MSGraphChoiceColumn* _choice;
     NSString* _columnGroup;
+    MSGraphContentApprovalStatusColumn* _contentApprovalStatus;
     MSGraphCurrencyColumn* _currency;
     MSGraphDateTimeColumn* _dateTime;
     MSGraphDefaultColumnValue* _defaultValue;
@@ -26,14 +27,25 @@
     BOOL _enforceUniqueValues;
     MSGraphGeolocationColumn* _geolocation;
     BOOL _hidden;
+    MSGraphHyperlinkOrPictureColumn* _hyperlinkOrPicture;
     BOOL _indexed;
+    BOOL _isDeletable;
+    BOOL _isReorderable;
+    BOOL _isSealed;
     MSGraphLookupColumn* _lookup;
     NSString* _name;
     MSGraphNumberColumn* _number;
     MSGraphPersonOrGroupColumn* _personOrGroup;
+    BOOL _propagateChanges;
     BOOL _columnDefinitionReadOnly;
     BOOL _required;
+    MSGraphContentTypeInfo* _sourceContentType;
+    MSGraphTermColumn* _term;
     MSGraphTextColumn* _text;
+    MSGraphThumbnailColumn* _thumbnail;
+    MSGraphColumnTypes* _type;
+    MSGraphColumnValidation* _validation;
+    MSGraphColumnDefinition* _sourceColumn;
 }
 @end
 
@@ -100,6 +112,20 @@
 - (void) setColumnGroup: (NSString*) val
 {
     self.dictionary[@"columnGroup"] = val;
+}
+
+- (MSGraphContentApprovalStatusColumn*) contentApprovalStatus
+{
+    if(!_contentApprovalStatus){
+        _contentApprovalStatus = [[MSGraphContentApprovalStatusColumn alloc] initWithDictionary: self.dictionary[@"contentApprovalStatus"]];
+    }
+    return _contentApprovalStatus;
+}
+
+- (void) setContentApprovalStatus: (MSGraphContentApprovalStatusColumn*) val
+{
+    _contentApprovalStatus = val;
+    self.dictionary[@"contentApprovalStatus"] = val;
 }
 
 - (MSGraphCurrencyColumn*) currency
@@ -210,6 +236,20 @@
     self.dictionary[@"hidden"] = @(val);
 }
 
+- (MSGraphHyperlinkOrPictureColumn*) hyperlinkOrPicture
+{
+    if(!_hyperlinkOrPicture){
+        _hyperlinkOrPicture = [[MSGraphHyperlinkOrPictureColumn alloc] initWithDictionary: self.dictionary[@"hyperlinkOrPicture"]];
+    }
+    return _hyperlinkOrPicture;
+}
+
+- (void) setHyperlinkOrPicture: (MSGraphHyperlinkOrPictureColumn*) val
+{
+    _hyperlinkOrPicture = val;
+    self.dictionary[@"hyperlinkOrPicture"] = val;
+}
+
 - (BOOL) indexed
 {
     _indexed = [self.dictionary[@"indexed"] boolValue];
@@ -220,6 +260,42 @@
 {
     _indexed = val;
     self.dictionary[@"indexed"] = @(val);
+}
+
+- (BOOL) isDeletable
+{
+    _isDeletable = [self.dictionary[@"isDeletable"] boolValue];
+    return _isDeletable;
+}
+
+- (void) setIsDeletable: (BOOL) val
+{
+    _isDeletable = val;
+    self.dictionary[@"isDeletable"] = @(val);
+}
+
+- (BOOL) isReorderable
+{
+    _isReorderable = [self.dictionary[@"isReorderable"] boolValue];
+    return _isReorderable;
+}
+
+- (void) setIsReorderable: (BOOL) val
+{
+    _isReorderable = val;
+    self.dictionary[@"isReorderable"] = @(val);
+}
+
+- (BOOL) isSealed
+{
+    _isSealed = [self.dictionary[@"isSealed"] boolValue];
+    return _isSealed;
+}
+
+- (void) setIsSealed: (BOOL) val
+{
+    _isSealed = val;
+    self.dictionary[@"isSealed"] = @(val);
 }
 
 - (MSGraphLookupColumn*) lookup
@@ -278,6 +354,18 @@
     self.dictionary[@"personOrGroup"] = val;
 }
 
+- (BOOL) propagateChanges
+{
+    _propagateChanges = [self.dictionary[@"propagateChanges"] boolValue];
+    return _propagateChanges;
+}
+
+- (void) setPropagateChanges: (BOOL) val
+{
+    _propagateChanges = val;
+    self.dictionary[@"propagateChanges"] = @(val);
+}
+
 - (BOOL) columnDefinitionReadOnly
 {
     _columnDefinitionReadOnly = [self.dictionary[@"readOnly"] boolValue];
@@ -302,6 +390,34 @@
     self.dictionary[@"required"] = @(val);
 }
 
+- (MSGraphContentTypeInfo*) sourceContentType
+{
+    if(!_sourceContentType){
+        _sourceContentType = [[MSGraphContentTypeInfo alloc] initWithDictionary: self.dictionary[@"sourceContentType"]];
+    }
+    return _sourceContentType;
+}
+
+- (void) setSourceContentType: (MSGraphContentTypeInfo*) val
+{
+    _sourceContentType = val;
+    self.dictionary[@"sourceContentType"] = val;
+}
+
+- (MSGraphTermColumn*) term
+{
+    if(!_term){
+        _term = [[MSGraphTermColumn alloc] initWithDictionary: self.dictionary[@"term"]];
+    }
+    return _term;
+}
+
+- (void) setTerm: (MSGraphTermColumn*) val
+{
+    _term = val;
+    self.dictionary[@"term"] = val;
+}
+
 - (MSGraphTextColumn*) text
 {
     if(!_text){
@@ -314,6 +430,62 @@
 {
     _text = val;
     self.dictionary[@"text"] = val;
+}
+
+- (MSGraphThumbnailColumn*) thumbnail
+{
+    if(!_thumbnail){
+        _thumbnail = [[MSGraphThumbnailColumn alloc] initWithDictionary: self.dictionary[@"thumbnail"]];
+    }
+    return _thumbnail;
+}
+
+- (void) setThumbnail: (MSGraphThumbnailColumn*) val
+{
+    _thumbnail = val;
+    self.dictionary[@"thumbnail"] = val;
+}
+
+- (MSGraphColumnTypes*) type
+{
+    if(!_type){
+        _type = [self.dictionary[@"type"] toMSGraphColumnTypes];
+    }
+    return _type;
+}
+
+- (void) setType: (MSGraphColumnTypes*) val
+{
+    _type = val;
+    self.dictionary[@"type"] = val;
+}
+
+- (MSGraphColumnValidation*) validation
+{
+    if(!_validation){
+        _validation = [[MSGraphColumnValidation alloc] initWithDictionary: self.dictionary[@"validation"]];
+    }
+    return _validation;
+}
+
+- (void) setValidation: (MSGraphColumnValidation*) val
+{
+    _validation = val;
+    self.dictionary[@"validation"] = val;
+}
+
+- (MSGraphColumnDefinition*) sourceColumn
+{
+    if(!_sourceColumn){
+        _sourceColumn = [[MSGraphColumnDefinition alloc] initWithDictionary: self.dictionary[@"sourceColumn"]];
+    }
+    return _sourceColumn;
+}
+
+- (void) setSourceColumn: (MSGraphColumnDefinition*) val
+{
+    _sourceColumn = val;
+    self.dictionary[@"sourceColumn"] = val;
 }
 
 
