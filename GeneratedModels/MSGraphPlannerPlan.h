@@ -1,14 +1,15 @@
 // Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 
 
-@class MSGraphIdentitySet, MSGraphPlannerBucket, MSGraphPlannerPlanDetails, MSGraphPlannerTask; 
+@class MSGraphPlannerPlanContainer, MSGraphIdentitySet, MSGraphPlannerBucket, MSGraphPlannerPlanDetails, MSGraphPlannerTask; 
 
 
 #import "MSGraphEntity.h"
 
 @interface MSGraphPlannerPlan : MSGraphEntity
 
-  @property (nullable, nonatomic, setter=setCreatedBy:, getter=createdBy) MSGraphIdentitySet* createdBy;
+  @property (nullable, nonatomic, setter=setContainer:, getter=container) MSGraphPlannerPlanContainer* container;
+    @property (nullable, nonatomic, setter=setCreatedBy:, getter=createdBy) MSGraphIdentitySet* createdBy;
     @property (nullable, nonatomic, setter=setCreatedDateTime:, getter=createdDateTime) NSDate* createdDateTime;
     @property (nullable, nonatomic, setter=setOwner:, getter=owner) NSString* owner;
     @property (nonnull, nonatomic, setter=setTitle:, getter=title) NSString* title;

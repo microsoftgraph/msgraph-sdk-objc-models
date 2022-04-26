@@ -1,7 +1,7 @@
 // Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 
 
-@class MSGraphTeamFunSettings, MSGraphTeamGuestSettings, MSGraphTeamMemberSettings, MSGraphTeamMessagingSettings, MSGraphSchedule, MSGraphChannel, MSGraphGroup, MSGraphTeamsAppInstallation, MSGraphConversationMember, MSGraphTeamsAsyncOperation, MSGraphTeamsTemplate; 
+@class MSGraphTeamFunSettings, MSGraphTeamGuestSettings, MSGraphTeamMemberSettings, MSGraphTeamMessagingSettings, MSGraphChannel, MSGraphGroup, MSGraphTeamsAppInstallation, MSGraphConversationMember, MSGraphTeamsAsyncOperation, MSGraphTeamsTemplate, MSGraphSchedule; 
 #import "MSGraphTeamSpecialization.h"
 #import "MSGraphTeamVisibilityType.h"
 
@@ -23,7 +23,6 @@
     @property (nullable, nonatomic, setter=setSpecialization:, getter=specialization) MSGraphTeamSpecialization* specialization;
     @property (nullable, nonatomic, setter=setVisibility:, getter=visibility) MSGraphTeamVisibilityType* visibility;
     @property (nullable, nonatomic, setter=setWebUrl:, getter=webUrl) NSString* webUrl;
-    @property (nullable, nonatomic, setter=setSchedule:, getter=schedule) MSGraphSchedule* schedule;
     @property (nullable, nonatomic, setter=setChannels:, getter=channels) NSArray* channels;
     @property (nullable, nonatomic, setter=setGroup:, getter=group) MSGraphGroup* group;
     @property (nullable, nonatomic, setter=setInstalledApps:, getter=installedApps) NSArray* installedApps;
@@ -31,5 +30,6 @@
     @property (nullable, nonatomic, setter=setTeamOperations:, getter=teamOperations) NSArray* teamOperations;
     @property (nullable, nonatomic, setter=setPrimaryChannel:, getter=primaryChannel) MSGraphChannel* primaryChannel;
     @property (nullable, nonatomic, setter=setTemplate:, getter=template) MSGraphTeamsTemplate* template;
+    @property (nullable, nonatomic, setter=setSchedule:, getter=schedule) MSGraphSchedule* schedule;
   
 @end

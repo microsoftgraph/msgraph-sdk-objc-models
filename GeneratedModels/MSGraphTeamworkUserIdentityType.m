@@ -84,6 +84,15 @@
     });
     return _unknownFutureValue;
 }
++ (MSGraphTeamworkUserIdentityType*) emailUser {
+    static MSGraphTeamworkUserIdentityType *_emailUser;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        _emailUser = [[MSGraphTeamworkUserIdentityType alloc] init];
+        _emailUser.enumValue = MSGraphTeamworkUserIdentityTypeEmailUser;
+    });
+    return _emailUser;
+}
 
 + (MSGraphTeamworkUserIdentityType*) UnknownEnumValue {
     static MSGraphTeamworkUserIdentityType *_unknownValue;
@@ -116,6 +125,8 @@
             return [MSGraphTeamworkUserIdentityType phoneUser];
         case MSGraphTeamworkUserIdentityTypeUnknownFutureValue:
             return [MSGraphTeamworkUserIdentityType unknownFutureValue];
+        case MSGraphTeamworkUserIdentityTypeEmailUser:
+            return [MSGraphTeamworkUserIdentityType emailUser];
         case MSGraphTeamworkUserIdentityTypeEndOfEnum:
         default:
             return [MSGraphTeamworkUserIdentityType UnknownEnumValue];
@@ -144,6 +155,8 @@
             return @"phoneUser";
         case MSGraphTeamworkUserIdentityTypeUnknownFutureValue:
             return @"unknownFutureValue";
+        case MSGraphTeamworkUserIdentityTypeEmailUser:
+            return @"emailUser";
         case MSGraphTeamworkUserIdentityTypeEndOfEnum:
         default:
             return nil;
@@ -193,6 +206,10 @@
     else if([self isEqualToString:@"unknownFutureValue"])
     {
           return [MSGraphTeamworkUserIdentityType unknownFutureValue];
+    }
+    else if([self isEqualToString:@"emailUser"])
+    {
+          return [MSGraphTeamworkUserIdentityType emailUser];
     }
     else {
         return [MSGraphTeamworkUserIdentityType UnknownEnumValue];

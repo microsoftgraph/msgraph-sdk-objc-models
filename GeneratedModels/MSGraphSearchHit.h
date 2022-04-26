@@ -12,6 +12,7 @@
 @property (nullable, nonatomic, setter=setContentSource:, getter=contentSource) NSString* contentSource;
 @property (nullable, nonatomic, setter=setHitId:, getter=hitId) NSString* hitId;
 @property (nonatomic, setter=setRank:, getter=rank) int32_t rank;
+@property (nullable, nonatomic, setter=setResultTemplateId:, getter=resultTemplateId) NSString* resultTemplateId;
 @property (nullable, nonatomic, setter=setSummary:, getter=summary) NSString* summary;
 @property (nullable, nonatomic, setter=setResource:, getter=resource) MSGraphEntity* resource;
 

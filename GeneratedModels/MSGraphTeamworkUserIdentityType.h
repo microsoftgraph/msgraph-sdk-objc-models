@@ -14,6 +14,7 @@ typedef NS_ENUM(NSInteger, MSGraphTeamworkUserIdentityTypeValue){
 	MSGraphTeamworkUserIdentityTypeSkypeUser = 5,
 	MSGraphTeamworkUserIdentityTypePhoneUser = 6,
 	MSGraphTeamworkUserIdentityTypeUnknownFutureValue = 7,
+	MSGraphTeamworkUserIdentityTypeEmailUser = 8,
     MSGraphTeamworkUserIdentityTypeEndOfEnum
 };
 
@@ -27,6 +28,7 @@ typedef NS_ENUM(NSInteger, MSGraphTeamworkUserIdentityTypeValue){
 +(MSGraphTeamworkUserIdentityType*) skypeUser;
 +(MSGraphTeamworkUserIdentityType*) phoneUser;
 +(MSGraphTeamworkUserIdentityType*) unknownFutureValue;
++(MSGraphTeamworkUserIdentityType*) emailUser;
 
 +(MSGraphTeamworkUserIdentityType*) UnknownEnumValue;
 

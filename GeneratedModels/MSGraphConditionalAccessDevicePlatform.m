@@ -75,6 +75,15 @@
     });
     return _unknownFutureValue;
 }
++ (MSGraphConditionalAccessDevicePlatform*) linux {
+    static MSGraphConditionalAccessDevicePlatform *_linux;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        _linux = [[MSGraphConditionalAccessDevicePlatform alloc] init];
+        _linux.enumValue = MSGraphConditionalAccessDevicePlatformLinux;
+    });
+    return _linux;
+}
 
 + (MSGraphConditionalAccessDevicePlatform*) UnknownEnumValue {
     static MSGraphConditionalAccessDevicePlatform *_unknownValue;
@@ -105,6 +114,8 @@
             return [MSGraphConditionalAccessDevicePlatform all];
         case MSGraphConditionalAccessDevicePlatformUnknownFutureValue:
             return [MSGraphConditionalAccessDevicePlatform unknownFutureValue];
+        case MSGraphConditionalAccessDevicePlatformLinux:
+            return [MSGraphConditionalAccessDevicePlatform linux];
         case MSGraphConditionalAccessDevicePlatformEndOfEnum:
         default:
             return [MSGraphConditionalAccessDevicePlatform UnknownEnumValue];
@@ -131,6 +142,8 @@
             return @"all";
         case MSGraphConditionalAccessDevicePlatformUnknownFutureValue:
             return @"unknownFutureValue";
+        case MSGraphConditionalAccessDevicePlatformLinux:
+            return @"linux";
         case MSGraphConditionalAccessDevicePlatformEndOfEnum:
         default:
             return nil;
@@ -176,6 +189,10 @@
     else if([self isEqualToString:@"unknownFutureValue"])
     {
           return [MSGraphConditionalAccessDevicePlatform unknownFutureValue];
+    }
+    else if([self isEqualToString:@"linux"])
+    {
+          return [MSGraphConditionalAccessDevicePlatform linux];
     }
     else {
         return [MSGraphConditionalAccessDevicePlatform UnknownEnumValue];

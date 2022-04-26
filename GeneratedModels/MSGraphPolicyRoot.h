@@ -1,7 +1,7 @@
 // Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 
 
-@class MSGraphAuthenticationMethodsPolicy, MSGraphAuthenticationFlowsPolicy, MSGraphActivityBasedTimeoutPolicy, MSGraphAuthorizationPolicy, MSGraphClaimsMappingPolicy, MSGraphHomeRealmDiscoveryPolicy, MSGraphPermissionGrantPolicy, MSGraphTokenIssuancePolicy, MSGraphTokenLifetimePolicy, MSGraphFeatureRolloutPolicy, MSGraphAdminConsentRequestPolicy, MSGraphConditionalAccessPolicy, MSGraphIdentitySecurityDefaultsEnforcementPolicy; 
+@class MSGraphAuthenticationMethodsPolicy, MSGraphAuthenticationFlowsPolicy, MSGraphActivityBasedTimeoutPolicy, MSGraphAuthorizationPolicy, MSGraphClaimsMappingPolicy, MSGraphHomeRealmDiscoveryPolicy, MSGraphPermissionGrantPolicy, MSGraphTokenIssuancePolicy, MSGraphTokenLifetimePolicy, MSGraphFeatureRolloutPolicy, MSGraphAdminConsentRequestPolicy, MSGraphConditionalAccessPolicy, MSGraphIdentitySecurityDefaultsEnforcementPolicy, MSGraphUnifiedRoleManagementPolicy, MSGraphUnifiedRoleManagementPolicyAssignment; 
 
 
 #import "MSGraphEntity.h"
@@ -21,5 +21,7 @@
     @property (nullable, nonatomic, setter=setAdminConsentRequestPolicy:, getter=adminConsentRequestPolicy) MSGraphAdminConsentRequestPolicy* adminConsentRequestPolicy;
     @property (nullable, nonatomic, setter=setConditionalAccessPolicies:, getter=conditionalAccessPolicies) NSArray* conditionalAccessPolicies;
     @property (nullable, nonatomic, setter=setIdentitySecurityDefaultsEnforcementPolicy:, getter=identitySecurityDefaultsEnforcementPolicy) MSGraphIdentitySecurityDefaultsEnforcementPolicy* identitySecurityDefaultsEnforcementPolicy;
+    @property (nullable, nonatomic, setter=setRoleManagementPolicies:, getter=roleManagementPolicies) NSArray* roleManagementPolicies;
+    @property (nullable, nonatomic, setter=setRoleManagementPolicyAssignments:, getter=roleManagementPolicyAssignments) NSArray* roleManagementPolicyAssignments;
   
 @end

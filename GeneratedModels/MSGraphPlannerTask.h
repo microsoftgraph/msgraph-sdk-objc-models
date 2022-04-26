@@ -26,6 +26,7 @@
     @property (nonatomic, setter=setPercentComplete:, getter=percentComplete) int32_t percentComplete;
     @property (nullable, nonatomic, setter=setPlanId:, getter=planId) NSString* planId;
     @property (nullable, nonatomic, setter=setPreviewType:, getter=previewType) MSGraphPlannerPreviewType* previewType;
+    @property (nonatomic, setter=setPriority:, getter=priority) int32_t priority;
     @property (nonatomic, setter=setReferenceCount:, getter=referenceCount) int32_t referenceCount;
     @property (nullable, nonatomic, setter=setStartDateTime:, getter=startDateTime) NSDate* startDateTime;
     @property (nonnull, nonatomic, setter=setTitle:, getter=title) NSString* title;

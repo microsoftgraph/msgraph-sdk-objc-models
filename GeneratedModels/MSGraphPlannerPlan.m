@@ -14,6 +14,7 @@
 
 @interface MSGraphPlannerPlan()
 {
+    MSGraphPlannerPlanContainer* _container;
     MSGraphIdentitySet* _createdBy;
     NSDate* _createdDateTime;
     NSString* _owner;
@@ -33,6 +34,20 @@
     }
     return self;
 }
+- (MSGraphPlannerPlanContainer*) container
+{
+    if(!_container){
+        _container = [[MSGraphPlannerPlanContainer alloc] initWithDictionary: self.dictionary[@"container"]];
+    }
+    return _container;
+}
+
+- (void) setContainer: (MSGraphPlannerPlanContainer*) val
+{
+    _container = val;
+    self.dictionary[@"container"] = val;
+}
+
 - (MSGraphIdentitySet*) createdBy
 {
     if(!_createdBy){

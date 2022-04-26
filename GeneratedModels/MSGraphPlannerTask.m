@@ -31,6 +31,7 @@
     int32_t _percentComplete;
     NSString* _planId;
     MSGraphPlannerPreviewType* _previewType;
+    int32_t _priority;
     int32_t _referenceCount;
     NSDate* _startDateTime;
     NSString* _title;
@@ -278,6 +279,18 @@
 {
     _previewType = val;
     self.dictionary[@"previewType"] = val;
+}
+
+- (int32_t) priority
+{
+    _priority = [self.dictionary[@"priority"] intValue];
+    return _priority;
+}
+
+- (void) setPriority: (int32_t) val
+{
+    _priority = val;
+    self.dictionary[@"priority"] = @(val);
 }
 
 - (int32_t) referenceCount

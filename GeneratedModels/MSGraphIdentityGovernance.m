@@ -17,6 +17,7 @@
     MSGraphAccessReviewSet* _accessReviews;
     MSGraphAppConsentApprovalRoute* _appConsent;
     MSGraphTermsOfUseContainer* _termsOfUse;
+    MSGraphEntitlementManagement* _entitlementManagement;
 }
 @end
 
@@ -85,6 +86,20 @@
 {
     _termsOfUse = val;
     self.dictionary[@"termsOfUse"] = val;
+}
+
+- (MSGraphEntitlementManagement*) entitlementManagement
+{
+    if(!_entitlementManagement){
+        _entitlementManagement = [[MSGraphEntitlementManagement alloc] initWithDictionary: self.dictionary[@"entitlementManagement"]];
+    }
+    return _entitlementManagement;
+}
+
+- (void) setEntitlementManagement: (MSGraphEntitlementManagement*) val
+{
+    _entitlementManagement = val;
+    self.dictionary[@"entitlementManagement"] = val;
 }
 
 

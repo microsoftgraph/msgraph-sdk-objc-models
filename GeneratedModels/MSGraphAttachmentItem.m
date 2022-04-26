@@ -15,6 +15,7 @@
 @interface MSGraphAttachmentItem()
 {
     MSGraphAttachmentType* _attachmentType;
+    NSString* _contentId;
     NSString* _contentType;
     BOOL _isInline;
     NSString* _name;
@@ -36,6 +37,20 @@
 {
     _attachmentType = val;
     self.dictionary[@"attachmentType"] = val;
+}
+
+- (NSString*) contentId
+{
+    if([[NSNull null] isEqual:self.dictionary[@"contentId"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"contentId"];
+}
+
+- (void) setContentId: (NSString*) val
+{
+    self.dictionary[@"contentId"] = val;
 }
 
 - (NSString*) contentType
