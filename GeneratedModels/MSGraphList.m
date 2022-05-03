@@ -22,6 +22,7 @@
     NSArray* _contentTypes;
     MSGraphDrive* _drive;
     NSArray* _items;
+    NSArray* _listOperations;
     NSArray* _subscriptions;
 }
 @end
@@ -178,6 +179,31 @@
 {
     _items = val;
     self.dictionary[@"items"] = val;
+}
+
+- (NSArray*) listOperations
+{
+    if(!_listOperations){
+        
+    NSMutableArray *listOperationsResult = [NSMutableArray array];
+    NSArray *listOperations = self.dictionary[@"operations"];
+
+    if ([listOperations isKindOfClass:[NSArray class]]){
+        for (id tempRichLongRunningOperation in listOperations){
+            [listOperationsResult addObject:tempRichLongRunningOperation];
+        }
+    }
+
+    _listOperations = listOperationsResult;
+        
+    }
+    return _listOperations;
+}
+
+- (void) setListOperations: (NSArray*) val
+{
+    _listOperations = val;
+    self.dictionary[@"operations"] = val;
 }
 
 - (NSArray*) subscriptions

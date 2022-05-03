@@ -1,7 +1,7 @@
 // Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 
 
-@class MSGraphAddIn, MSGraphApiApplication, MSGraphAppRole, MSGraphInformationalUrl, MSGraphKeyCredential, MSGraphOptionalClaims, MSGraphParentalControlSettings, MSGraphPasswordCredential, MSGraphPublicClientApplication, MSGraphRequiredResourceAccess, MSGraphSpaApplication, MSGraphWebApplication, MSGraphDirectoryObject, MSGraphExtensionProperty, MSGraphHomeRealmDiscoveryPolicy, MSGraphTokenIssuancePolicy, MSGraphTokenLifetimePolicy; 
+@class MSGraphAddIn, MSGraphApiApplication, MSGraphAppRole, MSGraphInformationalUrl, MSGraphKeyCredential, MSGraphOptionalClaims, MSGraphParentalControlSettings, MSGraphPasswordCredential, MSGraphPublicClientApplication, MSGraphRequiredResourceAccess, MSGraphSpaApplication, MSGraphVerifiedPublisher, MSGraphWebApplication, MSGraphDirectoryObject, MSGraphExtensionProperty, MSGraphHomeRealmDiscoveryPolicy, MSGraphTokenIssuancePolicy, MSGraphTokenLifetimePolicy; 
 
 
 #import "MSGraphDirectoryObject.h"
@@ -31,10 +31,12 @@
     @property (nullable, nonatomic, setter=setPublicClient:, getter=publicClient) MSGraphPublicClientApplication* publicClient;
     @property (nullable, nonatomic, setter=setPublisherDomain:, getter=publisherDomain) NSString* publisherDomain;
     @property (nonnull, nonatomic, setter=setRequiredResourceAccess:, getter=requiredResourceAccess) NSArray* requiredResourceAccess;
+    @property (nullable, nonatomic, setter=setServiceManagementReference:, getter=serviceManagementReference) NSString* serviceManagementReference;
     @property (nullable, nonatomic, setter=setSignInAudience:, getter=signInAudience) NSString* signInAudience;
     @property (nullable, nonatomic, setter=setSpa:, getter=spa) MSGraphSpaApplication* spa;
     @property (nonnull, nonatomic, setter=setTags:, getter=tags) NSArray* tags;
     @property (nullable, nonatomic, setter=setTokenEncryptionKeyId:, getter=tokenEncryptionKeyId) NSString* tokenEncryptionKeyId;
+    @property (nullable, nonatomic, setter=setVerifiedPublisher:, getter=verifiedPublisher) MSGraphVerifiedPublisher* verifiedPublisher;
     @property (nullable, nonatomic, setter=setWeb:, getter=web) MSGraphWebApplication* web;
     @property (nullable, nonatomic, setter=setCreatedOnBehalfOf:, getter=createdOnBehalfOf) MSGraphDirectoryObject* createdOnBehalfOf;
     @property (nullable, nonatomic, setter=setExtensionProperties:, getter=extensionProperties) NSArray* extensionProperties;

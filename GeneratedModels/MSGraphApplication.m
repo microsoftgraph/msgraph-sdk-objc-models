@@ -37,10 +37,12 @@
     MSGraphPublicClientApplication* _publicClient;
     NSString* _publisherDomain;
     NSArray* _requiredResourceAccess;
+    NSString* _serviceManagementReference;
     NSString* _signInAudience;
     MSGraphSpaApplication* _spa;
     NSArray* _tags;
     NSString* _tokenEncryptionKeyId;
+    MSGraphVerifiedPublisher* _verifiedPublisher;
     MSGraphWebApplication* _web;
     MSGraphDirectoryObject* _createdOnBehalfOf;
     NSArray* _extensionProperties;
@@ -427,6 +429,20 @@
     self.dictionary[@"requiredResourceAccess"] = val;
 }
 
+- (NSString*) serviceManagementReference
+{
+    if([[NSNull null] isEqual:self.dictionary[@"serviceManagementReference"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"serviceManagementReference"];
+}
+
+- (void) setServiceManagementReference: (NSString*) val
+{
+    self.dictionary[@"serviceManagementReference"] = val;
+}
+
 - (NSString*) signInAudience
 {
     if([[NSNull null] isEqual:self.dictionary[@"signInAudience"]])
@@ -477,6 +493,20 @@
 - (void) setTokenEncryptionKeyId: (NSString*) val
 {
     self.dictionary[@"tokenEncryptionKeyId"] = val;
+}
+
+- (MSGraphVerifiedPublisher*) verifiedPublisher
+{
+    if(!_verifiedPublisher){
+        _verifiedPublisher = [[MSGraphVerifiedPublisher alloc] initWithDictionary: self.dictionary[@"verifiedPublisher"]];
+    }
+    return _verifiedPublisher;
+}
+
+- (void) setVerifiedPublisher: (MSGraphVerifiedPublisher*) val
+{
+    _verifiedPublisher = val;
+    self.dictionary[@"verifiedPublisher"] = val;
 }
 
 - (MSGraphWebApplication*) web

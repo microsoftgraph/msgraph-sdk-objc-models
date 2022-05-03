@@ -4,6 +4,7 @@
 
 @class MSGraphAutomaticRepliesSetting, MSGraphLocaleInfo, MSGraphWorkingHours; 
 #import "MSGraphDelegateMeetingMessageDeliveryOptions.h"
+#import "MSGraphUserPurpose.h"
 
 
 #import "MSObject.h"
@@ -17,6 +18,7 @@
 @property (nullable, nonatomic, setter=setLanguage:, getter=language) MSGraphLocaleInfo* language;
 @property (nullable, nonatomic, setter=setTimeFormat:, getter=timeFormat) NSString* timeFormat;
 @property (nullable, nonatomic, setter=setTimeZone:, getter=timeZone) NSString* timeZone;
+@property (nullable, nonatomic, setter=setUserPurpose:, getter=userPurpose) MSGraphUserPurpose* userPurpose;
 @property (nullable, nonatomic, setter=setWorkingHours:, getter=workingHours) MSGraphWorkingHours* workingHours;
 
 @end

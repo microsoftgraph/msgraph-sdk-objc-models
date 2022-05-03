@@ -8,5 +8,6 @@
 
 @interface MSGraphCallOptions : MSObject
 
+@property (nonatomic, setter=setHideBotAfterEscalation:, getter=hideBotAfterEscalation) BOOL hideBotAfterEscalation;
 
 @end

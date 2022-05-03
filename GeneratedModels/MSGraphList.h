@@ -1,7 +1,7 @@
 // Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 
 
-@class MSGraphListInfo, MSGraphSharepointIds, MSGraphSystemFacet, MSGraphColumnDefinition, MSGraphContentType, MSGraphDrive, MSGraphListItem, MSGraphSubscription; 
+@class MSGraphListInfo, MSGraphSharepointIds, MSGraphSystemFacet, MSGraphColumnDefinition, MSGraphContentType, MSGraphDrive, MSGraphListItem, MSGraphRichLongRunningOperation, MSGraphSubscription; 
 
 
 #import "MSGraphBaseItem.h"
@@ -16,6 +16,7 @@
     @property (nullable, nonatomic, setter=setContentTypes:, getter=contentTypes) NSArray* contentTypes;
     @property (nullable, nonatomic, setter=setDrive:, getter=drive) MSGraphDrive* drive;
     @property (nullable, nonatomic, setter=setItems:, getter=items) NSArray* items;
+    @property (nullable, nonatomic, setter=setListOperations:, getter=listOperations) NSArray* listOperations;
     @property (nullable, nonatomic, setter=setSubscriptions:, getter=subscriptions) NSArray* subscriptions;
   
 @end
